@@ -100,6 +100,24 @@ Function ChangeServiceStatus
     }
 }
 
+Function AwaitServiceStatus($serviceName, $expectedStatus, $waitTimeInSeconds = 5, $maxWaitAttempts = 5)
+{
+	$service = Get-Service $serviceName;
+
+	While ($service.Status -ine $expectedStatus)
+	{
+		If ($i -eq $maxWaitAttempts)
+		{
+			throw [System.Exception] "Waited $($i * $waitTimeInSeconds) seconds and service still not running, terminating...";
+		}
+
+		Write-Output "Waiting for $serviceName to be '$expectedStatus', currently: $($service.Status)...";
+		Start-Sleep -seconds $waitTimeInSeconds;
+		$i++;
+		$service = Get-Service $serviceName;
+	}
+}
+
 # code
 ChangeServiceStatus -serviceName "NodeServer3000" -newStatus "stop";
 ChangeServiceStatus -serviceName "nxlog" -newStatus "stop";
