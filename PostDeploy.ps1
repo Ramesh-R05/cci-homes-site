@@ -173,14 +173,7 @@ Function CleanNpmOutput($npmOutput)
 }
 
 # code
-ChangeServiceStatus -serviceName "NodeServer3000" -newStatus "stop";
-ChangeServiceStatus -serviceName "nxlog" -newStatus "stop";
-ChangeServiceStatus -serviceName "WAS" -newStatus "stop";
-
-new-netfirewallrule -displayname http_80 -direction inbound -action allow -localport 80 -protocol TCP
-
 NpmInstall;
-
 CopyEnvironmentDeployFiles;
 
 ChangeServiceStatus -serviceName "nxlog" -newStatus "start";
