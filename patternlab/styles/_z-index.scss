@@ -1,0 +1,23 @@
+// Z-Index Scale (private vars)
+// --------------------------------------------------
+$z-index-1: 100;
+$z-index-2: 200;
+$z-index-3: 300;
+$z-index-4: 400;
+$z-index-5: 500;
+$z-index-6: 600;
+$z-index-7: 700;
+$z-index-8: 800;
+$z-index-9: 900;
+$z-index-10: 1000;
+$z-index-11: 1100;
+$z-index-12: 1200;
+$z-index-13: 1300;
+$z-index-14: 1400;
+$z-index-15: 1500;
+
+// Z-Index Applications
+// --------------------------------------------------
+$z-index-8--overlay: $z-index-8;
+$z-index-9--aside: $z-index-9;
+$z-index-10--nav-button: $z-index-10;
