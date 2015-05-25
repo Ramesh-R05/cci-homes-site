@@ -1,0 +1,13 @@
+@import "./helpers/breakpoints";
+
+$row-width: 1590px;
+$column-gutter: 30px;
+$include-xl-html-grid-classes: true;
+
+$small-range: ($small-range-min, $small-range-max);
+$medium-range: ($medium-range-min, $medium-range-max);
+$large-range: ($large-range-min, $large-range-max);
+$xlarge-range: ($xlarge-range-min, $xlarge-range-max);
+
+// Base
+$body-bg-color: white;
