@@ -47,7 +47,7 @@ let main = () => {
 
     // TODO (db): add pass through routes for sitemap and robots
     server.use('/dist', express.static('dist'));
-    server.use('/images', express.static('images'));
+    server.use('/assets', express.static('assets'));
     server.use('/fonts', express.static('assets/fonts'));
     server.use('/styleguide', express.static('app/styleguide'));
     server.use('/favicon.ico', express.static('images/favicon.ico'));

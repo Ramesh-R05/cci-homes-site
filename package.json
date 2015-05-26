@@ -37,6 +37,6 @@
     "@bxm/node-tasks": "4.1.2",
     "browser-sync": "2.7.1",
     "gulp": "^3.8.11",
-    "proxyquire": "^1.4.0"
+    "proxyquire": "^1.5.0"
   }
 }

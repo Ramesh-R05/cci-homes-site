@@ -1,0 +1,22 @@
+.custom-input[type=radio] {
+
+    + label {
+        &:before {
+            border-radius: 10px;
+        }
+    }
+
+    &:checked + label {
+        &:after {
+            background-color: $color-primary;
+            border-radius: 5px;
+            content: '';
+            display: inline-block;
+            height: 10px;
+            left: 5px;
+            position: absolute;
+            top: 7px;
+            width: 10px;
+        }
+    }
+}

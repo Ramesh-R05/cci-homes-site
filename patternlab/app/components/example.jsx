@@ -15,7 +15,7 @@ export default class Examples extends Component {
                 <h1 className='heading1'>Example components</h1>
 
                 {/* Example */}
-                <h2 id="quote" className="heading2">Example<br />
+                <h2 id="example" className="heading2">Example<br />
                     <small className="file-path">components/example/example</small></h2>
                 <Example title="A at ea eum ipsa nesciunt perferendis quidem ratione" />
                 <Notes>

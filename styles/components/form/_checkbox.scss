@@ -1,0 +1,16 @@
+.custom-input[type=checkbox] {
+    + label {
+        &:before {
+            background-position: 3px 4px;
+            background-repeat: no-repeat;
+            background-size: 10px;
+            border-radius: 6px;
+        }
+    }
+
+    &:checked + label {
+        &:before {
+            background-image: url('../../assets/svgs/check.svg');
+        }
+    }
+}

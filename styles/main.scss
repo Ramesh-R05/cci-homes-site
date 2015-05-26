@@ -14,6 +14,11 @@
 @import 'helpers/typography';
 @import 'helpers/z-indices';
 
+// Components
+@import 'components/form/input';
+@import 'components/form/checkbox';
+@import 'components/form/radio-button';
+
 // Styleguide
 @import 'styleguide/styleguide';
 
