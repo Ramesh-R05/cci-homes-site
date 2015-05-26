@@ -54,6 +54,9 @@ let main = () => {
 
     server.use('/version', (req, res) => { res.json(version); });
 
+    const patternlab = require('../../patternlab/app/server/server');
+    patternlab.startOn(server);
+
     server.use('/api/content', (req, res) => {
         request.get({
             host: req.get('host'),
