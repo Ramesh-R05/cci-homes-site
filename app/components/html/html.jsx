@@ -9,6 +9,8 @@ class HtmlComponent extends React.Component {
                 <meta charSet="utf-8" />
                 <title>{this.props.context.getStore(PageStore).getPageTitle()}</title>
                 <meta name="viewport" content="width=device-width" />
+                <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" />
+                <script src="//use.typekit.net/mmp8xzm.js"></script>
                 <script dangerouslySetInnerHTML={{__html: 'try{Typekit.load()}catch(e){}'}}></script>
                 <link rel="stylesheet" href="/dist/styles/main.css" />
             </head>

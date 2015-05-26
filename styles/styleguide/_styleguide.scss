@@ -1,0 +1,305 @@
+.styleguide {
+
+    .body-wrapper,
+    .header-wrapper {
+        margin: 0 auto;
+        min-width: 320px;
+        position: relative;
+        width: 100%;
+    }
+
+    .header {
+        background: #232831;
+        font-family: $font-family-sans-serif-primary;
+        padding: 10px 0;
+        position: relative;
+        z-index: 1;
+
+        h1 {
+            color: $white;
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+            max-width: 1200px;
+        }
+    }
+
+    .code {
+        background-color: $color-grey-lighter;
+        color: #db636b;
+        font: 13px Consolas, Monaco, "Andale Mono", monospace;
+        font-weight: 400;
+        padding:3px 6px;
+    }
+
+    &-note {
+        color: $color-black;
+        font-size: 16px;
+        margin: 30px 0;
+    }
+
+    &-to-complete {
+        background: $color-grey-lighter;
+        color: $color-grey;
+        display: inline-block;
+        font-family: $font-family-sans-serif-primary;
+        height: 100%;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+        width: 100%;
+
+        p {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &-spread {
+        background-color : $color-grey-light;
+        display: inline-block;
+        height: 3px;
+        position: relative;
+        width: 100%;
+
+        &:after {
+            content: ' ';
+            position: absolute;
+            right: -2px;
+            top: -8px;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid $color-grey-light;
+        }
+    }
+}
+
+.styleguide-section {
+    margin: 0 0 40px;
+
+    &__header {
+        background-color: $color-grey-lighter;
+        font-family: $font-family-sans-serif-primary;
+        padding: 20px 0 10px;
+    }
+
+    &__body {
+        &__part:not(:first-child) {
+            border-top: 1px solid $color-grey-light;
+            margin-top: 30px;
+            padding-top: 30px;
+        }
+    }
+
+    &__title {
+        color: $color-black;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__row {
+        margin: 10px 0 30px;
+    }
+}
+
+.styleguide-colours {
+    &__title {
+        color: $color-grey-darker;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 20px;
+        margin: 20px 0 0;
+    }
+
+    &__list {
+        @include reset-list;
+        margin-bottom: 10px
+    }
+
+    &__swatch-group {
+        display: inline-block;
+        margin-right: 30px;
+        vertical-align: top;
+        width: 200px;
+    }
+
+    &__swatch {
+        border-radius: 6px 6px 0 0;
+        display: inline-block;
+        height: 110px;
+        margin-top: 15px;
+        width: 100%;
+
+        &--primary {
+            background: $color-primary;
+        }
+        &--homes-plus {
+            background: $color-homes-plus;
+        }
+        &--house-and-gardens {
+            background: $color-house-and-garden;
+        }
+        &--belle {
+            background: $color-belle;
+        }
+        &--real-living {
+            background: $color-real-living;
+        }
+
+        &--primary-hover {
+            background: $color-primary-light;
+        }
+        &--homes-plus-hover {
+            background: $color-homes-plus-light;
+        }
+        &--house-and-gardens-hover {
+            background: $color-house-and-garden-light;
+        }
+        &--belle-hover {
+            background: $color-belle-light;
+        }
+        &--real-living-hover {
+            background: $color-real-living-light;
+        }
+
+        &--black {
+            background: $color-black;
+        }
+        &--grey-darker {
+            background: $color-grey-darker;
+        }
+        &--grey-dark {
+            background: $color-grey-dark;
+        }
+        &--grey {
+            background: $color-grey;
+        }
+        &--grey-light {
+            background: $color-grey-light;
+        }
+        &--grey-lighter {
+            background: $color-grey-lighter;
+        }
+        &--white {
+            background: $color-white;
+            border: 1px solid $color-grey-light;
+        }
+    }
+
+    &__swatch-label {
+        color: $color-grey;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 14px;
+        padding: 4px 0 0;
+    }
+}
+
+.styleguide-type {
+    &__size {
+        margin-top: 41px;
+        padding: 0 15px;
+
+        &:not(:first-child) {
+            border-left: 1px solid #ddd;
+        }
+
+        &__title {
+            color: $color-grey;
+            font-family: $font-family-sans-serif-primary;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    &__style.row {
+        margin: 20px 0 40px;
+        min-height: 80px;
+        position: relative;
+
+        &.medium {
+            min-height: 120px;
+        }
+
+        &.tall {
+            min-height: 210px;
+        }
+
+        &.extra-tall {
+            min-height: 380px;
+        }
+        &.super-tall {
+            min-height: 480px;
+        }
+    }
+}
+
+// override the media queries so that small/medium/large show despite screen width
+.type {
+    &-article-title {
+        .styleguide-type__small & {
+            font-size: 30px;
+        }
+
+
+        .styleguide-type__medium & {
+            font-size: 30px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 62px;
+        }
+    }
+
+    &-article-summary {
+        .styleguide-type__small & {
+            font-size: 16px;
+        }
+
+        .styleguide-type__medium & {
+            font-size: 20px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 20px;
+        }
+    }
+
+    &-article-quote {
+        .styleguide-type__small & {
+            font-size: 26px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 36px;
+        }
+    }
+
+    &-inline-gallery-header,
+    &-inline-gallery-title {
+        color: $color-black;
+
+        .styleguide-type__small & {
+            font-size: 15px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 20px;
+        }
+    }
+
+    &-inline-gallery-header {
+        color: $color-black;
+    }
+
+    &-tags {
+        color: $color-black;
+    }
+
+    &-renovation-status {
+        color: $color-black;
+    }
+}
