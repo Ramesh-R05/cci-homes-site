@@ -1,0 +1,10 @@
+.article__feed {
+    display: none;
+    float: left;
+    padding: 0 30px;
+    width: $article-feed-container-width;
+
+    @media #{$large-up} {
+        display: block;
+    }
+}

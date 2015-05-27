@@ -13,5 +13,10 @@ export default {
         path: '/patternlab/form',
         method: 'get',
         handler: require('../components/form')
+    },
+    article: {
+        path: '/patternlab/article',
+        method: 'get',
+        handler: require('../components/article')
     }
 };

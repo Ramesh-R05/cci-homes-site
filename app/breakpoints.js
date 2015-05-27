@@ -1,0 +1,1 @@
+export default { 'smallRangeMin': '0', 'smallRangeMax': '690px', 'mediumRangeMin': '691px', 'mediumRangeMax': '1023px', 'largeRangeMin': '1024px', 'largeRangeMax': '1349px', 'xlargeRangeMin': '1349px', 'xlargeRangeMax': '9999999px', 'bannerRangeMin': '320px', 'bannerRangeMax': '727px', 'leaderboardRangeMin': '728px', 'leaderboardRangeMax': '1023px' };

@@ -1,15 +1,16 @@
 import * as loader from './loader';
 import merge from 'lodash/object/merge';
+import breakpoints from '../breakpoints';
 
 const envConfig = loader.load(process.env.NODE_ENVIRONMENT);
 
 const config = {
-
     gigya: {
         apiKey: 'GIGYA-API-KEY-NOT-SET'
     },
 
     global: {
+        breakpoints,
         typekit: 'TYPEKIT-ID-NOT-SET',
         googleAds: {
             slotPrefix: 'gpt-slot-',

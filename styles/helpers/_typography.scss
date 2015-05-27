@@ -8,7 +8,6 @@ $font-family-serif-secondary: 'bree-serif', serif;
 //Google font
 $font-family-serif-primary: 'Libre Baskerville', serif;
 
-
 // ---------------------------------------------------- base elements
 
 body {
@@ -29,6 +28,7 @@ p {
 
 a {
     color: $color-primary;
+    text-decoration: none;
 
     &:hover,
     &:focus {
@@ -36,25 +36,28 @@ a {
     }
 }
 
-
 // ---------------------------------------------------- typography mixins & classes
-
 
 // Article
 @mixin type-article-title {
     color: $color-black;
-    font: 400 30px/1.545 $font-family-serif-primary;
+    font: 400 30px/1.35 $font-family-serif-primary;
+    letter-spacing: -.005em;
+
+    @media #{$medium-up} {
+        font-size: 46px;
+        line-height: 1.29;
+    }
 
     @media #{$xlarge-up} {
         font-size: 62px;
-        line-height: 1.29;
+        letter-spacing: -.01em;
     }
 }
 
 .type-article-title {
     @include type-article-title;
 }
-
 
 @mixin type-article-summary {
     color: $color-grey-darker;
@@ -71,7 +74,6 @@ a {
     @include type-article-summary;
 }
 
-
 @mixin type-article-body {
     color: $color-grey-dark;
     font: 400 16px/1.875 $font-family-serif-primary;
@@ -81,7 +83,6 @@ a {
 .type-article-body {
     @include type-article-body;
 }
-
 
 @mixin type-article-heading {
     color: $color-grey-darker;
@@ -109,7 +110,6 @@ a {
     @include type-article-quote;
 }
 
-
 @mixin type-renovation-status {
     color: $color-primary;
     font: 500 15px/1.467 $font-family-sans-serif-primary;
@@ -120,7 +120,6 @@ a {
 .type-renovation-status {
     @include type-renovation-status;
 }
-
 
 // Inline gallery
 @mixin type-inline-gallery-header {
@@ -139,7 +138,6 @@ a {
     @include type-inline-gallery-header;
 }
 
-
 @mixin type-inline-gallery-title {
     color: $color-primary;
     font: 400 15px/1.2 $font-family-serif-secondary;
@@ -155,10 +153,9 @@ a {
     @include type-inline-gallery-title;
 }
 
-
 // Tags
-@mixin type-tags {
-    color: $color-primary;
+@mixin type-tags($color: $color-grey-dark) {
+    color: $color;
     font: 500 11px/2 $font-family-sans-serif-primary;
     letter-spacing: .04em;
     text-transform: uppercase;
@@ -167,7 +164,6 @@ a {
 .type-tags {
     @include type-tags;
 }
-
 
 // Default teaser (e.g homepage teasers below hero)
 @mixin type-teaser-title {
@@ -179,17 +175,6 @@ a {
     @include type-teaser-title;
 }
 
-@mixin type-teaser-summary {
-    color: $color-grey;
-    font: italic 300 14px/1.714 $font-family-sans-serif-secondary;
-    letter-spacing: .02em;
-}
-
-.type-teaser-summary {
-    @include type-teaser-summary;
-}
-
-
 // Small teaser (e.g. homepage next to hero)
 @mixin type-small-teaser-title {
     color: $color-grey-darker;
@@ -199,7 +184,6 @@ a {
 .type-small-teaser-title {
     @include type-small-teaser-title;
 }
-
 
 // XSmall teaser (e.g. article page left hand side rail)
 @mixin type-xsmall-teaser-title {
@@ -211,6 +195,15 @@ a {
     @include type-xsmall-teaser-title;
 }
 
+@mixin type-teaser-summary {
+    color: $color-grey;
+    font: italic 300 14px/1.714 $font-family-sans-serif-secondary;
+    letter-spacing: .02em;
+}
+
+.type-teaser-summary {
+    @include type-teaser-summary;
+}
 
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
@@ -231,7 +224,6 @@ a {
     @include type-hero-summary;
 }
 
-
 // Navigation
 @mixin type-navigation {
     color: $color-grey-darker;
@@ -243,7 +235,6 @@ a {
 .type-navigation {
     @include type-navigation;
 }
-
 
 // Composite text
 @mixin type-composite {
@@ -262,7 +253,6 @@ a {
 .type-composite {
     @include type-composite;
 }
-
 
 // ---------------------------------------------------- reset mixins
 
