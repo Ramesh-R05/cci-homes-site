@@ -18,5 +18,10 @@ export default {
         path: '/patternlab/article',
         method: 'get',
         handler: require('../components/article')
+    },
+    feed: {
+        path: '/patternlab/feed',
+        method: 'get',
+        handler: require('../components/feed')
     }
 };

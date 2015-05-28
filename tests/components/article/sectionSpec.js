@@ -4,12 +4,15 @@ import articleMock from '../../mock/article';
 const Context = betterMockComponentContext();
 const React = Context.React;
 const TestUtils = Context.TestUtils;
+
 const proxyquire = require('proxyquire').noCallThru();
 const ArticleStub = Context.createStubComponent();
+const FeedStub = Context.createStubComponent();
 const ArticleSection = proxyquire('../../../app/components/article/section', {
     'react': React,
     'react/addons': React,
-    './article': ArticleStub
+    './article': ArticleStub,
+    '../feed/feed': FeedStub
 });
 
 let EntityStoreStub = {
@@ -44,6 +47,6 @@ describe(`ArticleSection Component`, () => {
     });
 
     it(`should render the Article Feed on the page`, () => {
-        expect(TestUtils.findRenderedDOMComponentWithClass(reactModule, 'article__feed')).to.exist;
+        expect(TestUtils.findRenderedComponentWithType(reactModule, FeedStub)).to.exist;
     });
 });

@@ -15,8 +15,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@bxm/article": "1.0.0",
-    "@bxm/flux": "^1.1.1",
+    "@bxm/article": "1.1.0",
+    "@bxm/flux": "1.3.0",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/login-radius-stub": "^1.1.0",
     "@bxm/services-stubs": "0.0.12",

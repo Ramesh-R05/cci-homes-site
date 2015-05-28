@@ -23,8 +23,10 @@
 // Components
 @import 'components/article/article';
 @import 'components/article/credits';
-@import 'components/article/feed';
 @import 'components/article/section';
+@import 'components/feed/feed';
+@import 'components/feed/feedItem';
+@import 'components/feed/teaserIcon';
 @import 'components/content-body/content-body';
 @import 'components/form/input';
 @import 'components/form/checkbox';

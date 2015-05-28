@@ -28,10 +28,10 @@
 
     &__main-hero {
         margin: {
-            top: 0;
+            bottom: 25px;
             left: -($column-gutter/2);
             right: -($column-gutter/2);
-            bottom: 25px;
+            top: 0;
         }
 
         @media #{$medium-up} {
@@ -99,8 +99,8 @@
 
     &__source {
         margin: {
-            top: 35px;
             bottom: 20px;
+            top: 35px;
         }
 
         span {
