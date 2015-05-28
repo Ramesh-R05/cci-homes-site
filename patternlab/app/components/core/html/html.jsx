@@ -11,7 +11,8 @@ class HtmlComponent extends Component {
                     <meta charSet="utf-8" />
                     <title>Components Styleguide - Homes</title>
                     <meta name="viewport" content="width=device-width" />
-                    <script src="//use.typekit.net/smh4frl.js"></script>
+                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" />
+                    <script src="//use.typekit.net/mmp8xzm.js"></script>
                     <script dangerouslySetInnerHTML={{__html: 'try{Typekit.load()}catch(e){}'}}></script>
                     <link rel="stylesheet" href="/dist/styles/patternlab.css" />
                     <link rel="stylesheet" href="/dist/styles/main.css" />

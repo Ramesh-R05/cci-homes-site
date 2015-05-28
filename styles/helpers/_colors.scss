@@ -1,2 +1,24 @@
+// Primary color
+$color-primary: #49bf5c;
+
+// Brand colors
+$color-homes-plus: #f64592;
+$color-house-and-garden: #4f76d5;
+$color-belle: #b6956a;
+$color-real-living: #01c6bb;
+
+// Variants
+$color-primary-light: lighten($color-primary, 20%);
+$color-homes-plus-light: lighten($color-homes-plus, 20%);
+$color-house-and-garden-light: lighten($color-house-and-garden, 20%);
+$color-belle-light: lighten($color-belle, 20%);
+$color-real-living-light: lighten($color-real-living, 20%);
+
+// B&W and Greys
+$color-black: #111;
+$color-grey-darker: #333;
+$color-grey-dark: #777;
+$color-grey: #888;
+$color-grey-light: #bbb;
+$color-grey-lighter: #f7f7f7;
 $color-white: #fff;
-$color-black: #000;
