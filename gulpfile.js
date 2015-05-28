@@ -8,5 +8,6 @@ var config = require('@bxm/node-tasks/lib/config');
 config.style.glob = 'styles/**/*.scss';
 config.style.path = './styles/';
 config.style.main = 'main.scss';
+config.lint.js = true;
 
 require('@bxm/node-tasks');

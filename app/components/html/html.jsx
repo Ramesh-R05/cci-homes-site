@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import PageStore from '../../stores/page';
 
-class HtmlComponent extends React.Component {
+class HtmlComponent extends Component {
     render() {
         return (
             <html>
@@ -23,5 +23,11 @@ class HtmlComponent extends React.Component {
         );
     }
 }
+
+HtmlComponent.propTypes = {
+    context: PropTypes.object,
+    markup: PropTypes.string,
+    state: PropTypes.string
+};
 
 export default HtmlComponent;
