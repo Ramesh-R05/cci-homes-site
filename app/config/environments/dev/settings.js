@@ -1,6 +1,6 @@
 export default {
     server: {
-        port: 8080
+        port: 80
     },
     service: {
         content: {
