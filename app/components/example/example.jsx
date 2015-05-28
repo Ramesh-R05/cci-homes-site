@@ -5,3 +5,7 @@ export default class Example extends Component {
         return <h1 className="type-article-title">{this.props.title}</h1>;
     }
 }
+
+Example.propTypes = {
+    title: PropTypes.string
+};

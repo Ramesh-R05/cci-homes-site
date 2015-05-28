@@ -34,7 +34,7 @@
     "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "@bxm/node-tasks": "4.0.1",
+    "@bxm/node-tasks": "4.1.1",
     "browser-sync": "2.7.1",
     "gulp": "^3.8.11",
     "proxyquire": "^1.4.0"

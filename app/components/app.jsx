@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import PageStore from '../stores/page';
 import {connectToStores, provideContext} from '@bxm/flux';
 import {handleHistory} from 'fluxible-router';
 
-class Application extends React.Component {
+class Application extends Component {
 
     constructor(props, context) {
         super(props, context);
@@ -19,9 +19,13 @@ class Application extends React.Component {
 
     render() {
         const Handler = this.props.currentRoute.get('handler');
-        return <Handler/>
+        return <Handler/>;
     }
 }
+
+Application.propTypes = {
+    currentRoute: PropTypes.object
+};
 
 Application.contextTypes = {
     getStore: React.PropTypes.func,
