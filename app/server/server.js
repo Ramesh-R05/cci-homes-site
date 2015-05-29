@@ -53,6 +53,9 @@ let main = () => {
     server.use('/favicon.ico', express.static('images/favicon.ico'));
 
     server.use('/version', (req, res) => { res.json(version); });
+    server.use('/api/verifysite', (req, res) => {
+        res.json({isVerified: true, verifiedMessage: 'Verified'});
+    });
 
     const patternlab = require('../../patternlab/app/server/server');
     patternlab.startOn(server);
