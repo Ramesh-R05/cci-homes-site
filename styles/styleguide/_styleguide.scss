@@ -1,5 +1,8 @@
-.styleguide {
+$color-styleguide-header: #232831;
+$color-styleguide-code: #db636b;
+$color-styleguide-grey: #ddd;
 
+.styleguide {
     .body-wrapper,
     .header-wrapper {
         margin: 0 auto;
@@ -9,7 +12,7 @@
     }
 
     .header {
-        background: #232831;
+        background: $color-styleguide-header;
         font-family: $font-family-sans-serif-primary;
         padding: 10px 0;
         position: relative;
@@ -26,10 +29,10 @@
 
     .code {
         background-color: $color-grey-lighter;
-        color: #db636b;
+        color: $color-styleguide-code;
         font: 13px Consolas, Monaco, "Andale Mono", monospace;
         font-weight: 400;
-        padding:3px 6px;
+        padding: 3px 6px;
     }
 
     &-note {
@@ -58,20 +61,20 @@
     }
 
     &-spread {
-        background-color : $color-grey-light;
+        background-color: $color-grey-light;
         display: inline-block;
         height: 3px;
         position: relative;
         width: 100%;
 
         &:after {
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid $color-grey-light;
+            border-top: 10px solid transparent;
             content: ' ';
             position: absolute;
             right: -2px;
             top: -8px;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 10px solid $color-grey-light;
         }
     }
 }
@@ -116,7 +119,7 @@
 
     &__list {
         @include reset-list;
-        margin-bottom: 10px
+        margin-bottom: 10px;
     }
 
     &__swatch-group {
@@ -136,15 +139,19 @@
         &--primary {
             background: $color-primary;
         }
+
         &--homes-plus {
             background: $color-homes-plus;
         }
+
         &--house-and-gardens {
             background: $color-house-and-garden;
         }
+
         &--belle {
             background: $color-belle;
         }
+
         &--real-living {
             background: $color-real-living;
         }
@@ -152,15 +159,19 @@
         &--primary-hover {
             background: $color-primary-light;
         }
+
         &--homes-plus-hover {
             background: $color-homes-plus-light;
         }
+
         &--house-and-gardens-hover {
             background: $color-house-and-garden-light;
         }
+
         &--belle-hover {
             background: $color-belle-light;
         }
+        
         &--real-living-hover {
             background: $color-real-living-light;
         }
@@ -168,21 +179,27 @@
         &--black {
             background: $color-black;
         }
+
         &--grey-darker {
             background: $color-grey-darker;
         }
+
         &--grey-dark {
             background: $color-grey-dark;
         }
+
         &--grey {
             background: $color-grey;
         }
+
         &--grey-light {
             background: $color-grey-light;
         }
+
         &--grey-lighter {
             background: $color-grey-lighter;
         }
+
         &--white {
             background: $color-white;
             border: 1px solid $color-grey-light;
@@ -203,7 +220,7 @@
         padding: 0 15px;
 
         &:not(:first-child) {
-            border-left: 1px solid #ddd;
+            border-left: 1px solid $color-styleguide-grey;
         }
 
         &__title {
@@ -231,6 +248,7 @@
         &.extra-tall {
             min-height: 380px;
         }
+
         &.super-tall {
             min-height: 480px;
         }
