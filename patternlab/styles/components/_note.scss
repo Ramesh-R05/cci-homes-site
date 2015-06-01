@@ -1,12 +1,20 @@
 .patternlab-notes {
+    margin: 20px 0;
     h4 {
         color: $color-black;
         font-size: 14px;
         margin:10px 0 5px;
     }
 
-    p {
+    p,
+    li {
         color: $color-black;
         font-size: 14px;
+        line-height: 1.7;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0 0 0 30px;
     }
 }

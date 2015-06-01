@@ -9,8 +9,8 @@ export default {
             const context = app.createContext();
             const htmlComponent = React.createFactory(require('../components/core/html/html'));
 
-            context.executeAction(navigateAction, { url: req.url }, (err, result) => {
-                if (err) console.info(`error in patternlab route: ${err}`);
+            context.executeAction(navigateAction, { url: req.url }, (err) => {
+                if (err) res.status(500).send('Patternlab route not found');
 
                 const exposed = `window.App=${serialize(app.dehydrate(context))};`;
                 const html = React.renderToStaticMarkup(htmlComponent({

@@ -16,9 +16,14 @@ export default class Nav extends Component {
                         <li onClick={this.props.onClick}>
                             <NavLink routeName="example" activeClass={activeClass}>Components</NavLink>
                             <ul className="nav__sub-list">
-                                <li><a href="#">example</a></li>
-                                <li><a href="#">another component</a></li>
-                                <li><a href="#">...</a></li>
+                                <li><a href="/patternlab/#example">Example</a></li>
+                            </ul>
+                        </li>
+                        <li onClick={this.props.onClick}>
+                            <NavLink routeName="form" activeClass={activeClass}>Form Components</NavLink>
+                            <ul className="nav__sub-list">
+                                <li><a href="/patternlab/form#radioButton">RadioButton</a></li>
+                                <li><a href="/patternlab/form#checkbox">Checkbox</a></li>
                             </ul>
                         </li>
                     </ul>
