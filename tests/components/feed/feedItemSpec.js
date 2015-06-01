@@ -9,14 +9,12 @@ const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserImageStub = Context.createStubComponentWithChildren();
-const TeaserBodyStub = Context.createStubComponent();
 const TeaserIconStub = Context.createStubComponent();
 const FeedItem = proxyquire('../../../app/components/feed/feedItem', {
     'react': React,
     'react/addons': React,
     '@bxm/article/lib/components/teaser/image': TeaserImageStub,
-    '@bxm/article/lib/components/teaser/body': TeaserBodyStub,
-    './teaserIcon': TeaserIconStub
+    '../teaser/icon': TeaserIconStub
 });
 
 describe('FeedItem Component', () => {
@@ -98,14 +96,14 @@ describe('FeedItem Component', () => {
 
         it('sets the TeaserIcon type prop to "gallery" for gallery items', () => {
             reactModule = generateFeedItemWithItemFields({ nodeType: 'Gallery' });
-            expect(TestUtils.findRenderedComponentWithType(reactModule, TeaserIconStub).props.type)
-                .to.eq('gallery');
+            expect(TestUtils.findRenderedComponentWithType(reactModule, TeaserIconStub).props.nodeType)
+                .to.eq('Gallery');
         });
 
         it('sets the TeaserIcon type prop to "video" for video items', () => {
             reactModule = generateFeedItemWithItemFields({ video: {} });
-            expect(TestUtils.findRenderedComponentWithType(reactModule, TeaserIconStub).props.type)
-                .to.eq('video');
+            expect(TestUtils.findRenderedComponentWithType(reactModule, TeaserIconStub).props.video)
+                .to.deep.eq({});
         });
 
         it('sets the TeaserIcon type prop to undefined for items without a badge', () => {

@@ -1,10 +1,15 @@
 import {BaseStore} from '@bxm/flux';
+import platform from '@bxm/ui/lib/common/platform';
 
 class PageStore extends BaseStore {
 
     constructor(dispatcher) {
         super(dispatcher);
         this.pageTitle = '';
+    }
+
+    onNavigateStart(payload) {
+        if (payload.userAgent) platform.set(payload.userAgent);
     }
 
     updatePageTitle(payload) {
@@ -34,7 +39,8 @@ class PageStore extends BaseStore {
 PageStore.storeName = 'PageStore';
 
 PageStore.handlers = {
-    'UPDATE_PAGE_TITLE': 'updatePageTitle'
+    'UPDATE_PAGE_TITLE': 'updatePageTitle',
+    'NAVIGATE_START': 'onNavigateStart'
 };
 
 export default PageStore;

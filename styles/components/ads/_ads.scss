@@ -1,0 +1,32 @@
+// These are only placeholders. Amends when the ad component is implemented.
+
+.fake-ad {
+    background: $color-grey;
+    display: block;
+    margin: 0 auto 40px;
+}
+
+.ad {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+
+    &--mrec .fake-ad {
+        height: 250px;
+        width: 300px;
+    }
+
+    &--banner .fake-ad {
+        clear: both;
+        height: 50px;
+        width: 300px;
+
+        @media #{$medium-up} {
+            height: 90px;
+            margin-bottom: 80px;
+            margin-top: 30px;
+            width: 728px;
+        }
+    }
+
+}

@@ -14,9 +14,25 @@ export default class Nav extends Component {
                 <nav className="nav">
                     <ul className="nav__list">
                         <li onClick={this.props.onClick}>
-                            <NavLink routeName="example" activeClass={activeClass}>Components</NavLink>
+                            <NavLink routeName="article" activeClass={activeClass}>Article</NavLink>
                             <ul className="nav__sub-list">
-                                <li><a href="/patternlab/#example">Example</a></li>
+                                <li><a href="/patternlab/article#heroImage">HeroImage</a></li>
+                                <li><a href="/patternlab/article#summary">Summary</a></li>
+                                <li><a href="/patternlab/article#footer">Footer</a></li>
+                            </ul>
+                        </li>
+                        <li onClick={this.props.onClick}>
+                            <NavLink routeName="feed" activeClass={activeClass}>Feed</NavLink>
+                            <ul className="nav__sub-list">
+                                <li><a href="/patternlab/feed#feedItem">FeedItem</a></li>
+                            </ul>
+                        </li>
+                        <li onClick={this.props.onClick}>
+                            <NavLink routeName="teasers" activeClass={activeClass}>Teasers</NavLink>
+                            <ul className="nav__sub-list">
+                                <li><a href="/patternlab/teasers#base">Base</a></li>
+                                <li><a href="/patternlab/teasers#narrow">Narrow</a></li>
+                                <li><a href="/patternlab/teasers#hero">Hero</a></li>
                             </ul>
                         </li>
                         <li onClick={this.props.onClick}>
@@ -31,20 +47,6 @@ export default class Nav extends Component {
                             <ul className="nav__sub-list">
                                 <li><a href="/patternlab/buttons#button">Button</a></li>
                                 <li><a href="/patternlab/buttons#buttonCategory">ButtonCategory</a></li>
-                            </ul>
-                        </li>
-                        <li onClick={this.props.onClick}>
-                            <NavLink routeName="article" activeClass={activeClass}>Article</NavLink>
-                            <ul className="nav__sub-list">
-                                <li><a href="/patternlab/article#heroImage">HeroImage</a></li>
-                                <li><a href="/patternlab/article#summary">Summary</a></li>
-                                <li><a href="/patternlab/article#footer">Footer</a></li>
-                            </ul>
-                        </li>
-                        <li onClick={this.props.onClick}>
-                            <NavLink routeName="feed" activeClass={activeClass}>Feed</NavLink>
-                            <ul className="nav__sub-list">
-                                <li><a href="/patternlab/feed#feedItem">FeedItem</a></li>
                             </ul>
                         </li>
                     </ul>

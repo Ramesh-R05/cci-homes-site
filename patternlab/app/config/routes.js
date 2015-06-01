@@ -2,7 +2,7 @@ export default {
     example: {
         path: '/patternlab/',
         method: 'get',
-        handler: require('../components/example')
+        handler: require('../components/article')
     },
     buttons: {
         path: '/patternlab/buttons',
@@ -13,6 +13,11 @@ export default {
         path: '/patternlab/form',
         method: 'get',
         handler: require('../components/form')
+    },
+    teasers: {
+        path: '/patternlab/teasers',
+        method: 'get',
+        handler: require('../components/teasers')
     },
     article: {
         path: '/patternlab/article',

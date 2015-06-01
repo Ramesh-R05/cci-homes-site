@@ -60,7 +60,7 @@ a {
 }
 
 @mixin type-article-summary {
-    color: $color-grey-darker;
+    color: $color-grey;
     font: 400 16px/1.875 $font-family-serif-primary;
     letter-spacing: .01em;
 
@@ -168,7 +168,7 @@ a {
 // Default teaser (e.g homepage teasers below hero)
 @mixin type-teaser-title {
     color: $color-black;
-    font: 400 22px/1.091 $font-family-serif-primary;
+    font: 400 22px/1.556 $font-family-serif-primary;
 }
 
 .type-teaser-title {
@@ -197,8 +197,7 @@ a {
 
 @mixin type-teaser-summary {
     color: $color-grey;
-    font: italic 300 14px/1.714 $font-family-sans-serif-secondary;
-    letter-spacing: .02em;
+    font: italic 400 14px/1.714 $font-family-sans-serif-secondary;
 }
 
 .type-teaser-summary {
@@ -208,7 +207,22 @@ a {
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
     color: $color-black;
-    font: 400 52px/1.231 $font-family-serif-primary;
+    font: 400 22px/1.545 $font-family-serif-primary;
+
+    @media #{$medium-up} {
+        font-size: 24px;
+    }
+
+    @media #{$large-up} {
+        font-size: 28px;
+        line-height: 1.375;
+    }
+
+    @media #{$xlarge-up} {
+        font-size: 52px;
+        letter-spacing: -.01em;
+        line-height: 1.231;
+    }
 }
 
 .type-hero-title {
@@ -217,7 +231,12 @@ a {
 
 @mixin type-hero-summary {
     color: $color-grey;
-    font: italic 300 17px/1.765 $font-family-sans-serif-secondary;
+    font: italic 400 14px/1.714 $font-family-sans-serif-secondary;
+
+    @media #{$large-up} {
+        font-size: 17px;
+        line-height: 1.565;
+    }
 }
 
 .type-hero-summary {
@@ -252,6 +271,51 @@ a {
 
 .type-composite {
     @include type-composite;
+}
+
+@mixin type-section-heading {
+    @include type-composite;
+    letter-spacing: .1em;
+    text-align: center;
+
+    @media #{$medium-up} {
+        font-size: 48px;
+        
+        b,
+        .bold {
+            font-size: 52px;
+        }
+    }
+
+    @media #{$large-up} {
+        font-size: 60px;
+
+        b,
+        .bold {
+            font-size: 64px;
+        }
+    }
+}
+
+.type-section-heading {
+    @include type-section-heading;
+}
+
+@mixin type-underlined {
+    text-align: center;
+
+    &:after {
+        border-bottom: 2px solid $color-section-separator;
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: -4px;
+        width: 100%;
+    }
+}
+
+.type-underlined {
+    @include type-underlined;
 }
 
 // ---------------------------------------------------- reset mixins

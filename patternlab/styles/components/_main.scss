@@ -1,7 +1,9 @@
 .main {
     padding: 15px 30px;
 
-    @include respond-to('small') {
-        margin-left: $aside-width;
+    &--opened {
+        @include respond-to('small') {
+            margin-left: $aside-width;
+        }
     }
 }

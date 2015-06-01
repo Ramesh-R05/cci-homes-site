@@ -11,6 +11,14 @@ export default {
         action: loadContent
     },
 
+    section: {
+        path: '/section',
+        method: 'get',
+        handler: require('../components/section/section'),
+        label: 'section',
+        action: loadContent
+    },
+
     article: {
         path: '/:all*',
         method: 'get',

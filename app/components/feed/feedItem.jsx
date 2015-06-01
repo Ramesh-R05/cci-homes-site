@@ -1,22 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import TeaserImage from '@bxm/article/lib/components/teaser/image';
-import TeaserIcon from './teaserIcon';
+import Icon from '../teaser/icon';
 import breakpoints from '../../breakpoints';
 
 class FeedItem extends Component {
 
     constructor(props, context) {
         super(props, context);
-    }
-
-    static getTeaserIconType(item) {
-        const nodeType = (item.nodeType || '').toLowerCase();
-        if (item.video) {
-            return 'video';
-        } else if (nodeType === 'gallery') {
-            return 'gallery';
-        }
     }
 
     render() {
@@ -34,7 +25,7 @@ class FeedItem extends Component {
                     imageSizes={FeedItem.teaserSizes}
                     responsiveConfig={FeedItem.teaserResponsiveConfig}
                 >
-                    <TeaserIcon type={FeedItem.getTeaserIconType(item)}/>
+                    <Icon nodeType={item.nodeType} video={item.video} />
                 </TeaserImage>
                 <div className="feed-item__body">
                     <span className="feed-item__body-topic">{topic}</span>

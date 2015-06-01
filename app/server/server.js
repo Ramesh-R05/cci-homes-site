@@ -50,7 +50,7 @@ let main = () => {
     server.use('/assets', express.static('assets'));
     server.use('/fonts', express.static('assets/fonts'));
     server.use('/styleguide', express.static('app/styleguide'));
-    server.use('/favicon.ico', express.static('images/favicon.ico'));
+    server.use('/favicon.ico', express.static('assets/favicon.ico'));
 
     server.use('/version', (req, res) => { res.json(version); });
     server.use('/api/verifysite', (req, res) => {
@@ -77,7 +77,10 @@ let main = () => {
 
     server.use('/', (req, res, next) => {
         let context = app.createContext();
-        context.executeAction(navigateAction, { url: req.originalUrl }, (err) => {
+        context.executeAction(navigateAction, {
+            url: req.originalUrl,
+            userAgent: req.headers['user-agent']
+        }, (err) => {
             if (err) return next(err);
             let exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
             let html = react.renderToStaticMarkup(htmlComponent({
