@@ -26,6 +26,13 @@ export default class Nav extends Component {
                                 <li><a href="/patternlab/form#checkbox">Checkbox</a></li>
                             </ul>
                         </li>
+                        <li onClick={this.props.onClick}>
+                            <NavLink routeName="buttons" activeClass={activeClass}>Buttons</NavLink>
+                            <ul className="nav__sub-list">
+                                <li><a href="/patternlab/buttons#button">Button</a></li>
+                                <li><a href="/patternlab/buttons#buttonCategory">ButtonCategory</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </aside>
