@@ -1,0 +1,406 @@
+// Sections/groups of teasers.
+
+$section-minor-bp-1: 1595px;
+
+.section-heading {
+    @include grid-column(12);
+    @include type-section-heading;
+    margin-bottom: 40px;
+
+    @media #{$medium-up} {
+        margin-bottom: 60px;
+    }
+}
+
+
+
+// Hero group
+.section--heroes {
+    @include column-full-width;
+
+    @media #{$large-up} {
+        @include grid-column(8);
+    }
+
+    @media #{$xlarge-up} {
+        @include grid-column(9);
+    }
+
+    .teaser {
+        @media #{$large-only} {
+            @include teaser-half-hero;
+        }
+
+        // Show second hero on large screen only
+        &:nth-child(2) {
+            display: none;
+            @media #{$large-only} {
+                display: block;
+            }
+        }
+    }
+}
+
+// Fixed column group
+.section--fixed-col {
+
+    @media #{$large-up} {
+        float: right;
+        margin-right: $column-gutter / 2;
+        width: $fixed-column-width;
+    }
+
+    h2 {
+        @include grid-column(12);
+        @include type-composite;
+        @include type-underlined;
+        margin-bottom: 30px;
+
+
+        @media #{$large-up} {
+            @include column-full-width;
+            margin-bottom: 40px;
+        }
+    }
+
+    .teaser {
+        @include grid-column(12);
+
+        @media #{$medium-up} {
+            @include grid-column(6);
+        }
+
+        @media #{$large-up} {
+            @include column-full-width;
+        }
+    }
+
+    .ad {
+        @media #{$medium-up} {
+            @include grid-column(6);
+        }
+        @media #{$large-up} {
+            @include column-full-width;
+        }
+        @media #{$xlarge-up} {
+            display: none;
+        }
+    }
+}
+
+.section--3-items {
+    clear: both;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    @media #{$medium-up} {
+        margin-bottom: 0;
+        margin-top: 30px;
+    }
+
+    @media #{$large-up} {
+        margin-top: 0;
+    }
+
+    // when the hero image reaches its max width/height
+    @media only screen and (min-width:$section-minor-bp-1) {
+        margin-top: 20px;
+    }
+
+    .teaser {
+        @include grid-column(12);
+
+        @media #{$medium-up} {
+            @include grid-column(4);
+            @include teaser-tag-over-img;
+            @include teaser-icon-centered-small;
+        }
+
+        @media #{$large-up} {
+            @include grid-column(3);
+            @include teaser-icon-centered;
+        }
+    }
+
+    .teaser__title {
+        @media #{$medium-up} {
+            @include type-small-teaser-title;
+        }
+
+        @media #{$xlarge-up} {
+            @include type-teaser-title;
+        }
+    }
+
+    .tag-secondary,
+    .teaser__summary,
+    .teaser__source {
+        display: none;
+
+        @media #{$large-up} {
+            display: inline-block;
+        }
+    }
+
+    .ad {
+        @include grid-column(3);
+        display: none;
+
+        @media #{$xlarge-up} {
+            display: inline-block;
+        }
+    }
+
+    .fake-ad {
+        float: right;
+        margin: 0;
+    }
+}
+
+.section--6-or-4-items {
+    clear: both;
+    padding-top: 40px;
+
+    &:before {
+        border-bottom: 2px solid $color-section-separator;
+        content: '';
+        display: block;
+        margin-left: $column-gutter / 2;
+        margin-right: $column-gutter / 2;
+        position: relative;
+        top: -40px;
+
+        @media #{$large-up} {
+            display: none;
+        }
+    }
+
+    @media #{$large-up} {
+        padding-top: 0;
+    }
+
+    .teaser {
+        @include grid-column(6);
+
+        @media #{$medium-up} {
+            @include teaser-tag-over-img;
+        }
+
+        @media #{$large-only} {
+            &:nth-child(4) {
+                clear: both;
+            }
+        }
+
+        @media #{$large-up} {
+            @include grid-column(4);
+        }
+
+        @media #{$xlarge-up} {
+            @include grid-column(3);
+        }
+    }
+
+    .teaser__title {
+        @media #{$medium-up} {
+            @include type-small-teaser-title;
+        }
+        @media #{$xlarge-up} {
+            @include type-teaser-title;
+        }
+    }
+
+    .tag-secondary {
+        @media #{$medium-up} {
+            display: inline-block;
+        }
+    }
+
+    .teaser__summary {
+        @media #{$medium-up} {
+            display: inline-block;
+        }
+    }
+
+    .teaser__source {
+        @media #{$xlarge-up} {
+            display: inline-block;
+        }
+    }
+
+    .ad--mrec {
+        @media #{$medium-up} {
+            @include grid-column(6);
+        }
+    }
+}
+
+.section--9-items {
+    clear: both;
+
+    .teaser--img-left {
+        @include grid-column(12);
+
+        @media #{$medium-up} {
+            @include grid-column(6);
+        }
+    }
+
+    .teaser--img-top {
+        @include grid-column(6);
+
+        @media #{$medium-up} {
+            @include grid-column(4);
+        }
+    }
+
+    @media #{$medium-only} {
+        .teaser:nth-child(4) {
+            @include teaser-tag-over-img;
+        }
+    }
+
+    @media #{$medium-only} {
+        .teaser:nth-child(4) {
+            clear: both;
+        }
+    }
+
+    @media #{$medium-up} {
+        .teaser:nth-child(6) {
+            clear: both;
+        }
+
+        // First two items
+        .teaser:nth-child(-n+2) {
+            @include teaser-tag-over-img;
+        }
+
+        // First three items
+        .teaser:nth-child(-n+4) {
+            .tag-secondary,
+            .teaser__summary {
+                display: inline-block;
+            }
+        }
+
+        // Last six items
+        .teaser:nth-last-child(-n+6) {
+            @include teaser-tag-over-img;
+            @include teaser-icon-centered-small;
+        }
+
+        .teaser__title {
+            @include type-small-teaser-title;
+        }
+    }
+
+    @media #{$large-up} {
+        .teaser:nth-child(4) {
+            @include teaser-tag-over-img;
+            @include teaser-hide-details;
+            clear: both;
+        }
+
+        .teaser:nth-child(6) {
+            clear: none;
+        }
+
+        // First two items
+        .teaser:nth-child(-n+2) {
+            @include grid-column(4);
+        }
+
+        // Middle 4 items
+        .teaser:nth-child(n+3):nth-of-type(-n+8) {
+            @include grid-column(3);
+            @include teaser-icon-centered-small;
+        }
+
+        // Last three items
+        .teaser:nth-last-child(-n+3) {
+            @include grid-column(4);
+            @include teaser-tag-over-img;
+
+            .tag-secondary,
+            .teaser__summary {
+                display: inline-block;
+            }
+        }
+    }
+
+    @media #{$xlarge-up} {
+        .teaser:nth-child(4) {
+            clear: none;
+
+            .tag-secondary,
+            .teaser__summary,
+            .teaser__source {
+                display: inline-block;
+            }
+        }
+
+        .teaser:nth-child(6) {
+            clear: both;
+        }
+
+        // Middle 4 items
+        .teaser:nth-child(n+3):nth-of-type(-n+8) {
+            @include teaser-icon-centered;
+        }
+
+        .teaser:nth-child(-n+9) {
+            @include grid-column(3);
+            @include teaser-tag-over-img;
+        }
+
+        // Last two items
+        .teaser:nth-child(n+10) {
+            @include grid-column(6);
+            @include teaser-small-hero;
+
+            .teaser__summary,
+            .teaser__source {
+                display: none;
+            }
+        }
+
+        .tag-secondary,
+        .teaser__summary,
+        .teaser__source {
+            display: inline-block;
+        }
+
+        .teaser__title {
+            @include type-teaser-title;
+        }
+    }
+
+    .ad--mrec {
+        @media #{$medium-up} {
+            @include grid-column(6);
+        }
+        @media #{$xlarge-up} {
+            @include grid-column(3);
+        }
+    }
+
+    .ad--lg {
+        display: none;
+
+        @media #{$large-only} {
+            @include grid-column(4);
+            display: block;
+        }
+    }
+
+    .ad--sm-md-xl {
+        margin-top: 20px;
+        @media #{$medium-up} {
+            margin-top: 0;
+        }
+        @media #{$large-only} {
+            display: none;
+        }
+    }
+}

@@ -246,7 +246,7 @@ $color-styleguide-grey: #ddd;
         }
 
         &.extra-tall {
-            min-height: 380px;
+            min-height: 450px;
         }
 
         &.super-tall {
@@ -257,6 +257,30 @@ $color-styleguide-grey: #ddd;
 
 // override the media queries so that small/medium/large show despite screen width
 .type {
+    &-hero-title {
+        .styleguide-type__small & {
+            font-size: 22px;
+        }
+
+        .styleguide-type__medium & {
+            font-size: 32px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 62px;
+        }
+    }
+
+    &-hero-summary {
+        .styleguide-type__small & {
+            font-size: 14px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 17px;
+        }
+    }
+
     &-article-title {
         .styleguide-type__small & {
             font-size: 30px;

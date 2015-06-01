@@ -1,0 +1,83 @@
+$teaser-icon-circle-diameter-default: 76px;
+
+
+@mixin teaser-icon-centered($circle-size: 66px, $icon-svg-size: 20px) {
+
+    .teaser__icon {
+        height: $circle-size;
+        left: 50%;
+        margin-left: -$circle-size/2;
+        margin-top: -$circle-size/2;
+        top: $icon-svg-size/2;
+        width: $circle-size;
+
+        &:before {
+            border-radius: $circle-size/2;
+            height: $circle-size;
+            left: 0;
+            top: -10px;
+            width: $circle-size;
+        }
+
+        svg {
+            height: $icon-svg-size;
+            left: 50%;
+            margin-left: -$icon-svg-size/2;
+            margin-top: -$icon-svg-size/2;
+            max-height: none;
+            max-width: none;
+            top: 50%;
+            width: $icon-svg-size;
+        }
+    }
+}
+
+@mixin teaser-icon-centered-small {
+    @include teaser-icon-centered(56px, 16px);
+}
+
+@mixin teaser-icon-centered-big {
+    @include teaser-icon-centered(83px, 26px);
+}
+
+
+@mixin teaser-icon-centered-hero {
+    @include teaser-icon-centered-big;
+}
+
+
+.teaser__icon {
+    $icon-size: 22px;
+    $icon-padding: 3px;
+
+    bottom: -1px;
+    height: $teaser-icon-circle-diameter-default/2;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    width: $teaser-icon-circle-diameter-default/2;
+
+    &:before {
+        background-color: $color-white;
+        border-radius: $teaser-icon-circle-diameter-default/2;
+        bottom: -$teaser-icon-circle-diameter-default/2;
+        content: ' ';
+        display: block;
+        height: $teaser-icon-circle-diameter-default;
+        left: -$teaser-icon-circle-diameter-default/2;
+        position: absolute;
+        width: $teaser-icon-circle-diameter-default;
+    }
+
+    svg {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 20px;
+    }
+
+    .icon-video {
+        bottom: 2px;
+        left: -2px;
+    }
+}

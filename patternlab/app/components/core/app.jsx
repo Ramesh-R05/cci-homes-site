@@ -1,16 +1,22 @@
 import React from 'react';
+import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import {provideContext} from '@bxm/flux';
 import {handleHistory} from 'fluxible-router';
 import Nav from './nav/nav';
 import NavButton from './nav/button';
 import Overlay from './overlay';
+import platform from '@bxm/ui/lib/common/platform';
+import classnames from 'classnames';
 
 class Application extends React.Component {
     constructor(props, context) {
         super(props, context);
+
         this.state = {
             isNavOpened: false
         };
+
+        if (canUseDOM) platform.set(navigator.userAgent);
     }
 
     onNavButtonClick() {
@@ -20,7 +26,8 @@ class Application extends React.Component {
     }
 
     render() {
-        let Handler = this.props.currentRoute.get('handler');
+        const Handler = this.props.currentRoute.get('handler');
+        const mainClasses = classnames('main', {'main--opened': this.state.isNavOpened});
 
         return (
             <div>
@@ -34,7 +41,7 @@ class Application extends React.Component {
                     onClick={this.onNavButtonClick.bind(this)}
                 />
 
-                <main className='main'>
+                <main className={mainClasses}>
                     <Handler />
                 </main>
             </div>
