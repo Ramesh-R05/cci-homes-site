@@ -1,7 +1,7 @@
-/* ---------------------------------------------------- font families
-Typekit Font Stack (Kit ID: mmp8xzm)
-https://typekit.com/account/kits?search=homes+to+love
-*/
+// ---------------------------------------------------- font families
+// Typekit Font Stack (Kit ID: mmp8xzm)
+// https://typekit.com/account/kits?search=homes+to+love
+//
 $font-family-sans-serif-primary: 'brandon-grotesque', sans-serif;
 $font-family-sans-serif-secondary: 'open-sans', sans-serif;
 $font-family-serif-secondary: 'bree-serif', serif;
@@ -12,12 +12,18 @@ $font-family-serif-primary: 'Libre Baskerville', serif;
 // ---------------------------------------------------- base elements
 
 body {
-    color:$color-grey-light;
+    color: $color-grey-light;
     font-family: $font-family-serif-primary;
     font-size: 100%; //16px
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0;
 }
 
@@ -44,9 +50,11 @@ a {
         line-height: 1.29;
     }
 }
+
 .type-article-title {
     @include type-article-title;
 }
+
 
 @mixin type-article-summary {
     color: $color-grey-darker;
@@ -58,18 +66,22 @@ a {
         line-height: 1.9;
     }
 }
+
 .type-article-summary {
     @include type-article-summary;
 }
+
 
 @mixin type-article-body {
     color: $color-grey-dark;
     font: 400 16px/1.875 $font-family-serif-primary;
     letter-spacing: .01em;
 }
+
 .type-article-body {
     @include type-article-body;
 }
+
 
 @mixin type-article-heading {
     color: $color-grey-darker;
@@ -77,6 +89,7 @@ a {
     letter-spacing: .04em;
     text-transform: uppercase;
 }
+
 .type-article-heading {
     @include type-article-heading;
 }
@@ -91,9 +104,11 @@ a {
         line-height: 1.667;
     }
 }
+
 .type-article-quote {
     @include type-article-quote;
 }
+
 
 @mixin type-renovation-status {
     color: $color-primary;
@@ -101,6 +116,7 @@ a {
     letter-spacing: .04em;
     text-transform: uppercase;
 }
+
 .type-renovation-status {
     @include type-renovation-status;
 }
@@ -118,9 +134,11 @@ a {
         line-height: 1.5;
     }
 }
+
 .type-inline-gallery-header {
     @include type-inline-gallery-header;
 }
+
 
 @mixin type-inline-gallery-title {
     color: $color-primary;
@@ -132,6 +150,7 @@ a {
         font-size: 20px;
     }
 }
+
 .type-inline-gallery-title {
     @include type-inline-gallery-title;
 }
@@ -144,6 +163,7 @@ a {
     letter-spacing: .04em;
     text-transform: uppercase;
 }
+
 .type-tags {
     @include type-tags;
 }
@@ -151,9 +171,10 @@ a {
 
 // Default teaser (e.g homepage teasers below hero)
 @mixin type-teaser-title {
-     color: $color-black;
-     font: 400 22px/1.091 $font-family-serif-primary;
+    color: $color-black;
+    font: 400 22px/1.091 $font-family-serif-primary;
 }
+
 .type-teaser-title {
     @include type-teaser-title;
 }
@@ -163,6 +184,7 @@ a {
     font: italic 300 14px/1.714 $font-family-sans-serif-secondary;
     letter-spacing: .02em;
 }
+
 .type-teaser-summary {
     @include type-teaser-summary;
 }
@@ -173,6 +195,7 @@ a {
     color: $color-grey-darker;
     font: 400 18px/1.556 $font-family-serif-primary;
 }
+
 .type-small-teaser-title {
     @include type-small-teaser-title;
 }
@@ -183,17 +206,9 @@ a {
     color: $color-grey-darker;
     font: 400 14px/1.571 $font-family-serif-primary;
 }
+
 .type-xsmall-teaser-title {
     @include type-xsmall-teaser-title;
-}
-
-@mixin type-teaser-summary {
-    color: $color-grey;
-    font: italic 300 14px/1.714 $font-family-sans-serif-secondary;
-    letter-spacing: .02em;
-}
-.type-teaser-summary {
-    @include type-teaser-summary;
 }
 
 
@@ -202,6 +217,7 @@ a {
     color: $color-black;
     font: 400 52px/1.231 $font-family-serif-primary;
 }
+
 .type-hero-title {
     @include type-hero-title;
 }
@@ -210,6 +226,7 @@ a {
     color: $color-grey;
     font: italic 300 17px/1.765 $font-family-sans-serif-secondary;
 }
+
 .type-hero-summary {
     @include type-hero-summary;
 }
@@ -222,6 +239,7 @@ a {
     letter-spacing: .04em;
     text-transform: uppercase;
 }
+
 .type-navigation {
     @include type-navigation;
 }
@@ -230,16 +248,17 @@ a {
 // Composite text
 @mixin type-composite {
     color: $color-grey-dark;
-    font: 300 36px/.889 $font-family-serif-primary;
+    font: 300 36px/.889 $font-family-sans-serif-primary;
     letter-spacing: .01em;
     text-transform: uppercase;
 
     b,
     .bold {
         color: $color-grey-darker;
-        font: 400 38px/0.842 $font-family-serif-secondary;
+        font: 400 38px/.842 $font-family-serif-secondary;
     }
 }
+
 .type-composite {
     @include type-composite;
 }
