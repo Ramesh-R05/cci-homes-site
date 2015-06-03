@@ -1,5 +1,5 @@
 import request from 'superagent';
-import {canUseDom} from 'react/lib/ExecutionEnvironment.js';
+import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 
 let path;
 let host = '';
@@ -10,7 +10,7 @@ export default {
 
     init(config) {
         path = config.service.content.path;
-        if (!canUseDom) host = `${config.service.content.local}:${config.server.port}`;
+        if (!canUseDOM) host = `${config.service.content.local}:${config.server.port}`;
     },
 
     read(deferred, params) {
