@@ -15,10 +15,12 @@
   "author": "",
   "license": "",
   "dependencies": {
+    "@bxm/article": "1.0.0",
     "@bxm/flux": "^1.1.1",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/login-radius-stub": "^1.1.0",
     "@bxm/services-stubs": "0.0.12",
+    "@bxm/ui": "^1.1.4",
     "babel": "^5.4.4",
     "body-parser": "^1.12.4",
     "classnames": "^2.1.2",

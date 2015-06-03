@@ -1,0 +1,37 @@
+.content-body {
+    p {
+        padding: 20px 0;
+    }
+
+    &,
+    &__heading {
+        @include content-body-width();
+    }
+
+    &__heading {
+        h2 {
+            @include type-article-heading();
+            padding: 25px 0 10px;
+        }
+    }
+
+    &__inline-image {
+        margin: {
+            left: -($column-gutter/2);
+            right: -($column-gutter/2);
+        };
+        padding: 35px 0;
+
+        @media #{$medium-up} {
+            margin: {
+                left: 0;
+                right: 0;
+            }
+        }
+
+        figure {
+            @include caption-over-image();
+            margin: 0;
+        }
+    }
+}
