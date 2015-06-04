@@ -1,19 +1,20 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articleMock from '../../mock/article';
+import breakpoints from '../../../app/breakpoints';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
 const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
-const ArticleHeaderStub = Context.createStubComponent();
-const ArticleFooterStub = Context.createStubComponent();
+const HeaderStub = Context.createStubComponent();
+const FooterStub = Context.createStubComponent();
 const ContentBody = Context.createStubComponent();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 const Article = proxyquire('../../../app/components/article/article', {
     'react': React,
     'react/addons': React,
-    './header': ArticleHeaderStub,
-    './footer': ArticleFooterStub,
+    './header': HeaderStub,
+    './footer': FooterStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
     '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
 });
@@ -22,6 +23,7 @@ describe(`Article Component`, () => {
     const articleClassName = `article`;
     const title = articleMock.title;
     const contentBody = articleMock.body;
+    const contentBodyClass = `article__body article__body--top-border`;
     const source = articleMock.source;
     const summary = articleMock.summary;
     const tags = articleMock.articleTags;
@@ -43,39 +45,81 @@ describe(`Article Component`, () => {
     afterEach(Context.cleanup);
 
     describe(`when passing all props`, () => {
-        beforeEach(`rendering component`, () => {
+        let headerSub;
+        let contentBodySub;
+        let footerSub;
+
+        before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
-                title, contentBody, source, className, heroItem, summary, credits, tags
+                className, contentBody, credits, heroItem, source, summary, tags, title
             });
+
+            headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
+            contentBodySub = TestUtils.findRenderedComponentWithType(reactModule, ContentBody);
+            footerSub = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
         });
 
         it(`should render the component with class "${articleClassName}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-            expect(classNames.indexOf(articleClassName)).to.be.greaterThan(-1);
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            expect(classNames).to.contain(articleClassName);
         });
 
         it(`should render the component with class "${className}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-            expect(classNames.indexOf(className)).to.be.greaterThan(-1);
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            expect(classNames).to.contain(className);
         });
 
-        it(`should render the key article components on the page`, () => {
-            expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleHeaderStub)).to.exist;
-            expect(TestUtils.findRenderedComponentWithType(reactModule, ContentBody)).to.exist;
-            expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleFooterStub)).to.exist;
+        it(`should render the key article sub-components on the page`, () => {
+            expect(headerSub).to.exist;
+            expect(contentBodySub).to.exist;
+            expect(footerSub).to.exist;
+        });
+
+        it(`should render the Header sub-component with a heroItem object`, () => {
+            expect(headerSub.props.heroItem).to.eq(heroItem);
+        });
+
+        it(`should render the Header sub-component with summary "${summary}"`, () => {
+            expect(headerSub.props.summary).to.eq(summary);
+        });
+
+        it(`should render the Header sub-component with title "${title}"`, () => {
+            expect(headerSub.props.title).to.eq(title);
+        });
+
+        it(`should render the ContentBody sub-component with a body array`, () => {
+            expect(contentBodySub.props.body).to.eq(contentBody);
+        });
+
+        it(`should render the ContentBody sub-component with a breakpoints object`, () => {
+            expect(contentBodySub.props.breakpoints).to.eq(breakpoints);
+        });
+
+        it(`should render the ContentBody sub-component with class "${contentBodyClass}"`, () => {
+            expect(contentBodySub.props.className).to.eq(contentBodyClass);
+        });
+
+        it(`should render the Footer sub-component with a credits object`, () => {
+            expect(footerSub.props.credits).to.eq(credits);
+        });
+
+        it(`should render the Footer sub-component with source "${source}"`, () => {
+            expect(footerSub.props.source).to.eq(source);
+        });
+
+        it(`should render the Footer sub-component with a tags array`, () => {
+            expect(footerSub.props.tags).to.eq(tags);
         });
     });
 
     describe(`when passing no props`, () => {
-        beforeEach(`rendering component`, () => {
+        before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {});
         });
 
         it(`should render the component with class "${articleClassName}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-
-            expect(React.findDOMNode(reactModule)).to.exist;
-            expect(classNames.indexOf(articleClassName)).to.be.greaterThan(-1);
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            expect(classNames).to.contain(articleClassName);
         });
     });
 });
