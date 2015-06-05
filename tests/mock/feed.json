@@ -1,0 +1,1099 @@
+[
+    {
+        "topic": "belle",
+        "body": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "Pellentesque sed rutrum ex, at accumsan mauris. Ut dui eros, pulvinar eu ultricies ut, consequat sit amet magna. Curabitur nec purus ullamcorper, varius augue id, posuere nunc. Etiam vitae facilisis ante, ut congue dui. Nulla sem augue, pellentesque sed tristique nec, ultrices dignissim ex. Vestibulum id orci pellentesque, pulvinar est ut, fringilla lacus. Duis semper ante in tellus tristique tincidunt. Duis felis sem, viverra in est vitae, vulputate varius augue. Duis vel ultrices dui. Donec id mattis quam, quis porttitor eros. Vestibulum vestibulum quis nibh vel ullamcorper. Duis nec mollis justo. Proin tincidunt, magna id tincidunt scelerisque, dui nunc fringilla tortor, nec cursus arcu ex a nisi."
+            },
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "Maecenas bibendum ultrices sapien, quis interdum eros congue vel. Proin vitae nulla sagittis magna gravida laoreet quis non est. Sed varius elit ex, quis condimentum turpis scelerisque eu. Donec at hendrerit eros. Quisque risus neque, congue a nisi a, rutrum auctor nunc. Praesent a ultricies lacus, vitae ultricies mauris. Vivamus at sodales ipsum. Morbi pretium risus ut leo egestas, eget pellentesque nulla ullamcorper. Aenean ut viverra dolor, at sagittis leo. Ut a pharetra elit, a eleifend erat. Fusce quis libero purus."
+            },
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "Ut tortor justo, tincidunt in quam id, imperdiet aliquam purus. Vestibulum a egestas dolor, faucibus pulvinar ligula. Aenean turpis orci, maximus eu suscipit vitae, tristique finibus nisi. Aliquam id sapien mollis, maximus elit sed, tempor ipsum. Fusce iaculis ultrices est, ut rhoncus lacus luctus ultricies. Etiam tincidunt blandit velit, vitae ullamcorper diam ultrices id. Quisque ut tempor velit. Donec tempus interdum justo, non bibendum est dictum sit amet. Curabitur non massa erat. Proin ut est in ex euismod auctor. Cras hendrerit purus sed ligula lobortis hendrerit. Sed eget metus sed dolor convallis gravida."
+            },
+            {
+                "type": "gallery",
+                "label": "Gallery",
+                "content": [
+                    {
+                        "galleryItems": [
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59771\/coverslide.jpg",
+                                "caption": "Kate, 38, looked lovely in her flowing red gown.",
+                                "title": "Kate, 38, looked lovely in her flowing red gown.",
+                                "open": true,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59772\/184590312_10.jpg",
+                                "caption": "The actress looked ready to pop!",
+                                "title": "The actress looked ready to pop!",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59773\/184628768_10.jpg",
+                                "caption": "It will be Kate's first child with new hubby Ned Rocknroll.",
+                                "title": "It will be Kate's first child with new hubby Ned Rocknroll.",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59774\/184590020_10.jpg",
+                                "caption": "She has two other children Mia, 13, and Joe, 9.",
+                                "title": "She has two other children Mia, 13, and Joe, 9.",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59775\/184628779_10.jpg",
+                                "caption": "Kate is just weeks away from her due date.",
+                                "title": "Kate is just weeks away from her due date.",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59776\/184587956_10.jpg",
+                                "caption": "She said she was only craving orange juise.",
+                                "title": "She said she was only craving orange juise.",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59777\/184589975_10.jpg",
+                                "caption": "Kate was at the premiere of her new film *Labor Day*.",
+                                "title": "Kate was at the premiere of her new film *Labor Day*.",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "",
+                                "caption": "Kate Winslet and Shailene Woodley star in this futuristic flick about a conspiracy to kill groups of people based on their personality type. Set for release in Australian cinemas early 2014.",
+                                "title": "First trailer for Divergent looks like the Hunger Games",
+                                "open": false,
+                                "valid": true
+                            }
+                        ],
+                        "title": "Pregnant Kate Winslet at the London premiere of Labour Day",
+                        "summary": "Kate Winslet has refused to reveal her due date but by the look of her bump, it's not far away.",
+                        "imageUrl": "http:\/\/cdn.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets\/AWW\/2013\/10\/24\/59770\/thumb.jpg",
+                        "imageAltText": "Kate Winslet pregnant",
+                        "redirect": {
+                            "mode": 2
+                        },
+                        "typeName": "GalleryTeaserDto",
+                        "parentName": "Celebrity",
+                        "parentUrl": "\/latest-news\/celebrity",
+                        "id": "AWW-9798",
+                        "parentId": "AWW-2688",
+                        "level": 6,
+                        "sortOrder": 12,
+                        "name": "Pregnant Kate Winslet at the London premiere of Labour Day",
+                        "dateIndexed": "2015-05-15T10:07:54",
+                        "pathIds": [
+                            "AWW--1",
+                            "AWW-1143",
+                            "AWW-1628",
+                            "AWW-1629",
+                            "AWW-2561",
+                            "AWW-2688",
+                            "AWW-9798"
+                        ],
+                        "urlName": "pregnant-kate-winslet-at-the-london-premiere-of-labour-day",
+                        "url": "\/latest-news\/celebrity\/pregnant-kate-winslet-at-the-london-premiere-of-labour-day-9798",
+                        "nodeType": "Gallery",
+                        "template": "Index",
+                        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+                        "siteName": "Aww",
+                        "siteTitle": "The Weekly",
+                        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+                        "nodeTypeAliasPath": [
+                            "Page",
+                            "Editorial",
+                            "Gallery"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "author": [
+
+        ],
+        "title": "Just another article!",
+        "summaryTitle": "Just another article short title!",
+        "summary": "Just another article short teaser!",
+        "imageUrl": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/19\/20102\/3.jpg",
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-05-19T14:53:12",
+        "tracking": {
+            "dateIndexed": "2015-05-28T02:54:26",
+            "siteTitle": "The Weekly"
+        },
+        "month": 5,
+        "year": 2015,
+        "parentName": "British Royal Family",
+        "parentUrl": "\/royals\/british-royal-family",
+        "id": "AWW-20102",
+        "parentId": "AWW-20095",
+        "level": 6,
+        "sortOrder": 3,
+        "name": "Just another article!",
+        "dateIndexed": "2015-05-28T02:54:26",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1487",
+            "AWW-1638",
+            "AWW-9744",
+            "AWW-20095",
+            "AWW-20102"
+        ],
+        "urlName": "just-another-article",
+        "url": "\/royals\/british-royal-family\/just-another-article-20102",
+        "nodeType": "BauerArticle",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Articles",
+            "BauerArticle"
+        ]
+    },
+    {
+        "topic": "homes-plus",
+        "galleryItems": [
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/18\/1431926811862_1.jpg",
+                "caption": "The standard Lorem Ipsum passage, used since the 1500s",
+                "title": "Image 1",
+                "open": false,
+                "valid": true
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/18\/1431926817456_2.jpg",
+                "caption": "Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC",
+                "title": "Image 2",
+                "open": false,
+                "valid": true
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/18\/1431926823918_3.jpg",
+                "caption": "1914 translation by H. Rackham",
+                "title": "Image 3",
+                "open": false,
+                "valid": true
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/18\/1431926855748_4.jpg",
+                "caption": "Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC",
+                "title": "Image 4",
+                "open": false,
+                "valid": true
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/18\/1431926860326_5.jpg",
+                "caption": "1914 translation by H. Rackham",
+                "title": "Image 5",
+                "open": true,
+                "valid": true
+            }
+        ],
+        "campaign": [
+            {
+                "campaignType": "Native",
+                "sponsor": "Kelloggs",
+                "startDate": "4\/1\/2015 12:00:00 AM",
+                "endDate": "4\/1\/2016 12:00:00 AM",
+                "title": "Kelloggs",
+                "summary": "some teaser",
+                "redirect": {
+                    "mode": 2
+                },
+                "typeName": "CampaignTeaserDto",
+                "parentName": "Celebrity News, Fashion, Royals, Beauty, Relationships, Living, Diet",
+                "parentUrl": "\/campaigns",
+                "id": "AWW-20075",
+                "parentId": "AWW-20068",
+                "level": 3,
+                "sortOrder": 1,
+                "name": "Kelloggs",
+                "dateIndexed": "2015-05-15T10:04:07",
+                "pathIds": [
+                    "AWW--1",
+                    "AWW-1143",
+                    "AWW-20068",
+                    "AWW-20075"
+                ],
+                "urlName": "kelloggs",
+                "url": "\/campaigns\/kelloggs-20075",
+                "nodeType": "Campaign",
+                "template": "Index",
+                "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+                "siteName": "Aww",
+                "siteTitle": "The Weekly",
+                "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+                "nodeTypeAliasPath": [
+                    "Page",
+                    "Editorial",
+                    "Articles",
+                    "Campaign"
+                ]
+            }
+        ],
+        "body": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            },
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+            }
+        ],
+        "author": [
+
+        ],
+        "title": "CMS Testing Gallery",
+        "summaryTitle": "CMS Testing Gallery Short Title",
+        "summary": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the...",
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-05-18T15:23:13",
+        "tracking": {
+            "dateIndexed": "2015-05-28T02:56:41",
+            "siteTitle": "The Weekly"
+        },
+        "month": 5,
+        "year": 2015,
+        "parentName": "British Royal Family",
+        "parentUrl": "\/royals\/british-royal-family",
+        "id": "AWW-20096",
+        "parentId": "AWW-20095",
+        "level": 6,
+        "sortOrder": 2,
+        "name": "CMS Gallery Test",
+        "dateIndexed": "2015-05-28T02:56:41",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1487",
+            "AWW-1638",
+            "AWW-9744",
+            "AWW-20095",
+            "AWW-20096"
+        ],
+        "urlName": "cms-gallery-test",
+        "url": "\/royals\/british-royal-family\/cms-gallery-test-20096",
+        "nodeType": "Gallery",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Gallery"
+        ]
+    },
+    {
+        "topic": "real-living",
+        "body": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "Paragraph 1\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
+            },
+            {
+                "type": "gallery",
+                "label": "Gallery",
+                "content": [
+                    {
+                        "galleryItems": [
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84418\/Charles1.jpg",
+                                "caption": "Prince Charles celebrates his 66th birthday today.",
+                                "title": "",
+                                "open": true,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84419\/Charles2.jpg",
+                                "caption": "The Queen presents a baby Prince Charles following his christening in 1948.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84420\/Charles3.jpg",
+                                "caption": "Prince Charles playing as a child in 1950.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84421\/charles4.jpg",
+                                "caption": "A very bored looking young Charles at his mother's coronation in 1953.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84422\/charles5.jpg",
+                                "caption": "Prince Charles poses at Buckingham Palace in 1957.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84423\/charles6.jpg",
+                                "caption": "Prince Charles in his colonel in chief uniform in 1969.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84424\/charles7.jpg",
+                                "caption": "Charles and Diana pose following their engagement announcement in 1981.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84425\/charles8l.jpg",
+                                "caption": "Leaving St Mary's Hospital with baby Prince William in 1982.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84426\/charles9.jpg",
+                                "caption": "Family portraits with William and baby Harry, 1985.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84427\/charles10.jpg",
+                                "caption": "Charles and Diana in 1992, before their separation.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84428\/charles11.jpg",
+                                "caption": "Prince Charles and Camilla following their wedding in 2005.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84429\/charles12.jpg",
+                                "caption": "Charles, William and Harry attend a memorial service for Diana in 2007.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84430\/charles13.jpg",
+                                "caption": "With the Queen at the 2009 Chelsea Flower Show.",
+                                "title": "",
+                                "open": false,
+                                "valid": true
+                            }
+                        ],
+                        "title": "Prince Charles turns 66: His life in pictures",
+                        "summary": "The first in line to the throne has grown from a cheeky child, to a loving dad, and now a doting grandfather to cute Prince George.",
+                        "imageUrl": "http:\/\/d3lp4xedbqa8a5.cloudfront.net\/s3\/digital-cougar-assets\/AWW\/2014\/11\/14\/84417\/PrinceCharles_article.jpg",
+                        "imageAltText": "Prince Charles then and now ",
+                        "redirect": {
+                            "mode": 2
+                        },
+                        "typeName": "GalleryTeaserDto",
+                        "parentName": "British Royal Family",
+                        "parentUrl": "\/royals\/british-royal-family",
+                        "id": "AWW-9661",
+                        "parentId": "AWW-9640",
+                        "level": 6,
+                        "sortOrder": 4,
+                        "name": "Prince Charles turns 66: His life in pictures",
+                        "dateIndexed": "2015-05-15T10:06:34",
+                        "pathIds": [
+                            "AWW--1",
+                            "AWW-1143",
+                            "AWW-1487",
+                            "AWW-1638",
+                            "AWW-5766",
+                            "AWW-9640",
+                            "AWW-9661"
+                        ],
+                        "urlName": "prince-charles-turns-66-his-life-in-pictures",
+                        "url": "\/royals\/british-royal-family\/prince-charles-turns-66-his-life-in-pictures-9661",
+                        "nodeType": "Gallery",
+                        "template": "Index",
+                        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+                        "siteName": "Aww",
+                        "siteTitle": "The Weekly",
+                        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+                        "nodeTypeAliasPath": [
+                            "Page",
+                            "Editorial",
+                            "Gallery"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "author": [
+
+        ],
+        "title": "CMS Testing",
+        "summaryTitle": "CMS Testing Short Title",
+        "summary": "CMS Testing Short Teaser",
+        "imageUrl": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/18\/20094\/3df5cb97afa068e3629934b3777d235b.jpg",
+        "video": {
+            "id": "VIDEO-2165",
+            "name": "4125841027001",
+            "type": "VideoItem",
+            "properties": {
+                "videoConfiguration": {
+                    "videoId": "VIDEO-2165",
+                    "status": "Video upload is complete",
+                    "brightcoveId": "4125841027001",
+                    "statusCode": 200
+                }
+            }
+        },
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-05-18T15:06:05",
+        "searchTags": [
+            "",
+            ""
+        ],
+        "tracking": {
+            "dateIndexed": "2015-05-28T21:05:55",
+            "siteTitle": "The Weekly"
+        },
+        "month": 5,
+        "year": 2015,
+        "parentName": "British Royal Family",
+        "parentUrl": "\/royals\/british-royal-family",
+        "id": "AWW-20094",
+        "parentId": "AWW-20095",
+        "level": 6,
+        "sortOrder": 1,
+        "name": "CMS Testing",
+        "dateIndexed": "2015-05-28T21:05:55",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1487",
+            "AWW-1638",
+            "AWW-9744",
+            "AWW-20095",
+            "AWW-20094"
+        ],
+        "urlName": "cms-testing",
+        "url": "\/royals\/british-royal-family\/cms-testing-20094",
+        "nodeType": "BauerArticle",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Articles",
+            "BauerArticle"
+        ]
+    },
+    {
+        "topic": "real-living",
+        "galleryItems": [
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/08\/1431051825011_Chrysanthemum.jpg",
+                "caption": "",
+                "title": "Chrysanthemum.jpg",
+                "valid": true,
+                "open": false
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/08\/1431051880339_Tulips.jpg",
+                "caption": "",
+                "title": "Tulips.jpg",
+                "valid": true,
+                "open": false
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/08\/1431051892648_Penguins.jpg",
+                "caption": "",
+                "title": "Penguins.jpg",
+                "valid": true,
+                "open": false
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/08\/1431051917327_Lighthouse.jpg",
+                "caption": "",
+                "title": "",
+                "open": false,
+                "valid": true
+            },
+            {
+                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/08\/1431051939305_Tulips.jpg",
+                "caption": "",
+                "title": "",
+                "open": true,
+                "valid": true
+            }
+        ],
+        "body": [
+
+        ],
+        "author": [
+
+        ],
+        "title": "Marina's Gallery",
+        "imageUrl": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/05\/13\/20089\/24388989-woman-holding-clock-in-chair-with-enthusiasm-stock-photo.jpg",
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-05-08T12:22:16",
+        "searchTags": [
+            "",
+            ""
+        ],
+        "tracking": {
+            "dateIndexed": "2015-05-13T17:25:03",
+            "siteTitle": "The Weekly"
+        },
+        "month": 5,
+        "year": 2015,
+        "parentName": "Style & Beauty",
+        "parentUrl": "\/style-and-beauty",
+        "id": "AWW-20089",
+        "parentId": "AWW-20090",
+        "level": 5,
+        "sortOrder": 1,
+        "name": "Marina's Gallery",
+        "dateIndexed": "2015-05-13T17:25:03",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1642",
+            "AWW-18656",
+            "AWW-20090",
+            "AWW-20089"
+        ],
+        "urlName": "marinas-gallery",
+        "url": "\/style-and-beauty\/marinas-gallery-20089",
+        "nodeType": "Gallery",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Gallery"
+        ]
+    },
+    {
+        "topic": "homes-plus",
+        "campaign": [
+
+        ],
+        "body": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\""
+            },
+            {
+                "type": "video",
+                "label": "Video",
+                "content": {
+                    "id": "VIDEO-2141",
+                    "name": "Harmony1.wmv",
+                    "type": "VideoItem",
+                    "properties": {
+                        "videoConfiguration": {
+                            "videoId": "VIDEO-2141",
+                            "uniqueFileName": "26246026-Harmony1wmv",
+                            "status": "Video upload is complete",
+                            "brightcoveId": "4183489848001",
+                            "s3Identifier": "26246026-Harmony1wmv",
+                            "fileName": "Harmony1.wmv",
+                            "siteName": "aww",
+                            "fileSize": "26246026",
+                            "title": "Harmony1`",
+                            "statusCode": 200
+                        }
+                    }
+                }
+            },
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n"
+            },
+            {
+                "type": "video",
+                "label": "Video",
+                "content": {
+                    "id": "VIDEO-2151",
+                    "name": "Test1.wmv",
+                    "type": "VideoItem",
+                    "properties": {
+                        "videoConfiguration": {
+                            "videoId": "VIDEO-2151",
+                            "uniqueFileName": "26246026-Test1wmv",
+                            "status": "Video upload is complete",
+                            "brightcoveId": "4183557939001",
+                            "s3Identifier": "26246026-Test1wmv",
+                            "fileName": "Test1.wmv",
+                            "siteName": "aww",
+                            "fileSize": "26246026",
+                            "title": "Test1",
+                            "statusCode": 200
+                        }
+                    }
+                }
+            },
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\""
+            },
+            {
+                "type": "video",
+                "label": "Video",
+                "content": {
+                    "id": "VIDEO-2153",
+                    "name": "Test2.wmv",
+                    "type": "VideoItem",
+                    "properties": {
+                        "videoConfiguration": {
+                            "videoId": "VIDEO-2153",
+                            "uniqueFileName": "26246026-Test2wmv",
+                            "status": "Video upload is complete",
+                            "brightcoveId": "4183581854001",
+                            "s3Identifier": "26246026-Test2wmv",
+                            "fileName": "Test2.wmv",
+                            "siteName": "aww",
+                            "fileSize": "26246026",
+                            "title": "Test2",
+                            "statusCode": 200
+                        }
+                    }
+                }
+            },
+            {
+                "type": "video",
+                "label": "Video",
+                "content": {
+                    "id": "VIDEO-2154",
+                    "name": "Test3.wmv",
+                    "type": "VideoItem",
+                    "properties": {
+                        "videoConfiguration": {
+                            "videoId": "VIDEO-2154",
+                            "uniqueFileName": "26246026-Test3wmv",
+                            "status": "Video upload is complete",
+                            "brightcoveId": "4183660161001",
+                            "s3Identifier": "26246026-Test3wmv",
+                            "fileName": "Test3.wmv",
+                            "siteName": "aww",
+                            "fileSize": "26246026",
+                            "title": "Test3",
+                            "statusCode": 200
+                        }
+                    }
+                }
+            }
+        ],
+        "author": [
+
+        ],
+        "title": "Harmony's Inline Video 2",
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-04-20T13:34:16",
+        "searchTags": [
+            "",
+            ""
+        ],
+        "tracking": {
+            "dateIndexed": "2015-04-27T15:24:16",
+            "siteTitle": "The Weekly"
+        },
+        "month": 4,
+        "year": 2015,
+        "parentName": "British Royal Family",
+        "parentUrl": "\/royals\/british-royal-family",
+        "id": "AWW-20080",
+        "parentId": "AWW-19988",
+        "level": 6,
+        "sortOrder": 11,
+        "name": "Harmony's Inline Video 2",
+        "dateIndexed": "2015-04-27T15:24:16",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1487",
+            "AWW-1638",
+            "AWW-9744",
+            "AWW-19988",
+            "AWW-20080"
+        ],
+        "urlName": "harmonys-inline-video-2",
+        "url": "\/royals\/british-royal-family\/harmonys-inline-video-2-20080",
+        "nodeType": "BauerArticle",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/aww.local",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Articles",
+            "BauerArticle"
+        ]
+    },
+    {
+        "topic": "house-and-garden",
+        "contentTags": [
+            "time:recurring_event:Fashion Week",
+            "award:award_winning_work:Facebook",
+            "time:recurring_event:Melbourne Cup",
+            "location:australian_suburb:Melbourne",
+            "time:recurring_event:Sydney Royal Easter Show",
+            "business:consumer_product:Fashion accessory",
+            "internet:website_category:Fashion blog",
+            "business:industry:Fashion",
+            "location:citytown:Sydney",
+            "food:Occasion:Easter",
+            "chemistry:chemical_compound:Alcohol",
+            "business:industry:Wine",
+            "food:Main ingredient:Other:Cheese",
+            "tv:tv_genre:Food",
+            "food:Main ingredient:Other:Coffee",
+            "tv:tv_genre:Music",
+            "food:Meal:Drink",
+            "tv:tv_actor:Angelina Jolie",
+            "celebrities:celebrity:Leonardo DiCaprio",
+            "royalty:noble_title:Prince"
+        ],
+        "campaign": [
+
+        ],
+        "body": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "This is a paragraph "
+            },
+            {
+                "type": "gallery",
+                "label": "Gallery",
+                "content": [
+                    {
+                        "galleryItems": [
+                            {
+                                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/17\/1429249406381_Frangipaniflowers.jpg",
+                                "caption": "",
+                                "title": "Frangipani_flowers.jpg",
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/17\/1429249415811_Flower-Pictures.jpg",
+                                "caption": "",
+                                "title": "Flower-Pictures.jpg",
+                                "valid": true
+                            },
+                            {
+                                "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/17\/1429249419852_flowers.jpg",
+                                "caption": "",
+                                "title": "flowers.jpg",
+                                "valid": true
+                            }
+                        ],
+                        "title": "This is the long title short title should not be displayed when null",
+                        "imageUrl": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/17\/20077\/8589130576689-spring-flowers-wallpaper-hd.jpg",
+                        "redirect": {
+                            "mode": 2
+                        },
+                        "typeName": "GalleryTeaserDto",
+                        "parentName": "British Royal Family",
+                        "parentUrl": "\/royals\/british-royal-family",
+                        "id": "AWW-20077",
+                        "parentId": "AWW-19988",
+                        "level": 6,
+                        "sortOrder": 8,
+                        "name": "Gallery Short Title Test",
+                        "dateIndexed": "4\/27\/2015 3:39:18 PM",
+                        "pathIds": [
+                            "AWW--1",
+                            "AWW-1143",
+                            "AWW-1487",
+                            "AWW-1638",
+                            "AWW-9744",
+                            "AWW-19988",
+                            "AWW-20077"
+                        ],
+                        "urlName": "gallery-short-title-test",
+                        "url": "\/royals\/british-royal-family\/gallery-short-title-test-20077",
+                        "nodeType": "Gallery",
+                        "template": "Index",
+                        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+                        "siteName": "Aww",
+                        "siteTitle": "The Weekly",
+                        "siteUrl": "http:\/\/aww.local",
+                        "nodeTypeAliasPath": [
+                            "Page",
+                            "Editorial",
+                            "Gallery"
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "content": "this is a paragraph"
+            },
+            {
+                "type": "image",
+                "label": "Image",
+                "content": {
+                    "url": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/21\/1429575050512_Chrysanthemum.jpg",
+                    "valid": true,
+                    "title": "This is an inline image"
+                }
+            }
+        ],
+        "author": [
+
+        ],
+        "title": "This is the long title",
+        "imageUrl": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/17\/20079\/frangipani_flowers.jpg",
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-04-17T15:56:18",
+        "searchTags": [
+            "Fashion Week",
+            "Fashion-Week",
+            "fashion-week",
+            "fashion week",
+            "Facebook",
+            "facebook",
+            "Melbourne Cup",
+            "Melbourne-Cup",
+            "melbourne-cup",
+            "melbourne cup",
+            "Melbourne",
+            "melbourne",
+            "Sydney Royal Easter Show",
+            "Sydney-Royal-Easter-Show",
+            "sydney-royal-easter-show",
+            "sydney royal easter show",
+            "Fashion accessory",
+            "Fashion-accessory",
+            "fashion-accessory",
+            "fashion accessory",
+            "Fashion blog",
+            "Fashion-blog",
+            "fashion-blog",
+            "fashion blog",
+            "Fashion",
+            "fashion",
+            "Sydney",
+            "sydney",
+            "Easter",
+            "easter",
+            "Alcohol",
+            "alcohol",
+            "Wine",
+            "wine",
+            "Cheese",
+            "cheese",
+            "Food",
+            "food",
+            "Coffee",
+            "coffee",
+            "Music",
+            "music",
+            "Drink",
+            "drink",
+            "Angelina Jolie",
+            "Angelina-Jolie",
+            "angelina-jolie",
+            "angelina jolie",
+            "Leonardo DiCaprio",
+            "Leonardo-DiCaprio",
+            "leonardo-dicaprio",
+            "leonardo dicaprio",
+            "Prince",
+            "prince"
+        ],
+        "tracking": {
+            "dateIndexed": "2015-05-08T12:14:01",
+            "siteTitle": "The Weekly"
+        },
+        "month": 4,
+        "year": 2015,
+        "parentName": "British Royal Family",
+        "parentUrl": "\/royals\/british-royal-family",
+        "id": "AWW-20079",
+        "parentId": "AWW-19988",
+        "level": 6,
+        "sortOrder": 10,
+        "name": "Article Inline Gallery Short title Test",
+        "dateIndexed": "2015-05-08T12:14:01",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1487",
+            "AWW-1638",
+            "AWW-9744",
+            "AWW-19988",
+            "AWW-20079"
+        ],
+        "urlName": "article-inline-gallery-short-title-test",
+        "url": "\/royals\/british-royal-family\/article-inline-gallery-short-title-test-20079",
+        "nodeType": "BauerArticle",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/dev.aww.wn.bauer-media.net.au",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Articles",
+            "BauerArticle"
+        ]
+    },
+    {
+        "topic": "real-living",
+        "campaign": [
+
+        ],
+        "body": [
+
+        ],
+        "author": [
+
+        ],
+        "title": "This is the long title and if it's too long then the short title will be displayed instead test test",
+        "imageUrl": "http:\/\/dev.assets.cougar.bauer-media.net.au\/s3\/digital-cougar-assets-dev\/aww\/2015\/04\/17\/20078\/21568-colorful-cosmos-flowers-1920x1200-flower-wallpaper.jpg",
+        "redirect": {
+            "mode": 2
+        },
+        "imageFacebookUrl": {
+
+        },
+        "accessLevels": [
+            "-1"
+        ],
+        "dateCreated": "2015-04-17T15:49:51",
+        "searchTags": [
+            "",
+            ""
+        ],
+        "tracking": {
+            "dateIndexed": "2015-04-27T15:24:16",
+            "siteTitle": "The Weekly"
+        },
+        "month": 4,
+        "year": 2015,
+        "parentName": "British Royal Family",
+        "parentUrl": "\/royals\/british-royal-family",
+        "id": "AWW-20078",
+        "parentId": "AWW-19988",
+        "level": 6,
+        "sortOrder": 9,
+        "name": "Article Short Title Test",
+        "dateIndexed": "2015-04-27T15:24:16",
+        "pathIds": [
+            "AWW--1",
+            "AWW-1143",
+            "AWW-1487",
+            "AWW-1638",
+            "AWW-9744",
+            "AWW-19988",
+            "AWW-20078"
+        ],
+        "urlName": "article-short-title-test",
+        "url": "\/royals\/british-royal-family\/article-short-title-test-20078",
+        "nodeType": "BauerArticle",
+        "template": "Index",
+        "siteCode": "6433d2c1-7331-4206-a2c8-8b3a47059a83",
+        "siteName": "Aww",
+        "siteTitle": "The Weekly",
+        "siteUrl": "http:\/\/aww.local",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Editorial",
+            "Articles",
+            "BauerArticle"
+        ]
+    }
+]

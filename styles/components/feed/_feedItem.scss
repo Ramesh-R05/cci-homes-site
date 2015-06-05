@@ -1,0 +1,93 @@
+.feed-item {
+    $feed-item-gutter: 20px;
+    $feed-item-width: $article-feed-container-width
+        - $column-gutter
+        - 7px; // Mysterious extra space from guideline in PSD
+    $feed-item-thumbnail-width: 132px;
+    $feed-item-body-width: $feed-item-width
+        - $feed-item-thumbnail-width
+        - $feed-item-gutter * 3;
+
+    // Individual feed items
+    @include clearfix;
+    background-color: $color-white;
+    border: 1px solid transparent; // Subtract 1px for the border
+    border-top-color: $line-color;
+    list-style: none;
+    padding: $feed-item-gutter;
+    width: $feed-item-width;
+
+    // Border stuff
+    &:first-child {
+        border-top-color: transparent;
+    }
+
+    &.active {
+        border-color: $color-grey-light;
+
+        + .feed-item {
+            border-top-color: transparent;
+        }
+    }
+
+    // Teaser image
+    .teaser__image {
+        float: left;
+        position: relative;
+        width: $feed-item-thumbnail-width;
+
+        &:hover {
+            opacity: .85;
+        }
+    }
+
+    // Teaser body
+    &__body {
+        display: block;
+        float: right;
+        padding-top: 2px;
+        width: $feed-item-body-width;
+
+        &-title,
+        &-topic {
+            display: block;
+            text-decoration: none;
+        }
+
+        &-title {
+            @include type-xsmall-teaser-title;
+            color: $color-black;
+
+            &:hover {
+                color: lighten($color-black, 20%);
+            }
+        }
+
+        &-topic {
+            @include type-tags;
+        }
+    }
+}
+
+$topic-colors: (
+    homes-plus: ($color-homes-plus, $color-homes-plus-light),
+    real-living: ($color-real-living, $color-real-living-light),
+    belle: ($color-belle, $color-belle-light),
+    house-and-garden: ($color-house-and-garden, $color-house-and-garden-light)
+);
+
+@each $topic, $color in $topic-colors {
+    &.topic-#{$topic} {
+        .feed-item__body-topic {
+            color: nth($color, 1);
+
+            &:hover {
+                color: nth($color, 2);
+            }
+        }
+
+        .teaser-icon path {
+            fill: nth($color, 1);
+        }
+    }
+}

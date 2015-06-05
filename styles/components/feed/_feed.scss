@@ -1,0 +1,21 @@
+.feed {
+    $feed-top-padding: 30px;
+
+    display: none;
+    @media #{$large-up} {
+        display: block;
+    }
+
+    padding-top: $feed-top-padding;
+    position: relative;
+    width: $article-feed-container-width;
+
+    &__container {
+        height: calc(100% - #{$feed-top-padding});
+        margin: 0;
+        overflow-y: scroll;
+        padding-left: 0;
+        position: fixed;
+        width: $article-feed-container-width;
+    }
+}

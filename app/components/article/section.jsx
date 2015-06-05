@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
 import Article from './article';
+import Feed from '../feed/feed';
 
 class Section extends Component {
 
@@ -36,8 +37,7 @@ class Section extends Component {
                         tags={articleTags}
                         credits={credits}/>
 
-                    <aside className="article__feed">
-                    </aside>
+                    <Feed/>
                 </div>
             </div>
         );
