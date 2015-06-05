@@ -37,7 +37,7 @@ class FeedItem extends Component {
                     <TeaserIcon type={FeedItem.getTeaserIconType(item)}/>
                 </TeaserImage>
                 <div className="feed-item__body">
-                    <a className="feed-item__body-topic" href="#">{topic}</a>
+                    <span className="feed-item__body-topic">{topic}</span>
                     <a className="feed-item__body-title" href={url}>{title}</a>
                 </div>
             </li>

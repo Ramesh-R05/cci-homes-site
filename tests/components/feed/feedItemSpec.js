@@ -85,10 +85,6 @@ describe('FeedItem Component', () => {
         expect(React.findDOMNode(teaserBodyTopic).textContent).to.eq(feedItemData.topic);
     });
 
-    it('sets the body topic href', () => {
-        expect(React.findDOMNode(teaserBodyTopic).getAttribute('href')).to.eq('#');
-    });
-
     describe('badge permutations', () => {
         const baseItemData = feedDataMock[0];
 
