@@ -5,6 +5,11 @@ import breakpoints from '../breakpoints';
 const envConfig = loader.load(process.env.NODE_ENVIRONMENT);
 
 const config = {
+    brightcove: {
+        accountId: '761709621001',
+        playerId: '6050ce74-35a8-43ef-ba96-cd2c38a30b65'
+    },
+
     gigya: {
         apiKey: 'GIGYA-API-KEY-NOT-SET'
     },

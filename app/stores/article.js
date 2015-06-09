@@ -12,6 +12,7 @@ class ArticleStore extends BaseStore {
     onLoadContent(payload) {
         // TODO (cjenkins 04/06/2015): Write the logic to process the payload
         // after the CMS has been configured to store feed data
+        payload.toString();
         this.items = mockFeedItems;
         this.emitChange();
     }

@@ -16,6 +16,36 @@
         width: 100%;
     }
 
+    &__header-tile-and-hero {
+        // Note: the table display stuff here and in the title-container is
+        // used to move the position of the header relative to the hero
+        display: table;
+        width: 100%;
+    }
+
+    &__title-container,
+    &__hero-container {
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__title-container {
+        display: table-footer-group;
+
+        @media #{$medium-up} {
+            display: table-header-group;
+        }
+    }
+
+    &__hero-container {
+        display: table-header-group;
+
+        @media #{$medium-up} {
+            display: table-footer-group;
+        }
+    }
+
     &__title {
         @include content-expanded-width();
         @include type-article-title();
@@ -45,7 +75,11 @@
 
     &__main-hero-image {
         @include caption-over-image();
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+
+        @media #{$medium-up} {
+            margin-bottom: 30px;
+        }
     }
 
     &__summary {
