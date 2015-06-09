@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {unescape} from 'lodash/String';
+import {unescape} from 'lodash/string';
 import classNames from 'classnames';
 
 class Credits extends Component {
