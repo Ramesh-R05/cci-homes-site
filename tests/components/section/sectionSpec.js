@@ -13,6 +13,11 @@ const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const SectionHeroStub = Context.createStubComponentWithChildren();
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
+    '../../actions/facetedModule': {
+        getPage: function(){
+
+        }
+    },
     '../teaser/teaser': TeaserStub,
     './group': GroupStub,
     './groupFeatured': GroupFeaturedStub,
@@ -20,18 +25,16 @@ const Section = proxyquire('../../../app/components/section/section', {
     './sectionHero': SectionHeroStub
 });
 
-const featuredArticles = articlesMock.splice(1, 4);
+const featuredArticles = articlesMock; //articlesMock.splice(1, 4);
 
-let ArticleStoreStub = {
-    getArticles() {
+Context.addStore('TaggedArticlesStore', {
+    getItems() {
         return articlesMock;
     },
-    getFeaturedArticles() {
-        return featuredArticles;
+    getConfiguration(){
+        return null;
     }
-};
-
-Context.addStore('ArticleStore', ArticleStoreStub);
+});
 
 describe(`Section`, () => {
     const sectionClassName = 'container';

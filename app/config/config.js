@@ -42,9 +42,14 @@ const config = {
 
     service: {
         content: {
-            remote: 'http://live.homes-api.wn.bauer-media.net.au',
+            remote: 'http://dev.homes-api.wn.bauer-media.net.au',
             local: 'http://127.0.0.1',
             path: '/api/content'
+        },
+        facetedModule: {
+            remote: 'http://dev.homes-api.wn.bauer-media.net.au',
+            local: 'http://127.0.0.1',
+            path: '/api/facetedModule'
         }
     }
 

@@ -75,6 +75,21 @@ let main = () => {
         });
     });
 
+    server.use('/api/facetedModule', (req, res) => {
+        request.get({
+            host: req.get('host'),
+            url: config.service.facetedModule.remote + req.originalUrl,
+            json: true
+        }, (error, response, body) => {
+            if (error) {
+                console.info('[SERVER][FACETED MODULE API]', error);
+                res.status(500).send(response);
+            } else {
+                res.status(response.statusCode).send(body);
+            }
+        });
+    });
+
     server.use('/', (req, res, next) => {
         let context = app.createContext();
         context.executeAction(navigateAction, {

@@ -16,7 +16,7 @@ export default {
     read(deferred, params) {
         request.get(host + path + params.url).send().end((err, res) => {
             if (err) {
-                console.info('[service][content]', err);
+                console.info('[ERROR][service][content]', err);
                 deferred.reject(err);
             } else {
                 deferred.resolve(res);
