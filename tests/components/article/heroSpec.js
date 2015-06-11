@@ -88,4 +88,20 @@ describe('Hero Component', () => {
             });
         });
     });
+
+    describe('display nothing on malformed item data', () => {
+        it('handles missing item data', () => {
+            reactModule = Context.mountComponent(Hero, {});
+            expect(React.findDOMNode(reactModule)).to.be.null;
+        });
+
+        it('handles invalid video data', () => {
+            // Invalid video object (missing videoConfiguration field
+            const video = { properties: { } };
+            const item = { video };
+
+            reactModule = Context.mountComponent(Hero, { item });
+            expect(React.findDOMNode(reactModule)).to.be.null;
+        });
+    });
 });

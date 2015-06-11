@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import HeroImage from '@bxm/article/lib/components/hero/image';
 import HeroVideo from '@bxm/article/lib/components/hero/video';
+import {isObject, isString} from 'lodash/lang';
 import breakpoints from '../../breakpoints';
-import _ from 'lodash';
 
 class Hero extends Component {
 
@@ -11,31 +11,46 @@ class Hero extends Component {
     }
 
     isVideo() {
-        return _.isObject(this.props.item.video);
+        return isObject(this.props.item.video);
     }
 
     isImage() {
-        return _.isString(this.props.item.imageUrl);
+        return isString(this.props.item.imageUrl);
+    }
+
+    renderHeroVideo() {
+        const {video} = this.props.item;
+        let brightcoveId = null;
+        try {
+            brightcoveId = video.properties.videoConfiguration.brightcoveId;
+        } catch (e) {
+            console.error('Could not read brightcoveId from video object', e);
+            return null;
+        }
+        return <HeroVideo brightcoveId={brightcoveId}/>;
+    }
+
+    renderHeroImage() {
+        const {imageUrl, imageAltText, imageCaption} = this.props.item;
+        return (
+            <HeroImage
+                url={imageUrl}
+                alt={imageAltText}
+                caption={imageCaption}
+                breakpoints={breakpoints}
+            />
+        );
     }
 
     render() {
+        if (!this.props.item) {
+            return null;
+        }
         if (this.isVideo()) {
-            const {video} = this.props.item;
-            return (
-                <HeroVideo
-                    brightcoveId={video.properties.videoConfiguration.brightcoveId}
-                />
-            );
-        } else if (this.isImage()) {
-            const {imageUrl, imageAltText, imageCaption} = this.props.item;
-            return (
-                <HeroImage
-                    url={imageUrl}
-                    alt={imageAltText}
-                    caption={imageCaption}
-                    breakpoints={breakpoints}
-                />
-            );
+            return this.renderHeroVideo();
+        }
+        if (this.isImage()) {
+            return this.renderHeroImage();
         }
 
         return null;
