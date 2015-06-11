@@ -1,12 +1,18 @@
 import React, {Component, PropTypes} from 'react';
 import PageStore from '../stores/page';
 import {connectToStores, provideContext} from '@bxm/flux';
+import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 import {handleHistory} from 'fluxible-router';
+import config from '../config/config';
 
 class Application extends Component {
 
     constructor(props, context) {
         super(props, context);
+    }
+
+    componentWillMount() {
+        StaticConfigurationStore.setConfiguration(config);
     }
 
     componentDidUpdate(prevProps) {

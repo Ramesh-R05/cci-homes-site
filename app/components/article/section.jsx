@@ -12,12 +12,15 @@ class Section extends Component {
 
     render() {
         const {title, content} = this.props;
-        const {imageUrl, imageAltText, imageCaption, body, source, summary, articleTags} = content;
-        const heroItem = {
-            type: `image`,
-            imageUrl, imageAltText, imageCaption
-        };
-        //TODO (thatzi): strings set temporary until credits are set up in CMS
+
+        // Hero data
+        const {imageUrl, imageAltText, imageCaption, video} = this.props.content;
+        const heroItem = {imageUrl, imageAltText, imageCaption, video};
+
+        // Article data
+        const {body, source, summary, articleTags} = content;
+
+        // TODO (thatzi): strings set temporary until credits are set up in CMS
         const credits = {
             writer: 'John Doe',
             photographer: 'Julia Smith',
