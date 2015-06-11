@@ -7,7 +7,11 @@ Then(/^I should see "(.*?)" as the title$/) do |title|
   expect(article_title).to eq(title)
 end
 
+Then(/^I should see a hero image$/) do
+  	expect(page).to have_selector('.article__main-hero img')
+end
+
 Then(/^I should see "(.*?)" within the summary$/) do |summary|
-  article_summary = find(".article__summary").text
+  article_summary = find('.article__summary').text
   expect(article_summary).to have_content(summary)
 end
