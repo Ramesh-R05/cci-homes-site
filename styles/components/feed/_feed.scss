@@ -6,16 +6,19 @@
         display: block;
     }
 
-    padding-top: $feed-top-padding;
-    position: relative;
     width: $article-feed-container-width;
 
     &__container {
+        border-right: 1px solid $line-color;
+        height: 100%;
+        position: fixed;
+    }
+
+    &__items {
         height: calc(100% - #{$feed-top-padding});
-        margin: 0;
+        margin-top: $feed-top-padding;
         overflow-y: scroll;
         padding-left: 0;
-        position: fixed;
         width: $article-feed-container-width;
     }
 }

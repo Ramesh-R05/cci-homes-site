@@ -23,9 +23,11 @@ class Feed extends Component {
     render() {
         return (
             <aside className="feed">
-                <ul className="feed__container">
-                    {this.getFeedItems()}
-                </ul>
+                <div className="feed__container">
+                    <ul className="feed__items">
+                        {this.getFeedItems()}
+                    </ul>
+                </div>
             </aside>
         );
     }

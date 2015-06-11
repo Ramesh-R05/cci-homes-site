@@ -3,6 +3,7 @@ import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import classNames from 'classnames';
 import platform from '@bxm/ui/lib/common/platform';
 import ContentBody from '@bxm/ui/lib/markdown/components/contentBody';
+import Ad from '@bxm/ad/src/google/components/ad';
 import Footer from './footer';
 import Header from './header';
 import theme from '../helpers/theme';
@@ -22,18 +23,32 @@ class Article extends Component {
         const cssClass = classNames(`article`, className, themeClass);
         return (
             <article className={cssClass}>
+                <Ad
+                    className="ad--article-top"
+                    displayFor={['medium', 'large', 'xlarge']}
+                    sizes={{
+                        banner: 'banner',
+                        leaderboard: 'leaderboard',
+                        railBanner: 'banner',
+                        railLeaderboard: 'leaderboard',
+                        xlarge: ['billboard', 'leaderboard']
+                    }}
+                />
                 <Header
                     heroItem={heroItem}
                     summary={summary}
-                    title={title}/>
+                    title={title}
+                />
                 <ContentBody
                     body={contentBody}
                     breakpoints={breakpoints}
-                    className="article__body article__body--top-border"/>
+                    className="article__body article__body--top-border"
+                />
                 <Footer
                     credits={credits}
                     source={source}
-                    tags={tags}/>
+                    tags={tags}
+                />
             </article>
         );
     }

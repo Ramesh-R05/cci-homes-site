@@ -37,6 +37,11 @@ describe('Feed Component', () => {
             .to.have.length(1);
     });
 
+    it('should have the feed items', () => {
+        expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'feed__items'))
+            .to.have.length(1);
+    });
+
     it('should have one FeedItem for each item in the feed data', () => {
         expect(feedItems).to.have.length(7);
     });
