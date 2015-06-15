@@ -6,7 +6,7 @@ var start = function(port) {
     var express = require('express');
     var server = express();
 
-    server.get('/section/subsection/article-1234', function(req, res) {
+    server.get('/section/article-01-creative-home', function(req, res) {
         var article = require(process.cwd() + '/automation/test_data/article');
         res.json(article);
     });
