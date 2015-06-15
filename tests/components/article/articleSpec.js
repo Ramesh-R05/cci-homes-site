@@ -1,6 +1,7 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articleMock from '../../mock/article';
 import breakpoints from '../../../app/breakpoints';
+import _ from 'lodash';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -28,6 +29,8 @@ describe(`Article Component`, () => {
     const summary = articleMock.summary;
     const tags = articleMock.articleTags;
     const className = `test-article`;
+    const classThemeName = `theme-australian_house_and_garden`;
+    const allowedThemeClasses = ['theme-australian_house_and_garden', 'theme-real_living', 'theme-homes_', 'theme-belle'];
     const credits = {
         writer: articleMock.writer,
         photographer: articleMock.photographer,
@@ -67,6 +70,17 @@ describe(`Article Component`, () => {
         it(`should render the component with class "${className}"`, () => {
             const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
             expect(classNames).to.contain(className);
+        });
+
+        it(`should render the component with class theme "${classThemeName}"`, () => {
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            expect(classNames).to.contain(classThemeName);
+        });
+
+        it(`should render the component with class theme in this list : "${allowedThemeClasses}"`, () => {
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            const intersect = _.intersection(classNames, allowedThemeClasses);
+            expect(intersect.length).to.eq(1);
         });
 
         it(`should render the key article sub-components on the page`, () => {
@@ -120,6 +134,11 @@ describe(`Article Component`, () => {
         it(`should render the component with class "${articleClassName}"`, () => {
             const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
             expect(classNames).to.contain(articleClassName);
+        });
+        it(`should not render the component with a theme class"`, () => {
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            const intersect = _.intersection(classNames, allowedThemeClasses);
+            expect(intersect.length).to.eq(0);
         });
     });
 });

@@ -5,22 +5,21 @@ import platform from '@bxm/ui/lib/common/platform';
 import ContentBody from '@bxm/ui/lib/markdown/components/contentBody';
 import Footer from './footer';
 import Header from './header';
+import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
 
 class Article extends Component {
 
     constructor(props, context) {
         super(props, context);
-
         if (canUseDOM) {
             platform.set(navigator.userAgent);
         }
     }
 
     render() {
-        const {className, contentBody, credits, heroItem, source, summary, tags, title} = this.props;
-        const cssClass = classNames(`article`, className);
-
+        const {className, contentBody, credits, heroItem, source, summary, tags, title, themeClass} = this.props;
+        const cssClass = classNames(`article`, className, themeClass);
         return (
             <article className={cssClass}>
                 <Header
@@ -48,7 +47,8 @@ Article.propTypes = {
     source: PropTypes.string,
     summary: PropTypes.string,
     credits: PropTypes.object,
-    className: PropTypes.string
+    className: PropTypes.string,
+    themeClass: PropTypes.string
 };
 
-export default Article;
+export default theme(Article, 'source');

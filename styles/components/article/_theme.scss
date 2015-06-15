@@ -1,0 +1,18 @@
+
+@each $theme, $color in $theme-colors {
+    &.theme-#{$theme} {
+
+        .article__footer:before {
+            color: nth($color, 1);
+        }
+
+        .article__tag a {
+            color: nth($color, 1);
+
+            &:hover {
+                color: nth($color, 2);
+            }
+        }
+
+    }
+}
