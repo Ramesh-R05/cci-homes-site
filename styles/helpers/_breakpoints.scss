@@ -12,3 +12,11 @@ $banner-range-min: 320px;
 $banner-range-max: 727px;
 $leaderboard-range-min: 728px;
 $leaderboard-range-max: 1023px;
+
+// Left-hand rail breakpoints
+//   LHR width: 390px
+//   Article padding: 30px
+$rail-banner-range-min: 1024px; // ($large-range-min)
+$rail-banner-range-max: 1147px; // ($rail-leaderboard-range-min) - 1
+$rail-leaderboard-range-min: 1148px; // (LHR width) + (Article padding) + ($leaderboard-range-min)
+$rail-leaderboard-range-max: 1413px; // (LHR width) + ($leaderboard-range-max)

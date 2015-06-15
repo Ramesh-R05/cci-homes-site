@@ -3,7 +3,7 @@ import {Flux, servicesPlugin} from '@bxm/flux';
 
 import AppComponent from './components/app';
 import contentService from './services/content';
-import adConfig from './config/adConfig';
+import adConfig from './config/ads';
 
 import AdStore from '@bxm/ad/src/google/stores/ad';
 import PageStore from './stores/page';
