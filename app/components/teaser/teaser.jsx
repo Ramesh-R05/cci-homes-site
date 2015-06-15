@@ -8,16 +8,17 @@ import Summary from '@bxm/article/lib/components/teaser/summary';
 import Tags from './tags';
 import Source from './source';
 import Icon from './icon';
+import theme from './../helpers/theme';
 
 
-export default class Teaser extends Component {
+class Teaser extends Component {
 
     render() {
         if (!this.props.id) return null;
 
-        const {url, modifier, sizes} = this.props;
+        const {url, modifier, sizes, themeClass} = this.props;
         const gtmClass = `gtm-${this.props.id}`;
-        const classNames = classnames('teaser', `teaser--${modifier}`);
+        const classNames = classnames('teaser', `teaser--${modifier}`, themeClass);
         let imgSizes = Teaser.imageSizes[sizes] || Teaser.imageSizes[modifier] || Teaser.imageSizes.base;
 
         return (
@@ -56,7 +57,8 @@ Teaser.propTypes = {
     sizes: PropTypes.string,
     source: PropTypes.string,
     summary: PropTypes.string,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    themeClass: PropTypes.string
 };
 
 Teaser.defaultProps = {
@@ -91,3 +93,5 @@ Teaser.imageSizes = {
         xl: {w: 750, h: 625}
     }
 };
+
+export default theme(Teaser, 'source');
