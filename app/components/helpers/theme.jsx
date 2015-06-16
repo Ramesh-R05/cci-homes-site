@@ -22,7 +22,6 @@ let theme = (Component, sourcePropName) => class Theme extends React.Component {
 
     setThemeClass() {
         if ( _.isUndefined(this.props[sourcePropName]) || !_.isString(this.props[sourcePropName]) ) {
-            console.error('no theme defined at this sourcePropName:  ' + sourcePropName);
             this.themeClass = null;
         } else {
             this.themeClass = ('theme-' + this.props[sourcePropName].replace(/[^a-z]/gi, '_' )).toLowerCase();

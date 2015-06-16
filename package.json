@@ -34,7 +34,8 @@
     "react": "^0.13.3",
     "request": "^2.55.0",
     "serialize-javascript": "^1.0.0",
-    "superagent": "^1.2.0"
+    "superagent": "^1.2.0",
+    "hoist-non-react-statics": "^1.0.2"
   },
   "devDependencies": {
     "babelify": "^6.1.2",

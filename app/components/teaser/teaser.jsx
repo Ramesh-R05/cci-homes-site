@@ -9,7 +9,7 @@ import Tags from './tags';
 import Source from './source';
 import Icon from './icon';
 import theme from './../helpers/theme';
-
+import hoist from 'hoist-non-react-statics';
 
 class Teaser extends Component {
 
@@ -58,7 +58,8 @@ Teaser.propTypes = {
     source: PropTypes.string,
     summary: PropTypes.string,
     title: PropTypes.string.isRequired,
-    themeClass: PropTypes.string
+    themeClass: PropTypes.string,
+    imageSizes: PropTypes.object
 };
 
 Teaser.defaultProps = {
@@ -66,6 +67,7 @@ Teaser.defaultProps = {
     modifier: 'img-left',
     sizes: ''
 };
+
 
 Teaser.imageSizes = {
     base: {
@@ -94,4 +96,4 @@ Teaser.imageSizes = {
     }
 };
 
-export default theme(Teaser, 'source');
+export default hoist( theme(Teaser, 'source'), Teaser);
