@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import Hero from './hero';
 import Summary from '@bxm/article/lib/components/header/summary';
 import Title from '@bxm/article/lib/components/header/title';
+import Ad from '@bxm/ad/src/google/components/ad';
 
 class Header extends Component {
 
@@ -22,6 +23,7 @@ class Header extends Component {
                         <Hero item={heroItem}/>
                     </div>
                 </div>
+                <Ad className="ad--beneath-short-teaser" displayFor="small" sizes="banner"/>
                 <Summary summary={summary}/>
             </header>
         );
@@ -32,8 +34,7 @@ class Header extends Component {
 Header.propTypes = {
     heroItem: PropTypes.object.isRequired,
     summary: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    viewport: PropTypes.object.isRequired
+    title: PropTypes.string.isRequired
 };
 
 Header.defaultProps = {

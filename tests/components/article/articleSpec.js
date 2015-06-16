@@ -7,6 +7,7 @@ const Context = betterMockComponentContext();
 const React = Context.React;
 const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
+const AdStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const ContentBody = Context.createStubComponent();
@@ -16,6 +17,7 @@ const Article = proxyquire('../../../app/components/article/article', {
     'react/addons': React,
     './header': HeaderStub,
     './footer': FooterStub,
+    '@bxm/ad/src/google/components/ad': AdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
     '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
 });
@@ -48,6 +50,7 @@ describe(`Article Component`, () => {
     afterEach(Context.cleanup);
 
     describe(`when passing all props`, () => {
+        let adSub;
         let headerSub;
         let contentBodySub;
         let footerSub;
@@ -57,10 +60,12 @@ describe(`Article Component`, () => {
                 className, contentBody, credits, heroItem, source, summary, tags, title
             });
 
+            adSub = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
             headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             contentBodySub = TestUtils.findRenderedComponentWithType(reactModule, ContentBody);
             footerSub = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
         });
+
 
         it(`should render the component with class "${articleClassName}"`, () => {
             const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
@@ -84,45 +89,76 @@ describe(`Article Component`, () => {
         });
 
         it(`should render the key article sub-components on the page`, () => {
+            expect(adSub).to.exist;
             expect(headerSub).to.exist;
             expect(contentBodySub).to.exist;
             expect(footerSub).to.exist;
         });
 
-        it(`should render the Header sub-component with a heroItem object`, () => {
-            expect(headerSub.props.heroItem).to.eq(heroItem);
+        describe(`Ad sub-component`, () => {
+            const className = 'ad--article-top';
+            const displayFor = ['medium', 'large', 'xlarge'];
+            const sizes = {
+                banner: 'banner',
+                leaderboard: 'leaderboard',
+                railBanner: 'banner',
+                railLeaderboard: 'leaderboard',
+                xlarge: ['billboard', 'leaderboard']
+            };
+
+            it(`should have className "${className}"`, () => {
+                expect(adSub.props.className).to.eq(className);
+            });
+
+            it(`should have displayFor array`, () => {
+                expect(adSub.props.displayFor).to.eql(displayFor);
+            });
+
+            it(`should have sizes object`, () => {
+                expect(adSub.props.sizes).to.eql(sizes);
+            });
         });
 
-        it(`should render the Header sub-component with summary "${summary}"`, () => {
-            expect(headerSub.props.summary).to.eq(summary);
+        describe(`Header sub-component`, () => {
+            it(`should have heroItem object`, () => {
+                expect(headerSub.props.heroItem).to.eq(heroItem);
+            });
+
+            it(`should have summary "${summary}"`, () => {
+                expect(headerSub.props.summary).to.eq(summary);
+            });
+
+            it(`should have title "${title}"`, () => {
+                expect(headerSub.props.title).to.eq(title);
+            });
         });
 
-        it(`should render the Header sub-component with title "${title}"`, () => {
-            expect(headerSub.props.title).to.eq(title);
+        describe(`ContentBody sub-component`, () => {
+            it(`should have body array`, () => {
+                expect(contentBodySub.props.body).to.eq(contentBody);
+            });
+
+            it(`should have breakpoints object`, () => {
+                expect(contentBodySub.props.breakpoints).to.eq(breakpoints);
+            });
+
+            it(`should have class "${contentBodyClass}"`, () => {
+                expect(contentBodySub.props.className).to.eq(contentBodyClass);
+            });
         });
 
-        it(`should render the ContentBody sub-component with a body array`, () => {
-            expect(contentBodySub.props.body).to.eq(contentBody);
-        });
+        describe(`Footer sub-component`, () => {
+            it(`should have credits object`, () => {
+                expect(footerSub.props.credits).to.eq(credits);
+            });
 
-        it(`should render the ContentBody sub-component with a breakpoints object`, () => {
-            expect(contentBodySub.props.breakpoints).to.eq(breakpoints);
-        });
+            it(`should have source "${source}"`, () => {
+                expect(footerSub.props.source).to.eq(source);
+            });
 
-        it(`should render the ContentBody sub-component with class "${contentBodyClass}"`, () => {
-            expect(contentBodySub.props.className).to.eq(contentBodyClass);
-        });
-
-        it(`should render the Footer sub-component with a credits object`, () => {
-            expect(footerSub.props.credits).to.eq(credits);
-        });
-
-        it(`should render the Footer sub-component with source "${source}"`, () => {
-            expect(footerSub.props.source).to.eq(source);
-        });
-
-        it(`should render the Footer sub-component with a tags array`, () => {
-            expect(footerSub.props.tags).to.eq(tags);
+            it(`should have tags array`, () => {
+                expect(footerSub.props.tags).to.eq(tags);
+            });
         });
     });
 

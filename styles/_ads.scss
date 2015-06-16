@@ -1,0 +1,76 @@
+.ad {
+    $label-text-height: 5px;
+
+    $label-small-height: 12px;
+    $label-small-pad: $label-small-height - $label-text-height;
+    $label-small-line-height: $label-small-height + $label-small-pad;
+
+    $label-medium-height: 15px;
+    $label-medium-pad: $label-medium-height - $label-text-height;
+    $label-medium-line-height: $label-medium-height + $label-medium-pad;
+
+    text-align: center;
+
+    &--top-label,
+    &--bottom-label {
+        display: table;
+        width: 100%;
+
+        .ad__label {
+            line-height: $label-small-line-height;
+
+            @media #{$medium-up} {
+                line-height: $label-medium-line-height;
+            }
+        }
+    }
+
+    &--top-label {
+        .ad__label {
+            display: table-header-group;
+        }
+
+        > div {
+            display: table-footer-group;
+        }
+    }
+
+    &--bottom-label {
+        .ad__label {
+            display: table-footer-group;
+        }
+
+        > div {
+            display: table-header-group;
+        }
+    }
+
+    &__label {
+        color: $color-grey-light;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 7px;
+        font-weight: 500;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    // Article
+
+    &--beneath-short-teaser {
+        $teaser-ad-grey-padding: 20px;
+
+        background-color: $color-grey-lighter;
+        margin: {
+            bottom: 33px;
+            left: -($column-gutter/2);
+        }
+        padding: {
+            bottom: $teaser-ad-grey-padding - $label-small-pad;
+            top: $teaser-ad-grey-padding;
+        }
+        position: relative;
+        width: calc(100% + #{$column-gutter});
+    }
+
+}

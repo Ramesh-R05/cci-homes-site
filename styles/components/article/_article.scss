@@ -8,6 +8,7 @@
 
     @media #{$large-up} {
         float: right;
+        padding-top: 30px;
         width: calc(100% - #{$article-feed-container-width});
     }
 

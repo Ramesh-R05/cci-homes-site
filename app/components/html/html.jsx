@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import AdScript from '@bxm/ad/src/google/components/script';
 import PageStore from '../../stores/page';
 
 class HtmlComponent extends Component {
@@ -12,6 +13,7 @@ class HtmlComponent extends Component {
                 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" />
                 <script src="//use.typekit.net/mmp8xzm.js"></script>
                 <script dangerouslySetInnerHTML={{__html: 'try{Typekit.load()}catch(e){}'}}></script>
+                <AdScript/>
                 <link rel="stylesheet" href="/dist/styles/main.css" />
             </head>
             <body>
