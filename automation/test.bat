@@ -1,12 +1,12 @@
 @echo on
 
-if %1=="mm" call :mm
+if %1=="home" call :home
 
 echo  unknown site name: %1
 
-:mm
-copy /Y test.mm-cucumberrc.rb %USERPROFILE%\.cucumberrc.rb
-cd .\mm\
+:home
+copy /Y test.home-cucumberrc.rb %USERPROFILE%\.cucumberrc.rb
+cd .\home\
 call rake
 cd ..
 exit  /b
