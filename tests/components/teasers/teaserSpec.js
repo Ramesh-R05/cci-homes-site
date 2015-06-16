@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
+import _ from 'lodash';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -21,7 +22,11 @@ const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     './icon': Context.createStubComponent()
 });
 
+
+
 describe('Teaser', () => {
+
+    const allowedThemeClasses = ['theme-australian_house_and_garden', 'theme-real_living', 'theme-homes_', 'theme-belle'];
 
     describe('with correct article data', () => {
         let reactModule;
@@ -30,6 +35,7 @@ describe('Teaser', () => {
         let Summary;
         let Tags;
         let Source;
+        let rTeaser;
         const props = articlesMock.basic;
 
         before(() => {
@@ -39,6 +45,7 @@ describe('Teaser', () => {
             Summary = TestUtils.findRenderedComponentWithType(reactModule, SummaryStub);
             Source = TestUtils.findRenderedComponentWithType(reactModule, SourceStub);
             Tags = TestUtils.findRenderedComponentWithType(reactModule, TagsStub);
+            rTeaser = TestUtils.findRenderedComponentWithType(reactModule, Teaser);
         });
 
         after(() => {
@@ -52,6 +59,21 @@ describe('Teaser', () => {
         it(`should be rendered with the .${expectedClassName} classname`, () => {
             const component = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedClassName);
             expect(component.length).to.equal(1);
+        });
+
+        it(`Teaser should have the themeClass defined`, () => {
+            expect(reactModule).to.have.property('themeClass');
+        });
+
+        it(`Teaser should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
+            const intersect = _.intersection([reactModule.themeClass], allowedThemeClasses);
+            expect(intersect.length).to.eq(1);
+        });
+
+        it(`should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
+            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            const intersect = _.intersection(classNames, allowedThemeClasses);
+            expect(intersect.length).to.eq(1);
         });
 
         // Image
