@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
 import classnames from 'classnames';
 
-
 export default class Group extends Component {
     render() {
         const {articles, className, modifier, teaserModifier} = this.props;

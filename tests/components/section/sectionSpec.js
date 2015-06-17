@@ -10,12 +10,14 @@ const TeaserStub = Context.createStubComponentWithChildren();
 const GroupStub = Context.createStubComponentWithChildren();
 const GroupFeaturedStub = Context.createStubComponentWithChildren();
 const GroupRepeatableStub = Context.createStubComponentWithChildren();
+const SectionHeroStub = Context.createStubComponentWithChildren();
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     './group': GroupStub,
     './groupFeatured': GroupFeaturedStub,
-    './groupRepeatable': GroupRepeatableStub
+    './groupRepeatable': GroupRepeatableStub,
+    './sectionHero': SectionHeroStub
 });
 
 const featuredArticles = articlesMock.splice(1, 4);
@@ -38,12 +40,14 @@ describe(`Section`, () => {
     let GroupFeatured;
     let Groups;
     let GroupRepeatable;
+    let SectionHero;
 
     afterEach(Context.cleanup);
 
     before(() => {
         reactModule = Context.mountComponent(Section);
         section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
+        SectionHero = TestUtils.findRenderedComponentWithType(reactModule, SectionHeroStub);
         GroupFeatured = TestUtils.findRenderedComponentWithType(reactModule, GroupFeaturedStub);
         Groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
         GroupRepeatable = TestUtils.findRenderedComponentWithType(reactModule, GroupRepeatableStub);
@@ -55,8 +59,7 @@ describe(`Section`, () => {
 
     // Hero Section
     it(`should render the hero section`, () => {
-        const heroSection = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'section--heroes');
-        expect(React.findDOMNode(heroSection)).to.exist;
+        expect(SectionHero.props.firstHero).to.deep.equal(articlesMock.slice(0,1));
     });
 
     // Featured articles

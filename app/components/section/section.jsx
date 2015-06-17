@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import ArticleStore from '../../stores/article';
-import Teaser from '../teaser/teaser';
 import Group from './group';
 import GroupFeatured from './groupFeatured';
 import GroupRepeatable from './groupRepeatable';
+import SectionHero from './sectionHero';
 
 class Section extends Component {
     constructor(props, context) {
@@ -16,6 +16,19 @@ class Section extends Component {
 
         if (!articles.length) return null;
 
+
+        const firstHero = articles.slice(0, 1)[0];
+        /*lg breakpoint only*/
+        const secondHero = articles.slice(4, 5)[0];
+        /* xLarge only */
+        const teaser3WithAd = articles.slice(4, 7);
+        /* hidden for large bp */
+        const teaser4WithAd = articles.slice(7, 11);
+        /* 6 teasers with ad - visible for large bp only*/
+        const teaser6WithAd = articles.slice(5, 11);
+        /* repeatable group max 11 articles */
+        const teaser11 = articles.slice(11, articles.length);
+
         return (
             <div className="container">
 
@@ -26,12 +39,7 @@ class Section extends Component {
 
                 <div className="row">
                     {/*Heroes*/}
-                    <section className="section--heroes">
-                        {/*First hero*/}
-                        {articles.slice(0, 1).map(item => <Teaser {...item} key={item.id} modifier="hero" />)}
-                        {/*Second hero (lg breakpoint only*/}
-                        {articles.slice(4, 5).map(item => <Teaser {...item} key={item.id} modifier="hero" />)}
-                    </section>
+                    <SectionHero firstHero={firstHero} secondHero={secondHero} />
                     {/*Featured articles*/}
                     <GroupFeatured articles={featuredArticles}>
                         <div className="ad ad--mrec">
@@ -42,7 +50,7 @@ class Section extends Component {
 
                 {/* Three teasers with ad - xlarge bp only*/}
                 <div className="row hidden-for-large-only">
-                    <Group articles={articles.slice(4, 7)} modifier="3-items">
+                    <Group articles={teaser3WithAd} modifier="3-items">
                         <div className="ad ad--mrec">
                             <div className="fake-ad" />
                         </div>
@@ -52,7 +60,7 @@ class Section extends Component {
                 <div className="row">
                     {/* Four teasers with ad - hidden large bp only*/}
                     <Group
-                        articles={articles.slice(7, 11)}
+                        articles={teaser4WithAd}
                         className="hidden-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top">
@@ -63,7 +71,7 @@ class Section extends Component {
 
                     {/* 6 teasers with ad - visible for large bp only*/}
                     <Group
-                        articles={articles.slice(5, 11)}
+                        articles={teaser6WithAd}
                         className="visible-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top">
@@ -75,7 +83,7 @@ class Section extends Component {
 
                 {/* Group repeated when paginating */}
                 <div className="row">
-                    <GroupRepeatable articles={articles.slice(11, articles.length)} />
+                    <GroupRepeatable articles={teaser11} />
                 </div>
             </div>
         );
