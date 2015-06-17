@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import breakpoints from '../../breakpoints';
 import classnames from 'classnames';
+import _ from 'lodash';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';
 import Image from '@bxm/article/lib/components/teaser/image';
@@ -13,13 +14,22 @@ import hoist from 'hoist-non-react-statics';
 
 class Teaser extends Component {
 
+    getImgSizes(sizes, modifier) {
+        if ( !_.isUndefined(Teaser.imageSizes[sizes])) {
+            return Teaser.imageSizes[sizes];
+        } else if ( !_.isUndefined(Teaser[modifier])) {
+            return Teaser.imageSizes[modifier];
+        }
+        return Teaser.imageSizes.base;
+    }
+
     render() {
         if (!this.props.id) return null;
 
         const {url, modifier, sizes, themeClass} = this.props;
         const gtmClass = `gtm-${this.props.id}`;
         const classNames = classnames('teaser', `teaser--${modifier}`, themeClass);
-        let imgSizes = Teaser.imageSizes[sizes] || Teaser.imageSizes[modifier] || Teaser.imageSizes.base;
+        const imgSizes = this.getImgSizes(sizes, modifier);
 
         return (
             <div className={classNames}>
@@ -67,8 +77,6 @@ Teaser.defaultProps = {
     modifier: 'img-left',
     sizes: ''
 };
-
-
 Teaser.imageSizes = {
     base: {
         s: {w: 230, h: 190},
@@ -96,4 +104,4 @@ Teaser.imageSizes = {
     }
 };
 
-export default hoist( theme(Teaser, 'source'), Teaser);
+export default hoist( theme( Teaser, 'source'), Teaser);

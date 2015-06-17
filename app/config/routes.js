@@ -1,5 +1,6 @@
 import loadContent from '../actions/loadContent';
 import homeHandler from '../components/home/home';
+import sectionHandler from '../components/section/section';
 import articleHandler from '../components/article/section';
 
 export default {
@@ -14,7 +15,7 @@ export default {
     section: {
         path: '/section',
         method: 'get',
-        handler: require('../components/section/section'),
+        handler: sectionHandler,
         label: 'section',
         action: loadContent
     },
