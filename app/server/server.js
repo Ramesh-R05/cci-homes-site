@@ -16,8 +16,8 @@ let startStubs = () => {
     globalHeaderStub.start(4011);
     let servicesStubs = require('@bxm/services-stubs');
     servicesStubs.start(4000);
-    //let contentApiStub = require('../../automation/stubs/contentApi');
-    //contentApiStub.start(3000);
+    let contentApiStub = require('../../automation/stubs/contentApi');
+    contentApiStub.start(3000);
 };
 
 let main = () => {
