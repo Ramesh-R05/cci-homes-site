@@ -61,7 +61,7 @@ export default {
             url:"http://www.google.com.au",
             nodeType: 'Gallery',
             title:"Courtney and Danny’s colourful courtyard",
-            source:"Australian House and Garden",
+            source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Outdoor news",
@@ -74,7 +74,7 @@ export default {
             imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1211/hp1014_mybackyard_readergarden07.jpg",
             url:"http://www.google.com.au",
             title:"Jodie and Simons rustic cottage renovation",
-            source:"Australian House and Garden",
+            source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -111,7 +111,7 @@ export default {
             imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
             url:"http://www.google.com.au",
             title:"Christiana and Massimo’s Hamptons-style renovation",
-            source:"Australian House and Garden",
+            source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -123,7 +123,7 @@ export default {
             imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1212/hg0215-decorating-mainc1457701-2r2.jpg",
             url:"http://www.google.com.au",
             title:"Outdoor colour schemes that pop",
-            source:"Australian House and Garden",
+            source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -149,7 +149,7 @@ export default {
             url:"http://www.google.com.au",
             nodeType: 'Gallery',
             title:"Choosing a kitchen layout",
-            source:"Australian House and Garden",
+            source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -170,13 +170,13 @@ export default {
         },
         {
             id: "HOMES-11",
-            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
-            url:"http://www.google.com.au",
+            imageUrl: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
+            url: "http://www.google.com.au",
             nodeType: 'Gallery',
-            title:"The Best Climbing Plants For Your Garden",
-            source:"Australian House and Garden",
-            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            title: "The Best Climbing Plants For Your Garden",
+            source: "Homes+",
+            summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags: [
                 "food:Topic:Gardening",
                 "food:Renovating:Materials:Bamboo"
             ]
@@ -199,7 +199,7 @@ export default {
             url:"http://www.google.com.au",
             nodeType: 'Gallery',
             title:"Kath’s Sydney terrace renovation",
-            source:"Australian House and Garden",
+            source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -211,7 +211,7 @@ export default {
             imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/03/1224/home_17.jpg",
             url:"http://www.google.com.au",
             title:"A modern extension to a 1930s bungalow",
-            source:"Australian House and Garden",
+            source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -236,7 +236,7 @@ export default {
             imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/03/1218/home_11jpg.jpg",
             url:"http://www.google.com.au",
             title:"Five outdoor rooms that get the balance right",
-            source:"Australian House and Garden",
+            source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -261,7 +261,7 @@ export default {
             url:"http://www.google.com.au",
             nodeType: 'Gallery',
             title:"Stephen and Annick’s Melbourne home and studio",
-            source:"Australian House and Garden",
+            source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
@@ -273,7 +273,7 @@ export default {
             imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
             url:"http://www.google.com.au",
             title:"A beach house with big-city sophistication",
-            source:"Australian House and Garden",
+            source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
                 "food:Topic:Gardening",
