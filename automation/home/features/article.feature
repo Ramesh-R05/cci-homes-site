@@ -18,3 +18,8 @@ Feature: article detail page
   Scenario: Check hero video
     When I am viewing an article with a hero video
     Then I should see a hero video
+
+  @DHO-192
+  Scenario: Check all ad slots are visible on the article detail page
+    When I am viewing an article with a hero video
+    Then I should see 1 "ad--article-top" ad slot

@@ -44,3 +44,7 @@ Then(/^I should see a hero video$/) do
   	hero_video = find('.article__main-hero-video .video-wrapper')
   	expect(hero_video.visible?).to eq(true)
 end
+
+Then(/^I should see (\d+) "(.*?)" ad slots?$/) do |slot_count, ad_slot|
+  expect(page).to have_selector(".#{ad_slot} > div > div", count: slot_count.to_i)
+end
