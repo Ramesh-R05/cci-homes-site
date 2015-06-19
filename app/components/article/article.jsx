@@ -21,19 +21,23 @@ class Article extends Component {
     render() {
         const {className, contentBody, credits, heroItem, source, summary, tags, title, themeClass} = this.props;
         const cssClass = classNames(`article`, className, themeClass);
+        const sizes = {
+            small: 'banner',
+            banner: 'banner',
+            leaderboard: 'leaderboard',
+            railBanner: 'banner',
+            railLeaderboard: 'leaderboard',
+            xlarge: ['billboard', 'leaderboard']
+        };
+
         return (
             <article className={cssClass}>
                 <Ad
                     className="ad--article-top"
                     displayFor={['medium', 'large', 'xlarge']}
-                    sizes={{
-                        banner: 'banner',
-                        leaderboard: 'leaderboard',
-                        railBanner: 'banner',
-                        railLeaderboard: 'leaderboard',
-                        xlarge: ['billboard', 'leaderboard']
-                    }}
+                    sizes={sizes}
                 />
+
                 <Header
                     heroItem={heroItem}
                     summary={summary}
@@ -48,6 +52,12 @@ class Article extends Component {
                     credits={credits}
                     source={source}
                     tags={tags}
+                />
+
+                <Ad
+                    className="ad--article-beneath-recommendations"
+                    displayFor={['small', 'medium', 'large', 'xlarge']}
+                    sizes={sizes}
                 />
             </article>
         );

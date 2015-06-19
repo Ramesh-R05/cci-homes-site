@@ -9,6 +9,8 @@
     $label-medium-pad: $label-medium-height - $label-text-height;
     $label-medium-line-height: $label-medium-height + $label-medium-pad;
 
+    $small-ad-padding: 20px;
+
     text-align: center;
 
     &--top-label,
@@ -57,20 +59,28 @@
 
     // Article
 
-    &--beneath-short-teaser {
-        $teaser-ad-grey-padding: 20px;
-
+    @mixin grey-mobile-banner() {
         background-color: $color-grey-lighter;
         margin: {
             bottom: 33px;
             left: -($column-gutter/2);
         }
         padding: {
-            bottom: $teaser-ad-grey-padding - $label-small-pad;
-            top: $teaser-ad-grey-padding;
+            bottom: $small-ad-padding - $label-small-pad;
+            top: $small-ad-padding;
         }
         position: relative;
         width: calc(100% + #{$column-gutter});
+    }
+
+    &--beneath-short-teaser {
+        @include grey-mobile-banner();
+    }
+
+    &--article-beneath-recommendations {
+        @media #{$small-only} {
+            @include grey-mobile-banner();
+        }
     }
 
 }
