@@ -50,7 +50,8 @@ describe(`Article Component`, () => {
     afterEach(Context.cleanup);
 
     describe(`when passing all props`, () => {
-        let adSub;
+        let topAdSub;
+        let bottomAdSub;
         let headerSub;
         let contentBodySub;
         let footerSub;
@@ -60,7 +61,9 @@ describe(`Article Component`, () => {
                 className, contentBody, credits, heroItem, source, summary, tags, title
             });
 
-            adSub = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+            const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
+            topAdSub = adSubs[0];
+            bottomAdSub = adSubs[1];
             headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             contentBodySub = TestUtils.findRenderedComponentWithType(reactModule, ContentBody);
             footerSub = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
@@ -89,16 +92,17 @@ describe(`Article Component`, () => {
         });
 
         it(`should render the key article sub-components on the page`, () => {
-            expect(adSub).to.exist;
+            expect(topAdSub).to.exist;
             expect(headerSub).to.exist;
             expect(contentBodySub).to.exist;
             expect(footerSub).to.exist;
         });
 
-        describe(`Ad sub-component`, () => {
+        describe(`Top ad sub-component`, () => {
             const className = 'ad--article-top';
             const displayFor = ['medium', 'large', 'xlarge'];
             const sizes = {
+                small: 'banner',
                 banner: 'banner',
                 leaderboard: 'leaderboard',
                 railBanner: 'banner',
@@ -107,15 +111,40 @@ describe(`Article Component`, () => {
             };
 
             it(`should have className "${className}"`, () => {
-                expect(adSub.props.className).to.eq(className);
+                expect(topAdSub.props.className).to.eq(className);
             });
 
             it(`should have displayFor array`, () => {
-                expect(adSub.props.displayFor).to.eql(displayFor);
+                expect(topAdSub.props.displayFor).to.eql(displayFor);
             });
 
             it(`should have sizes object`, () => {
-                expect(adSub.props.sizes).to.eql(sizes);
+                expect(topAdSub.props.sizes).to.eql(sizes);
+            });
+        });
+
+        describe(`Bottom ad sub-component`, () => {
+            const className = 'ad--article-beneath-recommendations';
+            const displayFor = ['small', 'medium', 'large', 'xlarge'];
+            const sizes = {
+                small: 'banner',
+                banner: 'banner',
+                leaderboard: 'leaderboard',
+                railBanner: 'banner',
+                railLeaderboard: 'leaderboard',
+                xlarge: ['billboard', 'leaderboard']
+            };
+
+            it(`should have className "${className}"`, () => {
+                expect(bottomAdSub.props.className).to.eq(className);
+            });
+
+            it(`should have displayFor array`, () => {
+                expect(bottomAdSub.props.displayFor).to.eql(displayFor);
+            });
+
+            it(`should have sizes object`, () => {
+                expect(bottomAdSub.props.sizes).to.eql(sizes);
             });
         });
 
