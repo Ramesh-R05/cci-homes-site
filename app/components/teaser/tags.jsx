@@ -1,49 +1,36 @@
 import React, {Component, PropTypes} from 'react';
-import tagUtils from '@bxm/ui/lib/to-love/utils/tagUtils';
+//import tagUtils from '@bxm/ui/lib/to-love/utils/tagUtils';
+import TagUtils from '../../utils/tagUtils';
+import {difference, union} from 'lodash/array';
+import {isNull} from 'lodash/lang';
 
 export default class Tags extends Component {
-    getPrimaryTag() {
-        let primaryTag;
-        const topicTags = this.props.tags.filter((tag) => {
-            return tagUtils.getTagCategory(tag) === 'Topic';
-        });
 
-        if (topicTags.length > 0) {
-            primaryTag = tagUtils.getTagName(topicTags[0]);
-        }
+    getTags() {
+        TagUtils.setRelatedCategories(['Topic']);
+        const primaryTags = TagUtils.getRelatedTags(this.props.tags);
 
-        return primaryTag;
-    }
+        TagUtils.setRelatedCategories(['Homes navigation']);
+        const unwantedTags = TagUtils.getRelatedTags(this.props.tags);
 
-    getSecondaryTag(primaryTag) {
-        let secondaryTag;
+        if (primaryTags.length === 0) return {};
 
-        const tagsNotPrimary = this.props.tags.filter((tag) => {
-            return tagUtils.getTagName(tag) !== primaryTag &&
-                tagUtils.getTagCategory(tag) !== 'Homes navigation';
-        });
+        let primary = TagUtils.getTagName( primaryTags[0]);
 
-        if (tagsNotPrimary.length > 0) {
-            secondaryTag = tagUtils.getTagName(tagsNotPrimary[0]);
-        }
-
-        return secondaryTag;
+        let secondaryTags = difference( this.props.tags, union( primaryTags, unwantedTags ) );
+        let secondary = secondaryTags.length > 0 ? TagUtils.getTagName(secondaryTags[0]) : null;
+        return { primary, secondary };
     }
 
     render() {
-        const {tags} = this.props;
-        if (!this.props.tags || !Array.isArray(tags)) return null;
+        if (!this.props.tags || !Array.isArray(this.props.tags)) return null;
 
-        const primaryTag = this.getPrimaryTag();
-        if (!primaryTag) return null;
+        const tags = this.getTags( this.props.tags );
 
-        const secondaryTag = this.getSecondaryTag(primaryTag);
+        if (!tags.primary) return null;
 
-        const primaryTagHtml = <span className="tag-primary">{primaryTag}</span>;
-        let secondaryTagHtml;
-        if (secondaryTag) {
-            secondaryTagHtml = <span className="tag-secondary">, {secondaryTag}</span>;
-        }
+        const primaryTagHtml = <span className="tag-primary">{tags.primary}</span>;
+        const secondaryTagHtml = isNull(tags.secondary) ? '' : <span className="tag-secondary">, {tags.secondary}</span>;
 
         return (
             <p className="teaser__tags">

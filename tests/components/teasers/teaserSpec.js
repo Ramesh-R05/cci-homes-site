@@ -1,6 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
-import _ from 'lodash';
+import {intersection} from 'lodash/array';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -66,13 +66,13 @@ describe('Teaser', () => {
         });
 
         it(`Teaser should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
-            const intersect = _.intersection([reactModule.themeClass], allowedThemeClasses);
+            const intersect = intersection([reactModule.themeClass], allowedThemeClasses);
             expect(intersect.length).to.eq(1);
         });
 
         it(`should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
             const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
-            const intersect = _.intersection(classNames, allowedThemeClasses);
+            const intersect = intersection(classNames, allowedThemeClasses);
             expect(intersect.length).to.eq(1);
         });
 

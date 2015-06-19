@@ -59,7 +59,7 @@ describe(`Section`, () => {
 
     // Hero Section
     it(`should render the hero section`, () => {
-        expect(SectionHero.props.firstHero).to.deep.equal(articlesMock.slice(0,1));
+        expect(SectionHero.props.firstHero).to.deep.equal(articlesMock.slice(0, 1)[0]);
     });
 
     // Featured articles

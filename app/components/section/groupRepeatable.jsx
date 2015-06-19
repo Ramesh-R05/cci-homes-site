@@ -7,8 +7,6 @@ export default class GroupRepeatable extends Component {
     render() {
         const {articles} = this.props;
 
-        console.log('inside Groupreapetable: articles.length = ');
-        console.log(articles.length);
         if (!articles.length) return null;
 
         const groups = chunk(articles, 9);
@@ -35,7 +33,6 @@ export default class GroupRepeatable extends Component {
         );
     }
 }
-
 
 GroupRepeatable.propTypes = {
     articles: PropTypes.array.isRequired

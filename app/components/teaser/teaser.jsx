@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import breakpoints from '../../breakpoints';
 import classnames from 'classnames';
-import _ from 'lodash';
+import {isUndefined} from 'lodash/lang';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';
 import Image from '@bxm/article/lib/components/teaser/image';
@@ -15,9 +15,9 @@ import hoist from 'hoist-non-react-statics';
 class Teaser extends Component {
 
     getImgSizes(sizes, modifier) {
-        if ( !_.isUndefined(Teaser.imageSizes[sizes])) {
+        if ( !isUndefined(Teaser.imageSizes[sizes])) {
             return Teaser.imageSizes[sizes];
-        } else if ( !_.isUndefined(Teaser[modifier])) {
+        } else if ( !isUndefined(Teaser[modifier])) {
             return Teaser.imageSizes[modifier];
         }
         return Teaser.imageSizes.base;
