@@ -1,4 +1,5 @@
-module.exports = {
+module.exports =
+{
   "entity": {
     "campaign": [],
     "articleTags": [
@@ -19,9 +20,9 @@ module.exports = {
     "content": {
       "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
       "valid": true,
-      "caption": "Image 01 - Content Body - Image Caption",
+      "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
       "link": "https://www.google.com",
-      "title": "Image 01 - Content Body - Title"
+      "title": "Inline Image Title"
     }
   },
   {
@@ -41,10 +42,22 @@ module.exports = {
   }
 ],
     "author": [],
-    "title": "Article 01 - Creative Home - Long Title",
-    "summaryTitle": "Article 01 - Creative Home - Short Title",
-    "summary": "Article 01 - Creative Home - Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
+    "title": "Article Long Title",
+    "summaryTitle": "Article Short Title",
+    "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+    "video": {
+  "id": "VIDEO-2238",
+  "name": "4128484287001 (2)",
+  "type": "VideoItem",
+  "properties": {
+    "videoConfiguration": {
+      "videoId": "VIDEO-2238",
+      "status": "Video upload is complete",
+      "brightcoveId": "4128484287001",
+      "statusCode": 200
+    }
+  }
+},
     "redirect": {
       "mode": 2
     },
@@ -52,26 +65,26 @@ module.exports = {
     "accessLevels": [
       "-1"
     ],
-    "dateCreated": "2015-06-02T10:06:24",
+    "dateCreated": "2015-06-18T11:30:57",
     "tracking": {
-      "dateIndexed": "2015-06-16T01:15:34"
+      "dateIndexed": "2015-06-18T21:32:55"
     },
     "month": 6,
     "year": 2015,
-    "id": "HOMES-1209",
+    "id": "HOMES-1232",
     "parentId": "HOMES-1206",
     "level": 3,
-    "sortOrder": 1,
-    "name": "Article 01 - Creative Home",
-    "dateIndexed": "2015-06-16T01:15:34",
+    "sortOrder": 18,
+    "name": "Article - Hero Video",
+    "dateIndexed": "2015-06-18T21:32:55",
     "pathIds": [
       "HOMES--1",
       "HOMES-1158",
       "HOMES-1206",
-      "HOMES-1209"
+      "HOMES-1232"
     ],
-    "urlName": "article-01-creative-home",
-    "url": "/section/article-01-creative-home",
+    "urlName": "article-hero-video",
+    "url": "/section/article-hero-video",
     "nodeType": "HomesArticle",
     "template": "Index",
     "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
@@ -84,12 +97,14 @@ module.exports = {
       "HomesArticle"
     ]
   },
-  "next": {
+  "next": {},
+  "previous": {
     "entity": {
       "campaign": [],
       "articleTags": [
-        "food:Topic:Creative space",
-        "food:Homes navigation:Outdoor"
+        "food:Topic:Creative home",
+        "food:Homes navigation:Indoor",
+        "food:Profiles:Designer"
       ],
       "source": "Australian House and Garden",
       "body": [
@@ -104,9 +119,9 @@ module.exports = {
     "content": {
       "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
       "valid": true,
-      "caption": "Image 01 - Content Body - Image Caption",
+      "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
       "link": "https://www.google.com",
-      "title": "Image 01 - Content Body - Title"
+      "title": "Inline Image Title"
     }
   },
   {
@@ -126,10 +141,10 @@ module.exports = {
   }
 ],
       "author": [],
-      "title": "Article 06 - Creative Space - Long Title",
-      "summaryTitle": "Article 06 - Creative Space - Short Title",
-      "summary": "Article 06 - Creative Space- Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-      "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1214/diy_-2163.jpg",
+      "title": "Article Long Title",
+      "summaryTitle": "Article Short Title",
+      "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+      "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
       "redirect": {
         "mode": 2
       },
@@ -137,26 +152,26 @@ module.exports = {
       "accessLevels": [
         "-1"
       ],
-      "dateCreated": "2015-06-02T10:40:22",
+      "dateCreated": "2015-06-18T10:40:39",
       "tracking": {
-        "dateIndexed": "2015-06-13T00:08:00"
+        "dateIndexed": "2015-06-18T21:16:27"
       },
       "month": 6,
       "year": 2015,
-      "id": "HOMES-1214",
+      "id": "HOMES-1231",
       "parentId": "HOMES-1206",
       "level": 3,
-      "sortOrder": 6,
-      "name": "Article 06 - Creative Space",
-      "dateIndexed": "2015-06-13T00:08:00",
+      "sortOrder": 17,
+      "name": "Article - Hero Image",
+      "dateIndexed": "2015-06-18T21:16:27",
       "pathIds": [
         "HOMES--1",
         "HOMES-1158",
         "HOMES-1206",
-        "HOMES-1214"
+        "HOMES-1231"
       ],
-      "urlName": "article-06-creative-space",
-      "url": "/section/article-06-creative-space",
+      "urlName": "article-hero-image",
+      "url": "/section/article-hero-image",
       "nodeType": "HomesArticle",
       "template": "Index",
       "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
@@ -169,9 +184,8 @@ module.exports = {
         "HomesArticle"
       ]
     },
-    "url": "/section/article-06-creative-space"
+    "url": "/section/article-hero-image"
   },
-  "previous": {},
   "section": {
     "urlName": "section",
     "title": "Section",
@@ -252,13 +266,13 @@ module.exports = {
   },
   "headerMetaData": {
     "robots": "NOINDEX,NOFOLLOW",
-    "intId": "1209",
+    "intId": "1232",
     "googleTagManagerEnvironment": "Development",
     "googleTagManagerMasthead": "HOMES",
     "appId": "GTM-WJRM8R",
-    "title": "Article 01 - Creative Home - Long Title",
-    "pageName": "Article 01 - Creative Home",
-    "pageDescription": "Article 01 - Creative Home - Long Title, Article 01 - Creative Home - Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+    "title": "Article Long Title",
+    "pageName": "Article - Hero Video",
+    "pageDescription": "Article Long Title, Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
     "faceBookAdmins": "100002740190640",
     "breadcrumbs": [
       {
@@ -363,9 +377,9 @@ module.exports = {
     "content": {
       "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
       "valid": true,
-      "caption": "Image 01 - Content Body - Image Caption",
+      "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
       "link": "https://www.google.com",
-      "title": "Image 01 - Content Body - Title"
+      "title": "Inline Image Title"
     }
   },
   {
@@ -385,10 +399,22 @@ module.exports = {
   }
 ],
         "author": [],
-        "title": "Article 01 - Creative Home - Long Title",
-        "summaryTitle": "Article 01 - Creative Home - Short Title",
-        "summary": "Article 01 - Creative Home - Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-        "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
+        "title": "Article Long Title",
+        "summaryTitle": "Article Short Title",
+        "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+        "video": {
+  "id": "VIDEO-2238",
+  "name": "4128484287001 (2)",
+  "type": "VideoItem",
+  "properties": {
+    "videoConfiguration": {
+      "videoId": "VIDEO-2238",
+      "status": "Video upload is complete",
+      "brightcoveId": "4128484287001",
+      "statusCode": 200
+    }
+  }
+},
         "redirect": {
           "mode": 2
         },
@@ -396,26 +422,26 @@ module.exports = {
         "accessLevels": [
           "-1"
         ],
-        "dateCreated": "2015-06-02T10:06:24",
+        "dateCreated": "2015-06-18T11:30:57",
         "tracking": {
-          "dateIndexed": "2015-06-16T01:15:34"
+          "dateIndexed": "2015-06-18T21:32:55"
         },
         "month": 6,
         "year": 2015,
-        "id": "HOMES-1209",
+        "id": "HOMES-1232",
         "parentId": "HOMES-1206",
         "level": 3,
-        "sortOrder": 1,
-        "name": "Article 01 - Creative Home",
-        "dateIndexed": "2015-06-16T01:15:34",
+        "sortOrder": 18,
+        "name": "Article - Hero Video",
+        "dateIndexed": "2015-06-18T21:32:55",
         "pathIds": [
           "HOMES--1",
           "HOMES-1158",
           "HOMES-1206",
-          "HOMES-1209"
+          "HOMES-1232"
         ],
-        "urlName": "article-01-creative-home",
-        "url": "/section/article-01-creative-home",
+        "urlName": "article-hero-video",
+        "url": "/section/article-hero-video",
         "nodeType": "HomesArticle",
         "template": "Index",
         "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
@@ -431,7 +457,7 @@ module.exports = {
     ]
   },
   "request": {
-    "pathAndQuery": "/section/article-01-creative-home",
+    "pathAndQuery": "/section/article-hero-video",
     "userAgent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36",
     "queryString": [],
     "dnsSafeHost": "dev.homes-api.wn.bauer-media.net.au"
@@ -491,90 +517,6 @@ module.exports = {
         ]
       },
       "items": []
-    }
-  },
-  "settings": {
-    "loginRadiusApiKey": "89d875ba-e9d4-473d-a66e-5de65552a4f3",
-    "globalHeader": {
-      "menuSections": [
-        {
-          "items": [
-            {
-              "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/digital-cougar-assets-dev/header/AWW+logo.svg",
-              "link": "http://aww.com.au/",
-              "title": "Australian Women's Weekly"
-            },
-            {
-              "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/digital-cougar-assets-dev/header/WD+logo.svg",
-              "link": "http://womansday.com.au/",
-              "title": "Woman's Day"
-            },
-            {
-              "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/digital-cougar-assets-dev/header/food+tolove+logo+mobile+light.svg",
-              "link": "http://www.foodtolove.com.au/",
-              "title": "Food To Love"
-            },
-            {
-              "link": "http://www.elle.com.au/",
-              "title": "Elle"
-            },
-            {
-              "link": "http://www.gourmettraveller.com.au/",
-              "title": "Gourmet Traveller"
-            },
-            {
-              "link": "http://www.cosmopolitan.com.au/",
-              "title": "Cosmopolitan"
-            },
-            {
-              "link": "http://www.cleo.com.au/",
-              "title": "Cleo"
-            },
-            {
-              "link": "http://www.dolly.com.au/",
-              "title": "Dolly"
-            },
-            {
-              "link": "http://www.shoptilyoudrop.com.au/",
-              "title": "Shop Til You Drop"
-            },
-            {
-              "link": "http://www.motherandbaby.com.au/",
-              "title": "Mother & Baby"
-            },
-            {
-              "link": "http://www.bountybags.com.au/",
-              "title": "Bounty Bags"
-            },
-            {
-              "link": "http://www.harpersbazaar.com.au/",
-              "title": "Harper's Bazaar"
-            }
-          ],
-          "title": "Main"
-        },
-        {
-          "items": [
-            {
-              "link": "http://www.take5mag.com.au/",
-              "title": "Take 5"
-            },
-            {
-              "link": "http://www.sweepon.com/",
-              "title": "Sweepon.com.au"
-            },
-            {
-              "link": "http://winit.womansday.com.au/",
-              "title": "Woman's Day Win it"
-            },
-            {
-              "link": "http://www.readerrewards.com.au/",
-              "title": "Reader Rewards"
-            }
-          ],
-          "title": "Competitions & Rewards"
-        }
-      ]
     }
   }
 }

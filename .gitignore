@@ -409,3 +409,6 @@ FakesAssemblies/
 ### Sass ###
 .sass-cache
 *.css.map
+
+# Temp Diff Files
+*.orig

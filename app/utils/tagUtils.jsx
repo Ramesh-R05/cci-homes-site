@@ -31,7 +31,7 @@ class TagUtils {
      */
     getTagName(tag) {
         if ( !_.isString(tag) ) { return ''; }
-        let matches = /([^:]*)$/.exec(tag.trim());
+        var matches = /([^:]*)$/.exec(tag.trim());
         return matches[0];
     }
 
@@ -74,7 +74,12 @@ class TagUtils {
         return this.FILTERS_CATEGORIES[category];
     }
 
-    /*TODO : Documentation & Description*/
+    /**
+     * TODO : Documentation & Description
+     * @param Array tags
+     * @param Array selectedTags
+     * @returns  {}
+     */
     getFiltersFromTags(tags, selectedTags) {
         let filters = {};
         if (Array.isArray(tags)) {

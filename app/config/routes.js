@@ -1,14 +1,11 @@
 import loadContent from '../actions/loadContent';
-import homeHandler from '../components/home/home';
 import sectionHandler from '../components/section/section';
-import articleHandler from '../components/article/section';
+import sectionHandler from '../components/section/section';
 
 export default {
-    home: {
-        path: '/',
-        method: 'get',
-        handler: homeHandler,
-        label: 'Home',
+    api: {
+        path: '/api/:all*',
+        method: 'get'
         action: loadContent
     },
 
@@ -17,14 +14,11 @@ export default {
         method: 'get',
         handler: sectionHandler,
         label: 'section',
-        action: loadContent
     },
-
-    article: {
+    section: {
         path: '/:all*',
         method: 'get',
-        handler: articleHandler,
-        label: 'Article',
-        action: loadContent
+        handler: require('../components/templates/default'),
+        action: require('../actions/loadContent')
     }
 };

@@ -6,9 +6,14 @@ var start = function(port) {
     var express = require('express');
     var server = express();
 
-    server.get('/section/article-01-creative-home', function(req, res) {
-        var article = require(process.cwd() + '/automation/test_data/article');
-        res.json(article);
+    server.get('/section/article-hero-image', function(req, res) {
+        var article_hero_image = require(process.cwd() + '/automation/test_data/article_hero_image');
+        res.json(article_hero_image);
+    });
+
+    server.get('/section/article-hero-video', function(req, res) {
+        var article_hero_video = require(process.cwd() + '/automation/test_data/article_hero_video');
+        res.json(article_hero_video);
     });
 
     server.listen(port);
@@ -18,3 +23,4 @@ var start = function(port) {
 module.exports = {
     start: start
 };
+

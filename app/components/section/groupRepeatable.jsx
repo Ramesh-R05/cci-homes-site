@@ -34,6 +34,7 @@ export default class GroupRepeatable extends Component {
     }
 }
 
+
 GroupRepeatable.propTypes = {
     articles: PropTypes.array.isRequired
 };

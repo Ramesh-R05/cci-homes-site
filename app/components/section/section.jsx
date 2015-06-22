@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import ArticleStore from '../../stores/article';
+import TaggedArticlesStore from '../../stores/facetedStores/taggedArticles';
+import * as FacetedModuleActions from '../../actions/facetedModule';
 import Group from './group';
 import GroupFeatured from './groupFeatured';
 import GroupRepeatable from './groupRepeatable';
@@ -9,6 +10,15 @@ import SectionHero from './sectionHero';
 class Section extends Component {
     constructor(props, context) {
         super(props, context);
+    }
+
+    componentWillMount() {
+        console.log('[Section][componentWillMount]');
+        this.context.executeAction(FacetedModuleActions.getPage, {
+            page: 0,
+            params: {tags: ['Indoor']},
+            moduleConfig: this.props.moduleConfig
+        })
     }
 
     render() {
@@ -106,10 +116,12 @@ Section.contextTypes = {
     executeAction: PropTypes.func
 };
 
-Section = connectToStores(Section, [ArticleStore], (stores) => {
+Section = connectToStores(Section, [TaggedArticlesStore], (stores) => {
+    console.log('[Section][connectToStores]');
     return {
-        articles: stores.ArticleStore.getArticles(),
-        featuredArticles: stores.ArticleStore.getFeaturedArticles()
+        articles: stores.TaggedArticlesStore.getItems(),
+        featuredArticles: stores.TaggedArticlesStore.getItems(),
+        moduleConfig: stores.TaggedArticlesStore.getConfiguration()
     };
 });
 
