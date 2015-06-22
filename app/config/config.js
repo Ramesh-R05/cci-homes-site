@@ -4,7 +4,16 @@ import breakpoints from '../breakpoints';
 
 const envConfig = loader.load(process.env.NODE_ENVIRONMENT);
 
-const config = {
+let config = {
+
+    typekit: {
+        id: 'mmp8xzm'
+    },
+
+    gtm: {
+        id: ''
+    },
+
     brightcove: {
         accountId: '761709621001',
         playerId: 'cf879d82-c4b2-4c3b-9a03-ae8567a693fc'
@@ -16,7 +25,6 @@ const config = {
 
     global: {
         breakpoints,
-        typekit: 'TYPEKIT-ID-NOT-SET',
         googleAds: {
             slotPrefix: 'gpt-slot-',
             networkId: 'GOOGLE-ADS-NETWORKID-NOT-SET',
@@ -54,5 +62,8 @@ const config = {
     }
 
 };
+
+// allows old sites and new sites to use configEditor middleware
+config.server.apiUrl = config.service.content.remote;
 
 export default Object.freeze(merge(config, envConfig));

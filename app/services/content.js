@@ -14,12 +14,12 @@ export default {
     },
 
     read(deferred, params) {
-        request.get(host + path + params.url).send().end((err, res) => {
-            if (err) {
-                console.info('[service][content]', err);
-                deferred.reject(err);
+        request.get(host + path + params.url).send().end((error, response) => {
+            if (error) {
+                console.error(`[service][content] ${error.response.error.status} ${error.response.error.path}`);
+                deferred.reject(error);
             } else {
-                deferred.resolve(res);
+                deferred.resolve(response);
             }
         });
         return deferred.promise;
