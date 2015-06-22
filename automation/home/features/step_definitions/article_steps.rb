@@ -1,13 +1,13 @@
-Given(/^I am viewing an article( with a hero image| with a hero video)$/) do |condition|
+Given(/^I am viewing an article with a hero (image|video)$/) do |condition|
 	case condition
-	when ' with a hero image'
+	when 'image'
   		visit '/section/article-hero-image'
-  	when ' with a hero video'
+  	when 'video'
   		visit '/section/article-hero-video'
   	end	
 end
 
-Then(/^I should see "(.*?)" as the title$/) do |title|
+Then(/^I should see "([^"]+)" as the title$/) do |title| 
   	article_title = find("h1.article__title").text
   	expect(article_title).to eq(title)
 end
@@ -17,17 +17,17 @@ Then(/^I should see a hero image$/) do
   	expect(hero_image.visible?).to eq(true)
 end
 
-Then(/^I should see "(.*?)" within the summary$/) do |summary|
+Then(/^I should see "([^"]+)" within the summary$/) do |summary|
   	article_summary = find('.article__summary').text
   	expect(article_summary).to have_content(summary)
 end
 
-Then(/^I should see "(.*?)" within the first paragragh$/) do |body|
+Then(/^I should see "([^"]+)" within the first paragragh$/) do |body|
   	article_body = first(".content-body__paragraph").text
   	expect(article_body).to have_content(body)
 end
 
-Then(/^I should see an inline image with the text as "(.*?)" in caption$/) do |image_caption|
+Then(/^I should see an inline image with the text as "([^"]+)" in caption$/) do |image_caption|
 	article_inline_image = find('.content-body__inline-image img')
   	article_inline_image_caption = find('.content-body__inline-image-caption').text
 
@@ -45,6 +45,6 @@ Then(/^I should see a hero video$/) do
   	expect(hero_video.visible?).to eq(true)
 end
 
-Then(/^I should see (\d+) "(.*?)" ad slots?$/) do |slot_count, ad_slot|
+Then(/^I should see (\d+) "([^"]+)" ad slots?$/) do |slot_count, ad_slot|
   expect(page).to have_selector(".#{ad_slot} > div > div", count: slot_count.to_i)
 end
