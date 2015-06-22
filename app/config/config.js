@@ -5,10 +5,9 @@ import breakpoints from '../breakpoints';
 const envConfig = loader.load(process.env.NODE_ENVIRONMENT);
 
 const config = {
-    // TODO (cjenkins 2015/06/11): Replace this accountId and playerId with the Homes one. Right now this is the one for Food
     brightcove: {
         accountId: '761709621001',
-        playerId: '6050ce74-35a8-43ef-ba96-cd2c38a30b65'
+        playerId: 'cf879d82-c4b2-4c3b-9a03-ae8567a693fc'
     },
 
     gigya: {
