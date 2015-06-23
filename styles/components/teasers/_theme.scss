@@ -19,15 +19,12 @@
         }
 
         &:hover {
+            .teaser__icon {
+                svg {
+                    fill: nth($color, 2);
+                }
 
-            svg {
-                fill: nth($color, 2);
             }
-
-            .teaser__source span {
-                color: nth($color, 2);
-            }
-
         }
     }
 }

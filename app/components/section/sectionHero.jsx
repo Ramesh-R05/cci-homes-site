@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
+import {size} from 'lodash/collection';
 
-
-export default class GroupFeatured extends Component {
+export default class SectionHero extends Component {
     render() {
         const {firstHero, secondHero} = this.props;
 
-        if (!firstHero || !secondHero) return null;
+        if ( size(firstHero) === 0 ) return null;
 
         return (
             <section className="section--heroes">
@@ -19,12 +19,12 @@ export default class GroupFeatured extends Component {
     }
 }
 
-GroupFeatured.propTypes = {
+SectionHero.propTypes = {
     firstHero: PropTypes.object.isRequired,
     secondHero: PropTypes.object.isRequired
 };
 
-GroupFeatured.defaultProps = {
-    firstHero: [],
-    secondHero: []
+SectionHero.defaultProps = {
+    firstHero: {},
+    secondHero: {}
 };

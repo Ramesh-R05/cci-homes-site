@@ -10,12 +10,12 @@ export default {
             source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Decorating:Colour:Pink",
-                "food:Decorating:Colour:Purple",
-                "food:Decorating:Colour:Red",
-                "food:Decorating:Colour:White",
-                "food:Decorating:Colour:Yellow",
-                "food:Topic:Feature room"
+                "homes:Decorating:Colour:Pink",
+                "homes:Decorating:Colour:Purple",
+                "homes:Decorating:Colour:Red",
+                "homes:Decorating:Colour:White",
+                "homes:Decorating:Colour:Yellow",
+                "homes:Topic:Feature room"
             ]
         },
         {
@@ -26,8 +26,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Designer's Home",
-                "food:Topic:Eclectic"
+                "homes:Topic:Designer's Home",
+                "homes:Topic:Eclectic"
             ],
             video: {
                 id: 'VIDEO-2211',
@@ -51,8 +51,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Homes navigation:Outdoor"
+                "homes:Topic:Gardening",
+                "homes:Homes navigation:Outdoor"
             ]
         },
         {
@@ -64,9 +64,9 @@ export default {
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Outdoor news",
-                "food:Homes navigation:Outdoor",
-                "food:DIY and craft:DIY and craft tools:Tape measure"
+                "homes:Topic:Outdoor news",
+                "homes:Homes navigation:Outdoor",
+                "homes:DIY and craft:DIY and craft tools:Tape measure"
             ]
         },
         {
@@ -77,8 +77,8 @@ export default {
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ],
             video: {
                 id: 'VIDEO-2211',
@@ -102,8 +102,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -114,8 +114,8 @@ export default {
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -126,8 +126,8 @@ export default {
             source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ],
             video: {
                 id: 'VIDEO-2211',
@@ -152,8 +152,8 @@ export default {
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -164,8 +164,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -177,8 +177,8 @@ export default {
             source: "Homes+",
             summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags: [
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -189,8 +189,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -202,8 +202,8 @@ export default {
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -214,8 +214,8 @@ export default {
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -227,8 +227,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -239,8 +239,8 @@ export default {
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -251,8 +251,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -264,8 +264,8 @@ export default {
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -276,8 +276,8 @@ export default {
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         },
         {
@@ -289,8 +289,8 @@ export default {
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
             articleTags:[
-                "food:Topic:Gardening",
-                "food:Renovating:Materials:Bamboo"
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
             ]
         }
 
@@ -304,8 +304,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -317,8 +317,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -329,8 +329,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -342,8 +342,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -354,8 +354,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -366,8 +366,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -379,8 +379,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -391,8 +391,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //},
         //{
@@ -404,8 +404,8 @@ export default {
         //    source:"Australian House and Garden",
         //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
         //    articleTags:[
-        //        "food:Topic:Gardening",
-        //        "food:Renovating:Materials:Bamboo"
+        //        "homes:Topic:Gardening",
+        //        "homes:Renovating:Materials:Bamboo"
         //    ]
         //}
 

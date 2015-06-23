@@ -13,7 +13,6 @@ class Section extends Component {
     }
 
     componentWillMount() {
-        console.log('[Section][componentWillMount]');
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
             params: {tags: ['Indoor']},
@@ -22,29 +21,36 @@ class Section extends Component {
     }
 
     render() {
-        const {articles, featuredArticles} = this.props;
+        let sliceUp;
+        const {articles} = this.props;
 
         if (!articles.length) return null;
 
-
         const firstHero = articles.slice(0, 1)[0];
         /*lg breakpoint only*/
-        const secondHero = articles.slice(4, 5)[0];
+        const secondHero = articles.length >= 5 ? articles.slice(4, 5)[0] : {};
         /* xLarge only */
-        const teaser3WithAd = articles.slice(4, 7);
+        sliceUp = articles.length >= 7 ? 7 : articles.length;
+        const teaser3WithAd = articles.length > 4 ? articles.slice(4, sliceUp) : [];
+        /* Featured Article slice 1,4 */
+        sliceUp = articles.length >= 4 ? 4 : articles.length;
+        const featuredArticles = articles.length > 1 ? articles.slice(1, sliceUp) : [];
         /* hidden for large bp */
-        const teaser4WithAd = articles.slice(7, 11);
+        sliceUp = articles.length >= 11 ? 11 : articles.length;
+        const teaser4WithAd = articles.length > 7 ? articles.slice(7, sliceUp) : [];
         /* 6 teasers with ad - visible for large bp only*/
-        const teaser6WithAd = articles.slice(5, 11);
+        sliceUp = articles.length >= 11 ? 11 : articles.length;
+        const teaser6WithAd = articles.length > 5 ? articles.slice(5, sliceUp) : [];
         /* repeatable group max 11 articles */
-        const teaser11 = articles.slice(11, articles.length);
+        sliceUp = articles.length >= 22 ? 22 : articles.length;
+        const teaser11 = articles.length > 11 ? articles.slice(11, sliceUp) : [];
 
         return (
             <div className="container">
 
                 <div className="row">
                     {/*TODO: make this dynamic based on the navigation tag parameter*/}
-                    <h1 className="section-heading">Home <b>Inspiration</b></h1>
+                    {/*<h1 className="section-heading">Home <b>Inspiration</b></h1>*/}
                 </div>
 
                 <div className="row">
@@ -57,7 +63,6 @@ class Section extends Component {
                         </div>
                     </GroupFeatured>
                 </div>
-
                 {/* Three teasers with ad - xlarge bp only*/}
                 <div className="row hidden-for-large-only">
                     <Group articles={teaser3WithAd} modifier="3-items">
@@ -103,13 +108,11 @@ class Section extends Component {
 
 Section.propTypes = {
     articles: PropTypes.array.isRequired,
-    featuredArticles: PropTypes.array.isRequired,
     moduleConfig: PropTypes.any
 };
 
 Section.defaultProps = {
-    articles: [],
-    featuredArticles: []
+    articles: []
 };
 
 Section.contextTypes = {
@@ -118,10 +121,8 @@ Section.contextTypes = {
 };
 
 Section = connectToStores(Section, [TaggedArticlesStore], (stores) => {
-    console.log('[Section][connectToStores]');
     return {
         articles: stores.TaggedArticlesStore.getItems(),
-        featuredArticles: stores.TaggedArticlesStore.getItems(),
         moduleConfig: stores.TaggedArticlesStore.getConfiguration()
     };
 });

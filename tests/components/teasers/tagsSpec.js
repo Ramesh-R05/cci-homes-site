@@ -17,8 +17,8 @@ describe('TeaserTags', () => {
 
     describe('with two tags including one from the topic category in the first position', () => {
         const tags = [
-            'food:Topic:Gardening',
-            'food:Renovating:Materials:Bamboo'
+            'homes:Topic:Gardening',
+            'homes:Renovating:Materials:Bamboo'
         ];
 
         before(() => {
@@ -40,9 +40,9 @@ describe('TeaserTags', () => {
 
     describe('with three tags', () => {
         const tags = [
-            'food:Homes navigation:Outdoor',
-            'food:Renovating:Materials:Wood',
-            'food:Topic:Gardening'
+            'homes:Homes navigation:Outdoor',
+            'homes:Renovating:Materials:Wood',
+            'homes:Topic:Gardening'
         ];
 
         before(() => {
@@ -64,10 +64,10 @@ describe('TeaserTags', () => {
 
     describe('with two tags from the Topic category', () => {
         const tags = [
-            'food:Homes navigation:Outdoor',
-            'food:Renovating:Materials:Timber',
-            'food:Topic:DIY',
-            'food:Topic:Gardening'
+            'homes:Homes navigation:Outdoor',
+            'homes:Renovating:Materials:Timber',
+            'homes:Topic:DIY',
+            'homes:Topic:Gardening'
         ];
 
         before(() => {
@@ -89,8 +89,8 @@ describe('TeaserTags', () => {
 
     describe('with two tags including one from the topic category and one from the Homes navigation category', () => {
         const tags = [
-            'food:Topic:Gardening',
-            'food:Homes navigation:Outdoor'
+            'homes:Topic:Gardening',
+            'homes:Homes navigation:Outdoor'
         ];
 
         before(() => {
@@ -104,16 +104,16 @@ describe('TeaserTags', () => {
         });
 
         it(`should have ignored the navigation tag`, () => {
-            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'tag-secondary').length)
-                .to.equal(0);
+            console.log(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'tag-secondary'));
+            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'tag-secondary').length).to.equal(0);
         });
     });
 
     describe('with two tags without one from the topic category', () => {
 
         const tags = [
-            'food:DIY and craft:DIY and craft tools:Tape measure',
-            'food:Renovating:Materials:Bamboo'
+            'homes:DIY and craft:DIY and craft tools:Tape measure',
+            'homes:Renovating:Materials:Bamboo'
         ];
 
         before(() => {

@@ -1,7 +1,7 @@
 export default{
     "campaign": [],
     "articleTags": [
-        "food:Topic:Garden planner"
+        "homes:Topic:Garden planner"
     ],
     "source": "Australian House and Garden",
     "body": [

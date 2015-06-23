@@ -1,6 +1,7 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
 import {intersection} from 'lodash/array';
+import {extend} from 'lodash/object';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -35,7 +36,6 @@ describe('Teaser', () => {
         let Summary;
         let Tags;
         let Source;
-        let rTeaser;
         const props = articlesMock.basic;
 
         before(() => {
@@ -45,7 +45,6 @@ describe('Teaser', () => {
             Summary = TestUtils.findRenderedComponentWithType(reactModule, SummaryStub);
             Source = TestUtils.findRenderedComponentWithType(reactModule, SourceStub);
             Tags = TestUtils.findRenderedComponentWithType(reactModule, TagsStub);
-            rTeaser = TestUtils.findRenderedComponentWithType(reactModule, Teaser);
         });
 
         after(() => {
@@ -129,8 +128,7 @@ describe('Teaser', () => {
     describe('with the modifier prop', () => {
         let reactModule;
         let Image;
-        const props = articlesMock.basic;
-        props.modifier = 'hero';
+        const props = extend({}, articlesMock.basic, { modifier: 'hero' });
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
@@ -155,8 +153,7 @@ describe('Teaser', () => {
     describe('with the sizes prop', () => {
         let reactModule;
         let Image;
-        const props = articlesMock.basic;
-        props.sizes = 'narrow';
+        const props = extend({}, articlesMock.basic, { sizes: 'narrow' });
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);

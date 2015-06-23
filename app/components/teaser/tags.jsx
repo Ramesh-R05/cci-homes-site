@@ -1,24 +1,20 @@
 import React, {Component, PropTypes} from 'react';
-//import tagUtils from '@bxm/ui/lib/to-love/utils/tagUtils';
 import TagUtils from '../../utils/tagUtils';
 import {difference, union} from 'lodash/array';
-import {isNull} from 'lodash/lang';
+import {isUndefined} from 'lodash/lang';
 
 export default class Tags extends Component {
 
     getTags() {
-        TagUtils.setRelatedCategories(['Topic']);
-        const primaryTags = TagUtils.getRelatedTags(this.props.tags);
-
-        TagUtils.setRelatedCategories(['Homes navigation']);
-        const unwantedTags = TagUtils.getRelatedTags(this.props.tags);
+        const primaryTags = TagUtils.getRelatedTags(this.props.tags, ['Topic']);
+        const unwantedTags = TagUtils.getRelatedTags(this.props.tags, ['Homes navigation']);
 
         if (primaryTags.length === 0) return {};
 
         let primary = TagUtils.getTagName( primaryTags[0]);
 
         let secondaryTags = difference( this.props.tags, union( primaryTags, unwantedTags ) );
-        let secondary = secondaryTags.length > 0 ? TagUtils.getTagName(secondaryTags[0]) : null;
+        let secondary = TagUtils.getTagName(secondaryTags[0]);
         return { primary, secondary };
     }
 
@@ -27,10 +23,10 @@ export default class Tags extends Component {
 
         const tags = this.getTags( this.props.tags );
 
-        if (!tags.primary) return null;
+        if (isUndefined(tags.primary)) return null;
 
         const primaryTagHtml = <span className="tag-primary">{tags.primary}</span>;
-        const secondaryTagHtml = isNull(tags.secondary) ? '' : <span className="tag-secondary">, {tags.secondary}</span>;
+        const secondaryTagHtml = isUndefined(tags.secondary) ? '' : <span className="tag-secondary">, {tags.secondary}</span>;
 
         return (
             <p className="teaser__tags">

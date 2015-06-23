@@ -1,7 +1,7 @@
 import facetedModuleService from '../services/facetedModule';
 
 export function getPage(context, payload:GetPageParameters) {
-    console.log('[FacetedModuleAction][getPage]', payload);
+    //console.log('[FacetedModuleAction][getPage]', payload);
     return context.getService(facetedModuleService).read(payload).then(
       (content) => { getPageSuccess(context, payload, content); },
       (content) => { getPageFailure(context, payload, content); });

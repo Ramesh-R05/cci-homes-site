@@ -25,7 +25,7 @@ const Section = proxyquire('../../../app/components/section/section', {
     './sectionHero': SectionHeroStub
 });
 
-const featuredArticles = articlesMock; //articlesMock.splice(1, 4);
+const featuredArticles = articlesMock.slice(1, 4);
 
 Context.addStore('TaggedArticlesStore', {
     getItems() {
@@ -61,8 +61,12 @@ describe(`Section`, () => {
     });
 
     // Hero Section
-    it(`should render the hero section`, () => {
+    it(`should pass firstHero properly`, () => {
         expect(SectionHero.props.firstHero).to.deep.equal(articlesMock.slice(0, 1)[0]);
+    });
+
+    it(`should pass second properly`, () => {
+        expect(SectionHero.props.secondHero).to.deep.equal(articlesMock.slice(4, 5)[0]);
     });
 
     // Featured articles
@@ -70,59 +74,62 @@ describe(`Section`, () => {
         expect(GroupFeatured.props.articles).to.deep.equal(featuredArticles);
     });
 
-    // First group of articles
-    const expectedFirstGroupModifier = '3-items';
-    it(`should pass down the ${expectedFirstGroupModifier} modifier to the first group of articles`, () => {
-        expect(Groups[0].props.modifier).to.equal(expectedFirstGroupModifier);
+    describe(`First group of articles`, () => {
+        const expectedFirstGroupModifier = '3-items';
+        it(`should pass down the ${expectedFirstGroupModifier} modifier to the first group of articles`, () => {
+            expect(Groups[0].props.modifier).to.equal(expectedFirstGroupModifier);
+        });
+
+        it(`should pass down the next 3 articles to the second group of articles`, () => {
+            expect(Groups[0].props.articles).to.deep.equal(articlesMock.slice(4, 7));
+        });
     });
 
-    it(`should pass down the next 3 articles to the second group of articles`, () => {
-        expect(Groups[0].props.articles).to.deep.equal(articlesMock.slice(4, 7));
+    describe(`Second group of articles`, () => {
+        const expectedSecondGroupModifier = '6-or-4-items';
+        const expectedSecondGroupClass = 'hidden-for-large-only';
+        const expectedSecondGroupTeaserModifier = 'img-top';
+        it(`should pass down the ${expectedSecondGroupModifier} modifier to the second group of articles`, () => {
+            expect(Groups[1].props.modifier).to.equal(expectedSecondGroupModifier);
+        });
+
+        it(`should pass down the ${expectedSecondGroupClass} className to the second group of articles`, () => {
+            expect(Groups[1].props.className).to.equal(expectedSecondGroupClass);
+        });
+
+        it(`should pass down the ${expectedSecondGroupTeaserModifier} teaser modifier to the second group of articles`, () => {
+            expect(Groups[1].props.teaserModifier).to.equal(expectedSecondGroupTeaserModifier);
+        });
+
+        it(`should pass down the next 4 articles to the second group of articles`, () => {
+            expect(Groups[1].props.articles).to.deep.equal(articlesMock.slice(7, 11));
+        });
     });
 
-    // Second group of articles
-    const expectedSecondGroupModifier = '6-or-4-items';
-    const expectedSecondGroupClass = 'hidden-for-large-only';
-    const expectedSecondGroupTeaserModifier = 'img-top';
-    it(`should pass down the ${expectedSecondGroupModifier} modifier to the second group of articles`, () => {
-        expect(Groups[1].props.modifier).to.equal(expectedSecondGroupModifier);
+    describe(`Third group of articles`, () => {
+        const expectedThirdGroupModifier = '6-or-4-items';
+        const expectedThirdGroupClass = 'visible-for-large-only';
+        const expectedThirdGroupTeaserModifier = 'img-top';
+        it(`should pass down the ${expectedThirdGroupModifier} modifier to the second group of articles`, () => {
+            expect(Groups[2].props.modifier).to.equal(expectedThirdGroupModifier);
+        });
+
+        it(`should pass down the ${expectedThirdGroupClass} className to the second group of articles`, () => {
+            expect(Groups[2].props.className).to.equal(expectedThirdGroupClass);
+        });
+
+        it(`should pass down the ${expectedThirdGroupTeaserModifier} teaser modifier to the second group of articles`, () => {
+            expect(Groups[2].props.teaserModifier).to.equal(expectedThirdGroupTeaserModifier);
+        });
+
+        it(`should pass down the next 6 articles to the second group of articles`, () => {
+            expect(Groups[2].props.articles).to.deep.equal(articlesMock.slice(5, 11));
+        });
     });
 
-    it(`should pass down the ${expectedSecondGroupClass} className to the second group of articles`, () => {
-        expect(Groups[1].props.className).to.equal(expectedSecondGroupClass);
+    describe(`repeatable group of articles`, () => {
+        it(`should pass down the remaining articles to the repeatable group`, () => {
+            expect(GroupRepeatable.props.articles).to.deep.equal(articlesMock.slice(11, articlesMock.length));
+        });
     });
-
-    it(`should pass down the ${expectedSecondGroupTeaserModifier} teaser modifier to the second group of articles`, () => {
-        expect(Groups[1].props.teaserModifier).to.equal(expectedSecondGroupTeaserModifier);
-    });
-
-    it(`should pass down the next 4 articles to the second group of articles`, () => {
-        expect(Groups[1].props.articles).to.deep.equal(articlesMock.slice(7, 11));
-    });
-
-    // Third group of articles
-    const expectedThirdGroupModifier = '6-or-4-items';
-    const expectedThirdGroupClass = 'visible-for-large-only';
-    const expectedThirdGroupTeaserModifier = 'img-top';
-    it(`should pass down the ${expectedThirdGroupModifier} modifier to the second group of articles`, () => {
-        expect(Groups[2].props.modifier).to.equal(expectedThirdGroupModifier);
-    });
-
-    it(`should pass down the ${expectedThirdGroupClass} className to the second group of articles`, () => {
-        expect(Groups[2].props.className).to.equal(expectedThirdGroupClass);
-    });
-
-    it(`should pass down the ${expectedThirdGroupTeaserModifier} teaser modifier to the second group of articles`, () => {
-        expect(Groups[2].props.teaserModifier).to.equal(expectedThirdGroupTeaserModifier);
-    });
-
-    it(`should pass down the next 6 articles to the second group of articles`, () => {
-        expect(Groups[2].props.articles).to.deep.equal(articlesMock.slice(5, 11));
-    });
-
-    // Repeatable group of articles
-    it(`should pass down the remaining articles to the repeatable group`, () => {
-        expect(GroupRepeatable.props.articles).to.deep.equal(articlesMock.slice(11, articlesMock.length));
-    });
-
 });

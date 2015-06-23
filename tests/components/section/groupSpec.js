@@ -78,8 +78,13 @@ describe('Group', () => {
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, className);
         });
 
-        it('should have the custom classname', () => {
+        it('Group should exist', () => {
             expect(React.findDOMNode(reactModule)).to.exist;
+        });
+
+        it('should have the custom classname "${className}"', () => {
+            let classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            expect(classNames).to.contain(className);
         });
     });
 

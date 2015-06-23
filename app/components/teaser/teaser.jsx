@@ -17,14 +17,14 @@ class Teaser extends Component {
     getImgSizes(sizes, modifier) {
         if ( !isUndefined(Teaser.imageSizes[sizes])) {
             return Teaser.imageSizes[sizes];
-        } else if ( !isUndefined(Teaser[modifier])) {
+        } else if ( !isUndefined(Teaser.imageSizes[modifier])) {
             return Teaser.imageSizes[modifier];
         }
         return Teaser.imageSizes.base;
     }
 
     render() {
-        if (!this.props.id) return null;
+        if ( isUndefined(this.props.id)) return null;
 
         const {url, modifier, sizes, themeClass} = this.props;
         const gtmClass = `gtm-${this.props.id}`;
