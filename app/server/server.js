@@ -76,16 +76,19 @@ let main = () => {
     });
 
     server.use('/', (req, res, next) => {
-        let context = app.createContext();
+        const context = app.createContext();
         context.executeAction(navigateAction, { url: req.originalUrl }, (err) => {
             if (err) return next(err);
-            let exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
-            let html = react.renderToStaticMarkup(htmlComponent({
-                state: exposed,
-                markup: react.renderToString(context.createElement()),
-                context: context.getComponentContext()
-            }));
-            res.send(html);
+            react.renderToString(context.createElement());
+            app.getPlugin('ServicesPlugin').onServicesComplete().then(() => {
+                const exposed = `window.App=${serialize(app.dehydrate(context))};`;
+                const html = react.renderToStaticMarkup(htmlComponent({
+                    state: exposed,
+                    markup: react.renderToString(context.createElement()),
+                    context: context.getComponentContext()
+                }));
+                res.send(html);
+            });
         });
     });
 

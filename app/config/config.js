@@ -46,6 +46,11 @@ const config = {
             local: 'http://127.0.0.1',
             path: '/api/content'
         }
+    },
+    services: {
+        header: {
+            url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
+        }
     }
 
 };

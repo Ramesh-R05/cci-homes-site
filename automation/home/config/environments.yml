@@ -5,7 +5,7 @@ automation:
   solr_collection_search_name: home-search-automation
 
 local:
-  web:http://localhost:80
+  web: http://localhost:80
 
 stubbed:
-  web:http://localhost:8080
+  web: http://localhost:8080
