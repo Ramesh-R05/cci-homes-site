@@ -6,6 +6,11 @@ var start = function(port) {
     var express = require('express');
     var server = express();
 
+    server.get('/', function(req, res) {
+        var home = require(process.cwd() + '/automation/test_data/home');
+        res.json(home);
+    });
+
     server.get('/section/article-hero-image', function(req, res) {
         var article_hero_image = require(process.cwd() + '/automation/test_data/article_hero_image');
         res.json(article_hero_image);

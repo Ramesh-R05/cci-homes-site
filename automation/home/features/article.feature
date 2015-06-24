@@ -12,7 +12,7 @@ Feature: article detail page
 	And I should see "Article Short Teaser" within the summary
 	And I should see "Perhaps the best way to make a house" within the first paragragh
 	And I should see an inline image with the text as "Inline Image Caption" in caption
-	And I should see a source logo 
+	And I should see a source logo
 
   @DHO-183
   Scenario: Check hero video
