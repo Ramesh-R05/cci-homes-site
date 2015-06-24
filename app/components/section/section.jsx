@@ -18,7 +18,7 @@ class Section extends Component {
             page: 0,
             params: {tags: ['Indoor']},
             moduleConfig: this.props.moduleConfig
-        })
+        });
     }
 
     render() {
@@ -103,7 +103,8 @@ class Section extends Component {
 
 Section.propTypes = {
     articles: PropTypes.array.isRequired,
-    featuredArticles: PropTypes.array.isRequired
+    featuredArticles: PropTypes.array.isRequired,
+    moduleConfig: PropTypes.any
 };
 
 Section.defaultProps = {

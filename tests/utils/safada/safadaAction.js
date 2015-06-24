@@ -1,12 +1,10 @@
-var _ = require('lodash');
+import extend from 'lodash/object/extend';
 
-var SafadaAction = function() {
-
+let SafadaAction = function() {
 };
 
-_.extend(SafadaAction.prototype, {
+extend(SafadaAction.prototype, {
     mockAction: function() {
-
     }
 });
 

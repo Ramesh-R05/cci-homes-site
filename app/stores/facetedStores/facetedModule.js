@@ -1,6 +1,6 @@
 import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
-import * as _ from 'lodash';
+import extend from 'lodash/object/extend';
 
 class FacetedModuleStore extends BaseStore {
 
@@ -27,7 +27,8 @@ class FacetedModuleStore extends BaseStore {
     }
 
     onPageReceived(payload) {
-        if (payload.lynxStoreName != this.lynxStoreName) return;
+        if (payload.lynxStoreName !== this.lynxStoreName) return;
+
         this.traceMethod('onPageReceived', payload);
 
         this.faceting = payload.content.faceting;
@@ -37,9 +38,7 @@ class FacetedModuleStore extends BaseStore {
         // dang: hack to get page size into the paging object. we will do this via the backend one day.
         this.paging.pageSize = this.paging.pageSize || this.settings.pageSize;
 
-        _.forEach(payload.content.items, (k, v) => {
-            this.items[k.id] = k;
-        });
+        payload.content.items.forEach(item => this.items[item.id] = item);
 
         this.emitChange();
     }
@@ -55,11 +54,8 @@ class FacetedModuleStore extends BaseStore {
     }
 
     getItems() {
-
         // consumers expect the store to be an array, so we will convert it back to keep them happy
-        var items = Object.keys(this.items).map((key) => {
-            return this.items[key];
-        });
+        const items = Object.keys(this.items).map(key => this.items[key]);
 
         this.traceMethod('getItems', items);
 
@@ -87,24 +83,24 @@ class FacetedModuleStore extends BaseStore {
 
     rehydrate(state) {
         this.traceMethod('rehydrate', state);
-        _.extend(this, state);
+        extend(this, state);
     }
 
     traceMethod(method, data) {
         if (data && (canUseDOM || typeof data == typeof '')) {
-            console.log('[FacetedModuleStore#' + this.lynxStoreName + '][' + method + ']', data);
+            console.log(`[FacetedModuleStore#${this.lynxStoreName}][${method}]`, data);
         }
         else {
-            console.log('[FacetedModuleStore#' + this.lynxStoreName + '][' + method + '] ');
+            console.log(`[FacetedModuleStore#'${this.lynxStoreName}][${method} ]`);
         }
     }
 
     traceError(method, data) {
         if (data && (canUseDOM || typeof data == typeof '')) {
-            console.error('[ERROR][FacetedModuleStore#' + this.lynxStoreName + '][' + method + ']', data);
+            console.error(`[ERROR][FacetedModuleStore#${this.lynxStoreName}][${method}']`, data);
         }
         else {
-            console.error('[ERROR][FacetedModuleStore#' + this.lynxStoreName + '][' + method + '] ');
+            console.error(`[ERROR][FacetedModuleStore#'${this.lynxStoreName}][${method}]`);
         }
     }
 
@@ -137,14 +133,4 @@ class ModuleConfiguration {
     lynxStoreName:String;
     entityId:String;
     modules:Object;
-}
-
-class LynxModulePayload {
-    constructor(lynxStoreName:String, content:Object) {
-        this.lynxStoreName = lynxStoreName;
-        this.content = content;
-    }
-
-    lynxStoreName:String;
-    content:Object;
 }

@@ -1,15 +1,15 @@
-var _ = require('lodash');
+import extend from 'lodash/object/extend';
 
-var SafadaMock = function(context, name) {
+let SafadaMock = function(context, name) {
     this.name = name;
     this.props = {};
     this.context = context;
     this.reactComponent = null;
 };
 
-_.extend(SafadaMock.prototype, {
+extend(SafadaMock.prototype, {
     createComponent: function() {
-        var _this = this;
+        const _this = this;
         return this.context.React.createClass({
             render: function() {
                 _this.props = this.props;

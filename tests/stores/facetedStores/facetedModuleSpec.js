@@ -1,16 +1,19 @@
-var _ = require('lodash');
+import extend from 'lodash/object/extend';
 import {betterMockActionContext} from '@bxm/flux';
-var safada = require('../../utils/safada/safada')(Context);
-var proxyquire = require('proxyquire').noCallThru();
+import {contentPayload, pageReceivedPayload} from '../../mock/facetedModule';
+const safada = require('../../utils/safada/safada')(Context);
+const proxyquire = require('proxyquire').noCallThru();
 
-var storeNameUnderTest = 'storeName';
-var Context, store, anotherStore;
+const storeNameUnderTest = 'storeName';
+let Context;
+let store;
+let anotherStore;
 
-function createContext() {
+const createContext = () => {
     Context = betterMockActionContext();
     store = Context.registerStore(require('./facetedModuleImpl'));
     sinon.spy(store, 'emitChange');
-}
+};
 
 describe('Stores', () => {
     before(() => {
@@ -73,6 +76,10 @@ describe('Stores', () => {
                 Context.dispatch('FACETED_MODULE:PAGE_RECEIVED:FAILURE', {lynxStoreName: storeNameUnderTest, content: 'error'});
             });
 
+            afterEach(() => {
+               console.error.restore();
+            });
+
             it('should trace error', () => {
                 expect(console.error.called).to.be.true;
             });
@@ -93,7 +100,7 @@ describe('Stores', () => {
             });
 
             it('will throw if the store tries to use the payload', () => {
-                expect(() => Context.dispatch('FACETED_MODULE:PAGE_RECEIVED', _.extend(pageReceivedPayload, {lynxStoreName: storeNameUnderTest})).to.throw());
+                expect(() => Context.dispatch('FACETED_MODULE:PAGE_RECEIVED', extend(pageReceivedPayload, {lynxStoreName: storeNameUnderTest})).to.throw());
             });
 
             it('FACETED_MODULE:PAGE_RECEIVED ignores payloads meant for another faceted module store', () => {
@@ -102,48 +109,3 @@ describe('Stores', () => {
         });
     });
 });
-
-var contentPayload = {
-    body: {
-        entity: {
-            id: 'ENTITY-ID'
-        },
-        stores: {
-            store1: {module: {id: "MDOULE-1", storeName: "module1"}},
-            store2: {module: {id: "MDOULE-2", storeName: "module2"}}
-        }
-    }
-};
-
-var pageReceivedPayload = {
-    lynxStoreName: 'storeName',
-    content: {
-        "entity": {"id": "HOMES-1206"},
-        "module": {"storeName": "taggedArticles", "id": "HOMES-1208"},
-        "faceting": {
-            "facetCounts": {
-                "facetFields": [{"name": "articleTags", "values": [{"value": "food:Audience:All", "count": 1}]}]
-            }
-        },
-        "settings": {"pageSize": 8},
-        "items": [
-            {
-                "articleTags": ["food:Building:Building style:Industrial", "food:Topic:Inspired by", "food:Location and setting:Australia:New South Wales:Blue Mountains", "food:Price range:Renovating:$250,001 - $500,000", "food:Season:Autumn", "food:Building:Type:Apartment/unit", "food:Room:Living:Open plan living room", "food:Decorating:Style:Minimalist", "food:Homes navigation:Indoor"], "source": "Australian House and Garden",
-                "body": [
-                    {"type": "paragraph", "label": "Paragraph", "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan ex non tortor condimentum, non iaculis felis consequat. Duis in iaculis metus. Duis ut metus elementum, imperdiet dui eu, vulputate tortor. Ut at est nulla. Nunc vehicula urna erat, a lobortis tellus viverra nec. "},
-                    {"type": "image", "label": "Image", "content": {"url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/11/1433988041609_1290369106179f.jpg", "valid": true, "title": "Good news everybody", "caption": "Caption: Good news everybody"}},
-                ],
-                "title": "Marina's Article - This is my long title, I like to be descriptive",
-                "summaryTitle": "Marina's Article - Short Title",
-                "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan ex non tortor condimentum, non iaculis felis consequat. Duis in iaculis metus.",
-                "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/11/1229/anne-marina_d.jpg",
-                "id": "HOMES-1229",
-                "name": "Marina Test Article"
-            }
-        ],
-        "paging": {
-            "pages": 4,
-            "totalResults": 31
-        }
-    }
-};

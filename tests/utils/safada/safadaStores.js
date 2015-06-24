@@ -1,6 +1,6 @@
-var _ = require('lodash');
+import extend from 'lodash/object/extend';
 
-var SafadaStores = function(context, data) {
+let SafadaStores = function(context, data) {
 
     this.cloneObject = function(source) {
         return JSON.parse(JSON.stringify(source));
@@ -13,7 +13,7 @@ var SafadaStores = function(context, data) {
     this.createStoresFromData(context, data);
 };
 
-_.extend(SafadaStores.prototype, {
+extend(SafadaStores.prototype, {
     set: function(store, method, value) {
         this.data[store][method] = value;
     },
@@ -24,9 +24,9 @@ _.extend(SafadaStores.prototype, {
         this.data = this.cloneObject(this.initialData);
     },
     createStoresFromData: function(context, data) {
-        var _this = this;
+        const _this = this;
         Object.keys(data).forEach(function(store) {
-            var storeMock = {};
+            let storeMock = {};
             Object.keys(data[store]).forEach(function(method) {
                 storeMock[method] = _this.getMockValue(store, method);
             });
@@ -34,7 +34,7 @@ _.extend(SafadaStores.prototype, {
         });
     },
     getMockValue: function(store, method) {
-        var _this = this;
+        const _this = this;
         return function() {
             //console.log('StoreMocks.getMockValue - ' + store + '.' + method + '=' + _this.data[store][method]);
             return _this.data[store][method];

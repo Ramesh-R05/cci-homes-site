@@ -1,5 +1,4 @@
 import facetedModuleService from '../services/facetedModule';
-import * as _ from 'lodash';
 
 export function getPage(context, payload:GetPageParameters) {
     console.log('[FacetedModuleAction][getPage]', payload);

@@ -1,15 +1,15 @@
-var _ = require('lodash');
-var moment = require('moment');
+import _ from 'lodash';
+import moment from 'moment';
 
-var currentId = 100;
-var templates = {};
+let currentId = 100;
+let templates = {};
 
-function formatDate(date) {
+let formatDate = (date) => {
     return moment(date).format('YYYY-MM-DDTHH:mm:ss');
-}
+};
 
-function createItem(config, index) {
-    var item = _.cloneDeep(templates[config.template]);
+let createItem = (config, index) => {
+    let item = _.cloneDeep(templates[config.template]);
     item = _.extend(item, config.defaults);
 
     if (typeof item.id === 'function') {
@@ -32,14 +32,14 @@ function createItem(config, index) {
 }
 
 module.exports = function() {
-    var tarada = {
+    let tarada = {
         createTemplatedData: function(config) {
             config.count = config.count || 1;
             config.template = config.template || "default";
             config.defaults = config.defaults || {};
 
-            var items = [];
-            for (var i = 0; i < config.count; i++) {
+            let items = [];
+            for (let i = 0; i < config.count; i++) {
                 items.push(createItem(config, i));
                 currentId++;
             }

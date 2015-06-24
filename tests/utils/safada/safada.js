@@ -1,10 +1,10 @@
-var _ = require('lodash');
-var SafadaAction = require('../safada/safadaAction');
-var SafadaMock = require('../safada/safadaMock');
-var SafadaStores = require('../safada/safadaStores');
+import last from 'lodash/array/last';
+import SafadaAction from '../safada/safadaAction';
+import SafadaMock from '../safada/safadaMock';
+import SafadaStores from '../safada/safadaStores';
 
-var namedMocks = {};
-var namedStubs = {};
+let namedMocks = {};
+let namedStubs = {};
 
 module.exports = function(context) {
     return {
@@ -43,12 +43,12 @@ module.exports = function(context) {
             });
         },
         getLastDispatchedPayload: function(eventName){
-            var payloads = context.MockContext.dispatchCalls.filter(function(item) {
+            const payloads = context.MockContext.dispatchCalls.filter(function(item) {
                 return item.name == eventName;
             }).map(function(item) {
                 return item.payload;
             });
-            return _.last(payloads);
+            return last(payloads);
         },
         wasActionExecuted: function(action) {
             return !!this.getExecutedActionPayloads(action).length;
@@ -61,12 +61,12 @@ module.exports = function(context) {
             })
         },
         getLastExecutedActionPayload: function(action) {
-            var payloads = context.getExecutedActions().filter(function(item) {
+            const payloads = context.getExecutedActions().filter(function(item) {
                 return item.action === action;
             }).map(function(item) {
                 return item.payload;
             });
-            return _.last(payloads);
+            return last(payloads);
         },
         actionMock: function() {
             return function() {

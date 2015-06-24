@@ -1,4 +1,5 @@
-import * as _ from 'lodash';
+import isEmpty from 'lodash/lang/isEmpty';
+import map from 'lodash/collection/map';
 import request from 'superagent';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 
@@ -21,16 +22,16 @@ export default function() {
         },
 
         read(deferred, settings) {
-            var moduleId = settings.moduleConfig.modules[settings.moduleConfig.lynxStoreName];
-            var url = host + path + "/" + moduleId + '?node=' + settings.moduleConfig.entityId;
+            const moduleId = settings.moduleConfig.modules[settings.moduleConfig.lynxStoreName];
+            let url = `${host}${path}/${moduleId}?node=${settings.moduleConfig.entityId}`;
 
-            if (!_.isEmpty(settings.params)) {
+            if (!isEmpty(settings.params)) {
                 url += "&" + toQueryString(settings.params);
             }
 
             console.log('[service][facetedModule][read] url = ', url);
 
-            request.get(url).send().end((err, res) => {
+            request.get(url).end((err, res) => {
                 if (err) {
                     console.info('[ERROR][service][facetedModule] %j', err);
                     deferred.reject(err);
@@ -38,19 +39,18 @@ export default function() {
                     deferred.resolve(res);
                 }
             });
+
             return deferred.promise;
         }
     };
-}();
+}()
 
-var toQueryString = function(obj) {
-    return _.map(obj, function(v, k) {
-        if (!_.isArray(v)) {
-            return encodeURIComponent(k) + '=' + encodeURIComponent(v);
+let toQueryString = function(obj) {
+    return map(obj, function(v, k) {
+        if (!Array.isArray(v)) {
+            return `${encodeURIComponent(k)}=${encodeURIComponent(v)}`;
         } else {
-            return encodeURIComponent(k) + '=' + _.map(v, (val) => {
-                  return encodeURIComponent(val);
-              }).join(',');
+            return `${encodeURIComponent(k)}=${v.map(val => encodeURIComponent(val)).join(',')}`;
         }
     }).join('&');
 };

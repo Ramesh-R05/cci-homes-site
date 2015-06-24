@@ -1,12 +1,38 @@
 import q from 'q';
-var nock = require('nock');
-var _ = require('lodash');
-var proxyquire = require('proxyquire').noCallThru();
-var service, nockScope;
+import nock from 'nock';
+import extend from 'lodash/object/extend';
+const proxyquire = require('proxyquire').noCallThru();
+
+let service;
+let nockScope;
+
 
 describe('Services', () => {
     describe('Faceted Module', () => {
         describe('#read', () => {
+            const serviceConfig = {
+                server: {
+                    port: 80
+                },
+                service: {
+                    noDomain: 'http://no-domain',
+                    facetedModule: {
+                        local: 'http://api-host.tld',
+                        path: '/api/facetedModule'
+                    }
+                }
+            };
+
+            const baseSettings = {
+                moduleConfig: {
+                    lynxStoreName: 'testModuleName',
+                    entityId: 'ENTITY-ID',
+                    modules: {
+                        testModuleName: 'MODULE-ID'
+                    }
+                }
+            };
+
             before(() => {
                 nock.disableNetConnect();
             });
@@ -36,7 +62,7 @@ describe('Services', () => {
             it('should transform multiple params to comma separated', () => {
                 nockScope = createNock('http://api-host.tld:80').get('/api/facetedModule/MODULE-ID?node=ENTITY-ID&tags=Sample-Tag1%2CSample-Tag2').reply(200);
 
-                var settings = _.extend({}, baseSettings, {params: {tags: ['Sample-Tag1', 'Sample-Tag2']}});
+                const settings = extend({}, baseSettings, {params: {tags: ['Sample-Tag1', 'Sample-Tag2']}});
                 createService(serviceConfig, false).read(q.defer(), settings);
                 expect(nockScope.isDone()).to.be.true;
             });
@@ -44,7 +70,7 @@ describe('Services', () => {
             it('should encode special chars', () => {
                 nockScope = createNock('http://api-host.tld:80').get('/api/facetedModule/MODULE-ID?node=ENTITY-ID&tags=This%26That').reply(200);
 
-                var settings = _.extend({}, baseSettings, {params: {tags: ['This&That']}});
+                const settings = extend({}, baseSettings, {params: {tags: ['This&That']}});
                 createService(serviceConfig, false).read(q.defer(), settings);
                 expect(nockScope.isDone()).to.be.true;
             });
@@ -52,37 +78,12 @@ describe('Services', () => {
     });
 });
 
-function createNock(scope) {
-    return nock(scope); //.log(console.log);
-}
-
-function createService(config, useDOM) {
-    var service = proxyquire('../../app/services/facetedModule', {
+const createNock = scope => nock(scope); //.log(console.log);
+const createService = (config, useDOM) => {
+    const service = proxyquire('../../app/services/facetedModule', {
         'react/lib/ExecutionEnvironment': {canUseDOM: useDOM}
     });
     service.init(config);
     return service;
-}
-
-var serviceConfig = {
-    server: {
-        port: 80
-    },
-    service: {
-        noDomain: 'http://no-domain',
-        facetedModule: {
-            local: 'http://api-host.tld',
-            path: '/api/facetedModule'
-        }
-    }
 };
 
-var baseSettings = {
-    moduleConfig: {
-        lynxStoreName: 'testModuleName',
-        entityId: 'ENTITY-ID',
-        modules: {
-            testModuleName: 'MODULE-ID'
-        }
-    }
-};

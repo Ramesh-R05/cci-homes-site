@@ -1,21 +1,21 @@
-var Context = {
+const Context = {
     getExecutedActions: function() {
         return [];
     }
 };
 
-var safada = require('../utils/safada/safada')(Context);
+const safada = require('../utils/safada/safada')(Context);
 
 describe('Safada', function() {
-    describe('actionMock', function() {
+    describe('actionMock', () => {
         it('creates unique functions per invocation', function() {
             expect(safada.actionMock()).to.not.equal(safada.actionMock());
         })
     });
 
-    describe('wasActionExecuted', function() {
+    describe('wasActionExecuted', () => {
         it('returns false when there are no matches', function() {
-            var action = new function() {};
+            const action = new function() {};
             expect(safada.wasActionExecuted(action)).to.be.false;
         })
     });
