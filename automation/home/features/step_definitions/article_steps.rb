@@ -1,13 +1,11 @@
-Given(/^I am viewing an article$/) do
-        visit '/section/article-hero-image'
-end
-
-Given(/^I am viewing an article with a hero (image|video)$/) do |condition|
+Given(/^I am viewing an article(?: with a hero (image|video))?$/) do |condition|
     case condition
     when 'image'
         visit '/section/article-hero-image'
     when 'video'
         visit '/section/article-hero-video'
+    else
+        visit '/section/article-hero-image'
     end
 end
 

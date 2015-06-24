@@ -38,6 +38,10 @@ const ArticleStoreStub = {
 Context.addStore('ArticleStore', ArticleStoreStub);
 
 describe('Feed Component', () => {
+    const firstAdIndex = 2;
+    const adSpacing = 12;
+    const articleTags = ['homes:Color:red', 'homes:Color:white', 'homes:Room:kitchen'];
+    const pageId = 'kitchen-1032';
     let reactModule;
 
     afterEach(Context.cleanup);
@@ -47,7 +51,7 @@ describe('Feed Component', () => {
 
         before(() => {
             storeFeedItems = feedDataMock;
-            reactModule = Context.mountComponent(Feed);
+            reactModule = Context.mountComponent(Feed, { pageId, articleTags });
             feedItems = TestUtils.scryRenderedComponentsWithType(reactModule, FeedItemStub);
         });
 
@@ -75,15 +79,14 @@ describe('Feed Component', () => {
     });
 
     describe('feed ads', () => {
-        const firstAdIndex = 2;
-        const adSpacing = 11;
-
         let feedListItems;
+        let feedAds;
 
         before(() => {
-            storeFeedItems = gerateLargeFeedItemList();
-            reactModule = Context.mountComponent(Feed);
+            storeFeedItems = generateLargeFeedItemList();
+            reactModule = Context.mountComponent(Feed, { pageId, articleTags });
             feedListItems = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'li');
+            feedAds = TestUtils.scryRenderedComponentsWithType(reactModule, FeedAdStub);
         });
 
         it('should have an ad as the 3rd item', () => {
@@ -93,20 +96,40 @@ describe('Feed Component', () => {
 
         it(`should have an ad after every ${adSpacing} teasers`, () => {
             for (let i = firstAdIndex; i < feedListItems.length; i++) {
-                const adExpected = (i - firstAdIndex) % (adSpacing + 1) === 0;
+                const adExpected = (i - firstAdIndex) % (adSpacing) === 0;
                 if (adExpected) {
-                    expect(isAd(feedListItems[i])).to.be.true;
+                    expect(isAd(feedListItems[i]), `expected feed item ${i + 1} to be an ad but it was not`)
+                        .to.be.true;
                 } else {
-                    expect(isAd(feedListItems[i])).to.be.false;
+                    expect(isAd(feedListItems[i]), `expected feed item ${i + 1} not to be an ad but it was`)
+                        .to.be.false;
                 }
             }
         });
+
+        it(`should include ad slot position information`, () => {
+            // Position is 1-indexed, not 0-indexed
+            feedAds.forEach((ad, i) => {
+                expect(ad.props).to.have.property('position', i + 1);
+            });
+        });
+
+        it(`should set the pageId to ${pageId}`, () => {
+            feedAds.forEach((ad) => {
+                expect(ad.props).to.have.property('pageId', pageId);
+            });
+        });
+
+        it(`should include ad keyword information`, () => {
+            const expectedKeyword = ['red', 'white', 'kitchen'];
+            feedAds.forEach((ad) => {
+                expect(ad.props.keyword).to.eql(expectedKeyword);
+            });
+        });
     });
 
-    function gerateLargeFeedItemList() {
-        return times(50, () => {
-            return {};
-        });
+    function generateLargeFeedItemList() {
+        return times(firstAdIndex + adSpacing * 2, () => { return {}; });
     }
 
     function isAd(item) {

@@ -1,4 +1,4 @@
-import {extend} from 'lodash';
+import {clone} from 'lodash/lang';
 import {betterMockComponentContext} from '@bxm/flux';
 
 const Context = betterMockComponentContext();
@@ -14,26 +14,71 @@ const FeedAd = proxyquire('../../../app/components/feed/feedAd', {
 });
 
 describe('FeedAd Component', () => {
+    const position = 2;
+    const keyword = ['red', 'white', 'kitchen'];
+    const pageId = 'kitchen-1032';
+    const props = { position, keyword, pageId };
     let reactModule;
-    let li;
-    let ad;
 
-    before(() => {
-        reactModule = TestUtils.renderIntoDocument(<FeedAd/>);
-        li = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'li');
-        ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+    describe('all props set', () => {
+        let li;
+        let ad;
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(<FeedAd {...props}/>);
+            li = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'li');
+            ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+        });
+
+        describe('li', () => {
+            const expectedClassName = 'feed-ad';
+            it(`sets the className to "${expectedClassName}"`, () => {
+                expect(React.findDOMNode(li).className).to.eq(expectedClassName);
+            });
+        });
+
+        describe('Ad', () => {
+            it('sets the displayFor array', () => {
+                expect(ad.props.displayFor).to.eql(['medium', 'large', 'xlarge']);
+            });
+
+            it('sets the sizes array', () => {
+                expect(ad.props.sizes).to.eql(['double-mrec', 'mrec']);
+            });
+
+            it(`sets targets.pageId to ${pageId}`, () => {
+                expect(ad.props.targets.pageId).to.eq(pageId);
+            });
+
+            it(`sets targets.keyword to ${keyword}`, () => {
+                expect(ad.props.targets.keyword).to.eql(keyword);
+            });
+
+            it(`sets targets.keyword to an array`, () => {
+                expect(ad.props.targets.keyword).to.eql(keyword);
+            });
+
+            it(`sets targets.position to ${position}`, () => {
+                expect(ad.props.targets.position).to.eq(position);
+            });
+        });
     });
 
-    const expectedClassName = 'feed-ad';
-    it(`sets the li className to "${expectedClassName}"`, () => {
-        expect(React.findDOMNode(li).className).to.eq(expectedClassName);
-    });
+    describe('required props unset', () => {
+        let propsClone;
 
-    it('sets the Ad displayFor array', () => {
-        expect(ad.props.displayFor).to.eql(['medium', 'large', 'xlarge']);
-    });
+        beforeEach(() => {
+            propsClone = clone(props);
+        });
 
-    it('sets the Ad sizes array', () => {
-        expect(ad.props.sizes).to.eql(['double-mrec', 'mrec']);
+        ['position', 'keyword', 'pageId'].forEach(propName => {
+
+            it(`returns an empty component when "${propName}" prop is empty`, () => {
+                delete propsClone[propName];
+                reactModule = TestUtils.renderIntoDocument(<FeedAd {...propsClone}/>);
+                expect(React.findDOMNode(reactModule)).to.not.exist;
+            });
+
+        });
     });
 });

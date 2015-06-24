@@ -1,11 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
+import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
+import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
 import ArticleStore from '../../stores/article';
 import FeedItem from './feedItem';
 import FeedAd from './feedAd';
 
 const firstAdIndex = 2;
-const adSpacing = 11;
+const adSpacing = 12;
 
 class Feed extends Component {
 
@@ -14,21 +16,33 @@ class Feed extends Component {
     }
 
     getFeedItems() {
-        const items = [];
+        const {items, pageId, articleTags} = this.props;
+        const feedItems = items.map((item, i) =>
+            <FeedItem
+                key={`feed-item-${i}`}
+                gtmClass={`feed-item-${i}`}
+                item={item}
+            />
+        );
 
-        this.props.items.forEach((item, i) => {
-            items.push(
-                <FeedItem
-                    key={`feed-item-${i}`}
-                    gtmClass={`feed-item-${i}`}
-                    item={item}/>
-            );
-            if ((i - firstAdIndex + 1) % adSpacing === 0) {
-                items.push(<FeedAd key={`feed-ad-${i}`}/>);
-            }
-        });
+        const keyword = getKeywordsFromTags(articleTags);
+        let adPosition = 0;
+        collectionSplice.given(feedItems)
+            .forEvery(adSpacing)
+            .startingFrom(firstAdIndex)
+            .insert(() => {
+                adPosition++;
+                return (
+                    <FeedAd
+                        key={`feed-ad-${adPosition}`}
+                        position={adPosition}
+                        keyword={keyword}
+                        pageId={pageId}
+                    />
+                );
+            });
 
-        return items;
+        return feedItems;
     }
 
     render() {
@@ -46,7 +60,9 @@ class Feed extends Component {
 }
 
 Feed.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    pageId: PropTypes.string.isRequired
 };
 
 Feed.contextTypes = {
