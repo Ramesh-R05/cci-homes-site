@@ -11,6 +11,7 @@ import AdStore from '@bxm/ad/src/google/stores/ad';
 import RouteStore from './stores/route';
 import EntityStore from './stores/entity';
 import ArticleStore from './stores/article';
+import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles.js';
 
 //Global header
@@ -28,6 +29,7 @@ let app = new Flux({
         ArticleStore,
         AdStore,
         TaggedArticlesStore,
+        SocialStore,
         NetworkHeaderStore
     ]
 });

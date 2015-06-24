@@ -16,5 +16,10 @@ export default {
     },
     site: {
         host: 'http://dev.homes.wn.bauer-media.net.au'
+    },
+    features: {
+        socialShareBlock: {
+            enabled: true
+        }
     }
 };
