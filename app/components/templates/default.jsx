@@ -1,16 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
-import platform from '@bxm/ui/lib/common/platform';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+
 
 class DefaultTemplate extends Component {
     constructor(props, context) {
         super(props, context);
-
-        if (canUseDOM) {
-            platform.set(navigator.userAgent);
-        }
     }
 
     render() {
