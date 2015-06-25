@@ -16,9 +16,8 @@ class FacetedModuleStore extends BaseStore {
     constructor(dispatcher, lynxStoreName) {
         if (!lynxStoreName) throw new Error('lynxStoreName must be provided by the implementor store');
         super(dispatcher);
-
         this.lynxStoreName = lynxStoreName;
-        this.items = {};
+        this.items = new Map();
         this.faceting = {};
         this.paging = {};
     }
@@ -41,7 +40,7 @@ class FacetedModuleStore extends BaseStore {
         // dang: hack to get page size into the paging object. we will do this via the backend one day.
         this.paging.pageSize = this.paging.pageSize || this.settings.pageSize;
 
-        payload.content.items.forEach(item => this.items[item.id] = item);
+        payload.content.items.forEach(item => this.items.set(item.id, item));
 
         this.emitChange();
     }
@@ -57,7 +56,10 @@ class FacetedModuleStore extends BaseStore {
     }
 
     getItems() {
-        const items = toArray(this.items);
+        const items = [];
+        for (var item of this.items.values()) {
+            items.push(item);
+        }
         this.traceMethod('getItems', items);
         return items;
     }
