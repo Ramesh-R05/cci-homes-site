@@ -1,5 +1,11 @@
 import {BaseStore} from '@bxm/flux';
-import mockFeedItems from '../../tests/mock/feed.json';
+
+import {clone} from 'lodash/lang';
+
+// Until DHO-181 is complete, duplicate the mock items so we can see
+// multiple ads in the LHR
+const mockFeedItems = clone(require('../../tests/mock/feed.json'));
+Array.prototype.push.apply(mockFeedItems, mockFeedItems);
 
 class ArticleStore extends BaseStore {
 
@@ -14,9 +20,6 @@ class ArticleStore extends BaseStore {
         // TODO (cjenkins 04/06/2015): Write the logic to process the payload
         // after the CMS has been configured to store feed data
         this.items = mockFeedItems;
-        // Until DHO-181 is complete, duplicate the mock items so we can see
-        // multiple ads in the LHR
-        Array.prototype.push.apply(this.items, mockFeedItems);
         this.emitChange();
     }
 
