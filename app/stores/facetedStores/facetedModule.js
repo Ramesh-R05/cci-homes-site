@@ -1,6 +1,7 @@
 import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
 import extend from 'lodash/object/extend';
+import toArray from 'lodash/lang/toArray';
 
 class ModuleConfiguration {
     constructor(lynxStoreName, entityId, modules) {
@@ -56,11 +57,8 @@ class FacetedModuleStore extends BaseStore {
     }
 
     getItems() {
-        // consumers expect the store to be an array, so we will convert it back to keep them happy
-        const items = Object.keys(this.items).map(key => this.items[key]);
-
+        const items = toArray(this.items);
         this.traceMethod('getItems', items);
-
         return items;
     }
 
@@ -92,15 +90,15 @@ class FacetedModuleStore extends BaseStore {
         if (data && (canUseDOM || typeof data === typeof '')) {
             console.log(`[FacetedModuleStore#${this.lynxStoreName}][${method}]`, data);
         } else {
-            console.log(`[FacetedModuleStore#'${this.lynxStoreName}][${method} ]`);
+            console.log(`[FacetedModuleStore#${this.lynxStoreName}][${method}]`);
         }
     }
 
     traceError(method, data) {
         if (data && (canUseDOM || typeof data === typeof '')) {
-            console.error(`[ERROR][FacetedModuleStore#${this.lynxStoreName}][${method}']`, data);
+            console.error(`[ERROR][FacetedModuleStore#${this.lynxStoreName}][${method}]`, data);
         } else {
-            console.error(`[ERROR][FacetedModuleStore#'${this.lynxStoreName}][${method}]`);
+            console.error(`[ERROR][FacetedModuleStore#${this.lynxStoreName}][${method}]`);
         }
     }
 

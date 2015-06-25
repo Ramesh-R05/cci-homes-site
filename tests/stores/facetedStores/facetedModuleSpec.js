@@ -16,18 +16,16 @@ const createContext = () => {
 };
 
 describe('Stores', () => {
-    before(() => {
-        createContext();
-    });
-
-    afterEach(() => {
-        store.emitChange.reset();
-    });
 
     describe('Faceted Module', () => {
         describe('Action -> LOAD_CONTENT', () => {
-            beforeEach(() => {
+            before(() => {
+                createContext();
                 Context.dispatch('LOAD_CONTENT', contentPayload);
+            });
+
+            it('calls emitChange()', () => {
+                expect(store.emitChange.called).to.be.true;
             });
 
             it('reads the lynx module names and ids from the payload', () => {
@@ -39,13 +37,12 @@ describe('Stores', () => {
                 expect(store.config.entityId).to.equal(contentPayload.body.entity.id);
             });
 
-            it('calls emitChange()', () => {
-                expect(store.emitChange.called).to.be.true;
-            });
         });
 
         describe('Action -> FACETED_MODULE:PAGE_RECEIVED', () => {
-            beforeEach(() => {
+            before(() => {
+                store.emitChange.reset();
+                createContext();
                 Context.dispatch('FACETED_MODULE:PAGE_RECEIVED', pageReceivedPayload);
             });
 
@@ -71,12 +68,14 @@ describe('Stores', () => {
         });
 
         describe('Action -> FACETED_MODULE:PAGE_RECEIVED:FAILURE', () => {
-            beforeEach(() => {
+            before(() => {
+                store.emitChange.reset();
+                createContext();
                 sinon.spy(console, 'error');
                 Context.dispatch('FACETED_MODULE:PAGE_RECEIVED:FAILURE', {lynxStoreName: storeNameUnderTest, content: 'error'});
             });
 
-            afterEach(() => {
+            after(() => {
                console.error.restore();
             });
 
@@ -86,13 +85,11 @@ describe('Stores', () => {
         });
 
         describe('Events targeted at a different facetedModule store', () => {
-            beforeEach(() => {
+            before(() => {
+                store.emitChange.reset();
+                createContext();
                 anotherStore = Context.registerStore(require('./anotherFacetedModuleImpl'));
                 Object.freeze(anotherStore.items);
-            });
-
-            after(() => {
-                createContext();
             });
 
             it('does not call emitChange()', () => {
