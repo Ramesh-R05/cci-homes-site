@@ -46,11 +46,11 @@ let main = () => {
     server.use(compress());
 
     // TODO (db): add pass through routes for sitemap and robots
-    server.use('/dist', express.static('dist'));
-    server.use('/assets', express.static('assets'));
-    server.use('/fonts', express.static('assets/fonts'));
-    server.use('/styleguide', express.static('app/styleguide'));
-    server.use('/favicon.ico', express.static('images/favicon.ico'));
+    const cwd = process.cwd();
+    server.use('/dist', express.static(`${cwd}/dist`));
+    server.use('/assets', express.static(`${cwd}/assets`));
+    server.use('/styleguide', express.static(`${cwd}/app/styleguide`));
+    server.use('/favicon.ico', express.static(`${cwd}/images/favicon.ico`));
 
     server.use('/version', (req, res) => { res.json(version); });
     server.use('/api/verifysite', (req, res) => {
