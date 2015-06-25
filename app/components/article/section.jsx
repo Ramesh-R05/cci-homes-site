@@ -14,11 +14,12 @@ class Section extends Component {
         const {title, content} = this.props;
 
         // Hero data
-        const {imageUrl, imageAltText, imageCaption, video} = this.props.content;
+        const {id: pageId, articleTags} = content;
+        const {imageUrl, imageAltText, imageCaption, video} = content;
         const heroItem = {imageUrl, imageAltText, imageCaption, video};
 
         // Article data
-        const {body, source, summary, articleTags} = content;
+        const {body, source, summary} = content;
 
         // TODO (thatzi): strings set temporary until credits are set up in CMS
         const credits = {
@@ -38,9 +39,13 @@ class Section extends Component {
                         source={source}
                         summary={summary}
                         tags={articleTags}
-                        credits={credits}/>
+                        credits={credits}
+                    />
 
-                    <Feed/>
+                    <Feed
+                        pageId={pageId}
+                        articleTags={articleTags}
+                    />
                 </div>
             </div>
         );
