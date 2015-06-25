@@ -1,21 +1,30 @@
-.feed-item {
-    $feed-item-gutter: 20px;
-    $feed-item-width: $article-feed-container-width
+$feed-item-gutter: 20px;
+$feed-item-width: $article-feed-container-width
         - $column-gutter
         - 7px; // Mysterious extra space from guideline in PSD
-    $feed-item-thumbnail-width: 132px;
-    $feed-item-body-width: $feed-item-width
+$feed-item-thumbnail-width: 132px;
+$feed-item-body-width: $feed-item-width
         - $feed-item-thumbnail-width
         - $feed-item-gutter * 3;
 
-    // Individual feed items
-    @include clearfix;
+.feed-item,
+.feed-ad {
     background-color: $color-white;
     border: 1px solid transparent; // Subtract 1px for the border
     border-top-color: $line-color;
     list-style: none;
     padding: $feed-item-gutter;
     width: $feed-item-width;
+}
+
+.feed-ad {
+    padding-bottom: 8px;
+}
+
+.feed-item {
+    // Individual feed items
+    @include clearfix;
+
 
     // Border stuff
     &:first-child {
@@ -25,7 +34,8 @@
     &.active {
         border-color: $color-grey-light;
 
-        + .feed-item {
+        + .feed-item,
+        + .feed-ad {
             border-top-color: transparent;
         }
     }

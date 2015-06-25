@@ -8,4 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Package description</description>
   </metadata>
+  <files>
+    <file src="**\*.*" exclude="node_modules\**\*.*" />
+  </files>
 </package>

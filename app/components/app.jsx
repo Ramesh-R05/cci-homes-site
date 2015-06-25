@@ -6,6 +6,7 @@ import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigura
 import {handleHistory} from 'fluxible-router';
 import platform from '@bxm/ui/lib/common/platform';
 import config from '../config/config';
+import NetworkHeader from '@bxm/header/lib/header/header';
 
 class Application extends Component {
 
@@ -31,7 +32,12 @@ class Application extends Component {
 
     render() {
         const Handler = this.props.currentRoute.get('handler');
-        return <Handler/>;
+        return (
+            <div>
+                <NetworkHeader />
+                <Handler />
+            </div>
+        );
     }
 }
 

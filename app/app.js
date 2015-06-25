@@ -13,6 +13,10 @@ import EntityStore from './stores/entity';
 import ArticleStore from './stores/article';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles.js';
 
+//Global header
+import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
+import networkHeaderService from '@bxm/header/lib/header/headerService';
+
 adConfig.init();
 
 let app = new Flux({
@@ -23,13 +27,15 @@ let app = new Flux({
         EntityStore,
         ArticleStore,
         AdStore,
-        TaggedArticlesStore
+        TaggedArticlesStore,
+        NetworkHeaderStore
     ]
 });
 
 let servicePlugin = servicesPlugin(config);
 servicePlugin.registerService(contentService);
 servicePlugin.registerService(facetedModuleService);
+servicePlugin.registerService(networkHeaderService);
 
 app.plug(servicePlugin);
 
