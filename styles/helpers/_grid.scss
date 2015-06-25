@@ -2,9 +2,9 @@ $grid-narrow-row-padding-right-lg: $fixed-column-width + 40;
 $grid-narrow-row-padding-right-xl: $fixed-column-width + $column-gutter * 3;
 
 .container {
-    margin: 20px auto;
+    margin: 0 auto;
     max-width: 1590px;
-    
+
     @media #{$large-up} {
         padding-left: $column-gutter / 2;
         padding-right: $column-gutter / 2;

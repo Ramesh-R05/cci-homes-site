@@ -2,10 +2,18 @@ import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
 import extend from 'lodash/object/extend';
 
+class ModuleConfiguration {
+    constructor(lynxStoreName, entityId, modules) {
+        this.lynxStoreName = lynxStoreName;
+        this.entityId = entityId;
+        this.modules = modules;
+    }
+}
+
 class FacetedModuleStore extends BaseStore {
 
     constructor(dispatcher, lynxStoreName) {
-        if (!lynxStoreName) throw 'lynxStoreName must be provided by the implementor store';
+        if (!lynxStoreName) throw new Error('lynxStoreName must be provided by the implementor store');
         super(dispatcher);
 
         this.lynxStoreName = lynxStoreName;
@@ -14,13 +22,7 @@ class FacetedModuleStore extends BaseStore {
         this.paging = {};
     }
 
-    lynxStoreName:String;
-    config:ModuleConfiguration;
-    items:Object;
-    faceting:Object;
-    paging:Object;
-
-    onLoadContent(payload:LynxResponse) {
+    onLoadContent(payload) {
         this.traceMethod('onLoadContent');
         this.config = this.readConfiguration(payload);
         this.emitChange();
@@ -44,11 +46,11 @@ class FacetedModuleStore extends BaseStore {
     }
 
     onPageReceivedFailure(payload) {
-        if (payload.lynxStoreName != this.lynxStoreName) return;
+        if (payload.lynxStoreName !== this.lynxStoreName) return;
         this.traceError('onPageReceivedFailure', payload.content);
     }
 
-    getConfiguration():ModuleConfiguration {
+    getConfiguration() {
         this.traceMethod('getConfiguration', this.config);
         return this.config;
     }
@@ -87,19 +89,17 @@ class FacetedModuleStore extends BaseStore {
     }
 
     traceMethod(method, data) {
-        if (data && (canUseDOM || typeof data == typeof '')) {
+        if (data && (canUseDOM || typeof data === typeof '')) {
             console.log(`[FacetedModuleStore#${this.lynxStoreName}][${method}]`, data);
-        }
-        else {
+        } else {
             console.log(`[FacetedModuleStore#'${this.lynxStoreName}][${method} ]`);
         }
     }
 
     traceError(method, data) {
-        if (data && (canUseDOM || typeof data == typeof '')) {
+        if (data && (canUseDOM || typeof data === typeof '')) {
             console.error(`[ERROR][FacetedModuleStore#${this.lynxStoreName}][${method}']`, data);
-        }
-        else {
+        } else {
             console.error(`[ERROR][FacetedModuleStore#'${this.lynxStoreName}][${method}]`);
         }
     }
@@ -122,15 +122,3 @@ FacetedModuleStore.handlers = {
 };
 
 export default FacetedModuleStore;
-
-class ModuleConfiguration {
-    constructor(lynxStoreName:String, entityId:String, modules:Object) {
-        this.lynxStoreName = lynxStoreName;
-        this.entityId = entityId;
-        this.modules = modules;
-    }
-
-    lynxStoreName:String;
-    entityId:String;
-    modules:Object;
-}

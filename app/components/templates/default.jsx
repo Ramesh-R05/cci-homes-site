@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
 import platform from '@bxm/ui/lib/common/platform';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 
-class DefaultTemplate extends React.Component {
+class DefaultTemplate extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -14,23 +14,16 @@ class DefaultTemplate extends React.Component {
     }
 
     render() {
-        if (typeof this.props.content === 'undefined') {
-            // TODO (davidg): We don't really want this to fire on every render.
-            return null;
-        }
+        if (typeof this.props.content === 'undefined') return null;
 
-        let Handler = this.getComponent(this.props.content.nodeType);
+        const Handler = this.getComponent(this.props.content.nodeType);
 
-        if (Handler == null) { // dang: break if no handler is found to stop the app crashing
-            return null;
-        }
+        if (!Handler)return null;
 
-        return (
-          <Handler content={this.props.content}/>
-        );
+        return <Handler content={this.props.content}/>;
     }
 
-    getComponent(nodeType:String) {
+    getComponent(nodeType) {
         switch (nodeType) {
             case 'Homepage':
                 return require('../home/home');
@@ -44,6 +37,10 @@ class DefaultTemplate extends React.Component {
         }
     }
 }
+
+DefaultTemplate.propTypes = {
+    content: PropTypes.object
+};
 
 DefaultTemplate.contextTypes = {
     executeAction: React.PropTypes.func.isRequired

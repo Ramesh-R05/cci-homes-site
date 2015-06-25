@@ -50,7 +50,7 @@ let main = () => {
     server.use('/assets', express.static('assets'));
     server.use('/fonts', express.static('assets/fonts'));
     server.use('/styleguide', express.static('app/styleguide'));
-    server.use('/favicon.ico', express.static('assets/favicon.ico'));
+    server.use('/favicon.ico', express.static('images/favicon.ico'));
 
     server.use('/version', (req, res) => { res.json(version); });
     server.use('/api/verifysite', (req, res) => {

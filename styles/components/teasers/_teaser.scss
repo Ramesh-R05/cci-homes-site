@@ -187,7 +187,7 @@
     &__image {
         display: block;
         position: relative;
-        transition: opacity .1s ease-in;
+        transition: opacity .1s ease-out;
 
         img {
             height: auto;

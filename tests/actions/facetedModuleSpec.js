@@ -1,48 +1,76 @@
 import {betterMockActionContext} from '@bxm/flux';
-const Context = betterMockActionContext();
-const safada = require('../utils/safada/safada')(Context);
+import Q from 'q';
 const proxyquire = require('proxyquire').noCallThru();
 
+const FacetedModuleServiceMock = {
+    init: function(){},
+    read: function(){}
+};
 
-describe('Actions', () => {
-    describe('Faceted Module', () => {
-        describe('#getPage', () => {
+const ContextMock = {
+    dispatch: function(){
+    },
+    getService: function() {
+        return FacetedModuleServiceMock;
+    }
+};
 
-            let actions;
-            const serviceResponseSuccess = {body: "success"};
-            const serviceResponseFailure = "error";
-            const actionPayload = {
-                page: 0,
-                moduleConfig: {
-                    lynxStoreName: 'testStoreName'
-                }
-            };
+const FacetedModuleActions = proxyquire('../../app/actions/facetedModule', {
+    '../services/facetedModule': FacetedModuleServiceMock
+});
 
-            before(() => {
-                actions = proxyquire('../../app/actions/facetedModule', {});
-            });
 
-            afterEach(()=> {
-               safada.reset();
-            });
+describe('FacetedModuleActions', () => {
 
-            it('should dispatch the "FACETED_MODULE:PAGE_RECEIVED" after successful request', () => {
-                actions.getPageSuccess(Context, actionPayload, serviceResponseSuccess);
+    describe('#getPage', () => {
+        let defer;
+        let serviceReadStub;
+        let dispatchStub;
 
-                expect(safada.wasDispatched('FACETED_MODULE:PAGE_RECEIVED')).to.be.true;
-                const payload = safada.getLastDispatchedPayload('FACETED_MODULE:PAGE_RECEIVED');
-                expect(payload).to.have.property('lynxStoreName', actionPayload.moduleConfig.lynxStoreName);
-                expect(payload).to.have.property('content', serviceResponseSuccess.body);
-            });
-
-            it('should dispatch the "FACETED_MODULE:PAGE_RECEIVED:FAILURE" after failed request', () => {
-                actions.getPageFailure(Context, actionPayload, serviceResponseFailure);
-
-                expect(safada.wasDispatched('FACETED_MODULE:PAGE_RECEIVED:FAILURE')).to.be.true;
-                const payload = safada.getLastDispatchedPayload('FACETED_MODULE:PAGE_RECEIVED:FAILURE');
-                expect(payload).to.have.property('lynxStoreName', actionPayload.moduleConfig.lynxStoreName);
-                expect(payload).to.have.property('content', serviceResponseFailure);
-            });
+        beforeEach(function(){
+            defer = Q.defer();
+            serviceReadStub = sinon.stub(FacetedModuleServiceMock, 'read')
+                .returns(defer.promise);
+            dispatchStub = sinon.stub(ContextMock, 'dispatch');
         });
+
+        afterEach(function(){
+            FacetedModuleServiceMock.read.restore();
+            ContextMock.dispatch.restore();
+        });
+
+        it('should dispatch the "FACETED_MODULE:PAGE_RECEIVED" after successful request', (done) => {
+            FacetedModuleActions.getPage(ContextMock, {
+                page: 0,
+                params: {tags: ['Tag']},
+                moduleConfig: {}
+            });
+
+            defer.promise.then(function(){
+                expect(serviceReadStub.calledOnce).to.be.true;
+                expect(dispatchStub.withArgs('FACETED_MODULE:PAGE_RECEIVED', sinon.match.object).calledOnce).to.be.true;
+                done();
+            });
+
+            defer.resolve({});
+        });
+
+        it('should dispatch the "FACETED_MODULE:PAGE_RECEIVED:FAILURE" after failed request', (done) => {
+            FacetedModuleActions.getPage(ContextMock, {
+                page: 0,
+                params: {tags: ['Tag']},
+                moduleConfig: {}
+            });
+
+            defer.promise.fail(function(){
+                expect(serviceReadStub.calledOnce).to.be.true;
+                expect(dispatchStub.withArgs('FACETED_MODULE:PAGE_RECEIVED:FAILURE', sinon.match.object).calledOnce).to.be.true;
+                done();
+            });
+
+            defer.reject(new Error('Error'));
+        });
+
     });
+
 });
