@@ -55,6 +55,7 @@ let config = {
             path: '/api/content'
         }
     },
+
     services: {
         header: {
             url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
@@ -63,7 +64,9 @@ let config = {
 
 };
 
-// allows old sites and new sites to use configEditor middleware
-config.server.apiUrl = config.service.content.remote;
+let mergedConfig = merge(config, envConfig);
 
-export default Object.freeze(merge(config, envConfig));
+// allows old sites and new sites to use configEditor middleware and verfiySite middleware
+mergedConfig.server.apiUrl = mergedConfig.service.content.remote.replace('http://', '');
+
+export default Object.freeze(mergedConfig);
