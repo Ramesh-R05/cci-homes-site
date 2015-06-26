@@ -21,7 +21,7 @@
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "2.0.7",
     "@bxm/login-radius-stub": "^1.1.0",
-    "@bxm/server": "^2.0.2",
+    "@bxm/server": "^2.0.3",
     "@bxm/services-stubs": "1.1.0",
     "@bxm/ui": "^1.1.4",
     "babel": "^5.4.4",
@@ -32,7 +32,8 @@
     "prismjs": "0.0.1",
     "react": "^0.13.3",
     "request": "^2.55.0",
-    "superagent": "^1.2.0"
+    "superagent": "^1.2.0",
+    "serialize-javascript": "^1.0.0"
   },
   "devDependencies": {
     "@bxm/node-tasks": "^4.6.0",
@@ -40,7 +41,6 @@
     "browser-sync": "2.7.1",
     "express": "^4.13.0",
     "gulp": "^3.8.11",
-    "proxyquire": "^1.5.0",
-    "serialize-javascript": "^1.0.0"
+    "proxyquire": "^1.5.0"
   }
 }
