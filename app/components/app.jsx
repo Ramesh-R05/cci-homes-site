@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import PageStore from '../stores/page';
-import {connectToStores, provideContext} from '@bxm/flux';
+import {provideContext} from '@bxm/flux';
 import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 import {handleHistory} from 'fluxible-router';
 import config from '../config/config';
@@ -43,12 +42,6 @@ Application.contextTypes = {
     getStore: React.PropTypes.func,
     executeAction: React.PropTypes.func
 };
-
-Application = connectToStores(Application, [PageStore], (stores) => {
-    return {
-        PageStore: stores.PageStore.getState()
-    };
-});
 
 Application = handleHistory(Application);
 Application = provideContext(Application);

@@ -6,7 +6,7 @@ export default function(context, payload) {
             context.dispatch('LOAD_CONTENT', content);
         },
         (error) => {
-            console.error('[action][load content][failed]', error);
+            console.error(`[action][load content][failed] ${error.response.error.status} ${error.response.error.path}`);
             context.dispatch('LOAD_CONTENT_FAILED', error);
         }
     );
