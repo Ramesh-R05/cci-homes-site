@@ -17,7 +17,7 @@
   "dependencies": {
     "@bxm/ad": "^2.1.0",
     "@bxm/article": "^1.1.0",
-    "@bxm/flux": "1.3.0",
+    "@bxm/flux": "1.3.1",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "2.0.7",
     "@bxm/login-radius-stub": "^1.1.0",
