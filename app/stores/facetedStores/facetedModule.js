@@ -1,7 +1,7 @@
 import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
 import extend from 'lodash/object/extend';
-import toArray from 'lodash/lang/toArray';
+
 
 class ModuleConfiguration {
     constructor(lynxStoreName, entityId, modules) {
@@ -57,7 +57,7 @@ class FacetedModuleStore extends BaseStore {
 
     getItems() {
         const items = [];
-        for (var item of this.items.values()) {
+        for (let item of this.items.values()) {
             items.push(item);
         }
         this.traceMethod('getItems', items);

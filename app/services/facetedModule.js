@@ -38,14 +38,12 @@ export default {
             url += '&' + toQueryString(settings.params);
         }
 
-        console.log('[service][facetedModule][read] url = ', url);
-
-        request.get(url).end((err, res) => {
-            if (err) {
-                console.info('[ERROR][service][facetedModule] %j', err);
-                deferred.reject(err);
+        request.get(url).end((error, response) => {
+            if (error) {
+                console.error(`[service][facetedModule] ${error.response.error.status} ${error.response.error.path}`);
+                deferred.reject(error);
             } else {
-                deferred.resolve(res);
+                deferred.resolve(response);
             }
         });
 

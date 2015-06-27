@@ -4,7 +4,16 @@ import breakpoints from '../breakpoints';
 
 const envConfig = loader.load(process.env.NODE_ENVIRONMENT);
 
-const config = {
+let config = {
+
+    typekit: {
+        id: 'mmp8xzm'
+    },
+
+    gtm: {
+        id: ''
+    },
+
     brightcove: {
         accountId: '761709621001',
         playerId: 'cf879d82-c4b2-4c3b-9a03-ae8567a693fc'
@@ -16,7 +25,6 @@ const config = {
 
     global: {
         breakpoints,
-        typekit: 'TYPEKIT-ID-NOT-SET',
         googleAds: {
             slotPrefix: 'gpt-slot-',
             networkId: 'GOOGLE-ADS-NETWORKID-NOT-SET',
@@ -52,6 +60,7 @@ const config = {
             path: '/api/facetedModule'
         }
     },
+
     services: {
         header: {
             url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
@@ -60,4 +69,9 @@ const config = {
 
 };
 
-export default Object.freeze(merge(config, envConfig));
+let mergedConfig = merge(config, envConfig);
+
+// allows old sites and new sites to use configEditor middleware and verfiySite middleware
+mergedConfig.server.apiUrl = mergedConfig.service.content.remote.replace('http://', '');
+
+export default Object.freeze(mergedConfig);

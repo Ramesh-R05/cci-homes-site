@@ -6,8 +6,8 @@ import contentService from './services/content';
 import adConfig from './config/ads';
 import facetedModuleService from './services/facetedModule.js';
 
+import HtmlStore from '@bxm/server/lib/stores/html';
 import AdStore from '@bxm/ad/src/google/stores/ad';
-import PageStore from './stores/page';
 import RouteStore from './stores/route';
 import EntityStore from './stores/entity';
 import ArticleStore from './stores/article';
@@ -22,8 +22,8 @@ adConfig.init();
 let app = new Flux({
     component: AppComponent,
     stores: [
+        HtmlStore,
         RouteStore,
-        PageStore,
         EntityStore,
         ArticleStore,
         AdStore,

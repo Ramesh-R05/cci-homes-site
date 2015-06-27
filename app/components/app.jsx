@@ -1,12 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
-import PageStore from '../stores/page';
-import {connectToStores, provideContext} from '@bxm/flux';
-import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
+import {provideContext} from '@bxm/flux';
 import {handleHistory} from 'fluxible-router';
-import platform from '@bxm/ui/lib/common/platform';
 import config from '../config/config';
+import platform from '@bxm/ui/lib/common/platform';
 import NetworkHeader from '@bxm/header/lib/header/header';
+import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
 class Application extends Component {
 
@@ -49,12 +48,6 @@ Application.contextTypes = {
     getStore: React.PropTypes.func,
     executeAction: React.PropTypes.func
 };
-
-Application = connectToStores(Application, [PageStore], (stores) => {
-    return {
-        PageStore: stores.PageStore.getState()
-    };
-});
 
 Application = handleHistory(Application);
 Application = provideContext(Application);
