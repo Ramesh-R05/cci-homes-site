@@ -97,7 +97,7 @@ describe(`ArticleSection Component`, () => {
     });
 
     describe(`Feed`, () => {
-        const articleTags = ['food:Topic:Garden planner'];
+        const articleTags = ['homes:Topic:Garden planner'];
         const pageId = 'HOMES-1169';
         let feed;
 

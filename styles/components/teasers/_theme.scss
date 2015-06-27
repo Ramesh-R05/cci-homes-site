@@ -1,0 +1,34 @@
+@each $theme, $color in $theme-colors {
+    &.theme-#{$theme} {
+
+        svg {
+            fill: nth($color, 1);
+        }
+
+        .teaser__tags span {
+            color: nth($color, 1);
+
+            &:hover {
+                color: nth($color, 2);
+                cursor: pointer;
+            }
+        }
+
+        .teaser__source span {
+            color: nth($color, 1);
+        }
+
+        &:hover {
+            .teaser__icon {
+                svg {
+                    fill: nth($color, 2);
+                }
+
+            }
+        }
+    }
+}
+
+
+
+

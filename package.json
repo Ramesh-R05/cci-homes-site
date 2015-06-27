@@ -17,7 +17,7 @@
   "dependencies": {
     "@bxm/ad": "^2.1.0",
     "@bxm/article": "^1.1.0",
-    "@bxm/flux": "1.3.1",
+    "@bxm/flux": "1.3.2",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "2.0.7",
     "@bxm/login-radius-stub": "^1.1.0",
@@ -33,7 +33,8 @@
     "react": "^0.13.3",
     "request": "^2.55.0",
     "superagent": "^1.2.0",
-    "serialize-javascript": "^1.0.0"
+    "serialize-javascript": "^1.0.0",
+    "hoist-non-react-statics": "^1.0.2"
   },
   "devDependencies": {
     "@bxm/node-tasks": "^4.6.0",
@@ -41,6 +42,8 @@
     "browser-sync": "2.7.1",
     "express": "^4.13.0",
     "gulp": "^3.8.11",
-    "proxyquire": "^1.5.0"
+    "nock": "^2.6.0",
+    "proxyquire": "^1.5.0",
+    "q": "^1.4.1"
   }
 }

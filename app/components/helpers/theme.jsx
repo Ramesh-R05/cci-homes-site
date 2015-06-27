@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import {isUndefined, isString} from 'lodash/lang';
 /**
  * Usage
  *
@@ -21,7 +21,7 @@ let theme = (Component, sourcePropName) => class Theme extends React.Component {
     }
 
     setThemeClass() {
-        if ( _.isUndefined(this.props[sourcePropName]) || !_.isString(this.props[sourcePropName]) ) {
+        if ( isUndefined(this.props[sourcePropName]) || !isString(this.props[sourcePropName]) ) {
             this.themeClass = null;
         } else {
             this.themeClass = ('theme-' + this.props[sourcePropName].replace(/[^a-z]/gi, '_' )).toLowerCase();

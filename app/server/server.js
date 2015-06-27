@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {navigateAction} from 'fluxible-router';
-import startPatternlabOn from '../../patternlab/app/server/server';
+import patternLab from '../../patternlab/app/server/middleware';
+import facetedModule from './middlewares/facetedModule';
 import contentApiStub from '../../automation/stubs/contentApi';
 import Server from '@bxm/server';
 import env from '@bxm/server/lib/env';
@@ -10,7 +11,8 @@ import GoogleFont from '../components/html/googleFont';
 import AdScript from '@bxm/ad/src/google/components/script';
 
 function siteMiddlewares(siteServer) {
-    startPatternlabOn(siteServer);
+    siteServer.get(/\/patternlab(\?|$|\/).*/, patternLab);
+    siteServer.use('/api/facetedModule', facetedModule);
 }
 
 const server = new Server({

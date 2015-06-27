@@ -11,8 +11,10 @@
 
 // Helpers
 @import 'helpers/colors';
+@import 'helpers/responsive-image';
 @import 'helpers/typography';
 @import 'helpers/z-indices';
+@import 'helpers/grid';
 
 // Helpers - Mixins
 @import 'helpers/mixins/article';
@@ -28,20 +30,22 @@
 @import 'components/article/theme';
 @import 'components/feed/feed';
 @import 'components/feed/feedItem';
-@import 'components/feed/teaserIcon';
 @import 'components/content-body/content-body';
+@import 'components/ads/ads';
 @import 'components/form/input';
 @import 'components/form/checkbox';
 @import 'components/form/radio-button';
+@import 'components/buttons/buttons';
+@import 'components/teasers/icon';
+@import 'components/teasers/teaser';
+@import 'components/teasers/theme';
+@import 'components/section/sections';
 
 // Ads
 @import 'ads';
 
 // Styleguide
 @import 'styleguide/styleguide';
-
-// Components
-@import 'components/buttons/buttons';
 
 // @bxm
 @import './to-love/video/videoPlayer';

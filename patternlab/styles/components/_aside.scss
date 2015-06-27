@@ -11,10 +11,6 @@
     z-index: $z-index-9--aside;
     -webkit-overflow-scrolling: touch;
 
-    @include respond-to('small') {
-        display: block;
-    }
-
     &--active {
         display: block;
         box-shadow: 0 0 10px rgba(0, 0, 0, .8);
