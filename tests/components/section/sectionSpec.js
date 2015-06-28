@@ -11,6 +11,7 @@ const GroupStub = Context.createStubComponentWithChildren();
 const GroupFeaturedStub = Context.createStubComponentWithChildren();
 const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const SectionHeroStub = Context.createStubComponentWithChildren();
+const AdStub = Context.createStubComponentWithChildren();
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
     '../../actions/facetedModule': {
@@ -22,7 +23,8 @@ const Section = proxyquire('../../../app/components/section/section', {
     './group': GroupStub,
     './groupFeatured': GroupFeaturedStub,
     './groupRepeatable': GroupRepeatableStub,
-    './sectionHero': SectionHeroStub
+    './hero': SectionHeroStub,
+    '@bxm/ad/src/google/components/ad': AdStub
 });
 
 const featuredArticles = articlesMock.slice(1, 4);

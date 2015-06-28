@@ -7,7 +7,7 @@ const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
-const SectionHero = proxyquire('../../../app/components/section/sectionHero', {
+const SectionHero = proxyquire('../../../app/components/section/hero', {
     'react': React,
     '../teaser/teaser': TeaserStub
 });

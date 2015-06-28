@@ -4,15 +4,16 @@ $section-minor-bp-1: 1595px;
 
 .section-heading {
     @include grid-column(12);
-    @include type-section-heading;
-    margin-bottom: 40px;
 
-    @media #{$medium-up} {
-        margin-bottom: 60px;
+    h1 {
+        @include type-section-heading;
+        margin-bottom: 40px;
+
+        @media #{$medium-up} {
+            margin-bottom: 60px;
+        }
     }
 }
-
-
 
 // Hero group
 .section--heroes {
@@ -142,7 +143,7 @@ $section-minor-bp-1: 1595px;
         }
     }
 
-    .ad {
+    .section__children {
         @include grid-column(3);
         display: none;
 
@@ -151,10 +152,11 @@ $section-minor-bp-1: 1595px;
         }
     }
 
-    .fake-ad {
+    .ad {
         float: right;
-        margin: 0;
+        width: 300px;
     }
+
 }
 
 .section--6-or-4-items {
@@ -232,6 +234,10 @@ $section-minor-bp-1: 1595px;
         @media #{$medium-up} {
             @include grid-column(6);
         }
+    }
+
+    .section__children {
+        @include grid-column(12);
     }
 }
 
@@ -312,7 +318,7 @@ $section-minor-bp-1: 1595px;
         }
 
         // Middle 4 items
-        .teaser:nth-child(n+3):nth-of-type(-n+8) {
+        .teaser:nth-child(n+3):nth-of-type(-n+7) {
             @include grid-column(3);
             @include teaser-icon-centered-small;
         }
@@ -345,7 +351,7 @@ $section-minor-bp-1: 1595px;
         }
 
         // Middle 4 items
-        .teaser:nth-child(n+3):nth-of-type(-n+8) {
+        .teaser:nth-child(n+3):nth-of-type(-n+7) {
             @include teaser-icon-centered;
         }
 
@@ -376,31 +382,19 @@ $section-minor-bp-1: 1595px;
         }
     }
 
-    .ad--mrec {
+    .ad--section-mrec {
+        padding-top: 15px;
+
         @media #{$medium-up} {
             @include grid-column(6);
+            padding-top: 0;
+        }
+        @media #{$large-up} {
+            @include grid-column(4);
         }
         @media #{$xlarge-up} {
             @include grid-column(3);
         }
     }
 
-    .ad--lg {
-        display: none;
-
-        @media #{$large-only} {
-            @include grid-column(4);
-            display: block;
-        }
-    }
-
-    .ad--sm-md-xl {
-        margin-top: 20px;
-        @media #{$medium-up} {
-            margin-top: 0;
-        }
-        @media #{$large-only} {
-            display: none;
-        }
-    }
 }

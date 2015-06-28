@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
 import chunk from 'lodash/array/chunk';
+import Ad from '@bxm/ad/src/google/components/ad';
 
 
 export default class GroupRepeatable extends Component {
@@ -17,13 +18,26 @@ export default class GroupRepeatable extends Component {
                     return (
                         <section key={index} className="section--9-items">
                             {groupArticles.slice(0, 2).map(item => <Teaser {...item} key={item.id} />)}
-                            <div className="ad ad--mrec ad--lg">
-                                <div className="fake-ad"/>
-                            </div>
+                            <Ad
+                                className="ad--section-mrec"
+                                displayFor="large"
+                                sizes="mrec"
+                                targets={{
+                                    position: 2
+                                }}
+                            />
                             {groupArticles.slice(2, 3).map(item => <Teaser {...item} key={item.id} />)}
-                            <div className="ad ad--mrec ad--sm-md-xl">
-                                <div className="fake-ad"/>
-                            </div>
+                            <Ad
+                                className="ad--section-mrec"
+                                displayFor={['small', 'medium', 'xlarge']}
+                                sizes={{
+                                    small: 'mrec',
+                                    xlarge: ['double-mrec', 'mrec']
+                                }}
+                                targets={{
+                                    position: 2
+                                }}
+                            />
                             {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
                             {groupArticles.slice(7, 9).map(item => <Teaser {...item} key={item.id} modifier="img-top" sizes="small-hero" />)}
                         </section>

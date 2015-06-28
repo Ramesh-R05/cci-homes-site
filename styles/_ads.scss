@@ -83,4 +83,24 @@
         }
     }
 
+    // Section
+    &--section-top-leaderboard {
+        @media #{$small-only} {
+            @include grey-mobile-banner();
+        }
+
+        margin-bottom: 30px;
+    }
+
+    &--section-middle-leaderboard {
+        @media #{$small-only} {
+            @include grey-mobile-banner();
+        }
+
+        margin-bottom: $column-gutter * 2;
+    }
+
+    &--section-mrec {
+        margin-bottom: $column-gutter;
+    }
 }

@@ -10,6 +10,17 @@ var start = function(port) {
         res.json(home);
     });
 
+    // Section
+    server.get('/section', function(req, res) {
+        var home = require(process.cwd() + '/automation/test_data/section');
+        res.json(home);
+    });
+
+    server.get('/faceted/:moduleId', function(req, res) {
+        var home = require(process.cwd() + '/automation/test_data/section_' + req.params.moduleId);
+        res.json(home);
+    });
+
     server.get('/section/article-hero-image', function(req, res) {
         var article_hero_image = require(cwd + '/automation/test_data/article_hero_image');
         res.json(article_hero_image);

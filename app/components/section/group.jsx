@@ -13,7 +13,9 @@ export default class Group extends Component {
         return (
             <section className={classNames}>
                 {articles.map(item => <Teaser {...item} key={item.id} modifier={teaserModifier} />)}
-                {this.props.children}
+                <div className="section__children">
+                    {this.props.children}
+                </div>
             </section>
         );
     }

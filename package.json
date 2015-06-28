@@ -15,7 +15,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@bxm/ad": "^2.1.0",
+    "@bxm/ad": "^2.1.1-beta-1",
     "@bxm/article": "^1.1.0",
     "@bxm/flux": "1.3.2",
     "@bxm/global-header-stub": "^1.0.0",
