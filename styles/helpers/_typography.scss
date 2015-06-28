@@ -153,6 +153,20 @@ a {
     @include type-inline-gallery-title;
 }
 
+@mixin type-gallery-header {
+    color: $color-black;
+    font: 500 17px/1.765 $font-family-serif-primary;
+
+    @media #{$xlarge-up} {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+}
+
+.type-gallery-header {
+    @include type-gallery-header;
+}
+
 // Tags
 @mixin type-tags($color: $color-grey-dark) {
     color: $color;

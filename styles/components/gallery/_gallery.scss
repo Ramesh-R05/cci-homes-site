@@ -1,0 +1,61 @@
+.gallery {
+    $header-height: 65px;
+
+    &__header {
+        @include grid-column(12);
+        background-color: $color-white;
+        box-shadow: 0 1px rgba(0, 0, 0, .06),
+                    0 2px rgba(0, 0, 0, .04),
+                    0 3px rgba(0, 0, 0, .02),
+                    0 4px rgba(0, 0, 0, .01),
+                    0 5px rgba(0, 0, 0, 0);
+        z-index: $z-index-1--gallery-header;
+    }
+
+    &__header-container {
+        @include grid-row();
+    }
+
+    &__logo {
+        float: left;
+        line-height: $header-height;
+
+        .icon-logo {
+            background-image: url('../../images/logo/homes-logo-mobile.svg');
+            background-repeat: no-repeat;
+            background-size: 115px 35px;
+            display: inline-block;
+            height: 35px;
+            margin: 0 3px;
+            vertical-align: middle;
+            width: 115px;
+
+            @media #{$medium-up} {
+                background-image: url('../../images/logo/homes-logo-tablet.svg');
+                background-size: 287px 23px;
+                height: 23px;
+                width: 287px;
+            }
+        }
+    }
+
+    &__title-container {
+        float: left;
+        line-height: $header-height;
+    }
+
+    &__title {
+        @include type-gallery-header;
+
+        display: none;
+
+        @media #{$large-up} {
+            $vertical-align-correction: 4px;
+
+            display: inline-block;
+            margin-left: 66px;
+            padding-top: $vertical-align-correction;
+            vertical-align: middle;
+        }
+    }
+}

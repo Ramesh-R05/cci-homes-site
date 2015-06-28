@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
-
+import NetworkHeader from '@bxm/header/lib/header/header';
+import {isUndefined} from 'lodash/lang';
 
 class DefaultTemplate extends Component {
     constructor(props, context) {
@@ -9,23 +10,35 @@ class DefaultTemplate extends Component {
     }
 
     render() {
-        if (typeof this.props.content === 'undefined') return null;
+        if (isUndefined(this.props.content)) return null;
 
-        const Handler = this.getComponent(this.props.content.nodeType);
+        const page = this.getPageMetadata();
+        if (!page) return null;
 
-        if (!Handler)return null;
-
-        return <Handler content={this.props.content}/>;
+        const {Handler, hideNetworkHeader} = page;
+        return (
+            <div>
+                {hideNetworkHeader ? null : <NetworkHeader/>}
+                <Handler content={this.props.content}/>
+            </div>
+        );
     }
 
-    getComponent(nodeType) {
-        switch (nodeType) {
-            case 'Homepage':
-                return require('../home/home');
-            case 'HomesArticle':
-                return require('../article/section');
-            case 'NavigationSection':
-                return require('../section/section');
+    getPageMetadata() {
+        switch (this.props.content.nodeType) {
+            case 'Homepage': return {
+                Handler: require('../home/home')
+            };
+            case 'HomesArticle': return {
+                Handler: require('../article/section')
+            };
+            case 'NavigationSection': return {
+                Handler: require('../section/section')
+            };
+            case 'Gallery': return {
+                Handler: require('../gallery/gallery'),
+                hideNetworkHeader: true
+            };
             default:
                 console.error({message: 'NotFound is not implemented'});
                 return null;
@@ -41,10 +54,8 @@ DefaultTemplate.contextTypes = {
     executeAction: React.PropTypes.func.isRequired
 };
 
-DefaultTemplate = connectToStores(DefaultTemplate, [EntityStore], (stores) => {
+export default connectToStores(DefaultTemplate, [EntityStore], (stores) => {
     return {
         content: stores.EntityStore.getContent()
     };
 });
-
-export default DefaultTemplate;

@@ -8,6 +8,7 @@ import facetedModuleService from './services/facetedModule.js';
 
 import HtmlStore from '@bxm/server/lib/stores/html';
 import AdStore from '@bxm/ad/src/google/stores/ad';
+import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import RouteStore from './stores/route';
 import EntityStore from './stores/entity';
 import ArticleStore from './stores/article';
@@ -30,7 +31,8 @@ let app = new Flux({
         AdStore,
         TaggedArticlesStore,
         SocialStore,
-        NetworkHeaderStore
+        NetworkHeaderStore,
+        GalleryStore
     ]
 });
 

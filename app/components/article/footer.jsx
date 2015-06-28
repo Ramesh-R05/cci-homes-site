@@ -10,8 +10,8 @@ class Footer extends Component {
     }
 
     render() {
-        const {source, tags} = this.props;
-        const {writer, photographer, stylist, experter} = this.props.credits;
+        const {source, tags, credits} = this.props;
+        const {writer, photographer, stylist, experter} = credits;
 
         return (
             <footer className="article__footer">

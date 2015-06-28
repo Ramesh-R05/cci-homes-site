@@ -56,13 +56,6 @@ class Section extends Component {
 
 }
 
-Section = connectToStores(Section, [EntityStore], (stores) => {
-    return {
-        content: stores.EntityStore.getContent(),
-        title: stores.EntityStore.getTitle()
-    };
-});
-
 Section.propTypes = {
     content: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
@@ -74,4 +67,9 @@ Section.contextTypes = {
     executeAction: PropTypes.func
 };
 
-export default Section;
+export default connectToStores(Section, [EntityStore], (stores) => {
+    return {
+        content: stores.EntityStore.getContent(),
+        title: stores.EntityStore.getTitle()
+    };
+});

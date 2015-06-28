@@ -4,7 +4,6 @@ import {provideContext} from '@bxm/flux';
 import {handleHistory} from 'fluxible-router';
 import config from '../config/config';
 import platform from '@bxm/ui/lib/common/platform';
-import NetworkHeader from '@bxm/header/lib/header/header';
 import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
 class Application extends Component {
@@ -31,12 +30,7 @@ class Application extends Component {
 
     render() {
         const Handler = this.props.currentRoute.get('handler');
-        return (
-            <div>
-                <NetworkHeader />
-                <Handler />
-            </div>
-        );
+        return <Handler/>;
     }
 }
 
@@ -49,7 +43,4 @@ Application.contextTypes = {
     executeAction: React.PropTypes.func
 };
 
-Application = handleHistory(Application);
-Application = provideContext(Application);
-
-export default Application;
+export default provideContext(handleHistory(Application));

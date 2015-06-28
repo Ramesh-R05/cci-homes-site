@@ -19,7 +19,7 @@ class Hero extends Component {
     }
 
     renderHeroVideo() {
-        const {video} = this.props.item;
+        const video = this.props.item.video;
         let brightcoveId = null;
         try {
             brightcoveId = video.properties.videoConfiguration.brightcoveId;
@@ -31,7 +31,8 @@ class Hero extends Component {
     }
 
     renderHeroImage() {
-        const {imageUrl, imageAltText, imageCaption} = this.props.item;
+        const {item} = this.props;
+        const {imageUrl, imageAltText, imageCaption} = item;
         return (
             <HeroImage
                 url={imageUrl}
