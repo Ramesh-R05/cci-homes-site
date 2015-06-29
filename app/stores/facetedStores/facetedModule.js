@@ -1,6 +1,6 @@
 import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
-import extend from 'lodash/object/extend';
+import toArray from 'lodash/lang/toArray';
 
 
 class ModuleConfiguration {
@@ -17,7 +17,7 @@ class FacetedModuleStore extends BaseStore {
         if (!lynxStoreName) throw new Error('lynxStoreName must be provided by the implementor store');
         super(dispatcher);
         this.lynxStoreName = lynxStoreName;
-        this.items = new Map();
+        this.items = {};
         this.faceting = {};
         this.paging = {};
     }
@@ -40,7 +40,7 @@ class FacetedModuleStore extends BaseStore {
         // dang: hack to get page size into the paging object. we will do this via the backend one day.
         this.paging.pageSize = this.paging.pageSize || this.settings.pageSize;
 
-        payload.content.items.forEach(item => this.items.set(item.id, item));
+        payload.content.items.forEach(item => this.items[item.id] = item);
 
         this.emitChange();
     }
@@ -56,11 +56,8 @@ class FacetedModuleStore extends BaseStore {
     }
 
     getItems() {
-        const items = [];
-        for (let item of this.items.values()) {
-            items.push(item);
-        }
-        this.traceMethod('getItems', items);
+        const items = toArray(this.items);
+        this.traceMethod('getItems', this.items.length);
         return items;
     }
 
@@ -79,13 +76,19 @@ class FacetedModuleStore extends BaseStore {
     dehydrate() {
         this.traceMethod('dehydrate');
         return {
-            config: this.config
+            config: this.config,
+            faceting: this.faceting,
+            items: this.items,
+            paging: this.paging
         };
     }
 
     rehydrate(state) {
         this.traceMethod('rehydrate', state);
-        extend(this, state);
+        this.config = state.config;
+        this.faceting = state.faceting;
+        this.items = state.items;
+        this.paging = state.paging;
     }
 
     traceMethod(method, data) {
