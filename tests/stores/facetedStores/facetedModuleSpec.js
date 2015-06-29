@@ -1,6 +1,8 @@
 import extend from 'lodash/object/extend';
 import {betterMockActionContext} from '@bxm/flux';
 import {contentPayload, pageReceivedPayload} from '../../mock/facetedModule';
+import FacetedModuleStore from '../../../app/stores/facetedStores/facetedModule';
+import {articles as itemsMock, articlesPage2 as itemsPage2Mock} from '../../mock/articles';
 const safada = require('../../utils/safada/safada')(Context);
 const proxyquire = require('proxyquire').noCallThru();
 
@@ -103,6 +105,59 @@ describe('Stores', () => {
             it('FACETED_MODULE:PAGE_RECEIVED ignores payloads meant for another faceted module store', () => {
                 expect(() => Context.dispatch('FACETED_MODULE:PAGE_RECEIVED', pageReceivedPayload)).to.not.throw();
             });
+        });
+
+        describe('when paginating', () => {
+            let numItems;
+            let store;
+            const facetedStoreName = 'Test';
+            const firstPayload = {
+                lynxStoreName: facetedStoreName,
+                content: {
+                    items: itemsMock,
+                    faceting: {},
+                    paging: {
+                        pageSize: 10
+                    }
+                }
+            };
+            const secondPayload = firstPayload;
+            const thirdPayload = {
+                lynxStoreName: facetedStoreName,
+                content: {
+                    items: itemsPage2Mock,
+                    faceting: {},
+                    paging: {
+                        pageSize: 10
+                    }
+                }
+            };
+
+            before(() => {
+                store = new FacetedModuleStore(null, facetedStoreName);
+                store.onPageReceived(firstPayload);
+                numItems = store.getItems().length;
+            });
+
+            const expectedNumItems = 20;
+            it(`should have ${expectedNumItems} items in the first page`, () => {
+               expect(numItems).to.equal(expectedNumItems);
+            });
+
+            it(`should have ${expectedNumItems} after receiving items that already are in the store`, () => {
+                store.onPageReceived(secondPayload);
+                numItems = store.getItems().length;
+                expect(numItems).to.equal(expectedNumItems);
+            });
+
+            const numNewItems = thirdPayload.content.items.length;
+            const expectedPage2NumItems = expectedNumItems + numNewItems;
+            it(`should have ${expectedPage2NumItems} after receiving ${numNewItems} unique new items`, () => {
+                store.onPageReceived(thirdPayload);
+                numItems = store.getItems().length;
+                expect(numItems).to.equal(expectedPage2NumItems);
+            });
+
         });
     });
 });

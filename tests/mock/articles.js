@@ -293,121 +293,121 @@ export default {
                 "homes:Renovating:Materials:Bamboo"
             ]
         }
+    ],
 
-        // PAGE 2 DATA
-
-        //{
-        //    id: "HOMES-21",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
-        //    url:"http://www.google.com.au",
-        //    title:"Renting shouldn't mean sacrificing personality 12",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-22",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
-        //    url:"http://www.google.com.au",
-        //    nodeType: 'Gallery',
-        //    title:"Renting shouldn't mean sacrificing personality 13",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-23",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
-        //    url:"http://www.google.com.au",
-        //    title:"Renting shouldn't mean sacrificing personality 14",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-24",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
-        //    url:"http://www.google.com.au",
-        //    nodeType: 'Gallery',
-        //    title:"Renting shouldn't mean sacrificing personality 15",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-25",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
-        //    url:"http://www.google.com.au",
-        //    title:"Renting shouldn't mean sacrificing personality 16",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-26",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
-        //    url:"http://www.google.com.au",
-        //    title:"Renting shouldn't mean sacrificing personality 17",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-27",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
-        //    url:"http://www.google.com.au",
-        //    nodeType: 'Gallery',
-        //    title:"Renting shouldn't mean sacrificing personality 18",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-28",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1214/diy_-2163.jpg",
-        //    url:"http://www.google.com.au",
-        //    title:"Renting shouldn't mean sacrificing personality 19",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //},
-        //{
-        //    id: "HOMES-29",
-        //    imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1214/diy_-2163.jpg",
-        //    url:"http://www.google.com.au",
-        //    nodeType: 'Gallery',
-        //    title:"Renting shouldn't mean sacrificing personality 20",
-        //    source:"Australian House and Garden",
-        //    summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-        //    articleTags:[
-        //        "homes:Topic:Gardening",
-        //        "homes:Renovating:Materials:Bamboo"
-        //    ]
-        //}
-
+    articlesPage2: [
+         // PAGE 2 DATA
+        {
+            id: "HOMES-21",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
+            url:"http://www.google.com.au",
+            title:"Renting shouldn't mean sacrificing personality 12",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-22",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
+            url:"http://www.google.com.au",
+            nodeType: 'Gallery',
+            title:"Renting shouldn't mean sacrificing personality 13",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-23",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1213/jhj_chinamans-15-01-2015__0209.jpg",
+            url:"http://www.google.com.au",
+            title:"Renting shouldn't mean sacrificing personality 14",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-24",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
+            url:"http://www.google.com.au",
+            nodeType: 'Gallery',
+            title:"Renting shouldn't mean sacrificing personality 15",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-25",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
+            url:"http://www.google.com.au",
+            title:"Renting shouldn't mean sacrificing personality 16",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-26",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
+            url:"http://www.google.com.au",
+            title:"Renting shouldn't mean sacrificing personality 17",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-27",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1210/150305---belle---rugs-feature-8261.jpg",
+            url:"http://www.google.com.au",
+            nodeType: 'Gallery',
+            title:"Renting shouldn't mean sacrificing personality 18",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-28",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1214/diy_-2163.jpg",
+            url:"http://www.google.com.au",
+            title:"Renting shouldn't mean sacrificing personality 19",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        },
+        {
+            id: "HOMES-29",
+            imageUrl:"http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1214/diy_-2163.jpg",
+            url:"http://www.google.com.au",
+            nodeType: 'Gallery',
+            title:"Renting shouldn't mean sacrificing personality 20",
+            source:"Australian House and Garden",
+            summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
+            articleTags:[
+                "homes:Topic:Gardening",
+                "homes:Renovating:Materials:Bamboo"
+            ]
+        }
     ]
 }
