@@ -1,6 +1,6 @@
 import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
-import toArray from 'lodash/lang/toArray';
+import uniq from 'lodash/array/uniq';
 
 
 class ModuleConfiguration {
@@ -17,13 +17,12 @@ class FacetedModuleStore extends BaseStore {
         if (!lynxStoreName) throw new Error('lynxStoreName must be provided by the implementor store');
         super(dispatcher);
         this.lynxStoreName = lynxStoreName;
-        this.items = {};
+        this.items = [];
         this.faceting = {};
         this.paging = {};
     }
 
     onLoadContent(payload) {
-        this.traceMethod('onLoadContent');
         this.config = this.readConfiguration(payload);
         this.emitChange();
     }
@@ -40,7 +39,9 @@ class FacetedModuleStore extends BaseStore {
         // dang: hack to get page size into the paging object. we will do this via the backend one day.
         this.paging.pageSize = this.paging.pageSize || this.settings.pageSize;
 
-        payload.content.items.forEach(item => this.items[item.id] = item);
+        payload.content.items.forEach(item => this.items.push(item));
+
+        this.items = uniq(this.items, 'id'); // remove duplicates
 
         this.emitChange();
     }
@@ -51,14 +52,11 @@ class FacetedModuleStore extends BaseStore {
     }
 
     getConfiguration() {
-        this.traceMethod('getConfiguration', this.config);
         return this.config;
     }
 
     getItems() {
-        const items = toArray(this.items);
-        this.traceMethod('getItems', this.items.length);
-        return items;
+        return this.items;
     }
 
     getFaceting() {
@@ -74,7 +72,6 @@ class FacetedModuleStore extends BaseStore {
     }
 
     dehydrate() {
-        this.traceMethod('dehydrate');
         return {
             config: this.config,
             faceting: this.faceting,
@@ -84,7 +81,6 @@ class FacetedModuleStore extends BaseStore {
     }
 
     rehydrate(state) {
-        this.traceMethod('rehydrate', state);
         this.config = state.config;
         this.faceting = state.faceting;
         this.items = state.items;
