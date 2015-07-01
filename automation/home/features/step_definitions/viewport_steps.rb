@@ -1,4 +1,4 @@
-When(/^I switch to (.*) view$/) do |mode|
+When(/^I switch to ([^"]+) view$/) do |mode|
 
   resolutions = {}
   resolutions["mobile"] = [320, 568]
