@@ -259,7 +259,7 @@ a {
 @mixin type-composite {
     color: $color-grey-dark;
     font: 300 36px/.889 $font-family-sans-serif-primary;
-    letter-spacing: .01em;
+    letter-spacing: .1em;
     text-transform: uppercase;
 
     b,

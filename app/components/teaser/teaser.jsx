@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import breakpoints from '../../breakpoints';
 import classnames from 'classnames';
 import {isUndefined} from 'lodash/lang';
+import imageResize from '@bxm/ui/lib/common/ImageResize';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';
 import Image from '@bxm/article/lib/components/teaser/image';
@@ -39,7 +40,8 @@ class Teaser extends Component {
                     gtmClass={gtmClass}
                     imageUrl={this.props.imageUrl}
                     imageSizes={imgSizes}
-                    link={url}>
+                    link={url}
+                    responsiveConfig={Teaser.imageConfig}>
                     <Icon {...this.props} />
                 </Image>
                 <div className="teaser__content">
@@ -79,29 +81,35 @@ Teaser.defaultProps = {
 };
 Teaser.imageSizes = {
     base: {
-        s: {w: 230, h: 190},
+        s: {w: 320, h: 264},
         m: {w: 400, h: 330},
         l: {w: 410, h: 340},
         xl: {w: 360, h: 300}
     },
     hero: {
-        s: {w: 500, h: 420},
+        s: {w: 667, h: 650},
         m: {w: 940, h: 790},
         l: {w: 1140, h: 920},
         xl: {w: 1140, h: 920}
     },
     narrow: {
-        s: {w: 300, h: 160},
-        m: {w: 300, h: 160},
+        s: {w: 640, h:341},
+        m: {w: 640, h:341},
         l: {w: 300, h: 160},
         xl: {w: 300, h: 160}
     },
     'small-hero': {
-        s: {w: 230, h: 190},
+        s: {w: 320, h: 264},
         m: {w: 400, h: 330},
         l: {w: 410, h: 340},
         xl: {w: 750, h: 625}
     }
+};
+
+Teaser.imageConfig = {
+    scale: imageResize.scale.BOTH,
+    anchor: imageResize.anchor.MC,
+    mode: imageResize.mode.CROP
 };
 
 export default hoist( theme( Teaser, 'source'), Teaser);
