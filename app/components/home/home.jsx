@@ -3,32 +3,23 @@ import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
 
 class Home extends React.Component {
-
     constructor(props, context) {
         super(props, context);
     }
 
     render() {
-        return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.nodeType}</h2>
-            </div>
-        );
+        return <h1>{this.props.title}</h1>;
     }
-
 }
 
 Home = connectToStores(Home, [EntityStore], (stores) => {
     return {
-        title: stores.EntityStore.getTitle(),
-        nodeType: stores.EntityStore.getNodeType()
+        title: stores.EntityStore.getTitle()
     };
 });
 
 Home.propTypes = {
-    title: React.PropTypes.string,
-    nodeType: React.PropTypes.string
+    title: React.PropTypes.string
 };
 
 Home.contextTypes = {

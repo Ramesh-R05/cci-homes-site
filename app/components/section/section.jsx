@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
+import EntityStore from '../../stores/entity';
 import TaggedArticlesStore from '../../stores/facetedStores/taggedArticles';
 import * as FacetedModuleActions from '../../actions/facetedModule';
 import Header from './header';
@@ -18,7 +19,7 @@ class Section extends Component {
     componentWillMount() {
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
-            params: {tags: ['food:Homes navigation:Interiors']},
+            params: {tags: this.props.navigationTags},
             moduleConfig: this.props.moduleConfig
         });
     }
@@ -52,7 +53,7 @@ class Section extends Component {
             <div className="container">
 
                 <div className="row">
-                    <Header tag="Home Inspiration">
+                    <Header tags={this.props.navigationTags}>
                         <Ad
                             className="ad--section-top-leaderboard"
                             sizes={{
@@ -141,11 +142,13 @@ class Section extends Component {
 
 Section.propTypes = {
     articles: PropTypes.array.isRequired,
-    moduleConfig: PropTypes.any
+    moduleConfig: PropTypes.any,
+    navigationTags: PropTypes.array.isRequired
 };
 
 Section.defaultProps = {
-    articles: []
+    articles: [],
+    navigationTags: []
 };
 
 Section.contextTypes = {
@@ -153,9 +156,10 @@ Section.contextTypes = {
     executeAction: PropTypes.func
 };
 
-export default connectToStores(Section, [TaggedArticlesStore], (stores) => {
+export default connectToStores(Section, [TaggedArticlesStore, EntityStore], (stores) => {
     return {
         articles: stores.TaggedArticlesStore.getItems(),
-        moduleConfig: stores.TaggedArticlesStore.getConfiguration()
+        moduleConfig: stores.TaggedArticlesStore.getConfiguration(),
+        navigationTags: stores.EntityStore.getNavigationTags()
     };
 });

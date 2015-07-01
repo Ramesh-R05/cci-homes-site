@@ -91,7 +91,9 @@
         @media #{$small-only} {
             @include grey-mobile-banner();
         }
+    }
 
+    &--section-middle-leaderboard {
         @media #{$xlarge-up} {
             margin-bottom: $column-gutter * 2;
         }
