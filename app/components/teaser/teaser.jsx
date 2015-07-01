@@ -11,10 +11,8 @@ import Tags from './tags';
 import Source from './source';
 import Icon from './icon';
 import theme from './../helpers/theme';
-import hoist from 'hoist-non-react-statics';
 
 class Teaser extends Component {
-
     getImgSizes(sizes, modifier) {
         if ( !isUndefined(Teaser.imageSizes[sizes])) {
             return Teaser.imageSizes[sizes];
@@ -41,7 +39,8 @@ class Teaser extends Component {
                     imageUrl={this.props.imageUrl}
                     imageSizes={imgSizes}
                     link={url}
-                    responsiveConfig={Teaser.imageConfig}>
+                    responsiveConfig={Teaser.imageConfig}
+                >
                     <Icon {...this.props} />
                 </Image>
                 <div className="teaser__content">
@@ -79,6 +78,7 @@ Teaser.defaultProps = {
     modifier: 'img-left',
     sizes: ''
 };
+
 Teaser.imageSizes = {
     base: {
         s: {w: 320, h: 264},
@@ -112,4 +112,4 @@ Teaser.imageConfig = {
     mode: imageResize.mode.CROP
 };
 
-export default hoist( theme( Teaser, 'source'), Teaser);
+export default theme(Teaser, 'source');

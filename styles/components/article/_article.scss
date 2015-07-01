@@ -1,5 +1,6 @@
 .article {
     @include type-article-body();
+    border-left: 1px solid $line-color;
     padding: 0 ($column-gutter/2);
 
     @media #{$medium-up} {

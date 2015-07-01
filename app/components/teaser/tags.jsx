@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import TagUtils from '../../utils/tagUtils';
+import * as TagUtils from '../../utils/tagUtils';
 import {difference, union} from 'lodash/array';
 import {isUndefined} from 'lodash/lang';
 

@@ -23,7 +23,7 @@ Feature: article detail page
     Scenario: Check all ad slots are visible on the article detail page
         Given I am viewing an article
         Then I should see 1 "ad--article-top" ad slot
-        And I should see 1 "ad--article-beneath-recommendations" ad slot 
+        And I should see 1 "ad--article-beneath-recommendations" ad slot
 
         When I switch to "tablet landscape" view
         And I am viewing an article
@@ -35,7 +35,7 @@ Feature: article detail page
         Then I should see 1 "ad--article-top" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot
 
-        When I switch to "mobile" view  
+        When I switch to "mobile" view
         And I am viewing an article
         Then I should see 1 "ad--beneath-short-teaser" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot

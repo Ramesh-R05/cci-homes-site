@@ -152,12 +152,12 @@ describe('Teaser', () => {
 
     describe('with the sizes prop', () => {
         let reactModule;
-        let Image;
+        let image;
         const props = extend({}, articlesMock.basic, { sizes: 'narrow' });
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
-            Image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
+            image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
         });
 
         after(() => {
@@ -168,7 +168,12 @@ describe('Teaser', () => {
         });
 
         it(`should set the Image sizes prop to`, () => {
-            expect(Image.props.imageSizes).to.deep.eq(Teaser.imageSizes[props.sizes]);
+            expect(image.props.imageSizes).to.deep.eq({
+                s: {w: 640, h: 341},
+                m: {w: 640, h: 341},
+                l: {w: 300, h: 160},
+                xl: {w: 300, h: 160}
+            });
         });
     });
 

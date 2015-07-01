@@ -3,6 +3,7 @@ import imageResize from '@bxm/ui/lib/common/ImageResize';
 import TeaserImage from '@bxm/article/lib/components/teaser/image';
 import Icon from '../teaser/icon';
 import breakpoints from '../../breakpoints';
+import {getFirstTagNameForCategory} from '../../utils/tagUtils';
 
 class FeedItem extends Component {
 
@@ -12,10 +13,11 @@ class FeedItem extends Component {
 
     render() {
         const {gtmClass, item} = this.props;
-        const {url, imageUrl, title, topic} = item;
-
+        const {url, imageUrl, title, source} = item;
+        const sourceClassName = `source-${FeedItem.sourceClassNameMap[source]}`;
+        const topic = getFirstTagNameForCategory(this.props.item.articleTags, 'Topic');
         return (
-            <li className={`feed-item topic-${topic}`}>
+            <li className={`feed-item ${sourceClassName}`}>
                 <TeaserImage
                     link={url}
                     imageUrl={imageUrl}
@@ -24,11 +26,14 @@ class FeedItem extends Component {
                     breakpoints={breakpoints}
                     imageSizes={FeedItem.teaserSizes}
                     responsiveConfig={FeedItem.teaserResponsiveConfig}
+                    quality={FeedItem.imageQuality}
                 >
                     <Icon nodeType={item.nodeType} video={item.video} />
                 </TeaserImage>
                 <div className="feed-item__body">
-                    <span className="feed-item__body-topic">{topic}</span>
+                    <span className="feed-item__body-source">
+                        {topic}
+                    </span>
                     <a className="feed-item__body-title" href={url}>{title}</a>
                 </div>
             </li>
@@ -42,6 +47,8 @@ FeedItem.propTypes = {
     item: PropTypes.object.isRequired
 };
 
+FeedItem.imageQuality = 85;
+
 FeedItem.teaserResponsiveConfig = {
     scale: imageResize.scale.BOTH,
     anchor: imageResize.anchor.MC,
@@ -53,6 +60,13 @@ FeedItem.teaserSizes = {
     m: { w: 132, h: 107 },
     l: { w: 132, h: 107 },
     xl: { w: 132, h: 107 }
+};
+
+FeedItem.sourceClassNameMap = {
+    'homes+': 'homes-plus',
+    'real living': 'real-living',
+    'Belle': 'belle',
+    'Australian House and Garden': 'house-and-garden'
 };
 
 export default FeedItem;

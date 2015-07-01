@@ -1,7 +1,7 @@
 When(/^I switch to "([^"]+)" view$/) do |mode|
 
   resolutions = {}
-  resolutions["mobile"] = [320, 568]
+  resolutions["mobile"] = [400, 600]
   resolutions["desktop"] = [1600, 900]
   resolutions["tablet portrait"] = [768, 1024]
   resolutions["tablet landscape"] = [1024, 768]

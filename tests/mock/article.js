@@ -1,7 +1,9 @@
 export default{
     "campaign": [],
     "articleTags": [
-        "homes:Topic:Garden planner"
+        "homes:Topic:Garden planner",
+        "homes:Homes navigation:Outdoor",
+        "homes:Homes navigation:Garden"
     ],
     "source": "Australian House and Garden",
     "body": [

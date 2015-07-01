@@ -19,7 +19,7 @@ class Section extends Component {
     componentWillMount() {
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
-            params: {tags: this.props.navigationTags},
+            params: { tags: this.props.navigationTags },
             moduleConfig: this.props.moduleConfig
         });
     }

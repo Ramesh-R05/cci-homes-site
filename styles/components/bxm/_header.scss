@@ -7,3 +7,8 @@ $tl-header-heading-font-weight: 400;
 @import './to-love/common';
 @import './to-love/modal/modal';
 @import './header/header';
+
+.global-header {
+    position: relative;
+    z-index: $z-index-15--network-header;
+}

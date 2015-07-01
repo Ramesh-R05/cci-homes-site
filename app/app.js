@@ -4,16 +4,16 @@ import {Flux, servicesPlugin} from '@bxm/flux';
 import AppComponent from './components/app';
 import contentService from './services/content';
 import adConfig from './config/ads';
-import facetedModuleService from './services/facetedModule.js';
+import facetedModuleService from './services/facetedModule';
 
 import HtmlStore from '@bxm/server/lib/stores/html';
 import AdStore from '@bxm/ad/src/google/stores/ad';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import RouteStore from './stores/route';
 import EntityStore from './stores/entity';
-import ArticleStore from './stores/article';
 import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
-import TaggedArticlesStore from './stores/facetedStores/taggedArticles.js';
+import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
+import FeedStore from './stores/facetedStores/feed';
 
 //Global header
 import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
@@ -24,15 +24,16 @@ adConfig.init();
 let app = new Flux({
     component: AppComponent,
     stores: [
-        HtmlStore,
-        RouteStore,
-        EntityStore,
-        ArticleStore,
+        // Keep in alphabetical order to make diffs easier
         AdStore,
-        TaggedArticlesStore,
-        SocialStore,
+        EntityStore,
+        FeedStore,
+        GalleryStore,
+        HtmlStore,
         NetworkHeaderStore,
-        GalleryStore
+        RouteStore,
+        SocialStore,
+        TaggedArticlesStore
     ]
 });
 

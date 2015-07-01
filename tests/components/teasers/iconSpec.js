@@ -1,5 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import feedDataMock from '../../mock/feed.json';
+import feedDataMock from '../../mock/feed';
 import staticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
 const Context = betterMockComponentContext();

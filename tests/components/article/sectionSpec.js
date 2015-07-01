@@ -1,5 +1,8 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articleMock from '../../mock/article';
+import feedMock from '../../mock/feed';
+import {noop} from 'lodash/utility';
+import {findWhere} from 'lodash/collection';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -8,23 +11,34 @@ const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const ArticleStub = Context.createStubComponent();
 const FeedStub = Context.createStubComponent();
+const feedConfigMock = {};
+const getPageMock = () => {};
 const ArticleSection = proxyquire('../../../app/components/article/section', {
     'react': React,
     'react/addons': React,
     './article': ArticleStub,
-    '../feed/feed': FeedStub
+    '../feed/feed': FeedStub,
+    '../../actions/facetedModule': { getPage: getPageMock }
 });
 
-let EntityStoreStub = {
+
+Context.addStore('EntityStore', {
     getTitle() {
         return articleMock.title;
     },
     getContent() {
         return articleMock;
     }
-};
+});
 
-Context.addStore('EntityStore', EntityStoreStub);
+Context.addStore('FeedStore', {
+    getConfiguration() {
+        return feedConfigMock;
+    },
+    getItems() {
+        return feedMock;
+    }
+});
 
 describe(`ArticleSection Component`, () => {
     const sectionClassName = `article-section`;
@@ -36,16 +50,44 @@ describe(`ArticleSection Component`, () => {
         reactModule = Context.mountComponent(ArticleSection);
     });
 
-    it(`should render the Article Section with class "${sectionClassName}"`, () => {
-        expect(TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName)).to.exist;
+    describe(`Stores`, () => {
+        let getPageAction;
+        before(() => {
+            getPageAction = findWhere(Context.instanceContext.executeActionCalls, { action: getPageMock });
+        });
+
+        it(`should execute an action to collect the feed data`, () => {
+            expect(getPageAction).to.exist;
+        });
+
+        it(`should pass the feed module config`, () => {
+            expect(getPageAction.payload.moduleConfig).to.eql(feedConfigMock);
+        });
+
+        it(`should request only the 1st page of fed items`, () => {
+            expect(getPageAction.payload.page).to.eq(0);
+        });
+
+        it(`should pass the article navigation tag as a param`, () => {
+            expect(getPageAction.payload.params.tags).to.eql([
+                'homes:Homes navigation:Outdoor',
+                'homes:Homes navigation:Garden'
+            ]);
+        });
     });
 
-    it(`should render the Article component on the page`, () => {
-        expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleStub)).to.exist;
-    });
+    describe(`Section`, () => {
+        it(`should render the Article Section with class "${sectionClassName}"`, () => {
+            expect(TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName)).to.exist;
+        });
 
-    it(`should render the Article Feed on the page`, () => {
-        expect(TestUtils.findRenderedComponentWithType(reactModule, FeedStub)).to.exist;
+        it(`should render the Article component on the page`, () => {
+            expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleStub)).to.exist;
+        });
+
+        it(`should render the Article Feed on the page`, () => {
+            expect(TestUtils.findRenderedComponentWithType(reactModule, FeedStub)).to.exist;
+        });
     });
 
     describe(`Article`, () => {
@@ -97,12 +139,20 @@ describe(`ArticleSection Component`, () => {
     });
 
     describe(`Feed`, () => {
-        const articleTags = ['homes:Topic:Garden planner'];
+        const articleTags = [
+            'homes:Topic:Garden planner',
+            'homes:Homes navigation:Outdoor',
+            'homes:Homes navigation:Garden'
+        ];
         const pageId = 'HOMES-1169';
         let feed;
 
         before(() => {
             feed = TestUtils.findRenderedComponentWithType(reactModule, FeedStub);
+        });
+
+        it(`sets the items to an array`, () => {
+            expect(feed.props.items).to.eql(feedMock);
         });
 
         it(`sets the articleTags to an array`, () => {

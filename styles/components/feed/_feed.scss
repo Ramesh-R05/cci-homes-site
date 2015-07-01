@@ -1,24 +1,32 @@
 .feed {
     $feed-top-padding: 30px;
+    $network-header-height: 51px;
 
     display: none;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: $article-feed-container-width;
+
     @media #{$large-up} {
         display: block;
     }
 
-    width: $article-feed-container-width;
-
     &__container {
-        border-right: 1px solid $line-color;
-        height: 100%;
-        position: fixed;
+        height: calc(100% - #{$network-header-height + $feed-top-padding});
+        margin-top: $network-header-height + $feed-top-padding;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch; // Must come after overflow-y
     }
 
     &__items {
-        height: calc(100% - #{$feed-top-padding});
-        margin-top: $feed-top-padding;
-        overflow-y: scroll;
+        height: 100%;
+        margin-top: 0;
         padding-left: 0;
-        width: $article-feed-container-width;
+
+        // Improves left-hand rail flicker on iPad scroll
+        > * {
+            transform: translate3d(0, 0, 0);
+        }
     }
 }
