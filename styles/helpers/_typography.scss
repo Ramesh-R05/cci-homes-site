@@ -280,7 +280,7 @@ a {
 
     @media #{$medium-up} {
         font-size: 48px;
-        
+
         b,
         .bold {
             font-size: 52px;
@@ -309,7 +309,7 @@ a {
         content: '';
         display: inline-block;
         position: relative;
-        top: -4px;
+        top: -30px;
         width: 100%;
     }
 }

@@ -44,6 +44,7 @@ $section-minor-bp-1: 1595px;
 
 // Fixed column group
 .section--fixed-col {
+    @include column-extra-side-gutter;
 
     @media #{$large-up} {
         float: right;
@@ -55,12 +56,10 @@ $section-minor-bp-1: 1595px;
         @include grid-column(12);
         @include type-composite;
         @include type-underlined;
-        margin-bottom: 30px;
-
 
         @media #{$large-up} {
             @include column-full-width;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
     }
 
@@ -90,6 +89,7 @@ $section-minor-bp-1: 1595px;
 }
 
 .section--3-items {
+    @include column-extra-side-gutter;
     clear: both;
     margin-bottom: 20px;
     overflow: hidden;
@@ -101,11 +101,6 @@ $section-minor-bp-1: 1595px;
 
     @media #{$large-up} {
         margin-top: 0;
-    }
-
-    // when the hero image reaches its max width/height
-    @media only screen and (min-width:$section-minor-bp-1) {
-        margin-top: 20px;
     }
 
     .teaser {
@@ -160,6 +155,7 @@ $section-minor-bp-1: 1595px;
 }
 
 .section--6-or-4-items {
+    @include column-extra-side-gutter;
     clear: both;
     padding-top: 40px;
 
@@ -182,9 +178,10 @@ $section-minor-bp-1: 1595px;
     }
 
     .teaser {
-        @include grid-column(6);
+        @include columns-half-gutter;
 
         @media #{$medium-up} {
+            @include grid-column(6);
             @include teaser-tag-over-img;
         }
 
@@ -230,18 +227,18 @@ $section-minor-bp-1: 1595px;
         }
     }
 
-    .ad--mrec {
-        @media #{$medium-up} {
-            @include grid-column(6);
-        }
-    }
-
     .section__children {
         @include grid-column(12);
+
+        @media #{$medium-only} {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }
 
 .section--9-items {
+    @include column-extra-side-gutter;
     clear: both;
 
     .teaser--img-left {
@@ -253,7 +250,8 @@ $section-minor-bp-1: 1595px;
     }
 
     .teaser--img-top {
-        @include grid-column(6);
+
+        @include columns-half-gutter;
 
         @media #{$medium-up} {
             @include grid-column(4);

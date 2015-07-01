@@ -18,5 +18,3 @@ Header.propTypes = {
     children: PropTypes.any,
     tag: PropTypes.string
 };
-
-//Header.defaultProps = {};

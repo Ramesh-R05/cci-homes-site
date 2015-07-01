@@ -137,6 +137,10 @@
             display: inline-block;
         }
     }
+
+    @media #{$xlarge-up} {
+        margin-bottom: $column-gutter * 2;
+    }
 }
 
 // Hero content partially over the img
@@ -144,9 +148,17 @@
     @include teaser-icon-centered-big;
 
     .teaser__content {
-        margin-bottom: -110px;
+        margin-bottom: -80px;
+        padding-top: 0;
         position: relative;
-        top: -110px;
+        top: -65px;
+    }
+
+    .teaser__tags {
+        background: $color-white;
+        display: inline-block;
+        margin: -50px 0 10px;
+        padding: 13px 25px 0;
     }
 
     .teaser__summary {
@@ -157,8 +169,6 @@
 @mixin teaser-small-hero {
     @include teaser-hero;
     @include teaser-icon-centered-big;
-
-    margin-top: 20px;
 
     .teaser__content {
         bottom: 30px;
@@ -183,6 +193,10 @@
     // ---------------------------------------------------- defaults
     margin-bottom: 20px;
     position: relative;
+
+    @media #{$xlarge-up} {
+        margin-bottom: $column-gutter;
+    }
 
     &__image {
         display: block;

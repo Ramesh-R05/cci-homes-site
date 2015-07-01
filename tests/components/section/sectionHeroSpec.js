@@ -12,7 +12,7 @@ const SectionHero = proxyquire('../../../app/components/section/hero', {
     '../teaser/teaser': TeaserStub
 });
 
-describe('SectionHero', () => {
+describe('GroupHero', () => {
     describe('with firstHero and secondHero defined', () => {
         let sectionHero;
         let reactModule;
