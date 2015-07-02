@@ -19,7 +19,7 @@ class Article extends Component {
     }
 
     render() {
-        const {className, contentBody, credits, heroItem, source, summary, tags, title, themeClass} = this.props;
+        const {pageId, url, className, contentBody, credits, heroItem, source, summary, tags, title, themeClass} = this.props;
         const cssClass = classNames(`article`, className, themeClass);
         const sizes = {
             small: 'banner',
@@ -37,8 +37,9 @@ class Article extends Component {
                     displayFor={['medium', 'large', 'xlarge']}
                     sizes={sizes}
                 />
-
                 <Header
+                    pageId={pageId}
+                    url={url}
                     heroItem={heroItem}
                     summary={summary}
                     title={title}
@@ -65,6 +66,8 @@ class Article extends Component {
 }
 
 Article.propTypes = {
+    pageId: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     contentBody: PropTypes.array.isRequired,
     heroItem: PropTypes.object.isRequired,

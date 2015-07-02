@@ -23,7 +23,7 @@
     "@bxm/login-radius-stub": "^1.1.0",
     "@bxm/server": "^2.0.8",
     "@bxm/services-stubs": "1.1.0",
-    "@bxm/ui": "^1.3.0",
+    "@bxm/ui": "1.4.0",
     "babel": "^5.4.4",
     "body-parser": "^1.13.1",
     "classnames": "^2.1.2",

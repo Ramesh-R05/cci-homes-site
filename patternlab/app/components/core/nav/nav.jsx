@@ -49,6 +49,12 @@ export default class Nav extends Component {
                                 <li><a href="/patternlab/buttons#buttonCategory">ButtonCategory</a></li>
                             </ul>
                         </li>
+                        <li onClick={this.props.onClick}>
+                            <NavLink routeName="social" activeClass={activeClass}>Social</NavLink>
+                            <ul className="nav__sub-list">
+                                <li><a href="/patternlab/social">SocialShareBlock</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </aside>

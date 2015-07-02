@@ -5,6 +5,9 @@ import {handleHistory} from 'fluxible-router';
 import Nav from './nav/nav';
 import NavButton from './nav/button';
 import Overlay from './overlay';
+// To get the social working in styleguide
+import config from './../../../../app/config/config.js';
+import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 import platform from '@bxm/ui/lib/common/platform';
 import classnames from 'classnames';
 
@@ -15,6 +18,10 @@ class Application extends React.Component {
         this.state = {
             isNavOpened: false
         };
+    }
+
+    componentWillMount() {
+        StaticConfigurationStore.setConfiguration(config);
 
         if (canUseDOM) platform.set(navigator.userAgent);
     }

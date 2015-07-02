@@ -12,14 +12,14 @@ class Section extends Component {
 
     render() {
         const {title, content} = this.props;
-
         // Hero data
         const {id: pageId, articleTags} = content;
         const {imageUrl, imageAltText, imageCaption, video} = content;
         const heroItem = {imageUrl, imageAltText, imageCaption, video};
-
         // Article data
         const {body, source, summary} = content;
+        //url
+        const {siteUrl, url} = content;
 
         // TODO (thatzi): strings set temporary until credits are set up in CMS
         const credits = {
@@ -40,6 +40,8 @@ class Section extends Component {
                         summary={summary}
                         tags={articleTags}
                         credits={credits}
+                        pageId={pageId}
+                        url={siteUrl + url}
                     />
 
                     <Feed

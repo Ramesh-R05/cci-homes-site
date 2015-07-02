@@ -20,7 +20,13 @@ let config = {
     },
 
     gigya: {
-        apiKey: 'GIGYA-API-KEY-NOT-SET'
+        apiKey: '3_pQVekBexxJtrEDl59xLWe9U1sTEBBqwqSBDoba9MInh1kaHAC3QGxVNFXA-Yl00d'
+    },
+
+    features: {
+        socialShareBlock: {
+            enabled: false
+        }
     },
 
     global: {
