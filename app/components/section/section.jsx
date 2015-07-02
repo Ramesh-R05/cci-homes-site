@@ -82,7 +82,7 @@ class Section extends Component {
                     <Group articles={teaser3WithAd} modifier="3-items">
                         <Ad
                             className="ad--section-mrec"
-                            displayFor="xlarge"
+                            displayFor={['xlarge']}
                             sizes={['double-mrec', 'mrec']}
                         />
                     </Group>
@@ -97,6 +97,7 @@ class Section extends Component {
                         teaserModifier="img-top">
                         <Ad
                             className="ad--section-middle-leaderboard"
+                            displayFor={['small', 'medium', 'xlarge']}
                             sizes={{
                                 small: 'banner',
                                 leaderboard: 'leaderboard',
@@ -116,8 +117,8 @@ class Section extends Component {
                         teaserModifier="img-top">
                         <Ad
                             className="ad--section-middle-leaderboard"
+                            displayFor="large"
                             sizes={{
-                                small: 'banner',
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}

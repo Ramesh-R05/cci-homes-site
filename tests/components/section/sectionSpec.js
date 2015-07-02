@@ -179,9 +179,9 @@ describe(`Section`, () => {
             expect(Ads[2].props.sizes).to.deep.equal(expectedSizes);
         });
 
-        const expectedDisplayFor = 'xlarge';
+        const expectedDisplayFor = ['xlarge'];
         it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
-            expect(Ads[2].props.displayFor).to.equal(expectedDisplayFor);
+            expect(Ads[2].props.displayFor).to.deep.equal(expectedDisplayFor);
         });
     });
 
@@ -214,7 +214,6 @@ describe(`Section`, () => {
 
         it(`should have the correct sizes prop`, () => {
             const expectedSizes = {
-                small: 'banner',
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             };
