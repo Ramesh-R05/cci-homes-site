@@ -58,7 +58,7 @@ class Section extends Component {
                             sizes={{
                                 small: 'banner',
                                 leaderboard: 'leaderboard',
-                                1030: ['billboard', 'leaderboard']
+                                billboard: ['billboard', 'leaderboard']
                             }}
                         />
                     </Header>
@@ -100,7 +100,7 @@ class Section extends Component {
                             sizes={{
                                 small: 'banner',
                                 leaderboard: 'leaderboard',
-                                1030: ['billboard', 'leaderboard']
+                                billboard: ['billboard', 'leaderboard']
                             }}
                             targets={{
                                 position: 2
@@ -119,7 +119,7 @@ class Section extends Component {
                             sizes={{
                                 small: 'banner',
                                 leaderboard: 'leaderboard',
-                                1030: ['billboard', 'leaderboard']
+                                billboard: ['billboard', 'leaderboard']
                             }}
                             targets={{
                                 position: 2
