@@ -27,7 +27,7 @@ module.exports = {
             "HOMES-1206"
         ],
         "url": "/section",
-        "nodeType": "Section",
+        "nodeType": "NavigationSection",
         "template": "Index",
         "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
         "siteName": "Homes",

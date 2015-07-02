@@ -18,7 +18,7 @@ class Section extends Component {
     componentWillMount() {
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
-            params: {tags: ['Indoor']},
+            params: {tags: ['food:Homes navigation:Interiors']},
             moduleConfig: this.props.moduleConfig
         });
     }
