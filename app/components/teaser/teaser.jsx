@@ -14,16 +14,16 @@ import theme from './../helpers/theme';
 
 class Teaser extends Component {
     getImgSizes(sizes, modifier) {
-        if ( !isUndefined(Teaser.imageSizes[sizes])) {
+        if (!isUndefined(Teaser.imageSizes[sizes])) {
             return Teaser.imageSizes[sizes];
-        } else if ( !isUndefined(Teaser.imageSizes[modifier])) {
+        } else if (!isUndefined(Teaser.imageSizes[modifier])) {
             return Teaser.imageSizes[modifier];
         }
         return Teaser.imageSizes.base;
     }
 
     render() {
-        if ( isUndefined(this.props.id)) return null;
+        if (isUndefined(this.props.id)) return null;
 
         const {url, modifier, sizes, themeClass} = this.props;
         const gtmClass = `gtm-${this.props.id}`;
@@ -31,7 +31,7 @@ class Teaser extends Component {
         const imgSizes = this.getImgSizes(sizes, modifier);
 
         return (
-            <div className={classNames}>
+            <article className={classNames}>
                 <Image
                     alt={this.props.imageAltText}
                     breakpoints={breakpoints}
@@ -53,7 +53,7 @@ class Teaser extends Component {
                     <Summary summary={this.props.summary} />
                     <Source source={this.props.source} />
                 </div>
-            </div>
+            </article>
         );
     }
 }
@@ -87,7 +87,7 @@ Teaser.imageSizes = {
         xl: {w: 360, h: 300}
     },
     hero: {
-        s: {w: 667, h: 650},
+        s: {w: 667, h: 556},
         m: {w: 940, h: 790},
         l: {w: 1140, h: 920},
         xl: {w: 1140, h: 920}
@@ -103,6 +103,18 @@ Teaser.imageSizes = {
         m: {w: 400, h: 330},
         l: {w: 410, h: 340},
         xl: {w: 750, h: 625}
+    },
+    'img-left-to-hero': {
+        s: {w: 320, h: 264},
+        m: {w: 940, h: 790},
+        l: {w: 750, h: 700},
+        xl: {w: 750, h: 625}
+    },
+    'base-to-narrow': {
+        s: {w: 320, h: 264},
+        m: {w: 400, h: 330},
+        l: {w: 410, h: 340},
+        xl: {w: 300, h: 160}
     }
 };
 

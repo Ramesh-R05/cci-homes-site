@@ -30,6 +30,7 @@ $section-minor-bp-1: 1595px;
     .teaser {
         @media #{$large-only} {
             @include teaser-half-hero;
+            margin-bottom: 20px;
         }
 
         // Show second hero on large screen only
@@ -60,6 +61,7 @@ $section-minor-bp-1: 1595px;
         @media #{$large-up} {
             @include column-full-width;
             margin-bottom: 10px;
+            margin-top: -5px;
         }
     }
 
@@ -100,6 +102,7 @@ $section-minor-bp-1: 1595px;
     }
 
     @media #{$large-up} {
+        @include teaser-show-summary-source;
         margin-top: 0;
     }
 
@@ -128,12 +131,8 @@ $section-minor-bp-1: 1595px;
         }
     }
 
-    .tag-secondary,
-    .teaser__summary,
-    .teaser__source {
-        display: none;
-
-        @media #{$large-up} {
+    .tag-secondary {
+        @media #{$xlarge-up} {
             display: inline-block;
         }
     }
@@ -151,13 +150,12 @@ $section-minor-bp-1: 1595px;
         float: right;
         width: 300px;
     }
-
 }
 
 .section--6-or-4-items {
     @include column-extra-side-gutter;
     clear: both;
-    padding-top: 40px;
+    padding-top: 20px;
 
     &:before {
         border-bottom: 2px solid $color-section-separator;
@@ -166,11 +164,15 @@ $section-minor-bp-1: 1595px;
         margin-left: $column-gutter / 2;
         margin-right: $column-gutter / 2;
         position: relative;
-        top: -40px;
+        top: -$column-gutter;
 
         @media #{$large-up} {
             display: none;
         }
+    }
+
+    @media #{$medium-up} {
+        @include teaser-show-summary-source;
     }
 
     @media #{$large-up} {
@@ -210,18 +212,6 @@ $section-minor-bp-1: 1595px;
     }
 
     .tag-secondary {
-        @media #{$medium-up} {
-            display: inline-block;
-        }
-    }
-
-    .teaser__summary {
-        @media #{$medium-up} {
-            display: inline-block;
-        }
-    }
-
-    .teaser__source {
         @media #{$xlarge-up} {
             display: inline-block;
         }
@@ -250,8 +240,7 @@ $section-minor-bp-1: 1595px;
     }
 
     .teaser--img-top {
-
-        @include columns-half-gutter;
+        @include columns-half-gutter(even);
 
         @media #{$medium-up} {
             @include grid-column(4);
@@ -282,10 +271,7 @@ $section-minor-bp-1: 1595px;
 
         // First three items
         .teaser:nth-child(-n+4) {
-            .tag-secondary,
-            .teaser__summary {
-                display: inline-block;
-            }
+            @include teaser-show-summary-source;
         }
 
         // Last six items
@@ -316,7 +302,7 @@ $section-minor-bp-1: 1595px;
         }
 
         // Middle 4 items
-        .teaser:nth-child(n+3):nth-of-type(-n+7) {
+        .teaser:nth-child(n+3):nth-of-type(-n+6) {
             @include grid-column(3);
             @include teaser-icon-centered-small;
         }
@@ -325,21 +311,18 @@ $section-minor-bp-1: 1595px;
         .teaser:nth-last-child(-n+3) {
             @include grid-column(4);
             @include teaser-tag-over-img;
-
-            .tag-secondary,
-            .teaser__summary {
-                display: inline-block;
-            }
+            @include teaser-show-summary-source;
         }
     }
 
     @media #{$xlarge-up} {
+        @include teaser-show-summary-source;
+
         .teaser:nth-child(4) {
+            @include teaser-show-summary-source;
             clear: none;
 
-            .tag-secondary,
-            .teaser__summary,
-            .teaser__source {
+            .tag-secondary {
                 display: inline-block;
             }
         }
@@ -362,16 +345,10 @@ $section-minor-bp-1: 1595px;
         .teaser:nth-child(n+10) {
             @include grid-column(6);
             @include teaser-small-hero;
-
-            .teaser__summary,
-            .teaser__source {
-                display: none;
-            }
+            @include teaser-hide-summary-source;
         }
 
-        .tag-secondary,
-        .teaser__summary,
-        .teaser__source {
+        .tag-secondary {
             display: inline-block;
         }
 
@@ -394,5 +371,4 @@ $section-minor-bp-1: 1595px;
             @include grid-column(3);
         }
     }
-
 }

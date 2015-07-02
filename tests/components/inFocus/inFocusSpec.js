@@ -7,12 +7,12 @@ const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
-const GroupFeatured = proxyquire('../../../app/components/section/groupFeatured', {
+const InFocus = proxyquire('../../../app/components/inFocus/inFocus', {
     'react': React,
     '../teaser/teaser': TeaserStub
 });
 
-describe('GroupFeatured', () => {
+describe('InFocus', () => {
 
     describe('with 3 articles', () => {
         let section;
@@ -20,8 +20,8 @@ describe('GroupFeatured', () => {
         let teasers;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<GroupFeatured articles={articlesMock.slice(1, 4)} />);
-            section = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'section--fixed-col');
+            reactModule = TestUtils.renderIntoDocument(<InFocus articles={articlesMock.slice(1, 4)} />);
+            section = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'section-in-focus');
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
         });
 
@@ -48,9 +48,9 @@ describe('GroupFeatured', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <GroupFeatured articles={articlesMock.slice(1, 4)}>
+                <InFocus articles={articlesMock.slice(1, 4)}>
                     <ChildrenComponentStub />
-                </GroupFeatured>
+                </InFocus>
             );
             childComponent = TestUtils.findRenderedComponentWithType(reactModule, ChildrenComponentStub);
         });
@@ -60,11 +60,28 @@ describe('GroupFeatured', () => {
         });
     });
 
+    describe('with the className prop', () => {
+        let reactModule;
+        let section;
+        const className = 'test-section';
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(
+                <InFocus articles={articlesMock} className={className} />
+            );
+            section = TestUtils.findRenderedDOMComponentWithClass(reactModule, className);
+        });
+
+        it(`should render the in focus section with the ${className} class`, () => {
+            expect(section).to.exist;
+        });
+    });
+
     describe('with the articles prop as an empty array', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<GroupFeatured articles={[]} />);
+            reactModule = TestUtils.renderIntoDocument(<InFocus articles={[]} />);
         });
 
         it('should not be rendered', () => {
@@ -76,7 +93,7 @@ describe('GroupFeatured', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<GroupFeatured />);
+            reactModule = TestUtils.renderIntoDocument(<InFocus />);
         });
 
         it('should not be rendered', () => {
