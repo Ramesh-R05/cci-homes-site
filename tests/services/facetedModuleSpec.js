@@ -14,7 +14,7 @@ describe('Services', () => {
                 server: {
                     port: 80
                 },
-                service: {
+                services: {
                     noDomain: 'http://no-domain',
                     facetedModule: {
                         local: 'http://api-host.tld',

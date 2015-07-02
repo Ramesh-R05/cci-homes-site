@@ -54,7 +54,7 @@ let config = {
         port: 80
     },
 
-    service: {
+    services: {
         content: {
             remote: 'http://dev.homes-api.wn.bauer-media.net.au',
             local: 'http://127.0.0.1',
@@ -64,10 +64,7 @@ let config = {
             remote: 'http://dev.homes-api.wn.bauer-media.net.au',
             local: 'http://127.0.0.1',
             path: '/api/facetedModule'
-        }
-    },
-
-    services: {
+        },
         header: {
             url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
         }
@@ -78,6 +75,6 @@ let config = {
 let mergedConfig = merge(config, envConfig);
 
 // allows old sites and new sites to use configEditor middleware and verfiySite middleware
-mergedConfig.server.apiUrl = mergedConfig.service.content.remote.replace('http://', '');
+mergedConfig.server.apiUrl = mergedConfig.services.content.remote.replace('http://', '');
 
 export default Object.freeze(mergedConfig);

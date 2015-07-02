@@ -2,7 +2,7 @@ export default {
     server: {
         port: 8080
     },
-    service: {
+    services: {
         content: {
             remote: 'http://dev.homes-api.wn.bauer-media.net.au',
             local: 'http://127.0.0.1',
