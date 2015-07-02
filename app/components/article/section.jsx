@@ -19,7 +19,8 @@ class Section extends Component {
         // Article data
         const {body, source, summary} = content;
         //url
-        const {siteUrl, url} = content;
+        const {url} = content;
+
 
         // TODO (thatzi): strings set temporary until credits are set up in CMS
         const credits = {
@@ -41,7 +42,7 @@ class Section extends Component {
                         tags={articleTags}
                         credits={credits}
                         pageId={pageId}
-                        url={siteUrl + url}
+                        url={url}
                     />
 
                     <Feed

@@ -14,12 +14,14 @@ class Header extends Component {
 
     render() {
         const {pageId, url, title, summary, heroItem} = this.props;
-
         let getSocial;
+
         if (StaticConfigurationStore.isFeatureEnabled('socialShareBlock') === true) {
+            const siteUrl = StaticConfigurationStore.host();
+
             getSocial = (<SocialShareBlock
                 parentBlock={this.props}
-                url={url}
+                url={siteUrl + url}
                 title={title}
                 tweetBody={title + ' | HOMES TO LOVE {shortURL} #homestoloveau '}
                 description={summary}
