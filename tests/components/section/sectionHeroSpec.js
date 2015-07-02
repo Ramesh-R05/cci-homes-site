@@ -7,12 +7,12 @@ const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
-const SectionHero = proxyquire('../../../app/components/section/sectionHero', {
+const SectionHero = proxyquire('../../../app/components/section/hero', {
     'react': React,
     '../teaser/teaser': TeaserStub
 });
 
-describe('SectionHero', () => {
+describe('GroupHero', () => {
     describe('with firstHero and secondHero defined', () => {
         let sectionHero;
         let reactModule;

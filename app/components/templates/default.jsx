@@ -24,7 +24,7 @@ class DefaultTemplate extends Component {
                 return require('../home/home');
             case 'HomesArticle':
                 return require('../article/section');
-            case 'Section':
+            case 'NavigationSection':
                 return require('../section/section');
             default:
                 console.error({message: 'NotFound is not implemented'});

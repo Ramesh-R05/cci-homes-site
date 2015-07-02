@@ -7,6 +7,11 @@ export default {
             remote: 'http://127.0.0.1:3000',
             local: 'http://127.0.0.1',
             path: '/api/content'
+        },
+        facetedModule: {
+            remote: 'http://127.0.0.1:3000',
+            local: 'http://127.0.0.1',
+            path: '/api/content/faceted'
         }
     },
     services: {

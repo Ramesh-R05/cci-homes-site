@@ -2,10 +2,13 @@ import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import TaggedArticlesStore from '../../stores/facetedStores/taggedArticles';
 import * as FacetedModuleActions from '../../actions/facetedModule';
+import Header from './header';
 import Group from './group';
 import GroupFeatured from './groupFeatured';
 import GroupRepeatable from './groupRepeatable';
-import SectionHero from './sectionHero';
+import Hero from './hero';
+import Ad from '@bxm/ad/src/google/components/ad';
+
 
 class Section extends Component {
     constructor(props, context) {
@@ -15,7 +18,7 @@ class Section extends Component {
     componentWillMount() {
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
-            params: {tags: ['Indoor']},
+            params: {tags: ['food:Homes navigation:Interiors']},
             moduleConfig: this.props.moduleConfig
         });
     }
@@ -49,26 +52,39 @@ class Section extends Component {
             <div className="container">
 
                 <div className="row">
-                    {/*TODO: make this dynamic based on the navigation tag parameter*/}
-                    {/*<h1 className="section-heading">Home <b>Inspiration</b></h1>*/}
+                    <Header tag="Home Inspiration">
+                        <Ad
+                            className="ad--section-top-leaderboard"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                        />
+                    </Header>
                 </div>
 
                 <div className="row">
                     {/*Heroes*/}
-                    <SectionHero firstHero={firstHero} secondHero={secondHero} />
+                    <Hero firstHero={firstHero} secondHero={secondHero} />
                     {/*Featured articles*/}
                     <GroupFeatured articles={featuredArticles}>
-                        <div className="ad ad--mrec">
-                            <div className="fake-ad" />
-                        </div>
+                        <Ad
+                            className="ad--section-mrec"
+                            displayFor={['small', 'medium', 'large']}
+                            sizes="mrec"
+                        />
                     </GroupFeatured>
                 </div>
+
                 {/* Three teasers with ad - xlarge bp only*/}
                 <div className="row hidden-for-large-only">
                     <Group articles={teaser3WithAd} modifier="3-items">
-                        <div className="ad ad--mrec">
-                            <div className="fake-ad" />
-                        </div>
+                        <Ad
+                            className="ad--section-mrec"
+                            displayFor="xlarge"
+                            sizes={['double-mrec', 'mrec']}
+                        />
                     </Group>
                 </div>
 
@@ -79,9 +95,17 @@ class Section extends Component {
                         className="hidden-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top">
-                        <div className="ad ad--banner">
-                            <div className="fake-ad" />
-                        </div>
+                        <Ad
+                            className="ad--section-middle-leaderboard"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            targets={{
+                                position: 2
+                            }}
+                        />
                     </Group>
 
                     {/* 6 teasers with ad - visible for large bp only*/}
@@ -90,9 +114,17 @@ class Section extends Component {
                         className="visible-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top">
-                        <div className="ad ad--banner">
-                            <div className="fake-ad" />
-                        </div>
+                        <Ad
+                            className="ad--section-middle-leaderboard"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            targets={{
+                                position: 2
+                            }}
+                        />
                     </Group>
                 </div>
 

@@ -6,10 +6,11 @@ export default {
     init() {
         merge(adConfig, {
             breakpoints: breakpoints,
+            pageTypes: {
+                HomesArticle: 'article'
+            },
             siteId: 'FoodToLove',
-            receiveContentAction: 'LOAD_CONTENT',
-            tagsObject: 'articleTags',
-            networkdId: 13534306
+            tagsObject: 'articleTags'
         });
     }
 };
