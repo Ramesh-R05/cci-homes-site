@@ -19,10 +19,26 @@ Feature: article detail page
         When I am viewing an article with a hero video
         Then I should see a hero video
 
-    @DHO-192
+    @DHO-192 @DHO-194 @javascript
     Scenario: Check all ad slots are visible on the article detail page
-        When I am viewing an article with a hero image
+        Given I am viewing an article
         Then I should see 1 "ad--article-top" ad slot
+        And I should see 1 "ad--article-beneath-recommendations" ad slot 
+
+        When I switch to "tablet landscape" view
+        And I am viewing an article
+        Then I should see 1 "ad--article-top" ad slot
+        And I should see 1 "ad--article-beneath-recommendations" ad slot
+
+        When I switch to "tablet portrait" view
+        And I am viewing an article
+        Then I should see 1 "ad--article-top" ad slot
+        And I should see 1 "ad--article-beneath-recommendations" ad slot
+
+        When I switch to "mobile" view  
+        And I am viewing an article
+        Then I should see 1 "ad--beneath-short-teaser" ad slot
+        And I should see 1 "ad--article-beneath-recommendations" ad slot
 
     @DHO-195
     Scenario: Check all ad slots are visible on the left-hand rail
