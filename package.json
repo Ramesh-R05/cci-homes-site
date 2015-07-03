@@ -38,7 +38,7 @@
     "hoist-non-react-statics": "^1.0.2"
   },
   "devDependencies": {
-    "@bxm/node-tasks": "^4.9.0",
+    "@bxm/node-tasks": "^4.11.0",
     "babelify": "^6.1.2",
     "browser-sync": "2.7.1",
     "express": "^4.13.0",

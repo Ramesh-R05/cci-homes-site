@@ -11,6 +11,20 @@ import breakpoints from '../../breakpoints';
 
 class Article extends Component {
 
+    static propTypes = {
+        pageId: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        contentBody: PropTypes.array.isRequired,
+        heroItem: PropTypes.object.isRequired,
+        tags: PropTypes.array.isRequired,
+        source: PropTypes.string,
+        summary: PropTypes.string,
+        credits: PropTypes.object,
+        className: PropTypes.string,
+        themeClass: PropTypes.string
+    }
+
     constructor(props, context) {
         super(props, context);
         if (canUseDOM) {
@@ -64,19 +78,5 @@ class Article extends Component {
         );
     }
 }
-
-Article.propTypes = {
-    pageId: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    contentBody: PropTypes.array.isRequired,
-    heroItem: PropTypes.object.isRequired,
-    tags: PropTypes.array.isRequired,
-    source: PropTypes.string,
-    summary: PropTypes.string,
-    credits: PropTypes.object,
-    className: PropTypes.string,
-    themeClass: PropTypes.string
-};
 
 export default theme(Article, 'source');
