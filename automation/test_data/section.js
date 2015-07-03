@@ -1,5 +1,8 @@
 module.exports = {
     "entity": {
+        "navigationTags": [
+            "food:Homes navigation:Home Inspiration"
+        ],
         "urlName": "section",
         "title": "Section",
         "redirect": {

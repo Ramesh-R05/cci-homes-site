@@ -1,12 +1,13 @@
 import {BaseStore} from '@bxm/flux';
 
+
 class EntityStore extends BaseStore {
 
     constructor(dispatcher) {
         super(dispatcher);
-        this.nodeType = '';
         this.title = '';
         this.content = {};
+        this.navigationTags = [];
     }
 
     onLoadContent(payload) {
@@ -14,8 +15,8 @@ class EntityStore extends BaseStore {
         if (!entity) return;
 
         this.title = entity.title;
-        this.nodeType = entity.nodeType;
         this.content = entity;
+        this.navigationTags = entity.navigationTags;
 
         this.emitChange();
     }
@@ -24,19 +25,19 @@ class EntityStore extends BaseStore {
         return this.title;
     }
 
-    getNodeType() {
-        return this.nodeType;
-    }
-
     getContent() {
         return this.content;
+    }
+
+    getNavigationTags() {
+        return this.navigationTags;
     }
 
     getState() {
         return {
             title: this.title,
-            nodeType: this.nodeType,
-            content: this.content
+            content: this.content,
+            navigationTags: this.navigationTags
         };
     }
 
@@ -46,8 +47,8 @@ class EntityStore extends BaseStore {
 
     rehydrate(state) {
         this.title = state.title;
-        this.nodeType = state.nodeType;
         this.content = state.content;
+        this.navigationTags = state.navigationTags;
     }
 
 }
