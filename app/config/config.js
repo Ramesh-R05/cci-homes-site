@@ -11,7 +11,7 @@ let config = {
     },
 
     gtm: {
-        id: ''
+        id: 'GTM-KG7F8H'
     },
 
     brightcove: {
