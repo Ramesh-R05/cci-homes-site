@@ -16,5 +16,10 @@ export default {
     },
     site: {
         host: 'http://localhost'
+    },
+    features: {
+        socialShareBlock: {
+            enabled: true
+        }
     }
 };

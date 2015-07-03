@@ -33,14 +33,17 @@ describe(`Article Header Component`, () => {
         imageCaption: articleMock.imageCaption
     };
     const url = articleMock.url;
+    const hostUrl = 'http://www.testurl.com';
     const pageId = articleMock.id;
 
     let reactModule;
 
     let socialShareBlockEnableStub;
+    let socialShareBlockHost;
 
     before(function() {
         socialShareBlockEnableStub = sinon.stub(StaticConfigurationStore, 'isFeatureEnabled');
+        socialShareBlockHost = sinon.stub(StaticConfigurationStore, 'host');
     });
 
     after(function() {
@@ -77,6 +80,7 @@ describe(`Article Header Component`, () => {
         describe('when socialShareBlock is enabled', function() {
             before(function () {
                 socialShareBlockEnableStub.withArgs('socialShareBlock').returns(true);
+                socialShareBlockHost.returns( hostUrl );
                 reactModule = Context.mountComponent(Header, {
                     title, heroItem, summary, url, pageId
                 });
@@ -91,6 +95,7 @@ describe(`Article Header Component`, () => {
                 const className = 'social-share-block';
                 const tweetBody = 'Renting shouldn’t mean sacrificing personality | HOMES TO LOVE {shortURL} #homestoloveau ';
                 const nodeId = articleMock.id;
+                const fullUrl = hostUrl + url;
 
                 it(`should have classname "${className}"`, () => {
                     const classNames = socialShareBlockStub.props.className.split(/\s+/);
@@ -115,6 +120,10 @@ describe(`Article Header Component`, () => {
 
                 it(`should have imageUrl "${heroItem.imageUrl}"`, () => {
                     expect(socialShareBlockStub.props).to.have.property('imageUrl', heroItem.imageUrl);
+                });
+
+                it(`should have url "${fullUrl}"`, () => {
+                    expect(socialShareBlockStub.props).to.have.property('url', fullUrl);
                 });
             });
         });
