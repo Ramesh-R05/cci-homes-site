@@ -20,12 +20,12 @@ export default {
     serviceName: 'facetedModule',
 
     init(config) {
-        path = config.service.facetedModule.path;
+        path = config.services.facetedModule.path;
         if (!canUseDOM) {
-            host = `${config.service.facetedModule.local}:${config.server.port}`;
+            host = `${config.services.facetedModule.local}:${config.server.port}`;
         } else {
-            if (config.service.noDomain) { // dang: we need a domain for superagent testing
-                host = `${config.service.noDomain}:${config.server.port}`;
+            if (config.services.noDomain) { // dang: we need a domain for superagent testing
+                host = `${config.services.noDomain}:${config.server.port}`;
             }
         }
     },

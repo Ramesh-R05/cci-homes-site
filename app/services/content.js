@@ -9,8 +9,8 @@ export default {
     serviceName: 'content',
 
     init(config) {
-        path = config.service.content.path;
-        if (!canUseDOM) host = `${config.service.content.local}:${config.server.port}`;
+        path = config.services.content.path;
+        if (!canUseDOM) host = `${config.services.content.local}:${config.server.port}`;
     },
 
     read(deferred, params) {
