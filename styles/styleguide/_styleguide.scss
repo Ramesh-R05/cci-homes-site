@@ -320,6 +320,16 @@ $color-styleguide-grey: #ddd;
         }
     }
 
+    &-gallery-header {
+        .styleguide-type__small & {
+            font-size: 17px;
+        }
+
+        .styleguide-type__large & {
+            font-size: 20px;
+        }
+    }
+
     &-inline-gallery-header,
     &-inline-gallery-title {
         color: $color-black;

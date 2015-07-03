@@ -153,11 +153,9 @@ Section.contextTypes = {
     executeAction: PropTypes.func
 };
 
-Section = connectToStores(Section, [TaggedArticlesStore], (stores) => {
+export default connectToStores(Section, [TaggedArticlesStore], (stores) => {
     return {
         articles: stores.TaggedArticlesStore.getItems(),
         moduleConfig: stores.TaggedArticlesStore.getConfiguration()
     };
 });
-
-export default Section;
