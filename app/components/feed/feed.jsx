@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
-import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
+import {getKeywordsFromTags} from '@bxm/ad/src/utils/tagsUtils';
 import ArticleStore from '../../stores/article';
 import FeedItem from './feedItem';
 import FeedAd from './feedAd';
@@ -16,7 +16,7 @@ class Feed extends Component {
     }
 
     getFeedItems() {
-        const {items, pageId, articleTags} = this.props;
+        const {items, pageId, articleTags, source} = this.props;
         const feedItems = items.map((item, i) =>
             <FeedItem
                 key={`feed-item-${i}`}
@@ -38,6 +38,7 @@ class Feed extends Component {
                         position={adPosition}
                         keyword={keyword}
                         pageId={pageId}
+                        source={source}
                     />
                 );
             });
@@ -62,7 +63,8 @@ class Feed extends Component {
 Feed.propTypes = {
     items: PropTypes.array.isRequired,
     articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    pageId: PropTypes.string.isRequired
+    pageId: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired
 };
 
 Feed.contextTypes = {

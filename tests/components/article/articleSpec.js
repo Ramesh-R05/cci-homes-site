@@ -28,6 +28,7 @@ describe(`Article Component`, () => {
     const contentBody = articleMock.body;
     const contentBodyClass = `article__body article__body--top-border`;
     const source = articleMock.source;
+    const targets = { brand: source };
     const summary = articleMock.summary;
     const tags = articleMock.articleTags;
     const className = `test-article`;
@@ -121,6 +122,10 @@ describe(`Article Component`, () => {
             it(`should have sizes object`, () => {
                 expect(topAdSub.props.sizes).to.eql(sizes);
             });
+
+            it(`should have targets object "${targets}"`, () => {
+                expect(topAdSub.props.targets).to.eql(targets);
+            });
         });
 
         describe(`Bottom ad sub-component`, () => {
@@ -135,6 +140,7 @@ describe(`Article Component`, () => {
                 xlarge: ['billboard', 'leaderboard']
             };
 
+
             it(`should have className "${className}"`, () => {
                 expect(bottomAdSub.props.className).to.eq(className);
             });
@@ -145,6 +151,10 @@ describe(`Article Component`, () => {
 
             it(`should have sizes object`, () => {
                 expect(bottomAdSub.props.sizes).to.eql(sizes);
+            });
+
+            it(`should have targets obj "${targets}"`, () => {
+                expect(bottomAdSub.props.targets).to.eql(targets);
             });
         });
 
