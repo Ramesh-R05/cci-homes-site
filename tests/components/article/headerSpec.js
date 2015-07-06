@@ -27,6 +27,8 @@ describe(`Article Header Component`, () => {
     const articleClassName = `article__header`;
     const title = articleMock.title;
     const summary = articleMock.summary;
+    const source = articleMock.source;
+    const targets = { brand: source};
     const heroItem = {
         imageUrl: articleMock.imageUrl,
         imageAltText: articleMock.imageAltText,
@@ -131,7 +133,7 @@ describe(`Article Header Component`, () => {
         describe('Sub components', () => {
             before(`rendering component`, () => {
                 reactModule = Context.mountComponent(Header, {
-                    title, heroItem, summary, url, pageId
+                    title, heroItem, summary, url, pageId, source
                 });
 
                 titleStub = TestUtils.findRenderedComponentWithType(reactModule, ArticleTitleStub);
@@ -157,6 +159,7 @@ describe(`Article Header Component`, () => {
                 const displayFor = 'small';
                 const sizes = 'banner';
 
+
                 it(`should have className "${className}"`, () => {
                     expect(adStub.props).to.have.property('className', className);
                 });
@@ -167,6 +170,10 @@ describe(`Article Header Component`, () => {
 
                 it(`should have sizes "${sizes}"`, () => {
                     expect(adStub.props).to.have.property('sizes', sizes);
+                });
+
+                it(`should have targets object "${targets}"`, () => {
+                    expect(adStub.props.targets).to.eql(targets);
                 });
             });
         });

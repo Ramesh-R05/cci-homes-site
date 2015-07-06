@@ -13,7 +13,7 @@ class Header extends Component {
     }
 
     render() {
-        const {pageId, url, title, summary, heroItem} = this.props;
+        const {pageId, url, title, summary, heroItem, source} = this.props;
         let getSocial;
 
         if (StaticConfigurationStore.isFeatureEnabled('socialShareBlock') === true) {
@@ -44,7 +44,11 @@ class Header extends Component {
                         <Hero item={heroItem}/>
                     </div>
                 </div>
-                <Ad className="ad--beneath-short-teaser" displayFor="small" sizes="banner"/>
+                <Ad className="ad--beneath-short-teaser"
+                    displayFor="small"
+                    sizes="banner"
+                    targets={{brand: source}}
+                    />
                 <Summary summary={summary}/>
             </header>
         );
@@ -56,7 +60,8 @@ Header.propTypes = {
     url: PropTypes.string.isRequired,
     heroItem: PropTypes.object.isRequired,
     summary: PropTypes.string,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired
 };
 
 Header.defaultProps = {

@@ -50,6 +50,7 @@ class Article extends Component {
                     className="ad--article-top"
                     displayFor={['medium', 'large', 'xlarge']}
                     sizes={sizes}
+                    targets={{brand: source}}
                 />
                 <Header
                     pageId={pageId}
@@ -57,6 +58,7 @@ class Article extends Component {
                     heroItem={heroItem}
                     summary={summary}
                     title={title}
+                    source={source}
                 />
                 <ContentBody
                     body={contentBody}
@@ -73,6 +75,7 @@ class Article extends Component {
                     className="ad--article-beneath-recommendations"
                     displayFor={['small', 'medium', 'large', 'xlarge']}
                     sizes={sizes}
+                    targets={{brand: source}}
                 />
             </article>
         );

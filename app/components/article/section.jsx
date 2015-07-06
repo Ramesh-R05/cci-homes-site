@@ -48,6 +48,7 @@ class Section extends Component {
                     <Feed
                         pageId={pageId}
                         articleTags={articleTags}
+                        source={source}
                     />
                 </div>
             </div>

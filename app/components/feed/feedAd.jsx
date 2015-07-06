@@ -10,7 +10,7 @@ class FeedAd extends Component {
     }
 
     render() {
-        const {pageId, keyword, position} = this.props;
+        const {pageId, keyword, position, source} = this.props;
         if (!isString(pageId) || !isNumber(position) || !isArray(keyword)) {
             return null;
         }
@@ -20,7 +20,7 @@ class FeedAd extends Component {
                 <Ad
                     displayFor={['medium', 'large', 'xlarge']}
                     sizes={['double-mrec', 'mrec']}
-                    targets={{ pageId, keyword, position }}
+                    targets={{ pageId, keyword, position, brand: source }}
                 />
             </li>
         );
@@ -31,7 +31,8 @@ class FeedAd extends Component {
 FeedAd.propTypes = {
     position: PropTypes.number.isRequired,
     keyword: PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    pageId: PropTypes.string.isRequired
+    pageId: PropTypes.string.isRequired,
+    source: PropTypes.string
 };
 
 export default FeedAd;

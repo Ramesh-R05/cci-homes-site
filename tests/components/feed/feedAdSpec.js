@@ -17,7 +17,8 @@ describe('FeedAd Component', () => {
     const position = 2;
     const keyword = ['red', 'white', 'kitchen'];
     const pageId = 'kitchen-1032';
-    const props = { position, keyword, pageId };
+    const source = 'homes+';
+    const props = { position, keyword, pageId, source };
     let reactModule;
 
     describe('all props set', () => {
@@ -44,6 +45,10 @@ describe('FeedAd Component', () => {
 
             it('sets the sizes array', () => {
                 expect(ad.props.sizes).to.eql(['double-mrec', 'mrec']);
+            });
+
+            it('sets the brand prop ${source}', () => {
+                expect(ad.props.targets.brand).to.eq(source);
             });
 
             it(`sets targets.pageId to ${pageId}`, () => {
