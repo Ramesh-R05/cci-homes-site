@@ -66,7 +66,7 @@
 
     .teaser__image {
         width: auto;
-        z-index: $z-index-1--teaser-image;
+        z-index: $z-index--teaser-image;
     }
 
     .teaser__content {
@@ -75,7 +75,7 @@
         position: relative;
         text-align: center;
         width: auto;
-        z-index: $z-index-2--teaser-content;
+        z-index: $z-index--teaser-content;
     }
 
     .teaser__tags {

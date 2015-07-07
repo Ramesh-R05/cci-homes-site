@@ -2,7 +2,6 @@ import cloneDeep from 'lodash/lang/cloneDeep';
 import EntityStore from '../../app/stores/entity';
 import entityMocks from '../mock/entities';
 
-
 describe('Entity store', () => {
     let store;
 

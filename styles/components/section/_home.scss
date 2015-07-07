@@ -1,0 +1,7 @@
+.home__body {
+    padding-top: $header-height;
+
+    @media #{$medium-up} {
+        padding-top: $header-height-desktop + $header-banner-logo-height + 40px;
+    }
+}

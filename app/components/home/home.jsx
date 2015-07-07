@@ -5,18 +5,7 @@ import InFocusArticlesStore from '../../stores/articles/inFocus';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
 
-
 class Home extends Component {
-
-    constructor(...args) {
-        super(...args);
-    }
-
-    static contextTypes = {
-        getStore: PropTypes.func,
-        executeAction: PropTypes.func
-    };
-
     static propTypes = {
         articles: PropTypes.array,
         inFocusArticles: PropTypes.array
@@ -27,13 +16,20 @@ class Home extends Component {
         inFocusArticles: []
     };
 
+    static contextTypes = {
+        getStore: PropTypes.func,
+        executeAction: PropTypes.func
+    };
+
+    constructor(...args) {
+        super(...args);
+    }
+
     render() {
         return (
-            <div className="container">
-                <SectionFeatured articles={this.props.articles}>
-                    <InFocus articles={this.props.inFocusArticles} modifier="border-bottom" />
-                </SectionFeatured>
-            </div>
+            <SectionFeatured articles={this.props.articles} className="home__body">
+                <InFocus articles={this.props.inFocusArticles} modifier="border-bottom"/>
+            </SectionFeatured>
         );
     }
 }

@@ -12,16 +12,36 @@ Context.addStore('EntityStore', {
     }
 });
 
+let isSideMenuOpen = false;
+let navItems = [
+    { name: 'Home tours', url: '/home-tours' },
+    { name: 'Interiors', url: '/interiors' },
+    { name: 'Outdoor', url: '/outdoor' },
+    { name: 'Renovate', url: '/renovate' }
+];
+Context.addStore('MenuStore', {
+    isSideMenuOpen() {
+        return isSideMenuOpen;
+    },
+    getNavItems() {
+        return navItems;
+    }
+});
+
 const NetworkHeaderStub = Context.createStubComponent();
+const HeaderStub = Context.createStubComponent();
 const HomepageStub = Context.createStubComponent();
 const HomesArticleStub = Context.createStubComponent();
 const SectionStub = Context.createStubComponent();
 const GalleryStub = Context.createStubComponent();
+const SideMenuStub = Context.createStubComponent();
 const proxyquire = require('proxyquire').noCallThru();
 const Default = proxyquire('../../../app/components/templates/default', {
     'react': React,
     'react/addons': React,
     '@bxm/header/lib/header/header': NetworkHeaderStub,
+    '../header/header': HeaderStub,
+    '../side-menu/sideMenu': SideMenuStub,
     '../home/home': HomepageStub,
     '../article/section': HomesArticleStub,
     '../section/section': SectionStub,
@@ -31,42 +51,92 @@ const Default = proxyquire('../../../app/components/templates/default', {
 describe('Default Component template', () => {
     let reactModule;
     let template;
+    let networkHeader;
     let header;
+    let sideMenu;
 
-    it('returns a null handler if content is not specified', () => {
+    it('does not render if content is not specified', () => {
         content = undefined;
         reactModule = Context.mountComponent(Default);
         expect(React.findDOMNode(reactModule)).to.be.null;
     });
 
-    it('returns a null handler if nodeType is unknown', () => {
+    it('does not render if nodeType is unknown', () => {
         content = { nodeType: 'RickRoll' };
         reactModule = Context.mountComponent(Default);
         expect(React.findDOMNode(reactModule)).to.be.null;
     });
 
-    forOwn({
-        'Homepage': { component: HomepageStub, hideHeader: false },
-        'HomesArticle': { component: HomesArticleStub, hideHeader: false },
-        'NavigationSection': { component: SectionStub, hideHeader: false },
-        'Gallery': { component: GalleryStub, hideHeader: true }
-    }, (metadata, nodeType) => {
-        const {component, hideHeader} = metadata;
+    describe('store data', () => {
+        before(() => {
+            content = { nodeType: 'Homepage' };
+            reactModule = Context.mountComponent(Default);
+            sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
+            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
+        });
 
-        describe(`for nodeType "${nodeType}"`, () => {
-            before(() => {
-                content = { nodeType };
-                reactModule = Context.mountComponent(Default);
-            });
+        it('sets Header "isSideMenuOpen" prop to "false"', () => {
+            expect(header.props.isSideMenuOpen).to.be.false;
+        });
 
-            it('returns the correct handler', () => {
-                template = TestUtils.findRenderedComponentWithType(reactModule, component);
-                expect(template).to.exist;
-            });
+        it('sets Header "isSideMenuOpen" prop to "false"', () => {
+            expect(header.props.navItems).to.eql(navItems);
+        });
 
-            it(`${hideHeader ? 'hides' : 'shows'} the network header`, () => {
-                header = TestUtils.scryRenderedComponentsWithType(reactModule, NetworkHeaderStub);
-                expect(header).to.have.length(hideHeader ? 0 : 1);
+        it('sets SideMenu "open" prop to "false"', () => {
+            expect(sideMenu.props.open).to.be.false;
+        });
+
+        it('sets SideMenu "items" prop to array', () => {
+            expect(sideMenu.props.navItems).to.eql(navItems);
+        });
+    });
+
+    describe('header visibility', () => {
+        forOwn({
+            'Homepage': {
+                component: HomepageStub,
+                hideNetworkHeader: false,
+                hideHeader: false
+            },
+            'HomesArticle': {
+                component: HomesArticleStub,
+                hideNetworkHeader: false,
+                hideHeader: true
+            },
+            'NavigationSection': {
+                component: SectionStub,
+                hideNetworkHeader: false,
+                hideHeader: true
+            },
+            'Gallery': {
+                component: GalleryStub,
+                hideNetworkHeader: true,
+                hideHeader: true
+            }
+        }, (metadata, nodeType) => {
+            const {component, hideNetworkHeader, hideHeader} = metadata;
+
+            describe(`for nodeType "${nodeType}"`, () => {
+                before(() => {
+                    content = { nodeType };
+                    reactModule = Context.mountComponent(Default);
+                });
+
+                it('returns the correct handler', () => {
+                    template = TestUtils.findRenderedComponentWithType(reactModule, component);
+                    expect(template).to.exist;
+                });
+
+                it(`${hideNetworkHeader ? 'hides' : 'shows'} the network header`, () => {
+                    networkHeader = TestUtils.scryRenderedComponentsWithType(reactModule, NetworkHeaderStub);
+                    expect(networkHeader).to.have.length(hideNetworkHeader ? 0 : 1);
+                });
+
+                it(`${hideHeader ? 'hides' : 'shows'} the header`, () => {
+                    header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub);
+                    expect(header).to.have.length(hideHeader ? 0 : 1);
+                });
             });
         });
     });

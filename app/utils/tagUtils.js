@@ -48,7 +48,7 @@ export function getRelatedTags(tags, filters, options = {}) {
     const filtersObj = cloneDeep(filters);
     let relatedTags = [];
 
-    for (const tag of tags) {
+    tags.forEach((tag) => {
         const tagCategory = getTagCategory(tag);
         const tagName = getTagName(tag);
         const categoryFilter = {
@@ -70,7 +70,7 @@ export function getRelatedTags(tags, filters, options = {}) {
             // related tags collection
             relatedTags.push(options.nameOnly ? tagName : tag);
         }
-    }
+    });
 
     return relatedTags;
 }

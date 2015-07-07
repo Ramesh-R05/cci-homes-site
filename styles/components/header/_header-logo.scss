@@ -1,0 +1,47 @@
+$header-logo-width-desktop: 287px;
+
+.header-logo {
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: top;
+    width: calc(100% - 2 * #{$header-menu-width + $column-gutter});
+
+    @media #{$medium-up} {
+        text-align: left;
+        width: $header-logo-width-desktop + $column-gutter;
+    }
+
+    @media #{$xlarge-up} {
+        transition: width $transition-duration;
+    }
+
+    &__link-image {
+        background-image: url('/assets/logo/homes-header-logo.svg');
+        background-size: 115px 35px;
+        display: inline-block;
+        font-size: 0;
+        height: 35px;
+        vertical-align: middle;
+        width: 115px;
+
+        @media #{$medium-up} {
+            background-image: url('/assets/logo/homes-header-logo-desktop.svg');
+            background-size: $header-logo-width-desktop 23px;
+            height: 23px;
+            width: $header-logo-width-desktop;
+        }
+    }
+}
+
+.header:not(.header--pinned) .header-logo {
+    @media #{$medium-up} {
+        width: 0;
+    }
+}
+
+.header--pinned .header-logo {
+    @media #{$medium-up} {
+        width: $header-logo-width-desktop + $column-gutter;
+    }
+}
