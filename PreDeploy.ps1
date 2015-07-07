@@ -2,6 +2,7 @@
 Import-Module WebAdministration
 
 $websiteDirectory = "d:\websites\site";
+$tmpDirectory = "d:\$([System.Guid]::NewGuid().ToString())";
 $global:hasErrors = $False;
 
 # Stop App Pool if not already stopped
@@ -23,6 +24,11 @@ Function PurgeWebsiteFiles
 		Write-Host "$pathToDeployFiles does not exist, no files to purge...";
 		Return;
 	}
+    
+    # first, delete node_modules folder...
+    mkdir $tmpDirectory
+    robocopy /MIR $tmpDirectory "$websiteDirectory\node_modules"
+    rmdir $tmpDirectory
 
 	# temp - need to exclude deleting the cms directory
 	GetFiles $websiteDirectory @("*.log", "*.txt", "$websiteDirectory\cms\*") | % { 
