@@ -18,4 +18,4 @@ export default {
     site: {
         host: 'http://homestolove.com.au'
     }
-}
+};
