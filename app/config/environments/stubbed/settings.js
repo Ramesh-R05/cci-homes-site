@@ -15,9 +15,12 @@ export default {
         },
         header: {
             url: 'http://127.0.0.1:4000/stub/header'
+        },
+        redirect: {
+            url: 'http://127.0.0.1:4000/stub/redirect'
         }
     },
     site: {
-        host: 'http://127.0.0.1'
+        host: 'http://127.0.0.1:8080'
     }
 };

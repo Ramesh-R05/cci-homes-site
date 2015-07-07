@@ -12,7 +12,7 @@ export function load(environment = 'local') {
     } catch (e) {
         // return dev settings if env not found.
         // most likely a personal environment which is similar to dev
-        console.log(`[config][loader] '${environment}' not found. Loading dev configuration`);
-        return require('./environments/dev/settings');
+        console.log(`[config][loader] '${environment}' not found. Loading default configuration`);
+        return {};
     }
 }

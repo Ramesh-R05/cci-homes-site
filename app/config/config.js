@@ -25,7 +25,7 @@ let config = {
 
     features: {
         socialShareBlock: {
-            enabled: false
+            enabled: true
         }
     },
 
@@ -44,7 +44,7 @@ let config = {
     },
 
     site: {
-        host: 'http://localhost',
+        host: 'http://dev.homes.wn.bauer-media.net.au',
         name: 'Homes To Love',
         prefix: 'HOMES',
         network: 'wn'
@@ -67,6 +67,10 @@ let config = {
         },
         header: {
             url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
+        },
+        redirect: {
+            site: 'homes',
+            url: 'http://dev.redirect.services.bauer-media.net.au'
         }
     }
 
