@@ -4,7 +4,7 @@ Feature: article detail page
     I want to view the article
     So that I can browser the content I enjoy
 
-    @DHO-41 @DHO-101
+    @DHO-41 @DHO-101 @javascript
     Scenario: Check article title, summary, content body, inline image with caption and source
         Given I am viewing an article with a hero image
         Then I should see "Article Long Title" as the title
@@ -14,7 +14,7 @@ Feature: article detail page
         And I should see an inline image with the text as "Inline Image Caption" in caption
         And I should see a source logo
 
-    @DHO-183
+    @DHO-183 @javascript
     Scenario: Check hero video
         When I am viewing an article with a hero video
         Then I should see a hero video
@@ -40,7 +40,7 @@ Feature: article detail page
         Then I should see 1 "ad--beneath-short-teaser" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot
 
-    @DHO-195
+    @DHO-195 @javascript
     Scenario: Check all ad slots are visible on the left-hand rail
         When I am viewing an article
         # Assume ads start at the 3rd slot
