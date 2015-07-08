@@ -10,5 +10,6 @@
   </metadata>
   <files>
     <file src="**\*.*" exclude="node_modules\**\*.*" />
+    <file src=".*" exclude="node_modules\**\*.*" />
   </files>
 </package>
