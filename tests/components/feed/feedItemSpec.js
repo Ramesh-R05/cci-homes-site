@@ -1,6 +1,6 @@
 import {extend} from 'lodash';
 import {betterMockComponentContext} from '@bxm/flux';
-import feedDataMock from '../../mock/feed.json';
+import feedDataMock from '../../mock/feed';
 import staticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
 const Context = betterMockComponentContext();
@@ -21,26 +21,24 @@ describe('FeedItem Component', () => {
     let reactModule;
     let teaserImage;
     let teaserBodyTitle;
-    let teaserBodyTopic;
+    let teaserBodySource;
 
     const feedItemData = feedDataMock[1];
 
     before(() => {
-        const {url, imageUrl, title, topic, nodeType} = feedItemData;
-        const item = {url, imageUrl, title, topic, nodeType};
         reactModule = TestUtils.renderIntoDocument(
             <FeedItem
                 gtmClass="feed-item-0"
-                item={item}/>
+                item={feedItemData}/>
         );
         teaserImage = TestUtils.findRenderedComponentWithType(reactModule, TeaserImageStub);
         teaserBodyTitle = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-title');
-        teaserBodyTopic = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-topic');
+        teaserBodySource = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-source');
     });
 
-    it('sets the topic class of the div', () => {
-        expect(React.findDOMNode(reactModule).className.split(/\s+/))
-            .to.contain(`topic-${feedItemData.topic}`);
+    it('sets the classNames of the div', () => {
+        const expectedSourceClassName = `source-${FeedItem.sourceClassNameMap[feedItemData.source]}`;
+        expect(React.findDOMNode(reactModule)).to.have.classNames('feed-item', expectedSourceClassName);
     });
 
     it('sets the TeaserImage link prop', () => {
@@ -71,6 +69,10 @@ describe('FeedItem Component', () => {
         expect(teaserImage.props.responsiveConfig).to.eql(FeedItem.teaserResponsiveConfig);
     });
 
+    it('sets the TeaserImage quality to 85', () => {
+        expect(teaserImage.props.quality).to.eq(85);
+    });
+
     it('sets the body title text', () => {
         expect(React.findDOMNode(teaserBodyTitle).textContent).to.eq(feedItemData.title);
     });
@@ -79,8 +81,8 @@ describe('FeedItem Component', () => {
         expect(React.findDOMNode(teaserBodyTitle).getAttribute('href')).to.eq(feedItemData.url);
     });
 
-    it('sets the body topic text', () => {
-        expect(React.findDOMNode(teaserBodyTopic).textContent).to.eq(feedItemData.topic);
+    it('sets the body source text to the topic', () => {
+        expect(React.findDOMNode(teaserBodySource).textContent).to.eq('Decorating 101');
     });
 
     describe('badge permutations', () => {

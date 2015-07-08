@@ -3,6 +3,7 @@ $feed-item-width: $article-feed-container-width
         - $column-gutter
         - 7px; // Mysterious extra space from guideline in PSD
 $feed-item-thumbnail-width: 132px;
+$feed-item-thumbnail-height: 107px;
 $feed-item-body-width: $feed-item-width
         - $feed-item-thumbnail-width
         - $feed-item-gutter * 3;
@@ -43,6 +44,7 @@ $feed-item-body-width: $feed-item-width
     // Teaser image
     .teaser__image {
         float: left;
+        height: $feed-item-thumbnail-height;
         position: relative;
         width: $feed-item-thumbnail-width;
 
@@ -59,7 +61,7 @@ $feed-item-body-width: $feed-item-width
         width: $feed-item-body-width;
 
         &-title,
-        &-topic {
+        &-source {
             display: block;
             text-decoration: none;
         }
@@ -74,22 +76,22 @@ $feed-item-body-width: $feed-item-width
             }
         }
 
-        &-topic {
+        &-source {
             @include type-tags;
         }
     }
 }
 
-$topic-colors: (
+$source-colors: (
     homes-plus: ($color-homes-plus, $color-homes-plus-light),
     real-living: ($color-real-living, $color-real-living-light),
     belle: ($color-belle, $color-belle-light),
     house-and-garden: ($color-house-and-garden, $color-house-and-garden-light)
 );
 
-@each $topic, $color in $topic-colors {
-    &.topic-#{$topic} {
-        .feed-item__body-topic {
+@each $source, $color in $source-colors {
+    &.source-#{$source} {
+        .feed-item__body-source {
             color: nth($color, 1);
 
             // TODO (cjenkins 05/06/2015): Remove until this is a link

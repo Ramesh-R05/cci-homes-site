@@ -9,7 +9,7 @@ import Feed from '../../../app/components/feed/feed';
 import FeedItem from '../../../app/components/feed/feedItem';
 
 // Test data
-import mockFeedItems from '../../../tests/mock/feed.json'
+import mockFeedItems from '../../../tests/mock/feed'
 
 export default class FeedExample extends Component {
     render() {

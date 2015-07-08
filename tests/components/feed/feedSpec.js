@@ -1,5 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import feedDataMock from '../../mock/feed.json';
+import feedDataMock from '../../mock/feed';
 import {times} from 'lodash/utility';
 
 const Context = betterMockComponentContext();
@@ -9,16 +9,12 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const feedItemClassName = 'feed-item';
 const FeedItemStub = React.createClass({
-    render: () => {
-        return <li className={feedItemClassName}>Foo</li>;
-    }
+    render: () => <li className={feedItemClassName}>Foo</li>
 });
 
 const feedAdClassName = 'feed-ad';
 const FeedAdStub = React.createClass({
-    render: () => {
-        return <li className={feedAdClassName}>Foo</li>;
-    }
+    render: () => <li className={feedAdClassName}>Foo</li>
 });
 
 const Feed = proxyquire('../../../app/components/feed/feed', {
@@ -27,15 +23,6 @@ const Feed = proxyquire('../../../app/components/feed/feed', {
     './feedItem': FeedItemStub,
     './feedAd': FeedAdStub
 });
-
-let storeFeedItems;
-const ArticleStoreStub = {
-    getItems() {
-        return storeFeedItems;
-    }
-};
-
-Context.addStore('ArticleStore', ArticleStoreStub);
 
 describe('Feed Component', () => {
     const firstAdIndex = 2;
@@ -50,8 +37,7 @@ describe('Feed Component', () => {
         let feedItems;
 
         before(() => {
-            storeFeedItems = feedDataMock;
-            reactModule = Context.mountComponent(Feed, { pageId, articleTags });
+            reactModule = Context.mountComponent(Feed, { pageId, articleTags, items: feedDataMock });
             feedItems = TestUtils.scryRenderedComponentsWithType(reactModule, FeedItemStub);
         });
 
@@ -66,15 +52,15 @@ describe('Feed Component', () => {
         });
 
         it('should have one FeedItem for each item in the feed data', () => {
-            expect(feedItems).to.have.length(7);
+            expect(feedItems).to.have.length(feedDataMock.length);
         });
 
         it('should set the FeedItem gtmClass', () => {
-            expect(feedItems[0].props.gtmClass).to.eq('feed-item-0');
+            expect(feedItems[0].props).to.have.property('gtmClass', 'feed-item-0');
         });
 
         it('should set the FeedItem items', () => {
-            expect(feedItems[0].props.item).to.eq(feedDataMock[0]);
+            expect(feedItems[0].props).to.have.property('item', feedDataMock[0]);
         });
     });
 
@@ -83,26 +69,24 @@ describe('Feed Component', () => {
         let feedAds;
 
         before(() => {
-            storeFeedItems = generateLargeFeedItemList();
-            reactModule = Context.mountComponent(Feed, { pageId, articleTags });
+            reactModule = Context.mountComponent(Feed, { pageId, articleTags, items: generateLargeFeedItemList() });
             feedListItems = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'li');
             feedAds = TestUtils.scryRenderedComponentsWithType(reactModule, FeedAdStub);
         });
 
         it('should have an ad as the 3rd item', () => {
-            expect(feedListItems[firstAdIndex].props.className.split(/\s+/))
-                .to.contain(feedAdClassName);
+            expect(feedListItems[firstAdIndex]).to.have.classNames(feedAdClassName);
         });
 
         it(`should have an ad after every ${adSpacing} teasers`, () => {
             for (let i = firstAdIndex; i < feedListItems.length; i++) {
                 const adExpected = (i - firstAdIndex) % (adSpacing) === 0;
                 if (adExpected) {
-                    expect(isAd(feedListItems[i]), `expected feed item ${i + 1} to be an ad but it was not`)
-                        .to.be.true;
+                    expect(feedListItems[i], `expected feed item ${i + 1} to be an ad but it was not`)
+                        .to.have.classNames(feedAdClassName);
                 } else {
-                    expect(isAd(feedListItems[i]), `expected feed item ${i + 1} not to be an ad but it was`)
-                        .to.be.false;
+                    expect(feedListItems[i], `expected feed item ${i + 1} not to be an ad but it was`)
+                        .not.to.have.classNames(feedAdClassName);
                 }
             }
         });
@@ -130,9 +114,5 @@ describe('Feed Component', () => {
 
     function generateLargeFeedItemList() {
         return times(firstAdIndex + adSpacing * 2, () => { return {}; });
-    }
-
-    function isAd(item) {
-        return item.props.className.split(/\s+/).indexOf(feedAdClassName) >= 0;
     }
 });

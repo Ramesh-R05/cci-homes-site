@@ -1,8 +1,6 @@
 import React, {Component, PropTypes} from 'react';
-import {connectToStores} from '@bxm/flux';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
 import {getKeywordsFromTags} from '@bxm/ad/src/utils/tagsUtils';
-import ArticleStore from '../../stores/article';
 import FeedItem from './feedItem';
 import FeedAd from './feedAd';
 
@@ -71,11 +69,5 @@ Feed.contextTypes = {
     getStore: PropTypes.func,
     executeAction: PropTypes.func
 };
-
-Feed = connectToStores(Feed, [ArticleStore], (stores) => {
-    return {
-        items: stores.ArticleStore.getItems()
-    };
-});
 
 export default Feed;
