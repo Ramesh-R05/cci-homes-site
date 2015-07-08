@@ -18,6 +18,6 @@ export default {
         }
     },
     site: {
-        host: 'http://localhost'
+        host: 'http://automation.homes.wn.bauer-media.net.au'
     }
 };
