@@ -438,60 +438,60 @@ module.exports =
     "dnsSafeHost": "dev.homes-api.wn.bauer-media.net.au"
   },
   "stores": {
-    "taggedArticles": {
-      "module": {
-        "includeDynamic": true,
-        "contentType": "Editorials",
-        "contentSections": "Custom",
-        "sections": [
-          "HOMES-1161"
-        ],
-        "sorting": "DateCreatedDesc",
-        "facetConfiguration": [
-          {
-            "label": "Tag",
-            "field": "articleTags",
-            "query": "tags",
-            "sortBy": 0,
-            "sortDirection": 0
-          }
-        ],
-        "enableTextSearch": true,
-        "textSearchConfiguration": {
-          "label": "Search",
-          "criteria": "query",
-          "queryString": "q"
-        },
-        "supportsPreview": true,
-        "pageSize": 8,
-        "moduleName": "taggedArticles",
-        "storeName": "taggedArticles",
-        "id": "HOMES-1208",
-        "parentId": "HOMES-1207",
-        "level": 4,
-        "name": "Tagged Articles",
-        "dateIndexed": "2015-06-02T20:07:10",
-        "pathIds": [
-          "HOMES--1",
-          "HOMES-1158",
-          "HOMES-1206",
-          "HOMES-1207",
-          "HOMES-1208"
-        ],
-        "urlName": "tagged-articles",
-        "url": "/section/modules/tagged-articles",
-        "nodeType": "FacetedModule",
-        "template": "Index",
-        "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
-        "siteName": "Homes",
-        "siteUrl": "http://homes.local",
-        "nodeTypeAliasPath": [
-          "Modules",
-          "PagedModules",
-          "FacetedModule"
-        ]
-      },
-      "items": []
-    }
+      "leftHandRail": {
+          "module": {
+              "includeDynamic": true,
+              "contentType": "Editorials",
+              "contentSections": "Custom",
+              "sections": [
+                  "HOMES-1161",
+                  "HOMES-1237"
+              ],
+              "sorting": "DateCreatedDesc",
+              "facetConfiguration": [
+                  {
+                      "label": "Tag",
+                      "field": "articleTags",
+                      "query": "tags",
+                      "sortBy": 0,
+                      "sortDirection": 0
+                  }
+              ],
+              "enableTextSearch": true,
+              "textSearchConfiguration": {
+                  "label": "Search",
+                  "criteria": "query",
+                  "queryString": "q"
+              },
+              "supportsPreview": true,
+              "pageSize": 20,
+              "moduleName": "leftHandRail",
+              "storeName": "leftHandRail",
+              "id": "feed-articles",
+              "parentId": "HOMES-1159",
+              "level": 3,
+              "name": "Left Hand Rail",
+              "dateIndexed": "2015-07-08T21:34:54",
+              "pathIds": [
+                  "HOMES--1",
+                  "HOMES-1158",
+                  "HOMES-1159",
+                  "HOMES-1313"
+              ],
+              "urlName": "left-hand-rail",
+              "url": "/modules/left-hand-rail",
+              "nodeType": "FacetedModule",
+              "template": "Index",
+              "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+              "siteName": "Homes",
+              "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+              "nodeTypeAliasPath": [
+                  "Modules",
+                  "PagedModules",
+                  "FacetedModule"
+              ]
+          },
+          "items": []
+      }
   }
-}
+};

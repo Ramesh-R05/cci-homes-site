@@ -154,7 +154,7 @@ module.exports = {
                 "pageSize": 20,
                 "moduleName": "taggedArticles",
                 "storeName": "taggedArticles",
-                "id": "articles",
+                "id": "section-articles",
                 "parentId": "HOMES-1159",
                 "level": 3,
                 "sortOrder": 1,

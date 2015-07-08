@@ -1,4 +1,4 @@
-@local @section-landing-ads
+@local @section-landing-ads @javascript
 Feature: Section landing
     As the project owner
     I should see the ads on the section landing page
