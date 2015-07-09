@@ -8,7 +8,7 @@ const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const HeaderStub = Context.createStubComponentWithChildren();
 const GroupStub = Context.createStubComponentWithChildren();
-const GroupFeaturedStub = Context.createStubComponentWithChildren();
+const InFocusStub = Context.createStubComponentWithChildren();
 const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const HeroStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
@@ -19,7 +19,7 @@ const Section = proxyquire('../../../app/components/section/section', {
     },
     './header': HeaderStub,
     './group': GroupStub,
-    './groupFeatured': GroupFeaturedStub,
+    '../inFocus/inFocus': InFocusStub,
     './groupRepeatable': GroupRepeatableStub,
     './hero': HeroStub,
     '@bxm/ad/src/google/components/ad': AdStub
@@ -50,7 +50,7 @@ describe(`Section`, () => {
     let reactModule;
     let section;
     let header;
-    let groupFeatured;
+    let inFocus;
     let groups;
     let groupRepeatable;
     let hero;
@@ -63,7 +63,7 @@ describe(`Section`, () => {
         section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
         header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
         hero = TestUtils.findRenderedComponentWithType(reactModule, HeroStub);
-        groupFeatured = TestUtils.findRenderedComponentWithType(reactModule, GroupFeaturedStub);
+        inFocus = TestUtils.findRenderedComponentWithType(reactModule, InFocusStub);
         groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
         groupRepeatable = TestUtils.findRenderedComponentWithType(reactModule, GroupRepeatableStub);
         ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -87,8 +87,8 @@ describe(`Section`, () => {
     });
 
     // Featured articles
-    it(`should pass down the features articles to the groupFeatured component`, () => {
-        expect(groupFeatured.props.articles).to.deep.equal(featuredArticles);
+    it(`should pass down the features articles to the inFocus component`, () => {
+        expect(inFocus.props.articles).to.deep.equal(featuredArticles);
     });
 
     describe(`First group of articles`, () => {

@@ -1,11 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
+import first from 'lodash/array/first';
+import slice from 'lodash/array/slice';
 import EntityStore from '../../stores/entity';
 import TaggedArticlesStore from '../../stores/facetedStores/taggedArticles';
 import * as FacetedModuleActions from '../../actions/facetedModule';
 import Header from './header';
 import Group from './group';
-import GroupFeatured from './groupFeatured';
+import InFocus from '../inFocus/inFocus';
 import GroupRepeatable from './groupRepeatable';
 import Hero from './hero';
 import Ad from '@bxm/ad/src/google/components/ad';
@@ -25,29 +27,9 @@ class Section extends Component {
     }
 
     render() {
-        let sliceUp;
         const {articles} = this.props;
 
         if (!articles.length) return null;
-
-        const firstHero = articles.slice(0, 1)[0];
-        /*lg breakpoint only*/
-        const secondHero = articles.length >= 5 ? articles.slice(4, 5)[0] : {};
-        /* xLarge only */
-        sliceUp = articles.length >= 7 ? 7 : articles.length;
-        const teaser3WithAd = articles.length > 4 ? articles.slice(4, sliceUp) : [];
-        /* Featured Article slice 1,4 */
-        sliceUp = articles.length >= 4 ? 4 : articles.length;
-        const featuredArticles = articles.length > 1 ? articles.slice(1, sliceUp) : [];
-        /* hidden for large bp */
-        sliceUp = articles.length >= 11 ? 11 : articles.length;
-        const teaser4WithAd = articles.length > 7 ? articles.slice(7, sliceUp) : [];
-        /* 6 teasers with ad - visible for large bp only*/
-        sliceUp = articles.length >= 11 ? 11 : articles.length;
-        const teaser6WithAd = articles.length > 5 ? articles.slice(5, sliceUp) : [];
-        /* repeatable group max 11 articles */
-        sliceUp = articles.length >= 22 ? 22 : articles.length;
-        const teaser11 = articles.length > 11 ? articles.slice(11, sliceUp) : [];
 
         return (
             <div className="container">
@@ -67,20 +49,20 @@ class Section extends Component {
 
                 <div className="row">
                     {/*Heroes*/}
-                    <Hero firstHero={firstHero} secondHero={secondHero} />
+                    <Hero firstHero={first(articles)} secondHero={articles[4] || {}} />
                     {/*Featured articles*/}
-                    <GroupFeatured articles={featuredArticles}>
+                    <InFocus articles={slice(articles, 1, 4)} className="section--fixed-col">
                         <Ad
                             className="ad--section-mrec"
                             displayFor={['small', 'medium', 'large']}
                             sizes="mrec"
                         />
-                    </GroupFeatured>
+                    </InFocus>
                 </div>
 
                 {/* Three teasers with ad - xlarge bp only*/}
                 <div className="row hidden-for-large-only">
-                    <Group articles={teaser3WithAd} modifier="3-items">
+                    <Group articles={slice(articles, 4, 7)} modifier="3-items">
                         <Ad
                             className="ad--section-mrec"
                             displayFor={['xlarge']}
@@ -92,7 +74,7 @@ class Section extends Component {
                 <div className="row">
                     {/* Four teasers with ad - hidden large bp only*/}
                     <Group
-                        articles={teaser4WithAd}
+                        articles={slice(articles, 7, 11)}
                         className="hidden-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top">
@@ -112,7 +94,7 @@ class Section extends Component {
 
                     {/* 6 teasers with ad - visible for large bp only*/}
                     <Group
-                        articles={teaser6WithAd}
+                        articles={slice(articles, 5, 11)}
                         className="visible-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top">
@@ -132,7 +114,7 @@ class Section extends Component {
 
                 {/* Group repeated when paginating */}
                 <div className="row">
-                    <GroupRepeatable articles={teaser11} />
+                    <GroupRepeatable articles={slice(articles, 11, 22)} />
                 </div>
             </div>
         );

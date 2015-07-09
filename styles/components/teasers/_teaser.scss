@@ -8,6 +8,20 @@
     }
 }
 
+@mixin teaser-show-summary-source {
+    .teaser__summary,
+    .teaser__source {
+        display: block;
+    }
+}
+
+@mixin teaser-hide-summary-source {
+    .teaser__summary,
+    .teaser__source {
+        display: none;
+    }
+}
+
 @mixin teaser-img-left {
     @include teaser-hide-details;
 
@@ -67,15 +81,20 @@
     .teaser__tags {
         background: $color-white;
         display: inline-block;
-        margin: -10px 0 10px;
+        margin: -10px 0 7px;
         padding: 13px 25px 0;
     }
 }
 
 @mixin teaser-hero {
-    @include teaser-icon-centered-hero;
-    margin-bottom: 0;
+    @include teaser-icon-centered-small;
+    margin-bottom: 10px;
     overflow: hidden;
+
+
+    @media #{$medium-up} {
+        @include teaser-icon-centered-big;
+    }
 
     .teaser__title {
         @media #{$large-up} {
@@ -119,23 +138,30 @@
 
     .teaser__summary {
         @include type-hero-summary;
-        margin-bottom: 20px;
     }
 
     .teaser__source {
+        @media #{$large-only} {
+            display: none;
+        }
+
+        @media #{$xlarge-up} {
+            margin-top: 20px;
+        }
+
+    }
+
+    .tag-secondary {
         display: none;
+
+        @media #{$medium-only} {
+            display: inline-block;
+        }
 
         @media #{$xlarge-up} {
             display: inline-block;
         }
-    }
 
-    @media #{$large-up} {
-        margin-bottom: 20px;
-
-        .tag-secondary {
-            display: inline-block;
-        }
     }
 
     @media #{$xlarge-up} {
@@ -171,10 +197,11 @@
     @include teaser-icon-centered-big;
 
     .teaser__content {
-        bottom: 30px;
-        margin: 0 17%;
+        bottom: $column-gutter;
+        margin: 0 $column-gutter * 3 0 $column-gutter * 2;
         padding-bottom: 0;
         padding-top: 0;
+        width: calc(100% - #{$column-gutter * 5});
     }
 
     .teaser__tags {
@@ -182,6 +209,54 @@
         display: inline-block;
         margin: -10px 0 10px;
         padding: 13px 25px 0;
+    }
+}
+
+@mixin teaser-narrow {
+    @include teaser-tag-over-img;
+    @include teaser-icon-centered-small;
+
+    @media #{$medium-up} {
+        margin-bottom: 40px;
+    }
+
+    .teaser__image {
+        display: block;
+        max-height: 160px;
+        overflow: hidden;
+    }
+
+    .teaser__title {
+        @include type-xsmall-teaser-title;
+
+        @media #{$medium-up} {
+            @include type-small-teaser-title;
+        }
+
+        @media #{$xlarge-up} {
+            @include type-teaser-title;
+        }
+    }
+
+    .teaser__tags {
+        margin-bottom: 8px;
+    }
+
+    .teaser__content {
+        padding-bottom: 0;
+    }
+
+    .teaser__summary,
+    .teaser__source {
+        display: none;
+    }
+
+    .tag-secondary {
+        display: none;
+
+        @media #{$xlarge-up} {
+            display: inline-block;
+        }
     }
 }
 
@@ -193,6 +268,10 @@
     // ---------------------------------------------------- defaults
     margin-bottom: 20px;
     position: relative;
+
+    @media #{$large-up} {
+        margin-bottom: 40px;
+    }
 
     @media #{$xlarge-up} {
         margin-bottom: $column-gutter;
@@ -221,7 +300,7 @@
 
     &__title {
         @include type-xsmall-teaser-title;
-        margin-bottom: 10px;
+        margin-bottom: 7px;
 
         a {
             color: $color-black;
@@ -234,17 +313,17 @@
             }
         }
 
-        @media #{$large-up} {
+        @media #{$medium-up} {
             margin-bottom: 5px;
         }
     }
 
     &__summary {
         @include type-teaser-summary;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
 
         @media #{$large-up} {
-            margin-bottom: 12px;
+            margin-bottom: 7px;
         }
     }
 
@@ -283,31 +362,7 @@
 
     // ---------------------------------------------------- narrow
     &--narrow {
-        @include teaser-tag-over-img;
-        @include teaser-icon-centered-small;
-
-        .teaser__image {
-            display: block;
-            max-height: 160px;
-            overflow: hidden;
-        }
-
-        .teaser__title {
-            @include type-small-teaser-title;
-        }
-
-        .teaser__tags {
-            margin-bottom: 8px;
-        }
-
-        .teaser__content {
-            padding-bottom: 0;
-        }
-
-        .teaser__summary,
-        .teaser__source {
-            display: none;
-        }
+        @include teaser-narrow;
     }
 
 }
