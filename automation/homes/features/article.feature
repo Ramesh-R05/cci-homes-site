@@ -42,8 +42,7 @@ Feature: article detail page
 
     @DHO-195
     Scenario: Check all ad slots are visible on the left-hand rail
-        When I switch to "desktop" view
-        And I am viewing an article
+        When I am viewing an article
         # Assume ads start at the 3rd slot
         Then I should see the 1st ad in the 3rd position in the left-hand rail
         # There should be 11 teasers between each ad; 3 + 11 + 1 = 15
