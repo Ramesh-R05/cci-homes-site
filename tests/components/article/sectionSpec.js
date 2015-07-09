@@ -68,10 +68,9 @@ describe(`ArticleSection Component`, () => {
             expect(getPageAction.payload.page).to.eq(0);
         });
 
-        it(`should pass the article navigation tag as a param`, () => {
+        it(`should pass only the first the article navigation tag as a param`, () => {
             expect(getPageAction.payload.params.tags).to.eql([
-                'homes:Homes navigation:Outdoor',
-                'homes:Homes navigation:Garden'
+                'homes:Homes navigation:Outdoor'
             ]);
         });
     });
