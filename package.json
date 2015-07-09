@@ -33,6 +33,7 @@
     "console-shim": "^1.0.3",
     "fluxible-router": "^0.1.4",
     "lodash": "^3.9.1",
+    "moment": "^2.10.3",
     "prismjs": "0.0.1",
     "react": "^0.13.3",
     "request": "^2.55.0",

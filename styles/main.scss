@@ -11,7 +11,10 @@
 
 // Helpers
 @import 'helpers/colors';
+@import 'helpers/icons';
 @import 'helpers/responsive-image';
+@import 'helpers/social_share-button';
+@import 'helpers/social_share-count';
 @import 'helpers/typography';
 @import 'helpers/z-indices';
 @import 'helpers/grid';
@@ -21,6 +24,9 @@
 
 // Page
 @import 'page/page';
+
+// Ads
+@import 'ads';
 
 // Components
 @import 'components/helpers/theme';
@@ -47,12 +53,15 @@
 @import 'components/section/home';
 @import 'components/section/sections';
 @import 'components/gallery/gallery';
+@import 'components/gallery/gallery-native';
+@import 'components/gallery/header';
+@import 'components/gallery/footer';
+@import 'components/gallery/main';
+@import 'components/gallery/aside';
+@import 'components/gallery/next';
 @import 'components/home/home';
 @import 'components/in-focus/in-focus';
 @import 'components/side-menu/side-menu';
-
-// Ads
-@import 'ads';
 
 // Styleguide
 @import 'styleguide/styleguide';

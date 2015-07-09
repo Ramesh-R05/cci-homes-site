@@ -1,0 +1,252 @@
+// scss-lint:disable LeadingZero, PropertySortOrder
+.gallery {
+
+    &__next {
+        background: $white;
+        height: 100%;
+        position: relative;
+        width: 100%;
+        z-index: 100;
+
+        @media #{$large-up} {
+            position: absolute;
+        }
+    }
+
+    &__next-img {
+
+        margin: 0;
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+
+        .button {
+
+            &:active,
+            &:focus,
+            &:hover {
+                background: $color-primary;
+            }
+
+            @include type-tags;
+            background: $color-primary;
+            bottom: 20px;
+            border: 0;
+            color: $white;
+            font-weight: 500;
+            left: 50%;
+            padding: 10px 20px;
+            position: absolute;
+            transform: translateX(-50%);
+
+            .icon-arrow-next {
+                font-weight: normal;
+                margin-left: 7px;
+            }
+        }
+
+        @media #{$large-up} {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            width: auto;
+
+            img {
+                height: 100%;
+            }
+
+            .button {
+                display: none;
+            }
+        }
+    }
+
+    &__next-wrapper {
+        background-position: top center;
+        background-size: cover;
+        min-height: 240px;
+
+        img {
+            filter: none;
+            visibility: hidden;
+        }
+
+        @media #{$medium-up} {
+            min-height: 340px;
+        }
+
+        @media #{$large-up} {
+            filter: blur(1px);
+            max-height: 100%;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__next-number-of-pic {
+        display: none;
+
+        @media #{$large-up} {
+            @include type-tags;
+            color: $color-primary;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            width: 100%;
+
+            [class^='icon-'] {
+                font-size: 13px;
+                font-weight: 100;
+                line-height: 0;
+                padding: 0 10px 0 0;
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+
+    &__next-bg {
+
+        @media #{$large-up} {
+            background: rgba(255, 255, 255, 0.80);
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: $z-index-1;
+        }
+    }
+
+    &__next-container {
+
+        @media #{$large-up} {
+            position: absolute;
+            padding: 0 66px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+
+        h2 {
+            color: $color-grey-darker;
+            font-size: 24px;
+            font-weight: 400;
+            margin: 10px 0;
+            padding: 0 15px 20px;
+
+            @media #{$large-up} {
+                font-size: 40px;
+                padding: 0;
+            }
+        }
+
+        h5 {
+            color: $color-grey-darker;
+            display: inline-block;
+            font-family: $font-family-sans-serif-primary;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 20px;
+            position: relative;
+            width: 95%;
+
+            span {
+                background: $white;
+                display: inline-block;
+                padding: 0 10px;
+                z-index: $z-index-1;
+
+                @media #{$large-up} {
+                    background: transparent;
+                }
+            }
+
+            &:after {
+                background: $color-primary;
+                content: '';
+                display: block;
+                height: 1px;
+                padding: 0 15px;
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                z-index: -$z-index-1;
+            }
+
+            @media #{$large-up} {
+
+                display: inline;
+                font-size: 16px;
+                letter-spacing: .05em;
+                padding: 0 10px;
+                position: relative;
+
+                &:before,
+                &:after {
+                    background: $color-primary;
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    position: absolute;
+                    top: 10px;
+                    width: 50px;
+                }
+
+                &:before {
+                    left: -50px;
+                }
+
+                &:after {
+                    right: -50px;
+                }
+            }
+        }
+
+        .button {
+
+            display: none;
+
+            &,
+            &:active,
+            &:focus,
+            &:hover {
+                background: $color-primary;
+            }
+
+            i {
+                font-size: 13px;
+                padding-left: 10px;
+            }
+
+            @media #{$large-up} {
+
+                border: 0;
+                border-radius: 0;
+                display: block;
+                height: 66px;
+                line-height: 0;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 66px;
+
+                i {
+                    color: $white;
+                    display: inline-block;
+                    font-size: 26px;
+                    padding: 0;
+                }
+
+                .button-start-gallery {
+                    display: none;
+                }
+            }
+        }
+    }
+}

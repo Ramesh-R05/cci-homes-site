@@ -31,6 +31,16 @@ var start = function(port) {
         res.json(article_hero_video);
     });
 
+    server.get('/sandbox/2015/07/kev-test-gallery', function(req, res) {
+        var subSectionPage = require('../../tests/mock/gallery');
+        res.json(subSectionPage);
+    });
+
+    server.get('/sandbox/2015/07/kev-test-gallery', function(req, res) {
+        var subSectionPage = require('../../tests/mock/gallery');
+        res.json(subSectionPage);
+    });
+
     server.listen(port);
     console.info('listening on port ' + port);
 };
