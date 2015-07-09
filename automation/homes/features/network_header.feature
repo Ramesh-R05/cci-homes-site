@@ -1,4 +1,4 @@
-@local @DHO-106
+@local @DHO-106 @javascript
 Feature: The network header should appear at the top of the page with a menu
 
     Scenario: Check the menu items are displayed correctly

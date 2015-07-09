@@ -17,7 +17,7 @@ var start = function(port) {
     });
 
     server.get('/faceted/:moduleId', function(req, res) {
-        var home = require(cwd + '/automation/test_data/section_' + req.params.moduleId);
+        var home = require(cwd + '/automation/test_data/faceted/' + req.params.moduleId);
         res.json(home);
     });
 
