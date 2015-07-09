@@ -4,7 +4,7 @@ import EntityStore from '../../stores/entity';
 import FeedStore from '../../stores/facetedStores/feed';
 import Article from './article';
 import Feed from '../feed/feed';
-import {getTagsForCategory} from '../../utils/tagUtils';
+import {getCategoryFirstTag} from '../../utils/tagUtils';
 import * as FacetedModuleActions from '../../actions/facetedModule';
 
 class Section extends Component {
@@ -15,10 +15,10 @@ class Section extends Component {
 
     componentWillMount() {
         const tags = this.props.content.articleTags;
-        const navigationTags = getTagsForCategory(tags, 'Homes navigation');
+        const navigationTag = getCategoryFirstTag(tags, 'Homes navigation');
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
-            params: { tags: navigationTags },
+            params: { tags: [navigationTag] },
             moduleConfig: this.props.feedModuleConfig
         });
     }
