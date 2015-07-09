@@ -7,6 +7,7 @@ export default {
         merge(adConfig, {
             breakpoints: breakpoints,
             pageTypes: {
+                NavigationSection: 'index',
                 HomesArticle: 'article'
             },
             siteId: 'FoodToLove',
