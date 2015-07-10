@@ -1,5 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import {articles as featuredArticlesMock} from '../../mock/articles';
+import {articles as homeArticlesMock} from '../../mock/articles';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
@@ -14,11 +14,11 @@ const Home = proxyquire('../../../app/components/home/home', {
     '../inFocus/inFocus': InFocusStub
 });
 
-const inFocusArticlesMock = featuredArticlesMock.slice(0, 5);
+const inFocusArticlesMock = homeArticlesMock.slice(0, 5);
 
-Context.addStore('FeaturedArticles', {
+Context.addStore('HomeArticles', {
     getItems() {
-        return featuredArticlesMock;
+        return homeArticlesMock;
     }
 });
 Context.addStore('InFocusArticles', {
@@ -40,8 +40,8 @@ describe('Home', () => {
         sectionFeatured = TestUtils.findRenderedComponentWithType(reactModule, SectionFeatured);
     });
 
-    it(`should pass down the featured articles to the SectionFeatured component`, () => {
-        expect(sectionFeatured.props.articles).to.deep.equal(featuredArticlesMock);
+    it(`should pass down the articles to the SectionFeatured component`, () => {
+        expect(sectionFeatured.props.articles).to.deep.equal(homeArticlesMock);
     });
 
     it(`should pass down the in focus articles to the InFocus component`, () => {

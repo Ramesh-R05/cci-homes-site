@@ -13,7 +13,7 @@ import EntityStore from './stores/entity';
 import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
 import FeedStore from './stores/facetedStores/feed';
-import FeaturedArticles from './stores/articles/featured';
+import HomeArticles from './stores/articles/home';
 import InFocusArticles from './stores/articles/inFocus';
 
 //Global header
@@ -31,10 +31,10 @@ let app = new Flux({
         // Keep in alphabetical order to make diffs easier
         AdStore,
         EntityStore,
-        FeaturedArticles,
         FeedStore,
         GalleryStore,
         HtmlStore,
+        HomeArticles,
         InFocusArticles,
         NetworkHeaderStore,
         RouteStore,

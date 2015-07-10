@@ -51,7 +51,7 @@ class Teaser extends Component {
         narrow: {
             s: {w: 640, h: 341},
             m: {w: 640, h: 341},
-            l: {w: 300, h: 160},
+            l: {w: 400, h: 213},
             xl: {w: 300, h: 160}
         },
         'small-hero': {
@@ -71,6 +71,12 @@ class Teaser extends Component {
             m: {w: 400, h: 330},
             l: {w: 410, h: 340},
             xl: {w: 300, h: 160}
+        },
+        'home-hero': {
+            s: {w: 667, h: 556},
+            m: {w: 940, h: 790},
+            l: {w: 750, h: 625},
+            xl: {w: 750, h: 625}
         }
     };
 

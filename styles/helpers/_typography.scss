@@ -227,11 +227,11 @@ a {
         font-size: 24px;
     }
 
-
     @media #{$xlarge-up} {
-        font-size: 52px;
+        font-size: 36px;
         letter-spacing: -.01em;
-        line-height: 1.231;
+        line-height: 1.5;
+        margin-bottom: 15px;
     }
 }
 

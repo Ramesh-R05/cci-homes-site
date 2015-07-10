@@ -60,19 +60,20 @@ describe('InFocus', () => {
         });
     });
 
-    describe('with the className prop', () => {
+    describe('with the modifier prop', () => {
         let reactModule;
         let section;
-        const className = 'test-section';
+        const modifier = 'modifier';
+        const expectedClassname = `section-in-focus--${modifier}`;
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <InFocus articles={articlesMock} className={className} />
+                <InFocus articles={articlesMock} modifier={modifier} />
             );
-            section = TestUtils.findRenderedDOMComponentWithClass(reactModule, className);
+            section = TestUtils.findRenderedDOMComponentWithClass(reactModule, expectedClassname);
         });
 
-        it(`should render the in focus section with the ${className} class`, () => {
+        it(`should render the in focus section with the ${expectedClassname} class`, () => {
             expect(section).to.exist;
         });
     });

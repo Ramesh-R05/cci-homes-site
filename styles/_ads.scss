@@ -85,7 +85,8 @@
 
     // Section
     &--section-top-leaderboard,
-    &--section-middle-leaderboard {
+    &--section-middle-leaderboard,
+    &--section-bottom-leaderboard {
         margin-bottom: $column-gutter;
 
         @media #{$small-only} {

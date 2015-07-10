@@ -322,9 +322,9 @@ module.exports = {
                 {
                     "campaign": [],
                     "articleTags": [
-                        "food:Topic:Creative home",
+                        "food:Decorating:Colour:Natural",
                         "food:Homes navigation:Home Tours",
-                        "food:Decorating:Colour:Natural"
+                        "food:Topic:Creative home"
                     ],
                     "source": "Australian House and Garden",
                     "body": [
@@ -446,7 +446,7 @@ module.exports = {
                             "level": 3,
                             "sortOrder": 2,
                             "name": "Test Cook",
-                            "dateIndexed": "2015-07-01T21:07:51",
+                            "dateIndexed": "2015-07-07T22:30:09",
                             "pathIds": [
                                 "HOMES--1",
                                 "HOMES-1158",
@@ -455,14 +455,15 @@ module.exports = {
                             ],
                             "urlName": "test-cook",
                             "url": "/contributors/test-cook",
-                            "nodeType": "Profiles",
+                            "nodeType": "HomesProfile",
                             "template": "Index",
                             "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
                             "siteName": "Homes",
-                            "siteUrl": "http://homes.local",
+                            "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
                             "nodeTypeAliasPath": [
                                 "Page",
-                                "Profiles"
+                                "Profiles",
+                                "HomesProfile"
                             ]
                         },
                         {
@@ -476,7 +477,7 @@ module.exports = {
                             "level": 3,
                             "sortOrder": 2,
                             "name": "Test Cook",
-                            "dateIndexed": "2015-07-01T21:07:51",
+                            "dateIndexed": "2015-07-07T22:30:09",
                             "pathIds": [
                                 "HOMES--1",
                                 "HOMES-1158",
@@ -485,14 +486,15 @@ module.exports = {
                             ],
                             "urlName": "test-cook",
                             "url": "/contributors/test-cook",
-                            "nodeType": "Profiles",
+                            "nodeType": "HomesProfile",
                             "template": "Index",
                             "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
                             "siteName": "Homes",
-                            "siteUrl": "http://homes.local",
+                            "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
                             "nodeTypeAliasPath": [
                                 "Page",
-                                "Profiles"
+                                "Profiles",
+                                "HomesProfile"
                             ]
                         }
                     ],
@@ -518,8 +520,6 @@ module.exports = {
                     "redirect": {
                         "mode": 2
                     },
-                    "pageTitle": "How to care for fine china",
-                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
                     "imageFacebookUrl": {
                         "tags": [],
                         "source": "",
@@ -530,16 +530,15 @@ module.exports = {
                     ],
                     "dateCreated": "2015-07-02T10:13:03",
                     "tracking": {
-                        "dateIndexed": "2015-07-07T22:26:56"
+                        "dateIndexed": "2015-07-10T21:35:44"
                     },
                     "month": 7,
                     "year": 2015,
                     "id": "HOMES-1318",
                     "parentId": "HOMES-1319",
                     "level": 5,
-                    "sortOrder": 1,
                     "name": "Test Article - 01",
-                    "dateIndexed": "2015-07-07T22:26:56",
+                    "dateIndexed": "2015-07-10T21:35:44",
                     "pathIds": [
                         "HOMES--1",
                         "HOMES-1158",
@@ -565,9 +564,9 @@ module.exports = {
                 {
                     "campaign": [],
                     "articleTags": [
-                        "food:Topic:Readers' home",
+                        "food:Decorating:Colour:Natural",
                         "food:Homes navigation:Home Tours",
-                        "food:Garden/Outdoor:Garden style:Native garden"
+                        "food:Topic:Creative home"
                     ],
                     "source": "Australian House and Garden",
                     "body": [
@@ -615,20 +614,154 @@ module.exports = {
                             "type": "paragraph",
                             "label": "Paragraph",
                             "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        },
+                        {
+                            "type": "tips",
+                            "label": "Tips",
+                            "content": "Janice Test - Tips #01"
+                        },
+                        {
+                            "type": "related-content",
+                            "label": "Related Content",
+                            "content": []
+                        },
+                        {
+                            "type": "image",
+                            "label": "Image",
+                            "content": {
+                                "credits": [
+                                    "HOMES-1235"
+                                ],
+                                "tags": [
+                                    "media_common:quotation_subject:Insect",
+                                    "food:Topic:Creative home",
+                                    "food:Homes navigation:Home Tours"
+                                ],
+                                "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/03/1435887720290_Chinamans3.jpg",
+                                "valid": true,
+                                "source": "homes+",
+                                "title": "Janice Test - Image - Title",
+                                "caption": "Janice Test - Image - Image Caption",
+                                "link": "http://dev.homes-api.wn.bauer-media.net.au/"
+                            }
+                        },
+                        {
+                            "type": "portrait-image",
+                            "label": "Portrait Image",
+                            "content": {
+                                "credits": [
+                                    "HOMES-1236",
+                                    "HOMES-1235"
+                                ],
+                                "tags": [
+                                    "food:Audience:Home owner",
+                                    "food:Homes navigation:Interiors",
+                                    "food:Profiles:Handyman",
+                                    "food:Location and setting:Australia:New South Wales:Sydney:Sydney inner city"
+                                ],
+                                "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/03/1435888793351_DIY-2163.jpg",
+                                "valid": true,
+                                "title": "Janice Test - Portrait Image - Title",
+                                "caption": "Janice Test - Portrait Image - Image Caption",
+                                "link": "http://dev.homes-api.wn.bauer-media.net.au/",
+                                "source": null
+                            }
                         }
                     ],
-                    "author": [],
+                    "author": [
+                        "HOMES-1236",
+                        "HOMES-1236"
+                    ],
+                    "contentAuthors": [
+                        "HOMES-1236",
+                        "HOMES-1236"
+                    ],
+                    "authorProfiles": [
+                        {
+                            "title": "Test cook",
+                            "redirect": {
+                                "mode": 2
+                            },
+                            "typeName": "TeaserDto",
+                            "id": "HOMES-1236",
+                            "parentId": "HOMES-1314",
+                            "level": 3,
+                            "sortOrder": 2,
+                            "name": "Test Cook",
+                            "dateIndexed": "2015-07-07T22:30:09",
+                            "pathIds": [
+                                "HOMES--1",
+                                "HOMES-1158",
+                                "HOMES-1314",
+                                "HOMES-1236"
+                            ],
+                            "urlName": "test-cook",
+                            "url": "/contributors/test-cook",
+                            "nodeType": "HomesProfile",
+                            "template": "Index",
+                            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                            "siteName": "Homes",
+                            "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                            "nodeTypeAliasPath": [
+                                "Page",
+                                "Profiles",
+                                "HomesProfile"
+                            ]
+                        },
+                        {
+                            "title": "Test cook",
+                            "redirect": {
+                                "mode": 2
+                            },
+                            "typeName": "TeaserDto",
+                            "id": "HOMES-1236",
+                            "parentId": "HOMES-1314",
+                            "level": 3,
+                            "sortOrder": 2,
+                            "name": "Test Cook",
+                            "dateIndexed": "2015-07-07T22:30:09",
+                            "pathIds": [
+                                "HOMES--1",
+                                "HOMES-1158",
+                                "HOMES-1314",
+                                "HOMES-1236"
+                            ],
+                            "urlName": "test-cook",
+                            "url": "/contributors/test-cook",
+                            "nodeType": "HomesProfile",
+                            "template": "Index",
+                            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                            "siteName": "Homes",
+                            "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                            "nodeTypeAliasPath": [
+                                "Page",
+                                "Profiles",
+                                "HomesProfile"
+                            ]
+                        }
+                    ],
                     "title": "Test Article - 02 - How to care for fine china",
                     "summaryTitle": "How to care for fine china",
                     "summary": "There’s something special about using fine china so it’s worth looking after.",
-                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1260/diy_-2163.jpg",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1259/chinamans3.jpg",
                     "imageAltText": "Fine china",
                     "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "video": {
+                        "id": "VIDEO-2265",
+                        "name": "4141553739001",
+                        "type": "VideoItem",
+                        "properties": {
+                            "videoConfiguration": {
+                                "videoId": "VIDEO-2265",
+                                "status": "Video upload is complete",
+                                "brightcoveId": "4141553739001",
+                                "statusCode": 200
+                            }
+                        }
+                    },
                     "redirect": {
                         "mode": 2
                     },
-                    "pageTitle": "How to care for fine china",
-                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
                     "imageFacebookUrl": {
                         "tags": [],
                         "source": "",
@@ -637,25 +770,25 @@ module.exports = {
                     "accessLevels": [
                         "-1"
                     ],
-                    "dateCreated": "2015-07-02T10:24:13",
+                    "dateCreated": "2015-07-10T11:33:38",
                     "tracking": {
-                        "dateIndexed": "2015-07-06T20:49:05"
+                        "dateIndexed": "2015-07-10T21:39:21"
                     },
                     "month": 7,
                     "year": 2015,
-                    "id": "HOMES-1320",
+                    "id": "HOMES-1395",
                     "parentId": "HOMES-1319",
                     "level": 5,
-                    "sortOrder": 2,
+                    "sortOrder": 1,
                     "name": "Test Article - 02",
-                    "dateIndexed": "2015-07-06T20:49:05",
+                    "dateIndexed": "2015-07-10T21:39:21",
                     "pathIds": [
                         "HOMES--1",
                         "HOMES-1158",
                         "HOMES-1161",
                         "HOMES-1257",
                         "HOMES-1319",
-                        "HOMES-1320"
+                        "HOMES-1395"
                     ],
                     "urlName": "test-article-02",
                     "url": "/sandbox/2015/07/test-article-02",
@@ -1402,7 +1535,7 @@ module.exports = {
                     ],
                     "dateCreated": "2015-07-02T10:25:53",
                     "tracking": {
-                        "dateIndexed": "2015-07-06T20:51:04"
+                        "dateIndexed": "2015-07-10T21:01:39"
                     },
                     "month": 7,
                     "year": 2015,
@@ -1411,7 +1544,7 @@ module.exports = {
                     "level": 5,
                     "sortOrder": 9,
                     "name": "Test Article - 09",
-                    "dateIndexed": "2015-07-06T20:51:04",
+                    "dateIndexed": "2015-07-10T21:01:39",
                     "pathIds": [
                         "HOMES--1",
                         "HOMES-1158",
@@ -2105,9 +2238,1202 @@ module.exports = {
                         "Articles",
                         "HomesArticle"
                     ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Homes navigation:DIY & How To",
+                        "food:Topic:How to",
+                        "food:DIY and craft:DIY projects:Framing/hanging projects"
+                    ],
+                    "source": "real living",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 16 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1274/chinamans3.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:43:00",
+                    "tracking": {
+                        "dateIndexed": "2015-07-06T20:53:05"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1334",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 16,
+                    "name": "Test Article - 16",
+                    "dateIndexed": "2015-07-06T20:53:05",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1334"
+                    ],
+                    "urlName": "test-article-16",
+                    "url": "/sandbox/2015/07/test-article-16",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Get the look",
+                        "food:Homes navigation:DIY & How To",
+                        "food:Products, Furniture and Fittings:Linens:Bedding"
+                    ],
+                    "source": "Australian House and Garden",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 17 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1275/diy_-2163.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:43:16",
+                    "tracking": {
+                        "dateIndexed": "2015-07-06T20:53:18"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1335",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 17,
+                    "name": "Test Article - 17",
+                    "dateIndexed": "2015-07-06T20:53:18",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1335"
+                    ],
+                    "urlName": "test-article-17",
+                    "url": "/sandbox/2015/07/test-article-17",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Before and after",
+                        "food:Homes navigation:DIY & How To",
+                        "food:Products, Furniture and Fittings:Lighting:Pendant light"
+                    ],
+                    "source": "Belle",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 18 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1276/hg0215-decorating-mainc1457701-2r2.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:43:31",
+                    "tracking": {
+                        "dateIndexed": "2015-07-06T20:53:31"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1336",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 18,
+                    "name": "Test Article - 18",
+                    "dateIndexed": "2015-07-06T20:53:31",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1336"
+                    ],
+                    "urlName": "test-article-18",
+                    "url": "/sandbox/2015/07/test-article-18",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:DIY",
+                        "food:Homes navigation:DIY & How To",
+                        "food:Garden/Outdoor:Plants:Lawn and grass"
+                    ],
+                    "source": "homes+",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 19 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1277/hg1214_abbeautthings_mcmeniman-s-house-133r1.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:52:24",
+                    "tracking": {
+                        "dateIndexed": "2015-07-06T20:53:37"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1337",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 19,
+                    "name": "Test Article - 19",
+                    "dateIndexed": "2015-07-06T20:53:37",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1337"
+                    ],
+                    "urlName": "test-article-19",
+                    "url": "/sandbox/2015/07/test-article-19",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:DIY",
+                        "food:Homes navigation:DIY & How To",
+                        "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Showers"
+                    ],
+                    "source": "real living",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 20 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1279/jhj_chinamans-15-01-2015__0209.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "video": {
+                        "id": "VIDEO-2265",
+                        "name": "4141553739001",
+                        "type": "VideoItem",
+                        "properties": {
+                            "videoConfiguration": {
+                                "videoId": "VIDEO-2265",
+                                "status": "Video upload is complete",
+                                "brightcoveId": "4141553739001",
+                                "statusCode": 200
+                            }
+                        }
+                    },
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:52:49",
+                    "tracking": {
+                        "dateIndexed": "2015-07-06T20:53:53"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1338",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 20,
+                    "name": "Test Article - 20",
+                    "dateIndexed": "2015-07-06T20:53:53",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1338"
+                    ],
+                    "urlName": "test-article-20",
+                    "url": "/sandbox/2015/07/test-article-20",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Creative home",
+                        "food:Homes navigation:Renovate"
+                    ],
+                    "source": "Australian House and Garden",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 21 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1281/chinamans3.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {},
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:53:09",
+                    "tracking": {
+                        "dateIndexed": "2015-07-02T23:29:33"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1339",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 21,
+                    "name": "Test Article - 21",
+                    "dateIndexed": "2015-07-02T23:29:33",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1339"
+                    ],
+                    "urlName": "test-article-21",
+                    "url": "/sandbox/2015/07/test-article-21",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Readers' home",
+                        "food:Homes navigation:Renovate",
+                        "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Bathroom basins"
+                    ],
+                    "source": "Belle",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 22 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1282/diy_-2163.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:53:24",
+                    "tracking": {
+                        "dateIndexed": "2015-07-11T23:37:41"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1340",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 22,
+                    "name": "Test Article - 22",
+                    "dateIndexed": "2015-07-11T23:37:41",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1340"
+                    ],
+                    "urlName": "test-article-22",
+                    "url": "/sandbox/2015/07/test-article-22",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Feature home",
+                        "food:Homes navigation:Renovate",
+                        "food:Garden/Outdoor:Garden style:Potted garden"
+                    ],
+                    "source": "homes+",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 23 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1283/hg0215-decorating-mainc1457701-2r2.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {
+                        "tags": [],
+                        "source": "",
+                        "credits": []
+                    },
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:53:45",
+                    "tracking": {
+                        "dateIndexed": "2015-07-11T23:38:26"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1341",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 23,
+                    "name": "Test Article - 23",
+                    "dateIndexed": "2015-07-11T23:38:26",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1341"
+                    ],
+                    "urlName": "test-article-23",
+                    "url": "/sandbox/2015/07/test-article-23",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Luxury home",
+                        "food:Homes navigation:Renovate"
+                    ],
+                    "source": "real living",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 24 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1284/hg1214_abbeautthings_mcmeniman-s-house-133r1.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {},
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:54:04",
+                    "tracking": {
+                        "dateIndexed": "2015-07-02T23:29:34"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1342",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 24,
+                    "name": "Test Article - 24",
+                    "dateIndexed": "2015-07-02T23:29:34",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1342"
+                    ],
+                    "urlName": "test-article-24",
+                    "url": "/sandbox/2015/07/test-article-24",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Hot trend",
+                        "food:Homes navigation:Renovate"
+                    ],
+                    "source": "Australian House and Garden",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 25 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1285/jhj_chinamans-15-01-2015__0209.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {},
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:54:18",
+                    "tracking": {
+                        "dateIndexed": "2015-07-02T23:29:32"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1343",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 25,
+                    "name": "Test Article - 25",
+                    "dateIndexed": "2015-07-02T23:29:32",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1343"
+                    ],
+                    "urlName": "test-article-25",
+                    "url": "/sandbox/2015/07/test-article-25",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "campaign": [],
+                    "articleTags": [
+                        "food:Topic:Trend",
+                        "food:Homes navigation:Home Tours",
+                        "food:Homes navigation:Interiors"
+                    ],
+                    "source": "Belle",
+                    "body": [
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China comes in several forms, including fine bone china, porcelain and stoneware. “Despite its delicate appearance, fine bone china is actually the strongest,” says Jane Varley, marketing manager at WWRD Australia, distributors of *Waterford*, Wedgwood, Royal Doulton and Royal Albert ranges. \n\n“Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Cleaning"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“It’s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,” says D’Rozario. Varley agrees. “Rinse pieces before placing them in the machine and make sure that items don’t bump against each other.” She advises using a gentle wash cycle with a maximum temperature of 65˚C. "
+                        },
+                        {
+                            "type": "quote",
+                            "label": "Quote",
+                            "content": "Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage."
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "Older or heavily decorated china is best washed by hand with warm, soapy water and a soft cloth, rather than using harsh scrubbers that could potentially scratch the pattern.  "
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Maintenance"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. “Remove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for ‘pencil’ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.” Scratches, cracks and fading are another matter and may call for a replacement piece. \n\n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://chinafinders.com.au/|target=\"_blank\")."
+                        },
+                        {
+                            "type": "heading",
+                            "label": "Heading",
+                            "content": "Storage"
+                        },
+                        {
+                            "type": "paragraph",
+                            "label": "Paragraph",
+                            "content": "“When stacking plates, put a linen cloth between each piece so there’s no risk of marking the one underneath,” says D’Rozario. Avoid over-stacking – no more than four plates high – as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. “For example, never transfer a bone china plate straight from the fridge into a hot oven,” says Varley. "
+                        }
+                    ],
+                    "author": [],
+                    "title": "Test Article - 26 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1286/chinamans3.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "pageTitle": "How to care for fine china",
+                    "metaDescription": "Find out how to look after and clean your fine china with advice from the experts on HOMES TO LOVE.",
+                    "imageFacebookUrl": {},
+                    "accessLevels": [
+                        "-1"
+                    ],
+                    "dateCreated": "2015-07-02T10:55:01",
+                    "tracking": {
+                        "dateIndexed": "2015-07-02T23:29:25"
+                    },
+                    "month": 7,
+                    "year": 2015,
+                    "id": "HOMES-1344",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 26,
+                    "name": "Test Article - 26",
+                    "dateIndexed": "2015-07-02T23:29:25",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1344"
+                    ],
+                    "urlName": "test-article-26",
+                    "url": "/sandbox/2015/07/test-article-26",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
                 }
             ],
-            "totalResults": 55
+            "totalResults": 56
         },
         "inFocusArticles": {
             "module": {
