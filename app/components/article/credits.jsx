@@ -2,7 +2,14 @@ import React, {Component, PropTypes} from 'react';
 import {unescape} from 'lodash/string';
 import classNames from 'classnames';
 
-class Credits extends Component {
+export default class Credits extends Component {
+
+    static propTypes = {
+        writer: PropTypes.string,
+        photographer: PropTypes.string,
+        stylist: PropTypes.string,
+        experter: PropTypes.string
+    }
 
     constructor(props, context) {
         super(props, context);
@@ -48,12 +55,3 @@ class Credits extends Component {
         );
     }
 }
-
-Credits.propTypes = {
-    writer: PropTypes.string,
-    photographer: PropTypes.string,
-    stylist: PropTypes.string,
-    experter: PropTypes.string
-};
-
-export default Credits;

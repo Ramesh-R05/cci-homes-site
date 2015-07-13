@@ -1,7 +1,13 @@
 import {BaseStore} from '@bxm/flux';
 
 
-class EntityStore extends BaseStore {
+export default class EntityStore extends BaseStore {
+
+    static storeName = 'EntityStore'
+
+    static handlers = {
+        'LOAD_CONTENT': 'onLoadContent'
+    }
 
     constructor(dispatcher) {
         super(dispatcher);
@@ -52,11 +58,3 @@ class EntityStore extends BaseStore {
     }
 
 }
-
-EntityStore.storeName = 'EntityStore';
-
-EntityStore.handlers = {
-    'LOAD_CONTENT': 'onLoadContent'
-};
-
-export default EntityStore;

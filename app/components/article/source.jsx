@@ -3,7 +3,11 @@ import {unescape} from 'lodash/string';
 
 const IMG_PATH = '/assets/images/source/';
 
-class Credits extends Component {
+export default class Credits extends Component {
+
+    static propTypes = {
+        source: PropTypes.string.isRequired
+    }
 
     constructor(props, context) {
         super(props, context);
@@ -26,9 +30,3 @@ class Credits extends Component {
     }
 
 }
-
-Credits.propTypes = {
-    source: PropTypes.string.isRequired
-};
-
-export default Credits;

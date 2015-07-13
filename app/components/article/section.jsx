@@ -9,6 +9,23 @@ import * as FacetedModuleActions from '../../actions/facetedModule';
 
 class Section extends Component {
 
+    static propTypes = {
+        content: PropTypes.object.isRequired,
+        title: PropTypes.string.isRequired,
+        nodeType: PropTypes.string,
+        feedModuleConfig: PropTypes.any,
+        feedItems: PropTypes.array.isRequired
+    }
+
+    static contextTypes = {
+        getStore: PropTypes.func,
+        executeAction: PropTypes.func
+    }
+
+    static defaultProps = {
+        feedItems: []
+    }
+
     constructor(props, context) {
         super(props, context);
     }
@@ -70,23 +87,6 @@ class Section extends Component {
     }
 
 }
-
-Section.propTypes = {
-    content: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired,
-    nodeType: PropTypes.string,
-    feedModuleConfig: PropTypes.any,
-    feedItems: PropTypes.array.isRequired
-};
-
-Section.contextTypes = {
-    getStore: PropTypes.func,
-    executeAction: PropTypes.func
-};
-
-Section.defaultProps = {
-    feedItems: []
-};
 
 export default connectToStores(Section, [EntityStore, FeedStore], (stores) => {
     return {

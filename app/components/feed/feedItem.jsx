@@ -5,7 +5,34 @@ import Icon from '../teaser/icon';
 import breakpoints from '../../breakpoints';
 import {getFirstTagNameForCategory} from '../../utils/tagUtils';
 
-class FeedItem extends Component {
+export default class FeedItem extends Component {
+
+    static propTypes = {
+        gtmClass: PropTypes.string.isRequired,
+        item: PropTypes.object.isRequired
+    }
+
+    static imageQuality = 85
+
+    static teaserResponsiveConfig = {
+        scale: imageResize.scale.BOTH,
+        anchor: imageResize.anchor.MC,
+        mode: imageResize.mode.CROP
+    }
+
+    static teaserSizes = {
+        s: { w: 132, h: 107 },
+        m: { w: 132, h: 107 },
+        l: { w: 132, h: 107 },
+        xl: { w: 132, h: 107 }
+    }
+
+    static sourceClassNameMap = {
+        'homes+': 'homes-plus',
+        'real living': 'real-living',
+        'Belle': 'belle',
+        'Australian House and Garden': 'house-and-garden'
+    }
 
     constructor(props, context) {
         super(props, context);
@@ -41,32 +68,3 @@ class FeedItem extends Component {
     }
 
 }
-
-FeedItem.propTypes = {
-    gtmClass: PropTypes.string.isRequired,
-    item: PropTypes.object.isRequired
-};
-
-FeedItem.imageQuality = 85;
-
-FeedItem.teaserResponsiveConfig = {
-    scale: imageResize.scale.BOTH,
-    anchor: imageResize.anchor.MC,
-    mode: imageResize.mode.CROP
-};
-
-FeedItem.teaserSizes = {
-    s: { w: 132, h: 107 },
-    m: { w: 132, h: 107 },
-    l: { w: 132, h: 107 },
-    xl: { w: 132, h: 107 }
-};
-
-FeedItem.sourceClassNameMap = {
-    'homes+': 'homes-plus',
-    'real living': 'real-living',
-    'Belle': 'belle',
-    'Australian House and Garden': 'house-and-garden'
-};
-
-export default FeedItem;

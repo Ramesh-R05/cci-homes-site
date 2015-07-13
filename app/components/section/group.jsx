@@ -3,6 +3,21 @@ import Teaser from '../teaser/teaser';
 import classnames from 'classnames';
 
 export default class Group extends Component {
+
+    static propTypes = {
+        articles: PropTypes.array.isRequired,
+        className: PropTypes.string,
+        children: PropTypes.any,
+        modifier: PropTypes.string.isRequired,
+        teaserModifier: PropTypes.string
+    }
+
+    static defaultProps = {
+        articles: [],
+        modifier: '',
+        teaserModifier: 'img-left'
+    }
+
     render() {
         const {articles, className, modifier, teaserModifier} = this.props;
 
@@ -20,17 +35,3 @@ export default class Group extends Component {
         );
     }
 }
-
-Group.propTypes = {
-    articles: PropTypes.array.isRequired,
-    className: PropTypes.string,
-    children: PropTypes.any,
-    modifier: PropTypes.string.isRequired,
-    teaserModifier: PropTypes.string
-};
-
-Group.defaultProps = {
-    articles: [],
-    modifier: '',
-    teaserModifier: 'img-left'
-};

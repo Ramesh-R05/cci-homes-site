@@ -5,6 +5,15 @@ import NetworkHeader from '@bxm/header/lib/header/header';
 import {isUndefined} from 'lodash/lang';
 
 class DefaultTemplate extends Component {
+
+    static contextTypes = {
+        executeAction: React.PropTypes.func.isRequired
+    }
+
+    static propTypes = {
+        content: PropTypes.object
+    }
+
     constructor(props, context) {
         super(props, context);
     }
@@ -45,14 +54,6 @@ class DefaultTemplate extends Component {
         }
     }
 }
-
-DefaultTemplate.propTypes = {
-    content: PropTypes.object
-};
-
-DefaultTemplate.contextTypes = {
-    executeAction: React.PropTypes.func.isRequired
-};
 
 export default connectToStores(DefaultTemplate, [EntityStore], (stores) => {
     return {

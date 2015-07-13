@@ -8,6 +8,15 @@ import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigura
 
 class Application extends Component {
 
+    static propTypes = {
+        currentRoute: PropTypes.object
+    }
+
+    static contextTypes = {
+        getStore: React.PropTypes.func,
+        executeAction: React.PropTypes.func
+    }
+
     constructor(props, context) {
         super(props, context);
 
@@ -33,14 +42,5 @@ class Application extends Component {
         return <Handler/>;
     }
 }
-
-Application.propTypes = {
-    currentRoute: PropTypes.object
-};
-
-Application.contextTypes = {
-    getStore: React.PropTypes.func,
-    executeAction: React.PropTypes.func
-};
 
 export default provideContext(handleHistory(Application));

@@ -3,6 +3,27 @@ import {noop} from 'lodash/utility';
 import classnames from 'classnames';
 
 export default class Button extends Component {
+
+    static propTypes = {
+        active: PropTypes.bool,
+        children: PropTypes.any,
+        disabled: PropTypes.bool,
+        modifier: PropTypes.string,
+        onClick: PropTypes.func,
+        persistActiveState: PropTypes.bool,
+        type: PropTypes.string,
+        value: PropTypes.string
+    }
+
+    static defaultProps = {
+        active: false,
+        disabled: false,
+        onClick: noop,
+        persistActiveState: false,
+        type: 'button',
+        value: ''
+    }
+
     constructor(props) {
         super();
         this.state = {active: props.active};
@@ -35,23 +56,3 @@ export default class Button extends Component {
          );
     }
 }
-
-Button.propTypes = {
-    active: PropTypes.bool,
-    children: PropTypes.any,
-    disabled: PropTypes.bool,
-    modifier: PropTypes.string,
-    onClick: PropTypes.func,
-    persistActiveState: PropTypes.bool,
-    type: PropTypes.string,
-    value: PropTypes.string
-};
-
-Button.defaultProps = {
-    active: false,
-    disabled: false,
-    onClick: noop,
-    persistActiveState: false,
-    type: 'button',
-    value: ''
-};
