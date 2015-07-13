@@ -1,21 +1,6 @@
-﻿# Load IIS module:
-Import-Module WebAdministration
-
-$websiteDirectory = "d:\websites\site";
+﻿$websiteDirectory = "d:\websites\site";
 $tmpDirectory = "d:\$([System.Guid]::NewGuid().ToString())";
 $global:hasErrors = $False;
-
-# Stop App Pool if not already stopped
-Function StopIIS
-{
-	$applicationPools = Get-ChildItem IIS:\AppPools | ? {$_.state -eq "Started"}
-
-	$applicationPools | % {
-		Write-Output "Stopping $($_.Name) ..."
-		Stop-WebAppPool $_.Name
-	}
-}
-
 
 Function PurgeWebsiteFiles 
 {
@@ -131,7 +116,6 @@ ChangeServiceStatus -serviceName "WAS" -newStatus "stop";
 
 new-netfirewallrule -displayname http_80 -direction inbound -action allow -localport 80 -protocol TCP
 
-StopIIS
 PurgeWebsiteFiles
 
 If ($hasErrors)
