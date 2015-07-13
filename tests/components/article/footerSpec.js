@@ -14,7 +14,7 @@ const Footer = proxyquire('../../../app/components/article/footer', {
     'react/addons': React,
     './credits': ArticleCreditsStub,
     './source': ArticleSourceStub,
-    '@bxm/article/lib/components/tags': ArticleTagsStub
+    './tags': ArticleTagsStub
 });
 
 describe(`Article Footer Component`, () => {

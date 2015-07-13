@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import * as TagUtils from '../../utils/tagUtils';
-import {difference, union} from 'lodash/array';
-import {isUndefined} from 'lodash/lang';
+import difference from 'lodash/array/difference';
+import union from 'lodash/array/union';
+import isUndefined from 'lodash/lang/isUndefined';
 
 export default class Tags extends Component {
 
@@ -12,8 +13,8 @@ export default class Tags extends Component {
     };
 
     getTags() {
-        const primaryTags = TagUtils.getRelatedTags(this.props.tags, ['Topic']);
-        const unwantedTags = TagUtils.getRelatedTags(this.props.tags, ['Homes navigation']);
+        const primaryTags = TagUtils.getRelatedTags(this.props.tags, [{ category: 'Topic' }]);
+        const unwantedTags = TagUtils.getRelatedTags(this.props.tags, [{ category: 'Homes navigation' }]);
 
         if (primaryTags.length === 0) return {};
 

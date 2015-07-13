@@ -3,9 +3,22 @@ module.exports =
   "entity": {
     "campaign": [],
     "articleTags": [
-      "food:Topic:Creative home",
-      "food:Homes navigation:Indoor",
-      "food:Profiles:Designer"
+        "food:Homes navigation:Home Tours",
+        "food:Audience:Designer",
+        "food:Building:Type:House",
+        "food:Building:Building style:Art Deco",
+        "food:DIY and craft:DIY projects:Art projects",
+        "food:Difficulty:Children",
+        "food:Duration:Up to a day",
+        "food:Garden/Outdoor:Garden style:Arid garden",
+        "food:Garden/Outdoor:Landscaping:Courtyard",
+        "food:Location and setting:Australia:New South Wales:Sydney",
+        "food:Occasion:Anzac day",
+        "food:Renovating:Renovation type:Extension",
+        "food:Renovating:Materials:Bamboo",
+        "food:Room:Kitchen:Straight-line kitchen",
+        "food:Topic:How To",
+        "food:Decorating:Colour:Natural",
     ],
     "source": "Australian House and Garden",
     "body": [
