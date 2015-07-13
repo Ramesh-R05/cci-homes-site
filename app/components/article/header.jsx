@@ -4,7 +4,8 @@ import Summary from '@bxm/article/lib/components/header/summary';
 import Title from '@bxm/article/lib/components/header/title';
 import Ad from '@bxm/ad/src/google/components/ad';
 import SocialShareBlock from '@bxm/ui/lib/social/components/SocialShareBlock';
-import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
+import {load} from '@bxm/config';
+const config = load();
 
 export default class Header extends Component {
 
@@ -33,8 +34,8 @@ export default class Header extends Component {
         const {pageId, url, title, summary, heroItem, source} = this.props;
         let getSocial;
 
-        if (StaticConfigurationStore.isFeatureEnabled('socialShareBlock') === true) {
-            const siteUrl = StaticConfigurationStore.host();
+        if (config.isFeatureEnabled('socialShareBlock') === true) {
+            const siteUrl = config.get('site.host');
 
             getSocial = (<SocialShareBlock
                 parentBlock={this.props}

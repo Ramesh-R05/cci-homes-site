@@ -1,4 +1,3 @@
-import config from './config/config';
 import {Flux, servicesPlugin} from '@bxm/flux';
 
 import AppComponent from './components/app';
@@ -21,6 +20,9 @@ import InFocusArticles from './stores/articles/inFocus';
 import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
 import networkHeaderService from '@bxm/header/lib/header/headerService';
 
+import {load, configPlugin} from '@bxm/config';
+const config = load();
+
 adConfig.init();
 
 let app = new Flux({
@@ -41,11 +43,13 @@ let app = new Flux({
     ]
 });
 
+let configsPlugin = configPlugin(config);
 let servicePlugin = servicesPlugin(config);
 servicePlugin.registerService(contentService);
 servicePlugin.registerService(facetedModuleService);
 servicePlugin.registerService(networkHeaderService);
 
 app.plug(servicePlugin);
+app.plug(configsPlugin);
 
 export default app;
