@@ -9,7 +9,7 @@ export default class Footer extends Component {
         tags: PropTypes.array.isRequired,
         source: PropTypes.string,
         credits: PropTypes.object
-    }
+    };
 
     static defaultProps = {
         credits: {
@@ -18,7 +18,7 @@ export default class Footer extends Component {
             stylist: '',
             experter: ''
         }
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

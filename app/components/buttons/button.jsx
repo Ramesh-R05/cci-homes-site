@@ -13,7 +13,7 @@ export default class Button extends Component {
         persistActiveState: PropTypes.bool,
         type: PropTypes.string,
         value: PropTypes.string
-    }
+    };
 
     static defaultProps = {
         active: false,
@@ -22,7 +22,7 @@ export default class Button extends Component {
         persistActiveState: false,
         type: 'button',
         value: ''
-    }
+    };
 
     constructor(props) {
         super();

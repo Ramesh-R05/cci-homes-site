@@ -15,7 +15,7 @@ export default class Header extends Component {
         summary: PropTypes.string,
         title: PropTypes.string.isRequired,
         source: PropTypes.string.isRequired
-    }
+    };
 
     static defaultProps = {
         heroItem: {
@@ -23,7 +23,7 @@ export default class Header extends Component {
             imageAltText: '',
             imageCaption: ''
         }
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

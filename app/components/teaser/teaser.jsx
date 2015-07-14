@@ -27,13 +27,13 @@ class Teaser extends Component {
         title: PropTypes.string.isRequired,
         themeClass: PropTypes.string,
         imageSizes: PropTypes.object
-    }
+    };
 
     static defaultProps = {
         imageAltText: '',
         modifier: 'img-left',
         sizes: ''
-    }
+    };
 
     static imageSizes = {
         base: {
@@ -72,13 +72,13 @@ class Teaser extends Component {
             l: {w: 410, h: 340},
             xl: {w: 300, h: 160}
         }
-    }
+    };
 
     static imageConfig = {
         scale: imageResize.scale.BOTH,
         anchor: imageResize.anchor.MC,
         mode: imageResize.mode.CROP
-    }
+    };
 
 
     getImgSizes(sizes, modifier) {

@@ -10,13 +10,13 @@ export default class Group extends Component {
         children: PropTypes.any,
         modifier: PropTypes.string.isRequired,
         teaserModifier: PropTypes.string
-    }
+    };
 
     static defaultProps = {
         articles: [],
         modifier: '',
         teaserModifier: 'img-left'
-    }
+    };
 
     render() {
         const {articles, className, modifier, teaserModifier} = this.props;

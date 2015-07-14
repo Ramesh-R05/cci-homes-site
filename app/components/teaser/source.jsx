@@ -2,11 +2,11 @@ import React, {Component, PropTypes} from 'react';
 
 export default class Source extends Component {
 
-    static displayName = 'TeaserSource'
+    static displayName = 'TeaserSource';
 
     static propTypes = {
         source: PropTypes.string.isRequired
-    }
+    };
 
     render() {
         const {source} = this.props;

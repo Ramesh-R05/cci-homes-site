@@ -15,17 +15,17 @@ class Home extends Component {
     static contextTypes = {
         getStore: PropTypes.func,
         executeAction: PropTypes.func
-    }
+    };
 
     static propTypes = {
         featuredArticles: PropTypes.array,
         inFocusArticles: PropTypes.array
-    }
+    };
 
     static defaultProps = {
         featuredArticles: [],
         inFocusArticles: []
-    }
+    };
 
     render() {
         return (

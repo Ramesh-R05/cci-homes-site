@@ -7,7 +7,7 @@ export default class Credits extends Component {
 
     static propTypes = {
         source: PropTypes.string.isRequired
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

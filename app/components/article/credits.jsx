@@ -9,7 +9,7 @@ export default class Credits extends Component {
         photographer: PropTypes.string,
         stylist: PropTypes.string,
         experter: PropTypes.string
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

@@ -10,7 +10,7 @@ export default class FeedAd extends Component {
         keyword: PropTypes.arrayOf(React.PropTypes.string).isRequired,
         pageId: PropTypes.string.isRequired,
         source: PropTypes.string
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

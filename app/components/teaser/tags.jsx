@@ -5,11 +5,11 @@ import {isUndefined} from 'lodash/lang';
 
 export default class Tags extends Component {
 
-    static displayName = 'TeaserTags'
+    static displayName = 'TeaserTags';
 
     static propTypes = {
         tags: PropTypes.array
-    }
+    };
 
     getTags() {
         const primaryTags = TagUtils.getRelatedTags(this.props.tags, ['Topic']);

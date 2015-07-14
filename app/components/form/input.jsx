@@ -15,13 +15,13 @@ export default class Input extends Component {
         onChange: PropTypes.func,
         type: PropTypes.oneOf(['checkbox', 'radio']),
         value: PropTypes.string.isRequired
-    }
+    };
 
     static defaultProps = {
         checked: false,
         type: 'checkbox',
         onChange: noop
-    }
+    };
 
     constructor(props) {
         super(props);

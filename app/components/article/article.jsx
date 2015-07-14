@@ -23,7 +23,7 @@ class Article extends Component {
         credits: PropTypes.object,
         className: PropTypes.string,
         themeClass: PropTypes.string
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

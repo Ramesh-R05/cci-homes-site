@@ -15,16 +15,16 @@ class Section extends Component {
         nodeType: PropTypes.string,
         feedModuleConfig: PropTypes.any,
         feedItems: PropTypes.array.isRequired
-    }
+    };
 
     static contextTypes = {
         getStore: PropTypes.func,
         executeAction: PropTypes.func
-    }
+    };
 
     static defaultProps = {
         feedItems: []
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

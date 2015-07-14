@@ -13,13 +13,13 @@ class ModuleConfiguration {
 
 export default class FacetedModuleStore extends BaseStore {
 
-    static storeName = 'FacetedModuleStore'
+    static storeName = 'FacetedModuleStore';
 
     static handlers = {
         'LOAD_CONTENT': 'onLoadContent',
         'FACETED_MODULE:PAGE_RECEIVED': 'onPageReceived',
         'FACETED_MODULE:PAGE_RECEIVED:FAILURE': 'onPageReceivedFailure'
-    }
+    };
 
     constructor(dispatcher, lynxStoreName) {
         if (!lynxStoreName) throw new Error('lynxStoreName must be provided by the implementor store');

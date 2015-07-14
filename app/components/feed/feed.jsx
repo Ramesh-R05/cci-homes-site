@@ -14,12 +14,12 @@ export default class Feed extends Component {
         articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
         pageId: PropTypes.string.isRequired,
         source: PropTypes.string.isRequired
-    }
+    };
 
     static contextTypes = {
         getStore: PropTypes.func,
         executeAction: PropTypes.func
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

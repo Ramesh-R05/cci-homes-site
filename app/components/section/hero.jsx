@@ -7,12 +7,12 @@ export default class SectionHero extends Component {
     static propTypes = {
         firstHero: PropTypes.object.isRequired,
         secondHero: PropTypes.object.isRequired
-    }
+    };
 
     static defaultProps = {
         firstHero: {},
         secondHero: {}
-    }
+    };
 
     render() {
         const {firstHero, secondHero} = this.props;

@@ -5,7 +5,7 @@ export default class ButtonCategory extends Component {
 
     static propTypes = {
         children: PropTypes.any
-    }
+    };
 
     render() {
         return (

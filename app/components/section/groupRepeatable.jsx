@@ -8,11 +8,11 @@ export default class GroupRepeatable extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired
-    }
+    };
 
     static defaultProps = {
         articles: []
-    }
+    };
 
     render() {
         const {articles} = this.props;

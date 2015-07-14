@@ -10,11 +10,11 @@ export default class SectionFeatured extends Component {
     static propTypes = {
         articles: PropTypes.array.isRequired,
         children: PropTypes.any
-    }
+    };
 
     static defaultProps = {
         articles: []
-    }
+    };
 
     render() {
         const articles = this.props.articles;

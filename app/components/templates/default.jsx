@@ -8,11 +8,11 @@ class DefaultTemplate extends Component {
 
     static contextTypes = {
         executeAction: React.PropTypes.func.isRequired
-    }
+    };
 
     static propTypes = {
         content: PropTypes.object
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

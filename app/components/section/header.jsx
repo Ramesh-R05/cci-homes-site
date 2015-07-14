@@ -10,11 +10,11 @@ export default class Header extends Component {
     static propTypes = {
         children: PropTypes.any,
         tags: PropTypes.array.isRequired
-    }
+    };
 
     static defaultProps = {
         tags: []
-    }
+    };
 
     render() {
         let tags = this.props.tags;

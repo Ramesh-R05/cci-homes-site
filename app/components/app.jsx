@@ -10,12 +10,12 @@ class Application extends Component {
 
     static propTypes = {
         currentRoute: PropTypes.object
-    }
+    };
 
     static contextTypes = {
         getStore: React.PropTypes.func,
         executeAction: React.PropTypes.func
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

@@ -18,18 +18,18 @@ class Section extends Component {
     static contextTypes = {
         getStore: PropTypes.func,
         executeAction: PropTypes.func
-    }
+    };
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
         moduleConfig: PropTypes.any,
         navigationTags: PropTypes.array.isRequired
-    }
+    };
 
     static defaultProps = {
         articles: [],
         navigationTags: []
-    }
+    };
 
     constructor(props, context) {
         super(props, context);
