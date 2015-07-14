@@ -17,7 +17,7 @@
   "dependencies": {
     "@bxm/ad": "^2.3.1",
     "@bxm/article": "^1.2.0",
-    "@bxm/flux": "1.3.2",
+    "@bxm/flux": "^1.4.1",
     "@bxm/gallery": "^2.1.1",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "2.0.7",
