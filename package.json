@@ -1,6 +1,6 @@
 {
   "name": "homes-site",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Homes To Love web site",
   "main": "start.js",
   "scripts": {
