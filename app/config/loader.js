@@ -1,3 +1,7 @@
+import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+
+if (canUseDOM) require('console-shim');
+
 /**
  * config loader loads settings for environments and merges with config
  * @param environment one of local, stubbed, dev, dev-preview, automation, uat, uat-preview, live, live-preview
