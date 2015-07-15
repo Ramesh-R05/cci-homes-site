@@ -3,7 +3,22 @@ import Credits from './credits';
 import Source from './source';
 import Tags from '@bxm/article/lib/components/tags';
 
-class Footer extends Component {
+export default class Footer extends Component {
+
+    static propTypes = {
+        tags: PropTypes.array.isRequired,
+        source: PropTypes.string,
+        credits: PropTypes.object
+    };
+
+    static defaultProps = {
+        credits: {
+            writer: '',
+            photographer: '',
+            stylist: '',
+            experter: ''
+        }
+    };
 
     constructor(props, context) {
         super(props, context);
@@ -27,20 +42,3 @@ class Footer extends Component {
     }
 
 }
-
-Footer.propTypes = {
-    tags: PropTypes.array.isRequired,
-    source: PropTypes.string,
-    credits: PropTypes.object
-};
-
-Footer.defaultProps = {
-    credits: {
-        writer: '',
-        photographer: '',
-        stylist: '',
-        experter: ''
-    }
-};
-
-export default Footer;

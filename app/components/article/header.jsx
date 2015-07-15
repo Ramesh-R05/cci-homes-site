@@ -6,7 +6,24 @@ import Ad from '@bxm/ad/src/google/components/ad';
 import SocialShareBlock from '@bxm/ui/lib/social/components/SocialShareBlock';
 import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
-class Header extends Component {
+export default class Header extends Component {
+
+    static propTypes = {
+        pageId: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        heroItem: PropTypes.object.isRequired,
+        summary: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        source: PropTypes.string.isRequired
+    };
+
+    static defaultProps = {
+        heroItem: {
+            imageUrl: '',
+            imageAltText: '',
+            imageCaption: ''
+        }
+    };
 
     constructor(props, context) {
         super(props, context);
@@ -54,22 +71,3 @@ class Header extends Component {
         );
     }
 }
-
-Header.propTypes = {
-    pageId: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    heroItem: PropTypes.object.isRequired,
-    summary: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired
-};
-
-Header.defaultProps = {
-    heroItem: {
-        imageUrl: '',
-        imageAltText: '',
-        imageCaption: ''
-    }
-};
-
-export default Header;

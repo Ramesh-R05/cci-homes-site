@@ -13,6 +13,74 @@ import Icon from './icon';
 import theme from './../helpers/theme';
 
 class Teaser extends Component {
+
+    static propTypes = {
+        articleTags: PropTypes.array,
+        id: PropTypes.string,
+        imageAltText: PropTypes.string,
+        imageUrl: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        modifier: PropTypes.string,
+        sizes: PropTypes.string,
+        source: PropTypes.string,
+        summary: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        themeClass: PropTypes.string,
+        imageSizes: PropTypes.object
+    };
+
+    static defaultProps = {
+        imageAltText: '',
+        modifier: 'img-left',
+        sizes: ''
+    };
+
+    static imageSizes = {
+        base: {
+            s: {w: 320, h: 264},
+            m: {w: 400, h: 330},
+            l: {w: 410, h: 340},
+            xl: {w: 360, h: 300}
+        },
+        hero: {
+            s: {w: 667, h: 556},
+            m: {w: 940, h: 790},
+            l: {w: 1140, h: 920},
+            xl: {w: 1140, h: 920}
+        },
+        narrow: {
+            s: {w: 640, h: 341},
+            m: {w: 640, h: 341},
+            l: {w: 300, h: 160},
+            xl: {w: 300, h: 160}
+        },
+        'small-hero': {
+            s: {w: 320, h: 264},
+            m: {w: 400, h: 330},
+            l: {w: 410, h: 340},
+            xl: {w: 750, h: 625}
+        },
+        'img-left-to-hero': {
+            s: {w: 320, h: 264},
+            m: {w: 940, h: 790},
+            l: {w: 750, h: 700},
+            xl: {w: 750, h: 625}
+        },
+        'base-to-narrow': {
+            s: {w: 320, h: 264},
+            m: {w: 400, h: 330},
+            l: {w: 410, h: 340},
+            xl: {w: 300, h: 160}
+        }
+    };
+
+    static imageConfig = {
+        scale: imageResize.scale.BOTH,
+        anchor: imageResize.anchor.MC,
+        mode: imageResize.mode.CROP
+    };
+
+
     getImgSizes(sizes, modifier) {
         if (!isUndefined(Teaser.imageSizes[sizes])) {
             return Teaser.imageSizes[sizes];
@@ -57,71 +125,5 @@ class Teaser extends Component {
         );
     }
 }
-
-Teaser.propTypes = {
-    articleTags: PropTypes.array,
-    id: PropTypes.string,
-    imageAltText: PropTypes.string,
-    imageUrl: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    modifier: PropTypes.string,
-    sizes: PropTypes.string,
-    source: PropTypes.string,
-    summary: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    themeClass: PropTypes.string,
-    imageSizes: PropTypes.object
-};
-
-Teaser.defaultProps = {
-    imageAltText: '',
-    modifier: 'img-left',
-    sizes: ''
-};
-
-Teaser.imageSizes = {
-    base: {
-        s: {w: 320, h: 264},
-        m: {w: 400, h: 330},
-        l: {w: 410, h: 340},
-        xl: {w: 360, h: 300}
-    },
-    hero: {
-        s: {w: 667, h: 556},
-        m: {w: 940, h: 790},
-        l: {w: 1140, h: 920},
-        xl: {w: 1140, h: 920}
-    },
-    narrow: {
-        s: {w: 640, h: 341},
-        m: {w: 640, h: 341},
-        l: {w: 300, h: 160},
-        xl: {w: 300, h: 160}
-    },
-    'small-hero': {
-        s: {w: 320, h: 264},
-        m: {w: 400, h: 330},
-        l: {w: 410, h: 340},
-        xl: {w: 750, h: 625}
-    },
-    'img-left-to-hero': {
-        s: {w: 320, h: 264},
-        m: {w: 940, h: 790},
-        l: {w: 750, h: 700},
-        xl: {w: 750, h: 625}
-    },
-    'base-to-narrow': {
-        s: {w: 320, h: 264},
-        m: {w: 400, h: 330},
-        l: {w: 410, h: 340},
-        xl: {w: 300, h: 160}
-    }
-};
-
-Teaser.imageConfig = {
-    scale: imageResize.scale.BOTH,
-    anchor: imageResize.anchor.MC,
-    mode: imageResize.mode.CROP
-};
 
 export default theme(Teaser, 'source');

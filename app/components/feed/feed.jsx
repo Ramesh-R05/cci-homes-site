@@ -7,7 +7,19 @@ import FeedAd from './feedAd';
 const firstAdIndex = 2;
 const adSpacing = 12;
 
-class Feed extends Component {
+export default class Feed extends Component {
+
+    static propTypes = {
+        items: PropTypes.array.isRequired,
+        articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
+        pageId: PropTypes.string.isRequired,
+        source: PropTypes.string.isRequired
+    };
+
+    static contextTypes = {
+        getStore: PropTypes.func,
+        executeAction: PropTypes.func
+    };
 
     constructor(props, context) {
         super(props, context);
@@ -57,17 +69,3 @@ class Feed extends Component {
     }
 
 }
-
-Feed.propTypes = {
-    items: PropTypes.array.isRequired,
-    articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    pageId: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired
-};
-
-Feed.contextTypes = {
-    getStore: PropTypes.func,
-    executeAction: PropTypes.func
-};
-
-export default Feed;

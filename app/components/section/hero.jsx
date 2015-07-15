@@ -3,6 +3,17 @@ import Teaser from '../teaser/teaser';
 import {size} from 'lodash/collection';
 
 export default class SectionHero extends Component {
+
+    static propTypes = {
+        firstHero: PropTypes.object.isRequired,
+        secondHero: PropTypes.object.isRequired
+    };
+
+    static defaultProps = {
+        firstHero: {},
+        secondHero: {}
+    };
+
     render() {
         const {firstHero, secondHero} = this.props;
 
@@ -18,13 +29,3 @@ export default class SectionHero extends Component {
         );
     }
 }
-
-SectionHero.propTypes = {
-    firstHero: PropTypes.object.isRequired,
-    secondHero: PropTypes.object.isRequired
-};
-
-SectionHero.defaultProps = {
-    firstHero: {},
-    secondHero: {}
-};

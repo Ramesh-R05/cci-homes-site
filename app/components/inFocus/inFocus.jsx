@@ -8,12 +8,12 @@ export default class InFocus extends Component {
         articles: PropTypes.array.isRequired,
         children: PropTypes.any,
         className: PropTypes.string
-    }
+    };
 
     static defaultProps = {
         articles: [],
         className: 'section-in-focus'
-    }
+    };
 
     render() {
         const articles = this.props.articles;

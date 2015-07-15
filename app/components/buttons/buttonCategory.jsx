@@ -2,6 +2,11 @@ import React, {Component, PropTypes} from 'react';
 import Button from './button';
 
 export default class ButtonCategory extends Component {
+
+    static propTypes = {
+        children: PropTypes.any
+    };
+
     render() {
         return (
             <Button {...this.props} modifier="category">
@@ -17,7 +22,3 @@ export default class ButtonCategory extends Component {
         );
     }
 }
-
-ButtonCategory.propTypes = {
-    children: PropTypes.any
-};

@@ -5,6 +5,15 @@ import Ad from '@bxm/ad/src/google/components/ad';
 
 
 export default class GroupRepeatable extends Component {
+
+    static propTypes = {
+        articles: PropTypes.array.isRequired
+    };
+
+    static defaultProps = {
+        articles: []
+    };
+
     render() {
         const {articles} = this.props;
 
@@ -47,12 +56,3 @@ export default class GroupRepeatable extends Component {
         );
     }
 }
-
-
-GroupRepeatable.propTypes = {
-    articles: PropTypes.array.isRequired
-};
-
-GroupRepeatable.defaultProps = {
-    articles: []
-};

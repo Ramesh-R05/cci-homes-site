@@ -3,7 +3,14 @@ import Ad from '@bxm/ad/src/google/components/ad';
 import {isString, isNumber} from 'lodash/lang';
 const isArray = Array.isArray;
 
-class FeedAd extends Component {
+export default class FeedAd extends Component {
+
+    static propTypes = {
+        position: PropTypes.number.isRequired,
+        keyword: PropTypes.arrayOf(React.PropTypes.string).isRequired,
+        pageId: PropTypes.string.isRequired,
+        source: PropTypes.string
+    };
 
     constructor(props, context) {
         super(props, context);
@@ -27,12 +34,3 @@ class FeedAd extends Component {
     }
 
 }
-
-FeedAd.propTypes = {
-    position: PropTypes.number.isRequired,
-    keyword: PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    pageId: PropTypes.string.isRequired,
-    source: PropTypes.string
-};
-
-export default FeedAd;

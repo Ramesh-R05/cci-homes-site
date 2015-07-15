@@ -14,6 +14,23 @@ import Ad from '@bxm/ad/src/google/components/ad';
 
 
 class Section extends Component {
+
+    static contextTypes = {
+        getStore: PropTypes.func,
+        executeAction: PropTypes.func
+    };
+
+    static propTypes = {
+        articles: PropTypes.array.isRequired,
+        moduleConfig: PropTypes.any,
+        navigationTags: PropTypes.array.isRequired
+    };
+
+    static defaultProps = {
+        articles: [],
+        navigationTags: []
+    };
+
     constructor(props, context) {
         super(props, context);
     }
@@ -120,23 +137,6 @@ class Section extends Component {
         );
     }
 }
-
-
-Section.propTypes = {
-    articles: PropTypes.array.isRequired,
-    moduleConfig: PropTypes.any,
-    navigationTags: PropTypes.array.isRequired
-};
-
-Section.defaultProps = {
-    articles: [],
-    navigationTags: []
-};
-
-Section.contextTypes = {
-    getStore: PropTypes.func,
-    executeAction: PropTypes.func
-};
 
 export default connectToStores(Section, [TaggedArticlesStore, EntityStore], (stores) => {
     return {

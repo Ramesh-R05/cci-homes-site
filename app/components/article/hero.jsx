@@ -4,7 +4,11 @@ import HeroVideo from '@bxm/article/lib/components/hero/video';
 import {isObject, isString} from 'lodash/lang';
 import breakpoints from '../../breakpoints';
 
-class Hero extends Component {
+export default class Hero extends Component {
+
+    static propTypes = {
+        item: PropTypes.object.isRequired
+    };
 
     constructor(props, context) {
         super(props, context);
@@ -58,9 +62,3 @@ class Hero extends Component {
     }
 
 }
-
-Hero.propTypes = {
-    item: PropTypes.object.isRequired
-};
-
-export default Hero;

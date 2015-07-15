@@ -5,6 +5,12 @@ import {isUndefined} from 'lodash/lang';
 
 export default class Tags extends Component {
 
+    static displayName = 'TeaserTags';
+
+    static propTypes = {
+        tags: PropTypes.array
+    };
+
     getTags() {
         const primaryTags = TagUtils.getRelatedTags(this.props.tags, ['Topic']);
         const unwantedTags = TagUtils.getRelatedTags(this.props.tags, ['Homes navigation']);
@@ -36,11 +42,3 @@ export default class Tags extends Component {
         );
     }
 }
-
-Tags.displayName = 'TeaserTags';
-
-Tags.propTypes = {
-    tags: PropTypes.array
-};
-
-Tags.defaultProps = {};

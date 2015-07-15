@@ -6,6 +6,23 @@ import React, {Component, PropTypes} from 'react';
 import {noop} from 'lodash/utility';
 
 export default class Input extends Component {
+
+    static propTypes = {
+        checked: PropTypes.bool,
+        children: PropTypes.any,
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        onChange: PropTypes.func,
+        type: PropTypes.oneOf(['checkbox', 'radio']),
+        value: PropTypes.string.isRequired
+    };
+
+    static defaultProps = {
+        checked: false,
+        type: 'checkbox',
+        onChange: noop
+    };
+
     constructor(props) {
         super(props);
     }
@@ -38,19 +55,3 @@ export default class Input extends Component {
         );
     }
 }
-
-Input.propTypes = {
-    checked: PropTypes.bool,
-    children: PropTypes.any,
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func,
-    type: PropTypes.oneOf(['checkbox', 'radio']),
-    value: PropTypes.string.isRequired
-};
-
-Input.defaultProps = {
-    checked: false,
-    type: 'checkbox',
-    onChange: noop
-};

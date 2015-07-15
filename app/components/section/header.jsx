@@ -5,6 +5,17 @@ import isUndefined from 'lodash/lang/isUndefined';
 
 export default class Header extends Component {
 
+    static displayName = 'SectionHeader'
+
+    static propTypes = {
+        children: PropTypes.any,
+        tags: PropTypes.array.isRequired
+    };
+
+    static defaultProps = {
+        tags: []
+    };
+
     render() {
         let tags = this.props.tags;
         if (isUndefined(tags) || !Array.isArray(tags) || tags.length === 0) {
@@ -31,14 +42,3 @@ export default class Header extends Component {
         );
     }
 }
-
-Header.displayName = 'SectionHeader';
-
-Header.propTypes = {
-    children: PropTypes.any,
-    tags: PropTypes.array.isRequired
-};
-
-Header.defaultProps = {
-    tags: []
-};

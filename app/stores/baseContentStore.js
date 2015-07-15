@@ -4,11 +4,11 @@ import has from 'lodash/object/has';
 
 export default class BaseContentStore extends BaseStore {
 
-    static storeName = 'BaseContentStore'
+    static storeName = 'BaseContentStore';
 
     static handlers = {
         'LOAD_CONTENT': 'onLoadContent'
-    }
+    };
 
     constructor(dispatcher, name) {
         if (!name) throw new Error('CMS store name must be provided by the implementor store');
