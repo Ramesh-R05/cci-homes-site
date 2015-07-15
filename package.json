@@ -22,7 +22,7 @@
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "2.0.7",
     "@bxm/login-radius-stub": "^1.1.0",
-    "@bxm/server": "^3.6.0",
+    "@bxm/server": "^3.6.3",
     "@bxm/services-stubs": "1.1.0",
     "@bxm/ui": "^1.6.0",
     "babel": "^5.4.4",
