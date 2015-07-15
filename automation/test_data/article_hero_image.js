@@ -22,38 +22,48 @@ module.exports =
     ],
     "source": "Australian House and Garden",
     "body": [
-  {
-    "type": "heading",
-    "label": "Heading",
-    "content": "How Builders Make New Homes More Spacious, Inside and Out"
-  },
-  {
-    "type": "image",
-    "label": "Image",
-    "content": {
-      "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
-      "valid": true,
-      "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-      "link": "https://www.google.com",
-      "title": "Inline Image Title"
-    }
-  },
-  {
-    "type": "heading",
-    "label": "Heading",
-    "content": "High Ceilings"
-  },
-  {
-    "type": "paragraph",
-    "label": "Paragraph",
-    "content": "Perhaps the best way to make a house feel much larger is to raise the ceilings to 9, 10 or even 12 or 15 feet, says Trey Bitteker, general sales manager at Pulte Homes in Arizona. “High ceiling heights will certainly open up a house. When someone walks through it, every room feels a little bit larger,” he says."
-  },
-  {
-    "type": "paragraph",
-    "label": "Paragraph",
-    "content": "New homes today commonly have double-height or one-and-a half height ceilings in one or more rooms such as an entry hall, family room or formal living room, says Michael Malone, principal at Michael Malone Architects in Dallas. “No matter how small a room is,” Malone says, “that extra vertical height makes a lot of difference.”"
-  }
-],
+        {
+            "type": "heading",
+            "label": "Heading",
+            "content": "How Builders Make New Homes More Spacious, Inside and Out"
+        },
+        {
+            "type": "image",
+            "label": "Image",
+            "content": {
+              "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
+              "valid": true,
+              "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+              "link": "https://www.google.com",
+              "title": "Inline Image Title"
+            }
+        },
+        {
+            "type": "heading",
+            "label": "Heading",
+            "content": "High Ceilings"
+        },
+        {
+            "type": "paragraph",
+            "label": "Paragraph",
+            "content": "Perhaps the best way to make a house feel much larger is to raise the ceilings to 9, 10 or even 12 or 15 feet, says Trey Bitteker, general sales manager at Pulte Homes in Arizona. “High ceiling heights will certainly open up a house. When someone walks through it, every room feels a little bit larger,” he says."
+        },
+        {
+            "type": "paragraph",
+            "label": "Paragraph",
+            "content": "New homes today commonly have double-height or one-and-a half height ceilings in one or more rooms such as an entry hall, family room or formal living room, says Michael Malone, principal at Michael Malone Architects in Dallas. “No matter how small a room is,” Malone says, “that extra vertical height makes a lot of difference.”"
+        },
+        {
+            "type": "tips",
+            "label": "tips",
+            "content": "##Tips\n* The door and window architraves are very geometric with lots of rectangles and solid blocks of timber. Adel best reflected this, says Maria.\n* With a dining table so close to the kitchen, Maria and Susan decided not to have breakfast bar with seating."
+        },
+        {
+            "type": "paragraph",
+            "label": "Paragraph",
+            "content": "New homes today commonly have double-height or one-and-a half height ceilings in one or more rooms such as an entry hall, family room or formal living room, says Michael Malone, principal at Michael Malone Architects in Dallas. “No matter how small a room is,” Malone says, “that extra vertical height makes a lot of difference.”"
+        }
+    ],
     "author": [],
     "title": "Article Long Title",
     "summaryTitle": "Article Short Title",
