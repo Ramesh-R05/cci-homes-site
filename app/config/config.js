@@ -44,7 +44,7 @@ let config = {
     },
 
     site: {
-        host: 'http://dev.homes.wn.bauer-media.net.au',
+        host: 'http://dev.homes-site.wn.bauer-media.net.au',
         name: 'HOMES TO LOVE',
         prefix: 'HOMES',
         network: 'wn'
