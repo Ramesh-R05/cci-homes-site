@@ -5,10 +5,11 @@ import facetedModule from './middlewares/facetedModule';
 import contentApiStub from '../../automation/stubs/contentApi';
 import Server from '@bxm/server';
 import env from '@bxm/server/lib/env';
-import config from '../config/config';
 import app from '../app';
 import GoogleFont from '../components/html/googleFont';
 import AdScript from '@bxm/ad/src/google/components/script';
+import {load} from '@bxm/config';
+const config = load();
 
 function siteMiddlewares(siteServer) {
     siteServer.get(/\/patternlab(\?|$|\/).*/, patternLab);

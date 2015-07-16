@@ -1,10 +1,6 @@
-import * as loader from './loader';
-import merge from 'lodash/object/merge';
 import breakpoints from '../breakpoints';
 
-const envConfig = loader.load(process.env.NODE_ENVIRONMENT);
-
-let config = {
+export default {
 
     typekit: {
         id: 'mmp8xzm'
@@ -75,10 +71,3 @@ let config = {
     }
 
 };
-
-let mergedConfig = merge(config, envConfig);
-
-// allows old sites and new sites to use configEditor middleware and verfiySite middleware
-mergedConfig.server.apiUrl = mergedConfig.services.content.remote.replace('http://', '');
-
-export default Object.freeze(mergedConfig);

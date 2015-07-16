@@ -1,6 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articleMock from '../../mock/article';
-import StaticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -11,6 +10,10 @@ const ArticleTitleStub = Context.createStubComponent();
 const ArticleSummaryStub = Context.createStubComponent();
 const ArticleHeroStub = Context.createStubComponent();
 const ArticleSocialShareBlockStub = Context.createStubComponentWithChildren();
+const config = {
+    get: () => {},
+    isFeatureEnabled: () => {}
+};
 
 const Header = proxyquire('../../../app/components/article/header', {
     'react': React,
@@ -19,7 +22,9 @@ const Header = proxyquire('../../../app/components/article/header', {
     '@bxm/ad/src/google/components/ad': AdStub,
     '@bxm/article/lib/components/header/title': ArticleTitleStub,
     '@bxm/article/lib/components/header/summary': ArticleSummaryStub,
-    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': StaticConfigurationStore,
+    '@bxm/config': {
+        load: () => { return config }
+    },
     '@bxm/ui/lib/social/components/SocialShareBlock': ArticleSocialShareBlockStub
 });
 
@@ -44,8 +49,8 @@ describe(`Article Header Component`, () => {
     let socialShareBlockHost;
 
     before(function() {
-        socialShareBlockEnableStub = sinon.stub(StaticConfigurationStore, 'isFeatureEnabled');
-        socialShareBlockHost = sinon.stub(StaticConfigurationStore, 'host');
+        socialShareBlockEnableStub = sinon.stub(config, 'isFeatureEnabled');
+        socialShareBlockHost = sinon.stub(config, 'get');
     });
 
     after(function() {
