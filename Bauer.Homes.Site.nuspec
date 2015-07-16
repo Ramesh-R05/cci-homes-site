@@ -9,6 +9,6 @@
     <description>Package description</description>
   </metadata>
   <files>
-    <file src="**\*.*" exclude="node_modules\**\*.*" />
+    <file src="**\*.*" exclude="node_modules\**\*.*;bin\**\*.*;config\**\*.*" />
   </files>
 </package>
