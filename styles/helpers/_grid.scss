@@ -46,3 +46,32 @@ $grid-narrow-row-padding-right-xl: $fixed-column-width + $column-gutter * 3;
         }
     }
 }
+
+.fixed-column {
+    @media #{$xlarge-up} {
+        @include grid-column(3);
+
+        > section {
+            max-width: $fixed-column-width;
+        }
+    }
+
+    &--in-focus {
+        clear: both;
+
+        @media #{$medium-up} {
+            clear: none;
+        }
+
+        @media #{$large-only} {
+            @include grid-column(4);
+        }
+    }
+
+    &--sticky {
+        @media #{$large-only} {
+            @include grid-column(4);
+        }
+    }
+
+}

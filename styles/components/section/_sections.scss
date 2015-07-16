@@ -1,6 +1,6 @@
 // Sections/groups of teasers.
 
-$section-minor-bp-1: 1595px;
+$section-minor-bp-1: 1590px;
 
 .section-heading {
     @include grid-column(12);
@@ -33,59 +33,27 @@ $section-minor-bp-1: 1595px;
             margin-bottom: 20px;
         }
 
+        @media only screen and (min-width: $xlarge-range-min) and (max-width: $section-minor-bp-1) {
+            .teaser__content {
+                bottom: auto;
+                margin-top: -140px;
+                padding-bottom: $column-gutter / 2;
+                position: relative;
+            }
+        }
+
+        @media only screen and (min-width: $section-minor-bp-1) {
+            .teaser__icon {
+                top: 40%;
+            }
+        }
+
         // Show second hero on large screen only
         &:nth-of-type(2) {
             display: none;
             @media #{$large-only} {
                 display: block;
             }
-        }
-    }
-}
-
-// Fixed column group
-.section--fixed-col {
-    @include column-extra-side-gutter;
-
-    @media #{$large-up} {
-        float: right;
-        margin-right: $column-gutter / 2;
-        width: $fixed-column-width;
-    }
-
-    h2 {
-        @include grid-column(12);
-        @include type-composite;
-        @include type-underlined;
-
-        @media #{$large-up} {
-            @include column-full-width;
-            margin-bottom: 10px;
-            margin-top: -5px;
-        }
-    }
-
-    .teaser {
-        @include grid-column(12);
-
-        @media #{$medium-up} {
-            @include grid-column(6);
-        }
-
-        @media #{$large-up} {
-            @include column-full-width;
-        }
-    }
-
-    .ad {
-        @media #{$medium-up} {
-            @include grid-column(6);
-        }
-        @media #{$large-up} {
-            @include column-full-width;
-        }
-        @media #{$xlarge-up} {
-            display: none;
         }
     }
 }

@@ -67,14 +67,16 @@ class Section extends Component {
                 <div className="row">
                     {/*Heroes*/}
                     <Hero firstHero={first(articles)} secondHero={articles[4] || {}} />
-                    {/*Featured articles*/}
-                    <InFocus articles={slice(articles, 1, 4)} className="section--fixed-col">
-                        <Ad
-                            className="ad--section-mrec"
-                            displayFor={['small', 'medium', 'large']}
-                            sizes="mrec"
-                        />
-                    </InFocus>
+                    {/* In Focus articles */}
+                    <div className="fixed-column fixed-column--in-focus">
+                        <InFocus articles={slice(articles, 1, 4)} modifier="right">
+                            <Ad
+                                className="ad--section-mrec"
+                                displayFor={['small', 'medium', 'large']}
+                                sizes="mrec"
+                            />
+                        </InFocus>
+                    </div>
                 </div>
 
                 {/* Three teasers with ad - xlarge bp only*/}

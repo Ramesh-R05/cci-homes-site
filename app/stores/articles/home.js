@@ -1,8 +1,8 @@
 import BaseContentStore from '../baseContentStore';
 
-export default class FeaturedArticles extends BaseContentStore {
+export default class HomeArticles extends BaseContentStore {
 
-    static storeName = 'FeaturedArticles';
+    static storeName = 'HomeArticles';
 
     constructor(dispatcher) {
         super(dispatcher, 'featuredArticles');

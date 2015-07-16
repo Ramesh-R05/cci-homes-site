@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import FeaturedArticlesStore from '../../stores/articles/featured';
+import HomeArticlesStore from '../../stores/articles/home';
 import InFocusArticlesStore from '../../stores/articles/inFocus';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
@@ -18,20 +18,20 @@ class Home extends Component {
     };
 
     static propTypes = {
-        featuredArticles: PropTypes.array,
+        articles: PropTypes.array,
         inFocusArticles: PropTypes.array
     };
 
     static defaultProps = {
-        featuredArticles: [],
+        articles: [],
         inFocusArticles: []
     };
 
     render() {
         return (
             <div className="container">
-                <SectionFeatured articles={this.props.featuredArticles}>
-                    <InFocus articles={this.props.inFocusArticles} />
+                <SectionFeatured articles={this.props.articles}>
+                    <InFocus articles={this.props.inFocusArticles} modifier="border-bottom" />
                 </SectionFeatured>
             </div>
         );
@@ -39,9 +39,9 @@ class Home extends Component {
 }
 
 
-export default connectToStores(Home, [FeaturedArticlesStore, InFocusArticlesStore], (stores) => {
+export default connectToStores(Home, [HomeArticlesStore, InFocusArticlesStore], (stores) => {
     return {
-        featuredArticles: stores.FeaturedArticles.getItems(),
+        articles: stores.HomeArticles.getItems(),
         inFocusArticles: stores.InFocusArticles.getItems()
     };
 });

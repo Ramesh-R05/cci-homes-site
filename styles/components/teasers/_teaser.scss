@@ -104,27 +104,20 @@
 
     .teaser__content {
         @media #{$large-up} {
-            padding: {
-                left: 30px;
-                right: 30px;
-            }
-        }
-
-        @media #{$large-up} {
             background: $color-white;
             bottom: 40px;
-            margin: 0 10%;
+            margin: 0 $column-gutter * 4;
             padding: {
                 bottom: 25px;
                 top: 25px;
             }
             position: absolute;
             text-align: center;
-            width: auto;
+            width: calc(100% - #{$column-gutter * 8});
         }
 
         @media #{$xlarge-up} {
-            padding: 35px 60px;
+            padding: 30px 60px;
         }
     }
 
@@ -148,7 +141,6 @@
         @media #{$xlarge-up} {
             margin-top: 20px;
         }
-
     }
 
     .tag-secondary {
@@ -161,7 +153,6 @@
         @media #{$xlarge-up} {
             display: inline-block;
         }
-
     }
 
     @media #{$xlarge-up} {

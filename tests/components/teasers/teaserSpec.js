@@ -171,7 +171,7 @@ describe('Teaser', () => {
             expect(image.props.imageSizes).to.deep.eq({
                 s: {w: 640, h: 341},
                 m: {w: 640, h: 341},
-                l: {w: 300, h: 160},
+                l: {w: 400, h: 213},
                 xl: {w: 300, h: 160}
             });
         });
