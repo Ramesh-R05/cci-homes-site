@@ -1,3 +1,6 @@
+import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+if (canUseDOM) require('console-shim');
+
 import {Flux, servicesPlugin} from '@bxm/flux';
 
 import AppComponent from './components/app';
