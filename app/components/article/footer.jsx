@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import Credits from './credits';
 import Source from './source';
-import Tags from '@bxm/article/lib/components/tags';
+import Tags from './tags';
 
 export default class Footer extends Component {
 

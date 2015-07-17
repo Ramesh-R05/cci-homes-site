@@ -6,12 +6,13 @@
             color: nth($color, 1);
         }
 
-        .article__tag a {
+        .related-tags {
             color: nth($color, 1);
 
-            &:hover {
-                color: nth($color, 2);
-            }
+            // TODO: uncomment when tags are changed to links
+            //&:hover {
+            //    color: nth($color, 2);
+            //}
         }
 
     }
