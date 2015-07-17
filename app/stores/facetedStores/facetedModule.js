@@ -1,6 +1,7 @@
 import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
 import {BaseStore} from '@bxm/flux';
 import uniq from 'lodash/array/uniq';
+import merge from 'lodash/object/merge';
 
 
 class ModuleConfiguration {
@@ -18,7 +19,9 @@ export default class FacetedModuleStore extends BaseStore {
     static handlers = {
         'LOAD_CONTENT': 'onLoadContent',
         'FACETED_MODULE:PAGE_RECEIVED': 'onPageReceived',
-        'FACETED_MODULE:PAGE_RECEIVED:FAILURE': 'onPageReceivedFailure'
+        'FACETED_MODULE:PAGE_RECEIVED:FAILURE': 'onPageReceivedFailure',
+        'NAVIGATE_SUCCESS': 'onNavigateSuccess',
+        'NAVIGATE_START': 'onNavigateStart'
     };
 
     constructor(dispatcher, lynxStoreName) {
@@ -27,7 +30,11 @@ export default class FacetedModuleStore extends BaseStore {
         this.lynxStoreName = lynxStoreName;
         this.items = [];
         this.faceting = {};
-        this.paging = {};
+        this.paging = {
+            currentPage: 0,
+            pages: 0,
+            isLoading: false
+        };
     }
 
     onLoadContent(payload) {
@@ -35,22 +42,27 @@ export default class FacetedModuleStore extends BaseStore {
         this.emitChange();
     }
 
+    onNavigateStart() {
+        this.paging.isLoading = true;
+        this.emitChange();
+    }
+
+    onNavigateSuccess(payload) {
+        const page = parseInt(payload.get('query').get('page') || 0, 10);
+        if (page !== this.paging.currentPage) {
+            this.paging.currentPage = page;
+            this.emitChange();
+        }
+    }
+
     onPageReceived(payload) {
         if (payload.lynxStoreName !== this.lynxStoreName) return;
-
-        this.traceMethod('onPageReceived', payload);
-
         this.faceting = payload.content.faceting;
-        this.paging = payload.content.paging;
         this.settings = payload.content.settings;
-
-        // dang: hack to get page size into the paging object. we will do this via the backend one day.
-        this.paging.pageSize = this.paging.pageSize || this.settings.pageSize;
-
+        this.paging = merge(this.paging, payload.content.paging);
         payload.content.items.forEach(item => this.items.push(item));
-
-        this.items = uniq(this.items, 'id'); // remove duplicates
-
+        this.items = uniq(this.items, 'id');
+        this.paging.isLoading = false;
         this.emitChange();
     }
 
@@ -73,6 +85,14 @@ export default class FacetedModuleStore extends BaseStore {
 
     getPaging() {
         return this.paging;
+    }
+
+    getCurrentPage() {
+        return this.paging.currentPage;
+    }
+
+    getIsLoading() {
+        return this.paging.isLoading;
     }
 
     getSettings() {

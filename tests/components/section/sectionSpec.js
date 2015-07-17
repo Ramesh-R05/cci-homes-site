@@ -12,6 +12,8 @@ const InFocusStub = Context.createStubComponentWithChildren();
 const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const HeroStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
+const LoadMoreStub = Context.createStubComponentWithChildren();
+
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
     '../../actions/facetedModule': {
@@ -22,19 +24,28 @@ const Section = proxyquire('../../../app/components/section/section', {
     '../inFocus/inFocus': InFocusStub,
     './groupRepeatable': GroupRepeatableStub,
     './hero': HeroStub,
+    '../loadMore/loadMore': LoadMoreStub,
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
 const featuredArticles = articlesMock.slice(1, 4);
 const navigationTags = ['Test'];
 
-// Add mocked stores to context
 Context.addStore('TaggedArticlesStore', {
     getItems() {
         return articlesMock;
     },
-    getConfiguration(){
+    getConfiguration() {
         return null;
+    },
+    getIsLoading() {
+        return false;
+    },
+    getPaging() {
+        return {};
+    },
+    getCurrentPage() {
+        return 0;
     }
 });
 
@@ -44,8 +55,7 @@ Context.addStore('EntityStore', {
     }
 });
 
-
-describe(`Section`, () => {
+describe.only(`Section`, () => {
     const sectionClassName = 'container';
     let reactModule;
     let section;
@@ -55,6 +65,7 @@ describe(`Section`, () => {
     let groupRepeatable;
     let hero;
     let ads;
+    let loadMore;
 
     afterEach(Context.cleanup);
 
@@ -67,6 +78,8 @@ describe(`Section`, () => {
         groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
         groupRepeatable = TestUtils.findRenderedComponentWithType(reactModule, GroupRepeatableStub);
         ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
+        loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
+
     });
 
     it(`should render the Section component on the page`, () => {
@@ -150,6 +163,13 @@ describe(`Section`, () => {
         });
     });
 
+    describe(`Numer of AdStubs`, () => {
+        const numberOfAds = 3;
+        it(`should have ${numberOfAds} AdStubs`, () => {
+            expect(ads.length).to.eq(numberOfAds);
+        });
+    });
+
     describe(`Top banner/leaderboard/billboard ad`, () => {
         const expectedClassname = 'ad--section-top-leaderboard';
         it(`should have the classname prop equal to ${expectedClassname}`, () => {
@@ -197,47 +217,6 @@ describe(`Section`, () => {
         const expectedDisplayFor = ['xlarge'];
         it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
             expect(ads[2].props.displayFor).to.deep.equal(expectedDisplayFor);
-        });
-    });
-
-    describe(`Middle banner/leaderboard/billboard ad (visibile on small/medium/xlarge viewports)`, () => {
-        const expectedClassname = 'ad--section-middle-leaderboard';
-        it(`should have the classname prop equal to ${expectedClassname}`, () => {
-            expect(ads[3].props.className).to.equal(expectedClassname);
-        });
-
-        it(`should have the correct sizes prop`, () => {
-            const expectedSizes = {
-                small: 'banner',
-                leaderboard: 'leaderboard',
-                billboard: ['billboard', 'leaderboard']
-            };
-            expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
-        });
-
-        const expectedTargets = { position: 2 };
-        it(`should have the target prop equal to ${expectedTargets}`, () => {
-            expect(ads[3].props.targets).to.deep.equal(expectedTargets);
-        });
-    });
-
-    describe(`Middle banner/leaderboard/billboard ad (visibile on xlarge viewports)`, () => {
-        const expectedClassname = 'ad--section-middle-leaderboard';
-        it(`should have the classname prop equal to ${expectedClassname}`, () => {
-            expect(ads[4].props.className).to.equal(expectedClassname);
-        });
-
-        it(`should have the correct sizes prop`, () => {
-            const expectedSizes = {
-                leaderboard: 'leaderboard',
-                billboard: ['billboard', 'leaderboard']
-            };
-            expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
-        });
-
-        const expectedTargets = { position: 2 };
-        it(`should have the target prop equal to ${expectedTargets}`, () => {
-            expect(ads[4].props.targets).to.deep.equal(expectedTargets);
         });
     });
 });

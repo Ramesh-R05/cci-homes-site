@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import {connectToStores} from '@bxm/flux';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
@@ -11,7 +12,7 @@ import InFocus from '../inFocus/inFocus';
 import GroupRepeatable from './groupRepeatable';
 import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
-
+import LoadMore from '../loadMore/loadMore';
 
 class Section extends Component {
 
@@ -22,12 +23,21 @@ class Section extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
-        moduleConfig: PropTypes.any,
-        navigationTags: PropTypes.array.isRequired
+        paging: PropTypes.object.isRequired,
+        moduleConfig: PropTypes.object,
+        navigationTags: PropTypes.array.isRequired,
+        currentPage: PropTypes.number.isRequired,
+        isLoading: PropTypes.bool.isrequired
     };
 
     static defaultProps = {
         articles: [],
+        paging: {
+            pages: 0,
+            isLoading: false
+        },
+        currentPage: 0,
+        moduleConfig: {},
         navigationTags: []
     };
 
@@ -35,12 +45,30 @@ class Section extends Component {
         super(props, context);
     }
 
-    componentWillMount() {
+    getAsyncData() {
+        const page = this.props.currentPage ? this.props.currentPage : 0;
+        let params;
+
+        // SEO Task : params = { pagestart: 0, pageend: page };
+        params = {
+            page: page,
+            tags: this.props.navigationTags
+        };
+
         this.context.executeAction(FacetedModuleActions.getPage, {
-            page: 0,
-            params: { tags: this.props.navigationTags },
+            params: params,
             moduleConfig: this.props.moduleConfig
         });
+    }
+
+    componentWillMount() {
+        if (!canUseDOM) this.getAsyncData();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentPage !== this.props.currentPage) {
+            this.getAsyncData();
+        }
     }
 
     render() {
@@ -96,45 +124,20 @@ class Section extends Component {
                         articles={slice(articles, 7, 11)}
                         className="hidden-for-large-only"
                         modifier="6-or-4-items"
-                        teaserModifier="img-top">
-                        <Ad
-                            className="ad--section-middle-leaderboard"
-                            displayFor={['small', 'medium', 'xlarge']}
-                            sizes={{
-                                small: 'banner',
-                                leaderboard: 'leaderboard',
-                                billboard: ['billboard', 'leaderboard']
-                            }}
-                            targets={{
-                                position: 2
-                            }}
-                        />
-                    </Group>
+                        teaserModifier="img-top" />
 
                     {/* 6 teasers with ad - visible for large bp only*/}
                     <Group
                         articles={slice(articles, 5, 11)}
                         className="visible-for-large-only"
                         modifier="6-or-4-items"
-                        teaserModifier="img-top">
-                        <Ad
-                            className="ad--section-middle-leaderboard"
-                            displayFor="large"
-                            sizes={{
-                                leaderboard: 'leaderboard',
-                                billboard: ['billboard', 'leaderboard']
-                            }}
-                            targets={{
-                                position: 2
-                            }}
-                        />
-                    </Group>
+                        teaserModifier="img-top" />
                 </div>
-
                 {/* Group repeated when paginating */}
                 <div className="row">
-                    <GroupRepeatable articles={slice(articles, 11, 22)} />
+                    <GroupRepeatable articles={slice(articles, 11)} />
                 </div>
+                <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading} />
             </div>
         );
     }
@@ -144,6 +147,9 @@ export default connectToStores(Section, [TaggedArticlesStore, EntityStore], (sto
     return {
         articles: stores.TaggedArticlesStore.getItems(),
         moduleConfig: stores.TaggedArticlesStore.getConfiguration(),
-        navigationTags: stores.EntityStore.getNavigationTags()
+        navigationTags: stores.EntityStore.getNavigationTags(),
+        paging: stores.TaggedArticlesStore.getPaging(),
+        currentPage: stores.TaggedArticlesStore.getCurrentPage(),
+        isLoading: stores.TaggedArticlesStore.getIsLoading()
     };
 });

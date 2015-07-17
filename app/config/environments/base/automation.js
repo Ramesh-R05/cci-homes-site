@@ -8,7 +8,7 @@ export default {
         facetedModule: {
             remote: 'http://localhost:3000',
             local: 'http://localhost',
-            path: '/api/content/faceted'
+            path: '/api/content'
         },
         header: {
             url: 'http://localhost:4000/stub/header'

@@ -1,0 +1,41 @@
+.loadicon {
+    box-sizing: border-box;
+    display: inline;
+    margin-bottom: 5px;
+
+    .down-arrow {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 1px;
+        padding-left: 3px;
+
+        svg {
+            fill: $color-primary;
+            height: 12px;
+            margin-top: 3px;
+            vertical-align: top;
+            width: 12px;
+
+            @media #{$medium-up} {
+                margin-top: 6px;
+            }
+        }
+    }
+
+    .loading-icon {
+        margin-left: 10px;
+
+        svg {
+            fill: $color-primary;
+            height: 16px;
+            margin-top: -1px;
+            max-width: 16px;
+            vertical-align: top;
+            width: 16px;
+
+            @media #{$medium-up} {
+                margin-top: 3px;
+            }
+        }
+    }
+}

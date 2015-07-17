@@ -120,6 +120,11 @@ $section-minor-bp-1: 1590px;
     }
 }
 
+.section--horizontal-ad {
+    @include column-extra-side-gutter;
+    clear: both;
+}
+
 .section--6-or-4-items {
     @include column-extra-side-gutter;
     clear: both;

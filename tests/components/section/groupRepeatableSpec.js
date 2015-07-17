@@ -41,15 +41,24 @@ describe('GroupRepeatable', () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
 
-        describe(`Mrec ad (visible only on large viewport)`, () => {
-            const expectedClassname = 'ad--section-mrec';
+        const expectedNumAds = 4;
+        it(`should render ${expectedNumAds} Ads`, () => {
+            expect(ads.length).to.equal(expectedNumAds);
+        });
+
+        describe(`leaderboard ad (visible only on large viewport)`, () => {
+            const expectedClassname = 'ad--section-middle-leaderboard';
             it(`should have the classname prop equal to ${expectedClassname}`, () => {
                 expect(ads[0].props.className).to.equal(expectedClassname);
             });
 
-            const expectedSizes = 'mrec';
+            const expectedSizes = {
+                    leaderboard: 'leaderboard',
+                    billboard: ['billboard', 'leaderboard']
+                };
+
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
-                expect(ads[0].props.sizes).to.equal(expectedSizes);
+                expect(ads[0].props.sizes).to.eql(expectedSizes);
             });
 
             const expectedDisplayFor = 'large';
@@ -58,10 +67,49 @@ describe('GroupRepeatable', () => {
             });
         });
 
+        describe(`leaderboard ad (visible only on small/medium/xlarge viewport)`, () => {
+            const expectedClassname = 'ad--section-middle-leaderboard';
+            it(`should have the classname prop equal to ${expectedClassname}`, () => {
+                expect(ads[1].props.className).to.equal(expectedClassname);
+            });
+
+            const expectedSizes = {
+                small: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            };
+
+            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
+                expect(ads[1].props.sizes).to.eql(expectedSizes);
+            });
+
+            const expectedDisplayFor = ['small', 'medium', 'xlarge'];
+            it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
+                expect(ads[1].props.displayFor).to.eql(expectedDisplayFor);
+            });
+        });
+
+        describe(`Mrec ad (visible only on large viewport)`, () => {
+            const expectedClassname = 'ad--section-mrec';
+            it(`should have the classname prop equal to ${expectedClassname}`, () => {
+                expect(ads[2].props.className).to.equal(expectedClassname);
+            });
+
+            const expectedSizes = 'mrec';
+            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
+                expect(ads[2].props.sizes).to.equal(expectedSizes);
+            });
+
+            const expectedDisplayFor = 'large';
+            it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
+                expect(ads[2].props.displayFor).to.equal(expectedDisplayFor);
+            });
+        });
+
         describe(`Mrec ad (visible only on small/medium/xlarge viewports)`, () => {
             const expectedClassname = 'ad--section-mrec';
             it(`should have the classname prop equal to ${expectedClassname}`, () => {
-                expect(ads[1].props.className).to.equal(expectedClassname);
+                expect(ads[3].props.className).to.equal(expectedClassname);
             });
 
             const expectedSizes = {
@@ -69,12 +117,12 @@ describe('GroupRepeatable', () => {
                 xlarge: ['double-mrec', 'mrec']
             };
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
-                expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
             const expectedDisplayFor = ['small', 'medium', 'xlarge'];
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
-                expect(ads[1].props.displayFor).to.deep.equal(expectedDisplayFor);
+                expect(ads[3].props.displayFor).to.deep.equal(expectedDisplayFor);
             });
         });
 

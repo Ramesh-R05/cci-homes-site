@@ -42,6 +42,14 @@ describe('Stores', () => {
         });
 
         describe('Action -> FACETED_MODULE:PAGE_RECEIVED', () => {
+
+            const storePaging = {
+                currentPage: 0,
+                pages: 4,
+                totalResults: 31,
+                isLoading: false
+            };
+
             before(() => {
                 store.emitChange.reset();
                 createContext();
@@ -53,11 +61,7 @@ describe('Stores', () => {
             });
 
             it('#getPaging returns the correct value', () => {
-                expect(store.getPaging()).to.deep.equal(pageReceivedPayload.content.paging);
-            });
-
-            it('#getPaging returns pageSize', () => {
-                expect(store.getPaging()).to.have.property('pageSize', pageReceivedPayload.content.settings.pageSize);
+                expect(store.getPaging()).to.deep.equal(storePaging);
             });
 
             it('#getFaceting returns the correct value', () => {
