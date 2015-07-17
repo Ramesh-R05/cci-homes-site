@@ -4,6 +4,9 @@ export default {
             enabled: false
         }
     },
+    gigya: {
+        apiKey: '3_pQVekBexxJtrEDl59xLWe9U1sTEBBqwqSBDoba9MInh1kaHAC3QGxVNFXA-Yl00d'
+    },
     services: {
         content: {
             remote: 'http://live.homes-api.wn.bauer-media.net.au'
