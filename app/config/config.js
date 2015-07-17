@@ -16,7 +16,7 @@ export default {
     },
 
     gigya: {
-        apiKey: '3_pQVekBexxJtrEDl59xLWe9U1sTEBBqwqSBDoba9MInh1kaHAC3QGxVNFXA-Yl00d'
+        apiKey: '3_ghsdy4V7gVQHU_8eFfPgTAKIw-3ct5dXWtLoc86lIcHaPQOswMYyMkMKCe377vah'
     },
 
     features: {
