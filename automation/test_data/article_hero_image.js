@@ -1,7 +1,18 @@
 module.exports =
 {
   "entity": {
-    "campaign": [],
+    "campaign": [
+        {
+            "campaignType": "Native",
+            "sponsor": "nab",
+            "startDate": "3/18/2015 12:00:00 AM",
+            "endDate": "7/31/2020 12:00:00 AM",
+            "title": "Nab Campaign",
+            "summary": "Native ads",
+            "name": "Kellogs April 2015",
+            "nodeType": "Campaign"
+        }
+    ],
     "articleTags": [
         "food:Homes navigation:Home Tours",
         "food:Audience:Designer",
@@ -68,7 +79,7 @@ module.exports =
     "title": "Article Long Title",
     "summaryTitle": "Article Short Title",
     "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
+    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1259/chinamans3.jpg",
     "redirect": {
       "mode": 2
     },
