@@ -18,7 +18,7 @@ describe(`ArticleTags`, () => {
             'homes:Interior:Decoration',
             'homes:Garden/Outdoor:Garden style:Arid garden',
             'homes:Garden/Outdoor:Foo',
-            'homes:Topic:How To',
+            'homes:Topic:How to',
             'homes:Topic:Shopping'
         ];
 
@@ -28,7 +28,7 @@ describe(`ArticleTags`, () => {
             metaTag = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'meta');
         });
 
-        const expectedTags = 'Designer, House, Arid garden, How To';
+        const expectedTags = 'Designer, House, Arid garden, How to';
         const expectedTagsWithTitle = `RELATED TAGS: ${expectedTags}`;
         it(`should have the rendered tags equal to '${expectedTagsWithTitle}'`, () => {
             expect(React.findDOMNode(renderedTags).textContent).to.equal(expectedTagsWithTitle);
