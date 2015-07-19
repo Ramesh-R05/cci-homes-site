@@ -28,7 +28,7 @@ export default class Tags extends Component {
         { category: 'Renovating', subCategory: 'Renovation type'},
         { category: 'Renovating', subCategory: 'Materials'},
         { category: 'Room' },
-        { category: 'Topic', tag: 'How To' }
+        { category: 'Topic', tag: 'How to' }
     ];
 
     render() {
