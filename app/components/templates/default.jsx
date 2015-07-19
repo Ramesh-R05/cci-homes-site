@@ -1,21 +1,32 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
+import MenuStore from '../../stores/menu';
 import NetworkHeader from '@bxm/header/lib/header/header';
+import Header from '../header/header';
+import SideMenu from '../side-menu/sideMenu';
 import {isUndefined} from 'lodash/lang';
+import cx from 'classnames';
 
 class DefaultTemplate extends Component {
+
+    static propTypes = {
+        content: PropTypes.object,
+        isSideMenuOpen: PropTypes.bool,
+        navItems: PropTypes.array
+    };
+
+    static defaultProps = {
+        isSideMenuOpen: false,
+        navItems: []
+    };
 
     static contextTypes = {
         executeAction: React.PropTypes.func.isRequired
     };
 
-    static propTypes = {
-        content: PropTypes.object
-    };
-
-    constructor(props, context) {
-        super(props, context);
+    constructor(...args) {
+        super(...args);
     }
 
     render() {
@@ -24,11 +35,22 @@ class DefaultTemplate extends Component {
         const page = this.getPageMetadata();
         if (!page) return null;
 
-        const {Handler, hideNetworkHeader} = page;
+        const {Handler, hideNetworkHeader, hideHeader} = page;
+        const menuSliderClassName = cx({
+            'side-menu-slider': true,
+            'side-menu-slider--open': this.props.isSideMenuOpen
+        });
+
         return (
-            <div>
-                {hideNetworkHeader ? null : <NetworkHeader/>}
-                <Handler content={this.props.content}/>
+            <div className="default-template">
+                <div className={cx('global-header-slider', menuSliderClassName)}>
+                    {hideNetworkHeader ? null : <NetworkHeader/>}
+                </div>
+                {hideHeader ? null : <Header isSideMenuOpen={this.props.isSideMenuOpen} navItems={this.props.navItems}/>}
+                <SideMenu open={this.props.isSideMenuOpen} navItems={this.props.navItems}/>
+                <div className={menuSliderClassName}>
+                    <Handler content={this.props.content}/>
+                </div>
             </div>
         );
     }
@@ -39,14 +61,17 @@ class DefaultTemplate extends Component {
                 Handler: require('../home/home')
             };
             case 'HomesArticle': return {
-                Handler: require('../article/section')
+                Handler: require('../article/section'),
+                hideHeader: true
             };
             case 'NavigationSection': return {
-                Handler: require('../section/section')
+                Handler: require('../section/section'),
+                hideHeader: true
             };
             case 'Gallery': return {
                 Handler: require('../gallery/gallery'),
-                hideNetworkHeader: true
+                hideNetworkHeader: true,
+                hideHeader: true
             };
             default:
                 console.error({message: 'NotFound is not implemented'});
@@ -55,8 +80,11 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, [EntityStore], (stores) => {
+export default connectToStores(DefaultTemplate, [EntityStore, MenuStore], (stores) => {
+    console.log(stores.MenuStore.getNavItems);
     return {
-        content: stores.EntityStore.getContent()
+        content: stores.EntityStore.getContent(),
+        isSideMenuOpen: stores.MenuStore.isSideMenuOpen(),
+        navItems: stores.MenuStore.getNavItems()
     };
 });

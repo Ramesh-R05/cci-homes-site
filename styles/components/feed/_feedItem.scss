@@ -48,7 +48,8 @@ $feed-item-body-width: $feed-item-width
         position: relative;
         width: $feed-item-thumbnail-width;
 
-        &:hover {
+        &:hover,
+        &:focus {
             opacity: .85;
         }
     }
@@ -71,7 +72,8 @@ $feed-item-body-width: $feed-item-width
             color: $color-black;
             margin-top: 5px;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 color: $color-grey-dark;
             }
         }

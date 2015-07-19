@@ -1,8 +1,8 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articleMock from '../../mock/article';
 import feedMock from '../../mock/feed';
-import {noop} from 'lodash/utility';
-import {findWhere} from 'lodash/collection';
+import noop from 'lodash/utility/noop';
+import findWhere from 'lodash/collection/findWhere';
 
 const Context = betterMockComponentContext();
 const React = Context.React;

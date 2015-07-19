@@ -1,0 +1,33 @@
+$header-menu-width: 20px;
+
+.header-menu {
+    display: inline-block;
+    vertical-align: top;
+
+    &__button-menu {
+        @include flat-button;
+
+        line-height: $header-height;
+        padding: 0 $column-gutter/2;
+
+        svg {
+            vertical-align: middle;
+        }
+
+        &:hover path,
+        &:active path,
+        &:focus path {
+            fill: $color-primary;
+        }
+
+        @media #{$medium-up} {
+            padding: 0 $column-gutter;
+        }
+    }
+}
+
+.header--side-menu-open .header-menu {
+    &__button-menu path {
+        fill: $color-primary;
+    }
+}

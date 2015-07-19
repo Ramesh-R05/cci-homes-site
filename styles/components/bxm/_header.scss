@@ -8,7 +8,7 @@ $tl-header-heading-font-weight: 400;
 @import './to-love/modal/modal';
 @import './header/header';
 
-.global-header {
+.global-header-slider {
     position: relative;
-    z-index: $z-index-15--network-header;
+    z-index: $z-index--network-header;
 }

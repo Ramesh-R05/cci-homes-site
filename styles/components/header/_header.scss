@@ -1,0 +1,40 @@
+
+.header {
+    background: $color-white;
+    border-bottom: 1px solid $line-color;
+    clear: both;
+    left: 0;
+    line-height: $header-height;
+    position: absolute;
+    transition: transform $transition-duration;
+    width: 100%;
+    z-index: $z-index--header;
+
+    @media #{$medium-up} {
+        line-height: $header-height-desktop;
+    }
+
+    &__sections {
+        @include grid-row();
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+        white-space: nowrap;
+    }
+
+    &--side-menu-open {
+        transform: translate($side-menu-width, 0);
+
+        @media #{$medium-up} {
+            transform: translate($side-menu-width-big, 0);
+        }
+    }
+
+    &:not(.header--pinned) {
+        margin-top: 0;
+    }
+
+    &--pinned {
+        position: fixed;
+    }
+}

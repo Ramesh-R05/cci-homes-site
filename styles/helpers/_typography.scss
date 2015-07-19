@@ -38,6 +38,28 @@ a {
 
 // ---------------------------------------------------- typography mixins & classes
 
+@mixin type-header {
+    color: $color-grey-darker;
+    font: 500 15px/1.4 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.type-header {
+    @include type-header;
+}
+
+@mixin type-side-menu-link {
+    color: $color-white;
+    font: 500 20px/1.5 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.type-side-menu-link {
+    @include type-side-menu-link;
+}
+
 // Article
 @mixin type-article-title {
     color: $color-black;

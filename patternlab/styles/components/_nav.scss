@@ -47,7 +47,7 @@ $nav-color-link: #798289;
     }
 
     &__sub-list {
-        padding:0;
+        padding: 0;
 
         @include respond-to('small') {
             padding: 5px 0 0 0;

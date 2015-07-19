@@ -1,0 +1,23 @@
+.header-banner {
+    background: url('/assets/images/homes-banner-background.jpg') repeat-x;
+    background-position: 50% 50%;
+    display: none;
+    font-size: 0;
+    line-height: $header-banner-logo-height;
+    text-align: center;
+
+    a {
+        background-image: url('/assets/logo/homes-banner-logo.svg');
+        background-size: 285px 134px;
+        display: inline-block;
+        height: 134px;
+        vertical-align: middle;
+        width: 285px;
+    }
+}
+
+.header:not(.header--pinned) .header-banner {
+    @media #{$medium-up} {
+        display: block;
+    }
+}

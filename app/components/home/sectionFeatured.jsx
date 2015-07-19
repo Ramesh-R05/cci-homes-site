@@ -3,17 +3,19 @@ import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import Ad from '@bxm/ad/src/google/components/ad';
-
+import classNames from 'classnames';
 
 export default class SectionFeatured extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
-        children: PropTypes.any
+        children: PropTypes.any,
+        className: PropTypes.string
     };
 
     static defaultProps = {
-        articles: []
+        articles: [],
+        className: ''
     };
 
     render() {
@@ -22,8 +24,10 @@ export default class SectionFeatured extends Component {
 
         if (articles.length === 0) return null;
 
+        const className = classNames('container', this.props.className);
+
         return (
-            <div>
+            <div className={className}>
                 <div className="row">
                     {/* Top ad */}
                     <div className="columns small-12">

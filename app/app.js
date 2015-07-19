@@ -7,21 +7,21 @@ import AppComponent from './components/app';
 import contentService from './services/content';
 import adConfig from './config/ads';
 import facetedModuleService from './services/facetedModule';
+import networkHeaderService from '@bxm/header/lib/header/headerService';
 
-import HtmlStore from '@bxm/server/lib/stores/html';
+// Keep store imports in alphabetical order to make diffs easier
 import AdStore from '@bxm/ad/src/google/stores/ad';
-import GalleryStore from '@bxm/gallery/lib/stores/gallery';
-import RouteStore from './stores/route';
 import EntityStore from './stores/entity';
+import FeedStore from './stores/facetedStores/feed';
+import GalleryStore from '@bxm/gallery/lib/stores/gallery';
+import HomeArticles from './stores/articles/home';
+import HtmlStore from '@bxm/server/lib/stores/html';
+import InFocusArticles from './stores/articles/inFocus';
+import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
+import RouteStore from './stores/route';
+import MenuStore from './stores/menu';
 import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
-import FeedStore from './stores/facetedStores/feed';
-import HomeArticles from './stores/articles/home';
-import InFocusArticles from './stores/articles/inFocus';
-
-//Global header
-import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
-import networkHeaderService from '@bxm/header/lib/header/headerService';
 
 import {load, configPlugin} from '@bxm/config';
 const config = load();
@@ -36,11 +36,12 @@ let app = new Flux({
         EntityStore,
         FeedStore,
         GalleryStore,
-        HtmlStore,
         HomeArticles,
+        HtmlStore,
         InFocusArticles,
         NetworkHeaderStore,
         RouteStore,
+        MenuStore,
         SocialStore,
         TaggedArticlesStore
     ]
