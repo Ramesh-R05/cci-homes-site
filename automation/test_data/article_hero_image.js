@@ -18,7 +18,7 @@ module.exports =
         "food:Renovating:Materials:Bamboo",
         "food:Room:Kitchen:Straight-line kitchen",
         "food:Topic:How to",
-        "food:Decorating:Colour:Natural",
+        "food:Decorating:Colour:Natural"
     ],
     "source": "Australian House and Garden",
     "body": [
