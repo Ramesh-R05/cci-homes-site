@@ -19,6 +19,7 @@ import HomeArticles from './stores/articles/home';
 import HtmlStore from '@bxm/server/lib/stores/html';
 import InFocusArticles from './stores/articles/inFocus';
 import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
+import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
 import MenuStore from './stores/menu';
 import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
@@ -43,6 +44,7 @@ let app = new Flux({
         HtmlStore,
         InFocusArticles,
         NetworkHeaderStore,
+        PolarAdStore,
         RouteStore,
         MenuStore,
         SocialStore,

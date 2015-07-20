@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
+import PolarTeaser from '../polar/polarTeaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import classNames from 'classnames';
 
@@ -54,7 +55,13 @@ export default class SectionFeatured extends Component {
                         {slice(articles, 1, 2).map(item => <Teaser {...item} key={item.id} />)}
                         {/* Hero article displayed in second position from xl viewports */}
                         <Teaser {...hero} key={`${hero.id}-xl`} modifier="hero" sizes="home-hero" />
-                        {slice(articles, 2, 6).map(item => <Teaser {...item} key={item.id} />)}
+                        {slice(articles, 2, 4).map(item => <Teaser {...item} key={item.id} />)}
+                        {/*Native ad*/}
+                        <PolarTeaser
+                            {...articles[4]}
+                            ad={{label: 'home_teaser_1'}}
+                        />
+                        {slice(articles, 5, 6).map(item => <Teaser {...item} key={item.id} />)}
                         {/* First MREC */}
                         <Ad
                             className="ad--section-mrec"
@@ -100,9 +107,16 @@ export default class SectionFeatured extends Component {
 
                 {/* Include gallery of galleries here*/}
 
+
                 <div className="row">
                     <div className="section-featured section-featured--bottom">
-                        {slice(articles, 15, 21).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
+                        {slice(articles, 15, 16).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
+                        <PolarTeaser
+                            {...articles[16]}
+                            ad={{label: 'home_teaser_2'}}
+                            modifier="img-top"
+                        />
+                        {slice(articles, 17, 21).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
                         {/* Second MREC */}
                         <Ad
                             className="ad--section-mrec"

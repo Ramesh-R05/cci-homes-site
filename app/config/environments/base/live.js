@@ -7,6 +7,10 @@ export default {
     gigya: {
         apiKey: '3_ghsdy4V7gVQHU_8eFfPgTAKIw-3ct5dXWtLoc86lIcHaPQOswMYyMkMKCe377vah'
     },
+    polar: {
+        propertyId: 'NA-HOMETOLOVE-11237320',
+        targets: ''
+    },
     services: {
         content: {
             remote: 'http://live.homes-api.wn.bauer-media.net.au'

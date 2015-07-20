@@ -2,14 +2,16 @@ import React, {Component, PropTypes} from 'react';
 
 export default class Icon extends Component {
 
-    static displayName = 'TeaserIcon'
+    static displayName = 'TeaserIcon';
 
     static propTypes = {
+        icon: PropTypes.string,
         nodeType: PropTypes.string,
         video: PropTypes.object
     };
 
     static defaultProps = {
+        icon: '',
         nodeType: ''
     };
 
@@ -33,12 +35,12 @@ export default class Icon extends Component {
     }
 
     render() {
-        const {nodeType, video} = this.props;
+        const {icon, nodeType, video} = this.props;
         let iconHtml;
 
-        if (video) {
+        if (video || icon === 'video') {
             iconHtml = Icon.videoIconSvg;
-        } else if (nodeType.toLowerCase() === 'gallery') {
+        } else if (nodeType.toLowerCase() === 'gallery' || icon === 'gallery') {
             iconHtml = Icon.galleryIconSvg;
         } else {
             return null;

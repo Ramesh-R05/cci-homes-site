@@ -43,8 +43,11 @@ export default {
     },
 
     polar: {
-        propertyId: 'PROPERTY-ID-NOT-SET',
-        targets: {'env': 'test'}
+        url: '//plugin.mediavoice.com/plugin.js',
+        propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',
+        targets: { env: 'test' },
+        adSize: '2x2',
+        server: 'dfp'
     },
 
     site: {

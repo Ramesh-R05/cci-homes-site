@@ -37,4 +37,6 @@ class Application extends Component {
     }
 }
 
-export default provideContext(handleHistory(Application));
+export default provideContext(handleHistory(Application), {
+    config: PropTypes.object
+});

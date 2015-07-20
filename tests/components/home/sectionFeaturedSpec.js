@@ -8,10 +8,12 @@ const TestUtils = Context.TestUtils;
 
 const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
+const PolarTeaserStub = Context.createStubComponentWithChildren();
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '../polar/polarTeaser': PolarTeaserStub
 });
 
 
@@ -23,6 +25,7 @@ describe('SectionFeatured', () => {
         let reactModule;
         let ads;
         let teasers;
+        let polarTeasers;
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
@@ -30,11 +33,17 @@ describe('SectionFeatured', () => {
             );
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
+            polarTeasers =  TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
         });
 
-        const expectedNumTeasers = 27; // hero is duplicated
+        const expectedNumTeasers = 25; // hero is duplicated
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
+        });
+
+        const expectedNumPolarTeasers = 2;
+        it(`should render ${expectedNumPolarTeasers} Polar native teasers`, () => {
+            expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
         });
 
         describe(`Mobile Top banner ad`, () => {
@@ -148,6 +157,26 @@ describe('SectionFeatured', () => {
             const expectedModifier = 'hero';
             it(`should have the modifier prop equal to ${expectedModifier}`, () => {
                 expect(teasers[2].props.modifier).to.equal(expectedModifier);
+            });
+        });
+
+        describe(`First Polar native ad teaser`, () => {
+            it(`should have the 5th article data`, () => {
+                expect(polarTeasers[0].props.id).to.equal(articlesMock[4].id);
+            });
+
+            it(`should have the ad prop with the correct label`, () => {
+                expect(polarTeasers[0].props.ad).to.deep.equal({label: 'home_teaser_1'});
+            });
+        });
+
+        describe(`Second Polar native ad teaser`, () => {
+            it(`should have the 16th article data`, () => {
+                expect(polarTeasers[1].props.id).to.equal(articlesMock[16].id);
+            });
+
+            it(`should have the ad prop with the correct label`, () => {
+                expect(polarTeasers[1].props.ad).to.deep.equal({label: 'home_teaser_2'});
             });
         });
     });
