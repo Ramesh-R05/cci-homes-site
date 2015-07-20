@@ -8,6 +8,7 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const AdStub = Context.createStubComponent();
+const NativeAdStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const ContentBody = Context.createStubComponent();
@@ -18,6 +19,7 @@ const Article = proxyquire('../../../app/components/article/article', {
     './header': HeaderStub,
     './footer': FooterStub,
     '@bxm/ad/src/google/components/ad': AdStub,
+    '@bxm/ad/src/google/components/nativeAd': NativeAdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
     '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
 });
@@ -53,6 +55,7 @@ describe(`Article Component`, () => {
     describe(`when passing all props`, () => {
         let topAdSub;
         let bottomAdSub;
+        let nativeAdSub;
         let headerSub;
         let contentBodySub;
         let footerSub;
@@ -65,6 +68,7 @@ describe(`Article Component`, () => {
             const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             topAdSub = adSubs[0];
             bottomAdSub = adSubs[1];
+            nativeAdSub = TestUtils.findRenderedComponentWithType(reactModule, NativeAdStub);
             headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             contentBodySub = TestUtils.findRenderedComponentWithType(reactModule, ContentBody);
             footerSub = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
@@ -94,6 +98,7 @@ describe(`Article Component`, () => {
 
         it(`should render the key article sub-components on the page`, () => {
             expect(topAdSub).to.exist;
+            expect(nativeAdSub).to.exist;
             expect(headerSub).to.exist;
             expect(contentBodySub).to.exist;
             expect(footerSub).to.exist;
@@ -155,6 +160,14 @@ describe(`Article Component`, () => {
 
             it(`should have targets obj "${targets}"`, () => {
                 expect(bottomAdSub.props.targets).to.eql(targets);
+            });
+        });
+
+        describe(`Native ad sub-component`, () => {
+            const displayFor = ['medium', 'large', 'xlarge'];
+
+            it(`should have displayFor array`, () => {
+                expect(nativeAdSub.props.displayFor).to.eql(displayFor);
             });
         });
 

@@ -6,6 +6,7 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const AdStub = Context.createStubComponent();
+const NativeAdStub = Context.createStubComponent();
 const ArticleTitleStub = Context.createStubComponent();
 const ArticleSummaryStub = Context.createStubComponent();
 const ArticleHeroStub = Context.createStubComponent();
@@ -20,6 +21,7 @@ const Header = proxyquire('../../../app/components/article/header', {
     'react/addons': React,
     './hero': ArticleHeroStub,
     '@bxm/ad/src/google/components/ad': AdStub,
+    '@bxm/ad/src/google/components/nativeAd': NativeAdStub,
     '@bxm/article/lib/components/header/title': ArticleTitleStub,
     '@bxm/article/lib/components/header/summary': ArticleSummaryStub,
     '@bxm/config': {
@@ -63,6 +65,7 @@ describe(`Article Header Component`, () => {
         let titleStub;
         let summaryStub;
         let adStub;
+        let nativeAdStub;
         let heroStub;
         let socialShareBlockStub;
 
@@ -144,6 +147,7 @@ describe(`Article Header Component`, () => {
                 titleStub = TestUtils.findRenderedComponentWithType(reactModule, ArticleTitleStub);
                 summaryStub = TestUtils.findRenderedComponentWithType(reactModule, ArticleSummaryStub);
                 adStub = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+                nativeAdStub = TestUtils.findRenderedComponentWithType(reactModule, NativeAdStub);
                 heroStub = TestUtils.findRenderedComponentWithType(reactModule, ArticleHeroStub);
             });
 
@@ -156,6 +160,7 @@ describe(`Article Header Component`, () => {
                 expect(titleStub).to.exist;
                 expect(summaryStub).to.exist;
                 expect(adStub).to.exist;
+                expect(nativeAdStub).to.exist;
                 expect(heroStub).to.exist;
             });
 
@@ -163,7 +168,6 @@ describe(`Article Header Component`, () => {
                 const className = 'ad--beneath-short-teaser';
                 const displayFor = 'small';
                 const sizes = 'banner';
-
 
                 it(`should have className "${className}"`, () => {
                     expect(adStub.props).to.have.property('className', className);
@@ -179,6 +183,14 @@ describe(`Article Header Component`, () => {
 
                 it(`should have targets object "${targets}"`, () => {
                     expect(adStub.props.targets).to.eql(targets);
+                });
+            });
+
+            describe(`Native Ad sub-component`, () => {
+                const displayFor = 'small';
+
+                it(`should be displayed for small viewports only`, () => {
+                    expect(nativeAdStub.props).to.have.property('displayFor', displayFor);
                 });
             });
         });

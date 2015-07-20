@@ -1,9 +1,8 @@
 import React, {Component, PropTypes} from 'react';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import classNames from 'classnames';
-import platform from '@bxm/ui/lib/common/platform';
 import ContentBody from '@bxm/ui/lib/markdown/components/contentBody';
 import Ad from '@bxm/ad/src/google/components/ad';
+import NativeAd from '@bxm/ad/src/google/components/nativeAd';
 import Footer from './footer';
 import Header from './header';
 import theme from '../helpers/theme';
@@ -27,9 +26,6 @@ class Article extends Component {
 
     constructor(props, context) {
         super(props, context);
-        if (canUseDOM) {
-            platform.set(navigator.userAgent);
-        }
     }
 
     render() {
@@ -52,6 +48,10 @@ class Article extends Component {
                     sizes={sizes}
                     targets={{brand: source}}
                 />
+                <NativeAd
+                    className="ad--article-native"
+                    displayFor={['medium', 'large', 'xlarge']}
+                />
                 <Header
                     pageId={pageId}
                     url={url}
@@ -70,7 +70,6 @@ class Article extends Component {
                     source={source}
                     tags={tags}
                 />
-
                 <Ad
                     className="ad--article-beneath-recommendations"
                     displayFor={['small', 'medium', 'large', 'xlarge']}

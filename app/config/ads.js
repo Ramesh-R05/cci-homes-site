@@ -10,7 +10,7 @@ export default {
                 NavigationSection: 'index',
                 HomesArticle: 'article'
             },
-            siteId: 'FoodToLove',
+            siteId: 'HomesToLove',
             tagsObject: 'articleTags'
         });
     }
