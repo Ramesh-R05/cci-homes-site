@@ -52,20 +52,4 @@ describe(`NavigationItem Component`, () => {
             expect(React.findDOMNode(reactModule)).not.to.exist;
         });
     });
-
-    describe('selected state', () => {
-        before(() => {
-            reactModule = Context.mountComponent(NavigationItem, { name, url });
-            a = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a')[0];
-        });
-
-        it('initialises without the "selected" class name', () => {
-            expect(a).not.to.have.className('selected');
-        });
-
-        it('sets the "selected" class name when the link is clicked', () => {
-            TestUtils.Simulate.click(a);
-            expect(a).to.have.className('selected');
-        });
-    });
 });
