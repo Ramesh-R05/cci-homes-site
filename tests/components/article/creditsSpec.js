@@ -23,12 +23,12 @@ describe(`Credits Component`, () => {
     let experter;
 
     describe(`passed all props`, () => {
-        beforeEach(`rendering component`, () => {
+        before(`rendering component`, () => {
             reactModule = Context.mountComponent(Credits, { authorProfiles });
-            writer = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit__writer')[0];
-            photog = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit__photographer')[0];
-            stylist = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit__stylist')[0];
-            experter = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit__renovation-expert')[0];
+            writer = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--writer')[0];
+            photog = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--photographer')[0];
+            stylist = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--stylist')[0];
+            experter = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--renovation-expert')[0];
         });
 
         it(`renders with class "${className}"`, () => {
@@ -82,6 +82,18 @@ describe(`Credits Component`, () => {
                 'unknownb',
                 'unknown'
             ]);
+        });
+    });
+
+    describe(`passed all props`, () => {
+        it(`does not render when the credits are empty`, () => {
+            reactModule = Context.mountComponent(Credits, { authorProfiles: [] });
+            expect(React.findDOMNode(reactModule)).not.to.exist;
+        });
+
+        it(`does not render the credits are not specified`, () => {
+            reactModule = Context.mountComponent(Credits, {});
+            expect(React.findDOMNode(reactModule)).not.to.exist;
         });
     });
 });

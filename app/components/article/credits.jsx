@@ -4,6 +4,7 @@ import map from 'lodash/collection/map';
 import pluck from 'lodash/collection/pluck';
 import sortBy from 'lodash/collection/sortBy';
 import get from 'lodash/object/get';
+const isArray = Array.isArray;
 
 export default class Credits extends Component {
 
@@ -41,16 +42,14 @@ export default class Credits extends Component {
             .replace(/[^\w\s]/g, '')
             .replace(/[\s_]+/g, '-')
             .toLowerCase();
-        const className = `article-credit article-credit__${cleanLabel}`;
+        const className = `article-credit article-credit--${cleanLabel}`;
 
         return (
             <li className={className}>
-                {label}: {authors.map((w, i) => (
-                    <span>
-                        {i !== 0 ? ', ' : ''}
-                        <span className="article-credit__value">{w}</span>
-                    </span>
-                ))}
+                {label}: {authors.map((author, i) => [
+                    (i !== 0 ? ', ' : null),
+                    <span className="article-credit__value">{author}</span>
+                ])}
             </li>
         );
     };
@@ -62,13 +61,14 @@ export default class Credits extends Component {
     getCredits() {
         const authorProfiles = this.props.authorProfiles;
         const groups = groupBy(authorProfiles, p => p.profileType);
-        return sortBy(map(groups, (group, title) => ({
-            title,
-            names: pluck(group, 'name')
-        })), Credits.creditSorter);
+        const credits = map(groups, (group, title) => ({ title, names: pluck(group, 'name') }));
+        return sortBy(credits, Credits.creditSorter);
     }
 
     render() {
+        const profiles = this.props.authorProfiles;
+        if (!isArray(profiles) || profiles.length === 0) return null;
+
         return (
             <ul className="article__credits">
                 {this.getCredits().map(Credits.renderCredit)}
