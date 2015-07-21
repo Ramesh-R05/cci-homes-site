@@ -11,17 +11,17 @@ import breakpoints from '../../breakpoints';
 class Article extends Component {
 
     static propTypes = {
-        pageId: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
+        authorProfiles: PropTypes.array,
+        className: PropTypes.string,
         contentBody: PropTypes.array.isRequired,
         heroItem: PropTypes.object.isRequired,
-        tags: PropTypes.array.isRequired,
+        pageId: PropTypes.string.isRequired,
         source: PropTypes.string,
         summary: PropTypes.string,
-        credits: PropTypes.object,
-        className: PropTypes.string,
-        themeClass: PropTypes.string
+        tags: PropTypes.array.isRequired,
+        themeClass: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired
     };
 
     constructor(props, context) {
@@ -29,7 +29,7 @@ class Article extends Component {
     }
 
     render() {
-        const {pageId, url, className, contentBody, credits, heroItem, source, summary, tags, title, themeClass} = this.props;
+        const {pageId, url, className, contentBody, authorProfiles, heroItem, source, summary, tags, title, themeClass} = this.props;
         const cssClass = classNames(`article`, className, themeClass);
         const sizes = {
             small: 'banner',
@@ -66,7 +66,7 @@ class Article extends Component {
                     className="article__body article__body--top-border"
                 />
                 <Footer
-                    credits={credits}
+                    authorProfiles={authorProfiles}
                     source={source}
                     tags={tags}
                 />

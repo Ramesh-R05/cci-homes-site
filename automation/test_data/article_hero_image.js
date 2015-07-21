@@ -76,6 +76,24 @@ module.exports =
         }
     ],
     "author": [],
+    "authorProfiles": [
+      {
+        "name": "Julie Brooks",
+        "profileType": "stylist"
+      },
+      {
+        "name": "John Doe",
+        "profileType": "writer"
+      },
+        {
+        "name": "Julia Smith",
+        "profileType": "photographer"
+      },
+      {
+        "name": "Andrew White",
+        "profileType": "renovation_expert"
+      }
+    ],
     "title": "Article Long Title",
     "summaryTitle": "Article Short Title",
     "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",

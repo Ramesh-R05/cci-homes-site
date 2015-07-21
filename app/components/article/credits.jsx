@@ -1,56 +1,77 @@
 import React, {Component, PropTypes} from 'react';
-import {unescape} from 'lodash/string';
-import classNames from 'classnames';
+import groupBy from 'lodash/collection/groupBy';
+import map from 'lodash/collection/map';
+import pluck from 'lodash/collection/pluck';
+import sortBy from 'lodash/collection/sortBy';
+import get from 'lodash/object/get';
 
 export default class Credits extends Component {
 
     static propTypes = {
-        writer: PropTypes.string,
-        photographer: PropTypes.string,
-        stylist: PropTypes.string,
-        experter: PropTypes.string
+        authorProfiles: PropTypes.array
     };
 
-    constructor(props, context) {
-        super(props, context);
+    static TITLE_ORDER = [
+        'writer',
+        'photographer',
+        'stylist',
+        'renovation_expert'
+    ];
+
+    static TITLE_TRANSLATION_MAP = {
+        'writer': { s: 'Writer', p: 'Writers' },
+        'photographer': { s: 'Photographer', p: 'Photographers' },
+        'stylist': { s: 'Stylist', p: 'Stylists' },
+        'renovation_expert': { s: 'Renovation expert', p: 'Renovation experts' }
+    };
+
+    static creditSorter(credit) {
+        const index = Credits.TITLE_ORDER.indexOf(credit.title);
+        return index >= 0 ? index : Number.MAX_VALUE;
     }
 
-    generateCredit(label, value, isFirst) {
-        if (!value || !label) return null;
-
-        const labelClass = unescape(label).replace(/[^\w\n\r\s]/g, '').replace(/\s+/g, '-').toLocaleLowerCase();
-        const cssCLasses = classNames(`article-credit`, `article-credit__${labelClass}`, {
-            'article-credit--first': isFirst
-        });
-
-        return (<li className={cssCLasses}>{label}: <span className="article-credit__value">{value}</span></li>);
-    };
-
-
-    render() {
-        const {writer, photographer, stylist, experter} = this.props;
-        let isFirst = true;
-        let creditList = [];
-
-        if (writer) {
-            creditList.push(this.generateCredit('Writer', writer, isFirst));
-            isFirst = false;
-        }
-
-        if (photographer) {
-            creditList.push(this.generateCredit('Photographer', photographer, isFirst));
-            isFirst = false;
-        }
-
-        if (stylist) {
-            creditList.push(this.generateCredit('Stylist', stylist, isFirst));
-            isFirst = false;
-        }
+    static renderCredit(credit) {
+        const authors = credit.names;
+        const label = get(
+            Credits.TITLE_TRANSLATION_MAP,
+            [credit.title, authors.length === 1 ? 's' : 'p'],
+            credit.title
+        );
+        const cleanLabel = credit.title
+            .replace(/[^\w\s]/g, '')
+            .replace(/[\s_]+/g, '-')
+            .toLowerCase();
+        const className = `article-credit article-credit__${cleanLabel}`;
 
         return (
+            <li className={className}>
+                {label}: {authors.map((w, i) => (
+                    <span>
+                        {i !== 0 ? ', ' : ''}
+                        <span className="article-credit__value">{w}</span>
+                    </span>
+                ))}
+            </li>
+        );
+    };
+
+    constructor(...args) {
+        super(...args);
+    }
+
+    getCredits() {
+        const authorProfiles = this.props.authorProfiles;
+        const groups = groupBy(authorProfiles, p => p.profileType);
+        return sortBy(map(groups, (group, title) => ({
+            title,
+            names: pluck(group, 'name')
+        })), Credits.creditSorter);
+    }
+
+    render() {
+        return (
             <ul className="article__credits">
-                {creditList}
-                {this.generateCredit('Renovation experter', experter)}
+                {this.getCredits().map(Credits.renderCredit)}
             </ul>
         );
     }

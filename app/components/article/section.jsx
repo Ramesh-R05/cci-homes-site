@@ -40,25 +40,15 @@ class Section extends Component {
         });
     }
 
+    getHero() {
+        const { imageUrl, imageAltText, imageCaption, video } = this.props.content;
+        return { imageUrl, imageAltText, imageCaption, video };
+    }
+
     render() {
         const {title, content, feedItems} = this.props;
-        // Hero data
-        const {id: pageId, articleTags} = content;
-        const {imageUrl, imageAltText, imageCaption, video} = content;
-        const heroItem = {imageUrl, imageAltText, imageCaption, video};
-        // Article data
-        const {body, source, summary} = content;
-        //url
-        const {url} = content;
-
-
-        // TODO (thatzi): strings set temporary until credits are set up in CMS
-        const credits = {
-            writer: 'John Doe',
-            photographer: 'Julia Smith',
-            stylist: 'Julie Brooks',
-            experter: 'Andrew White'
-        };
+        const {id: pageId, articleTags, body, source, summary, url, authorProfiles} = content;
+        const heroItem = this.getHero();
 
         return (
             <div>
@@ -70,7 +60,7 @@ class Section extends Component {
                         source={source}
                         summary={summary}
                         tags={articleTags}
-                        credits={credits}
+                        authorProfiles={authorProfiles}
                         pageId={pageId}
                         url={url}
                     />
