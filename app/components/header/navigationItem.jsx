@@ -6,25 +6,13 @@ export default class NavigationItem extends Component {
         url: PropTypes.string.isRequired
     };
 
-    state = { selected: false };
-
-    constructor(props, context) {
-        super(props, context);
+    constructor(...args) {
+        super(...args);
     }
-
-    setActive = () => {
-        this.setState({ selected: true });
-    };
 
     render() {
         if (!this.props.name || !this.props.url) return null;
 
-        return (
-            <a
-                href={this.props.url}
-                className={this.state.selected ? 'selected' : ''}
-                onClick={this.setActive}
-            >{this.props.name}</a>
-        );
+        return <a href={this.props.url}>{this.props.name}</a>;
     }
 }

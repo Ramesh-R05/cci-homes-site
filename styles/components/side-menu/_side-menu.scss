@@ -46,8 +46,7 @@
         }
 
         &:active,
-        &:focus,
-        &.selected {
+        &:focus {
             color: $color-primary;
         }
     }

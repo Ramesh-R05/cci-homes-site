@@ -37,9 +37,9 @@ $header-nav-link-padding: 30px;
             }
         }
 
-        &:hover,
+        &:active,
         &:focus,
-        &.selected {
+        &:hover {
             color: $color-primary;
         }
 
