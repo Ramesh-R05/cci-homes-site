@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
 import chunk from 'lodash/array/chunk';
-import Ad from '@bxm/ad/src/google/components/ad';
+import Ad from '@bxm/ad/lib/google/components/ad';
 
 
 export default class GroupRepeatable extends Component {

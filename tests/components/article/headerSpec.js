@@ -23,8 +23,8 @@ const Header = proxyquire('../../../app/components/article/header', {
     'react': React,
     'react/addons': React,
     './hero': ArticleHeroStub,
-    '@bxm/ad/src/google/components/ad': AdStub,
-    '@bxm/ad/src/google/components/nativeAd': NativeAdStub,
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/article/lib/components/header/title': ArticleTitleStub,
     '@bxm/article/lib/components/header/summary': ArticleSummaryStub,
     '@bxm/config': {

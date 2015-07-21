@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
-import {getKeywordsFromTags} from '@bxm/ad/src/utils/tagsUtils';
+import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
 import FeedItem from './feedItem';
 import FeedAd from './feedAd';
 

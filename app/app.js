@@ -10,7 +10,7 @@ import facetedModuleService from './services/facetedModule';
 import networkHeaderService from '@bxm/header/lib/header/headerService';
 
 // Keep store imports in alphabetical order to make diffs easier
-import AdStore from '@bxm/ad/src/google/stores/ad';
+import AdStore from '@bxm/ad/lib/google/stores/ad';
 import EntityStore from './stores/entity';
 import FeedStore from './stores/facetedStores/feed';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';

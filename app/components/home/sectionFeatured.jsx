@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
-import Ad from '@bxm/ad/src/google/components/ad';
+import Ad from '@bxm/ad/lib/google/components/ad';
 import classNames from 'classnames';
 
 export default class SectionFeatured extends Component {

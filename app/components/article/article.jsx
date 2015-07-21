@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import ContentBody from '@bxm/ui/lib/markdown/components/contentBody';
-import Ad from '@bxm/ad/src/google/components/ad';
-import NativeAd from '@bxm/ad/src/google/components/nativeAd';
+import Ad from '@bxm/ad/lib/google/components/ad';
+import NativeAd from '@bxm/ad/lib/google/components/nativeAd';
 import Footer from './footer';
 import Header from './header';
 import theme from '../helpers/theme';

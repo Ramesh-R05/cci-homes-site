@@ -10,7 +10,7 @@ const AdStub = Context.createStubComponent();
 const FeedAd = proxyquire('../../../app/components/feed/feedAd', {
     'react': React,
     'react/addons': React,
-    '@bxm/ad/src/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub
 });
 
 describe('FeedAd Component', () => {

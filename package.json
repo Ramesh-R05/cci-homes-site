@@ -5,6 +5,7 @@
   "main": "start.js",
   "scripts": {
     "test": "node node_modules/gulp/bin/gulp test",
+    "cover": "node node_modules/gulp/bin/gulp cover",
     "build": "node node_modules/gulp/bin/gulp build --production",
     "start": "node ./start.js"
   },
@@ -39,11 +40,12 @@
     "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "@bxm/node-tasks": "^4.12.0",
+    "@bxm/node-tasks": "^4.13.0",
     "babelify": "^6.1.2",
     "browser-sync": "2.7.1",
     "express": "^4.13.0",
     "gulp": "^3.8.11",
+    "moment": "^2.10.3",
     "nock": "^2.6.0",
     "proxyquire": "^1.5.0",
     "q": "^1.4.1"

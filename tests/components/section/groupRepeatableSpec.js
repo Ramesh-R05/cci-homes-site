@@ -11,7 +11,7 @@ const AdStub = Context.createStubComponentWithChildren();
 const GroupRepeatable = proxyquire('../../../app/components/section/groupRepeatable', {
     'react': React,
     '../teaser/teaser': TeaserStub,
-    '@bxm/ad/src/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub
 });
 
 describe('GroupRepeatable', () => {
