@@ -4,7 +4,8 @@
   "description": "Homes To Love web site",
   "main": "start.js",
   "scripts": {
-    "test": "node node_modules/gulp/bin/gulp cover",
+    "test": "node node_modules/gulp/bin/gulp test",
+    "cover": "node node_modules/gulp/bin/gulp cover",
     "build": "node node_modules/gulp/bin/gulp build --production",
     "start": "node ./start.js"
   },
@@ -39,7 +40,7 @@
     "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "@bxm/node-tasks": "4.12.3-cover6",
+    "@bxm/node-tasks": "^4.13.0",
     "babelify": "^6.1.2",
     "browser-sync": "2.7.1",
     "express": "^4.13.0",
