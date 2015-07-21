@@ -18,8 +18,8 @@ const Article = proxyquire('../../../app/components/article/article', {
     'react/addons': React,
     './header': HeaderStub,
     './footer': FooterStub,
-    '@bxm/ad/src/google/components/ad': AdStub,
-    '@bxm/ad/src/google/components/nativeAd': NativeAdStub,
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
     '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
 });

@@ -22,7 +22,7 @@ const Section = proxyquire('../../../app/components/section/section', {
     '../inFocus/inFocus': InFocusStub,
     './groupRepeatable': GroupRepeatableStub,
     './hero': HeroStub,
-    '@bxm/ad/src/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub
 });
 
 const featuredArticles = articlesMock.slice(1, 4);

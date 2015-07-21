@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import Ad from '@bxm/ad/src/google/components/ad';
+import Ad from '@bxm/ad/lib/google/components/ad';
 import {isString, isNumber} from 'lodash/lang';
 const isArray = Array.isArray;
 

@@ -37,21 +37,12 @@ describe('BaseContentStore', () => {
 
     describe(`after receiving content with the ${missingStoreName} store missing from the payload`, () => {
         before(() => {
-            sinon.spy(console, 'log');
             store = new BaseContentStore(null, missingStoreName);
             store.onLoadContent(payload1);
         });
 
-        after(() => {
-            console.log.restore();
-        });
-
         it('should have empty items', () => {
             expect(store.getItems()).to.deep.equal([]);
-        });
-
-        it('should log the error message', () => {
-            expect(console.log.calledOnce).to.be.true;
         });
     });
 
@@ -64,21 +55,12 @@ describe('BaseContentStore', () => {
             }
         };
         before(() => {
-            sinon.spy(console, 'log');
             store = new BaseContentStore(null, storeName);
             store.onLoadContent(payload);
         });
 
-        after(() => {
-            console.log.restore();
-        });
-
         it('should have empty items', () => {
             expect(store.getItems()).to.deep.equal([]);
-        });
-
-        it('should log the error message', () => {
-            expect(console.log.calledOnce).to.be.true;
         });
     });
 

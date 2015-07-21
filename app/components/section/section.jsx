@@ -10,7 +10,7 @@ import Group from './group';
 import InFocus from '../inFocus/inFocus';
 import GroupRepeatable from './groupRepeatable';
 import Hero from './hero';
-import Ad from '@bxm/ad/src/google/components/ad';
+import Ad from '@bxm/ad/lib/google/components/ad';
 
 
 class Section extends Component {
