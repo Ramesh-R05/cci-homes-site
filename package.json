@@ -4,7 +4,7 @@
   "description": "Homes To Love web site",
   "main": "start.js",
   "scripts": {
-    "test": "node node_modules/gulp/bin/gulp test",
+    "test": "node node_modules/gulp/bin/gulp cover",
     "build": "node node_modules/gulp/bin/gulp build --production",
     "start": "node ./start.js"
   },
