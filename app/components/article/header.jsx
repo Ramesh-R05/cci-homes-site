@@ -50,6 +50,7 @@ export default class Header extends Component {
                     heading="Share"
                     countText={false}
                     nodeId={pageId}
+                    gigyaApiKey={config.gigya.apiKey}
                 />
             );
         }

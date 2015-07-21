@@ -13,7 +13,10 @@ const ArticleHeroStub = Context.createStubComponent();
 const ArticleSocialShareBlockStub = Context.createStubComponentWithChildren();
 const config = {
     get: () => {},
-    isFeatureEnabled: () => {}
+    isFeatureEnabled: () => {},
+    gigya: {
+        apiKey: 'abcd1324'
+    }
 };
 
 const Header = proxyquire('../../../app/components/article/header', {
@@ -49,6 +52,7 @@ describe(`Article Header Component`, () => {
 
     let socialShareBlockEnableStub;
     let socialShareBlockHost;
+    let gigyaApiKey;
 
     before(function() {
         socialShareBlockEnableStub = sinon.stub(config, 'isFeatureEnabled');
