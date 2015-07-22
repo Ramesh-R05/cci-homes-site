@@ -13,6 +13,7 @@ import networkHeaderService from '@bxm/header/lib/header/headerService';
 import AdStore from '@bxm/ad/lib/google/stores/ad';
 import EntityStore from './stores/entity';
 import FeedStore from './stores/facetedStores/feed';
+import GalleryPageStore from './stores/gallery.js';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import HomeArticles from './stores/articles/home';
 import HtmlStore from '@bxm/server/lib/stores/html';
@@ -22,6 +23,7 @@ import RouteStore from './stores/route';
 import MenuStore from './stores/menu';
 import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
+import TrackingStore from './stores/tracking';
 
 import {load, configPlugin} from '@bxm/config';
 const config = load();
@@ -35,6 +37,7 @@ let app = new Flux({
         AdStore,
         EntityStore,
         FeedStore,
+        GalleryPageStore,
         GalleryStore,
         HomeArticles,
         HtmlStore,
@@ -43,7 +46,8 @@ let app = new Flux({
         RouteStore,
         MenuStore,
         SocialStore,
-        TaggedArticlesStore
+        TaggedArticlesStore,
+        TrackingStore
     ]
 });
 

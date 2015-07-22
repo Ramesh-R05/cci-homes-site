@@ -1,0 +1,135 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M130.669 0.683l-113.974 110.654 397.995 386.917-397.995 386.855 113.974 110.654 499.216-497.509-499.216-497.571z"
+				],
+				"width": 652,
+				"attrs": [
+					{
+						"visibility": false,
+						"fill": "rgb(68, 68, 68)"
+					}
+				],
+				"isMulticolor": false,
+				"colorPermutations": {
+					"6868681": [
+						0
+					]
+				},
+				"tags": [
+					"awwicon_01"
+				],
+				"grid": 0
+			},
+			"attrs": [
+				{
+					"visibility": false,
+					"fill": "rgb(68, 68, 68)"
+				}
+			],
+			"properties": {
+				"order": 1,
+				"id": 1,
+				"prevSize": 34,
+				"code": 58881,
+				"name": "arrow-next"
+			},
+			"setIdx": 0,
+			"setId": 5,
+			"iconIdx": 34
+		},
+		{
+			"icon": {
+				"paths": [
+					"M515.91 995.762l113.974-110.654-397.964-386.917 397.964-386.855-113.974-110.654-499.216 497.509 499.216 497.571z"
+				],
+				"width": 652,
+				"attrs": [
+					{
+						"visibility": false,
+						"fill": "rgb(68, 68, 68)"
+					}
+				],
+				"isMulticolor": false,
+				"colorPermutations": {
+					"6868681": [
+						0
+					]
+				},
+				"tags": [
+					"awwicon_02"
+				],
+				"grid": 0
+			},
+			"attrs": [
+				{
+					"visibility": false,
+					"fill": "rgb(68, 68, 68)"
+				}
+			],
+			"properties": {
+				"order": 16,
+				"id": 0,
+				"prevSize": 34,
+				"code": 58882,
+				"name": "arrow-prev"
+			},
+			"setIdx": 0,
+			"setId": 5,
+			"iconIdx": 35
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icomoon"
+	},
+	"preferences": {
+		"fontPref": {
+			"prefix": "icon-",
+			"metadata": {
+				"fontFamily": "icomoon",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"showGlyphs": true,
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"resetPoint": 58880,
+			"showQuickUse": true,
+			"quickUsageToken": false,
+			"showMetrics": true,
+			"showMetadata": true,
+			"showSelector": true,
+			"showVersion": true,
+			"selector": "",
+			"classSelector": ".icon",
+			"ie7": false,
+			"embed": true,
+			"cssVars": true
+		},
+		"imagePref": {
+			"color": 0,
+			"height": 32,
+			"columns": 16,
+			"margin": 16,
+			"png": false,
+			"sprites": true,
+			"prefix": "icon-"
+		},
+		"historySize": 100,
+		"showCodes": true,
+		"gridSize": 16,
+		"showLiga": false,
+		"showGrid": true,
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true
+	}
+}

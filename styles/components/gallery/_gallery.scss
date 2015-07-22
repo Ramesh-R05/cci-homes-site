@@ -1,61 +1,35 @@
 .gallery {
-    $header-height: 65px;
+    padding: 0;
 
-    &__header {
-        @include grid-column(12);
-        background-color: $color-white;
-        box-shadow: 0 1px rgba(0, 0, 0, .06),
-                    0 2px rgba(0, 0, 0, .04),
-                    0 3px rgba(0, 0, 0, .02),
-                    0 4px rgba(0, 0, 0, .01),
-                    0 5px rgba(0, 0, 0, 0);
-        z-index: $z-index--gallery-header;
-    }
+    .gallery__body {
+        position: relative;
+        z-index: 0;
 
-    &__header-container {
-        @include grid-row();
-    }
+        @media #{$small-up} {
+            padding: 0;
+        }
 
-    &__logo {
-        float: left;
-        line-height: $header-height;
+        @media #{$medium-up} {
+            overflow: hidden;
+        }
 
-        .icon-logo {
-            background-image: url('../../images/logo/homes-logo-mobile.svg');
-            background-repeat: no-repeat;
-            background-size: 115px 35px;
-            display: inline-block;
-            height: 35px;
-            margin: 0 3px;
-            vertical-align: middle;
-            width: 115px;
-
-            @media #{$medium-up} {
-                background-image: url('../../images/logo/homes-logo-tablet.svg');
-                background-size: 287px 23px;
-                height: 23px;
-                width: 287px;
-            }
+        @media (min-width: 1500px) {
+            max-width: 1560px;
         }
     }
 
-    &__title-container {
-        float: left;
-        line-height: $header-height;
+    .social-share-count {
+        background: transparent;
     }
 
-    &__title {
-        @include type-gallery-header;
-
-        display: none;
-
-        @media #{$large-up} {
-            $vertical-align-correction: 4px;
-
-            display: inline-block;
-            margin-left: 66px;
-            padding-top: $vertical-align-correction;
-            vertical-align: middle;
-        }
+    .content-body {
+        margin: 0;
+        width: auto; // override article content-body width
     }
+
+    .ad--top-label > div,
+    .ad--top-label .ad__label {
+        display: block;  // override article listing ads display
+    }
+
 }
