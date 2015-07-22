@@ -1,17 +1,14 @@
 // scss-lint:disable LeadingZero, PropertySortOrder
-.social-share-count {
-    @extend .button;
-    @extend .social-share;
+.social_share_container--gallery .social-share-count {
     color: $color-grey-darker;
     font-size: 15px;
+    font-family: $font-family-sans-serif-primary;
+    font-weight: 800;
     position: relative;
     margin-right: 0;
-    vertical-align: bottom;
-    border-color: $color-grey-light;
     width: 40px;
 
     @media #{$large-up} {
-        border: 1px solid $color-grey-light;
         margin-right: 15px;
         width: 60px;
         margin-left: 4px;
@@ -37,11 +34,9 @@
     &:before {
         border-bottom: 11px solid transparent;
         border-top: 11px solid transparent;
-        border-right: 13px solid;
-        border-right-color: inherit;
+        border-right: 13px solid $color-grey-light;
+        content: '';
         left: -12px;
-        top: 50%;
         margin-top: -11px;
     }
-
 }
