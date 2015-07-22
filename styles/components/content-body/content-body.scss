@@ -72,6 +72,13 @@
             width: $content-expanded-medium-width;
         }
 
+        @media #{$large-up} {
+            padding: {
+                left: 40px;
+                right: 40px;
+            }
+        }
+
         @media #{$xlarge-up} {
             width: $content-expanded-xlarge-width;
         }
@@ -80,7 +87,7 @@
             margin: 0 auto;
 
             @media #{$medium-only} {
-                width: 90%;
+                width: 92%;
             }
 
             @media #{$xlarge-up} {
