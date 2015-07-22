@@ -29,14 +29,6 @@ Then(/^I should see "([^"]+)" within the first paragragh$/) do |body|
     expect(article_body).to have_content(body)
 end
 
-Then(/^I should see an inline image with the text as "([^"]+)" in caption$/) do |image_caption|
-    article_inline_image = find('.content-body__inline-image img')
-    article_inline_image_caption = find('.content-body__inline-image-caption').text
-
-    expect(article_inline_image.visible?).to eq(true)
-    expect(article_inline_image_caption).to have_content(image_caption)
-end
-
 Then(/^I should see a source logo$/) do
     hero_image = find('.article__source')
     expect(hero_image.visible?).to eq(true)
