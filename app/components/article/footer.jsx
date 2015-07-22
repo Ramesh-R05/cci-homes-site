@@ -8,16 +8,11 @@ export default class Footer extends Component {
     static propTypes = {
         tags: PropTypes.array.isRequired,
         source: PropTypes.string,
-        credits: PropTypes.object
+        authorProfiles: PropTypes.array
     };
 
     static defaultProps = {
-        credits: {
-            writer: '',
-            photographer: '',
-            stylist: '',
-            experter: ''
-        }
+        authorProfiles: []
     };
 
     constructor(props, context) {
@@ -25,18 +20,12 @@ export default class Footer extends Component {
     }
 
     render() {
-        const {source, tags, credits} = this.props;
-        const {writer, photographer, stylist, experter} = credits;
-
+        const {source, tags, authorProfiles} = this.props;
         return (
             <footer className="article__footer">
-                <Tags tags={tags} />
-                <Credits
-                    writer={writer}
-                    photographer={photographer}
-                    stylist={stylist}
-                    experter={experter}/>
-                <Source source={source} />
+                <Tags tags={tags}/>
+                <Credits authorProfiles={authorProfiles}/>
+                <Source source={source}/>
             </footer>
         );
     }

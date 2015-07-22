@@ -1,4 +1,4 @@
-export default{
+export default {
     "campaign": [],
     "articleTags": [
         "homes:Topic:Garden planner",
@@ -58,6 +58,148 @@ export default{
         }
     ],
     "author": [],
+    "authorProfiles": [
+        {
+            "name": "Renovation Expert Alpha",
+            "profileType": "renovation_expert"
+        },
+        {
+            "name": "UnknownB Alpha",
+            "profileType": "unknownb"
+        },
+        {
+            "name": "Unknown Alpha",
+            "profileType": "unknown"
+        },
+        {
+            "profileType": "writer",
+            "redirect": {
+                "mode": 2
+            },
+            "dateIndexed": "2015-07-21T01:06:54",
+            "siteUrl": "http://homes.local",
+            "nodeType": "HomesProfile",
+            "name": "Writer Alpha",
+            "siteName": "Homes",
+            "level": 3,
+            "url": "/sandbox-contributors/test-writer",
+            "title": "Test writer",
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1468",
+                "HOMES-1235"
+            ],
+            "typeName": "TeaserDto",
+            "sortOrder": 1,
+            "template": "Index",
+            "parentId": "HOMES-1468",
+            "urlName": "test-writer",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ],
+            "id": "HOMES-1235",
+            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+        },
+        {
+            "profileType": "photographer",
+            "redirect": {
+                "mode": 2
+            },
+            "dateIndexed": "2015-07-21T01:07:05",
+            "siteUrl": "http://homes.local",
+            "nodeType": "HomesProfile",
+            "name": "Photog Alpha",
+            "siteName": "Homes",
+            "level": 3,
+            "url": "/sandbox-contributors/test-cook",
+            "title": "Photog Alpha",
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1468",
+                "HOMES-1236"
+            ],
+            "typeName": "TeaserDto",
+            "sortOrder": 2,
+            "template": "Index",
+            "parentId": "HOMES-1468",
+            "urlName": "test-cook",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ],
+            "id": "HOMES-1236",
+            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+        },
+        {
+            "profileType": "stylist",
+            "redirect": {
+                "mode": 2
+            },
+            "dateIndexed": "2015-07-21T01:07:04",
+            "siteUrl": "http://homes.local",
+            "nodeType": "HomesProfile",
+            "name": "Stylist Alpha",
+            "siteName": "Homes",
+            "level": 3,
+            "url": "/sandbox-contributors/janicetest-re-expert01",
+            "title": "JaniceTest - Re-Expert_01 - Long Title",
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1468",
+                "HOMES-1435"
+            ],
+            "typeName": "TeaserDto",
+            "sortOrder": 3,
+            "template": "Index",
+            "parentId": "HOMES-1468",
+            "urlName": "janicetest-re-expert01",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ],
+            "id": "HOMES-1435",
+            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+        },
+        {
+            "profileType": "photographer",
+            "redirect": {
+                "mode": 2
+            },
+            "dateIndexed": "2015-07-21T01:07:28",
+            "siteUrl": "http://homes.local",
+            "nodeType": "HomesProfile",
+            "name": "Photog Bravo",
+            "siteName": "Homes",
+            "level": 3,
+            "url": "/sandbox-contributors/janicetest-re-expert02",
+            "title": "JaniceTest - Re-Expert_02 - Long Title",
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1468",
+                "HOMES-1436"
+            ],
+            "typeName": "TeaserDto",
+            "sortOrder": 4,
+            "template": "Index",
+            "parentId": "HOMES-1468",
+            "urlName": "janicetest-re-expert02",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ],
+            "id": "HOMES-1436",
+            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+        }
+    ],
     "title": "Renting shouldn’t mean sacrificing personality",
     "summaryTitle": "Short Title",
     "summary": "Dani Somerville-Kimlin and husband Jamahl Wilsonfour’s four-bedroom home in Noosa brilliantly proves that just because you are renting",

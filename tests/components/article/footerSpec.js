@@ -19,49 +19,65 @@ const Footer = proxyquire('../../../app/components/article/footer', {
 
 describe(`Article Footer Component`, () => {
     const articleClassName = `article__footer`;
-    const source = articleMock.source;
-    const summary = articleMock.summary;
-    const tags = articleMock.articleTags;
-    const credits = {
-        writer: articleMock.writer,
-        photographer: articleMock.photographer,
-        stylist: articleMock.stylist,
-        experter: articleMock.experter
-    };
+    const { source, articleTags: tags, authorProfiles } = articleMock;
 
     let reactModule;
+    let tagsTag;
+    let creditsTag;
+    let sourceTag;
 
-    afterEach(Context.cleanup);
-
-    describe(`when passing all props`, () => {
+    describe(`passed all props`, () => {
         beforeEach(`rendering component`, () => {
-            reactModule = Context.mountComponent(Footer, {
-                source, tags, credits
+            reactModule = Context.mountComponent(Footer, { source, tags, authorProfiles });
+            tagsTag = TestUtils.scryRenderedComponentsWithType(reactModule, ArticleTagsStub)[0];
+            creditsTag = TestUtils.scryRenderedComponentsWithType(reactModule, ArticleCreditsStub)[0];
+            sourceTag = TestUtils.scryRenderedComponentsWithType(reactModule, ArticleSourceStub)[0];
+        });
+
+        it(`renders the component with class "${articleClassName}"`, () => {
+            expect(React.findDOMNode(reactModule)).to.have.className(articleClassName);
+        });
+
+        describe(`"Tags" sub-component`, () => {
+            it(`renders`, () => {
+                expect(React.findDOMNode(tagsTag)).to.exist;
+            });
+
+            it(`sets the "tags" prop`, () => {
+                expect(tagsTag.props.tags).to.eql(tags);
             });
         });
 
-        it(`should render the component with class "${articleClassName}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-            expect(classNames.indexOf(articleClassName)).to.be.greaterThan(-1);
+        describe(`"Credits" sub-component`, () => {
+            it(`renders`, () => {
+                expect(React.findDOMNode(creditsTag)).to.exist;
+            });
+
+            it(`sets the "authorProfile" prop`, () => {
+                expect(creditsTag.props.authorProfiles).to.eql(authorProfiles);
+            });
         });
 
-        it(`should render the key header components on the page`, () => {
-            expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleCreditsStub)).to.exist;
-            expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleSourceStub)).to.exist;
-            expect(TestUtils.findRenderedComponentWithType(reactModule, ArticleTagsStub)).to.exist;
+        describe(`"Source" sub-component`, () => {
+            it(`renders`, () => {
+                expect(React.findDOMNode(sourceTag)).to.exist;
+            });
+
+            it(`sets the "source" prop`, () => {
+                expect(sourceTag.props.source).to.eql(source);
+            });
         });
     });
 
-    describe(`when passing no props`, () => {
+    describe(`passed no props`, () => {
         beforeEach(`rendering component`, () => {
             reactModule = Context.mountComponent(Footer, {});
         });
 
-        it(`should render the component with class "${articleClassName}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-
-            expect(React.findDOMNode(reactModule)).to.exist;
-            expect(classNames.indexOf(articleClassName)).to.be.greaterThan(-1);
+        it(`renders the component with class "${articleClassName}"`, () => {
+            const domNode = React.findDOMNode(reactModule);
+            expect(domNode).to.exist;
+            expect(domNode).to.have.className(articleClassName);
         });
     });
 });

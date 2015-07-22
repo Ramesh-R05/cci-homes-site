@@ -36,12 +36,7 @@ describe(`Article Component`, () => {
     const className = `test-article`;
     const classThemeName = `theme-australian_house_and_garden`;
     const allowedThemeClasses = ['theme-australian_house_and_garden', 'theme-real_living', 'theme-homes_', 'theme-belle'];
-    const credits = {
-        writer: articleMock.writer,
-        photographer: articleMock.photographer,
-        stylist: articleMock.stylist,
-        experter: articleMock.experter
-    };
+    const authorProfiles = articleMock.authorProfiles;
     const heroItem = {
         imageUrl: articleMock.imageUrl,
         imageAltText: articleMock.imageAltText,
@@ -62,7 +57,7 @@ describe(`Article Component`, () => {
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
-                className, contentBody, credits, heroItem, source, summary, tags, title
+                className, contentBody, authorProfiles, heroItem, source, summary, tags, title
             });
 
             const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -200,8 +195,8 @@ describe(`Article Component`, () => {
         });
 
         describe(`Footer sub-component`, () => {
-            it(`should have credits object`, () => {
-                expect(footerSub.props.credits).to.eq(credits);
+            it(`should have authorProfiles object`, () => {
+                expect(footerSub.props.authorProfiles).to.eq(authorProfiles);
             });
 
             it(`should have source "${source}"`, () => {

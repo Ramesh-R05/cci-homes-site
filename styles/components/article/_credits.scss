@@ -10,7 +10,7 @@
         }
     }
 
-    &--first {
+    &:first-child {
         &:before {
             display: none;
         }
@@ -20,14 +20,11 @@
         color: $color-grey-darker;
     }
 
-    &__renovation-experter {
-        clear: both;
+    &--renovation-expert {
         display: block;
-        float: none;
 
         &:before {
             display: none;
         }
-
     }
 }

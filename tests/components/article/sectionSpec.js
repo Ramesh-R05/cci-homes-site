@@ -44,8 +44,6 @@ describe(`ArticleSection Component`, () => {
     const sectionClassName = `article-section`;
     let reactModule;
 
-    afterEach(Context.cleanup);
-
     before(`rendering component`, () => {
         reactModule = Context.mountComponent(ArticleSection);
     });
@@ -91,18 +89,10 @@ describe(`ArticleSection Component`, () => {
 
     describe(`Article`, () => {
         let article;
-        const { body: contentBody, title, articleTags } = articleMock;
+        const { body: contentBody, title, articleTags, authorProfiles } = articleMock;
         const { imageUrl, imageAltText, imageCaption, video } = articleMock;
         const { source, summary } = articleMock;
         const heroItem = {imageUrl, imageAltText, imageCaption, video};
-
-        // TODO (cjenkins): change when credits are in the CMS
-        const mockCredits = {
-            writer: 'John Doe',
-            photographer: 'Julia Smith',
-            stylist: 'Julie Brooks',
-            experter: 'Andrew White'
-        };
 
         before(() => {
             article = TestUtils.findRenderedComponentWithType(reactModule, ArticleStub);
@@ -132,8 +122,8 @@ describe(`ArticleSection Component`, () => {
             expect(article.props.tags).to.eql(articleTags);
         });
 
-        it(`sets the credits prop`, () => {
-            expect(article.props.credits).to.eql(mockCredits);
+        it(`sets the authorProfiles prop`, () => {
+            expect(article.props.authorProfiles).to.eql(authorProfiles);
         });
     });
 

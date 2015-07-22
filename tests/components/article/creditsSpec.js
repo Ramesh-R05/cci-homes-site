@@ -12,99 +12,88 @@ const Credits = proxyquire('../../../app/components/article/credits', {
 
 describe(`Credits Component`, () => {
     const className = `article__credits`;
-    const firstClassName = `article-credit--first`;
-    const writer = articleMock.writer;
-    const photographer = articleMock.photographer;
-    const stylist = articleMock.stylist;
-    const experter = articleMock.experter;
-
+    const articleCreditClassName = `article-credit`;
+    const valueClassName = `article-credit__value`;
+    const authorProfiles = articleMock.authorProfiles;
 
     let reactModule;
+    let writer;
+    let photog;
+    let stylist;
+    let experter;
 
-    afterEach(Context.cleanup);
-
-    describe(`when passing all props`, () => {
-        beforeEach(`rendering component`, () => {
-            reactModule = Context.mountComponent(Credits, {
-                writer, photographer, stylist, experter
-            });
+    describe(`passed all props`, () => {
+        before(`rendering component`, () => {
+            reactModule = Context.mountComponent(Credits, { authorProfiles });
+            writer = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--writer')[0];
+            photog = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--photographer')[0];
+            stylist = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--stylist')[0];
+            experter = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'article-credit--renovation-expert')[0];
         });
 
-        it(`should render the component with class "${className}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-            expect(classNames.indexOf(className)).to.be.greaterThan(-1);
+        it(`renders with class "${className}"`, () => {
+            expect(React.findDOMNode(reactModule)).to.have.className(className);
         });
 
-        it(`should render a writer and have set a class "${firstClassName}"`, () => {
-            const writerEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__writer`);
-
-            expect(writerEl).to.exist;
-            expect(React.findDOMNode(writerEl).textContent).to.equal(`Writer: ${writer}`);
-            expect(React.findDOMNode(writerEl).className.indexOf(firstClassName)).to.be.greaterThan(-1);
+        it(`renders the writer list item with class name ${articleCreditClassName}`, () => {
+            expect(React.findDOMNode(writer).textContent).to.eq('Writer: Writer Alpha');
+            expect(writer).to.have.className(articleCreditClassName);
         });
 
-        it(`should render a stylist`, () => {
-            const stylistEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__stylist`);
-
-            expect(stylistEl).to.exist;
-            expect(React.findDOMNode(stylistEl).textContent).to.equal(`Stylist: ${stylist}`);
-            expect(React.findDOMNode(stylistEl).className.indexOf(firstClassName)).to.equal(-1);
-
+        it(`wraps each writer name in a span with class name "${valueClassName}"`, () => {
+            const writers = TestUtils.scryRenderedDOMComponentsWithClass(writer, valueClassName);
+            expect(writers).to.have.length(1);
+            expect(writers.map(w => React.findDOMNode(w).textContent)).to.eql([
+                'Writer Alpha'
+            ]);
         });
 
-        it(`should render a photographer`, () => {
-            const photographerEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__photographer`);
-
-            expect(photographerEl).to.exist;
-            expect(React.findDOMNode(photographerEl).textContent).to.equal(`Photographer: ${photographer}`);
-            expect(React.findDOMNode(photographerEl).className.indexOf(firstClassName)).to.equal(-1);
-
+        it(`renders the photographer list item with class name ${articleCreditClassName}`, () => {
+            expect(React.findDOMNode(photog).textContent).to.eq('Photographers: Photog Alpha, Photog Bravo');
+            expect(photog).to.have.className(articleCreditClassName);
         });
 
-        it(`should render a experter`, () => {
-            const experterEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__renovation-experter`);
+        it(`wraps each photographer name in a span with class name "${valueClassName}"`, () => {
+            const photogs = TestUtils.scryRenderedDOMComponentsWithClass(photog, valueClassName);
+            expect(photogs).to.have.length(2);
+            expect(photogs.map(p => React.findDOMNode(p).textContent)).to.eql([
+                'Photog Alpha',
+                'Photog Bravo'
+            ]);
+        });
 
-            expect(experterEl).to.exist;
-            expect(React.findDOMNode(experterEl).textContent).to.equal(`Renovation experter: ${experter}`);
-            expect(React.findDOMNode(experterEl).className.indexOf(firstClassName)).to.equal(-1);
+        it(`renders the renovation experter list item with class name ${articleCreditClassName}`, () => {
+            expect(React.findDOMNode(experter).textContent).to.eq('Renovation expert: Renovation Expert Alpha');
+            expect(experter).to.have.className(articleCreditClassName);
+        });
+
+        it(`renders the credits in order`, () => {
+            const items = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'li');
+            const labels = items.map(i => React.findDOMNode(i).textContent.split(':')[0]);
+
+            expect(labels).to.eql([
+                'Writer',
+                'Photographers',
+                'Stylist',
+                'Renovation expert',
+
+                // Unknown credit titles get thrown on at the end in the order
+                // that they were encountered
+                'unknownb',
+                'unknown'
+            ]);
         });
     });
 
-    describe(`when passing all expect a writer`, () => {
-        beforeEach(`rendering component`, () => {
-            reactModule = Context.mountComponent(Credits, {
-                photographer, stylist, experter
-            });
+    describe(`passed all props`, () => {
+        it(`does not render when the credits are empty`, () => {
+            reactModule = Context.mountComponent(Credits, { authorProfiles: [] });
+            expect(React.findDOMNode(reactModule)).not.to.exist;
         });
 
-        it(`should not render the writer`, () => {
-            const writerEl = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `article-credit__writer`);
-
-            expect(writerEl[0]).to.not.exist;
-        });
-
-        it(`should render the photographer and have set a class "${firstClassName}"`, () => {
-            const photographerEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__photographer`);
-
-            expect(photographerEl).to.exist;
-            expect(React.findDOMNode(photographerEl).textContent).to.equal(`Photographer: ${photographer}`);
-            expect(React.findDOMNode(photographerEl).className.indexOf(firstClassName)).to.be.greaterThan(-1);
-        });
-
-        it(`should render a stylist`, () => {
-            const stylistEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__stylist`);
-
-            expect(stylistEl).to.exist;
-            expect(React.findDOMNode(stylistEl).textContent).to.equal(`Stylist: ${stylist}`);
-            expect(React.findDOMNode(stylistEl).className.indexOf(firstClassName)).to.equal(-1);
-        });
-
-        it(`should render a experter`, () => {
-            const experterEl = TestUtils.findRenderedDOMComponentWithClass(reactModule, `article-credit__renovation-experter`);
-
-            expect(experterEl).to.exist;
-            expect(React.findDOMNode(experterEl).textContent).to.equal(`Renovation experter: ${experter}`);
-            expect(React.findDOMNode(experterEl).className.indexOf(firstClassName)).to.equal(-1);
+        it(`does not render the credits are not specified`, () => {
+            reactModule = Context.mountComponent(Credits, {});
+            expect(React.findDOMNode(reactModule)).not.to.exist;
         });
     });
 });
