@@ -1,3 +1,9 @@
+.home__body {
+    @media #{$medium-up} {
+        padding-top: 40px;
+    }
+}
+
 .section-featured {
     @include column-extra-side-gutter;
 

@@ -1,5 +1,6 @@
 .feed {
-    $feed-top-padding: 30px;
+    @include side-menu-slider;
+
     $network-header-height: 51px;
 
     display: none;
@@ -12,11 +13,17 @@
         display: block;
     }
 
+    &--pinned &__container {
+        height: calc(100% - #{$header-height-desktop});
+        margin-top: $header-height-desktop;
+    }
+
     &__container {
-        height: calc(100% - #{$network-header-height + $feed-top-padding});
-        margin-top: $network-header-height + $feed-top-padding;
+        height: calc(100% - #{$network-header-height + $header-height-desktop});
+        margin-top: $network-header-height + $header-height-desktop;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch; // Must come after overflow-y
+        transition: margin-top $transition-duration, height $transition-duration;
     }
 
     &__items {

@@ -3,6 +3,7 @@ import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import breakpoints from '../../breakpoints';
 import cloneDeep from 'lodash/lang/cloneDeep';
 import isEqual from 'lodash/lang/isEqual';
+import isFunction from 'lodash/lang/isFunction';
 import each from 'lodash/collection/each';
 import find from 'lodash/collection/find';
 
@@ -31,18 +32,33 @@ function resizeUnsubscribe(fn) {
 export default (SubComponent, config) => class extends Component {
     constructor(props) {
         super(props);
+        this.digestConfig(props);
+    }
 
-        this.config = cloneDeep(config);
+    digestConfig(props) {
+        if (!canUseDOM) {
+            this.state = { pinned: false };
+            return;
+        }
+
+        if (isFunction(config)) {
+            this.config = cloneDeep(config(props));
+        } else if (!this.config) {
+            this.config = cloneDeep(config);
+        } else {
+            return;
+        }
+
         each(this.config, (value, key) => {
             value.viewportRangeMin = parseInt(breakpoints[`${key}RangeMin`], 10);
             value.viewportRangeMax = parseInt(breakpoints[`${key}RangeMax`], 10);
         });
 
-        if (canUseDOM) {
-            this.updateViewportSize();
-        } else {
-            this.state = { pinned: false };
-        }
+        this.updateViewportSize();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.digestConfig(nextProps);
     }
 
     componentDidMount() {

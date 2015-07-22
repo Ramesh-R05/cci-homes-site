@@ -28,13 +28,10 @@ $header-nav-link-padding: 30px;
         @include type-header;
         padding: 0 $header-nav-link-padding;
         position: relative;
+        display: none;
 
-        &:first-child {
-            padding-left: 0;
-
-            @media #{$xlarge-up} {
-                transition: padding-left $transition-duration;
-            }
+        @media #{$large-up} {
+            display: inline-block;
         }
 
         &:active,
@@ -58,33 +55,19 @@ $header-nav-link-padding: 30px;
     }
 }
 
-.header:not(.header--pinned) .header-nav {
+.header.header--expanded:not(.header--pinned) .header-nav {
     @media #{$medium-up} {
         nav {
             margin-left: 50%;
             transform: translate(-50%, 0);
         }
 
-        a:first-child {
-            padding-left: $header-nav-link-padding;
+        a {
+            display: inline-block;
         }
     }
 
     a:first-child:before {
         opacity: 0;
-    }
-}
-
-.header--pinned .header-nav {
-    a:first-child {
-        padding-left: $header-nav-link-padding;
-    }
-
-    a {
-        display: none;
-
-        @media #{$large-up} {
-            display: inline-block;
-        }
     }
 }

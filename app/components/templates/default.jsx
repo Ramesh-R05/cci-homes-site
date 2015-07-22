@@ -35,10 +35,10 @@ class DefaultTemplate extends Component {
         const page = this.getPageMetadata();
         if (!page) return null;
 
-        const {Handler, hideNetworkHeader, hideHeader} = page;
+        const {Handler, hideNetworkHeader, hideHeader, isExpanded} = page;
         const menuSliderClassName = cx({
             'side-menu-slider': true,
-            'side-menu-slider--open': this.props.isSideMenuOpen
+            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
         return (
@@ -46,11 +46,21 @@ class DefaultTemplate extends Component {
                 <div className={cx('global-header-slider', menuSliderClassName)}>
                     {hideNetworkHeader ? null : <NetworkHeader/>}
                 </div>
-                {hideHeader ? null : <Header isSideMenuOpen={this.props.isSideMenuOpen} navItems={this.props.navItems}/>}
-                <SideMenu open={this.props.isSideMenuOpen} navItems={this.props.navItems}/>
-                <div className={menuSliderClassName}>
-                    <Handler content={this.props.content}/>
-                </div>
+                {hideHeader ? null :
+                    <Header
+                        isExpanded={isExpanded}
+                        isSideMenuOpen={this.props.isSideMenuOpen}
+                        navItems={this.props.navItems}
+                    />
+                }
+                <SideMenu
+                    open={this.props.isSideMenuOpen}
+                    navItems={this.props.navItems}
+                />
+                <Handler
+                    content={this.props.content}
+                    isSideMenuOpen={this.props.isSideMenuOpen}
+                />
             </div>
         );
     }
@@ -58,15 +68,14 @@ class DefaultTemplate extends Component {
     getPageMetadata() {
         switch (this.props.content.nodeType) {
             case 'Homepage': return {
-                Handler: require('../home/home')
+                Handler: require('../home/home'),
+                isExpanded: true
             };
             case 'HomesArticle': return {
-                Handler: require('../article/section'),
-                hideHeader: true
+                Handler: require('../article/section')
             };
             case 'NavigationSection': return {
-                Handler: require('../section/section'),
-                hideHeader: true
+                Handler: require('../section/section')
             };
             case 'Gallery': return {
                 Handler: require('../gallery/gallery'),

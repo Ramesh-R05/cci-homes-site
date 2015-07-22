@@ -1,4 +1,17 @@
 
+.header-wrapper {
+    margin-bottom: $header-height;
+
+    @media #{$medium-up} {
+        margin-bottom: $header-height-desktop;
+
+        &.header-wrapper--expanded {
+            margin-bottom: $header-height-desktop + $header-banner-logo-height;
+        }
+    }
+
+}
+
 .header {
     background: $color-white;
     border-bottom: 1px solid $line-color;
