@@ -51,7 +51,7 @@
     &__title {
         @include content-expanded-width();
         @include type-article-title();
-        margin-top: -1px;
+        margin-top: 15px;
 
         @media #{$medium-up} {
             margin: {
@@ -85,6 +85,14 @@
 
         @media #{$medium-up} {
             margin-bottom: 30px;
+        }
+
+        figcaption {
+            display: none;
+
+            @media #{$medium-up} {
+                display: block;
+            }
         }
     }
 

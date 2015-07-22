@@ -81,7 +81,6 @@ class DefaultTemplate extends Component {
 }
 
 export default connectToStores(DefaultTemplate, [EntityStore, MenuStore], (stores) => {
-    console.log(stores.MenuStore.getNavItems);
     return {
         content: stores.EntityStore.getContent(),
         isSideMenuOpen: stores.MenuStore.isSideMenuOpen(),
