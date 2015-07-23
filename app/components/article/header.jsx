@@ -36,7 +36,7 @@ export default class Header extends Component {
         let getSocial;
 
         if (config.isFeatureEnabled('socialShareBlock') === true) {
-            const siteUrl = config.get('site.host');
+            const siteUrl = `http://${config.get('site.host')}`;
 
             getSocial = (
                 <SocialShareBlock

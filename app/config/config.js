@@ -40,7 +40,7 @@ export default {
     },
 
     site: {
-        host: 'http://dev.homes-site.wn.bauer-media.net.au',
+        host: 'dev.homes-site.wn.bauer-media.net.au',
         name: 'HOMES TO LOVE',
         prefix: 'HOMES',
         network: 'wn'

@@ -3,6 +3,6 @@ export default {
         port: 8080
     },
     site: {
-        host: 'http://localhost:8080'
+        host: 'localhost:8080'
     }
 };

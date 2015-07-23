@@ -19,6 +19,6 @@ export default {
         }
     },
     site: {
-        host: 'http://homestolove.com.au'
+        host: 'homestolove.com.au'
     }
 };

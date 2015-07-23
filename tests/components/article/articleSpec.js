@@ -12,12 +12,14 @@ const NativeAdStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const ContentBody = Context.createStubComponent();
+const SchemaArticleStub = Context.createStubComponentWithChildren();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 const Article = proxyquire('../../../app/components/article/article', {
     'react': React,
     'react/addons': React,
     './header': HeaderStub,
     './footer': FooterStub,
+    '@bxm/article/lib/components/schema/article': SchemaArticleStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
@@ -25,6 +27,8 @@ const Article = proxyquire('../../../app/components/article/article', {
 });
 
 describe(`Article Component`, () => {
+    const imageUrl = 'http://www.imageUrl.com/image.jpg';
+    const dateIndexed = 'today';
     const articleClassName = `article`;
     const title = articleMock.title;
     const contentBody = articleMock.body;
@@ -54,10 +58,11 @@ describe(`Article Component`, () => {
         let headerSub;
         let contentBodySub;
         let footerSub;
+        let schemaArticleStub;
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
-                className, contentBody, authorProfiles, heroItem, source, summary, tags, title
+                authorProfiles, className, contentBody, dateIndexed, imageUrl, heroItem, source, summary, tags, title
             });
 
             const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -67,6 +72,7 @@ describe(`Article Component`, () => {
             headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             contentBodySub = TestUtils.findRenderedComponentWithType(reactModule, ContentBody);
             footerSub = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
+            schemaArticleStub = TestUtils.findRenderedComponentWithType(reactModule, SchemaArticleStub);
         });
 
 
@@ -97,6 +103,7 @@ describe(`Article Component`, () => {
             expect(headerSub).to.exist;
             expect(contentBodySub).to.exist;
             expect(footerSub).to.exist;
+            expect(schemaArticleStub).to.exist;
         });
 
         describe(`Top ad sub-component`, () => {
@@ -164,6 +171,21 @@ describe(`Article Component`, () => {
             it(`should have displayFor array`, () => {
                 expect(nativeAdSub.props.displayFor).to.eql(displayFor);
             });
+        });
+
+        describe(`SchemaArticle sub-component`, () => {
+            it(`should have image "${imageUrl}"`, () => {
+                expect(schemaArticleStub.props.image).to.eq(imageUrl);
+            });
+
+            it(`should have datePublished "${dateIndexed}"`, () => {
+                expect(schemaArticleStub.props.datePublished).to.eq(dateIndexed);
+            });
+
+            it(`should have publisher "${source}"`, () => {
+                expect(schemaArticleStub.props.publisher).to.eq(source);
+            });
+
         });
 
         describe(`Header sub-component`, () => {
