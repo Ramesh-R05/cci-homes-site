@@ -137,7 +137,20 @@ class Section extends Component {
                 <div className="row">
                     <GroupRepeatable articles={slice(articles, 11)} />
                 </div>
+                {/* LoadMore btn*/}
                 <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading} />
+                {/* Bottom ad */}
+                <div className="columns small-12">
+                    <Ad
+                        className="ad--section-bottom-leaderboard"
+                        sizes={{
+                            small: 'banner',
+                            leaderboard: 'leaderboard',
+                            billboard: ['billboard', 'leaderboard']
+                        }}
+                        targets={{position: 3}}
+                    />
+                </div>
             </div>
         );
     }
