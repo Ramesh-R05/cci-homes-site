@@ -4,11 +4,7 @@
 
     $ipad-only: "#{$screen} and (min-width:1024px) and (max-width:1024px)" !default;
 
-    box-shadow: 0 1px rgba(0, 0, 0, 0.06),
-                0 2px rgba(0, 0, 0, 0.04),
-                0 3px rgba(0, 0, 0, 0.02),
-                0 4px rgba(0, 0, 0, 0.01),
-                0 5px rgba(0, 0, 0, 0);
+    border-bottom: 1px solid $line-color;
     height: $header-height;
     padding: 0;
     z-index: 1;
