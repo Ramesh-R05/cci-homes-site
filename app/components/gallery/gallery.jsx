@@ -4,7 +4,6 @@ var GalleryPageStore = require('../../stores/gallery');
 var GalleryHeader = require('./header');
 var GalleryMain = require('./main');
 var GalleryAside = require('./aside');
-var SocialShareBlock = require('@bxm/ui/lib/social/components/SocialShareBlock');
 var GalleryPageActionCreators = require('../../actions/gallery');
 var getKeywordsFromTags = require('@bxm/ad/lib/utils/tagsUtils').getKeywordsFromTags;
 
@@ -142,17 +141,6 @@ var Gallery = React.createClass({
                         keyword={keyword}
                     />
                 </section>
-
-                <SocialShareBlock
-                    className="social_share_container--gallery hide-for-large-up"
-                    url={gallery.siteUrl + gallery.url}
-                    title={shareTitle}
-                    emailSubject={'HomesToLove: ' + shareTitle}
-                    tweetBody={"HomesToLove: " +  shareTitle + " {shortURL}"}
-                    description={shareDescription}
-                    imageUrl={gallery.imageUrl}
-                    nodeId={gallery.id}
-                />
 
             </section>
         );

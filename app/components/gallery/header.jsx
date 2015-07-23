@@ -2,7 +2,6 @@
 var React = require('react/addons');
 var ReactPropTypes = React.PropTypes;
 var GalleryCounter = require('./counter');
-var SocialShareBlock = require('@bxm/ui/lib/social/components/SocialShareBlock');
 var GalleryHeader = React.createClass({
 
     propTypes: {
@@ -35,16 +34,6 @@ var GalleryHeader = React.createClass({
 
                     <GalleryCounter {...this.props} />
 
-                    <SocialShareBlock
-                        className="social_share_container--gallery show-for-large-up"
-                        url={gallery.siteUrl + gallery.url}
-                        title={shareTitle}
-                        emailSubject={'HomesToLove: ' + shareTitle}
-                        tweetBody={"HomesToLove: " +  shareTitle + " {shortURL}"}
-                        description={shareDescription}
-                        imageUrl={gallery.imageUrl}
-                        nodeId={gallery.id}
-                    />
                 </div>
             </header>
         );
