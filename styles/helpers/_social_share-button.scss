@@ -180,6 +180,7 @@
     &.email {
 
         display: inline-block;
+        font-size: 0;
         vertical-align: middle;
         text-align: center;
         @media #{$large-up} {
