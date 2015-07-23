@@ -7,8 +7,7 @@ var testData = require('../../mock/gallery');
 var proxyquire = require('proxyquire');
 
 var GalleryDetailCounter = proxyquire('../../../app/components/gallery/counter', {
-    "react": Context.React,
-    '@bxm/ui/lib/social/components/SocialShareBlock': Context.createStubComponent()
+    "react": Context.React
 });
 
 describe('GalleryCounter', function() {
