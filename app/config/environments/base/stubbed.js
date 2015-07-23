@@ -11,7 +11,7 @@ export default {
         facetedModule: {
             remote: 'http://127.0.0.1:3000',
             local: 'http://127.0.0.1',
-            path: '/api/content/faceted'
+            path: '/api/content'
         },
         header: {
             url: 'http://127.0.0.1:4000/stub/header'

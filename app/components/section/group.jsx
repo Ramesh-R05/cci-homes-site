@@ -25,12 +25,15 @@ export default class Group extends Component {
 
         const classNames = classnames(`section--${modifier}`, className);
 
+        let subsection;
+        if (this.props.children) {
+            subsection = <div className="section__children">{this.props.children}</div>;
+        }
+
         return (
             <section className={classNames}>
                 {articles.map(item => <Teaser {...item} key={item.id} modifier={teaserModifier} />)}
-                <div className="section__children">
-                    {this.props.children}
-                </div>
+                {subsection}
             </section>
         );
     }
