@@ -106,6 +106,7 @@
                 @include grid-column(6);
             }
 
+            &:nth-of-type(6),
             &:nth-last-of-type(3) {
                 clear: both;
             }
@@ -187,6 +188,9 @@
     }
 
     .ad--section-mrec {
+        @media #{$medium-only} {
+            clear: both;
+        }
         @media #{$medium-up} {
             @include grid-column(6);
         }
@@ -334,6 +338,12 @@
                 padding-left: $column-gutter / 2;
                 padding-right: $column-gutter / 4;
             }
+
+            &:nth-of-type(3),
+            &:nth-of-type(5),
+            &:nth-of-type(10) {
+                clear: both;
+            }
         }
 
         @media #{$medium-only} {
@@ -359,7 +369,8 @@
             }
 
             &:nth-of-type(3),
-            &:nth-of-type(6) {
+            &:nth-of-type(6),
+            &:nth-of-type(10) {
                 clear: both;
             }
 
@@ -384,6 +395,13 @@
             &--img-top {
                 @include grid-column(6);
             }
+
+            &:nth-of-type(3),
+            &:nth-of-type(5),
+            &:nth-of-type(10) {
+                clear: both;
+
+            }
         }
 
         @media #{$large-up} {
@@ -406,6 +424,7 @@
                 @include grid-column(4);
             }
 
+            &:nth-of-type(4),
             &:nth-of-type(9) {
                 clear: both;
             }

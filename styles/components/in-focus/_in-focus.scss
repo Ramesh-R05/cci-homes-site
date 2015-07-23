@@ -21,6 +21,12 @@
     .teaser {
         @include grid-column(12);
 
+        @media #{$medium-only} {
+            &:nth-of-type(3) {
+                clear: both;
+            }
+        }
+
         @media #{$medium-up} {
             @include grid-column(6);
         }
