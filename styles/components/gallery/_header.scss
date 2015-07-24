@@ -99,6 +99,7 @@
         color: $color-grey-darker;
         line-height: 65px;
         padding-right: 15px;
+        white-space: nowrap; // fixes issue with font, sometimes wrapping text on newline
     }
 
     .gallery__exit {
