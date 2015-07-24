@@ -8,10 +8,6 @@ $gallery-footer-minor-bp-2: 1500px;
     padding: 0;
     font-size: 14px;
 
-    @media #{$xlarge-only} {
-        padding-top: 18px;
-    }
-
     p {
         color: $color-grey-dark;
         font-size: 14px;
