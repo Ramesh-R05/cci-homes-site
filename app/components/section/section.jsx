@@ -13,6 +13,8 @@ import GroupRepeatable from './groupRepeatable';
 import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import LoadMore from '../loadMore/loadMore';
+import {load} from '@bxm/config';
+const config = load();
 
 class Section extends Component {
 
@@ -43,6 +45,20 @@ class Section extends Component {
 
     constructor(props, context) {
         super(props, context);
+        this.nbLoadMoreClicks = 0;
+    }
+
+    getGroupRepeatableItemLength() {
+        const nbFirstPageItems = config.pagination.nbFirstPageItems;
+        const nbLoadMoreItems = config.pagination.nbLoadMoreItems;
+
+        if ((this.props.currentPage + 1) === this.props.paging.pages) {
+            return this.props.articles.length;
+        }
+        if ( this.nbLoadMoreClicks === 0) {
+            return this.props.articles.length;
+        }
+        return nbFirstPageItems + nbLoadMoreItems * this.nbLoadMoreClicks;
     }
 
     getAsyncData() {
@@ -67,14 +83,20 @@ class Section extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.currentPage !== this.props.currentPage) {
+            this.nbLoadMoreClicks++;
             this.getAsyncData();
         }
     }
 
     render() {
         const {articles} = this.props;
+        let loadMoreBtn;
 
         if (!articles.length) return null;
+
+        if (config.isFeatureEnabled('loadMoreBtn') === true) {
+            loadMoreBtn = <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading}/>;
+        }
 
         return (
             <div className="container section-landing">
@@ -135,10 +157,10 @@ class Section extends Component {
                 </div>
                 {/* Group repeated when paginating */}
                 <div className="row">
-                    <GroupRepeatable articles={slice(articles, 11)} />
+                    <GroupRepeatable articles={slice(articles, 11, this.getGroupRepeatableItemLength())} />
                 </div>
                 {/* LoadMore btn*/}
-                <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading} />
+                {loadMoreBtn}
                 {/* Bottom ad */}
                 <div className="columns small-12">
                     <Ad
