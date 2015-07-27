@@ -55,7 +55,7 @@ Context.addStore('EntityStore', {
     }
 });
 
-describe.only(`Section`, () => {
+describe(`Section`, () => {
     const sectionClassName = 'container';
     let reactModule;
     let section;
@@ -79,7 +79,6 @@ describe.only(`Section`, () => {
         groupRepeatable = TestUtils.findRenderedComponentWithType(reactModule, GroupRepeatableStub);
         ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
-
     });
 
     it(`should render the Section component on the page`, () => {
@@ -164,7 +163,7 @@ describe.only(`Section`, () => {
     });
 
     describe(`Numer of AdStubs`, () => {
-        const numberOfAds = 3;
+        const numberOfAds = 4;
         it(`should have ${numberOfAds} AdStubs`, () => {
             expect(ads.length).to.eq(numberOfAds);
         });
@@ -219,4 +218,27 @@ describe.only(`Section`, () => {
             expect(ads[2].props.displayFor).to.deep.equal(expectedDisplayFor);
         });
     });
+
+    describe(`Bottom banner/leaderboard/billboard ad before the Network section`, () => {
+        const expectedClassname = 'ad--section-bottom-leaderboard';
+        it(`should have the classname prop equal to ${expectedClassname}`, () => {
+            expect(ads[3].props.className).to.equal(expectedClassname);
+        });
+
+        const expectedSizes = {
+            small: 'banner',
+            leaderboard: 'leaderboard',
+            billboard: ['billboard', 'leaderboard']
+        };
+        it(`should have the sizes prop equal to ${expectedSizes}`, () => {
+            expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
+        });
+
+        const targets = {position: 3};
+        it(`should have the targets props equal to ${targets}`, () => {
+            expect(ads[3].props.targets).to.deep.equal(targets);
+        });
+    });
+
+
 });
