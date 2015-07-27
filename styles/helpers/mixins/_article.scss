@@ -49,7 +49,7 @@ $color-gallery-caption: #000;
     figcaption {
         @include content-body-width();
         @include type-teaser-summary();
-        background-color: rgba($color-gallery-caption, .85);
+        background-color: rgba($color-gallery-caption, .75);
         color: $color-grey-light;
         padding: $column-gutter/2;
         text-align: left;
