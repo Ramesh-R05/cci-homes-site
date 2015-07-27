@@ -1,5 +1,3 @@
-require 'i18n'
-
 Given(/^I am viewing the generic gallery page$/) do
   visit '/sandbox/2015/07/kev-test-gallery'
 end
@@ -80,4 +78,8 @@ Then(/^I should see "(.*?)" as the image count of the next gallery$/) do |image_
   actual_image_count = find('.gallery__next-number-of-pic').text
 
   expect(actual_image_count).to eq(image_count)
+end
+
+Given(/^I am viewing a gallery$/) do
+  visit '/section/gallery'
 end

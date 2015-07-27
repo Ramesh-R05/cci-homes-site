@@ -206,7 +206,7 @@ module.exports =
     ],
     "title": "Article Long Title",
     "summaryTitle": "Article Short Title",
-    "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+    "summary": "Article Short Teaser",
     "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1259/chinamans3.jpg",
     "redirect": {
       "mode": 2
@@ -421,7 +421,7 @@ module.exports =
     "appId": "GTM-WJRM8R",
     "title": "Article Long Title",
     "pageName": "Article - Hero Image",
-    "pageDescription": "Article Long Title, Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+    "pageDescription": "Article Long Title, Article Short Teaser",
     "faceBookAdmins": "100002740190640",
     "breadcrumbs": [
       {
@@ -550,7 +550,7 @@ module.exports =
         "author": [],
         "title": "Article Long Title",
         "summaryTitle": "Article Short Title",
-        "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+        "summary": "Article Short Teaser",
         "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
         "redirect": {
           "mode": 2
