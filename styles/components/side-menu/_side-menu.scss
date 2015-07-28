@@ -94,13 +94,5 @@
 }
 
 .side-menu-slider {
-    transition: transform $transition-duration;
-
-    &--open {
-        transform: translate3d($side-menu-width, 0, 0);
-
-        @media #{$medium-up} {
-            transform: translate3d($side-menu-width-big, 0, 0);
-        }
-    }
+    @include side-menu-slider;
 }

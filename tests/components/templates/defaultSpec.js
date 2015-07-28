@@ -97,30 +97,35 @@ describe('Default Component template', () => {
             'Homepage': {
                 component: HomepageStub,
                 hideNetworkHeader: false,
-                hideHeader: false
+                hideHeader: false,
+                isExpanded: true
             },
             'HomesArticle': {
                 component: HomesArticleStub,
                 hideNetworkHeader: false,
-                hideHeader: true
+                hideHeader: false,
+                isExpanded: false
             },
             'NavigationSection': {
                 component: SectionStub,
                 hideNetworkHeader: false,
-                hideHeader: true
+                hideHeader: false,
+                isExpanded: false
             },
             'Gallery': {
                 component: GalleryStub,
                 hideNetworkHeader: true,
-                hideHeader: true
+                hideHeader: true,
+                isExpanded: false
             }
         }, (metadata, nodeType) => {
-            const {component, hideNetworkHeader, hideHeader} = metadata;
+            const {component, hideNetworkHeader, hideHeader, isExpanded} = metadata;
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
                     content = { nodeType };
                     reactModule = Context.mountComponent(Default);
+                    header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub)[0];
                 });
 
                 it('returns the correct handler', () => {
@@ -134,9 +139,22 @@ describe('Default Component template', () => {
                 });
 
                 it(`${hideHeader ? 'hides' : 'shows'} the header`, () => {
-                    header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub);
-                    expect(header).to.have.length(hideHeader ? 0 : 1);
+                    if (hideHeader) {
+                        expect(React.findDOMNode(header)).not.to.exist;
+                    } else {
+                        expect(React.findDOMNode(header)).to.exist;
+                    }
                 });
+
+                if (!hideHeader) {
+                    it(`shows ${isExpanded ? 'an expanded' : 'a regular'} header`, () => {
+                        if (isExpanded) {
+                            expect(header.props.isExpanded).to.be.true;
+                        } else {
+                            expect(header.props.isExpanded).not.to.be.true;
+                        }
+                    });
+                }
             });
         });
     });

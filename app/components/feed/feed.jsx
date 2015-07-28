@@ -1,19 +1,28 @@
 import React, {Component, PropTypes} from 'react';
+import classnames from 'classnames';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
 import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
+import pin from '../helpers/pin';
 import FeedItem from './feedItem';
 import FeedAd from './feedAd';
 
 const firstAdIndex = 2;
 const adSpacing = 12;
 
-export default class Feed extends Component {
+class Feed extends Component {
 
     static propTypes = {
         items: PropTypes.array.isRequired,
         articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
         pageId: PropTypes.string.isRequired,
-        source: PropTypes.string.isRequired
+        source: PropTypes.string.isRequired,
+        pinned: PropTypes.bool,
+        isSideMenuOpen: PropTypes.bool
+    };
+
+    static defaultProps = {
+        pinned: false,
+        isSideMenuOpen: false
     };
 
     static contextTypes = {
@@ -57,8 +66,14 @@ export default class Feed extends Component {
     }
 
     render() {
+        const className = classnames({
+            'feed': true,
+            'feed--pinned': this.props.pinned,
+            'feed--side-menu-open': this.props.isSideMenuOpen
+        });
+
         return (
-            <aside className="feed">
+            <aside className={className}>
                 <div className="feed__container">
                     <ul className="feed__items">
                         {this.getFeedItems()}
@@ -69,3 +84,10 @@ export default class Feed extends Component {
     }
 
 }
+
+export default pin(Feed, {
+    small: { pinPoint: 51 },
+    medium: { pinPoint: 51 },
+    large: { pinPoint: 51 },
+    xlarge: { pinPoint: 51 }
+});

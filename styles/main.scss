@@ -19,6 +19,7 @@
 
 // Helpers - Mixins
 @import 'helpers/mixins/article';
+@import 'helpers/mixins/side-menu-slider';
 
 // Page
 @import 'page/page';
@@ -49,7 +50,6 @@
 @import 'components/header/header-menu';
 @import 'components/header/header-logo';
 @import 'components/header/header-nav';
-@import 'components/section/home';
 @import 'components/section/sections';
 @import 'components/gallery/gallery';
 @import 'components/gallery/gallery-native';

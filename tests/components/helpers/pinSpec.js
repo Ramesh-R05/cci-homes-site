@@ -76,6 +76,47 @@ describe(`Pin Helper`, () => {
         });
     });
 
+    describe('initialise with config function', () => {
+        let testModule;
+
+        function configFn(props) {
+            return props.isExpanded ? {
+                small: { pinPoint: 100, pinOffset: -10 }
+            } : {
+                small: { pinPoint: 50, pinOffset: 0 }
+            };
+        }
+
+        class TestableComponent extends Component {
+            constructor(props) {
+                super(props);
+                this.state = { props };
+            }
+
+            render() {
+                return <PinnedComponent {...this.state.props}/>;
+            }
+        }
+
+        before(() => {
+            environmentMock.canUseDOM = true;
+            resizeTo(420);
+            scrollTo(50);
+            PinnedComponent = pin(SubComponent, configFn);
+            testModule = Context.mountComponent(TestableComponent, { isExpanded: false });
+            subComponent = TestUtils.scryRenderedComponentsWithType(testModule, SubComponent)[0];
+        });
+
+        it('uses the correct config on init', () => {
+            expect(subComponent.props.pinned).to.be.true;
+        });
+
+        it('updates the config when props are updated', () => {
+            testModule.setState({ props: { isExpanded: true }});
+            expect(subComponent.props.pinned).to.be.false;
+        });
+    });
+
     describe('event cleanup', () => {
         let container;
         let setStateSpy;

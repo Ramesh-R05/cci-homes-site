@@ -1,21 +1,35 @@
 .article {
     @include type-article-body();
-    border-left: 1px solid $line-color;
     padding: 0 ($column-gutter/2);
 
     @media #{$medium-up} {
-        padding: 0;
+        // This negative margin / excessive padding makes the article line
+        // divider appear to the top of the page even when the ipad overscrolls
+        margin-top: -100px;
+        padding: 130px 0 0;
     }
 
     @media #{$large-up} {
+        border-left: 1px solid $line-color;
         float: right;
-        padding-top: 30px;
         width: calc(100% - #{$article-feed-container-width});
+    }
+
+    @media #{$large-only} {
+        margin-right: -($column-gutter/2);
     }
 
     img {
         height: auto;
         width: 100%;
+    }
+
+    &-feed-container {
+        padding: 0;
+
+        @media #{$large-up} {
+            padding-left: $column-gutter;
+        }
     }
 
     &__header-tile-and-hero {
@@ -72,10 +86,13 @@
 
         @media #{$medium-up} {
             margin: {
-                bottom: 20px;
                 left: 0;
                 right: 0;
             }
+        }
+
+        @media #{$medium-up} {
+            margin-bottom: 20px;
         }
     }
 

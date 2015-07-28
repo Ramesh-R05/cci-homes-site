@@ -30,13 +30,25 @@ describe(`Header Component`, () => {
     let header;
 
     describe('HOCs', () => {
-        it('specifies the pin points for all screen sizes', () => {
+        it('specifies the pin points with a config function', () => {
             expect(pinStub).to.have.been.calledOnce;
-            expect(pinStub.lastCall.args[1]).to.eql({
+        });
+
+        it('specifies the expanded pin points for all screen sizes', () => {
+            expect(pinStub.lastCall.args[1]({ isExpanded: true })).to.eql({
                 small: { pinPoint: 40 },
                 medium: { pinPoint: 268 },
                 large: { pinPoint: 268 },
                 xlarge: { pinPoint: 268 }
+            });
+        });
+
+        it('specifies the expanded pin points for all screen sizes', () => {
+            expect(pinStub.lastCall.args[1]({ isExpanded: false })).to.eql({
+                small: { pinPoint: 40 },
+                medium: { pinPoint: 51 },
+                large: { pinPoint: 51 },
+                xlarge: { pinPoint: 51 }
             });
         });
     });
@@ -52,6 +64,20 @@ describe(`Header Component`, () => {
 
         it('sets the "header--side-menu-open" class name when pinned', () => {
             expect(header).to.have.className('header--side-menu-open');
+        });
+
+        it('does not set the "header--expanded" class name by default', () => {
+            expect(header).not.to.have.className('header--expanded');
+        });
+    });
+
+    describe('expanded class name', () => {
+        before(() => {
+            renderWithProps({ pinned: true, isExpanded: true, isSideMenuOpen: true, navItems });
+        });
+
+        it('sets the "header--expanded" class name', () => {
+            expect(header).to.have.className('header--expanded');
         });
     });
 

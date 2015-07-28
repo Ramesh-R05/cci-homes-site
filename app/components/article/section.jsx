@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
+import cx from 'classnames';
 import EntityStore from '../../stores/entity';
 import FeedStore from '../../stores/facetedStores/feed';
 import Article from './article';
@@ -14,7 +15,8 @@ class Section extends Component {
         title: PropTypes.string.isRequired,
         nodeType: PropTypes.string,
         feedModuleConfig: PropTypes.any,
-        feedItems: PropTypes.array.isRequired
+        feedItems: PropTypes.array.isRequired,
+        isSideMenuOpen: PropTypes.bool
     };
 
     static contextTypes = {
@@ -23,7 +25,8 @@ class Section extends Component {
     };
 
     static defaultProps = {
-        feedItems: []
+        feedItems: [],
+        isSideMenuOpen: false
     };
 
     constructor(props, context) {
@@ -46,13 +49,18 @@ class Section extends Component {
     }
 
     render() {
-        const {title, content, feedItems} = this.props;
+        const {title, content, feedItems, isSideMenuOpen} = this.props;
         const {id: pageId, articleTags, body, source, summary, url, authorProfiles} = content;
         const heroItem = this.getHero();
 
+        const menuSliderClassName = cx({
+            'side-menu-slider': true,
+            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+        });
+
         return (
             <div>
-                <div className="main-wrapper article-section container row">
+                <div className={`article-section main-wrapper container row ${menuSliderClassName}`}>
                     <Article
                         title={title}
                         heroItem={heroItem}
@@ -64,12 +72,15 @@ class Section extends Component {
                         pageId={pageId}
                         url={url}
                     />
+                </div>
 
+                <div className="article-feed-container container row">
                     <Feed
                         items={feedItems}
                         pageId={pageId}
                         articleTags={articleTags}
                         source={source}
+                        isSideMenuOpen={isSideMenuOpen}
                     />
                 </div>
             </div>

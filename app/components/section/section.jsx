@@ -77,7 +77,7 @@ class Section extends Component {
         if (!articles.length) return null;
 
         return (
-            <div className="container">
+            <div className="container section-landing">
 
                 <div className="row">
                     <Header tags={this.props.navigationTags}>

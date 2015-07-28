@@ -1,4 +1,5 @@
 $header-logo-width-desktop: 287px;
+$logo-container-width-desktop: $header-logo-width-desktop + $column-gutter + 23px;
 
 .header-logo {
     display: inline-block;
@@ -9,7 +10,7 @@ $header-logo-width-desktop: 287px;
 
     @media #{$medium-up} {
         text-align: left;
-        width: $header-logo-width-desktop + $column-gutter;
+        width: $logo-container-width-desktop;
     }
 
     @media #{$xlarge-up} {
@@ -29,19 +30,22 @@ $header-logo-width-desktop: 287px;
             background-image: url('/assets/logo/homes-header-logo-desktop.svg');
             background-size: $header-logo-width-desktop 23px;
             height: 23px;
+            margin-left: 11px;
             width: $header-logo-width-desktop;
         }
     }
 }
 
-.header:not(.header--pinned) .header-logo {
-    @media #{$medium-up} {
-        width: 0;
+.header {
+    &.header--expanded .header-logo {
+        @media #{$medium-up} {
+            width: 0;
+        }
     }
-}
 
-.header--pinned .header-logo {
-    @media #{$medium-up} {
-        width: $header-logo-width-desktop + $column-gutter;
+    &.header--expanded.header--pinned .header-logo {
+        @media #{$medium-up} {
+            width: $logo-container-width-desktop;
+        }
     }
 }
