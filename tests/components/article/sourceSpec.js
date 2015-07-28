@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articleMock from '../../mock/article';
+import each from 'lodash/collection/each';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -12,36 +13,62 @@ const Source = proxyquire('../../../app/components/article/source', {
 });
 
 describe(`Source Component`, () => {
-    const source = articleMock.source;
-    const className = `article__source`;
-    const imgPath = `/images/source/`;
-
     let reactModule;
-
-    afterEach(Context.cleanup);
+    let link;
+    let image;
 
     describe(`when passing all props`, () => {
-        beforeEach(`rendering component`, () => {
-            reactModule = Context.mountComponent(Source, {
-                source
-            });
+        const source = articleMock.source;
+        const className = `article__source`;
+        const imgPath = `/assets/images/source`;
+        const sourceUrl = `http://www.homestolove.com.au/house-and-garden/`;
+
+        before(`rendering component`, () => {
+            reactModule = Context.mountComponent(Source, { source });
+            link = TestUtils.findRenderedDOMComponentWithTag(reactModule, `a`);
+            image = TestUtils.findRenderedDOMComponentWithTag(link, `img`);
         });
 
         it(`should render the component with class "${className}"`, () => {
-            const classNames = React.findDOMNode(reactModule).className;
-            expect(classNames.indexOf(className)).to.be.greaterThan(-1);
+            expect(React.findDOMNode(reactModule)).to.have.className(className);
         });
 
         it(`should render text "Article By" followed by the brand logo`, () => {
-            const image = TestUtils.findRenderedDOMComponentWithTag(reactModule, `img`);
             expect(React.findDOMNode(reactModule).textContent).to.equal(`Article By`);
-            expect(React.findDOMNode(image).src).to.contain(`${imgPath}australian-house-and-garden.svg`);
+        });
 
+        it(`should render the brand logo`, () => {
+            expect(image.props.src).to.eq(`${imgPath}/australian-house-and-garden.svg`);
+        });
+
+        it(`should link the brand logo to URL "${sourceUrl}"`, () => {
+            expect(link.props.href).to.eq(sourceUrl);
+        });
+    });
+
+    describe(`source links`, () => {
+        each({
+            'homes+': 'http://www.homestolove.com.au/homes-plus/',
+            'real living': 'http://www.homestolove.com.au/real-living/',
+            'Belle': 'http://www.homestolove.com.au/belle/',
+            'Australian House and Garden': 'http://www.homestolove.com.au/house-and-garden/'
+        }, (sourceUrl, source) => {
+            it(`should link the ${source} brand logo to "${sourceUrl}"`, () => {
+                reactModule = Context.mountComponent(Source, { source });
+                link = TestUtils.findRenderedDOMComponentWithTag(reactModule, `a`);
+                expect(link.props.href).to.eq(sourceUrl);
+            });
+        });
+
+        it(`should not link the logo if the source is unknown`, () => {
+            reactModule = Context.mountComponent(Source, { source: `Tony Abbott` });
+            link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, `a`)[0];
+            expect(link).not.to.exist;
         });
     });
 
     describe(`when passing no props`, () => {
-        beforeEach(`rendering component`, () => {
+        before(`rendering component`, () => {
             reactModule = Context.mountComponent(Source, {});
         });
 

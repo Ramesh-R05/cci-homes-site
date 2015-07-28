@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import {unescape} from 'lodash/string';
+import * as sourceUtils from '../../utils/sourceUtils';
 
-const IMG_PATH = '/assets/images/source/';
+const IMG_PATH = '/assets/images/source';
 
 export default class Credits extends Component {
 
@@ -9,22 +9,36 @@ export default class Credits extends Component {
         source: PropTypes.string.isRequired
     };
 
+    static sourceToUrlMap = {
+        'homes': 'http://www.homestolove.com.au/homes-plus/',
+        'real-living': 'http://www.homestolove.com.au/real-living/',
+        'belle': 'http://www.homestolove.com.au/belle/',
+        'australian-house-and-garden': 'http://www.homestolove.com.au/house-and-garden/'
+    };
+
     constructor(props, context) {
         super(props, context);
     }
 
     render() {
-        const {source} = this.props;
-
+        const source = this.props.source;
         if (!source) return null;
 
-        const filename = unescape(source).replace(/[^\w\n\r\s]/g, '').replace(/\s+/g, '-').toLocaleLowerCase();
-        const imageUrl = `${IMG_PATH + filename}.svg`;
+        const cleanSource = sourceUtils.normalise(source);
+        const imageUrl = `${IMG_PATH}/${cleanSource}.svg`;
+        const pageUrl = Credits.sourceToUrlMap[cleanSource];
+
+        let logo;
+        if (pageUrl) {
+            logo = <a href={pageUrl}><img src={imageUrl} alt={source}/></a>;
+        } else {
+            logo = <img src={imageUrl} alt={source} />;
+        }
 
         return (
             <div className="article__source">
                 <span>Article By</span>
-                <img src={imageUrl} alt={source} />
+                {logo}
             </div>
         );
     }
