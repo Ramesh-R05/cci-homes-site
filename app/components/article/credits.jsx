@@ -4,6 +4,7 @@ import map from 'lodash/collection/map';
 import pluck from 'lodash/collection/pluck';
 import sortBy from 'lodash/collection/sortBy';
 import get from 'lodash/object/get';
+import * as sourceUtils from '../../utils/sourceUtils';
 const isArray = Array.isArray;
 
 export default class Credits extends Component {
@@ -38,10 +39,7 @@ export default class Credits extends Component {
             [credit.title, authors.length === 1 ? 's' : 'p'],
             credit.title
         );
-        const cleanLabel = credit.title
-            .replace(/[^\w\s]/g, '')
-            .replace(/[\s_]+/g, '-')
-            .toLowerCase();
+        const cleanLabel = sourceUtils.normalise(credit.title);
         const className = `article-credit article-credit--${cleanLabel}`;
 
         return (
