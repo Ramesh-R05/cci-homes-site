@@ -43,7 +43,7 @@ Feature: article detail page
         And I should see 1 "ad--article-native" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot
 
-    @DHO-195
+    @DHO-195 @desktop
     Scenario: Check all ad slots are visible on the left-hand rail
         When I am viewing an article
         # Assume ads start at the 3rd slot

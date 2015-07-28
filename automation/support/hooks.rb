@@ -18,6 +18,14 @@ Before('@mobile') do
   end
 end
 
+Before('@desktop') do
+  if Capybara.current_driver == Capybara.default_driver
+    page.driver.resize(1200, 800)
+  else
+    page.driver.browser.manage.window.resize_to(1200, 800)
+  end
+end
+
 Before('@tablet-landscape') do
   if Capybara.current_driver == Capybara.default_driver
     page.driver.resize(1024, 768)
