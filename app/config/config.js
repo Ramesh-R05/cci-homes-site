@@ -25,6 +25,9 @@ export default {
         },
         loadMoreBtn: {
             enabled: true
+        },
+        recommendations: {
+            enabled: true
         }
     },
 

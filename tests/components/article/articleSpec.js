@@ -12,6 +12,7 @@ const NativeAdStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const ContentBody = Context.createStubComponent();
+const RecommendationsStub = Context.createStubComponent();
 const SchemaArticleStub = Context.createStubComponentWithChildren();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 const Article = proxyquire('../../../app/components/article/article', {
@@ -19,6 +20,7 @@ const Article = proxyquire('../../../app/components/article/article', {
     'react/addons': React,
     './header': HeaderStub,
     './footer': FooterStub,
+    '../recommendations/recommendations': RecommendationsStub,
     '@bxm/article/lib/components/schema/article': SchemaArticleStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
@@ -59,6 +61,7 @@ describe(`Article Component`, () => {
         let contentBodySub;
         let footerSub;
         let schemaArticleStub;
+        let recommendationsStub;
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
@@ -73,6 +76,7 @@ describe(`Article Component`, () => {
             contentBodySub = TestUtils.findRenderedComponentWithType(reactModule, ContentBody);
             footerSub = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
             schemaArticleStub = TestUtils.findRenderedComponentWithType(reactModule, SchemaArticleStub);
+            recommendationsStub = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
         });
 
 
@@ -104,6 +108,7 @@ describe(`Article Component`, () => {
             expect(contentBodySub).to.exist;
             expect(footerSub).to.exist;
             expect(schemaArticleStub).to.exist;
+            expect(recommendationsStub).to.exist;
         });
 
         describe(`Top ad sub-component`, () => {

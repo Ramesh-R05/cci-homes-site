@@ -1,0 +1,145 @@
+.dacrm-recommendations {
+    @include grid-row();
+    @include teaser-icon-centered-small();
+
+    margin: 60px auto 0;
+
+    @media #{$medium-up} {
+        @include teaser-tag-over-img();
+        margin: 80px auto 0;
+        width: $content-expanded-medium-width;
+    }
+
+    @media #{$large-up} {
+        width: $content-body-large-width;
+    }
+
+    @media #{$xlarge-up} {
+        margin: 100px auto 0;
+        width: $content-expanded-xlarge-width + $column-gutter;
+    }
+
+    h2 {
+        margin-bottom: -15px;
+        text-align: center;
+
+        @media #{$medium-up} {
+            margin-bottom: -5px;
+        }
+    }
+
+    .dacrm-recommendations__heading {
+        @include type-composite;
+        @include type-underlined;
+        display: inline-block;
+
+        @media #{$small-only} {
+            b {
+                display: block;
+                line-height: 1;
+            }
+
+            &:after {
+                width: 250px;
+            }
+        }
+
+        &:after {
+            padding: 0 30px;
+        }
+    }
+
+    .teaser {
+        margin-bottom: 0;
+
+        @media #{$small-only} {
+            @include grid-column($columns:6, $collapse: true);
+
+            &:nth-child(1),
+            &:nth-child(3),
+            &:nth-child(6),
+            &:nth-child(8),
+            &:nth-child(11) {
+                clear: both;
+                padding-right: $column-gutter/4;
+            }
+
+            &:nth-child(2),
+            &:nth-child(4),
+            &:nth-child(7),
+            &:nth-child(9),
+            &:nth-child(13) {
+                padding-left: $column-gutter/4;
+            }
+        }
+
+        @media #{$medium-only} {
+            @include grid-column($columns:6);
+
+            &:nth-child(-2n+11) {
+                clear: both;
+            }
+        }
+
+        @media #{$large-only} {
+            @include grid-column($columns:6);
+
+            &:nth-child(1),
+            &:nth-child(3),
+            &:nth-child(6),
+            &:nth-child(8),
+            &:nth-child(11) {
+                clear: both;
+            }
+        }
+
+        @media #{$xlarge-up} {
+            @include grid-column(4);
+
+            &:nth-child(-3n+7),
+            &:nth-child(11) {
+                clear: both;
+            }
+        }
+
+        &.ad {
+            @include grid-column($collapse:true);
+            margin-bottom: 30px;
+
+            @media #{$small-only} {
+                @include grid-column($columns:12, $collapse: true);
+                margin-left: -5px;
+            }
+
+            @media #{$large-only} {
+                @include grid-column($columns:12);
+            }
+        }
+    }
+
+    .teaser__content {
+        @media #{$small-only} {
+            padding: 10px 0 30px;
+            text-align: left;
+        }
+
+        @media #{$medium-up} {
+            margin-bottom: 5px;
+        }
+    }
+
+    // this will be used for Network recommendations on DACRMs end - ie. not available in data yet
+    .teaser__tags--external {
+        &:after {
+            background: url('/assets/svgs/up.svg') no-repeat right bottom/7px;
+            content: '';
+            display: inline-block;
+            height: 7px;
+            width: 13px;
+        }
+
+        span {
+            color: $color-primary;
+        }
+    }
+}
