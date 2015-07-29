@@ -50,7 +50,7 @@ export default class GroupRepeatable extends Component {
                 {groups.map((groupArticles, index) => {
                     return (
                         <div>
-                            {index % 2 === 0 ? this.displayAd() : null}
+                            {this.displayAd()}
 
                             <section key={index} className="section--9-items">
 

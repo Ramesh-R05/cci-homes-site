@@ -22,7 +22,15 @@ export default {
     features: {
         socialShareBlock: {
             enabled: true
+        },
+        loadMoreBtn: {
+            enabled: true
         }
+    },
+
+    pagination: {
+        nbFirstPageItems: 20,
+        nbLoadMoreItems: 18
     },
 
     global: {

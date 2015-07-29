@@ -13,7 +13,7 @@ Feature: Homes section Landing
     Then I should see 38 teasers
     And I should see a 'Load More' button
     When I click on the 'Load More' button
-    Then I should see 39 teasers
+    Then I should see 41 teasers
     And I should not see a 'Load More' button
 
   Scenario: Load More From Page 1
