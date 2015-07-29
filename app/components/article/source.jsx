@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import * as sourceUtils from '../../utils/sourceUtils';
+import has from 'lodash/object/has';
 
-const IMG_PATH = '/assets/images/source';
+const LOGO_PATH = '/assets/images/source';
 
 export default class Credits extends Component {
 
@@ -9,11 +9,23 @@ export default class Credits extends Component {
         source: PropTypes.string.isRequired
     };
 
-    static sourceToUrlMap = {
-        'homes': 'http://www.homestolove.com.au/homes-plus/',
-        'real-living': 'http://www.homestolove.com.au/real-living/',
-        'belle': 'http://www.homestolove.com.au/belle/',
-        'australian-house-and-garden': 'http://www.homestolove.com.au/house-and-garden/'
+    static sourceMetadata = {
+        'homes+': {
+            pageUrl: 'http://www.homestolove.com.au/homes-plus/',
+            logo: 'homes.svg'
+        },
+        'real living': {
+            pageUrl: 'http://www.homestolove.com.au/real-living/',
+            logo: 'real-living.svg'
+        },
+        'Belle': {
+            pageUrl: 'http://www.homestolove.com.au/belle/',
+            logo: 'belle.svg'
+        },
+        'Australian House and Garden': {
+            pageUrl: 'http://www.homestolove.com.au/house-and-garden/',
+            logo: 'australian-house-and-garden.svg'
+        }
     };
 
     constructor(props, context) {
@@ -21,23 +33,18 @@ export default class Credits extends Component {
     }
 
     render() {
-        if (!this.props.source) return null;
-        const cleanSource = sourceUtils.normalise(this.props.source);
-        const imageUrl = `${IMG_PATH}/${cleanSource}.svg`;
-        const pageUrl = Credits.sourceToUrlMap[cleanSource];
-
-        let logo;
-        if (pageUrl) {
-            logo = <a href={pageUrl}><img src={imageUrl} alt={this.props.source}/></a>;
-        } else {
-            logo = <img src={imageUrl} alt={this.props.source} />;
+        if (!this.props.source || !has(Credits.sourceMetadata, this.props.source)) {
+            return null;
         }
-
+        const sourceMeta = Credits.sourceMetadata[this.props.source];
+        const pageUrl = sourceMeta.pageUrl;
+        const imageUrl = `${LOGO_PATH}/${sourceMeta.logo}`;
         return (
             <div className="article__source">
                 <span>Article By</span>
-                <img src={imageUrl} alt={this.props.source} />
-                {logo}
+                <a href={pageUrl}>
+                    <img src={imageUrl} alt={this.props.source}/>
+                </a>
             </div>
         );
     }

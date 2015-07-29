@@ -60,10 +60,9 @@ describe(`Source Component`, () => {
             });
         });
 
-        it(`should not link the logo if the source is unknown`, () => {
+        it(`should not render at all if the source is unknown`, () => {
             reactModule = Context.mountComponent(Source, { source: `Tony Abbott` });
-            link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, `a`)[0];
-            expect(link).not.to.exist;
+            expect(React.findDOMNode(reactModule)).not.to.exist;
         });
     });
 
