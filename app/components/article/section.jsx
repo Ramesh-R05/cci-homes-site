@@ -49,8 +49,7 @@ class Section extends Component {
     }
 
     render() {
-        const {title, content, feedItems, isSideMenuOpen} = this.props;
-        const {id: pageId, articleTags, body, source, summary, url, authorProfiles} = content;
+        const {content} = this.props;
         const heroItem = this.getHero();
 
         const menuSliderClassName = cx({
@@ -62,25 +61,27 @@ class Section extends Component {
             <div>
                 <div className={`article-section main-wrapper container row ${menuSliderClassName}`}>
                     <Article
-                        title={title}
+                        title={this.props.title}
                         heroItem={heroItem}
-                        contentBody={body}
-                        source={source}
-                        summary={summary}
-                        tags={articleTags}
-                        authorProfiles={authorProfiles}
-                        pageId={pageId}
-                        url={url}
+                        contentBody={content.body}
+                        imageUrl={content.imageUrl}
+                        source={content.source}
+                        summary={content.summary}
+                        tags={content.articleTags}
+                        authorProfiles={content.authorProfiles}
+                        pageId={content.id}
+                        dateIndexed={content.dateIndexed}
+                        url={content.url}
                     />
                 </div>
 
                 <div className="article-feed-container container row">
                     <Feed
-                        items={feedItems}
-                        pageId={pageId}
-                        articleTags={articleTags}
-                        source={source}
-                        isSideMenuOpen={isSideMenuOpen}
+                        items={this.props.feedItems}
+                        pageId={content.id}
+                        articleTags={content.articleTags}
+                        source={content.source}
+                        isSideMenuOpen={this.props.isSideMenuOpen}
                     />
                 </div>
             </div>

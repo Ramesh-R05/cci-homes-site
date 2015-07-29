@@ -45,7 +45,7 @@ describe(`Article Header Component`, () => {
         imageCaption: articleMock.imageCaption
     };
     const url = articleMock.url;
-    const hostUrl = 'http://www.testurl.com';
+    const hostUrl = 'www.testurl.com';
     const pageId = articleMock.id;
 
     let reactModule;
@@ -137,7 +137,7 @@ describe(`Article Header Component`, () => {
                 });
 
                 it(`should have url "${fullUrl}"`, () => {
-                    expect(socialShareBlockStub.props).to.have.property('url', fullUrl);
+                    expect(socialShareBlockStub.props).to.have.property('url', 'http://' + fullUrl);
                 });
             });
         });

@@ -7,6 +7,7 @@ import Footer from './footer';
 import Header from './header';
 import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
+import SchemaArticle from '@bxm/article/lib/components/schema/article';
 
 class Article extends Component {
 
@@ -14,7 +15,9 @@ class Article extends Component {
         authorProfiles: PropTypes.array,
         className: PropTypes.string,
         contentBody: PropTypes.array.isRequired,
+        dateIndexed: PropTypes.string.isRequired,
         heroItem: PropTypes.object.isRequired,
+        imageUrl: PropTypes.string.isRequired,
         pageId: PropTypes.string.isRequired,
         source: PropTypes.string,
         summary: PropTypes.string,
@@ -29,8 +32,7 @@ class Article extends Component {
     }
 
     render() {
-        const {pageId, url, className, contentBody, authorProfiles, heroItem, source, summary, tags, title, themeClass} = this.props;
-        const cssClass = classNames(`article`, className, themeClass);
+        const cssClass = classNames(`article`, this.props.className, this.props.themeClass);
         const sizes = {
             small: 'banner',
             banner: 'banner',
@@ -41,40 +43,45 @@ class Article extends Component {
         };
 
         return (
-            <article className={cssClass}>
+            <article className={cssClass} itemScope itemType="http://schema.org/NewsArticle">
+                <SchemaArticle
+                    image={this.props.imageUrl}
+                    publisher={this.props.source}
+                    datePublished={this.props.dateIndexed}
+                />
                 <Ad
                     className="ad--article-top"
                     displayFor={['medium', 'large', 'xlarge']}
                     sizes={sizes}
-                    targets={{brand: source}}
+                    targets={{brand: this.props.source}}
                 />
                 <NativeAd
                     className="ad--article-native"
                     displayFor={['medium', 'large', 'xlarge']}
                 />
                 <Header
-                    pageId={pageId}
-                    url={url}
-                    heroItem={heroItem}
-                    summary={summary}
-                    title={title}
-                    source={source}
+                    pageId={this.props.pageId}
+                    url={this.props.url}
+                    heroItem={this.props.heroItem}
+                    summary={this.props.summary}
+                    title={this.props.title}
+                    source={this.props.source}
                 />
                 <ContentBody
-                    body={contentBody}
+                    body={this.props.contentBody}
                     breakpoints={breakpoints}
                     className="article__body article__body--top-border"
                 />
                 <Footer
-                    authorProfiles={authorProfiles}
-                    source={source}
-                    tags={tags}
+                    authorProfiles={this.props.authorProfiles}
+                    source={this.props.source}
+                    tags={this.props.tags}
                 />
                 <Ad
                     className="ad--article-beneath-recommendations"
                     displayFor={['small', 'medium', 'large', 'xlarge']}
                     sizes={sizes}
-                    targets={{brand: source}}
+                    targets={{brand: this.props.source}}
                 />
             </article>
         );

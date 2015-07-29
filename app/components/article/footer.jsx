@@ -20,12 +20,11 @@ export default class Footer extends Component {
     }
 
     render() {
-        const {source, tags, authorProfiles} = this.props;
         return (
             <footer className="article__footer">
-                <Tags tags={tags}/>
-                <Credits authorProfiles={authorProfiles}/>
-                <Source source={source}/>
+                <Tags tags={this.props.tags}/>
+                <Credits authorProfiles={this.props.authorProfiles}/>
+                <Source source={this.props.source}/>
             </footer>
         );
     }

@@ -23,10 +23,9 @@ export default class Hero extends Component {
     }
 
     renderHeroVideo() {
-        const video = this.props.item.video;
         let brightcoveId = null;
         try {
-            brightcoveId = video.properties.videoConfiguration.brightcoveId;
+            brightcoveId = this.props.item.video.properties.videoConfiguration.brightcoveId;
         } catch (e) {
             console.error('Could not read brightcoveId from video object', e);
             return null;
@@ -35,13 +34,11 @@ export default class Hero extends Component {
     }
 
     renderHeroImage() {
-        const {item} = this.props;
-        const {imageUrl, imageAltText, imageCaption} = item;
         return (
             <HeroImage
-                url={imageUrl}
-                alt={imageAltText}
-                caption={imageCaption}
+                url={this.props.item.imageUrl}
+                alt={this.props.item.imageAltText}
+                caption={this.props.item.imageCaption}
                 breakpoints={breakpoints}
             />
         );

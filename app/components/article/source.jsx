@@ -21,23 +21,22 @@ export default class Credits extends Component {
     }
 
     render() {
-        const source = this.props.source;
-        if (!source) return null;
-
-        const cleanSource = sourceUtils.normalise(source);
+        if (!this.props.source) return null;
+        const cleanSource = sourceUtils.normalise(this.props.source);
         const imageUrl = `${IMG_PATH}/${cleanSource}.svg`;
         const pageUrl = Credits.sourceToUrlMap[cleanSource];
 
         let logo;
         if (pageUrl) {
-            logo = <a href={pageUrl}><img src={imageUrl} alt={source}/></a>;
+            logo = <a href={pageUrl}><img src={imageUrl} alt={this.props.source}/></a>;
         } else {
-            logo = <img src={imageUrl} alt={source} />;
+            logo = <img src={imageUrl} alt={this.props.source} />;
         }
 
         return (
             <div className="article__source">
                 <span>Article By</span>
+                <img src={imageUrl} alt={this.props.source} />
                 {logo}
             </div>
         );
