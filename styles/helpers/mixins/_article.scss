@@ -79,3 +79,23 @@ $color-gallery-caption: #000;
 .caption-over-image {
     @include caption-over-image();
 }
+
+@mixin content-body-lists {
+    ul,
+    ol {
+        padding-bottom: 10px;
+        padding-left: 0;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    ol {
+        margin-left: 25px;
+    }
+
+    li {
+        margin-bottom: $column-gutter/2;
+    }
+}

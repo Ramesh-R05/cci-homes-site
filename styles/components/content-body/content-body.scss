@@ -1,6 +1,7 @@
 @import './gallery-link';
 
 .content-body {
+    @include content-body-lists;
     margin: {
         left: -($column-gutter/2);
         right: -($column-gutter/2);
@@ -51,6 +52,7 @@
     }
 
     &__tips {
+        @include content-body-lists;
         @include content-body-width();
         border: 1px solid $color-primary;
         margin: 40px auto 30px;
@@ -61,14 +63,8 @@
             margin-bottom: 30px;
         }
 
-        ul {
-            margin-left: 20px;
-            padding-left: 0;
-        }
-
-        li,
         p {
-            margin-bottom: 30px;
+            margin-bottom: $column-gutter;
         }
 
         @media #{$medium-only} {
