@@ -81,8 +81,8 @@
     .teaser__tags {
         background: $color-white;
         display: inline-block;
-        margin: -10px 0 7px;
-        padding: 13px 25px 0;
+        margin: -10px 0 10px;
+        padding: 15px 25px 0;
     }
 }
 
@@ -123,7 +123,7 @@
 
     .teaser__tags {
         @media #{$large-up} {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             margin-top: 0;
             padding-top: 0;
         }
@@ -175,7 +175,7 @@
         background: $color-white;
         display: inline-block;
         margin: -50px 0 10px;
-        padding: 13px 25px 0;
+        padding: 15px 25px 0;
     }
 
     .teaser__summary {
@@ -198,9 +198,10 @@
     .teaser__tags {
         background: $color-white;
         display: inline-block;
-        margin: -10px 0 10px;
-        padding: 13px 25px 0;
+        margin: -10px 0 13px;
+        padding: 15px 25px 0;
     }
+
 }
 
 @mixin teaser-narrow {
@@ -320,6 +321,7 @@
 
     &__source {
         @include type-tags;
+        line-height: 2;
 
         .icon-source {
             fill: $color-primary;

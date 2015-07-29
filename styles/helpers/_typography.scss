@@ -192,7 +192,7 @@ a {
 // Tags
 @mixin type-tags($color: $color-grey-dark) {
     color: $color;
-    font: 500 11px/2 $font-family-sans-serif-primary;
+    font: 500 11px/1.5 $font-family-sans-serif-primary;
     letter-spacing: .04em;
     text-transform: uppercase;
 }
