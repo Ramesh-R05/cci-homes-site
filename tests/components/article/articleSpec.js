@@ -15,6 +15,8 @@ const ContentBody = Context.createStubComponent();
 const RecommendationsStub = Context.createStubComponent();
 const SchemaArticleStub = Context.createStubComponentWithChildren();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
+
+const config = { foo: `bar` };
 const Article = proxyquire('../../../app/components/article/article', {
     'react': React,
     'react/addons': React,
@@ -25,7 +27,8 @@ const Article = proxyquire('../../../app/components/article/article', {
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
-    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
+    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub,
+    '@bxm/config': { load: () => config }
 });
 
 describe(`Article Component`, () => {
@@ -218,6 +221,10 @@ describe(`Article Component`, () => {
 
             it(`should have class "${contentBodyClass}"`, () => {
                 expect(contentBodySub.props.className).to.eq(contentBodyClass);
+            });
+
+            it(`should get the app config"`, () => {
+                expect(contentBodySub.props.config).to.deep.eq(config);
             });
         });
 
