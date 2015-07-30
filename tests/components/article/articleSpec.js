@@ -28,7 +28,7 @@ const Article = proxyquire('../../../app/components/article/article', {
 
 describe(`Article Component`, () => {
     const imageUrl = 'http://www.imageUrl.com/image.jpg';
-    const dateIndexed = 'today';
+    const dateCreated = 'today';
     const articleClassName = `article`;
     const title = articleMock.title;
     const contentBody = articleMock.body;
@@ -62,7 +62,7 @@ describe(`Article Component`, () => {
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
-                authorProfiles, className, contentBody, dateIndexed, imageUrl, heroItem, source, summary, tags, title
+                authorProfiles, className, contentBody, dateCreated, imageUrl, heroItem, source, summary, tags, title
             });
 
             const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -178,8 +178,8 @@ describe(`Article Component`, () => {
                 expect(schemaArticleStub.props.image).to.eq(imageUrl);
             });
 
-            it(`should have datePublished "${dateIndexed}"`, () => {
-                expect(schemaArticleStub.props.datePublished).to.eq(dateIndexed);
+            it(`should have datePublished "${dateCreated}"`, () => {
+                expect(schemaArticleStub.props.datePublished).to.eq(dateCreated);
             });
 
             it(`should have publisher "${source}"`, () => {

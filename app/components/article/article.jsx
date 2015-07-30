@@ -15,7 +15,7 @@ class Article extends Component {
         authorProfiles: PropTypes.array,
         className: PropTypes.string,
         contentBody: PropTypes.array.isRequired,
-        dateIndexed: PropTypes.string.isRequired,
+        dateCreated: PropTypes.string.isRequired,
         heroItem: PropTypes.object.isRequired,
         imageUrl: PropTypes.string.isRequired,
         pageId: PropTypes.string.isRequired,
@@ -47,7 +47,7 @@ class Article extends Component {
                 <SchemaArticle
                     image={this.props.imageUrl}
                     publisher={this.props.source}
-                    datePublished={this.props.dateIndexed}
+                    datePublished={this.props.dateCreated}
                 />
                 <Ad
                     className="ad--article-top"
