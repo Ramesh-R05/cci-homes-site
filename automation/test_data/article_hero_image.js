@@ -60,6 +60,116 @@ module.exports =
             "content": "Perhaps the best way to make a house feel much larger is to raise the ceilings to 9, 10 or even 12 or 15 feet, says Trey Bitteker, general sales manager at Pulte Homes in Arizona. “High ceiling heights will certainly open up a house. When someone walks through it, every room feels a little bit larger,” he says."
         },
         {
+            "content": [
+                {
+                    "siteName": "Homes",
+                    "imageAltText": "Fine china",
+                    "typeName": "TeaserDto",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "video": {
+                        "properties": {
+                            "videoConfiguration": {
+                                "status": "Video upload is complete",
+                                "brightcoveId": "4141553739001",
+                                "videoId": "VIDEO-2265",
+                                "statusCode": 200
+                            }
+                        },
+                        "type": "VideoItem",
+                        "id": "VIDEO-2265",
+                        "name": "4141553739001"
+                    },
+                    "id": "HOMES-1419",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "title": "Test Article - 22 - How to care for fine china",
+                    "sortOrder": 21,
+                    "summaryTitle": "How to care for fine china",
+                    "parentId": "HOMES-1319",
+                    "urlName": "test-article-22",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1419"
+                    ],
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "dateIndexed": "2015-07-27T21:01:08",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "name": "Test Article - 22",
+                    "level": 5,
+                    "url": "/test-article-22",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/17/1419/diy_-2163.jpg",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "siteName": "Homes",
+                    "imageAltText": "Fine china",
+                    "typeName": "TeaserDto",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "video": {
+                        "properties": {
+                            "videoConfiguration": {
+                                "status": "Video upload is complete",
+                                "brightcoveId": "4141553739001",
+                                "videoId": "VIDEO-2265",
+                                "statusCode": 200
+                            }
+                        },
+                        "type": "VideoItem",
+                        "id": "VIDEO-2265",
+                        "name": "4141553739001"
+                    },
+                    "id": "HOMES-1390",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "title": "Test Article - 56 - How to care for fine china",
+                    "sortOrder": 59,
+                    "summaryTitle": "How to care for fine china",
+                    "parentId": "HOMES-1319",
+                    "urlName": "test-article-56",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1390"
+                    ],
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "dateIndexed": "2015-07-24T01:18:04",
+                    "siteUrl": "http://homes.local",
+                    "name": "Test Article - 56",
+                    "level": 5,
+                    "url": "/sandbox/2015/07/test-article-56",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1259/chinamans3.jpg",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                }
+            ],
+            "type": "related-content",
+            "label": "Related Content"
+        },
+        {
             "type": "paragraph",
             "label": "Paragraph",
             "content": "New homes today commonly have double-height or one-and-a half height ceilings in one or more rooms such as an entry hall, family room or formal living room, says Michael Malone, principal at Michael Malone Architects in Dallas. “No matter how small a room is,” Malone says, “that extra vertical height makes a lot of difference.”"
