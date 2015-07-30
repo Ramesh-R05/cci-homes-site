@@ -18,7 +18,7 @@ export default class Tags extends Component {
 
         if (primaryTags.length === 0) return {};
 
-        let primary = TagUtils.getTagName( primaryTags[0]);
+        let primary = TagUtils.getTagName(primaryTags[0]);
 
         let secondaryTags = difference( this.props.tags, union( primaryTags, unwantedTags ) );
         let secondary = TagUtils.getTagName(secondaryTags[0]);
@@ -28,12 +28,13 @@ export default class Tags extends Component {
     render() {
         if (!this.props.tags || !Array.isArray(this.props.tags)) return null;
 
-        const tags = this.getTags( this.props.tags );
+        const tags = this.getTags(this.props.tags);
 
         if (isUndefined(tags.primary)) return null;
 
-        const primaryTagHtml = <span className="tag-primary">{tags.primary}</span>;
-        const secondaryTagHtml = isUndefined(tags.secondary) ? '' : <span className="tag-secondary">, {tags.secondary}</span>;
+        const separator = !isUndefined(tags.secondary) ? ', ' : '';
+        const primaryTagHtml = <span className="tag-primary">{`${tags.primary}${separator}`}</span>;
+        const secondaryTagHtml = isUndefined(tags.secondary) ? null : <span className="tag-secondary">{tags.secondary}</span>;
 
         return (
             <p className="teaser__tags">

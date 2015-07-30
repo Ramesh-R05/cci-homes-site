@@ -35,6 +35,14 @@ class Teaser extends Component {
         sizes: ''
     };
 
+    static imageConfig = {
+        scale: imageResize.scale.BOTH,
+        anchor: imageResize.anchor.MC,
+        mode: imageResize.mode.CROP
+    };
+
+    static imageQuality = 80;
+
     static imageSizes = {
         base: {
             s: {w: 320, h: 264},
@@ -45,8 +53,8 @@ class Teaser extends Component {
         hero: {
             s: {w: 667, h: 556},
             m: {w: 940, h: 790},
-            l: {w: 1140, h: 920},
-            xl: {w: 1140, h: 920}
+            l: {w: 1140, h: 1100},
+            xl: {w: 1140, h: 1070}
         },
         narrow: {
             s: {w: 640, h: 341},
@@ -80,13 +88,6 @@ class Teaser extends Component {
         }
     };
 
-    static imageConfig = {
-        scale: imageResize.scale.BOTH,
-        anchor: imageResize.anchor.MC,
-        mode: imageResize.mode.CROP
-    };
-
-
     getImgSizes(sizes, modifier) {
         if (!isUndefined(Teaser.imageSizes[sizes])) {
             return Teaser.imageSizes[sizes];
@@ -114,6 +115,7 @@ class Teaser extends Component {
                     imageSizes={imgSizes}
                     link={url}
                     responsiveConfig={Teaser.imageConfig}
+                    quality={Teaser.imageQuality}
                 >
                     <Icon {...this.props} />
                 </Image>

@@ -205,7 +205,7 @@
             float: right;
         }
         @media #{$xlarge-up} {
-            @include grid-column(3);
+            @include grid-column(3, $collapse: true);
         }
     }
 }
