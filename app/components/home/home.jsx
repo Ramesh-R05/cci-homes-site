@@ -4,6 +4,7 @@ import HomeArticlesStore from '../../stores/articles/home';
 import InFocusArticlesStore from '../../stores/articles/inFocus';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
+import Ad from '@bxm/ad/lib/google/components/ad';
 
 class Home extends Component {
     static propTypes = {
@@ -27,9 +28,25 @@ class Home extends Component {
 
     render() {
         return (
-            <SectionFeatured articles={this.props.articles} className="home__body">
-                <InFocus articles={this.props.inFocusArticles} modifier="border-bottom"/>
-            </SectionFeatured>
+            <div>
+                <SectionFeatured articles={this.props.articles} className="home__body">
+                    <InFocus articles={this.props.inFocusArticles} modifier="border-bottom"/>
+                </SectionFeatured>
+                <div className="row">
+                    {/* Bottom ad */}
+                    <div className="columns small-12">
+                        <Ad
+                            className="ad--section-bottom-leaderboard"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            targets={{position: 3}}
+                        />
+                    </div>
+                </div>
+            </div>
         );
     }
 }

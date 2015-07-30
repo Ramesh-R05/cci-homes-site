@@ -1,0 +1,106 @@
+.network-info {
+    @include grid-column(12);
+    margin: 40px auto 0;
+    padding: 0;
+    text-align: center;
+
+    @media #{$medium-up} {
+        margin-top: 34px;
+    }
+    @media #{$large-up} {
+        margin-top: 54px;
+    }
+
+    @media #{$xlarge-up} {
+        margin-top: 70px;
+    }
+
+    h4 {
+        @include type-network-info;
+    }
+
+    &__supported-content {
+        display: inline;
+        margin: auto;
+    }
+
+    a {
+        text-align: center;
+
+        img {
+            margin: 20px 12px -8px;
+
+            @media #{$medium-up} {
+                margin: 35px 27px;
+            }
+        }
+    }
+
+    &__belle {
+        img {
+            width: 55px;
+
+            @media #{$medium} {
+                width: 70px;
+            }
+
+            @media #{$large-up} {
+                width: 90px;
+            }
+        }
+    }
+
+    &__real-living {
+        img {
+            padding-top: 4px;
+            width: 120px;
+
+            @media #{$medium} {
+                width: 153px;
+            }
+
+            @media #{$large-up} {
+                width: 187px;
+            }
+        }
+    }
+
+    &__separator {
+        display: block;
+
+        @media #{$medium-up} {
+            display: none;
+        }
+    }
+
+    &__homes {
+        margin-right: 5px;
+
+        img {
+            width: 105px;
+
+            @media #{$medium} {
+                width: 134px;
+            }
+
+            @media #{$large-up} {
+                width: 165px;
+            }
+        }
+    }
+
+    &__house-and-garden {
+
+        img {
+            width: 75px;
+
+            @media #{$medium} {
+                width: 96px;
+            }
+
+            @media #{$large-up} {
+                width: 120px;
+            }
+        }
+    }
+}

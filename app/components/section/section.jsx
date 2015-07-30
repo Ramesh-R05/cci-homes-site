@@ -100,7 +100,6 @@ class Section extends Component {
 
         return (
             <div className="container section-landing">
-
                 <div className="row">
                     <Header tags={this.props.navigationTags}>
                         <Ad
@@ -128,7 +127,6 @@ class Section extends Component {
                         </InFocus>
                     </div>
                 </div>
-
                 {/* Three teasers with ad - xlarge bp only*/}
                 <div className="row hidden-for-large-only">
                     <Group articles={slice(articles, 4, 7)} modifier="3-items">
@@ -139,7 +137,6 @@ class Section extends Component {
                         />
                     </Group>
                 </div>
-
                 <div className="row">
                     {/* Four teasers with ad - hidden large bp only*/}
                     <Group
@@ -147,7 +144,6 @@ class Section extends Component {
                         className="hidden-for-large-only"
                         modifier="6-or-4-items"
                         teaserModifier="img-top" />
-
                     {/* 6 teasers with ad - visible for large bp only*/}
                     <Group
                         articles={slice(articles, 5, 11)}
@@ -162,18 +158,21 @@ class Section extends Component {
                 {/* LoadMore btn*/}
                 {loadMoreBtn}
                 {/* Bottom ad */}
-                <div className="columns small-12">
-                    <Ad
-                        className="ad--section-bottom-leaderboard"
-                        sizes={{
-                            small: 'banner',
-                            leaderboard: 'leaderboard',
-                            billboard: ['billboard', 'leaderboard']
-                        }}
-                        targets={{position: 3}}
-                    />
+                <div className="row">
+                    <div className="columns small-12">
+                        <Ad
+                            className="ad--section-bottom-leaderboard"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            targets={{position: 3}}
+                        />
+                    </div>
                 </div>
             </div>
+
         );
     }
 }

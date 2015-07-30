@@ -47,6 +47,8 @@ export default class Nav extends Component {
                             <ul className="nav__sub-list">
                                 <li><a href="/patternlab/buttons#button">Button</a></li>
                                 <li><a href="/patternlab/buttons#buttonCategory">ButtonCategory</a></li>
+                                <li><a href="/patternlab/buttons#buttonLink1">ButtonLink</a></li>
+                                <li><a href="/patternlab/buttons#buttonLink2">ButtonLink Subscribe</a></li>
                             </ul>
                         </li>
                         <li onClick={this.props.onClick}>

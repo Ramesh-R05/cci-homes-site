@@ -136,18 +136,7 @@ export default class SectionFeatured extends Component {
                         />
                     </div>
                 </div>
-                {/* Bottom ad */}
-                <div className="columns small-12">
-                    <Ad
-                        className="ad--section-bottom-leaderboard"
-                        sizes={{
-                            small: 'banner',
-                            leaderboard: 'leaderboard',
-                            billboard: ['billboard', 'leaderboard']
-                        }}
-                        targets={{position: 3}}
-                    />
-                </div>
+
 
             </div>
         );

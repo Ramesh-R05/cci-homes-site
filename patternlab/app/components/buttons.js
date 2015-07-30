@@ -57,8 +57,25 @@ export default class Examples extends Component {
                 </Code>
                 <Notes>
                     <p>It has the same props as the <b>Button</b> component.</p>
-                 </Notes>
+                </Notes>
 
+                {/* button Link */}
+                <h2 id="buttonLink1" className="heading2">ButtonLink</h2>
+
+                <a className="button button--link" href="http://google.com" target="_blank">Open Google</a>
+                <Code>
+                    {`<a className="button button--link" href="http://google.com" target="_blank">Open Google</a>`}
+                </Code>
+                <Notes>
+                    <p>It is a classic `a` with a .button class.</p>
+                </Notes>
+
+                <h2 id="buttonLink2" className="heading2">ButtonLink Subscribe</h2>
+
+                <a className="button button--link button--subscribe" href="http://google.com" target="_blank">Open Google</a>
+                <Code>
+                    {`<a className="button button--link button-subscribe" href="http://google.com" target="_blank">Open Google</a>`}
+                </Code>
             </div>
         );
     }

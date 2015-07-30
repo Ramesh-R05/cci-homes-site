@@ -8,10 +8,14 @@ const TestUtils = Context.TestUtils;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
 const InFocusStub = Context.createStubComponentWithChildren();
+const FooterStub = Context.createStubComponentWithChildren();
+const AdStub = Context.createStubComponent();
+
 const Home = proxyquire('../../../app/components/home/home', {
     'react': React,
     './sectionFeatured': SectionFeatured,
-    '../inFocus/inFocus': InFocusStub
+    '../inFocus/inFocus': InFocusStub,
+    '@bxm/ad/lib/google/components/ad': AdStub
 });
 
 const inFocusArticlesMock = homeArticlesMock.slice(0, 5);
@@ -31,6 +35,7 @@ describe('Home', () => {
     let reactModule;
     let inFocus;
     let sectionFeatured;
+    let ad;
 
     afterEach(Context.cleanup);
 
@@ -38,6 +43,7 @@ describe('Home', () => {
         reactModule = Context.mountComponent(Home);
         inFocus = TestUtils.findRenderedComponentWithType(reactModule, InFocusStub);
         sectionFeatured = TestUtils.findRenderedComponentWithType(reactModule, SectionFeatured);
+        ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
     });
 
     it(`should pass down the articles to the SectionFeatured component`, () => {
@@ -47,4 +53,24 @@ describe('Home', () => {
     it(`should pass down the in focus articles to the InFocus component`, () => {
         expect(inFocus.props.articles).to.deep.equal(inFocusArticlesMock);
     });
+
+    it(`should render the Ad component`, () => {
+        expect(ad).to.exist;
+    });
+
+    describe(`Bottom banner/leaderboard/billboard ad`, () => {
+        it(`should display either a banner, leaderboard or a billboard ad`, () => {
+            const expectedSizes = {
+                small: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            };
+            expect(ad.props.sizes).to.deep.equal(expectedSizes);
+        });
+
+        it(`should be targeted with position 2`, () => {
+            expect(ad.props.targets).to.deep.equal({position: 3});
+        });
+    });
+
 });

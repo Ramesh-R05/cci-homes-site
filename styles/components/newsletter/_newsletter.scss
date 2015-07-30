@@ -1,0 +1,36 @@
+.newsletter {
+    @include grid-column(12);
+
+    iframe {
+        background-color: transparent;
+        border: 0;
+        float: left;
+        height: 241px;
+        margin-top: -5px;
+        overflow: hidden;
+        width: 100%;
+
+        @media #{$medium-up} {
+            margin-top: 0;
+        }
+
+        @media #{$large-up} {
+            height: 220px;
+        }
+    }
+
+    @media #{$medium-up} {
+        @include grid-column(6);
+        margin-top: 30px;
+    }
+
+    @media #{$large-up} {
+        @include grid-column(6);
+        margin-top: 35px;
+    }
+
+    @media #{$xlarge-up} {
+        @include grid-column(4);
+        margin-top: 90px;
+    }
+}

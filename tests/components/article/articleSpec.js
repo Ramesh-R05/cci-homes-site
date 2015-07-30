@@ -75,7 +75,6 @@ describe(`Article Component`, () => {
             schemaArticleStub = TestUtils.findRenderedComponentWithType(reactModule, SchemaArticleStub);
         });
 
-
         it(`should render the component with class "${articleClassName}"`, () => {
             const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
             expect(classNames).to.contain(articleClassName);

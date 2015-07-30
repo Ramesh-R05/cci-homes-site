@@ -35,6 +35,7 @@ const HomesArticleStub = Context.createStubComponent();
 const SectionStub = Context.createStubComponent();
 const GalleryStub = Context.createStubComponent();
 const SideMenuStub = Context.createStubComponent();
+const FooterStub = Context.createStubComponentWithChildren();
 const proxyquire = require('proxyquire').noCallThru();
 const Default = proxyquire('../../../app/components/templates/default', {
     'react': React,
@@ -45,7 +46,8 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../home/home': HomepageStub,
     '../article/section': HomesArticleStub,
     '../section/section': SectionStub,
-    '../gallery/gallery': GalleryStub
+    '../gallery/gallery': GalleryStub,
+    '../footer/footer': FooterStub
 });
 
 describe('Default Component template', () => {
@@ -54,6 +56,7 @@ describe('Default Component template', () => {
     let networkHeader;
     let header;
     let sideMenu;
+    let footer;
 
     it('does not render if content is not specified', () => {
         content = undefined;
@@ -67,12 +70,39 @@ describe('Default Component template', () => {
         expect(React.findDOMNode(reactModule)).to.be.null;
     });
 
-    describe('store data', () => {
+    describe('Section Page', () => {
+        before(() => {
+            content = {nodeType: 'NavigationSection'};
+            reactModule = Context.mountComponent(Default);
+            footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
+        });
+
+        it('renders the footer COmponent', () => {
+            expect(footer).to.exist;
+        });
+
+    });
+
+    describe('Article Page', () => {
+        before(() => {
+            content = {nodeType: 'HomesArticle'};
+            reactModule = Context.mountComponent(Default);
+            footer = TestUtils.scryRenderedComponentsWithType(reactModule, FooterStub);
+        });
+
+        it('does not renders the footer COmponent', () => {
+            expect(footer.length).to.eq(0);
+        });
+
+    });
+
+    describe('Home Page', () => {
         before(() => {
             content = { nodeType: 'Homepage' };
             reactModule = Context.mountComponent(Default);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
+            footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
         });
 
         it('sets Header "isSideMenuOpen" prop to "false"', () => {
@@ -89,6 +119,10 @@ describe('Default Component template', () => {
 
         it('sets SideMenu "items" prop to array', () => {
             expect(sideMenu.props.navItems).to.eql(navItems);
+        });
+
+        it('renders the footer COmponent', () => {
+            expect(footer).to.exist;
         });
     });
 

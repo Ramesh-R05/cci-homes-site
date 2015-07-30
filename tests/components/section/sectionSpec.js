@@ -69,8 +69,6 @@ Context.addStore('EntityStore', {
 describe(`Section`, () => {
     let loadMoreEnableStub;
     let paginationConfig;
-
-
     before(() => {
         loadMoreEnableStub = sinon.stub(config, 'isFeatureEnabled');
         paginationConfig = sinon.stub(config, 'get');
@@ -93,7 +91,7 @@ describe(`Section`, () => {
             loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
         });
 
-        it(`LoadMore button shouldn;t exist`, () => {
+        it(`LoadMore button shouldn't exist`, () => {
             expect(loadMore.length).to.be.eq(0);
         });
     });
@@ -204,7 +202,7 @@ describe(`Section`, () => {
             });
         });
 
-        describe(`Numer of AdStubs`, () => {
+        describe(`Number of AdStubs`, () => {
             const numberOfAds = 4;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
@@ -281,7 +279,6 @@ describe(`Section`, () => {
                 expect(ads[3].props.targets).to.deep.equal(targets);
             });
         });
-
 
     });
 
