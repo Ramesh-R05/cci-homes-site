@@ -8,7 +8,7 @@ import Summary from '@bxm/article/lib/components/header/summary';
 import Footer from '../../../app/components/article/footer';
 import breakpoints from '../../../app/breakpoints';
 // Test data
-import articleData, {summary, source, articleTags as tags} from '../../../tests/mock/article';
+import articleData, {summary, source, tags} from '../../../tests/mock/article';
 const heroItem = {
     imageUrl: articleData.imageUrl,
     imageAltText: articleData.imageAltText,

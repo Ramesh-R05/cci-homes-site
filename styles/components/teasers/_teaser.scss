@@ -290,7 +290,7 @@
     }
 
     &__tags {
-        @include type-tags;
+        @include type-tags($color-primary);
     }
 
     &__title {
@@ -359,6 +359,17 @@
     // ---------------------------------------------------- narrow
     &--narrow {
         @include teaser-narrow;
+    }
+
+    // ---------------------------------------------------- polar native
+    &--native {
+        .teaser__icon svg {
+            fill: $color-grey-dark;
+        }
+
+        .teaser__tags {
+            color: $color-grey-dark;
+        }
     }
 
 }

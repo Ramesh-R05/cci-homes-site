@@ -26,7 +26,7 @@ export default class Teasers extends Component {
                     <p>All the prperties match the article property name we get from the API.</p>
                     <ul>
                         <li><code>imageUrl</code> and <code>url</code> are required.</li>
-                        <li><code>articleTags</code> must be an array.</li>
+                        <li><code>tags</code> must be an array.</li>
                         <li><code>id</code> is the article id</li>
                         <li><code>imageAltText</code> string</li>
                         <li><code>modifier</code> is a class modifier e.g. 'narrow' will set the 'teaser--narrow' class. It will also pick the correct image sizes. Defaults to 'img-left'.</li>

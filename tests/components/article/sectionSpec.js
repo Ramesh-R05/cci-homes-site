@@ -89,7 +89,7 @@ describe(`ArticleSection Component`, () => {
 
     describe(`Article`, () => {
         let article;
-        const { body: contentBody, title, articleTags, authorProfiles } = articleMock;
+        const { body: contentBody, title, tags, authorProfiles } = articleMock;
         const { imageUrl, imageAltText, imageCaption, video } = articleMock;
         const { source, summary } = articleMock;
         const heroItem = {imageUrl, imageAltText, imageCaption, video};
@@ -119,7 +119,7 @@ describe(`ArticleSection Component`, () => {
         });
 
         it(`sets the tags prop`, () => {
-            expect(article.props.tags).to.eql(articleTags);
+            expect(article.props.tags).to.eql(tags);
         });
 
         it(`sets the authorProfiles prop`, () => {
@@ -128,7 +128,7 @@ describe(`ArticleSection Component`, () => {
     });
 
     describe(`Feed`, () => {
-        const articleTags = [
+        const tags = [
             'homes:Topic:Garden planner',
             'homes:Homes navigation:Outdoor',
             'homes:Homes navigation:Garden'
@@ -144,8 +144,8 @@ describe(`ArticleSection Component`, () => {
             expect(feed.props.items).to.eql(feedMock);
         });
 
-        it(`sets the articleTags to an array`, () => {
-            expect(feed.props.articleTags).to.eql(articleTags);
+        it(`sets the tags to an array`, () => {
+            expect(feed.props.tags).to.eql(tags);
         });
 
         it(`sets the pageId to ${pageId}`, () => {

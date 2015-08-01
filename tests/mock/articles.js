@@ -9,7 +9,7 @@ export default {
             title:"Stephen and Annick’s Melbourne home and studio",
             source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Decorating:Colour:Pink",
                 "homes:Decorating:Colour:Purple",
                 "homes:Decorating:Colour:Red",
@@ -25,7 +25,7 @@ export default {
             title:"A beach house with big-city sophistication",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Designer's Home",
                 "homes:Topic:Eclectic"
             ],
@@ -50,7 +50,7 @@ export default {
             title:"A lively industrial new home in Melbourne",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Homes navigation:Outdoor"
             ]
@@ -63,7 +63,7 @@ export default {
             title:"Courtney and Danny’s colourful courtyard",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Outdoor news",
                 "homes:Homes navigation:Outdoor",
                 "homes:DIY and craft:DIY and craft tools:Tape measure"
@@ -76,7 +76,7 @@ export default {
             title:"Jodie and Simons rustic cottage renovation",
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ],
@@ -101,7 +101,7 @@ export default {
             title:"Lisa and Nigel’s charming weatherboard home renovation",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -113,7 +113,7 @@ export default {
             title:"Christiana and Massimo’s Hamptons-style renovation",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -125,7 +125,7 @@ export default {
             title:"Outdoor colour schemes that pop",
             source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ],
@@ -151,7 +151,7 @@ export default {
             title:"Choosing a kitchen layout",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -163,7 +163,7 @@ export default {
             title:"Before and after backyard renovation",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -176,7 +176,7 @@ export default {
             title: "The Best Climbing Plants For Your Garden",
             source: "Homes+",
             summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags: [
+            tags: [
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -188,7 +188,7 @@ export default {
             title:"Bettina and David’s family home renovation",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -201,7 +201,7 @@ export default {
             title:"Kath’s Sydney terrace renovation",
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -213,7 +213,7 @@ export default {
             title:"A modern extension to a 1930s bungalow",
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -226,7 +226,7 @@ export default {
             title:"Beautiful bedlinen: an instant bedroom update",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -238,7 +238,7 @@ export default {
             title:"Five outdoor rooms that get the balance right",
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -250,7 +250,7 @@ export default {
             title:"Five outdoor rooms that get the balance right",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -263,7 +263,7 @@ export default {
             title:"Stephen and Annick’s Melbourne home and studio",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -275,7 +275,7 @@ export default {
             title:"A beach house with big-city sophistication",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -288,7 +288,7 @@ export default {
             title:"A lively industrial new home in Melbourne",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -303,7 +303,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 12",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -316,7 +316,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 13",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -328,7 +328,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 14",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -341,7 +341,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 15",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -353,7 +353,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 16",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -365,7 +365,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 17",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -378,7 +378,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 18",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -390,7 +390,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 19",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -403,7 +403,7 @@ export default {
             title:"Renting shouldn't mean sacrificing personality 20",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -419,7 +419,7 @@ export default {
             title:"Stephen and Annick’s Melbourne home and studio",
             source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Decorating:Colour:Pink",
                 "homes:Decorating:Colour:Purple",
                 "homes:Decorating:Colour:Red",
@@ -435,7 +435,7 @@ export default {
             title:"A beach house with big-city sophistication",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Designer's Home",
                 "homes:Topic:Eclectic"
             ],
@@ -460,7 +460,7 @@ export default {
             title:"A lively industrial new home in Melbourne",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Homes navigation:Outdoor"
             ]
@@ -473,7 +473,7 @@ export default {
             title:"Courtney and Danny’s colourful courtyard",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Outdoor news",
                 "homes:Homes navigation:Outdoor",
                 "homes:DIY and craft:DIY and craft tools:Tape measure"
@@ -486,7 +486,7 @@ export default {
             title:"Jodie and Simons rustic cottage renovation",
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ],
@@ -511,7 +511,7 @@ export default {
             title:"Lisa and Nigel’s charming weatherboard home renovation",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -523,7 +523,7 @@ export default {
             title:"Christiana and Massimo’s Hamptons-style renovation",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -535,7 +535,7 @@ export default {
             title:"Outdoor colour schemes that pop",
             source:"homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ],
@@ -561,7 +561,7 @@ export default {
             title:"Choosing a kitchen layout",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -573,7 +573,7 @@ export default {
             title:"Before and after backyard renovation",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -586,7 +586,7 @@ export default {
             title: "The Best Climbing Plants For Your Garden",
             source: "Homes+",
             summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags: [
+            tags: [
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -598,7 +598,7 @@ export default {
             title:"Bettina and David’s family home renovation",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -611,7 +611,7 @@ export default {
             title:"Kath’s Sydney terrace renovation",
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -623,7 +623,7 @@ export default {
             title:"A modern extension to a 1930s bungalow",
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -636,7 +636,7 @@ export default {
             title:"Beautiful bedlinen: an instant bedroom update",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -648,7 +648,7 @@ export default {
             title:"Five outdoor rooms that get the balance right",
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -660,7 +660,7 @@ export default {
             title:"Five outdoor rooms that get the balance right",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -673,7 +673,7 @@ export default {
             title:"Stephen and Annick’s Melbourne home and studio",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -685,7 +685,7 @@ export default {
             title:"A beach house with big-city sophistication",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -698,7 +698,7 @@ export default {
             title:"A lively industrial new home in Melbourne",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -710,7 +710,7 @@ export default {
             title:"A modern extension to a 1930s bungalow",
             source:"Belle",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -723,7 +723,7 @@ export default {
             title:"Beautiful bedlinen: an instant bedroom update",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -735,7 +735,7 @@ export default {
             title:"Five outdoor rooms that get the balance right",
             source:"Homes+",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -747,7 +747,7 @@ export default {
             title:"Five outdoor rooms that get the balance right",
             source:"Australian House and Garden",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -760,7 +760,7 @@ export default {
             title:"Stephen and Annick’s Melbourne home and studio",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]
@@ -772,7 +772,7 @@ export default {
             title:"A beach house with big-city sophistication",
             source:"Real Living",
             summary:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.",
-            articleTags:[
+            tags:[
                 "homes:Topic:Gardening",
                 "homes:Renovating:Materials:Bamboo"
             ]

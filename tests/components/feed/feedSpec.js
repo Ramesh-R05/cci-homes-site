@@ -27,7 +27,7 @@ const Feed = proxyquire('../../../app/components/feed/feed', {
 describe('Feed Component', () => {
     const firstAdIndex = 2;
     const adSpacing = 12;
-    const articleTags = ['homes:Color:red', 'homes:Color:white', 'homes:Room:kitchen'];
+    const tags = ['homes:Color:red', 'homes:Color:white', 'homes:Room:kitchen'];
     const pageId = 'kitchen-1032';
     let reactModule;
 
@@ -37,7 +37,7 @@ describe('Feed Component', () => {
         let feedItems;
 
         before(() => {
-            reactModule = Context.mountComponent(Feed, { pageId, articleTags, items: feedDataMock });
+            reactModule = Context.mountComponent(Feed, { pageId, tags, items: feedDataMock });
             feedItems = TestUtils.scryRenderedComponentsWithType(reactModule, FeedItemStub);
         });
 
@@ -69,7 +69,7 @@ describe('Feed Component', () => {
         let feedAds;
 
         before(() => {
-            reactModule = Context.mountComponent(Feed, { pageId, articleTags, items: generateLargeFeedItemList() });
+            reactModule = Context.mountComponent(Feed, { pageId, tags, items: generateLargeFeedItemList() });
             feedListItems = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'li');
             feedAds = TestUtils.scryRenderedComponentsWithType(reactModule, FeedAdStub);
         });

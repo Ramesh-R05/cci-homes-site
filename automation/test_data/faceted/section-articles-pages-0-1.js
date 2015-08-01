@@ -49,7 +49,7 @@ module.exports = {
         "facetConfiguration": [
             {
                 "label": "Tag",
-                "field": "articleTags",
+                "field": "tags",
                 "query": "tags",
                 "sortBy": 0,
                 "sortDirection": 0,
@@ -97,7 +97,7 @@ module.exports = {
         "fieldConfigurations": [
             {
                 "label": "Tag",
-                "field": "articleTags",
+                "field": "tags",
                 "query": "tags",
                 "sortBy": 0,
                 "sortDirection": 0,
@@ -110,7 +110,7 @@ module.exports = {
             "facetDates": {},
             "facetFields": [
                 {
-                    "name": "articleTags",
+                    "name": "tags",
                     "values": [
                         {
                             "value": "food:Homes navigation:DIY & How To",
@@ -242,7 +242,7 @@ module.exports = {
         "customFilters": [],
         "facetFilters": [
             {
-                "name": "articleTags",
+                "name": "tags",
                 "value": {
                     "values": [
                         "Indoor"
@@ -253,7 +253,7 @@ module.exports = {
         "facetFields": [
             {
                 "label": "Tag",
-                "field": "articleTags",
+                "field": "tags",
                 "query": "tags",
                 "sortBy": 0,
                 "sortDirection": 0,
@@ -266,7 +266,7 @@ module.exports = {
     "items": [
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Profiles:Handyman",
                 "food:Homes navigation:Renovate",
                 "food:Topic:DIY",
@@ -385,7 +385,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Renovate",
                 "food:Topic:DIY",
                 "food:Topic:Before and after",
@@ -506,7 +506,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Renovate",
                 "food:Topic:Before and after"
             ],
@@ -623,7 +623,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Renovate",
                 "food:Topic:Get the look"
             ],
@@ -727,7 +727,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Location and setting:Australia:New South Wales:Sydney:Sydney inner city",
                 "food:Homes navigation:DIY & How To",
                 "food:Topic:How to"
@@ -832,7 +832,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:DIY & How To",
                 "food:Topic:Tips and advice"
             ],
@@ -936,7 +936,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Outdoor",
                 "food:Topic:Feature garden"
             ],
@@ -1040,7 +1040,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Outdoor",
                 "food:Topic:Garden planner"
             ],
@@ -1144,7 +1144,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Outdoor",
                 "food:Topic:Outdoor news"
             ],
@@ -1261,7 +1261,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Budget buys"
             ],
@@ -1365,7 +1365,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Decorating 101"
             ],
@@ -1469,7 +1469,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Feature room"
             ],
@@ -1573,7 +1573,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Bathroom news"
             ],
@@ -1677,7 +1677,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Kitchen news"
             ],
@@ -1781,7 +1781,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Trend"
             ],
@@ -1885,7 +1885,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Hot trend"
             ],
@@ -1989,7 +1989,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Luxury home"
             ],
@@ -2093,7 +2093,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Feature home"
             ],
@@ -2197,7 +2197,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Readers' home"
             ],
@@ -2301,7 +2301,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Creative home"
             ],
@@ -2405,7 +2405,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Profiles:Handyman",
                 "food:Homes navigation:Renovate",
                 "food:Topic:DIY",
@@ -2524,7 +2524,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Renovate",
                 "food:Topic:DIY",
                 "food:Topic:Before and after",
@@ -2645,7 +2645,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Renovate",
                 "food:Topic:Before and after"
             ],
@@ -2762,7 +2762,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Renovate",
                 "food:Topic:Get the look"
             ],
@@ -2866,7 +2866,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Location and setting:Australia:New South Wales:Sydney:Sydney inner city",
                 "food:Homes navigation:DIY & How To",
                 "food:Topic:How to"
@@ -2971,7 +2971,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:DIY & How To",
                 "food:Topic:Tips and advice"
             ],
@@ -3075,7 +3075,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Outdoor",
                 "food:Topic:Feature garden"
             ],
@@ -3179,7 +3179,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Outdoor",
                 "food:Topic:Garden planner"
             ],
@@ -3283,7 +3283,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Outdoor",
                 "food:Topic:Outdoor news"
             ],
@@ -3400,7 +3400,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Budget buys"
             ],
@@ -3504,7 +3504,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Decorating 101"
             ],
@@ -3608,7 +3608,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Feature room"
             ],
@@ -3712,7 +3712,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Bathroom news"
             ],
@@ -3816,7 +3816,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Indoor",
                 "food:Topic:Kitchen news"
             ],
@@ -3920,7 +3920,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Trend"
             ],
@@ -4024,7 +4024,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Hot trend"
             ],
@@ -4128,7 +4128,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Luxury home"
             ],
@@ -4232,7 +4232,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Feature home"
             ],
@@ -4336,7 +4336,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Readers' home"
             ],
@@ -4440,7 +4440,7 @@ module.exports = {
         },
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Homes navigation:Home Inspiration",
                 "food:Topic:Creative home"
             ],

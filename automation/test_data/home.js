@@ -45,7 +45,7 @@ module.exports = {
     "next": {
         "entity": {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Topic:Bathroom news",
                 "food:Homes navigation:Home Inspiration"
             ],
@@ -321,7 +321,7 @@ module.exports = {
             "items": [
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Decorating:Colour:Natural",
                         "food:Homes navigation:Home Tours",
                         "food:Topic:Creative home"
@@ -563,7 +563,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Decorating:Colour:Natural",
                         "food:Homes navigation:Home Tours",
                         "food:Topic:Creative home"
@@ -806,7 +806,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Feature home",
                         "food:Homes navigation:Home Tours",
                         "food:Renovating:Renovation type:Renovation"
@@ -915,7 +915,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Luxury home",
                         "food:Homes navigation:Home Tours",
                         "food:Renovating:Materials:Paint"
@@ -1024,7 +1024,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Hot trend",
                         "food:Homes navigation:Home Tours",
                         "food:Location and setting:Rest of World:Africa:Mali"
@@ -1133,7 +1133,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Trend",
                         "food:Homes navigation:Interiors",
                         "food:Renovating:Materials:Linen"
@@ -1242,7 +1242,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Kitchen news",
                         "food:Homes navigation:Interiors",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Kitchen furniture and products:Kitchen tapware"
@@ -1351,7 +1351,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Bathroom news",
                         "food:Homes navigation:Interiors",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Baths"
@@ -1460,7 +1460,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Feature room",
                         "food:Homes navigation:Interiors",
                         "food:Room:Bedroom"
@@ -1569,7 +1569,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Decorating 101",
                         "food:Homes navigation:Interiors",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Living room furniture"
@@ -1678,7 +1678,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Budget buys",
                         "food:Homes navigation:Outdoor",
                         "food:Room:Bedroom"
@@ -1787,7 +1787,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Homes navigation:Outdoor",
                         "food:Topic:Outdoor news",
                         "food:Garden/Outdoor:Plants:Herbs"
@@ -1896,7 +1896,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Homes navigation:Outdoor",
                         "food:Topic:Garden planner",
                         "food:Products, Furniture and Fittings:Lighting:Lamps:Table lamps"
@@ -2005,7 +2005,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Homes navigation:Outdoor",
                         "food:Topic:Feature garden",
                         "food:Location and setting:Setting:Outback"
@@ -2132,7 +2132,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Tips and advice",
                         "food:Homes navigation:Outdoor",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Showers"
@@ -2241,7 +2241,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Homes navigation:DIY & How To",
                         "food:Topic:How to",
                         "food:DIY and craft:DIY projects:Framing/hanging projects"
@@ -2350,7 +2350,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Get the look",
                         "food:Homes navigation:DIY & How To",
                         "food:Products, Furniture and Fittings:Linens:Bedding"
@@ -2459,7 +2459,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Before and after",
                         "food:Homes navigation:DIY & How To",
                         "food:Products, Furniture and Fittings:Lighting:Pendant light"
@@ -2568,7 +2568,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:DIY",
                         "food:Homes navigation:DIY & How To",
                         "food:Garden/Outdoor:Plants:Lawn and grass"
@@ -2677,7 +2677,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:DIY",
                         "food:Homes navigation:DIY & How To",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Showers"
@@ -2799,7 +2799,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Creative home",
                         "food:Homes navigation:Renovate"
                     ],
@@ -2903,7 +2903,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Readers' home",
                         "food:Homes navigation:Renovate",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Bathroom basins"
@@ -3012,7 +3012,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Feature home",
                         "food:Homes navigation:Renovate",
                         "food:Garden/Outdoor:Garden style:Potted garden"
@@ -3121,7 +3121,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Luxury home",
                         "food:Homes navigation:Renovate"
                     ],
@@ -3225,7 +3225,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Hot trend",
                         "food:Homes navigation:Renovate"
                     ],
@@ -3329,7 +3329,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Trend",
                         "food:Homes navigation:Home Tours",
                         "food:Homes navigation:Interiors"
@@ -3480,7 +3480,7 @@ module.exports = {
             "items": [
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Creative home",
                         "food:Homes navigation:Home Tours",
                         "food:Decorating:Colour:Natural"
@@ -3723,7 +3723,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Feature home",
                         "food:Homes navigation:Home Tours",
                         "food:Renovating:Renovation type:Renovation"
@@ -3832,7 +3832,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Hot trend",
                         "food:Homes navigation:Home Tours",
                         "food:Location and setting:Rest of World:Africa:Mali"
@@ -3941,7 +3941,7 @@ module.exports = {
                 },
                 {
                     "campaign": [],
-                    "articleTags": [
+                    "tags": [
                         "food:Topic:Kitchen news",
                         "food:Homes navigation:Interiors",
                         "food:Products, Furniture and Fittings:Furniture and fittings by room:Kitchen furniture and products:Kitchen tapware"

@@ -79,7 +79,7 @@ var GalleryAside = React.createClass({
 
         dateCreated = moment(gallery.dateCreated).format('ll');
 
-        topicTag = getFirstTagNameForCategory(gallery.contentTags, 'Topic');
+        topicTag = getFirstTagNameForCategory(gallery.tags, 'Topic');
 
         if(activeGalleryItemIndex === 0 || this.state.windowWidth >= LARGE_RANGE_MAX) {
             /* jshint ignore:start */

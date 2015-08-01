@@ -15,7 +15,6 @@ import theme from './../helpers/theme';
 class Teaser extends Component {
 
     static propTypes = {
-        articleTags: PropTypes.array,
         id: PropTypes.string,
         imageAltText: PropTypes.string,
         imageUrl: PropTypes.string.isRequired,
@@ -24,6 +23,7 @@ class Teaser extends Component {
         sizes: PropTypes.string,
         source: PropTypes.string,
         summary: PropTypes.string,
+        tags: PropTypes.array,
         title: PropTypes.string.isRequired,
         themeClass: PropTypes.string,
         imageSizes: PropTypes.object
@@ -126,7 +126,7 @@ class Teaser extends Component {
                     <Icon {...this.props} />
                 </Image>
                 <div className="teaser__content">
-                    <Tags tags={this.props.articleTags} />
+                    <Tags tags={this.props.tags} />
                     <Title
                         gtmClass={gtmClass}
                         title={this.props.title}

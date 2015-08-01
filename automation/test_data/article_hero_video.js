@@ -2,7 +2,7 @@ module.exports =
 {
   "entity": {
     "campaign": [],
-    "articleTags": [
+    "tags": [
       "food:Topic:Creative home",
       "food:Homes navigation:Indoor",
       "food:Profiles:Designer"
@@ -101,7 +101,7 @@ module.exports =
   "previous": {
     "entity": {
       "campaign": [],
-      "articleTags": [
+      "tags": [
         "food:Topic:Creative home",
         "food:Homes navigation:Indoor",
         "food:Profiles:Designer"
@@ -359,7 +359,7 @@ module.exports =
       },
       {
         "campaign": [],
-        "articleTags": [
+        "tags": [
           "food:Topic:Creative home",
           "food:Homes navigation:Indoor",
           "food:Profiles:Designer"
@@ -476,7 +476,7 @@ module.exports =
                 "facetConfiguration": [
                     {
                         "label": "Tag",
-                        "field": "articleTags",
+                        "field": "tags",
                         "query": "tags",
                         "sortBy": 0,
                         "sortDirection": 0

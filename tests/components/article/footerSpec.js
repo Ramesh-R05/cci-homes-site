@@ -19,7 +19,7 @@ const Footer = proxyquire('../../../app/components/article/footer', {
 
 describe(`Article Footer Component`, () => {
     const articleClassName = `article__footer`;
-    const { source, articleTags: tags, authorProfiles } = articleMock;
+    const { source, tags, authorProfiles } = articleMock;
 
     let reactModule;
     let tagsTag;

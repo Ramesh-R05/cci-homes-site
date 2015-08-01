@@ -13,7 +13,7 @@ class Feed extends Component {
 
     static propTypes = {
         items: PropTypes.array.isRequired,
-        articleTags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
+        tags: PropTypes.arrayOf(React.PropTypes.string).isRequired,
         pageId: PropTypes.string.isRequired,
         source: PropTypes.string.isRequired,
         pinned: PropTypes.bool,
@@ -35,7 +35,7 @@ class Feed extends Component {
     }
 
     getFeedItems() {
-        const {items, pageId, articleTags, source} = this.props;
+        const {items, pageId, tags, source} = this.props;
         const feedItems = items.map((item, i) =>
             <FeedItem
                 key={`feed-item-${i}`}
@@ -44,7 +44,7 @@ class Feed extends Component {
             />
         );
 
-        const keyword = getKeywordsFromTags(articleTags);
+        const keyword = getKeywordsFromTags(tags);
         let adPosition = 0;
         collectionSplice.given(feedItems)
             .forEvery(adSpacing)
