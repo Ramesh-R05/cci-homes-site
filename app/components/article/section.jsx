@@ -70,7 +70,7 @@ class Section extends Component {
                         tags={content.articleTags}
                         authorProfiles={content.authorProfiles}
                         pageId={content.id}
-                        dateIndexed={content.dateIndexed}
+                        dateCreated={content.dateCreated}
                         url={content.url}
                     />
                 </div>
