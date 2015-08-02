@@ -47,31 +47,22 @@ $color-gallery-caption: #000;
     }
 
     figcaption {
-        @include content-body-width();
         @include type-teaser-summary();
-        background-color: rgba($color-gallery-caption, .75);
+        background-color: $color-black;
         color: $color-grey-light;
         padding: $column-gutter/2;
         text-align: left;
 
         @media #{$medium-up} {
-            bottom: $column-gutter;
-            left: calc(50% - #{$content-expanded-medium-width/2});
             padding: 25px 50px;
-            position: absolute;
             text-align: center;
         }
 
-        @media #{$medium-only} {
-            width: $content-expanded-medium-width;
-        }
-
-        @media #{$large-up} {
-            left: calc(50% - #{$content-body-large-width/2});
-        }
-
         @media #{$xlarge-up} {
-            left: calc(50% - #{$content-body-xlarge-width/2});
+            padding: {
+                left: 15%;
+                right: 15%;
+            }
         }
     }
 }

@@ -35,8 +35,16 @@ $section-minor-bp-1: 1590px;
 
     .teaser {
         @media #{$large-only} {
-            @include teaser-half-hero;
-            margin-bottom: 20px;
+            @include teaser-small-hero;
+            margin-bottom: 50px;
+
+            .teaser__title {
+                @include type-small-teaser-title;
+            }
+
+            .teaser__summary {
+                display: none;
+            }
         }
 
         @media only screen and (min-width: $xlarge-range-min) and (max-width: $section-minor-bp-1) {
@@ -367,7 +375,7 @@ $section-minor-bp-1: 1590px;
             @include grid-column(4);
         }
         @media #{$xlarge-up} {
-            @include grid-column(3);
+            @include grid-column(3, $collapse: true);
         }
     }
 }

@@ -42,11 +42,6 @@
             @media #{$xlarge-up} {
                 margin: 0 auto;
                 width: $content-body-xlarge-width;
-
-                figure figcaption {
-                    left: $column-gutter;
-                    width: $content-body-xlarge-width - $column-gutter * 2;
-                }
             }
         }
     }

@@ -25,13 +25,13 @@ describe('TeaserTags', () => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
         });
 
-        const expectedPrimaryTag = 'Gardening';
+        const expectedPrimaryTag = 'Gardening, ';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
             expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
         });
 
-        const expectedSecondaryTag = ', Bamboo';
+        const expectedSecondaryTag = 'Bamboo';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
             expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
@@ -49,13 +49,13 @@ describe('TeaserTags', () => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
         });
 
-        const expectedPrimaryTag = 'Gardening';
+        const expectedPrimaryTag = 'Gardening, ';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
             expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
         });
 
-        const expectedSecondaryTag = ', Wood';
+        const expectedSecondaryTag = 'Wood';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
             expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
@@ -74,13 +74,13 @@ describe('TeaserTags', () => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
         });
 
-        const expectedPrimaryTag = 'DIY';
+        const expectedPrimaryTag = 'DIY, ';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
             expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
         });
 
-        const expectedSecondaryTag = ', Timber';
+        const expectedSecondaryTag = 'Timber';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
             expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
