@@ -35,7 +35,7 @@ class LoadMore extends Component {
         this.context.executeAction(navigateAction, {
             url: `/${this.props.currentRoute.get('params').get('all')}?page=${this.props.currentPage + 1}`
         });
-    }
+    };
 
     render() {
         if (!this.props.isLoading && this.props.currentPage + 1 >= this.props.totalPages) return null;
