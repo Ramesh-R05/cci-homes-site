@@ -1,6 +1,7 @@
 // ---------------------------------------------------- teaser mixins
 
 @mixin teaser-hide-details {
+    .tag-separator,
     .tag-secondary,
     .teaser__summary,
     .teaser__source {
@@ -143,15 +144,16 @@
         }
     }
 
+    .tag-separator,
     .tag-secondary {
         display: none;
 
         @media #{$medium-only} {
-            display: inline-block;
+            display: inline;
         }
 
         @media #{$xlarge-up} {
-            display: inline-block;
+            display: inline;
         }
     }
 
@@ -243,11 +245,12 @@
         display: none;
     }
 
+    .tag-separator,
     .tag-secondary {
         display: none;
 
         @media #{$xlarge-up} {
-            display: inline-block;
+            display: inline;
         }
     }
 }
