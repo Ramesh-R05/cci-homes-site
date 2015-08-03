@@ -2,6 +2,9 @@ export default {
     features: {
         socialShareBlock: {
             enabled: false
+        },
+        recommendations: {
+            enabled: false
         }
     },
     gigya: {

@@ -85,6 +85,12 @@ class Teaser extends Component {
             m: {w: 940, h: 790},
             l: {w: 750, h: 625},
             xl: {w: 750, h: 625}
+        },
+        recommendations: {
+            s: {w: 322, h: 256},
+            m: {w: 420, h: 347},
+            l: {w: 356, h: 295},
+            xl: {w: 273, h: 238}
         }
     };
 

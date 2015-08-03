@@ -5,6 +5,7 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import NativeAd from '@bxm/ad/lib/google/components/nativeAd';
 import Footer from './footer';
 import Header from './header';
+import Recommendations from '../recommendations/recommendations';
 import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
 import SchemaArticle from '@bxm/article/lib/components/schema/article';
@@ -77,6 +78,7 @@ class Article extends Component {
                     source={this.props.source}
                     tags={this.props.tags}
                 />
+                <Recommendations />
                 <Ad
                     className="ad--article-beneath-recommendations"
                     displayFor={['small', 'medium', 'large', 'xlarge']}
