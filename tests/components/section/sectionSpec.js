@@ -146,12 +146,19 @@ describe(`Section`, () => {
 
         describe(`First group of articles`, () => {
             const expectedFirstGroupModifier = '3-items';
-            it(`should pass down the ${expectedFirstGroupModifier} modifier to the first group of articles`, () => {
+            it(`should pass down the ${expectedFirstGroupModifier} modifier`, () => {
                 expect(groups[0].props.modifier).to.equal(expectedFirstGroupModifier);
             });
 
-            it(`should pass down the next 3 articles to the second group of articles`, () => {
+            it(`should pass down the next 3 articles`, () => {
                 expect(groups[0].props.articles).to.deep.equal(articlesMock.slice(4, 7));
+            });
+
+            it(`should pass down the polarAd settings`, () => {
+                expect(groups[0].props.polarAd).to.deep.equal({
+                    label: 'section_teaser_1',
+                    index: 1
+                });
             });
         });
 
@@ -159,19 +166,19 @@ describe(`Section`, () => {
             const expectedSecondGroupModifier = '6-or-4-items';
             const expectedSecondGroupClass = 'hidden-for-large-only';
             const expectedSecondGroupTeaserModifier = 'img-top';
-            it(`should pass down the ${expectedSecondGroupModifier} modifier to the second group of articles`, () => {
+            it(`should pass down the ${expectedSecondGroupModifier} modifier`, () => {
                 expect(groups[1].props.modifier).to.equal(expectedSecondGroupModifier);
             });
 
-            it(`should pass down the ${expectedSecondGroupClass} className to the second group of articles`, () => {
+            it(`should pass down the ${expectedSecondGroupClass} className`, () => {
                 expect(groups[1].props.className).to.equal(expectedSecondGroupClass);
             });
 
-            it(`should pass down the ${expectedSecondGroupTeaserModifier} teaser modifier to the second group of articles`, () => {
+            it(`should pass down the ${expectedSecondGroupTeaserModifier} teaser modifier`, () => {
                 expect(groups[1].props.teaserModifier).to.equal(expectedSecondGroupTeaserModifier);
             });
 
-            it(`should pass down the next 4 articles to the second group of articles`, () => {
+            it(`should pass down the next 4 articles`, () => {
                 expect(groups[1].props.articles).to.deep.equal(articlesMock.slice(7, 11));
             });
         });
@@ -180,25 +187,32 @@ describe(`Section`, () => {
             const expectedThirdGroupModifier = '6-or-4-items';
             const expectedThirdGroupClass = 'visible-for-large-only';
             const expectedThirdGroupTeaserModifier = 'img-top';
-            it(`should pass down the ${expectedThirdGroupModifier} modifier to the second group of articles`, () => {
+            it(`should pass down the ${expectedThirdGroupModifier} modifier`, () => {
                 expect(groups[2].props.modifier).to.equal(expectedThirdGroupModifier);
             });
 
-            it(`should pass down the ${expectedThirdGroupClass} className to the second group of articles`, () => {
+            it(`should pass down the ${expectedThirdGroupClass} className`, () => {
                 expect(groups[2].props.className).to.equal(expectedThirdGroupClass);
             });
 
-            it(`should pass down the ${expectedThirdGroupTeaserModifier} teaser modifier to the second group of articles`, () => {
+            it(`should pass down the ${expectedThirdGroupTeaserModifier} teaser modifier`, () => {
                 expect(groups[2].props.teaserModifier).to.equal(expectedThirdGroupTeaserModifier);
             });
 
-            it(`should pass down the next 6 articles to the second group of articles`, () => {
+            it(`should pass down the next 6 articles`, () => {
                 expect(groups[2].props.articles).to.deep.equal(articlesMock.slice(5, 11));
+            });
+
+            it(`should pass down the polarAd settings`, () => {
+                expect(groups[2].props.polarAd).to.deep.equal({
+                    label: 'section_teaser_1',
+                    index: 0
+                });
             });
         });
 
         describe(`Repeatable group of articles`, () => {
-            it(`should pass down the remaining articles to the repeatable group`, () => {
+            it(`should pass down the remaining articles`, () => {
                 expect(groupRepeatable.props.articles).to.deep.equal(articlesMock.slice(11, articlesMock.length));
             });
         });
