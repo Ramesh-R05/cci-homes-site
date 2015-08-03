@@ -17,11 +17,16 @@ const Hero = proxyquire('../../../app/components/article/hero', {
     'react/addons': React,
     '@bxm/article/lib/components/hero/image': HeroImageStub,
     '@bxm/article/lib/components/hero/video': HeroVideoStub,
-    '../../breakpoints': breakpointsMock,
-    '@bxm/config': { load: () => { return config } }
+    '../../breakpoints': breakpointsMock
 });
 
 describe('Hero Component', () => {
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: { brightcove: { accountId, playerId } }
+    };
+
     let reactModule;
 
     describe('display a hero image', () => {
@@ -74,7 +79,7 @@ describe('Hero Component', () => {
         let heroVideo;
 
         before(() => {
-            reactModule = Context.mountComponent(Hero, { item });
+            reactModule = Context.mountComponent(Hero, { item }, [contextConfigStub]);
             heroVideo = TestUtils.scryRenderedComponentsWithType(reactModule, HeroVideoStub)[0];
         });
 

@@ -5,16 +5,15 @@ import isString from 'lodash/lang/isString';
 import isObject from 'lodash/lang/isObject';
 import get from 'lodash/object/get';
 import breakpoints from '../../breakpoints';
-import {load} from '@bxm/config';
-
-const config = load();
-const brightcoveAccountId = get(config, 'brightcove.accountId');
-const brightcovePlayerId = get(config, 'brightcove.playerId');
 
 export default class Hero extends Component {
 
     static propTypes = {
         item: PropTypes.object.isRequired
+    };
+
+    static contextTypes = {
+        config: PropTypes.object
     };
 
     constructor(props, context) {
@@ -33,11 +32,14 @@ export default class Hero extends Component {
         const brightcoveId = get(this.props, 'item.video.properties.videoConfiguration.brightcoveId');
         if (!brightcoveId) return null;
 
+        const accountId = get(this.context, 'config.brightcove.accountId');
+        const playerId = get(this.context, 'config.brightcove.playerId');
+
         return (
             <HeroVideo
                 brightcoveId={brightcoveId}
-                accountId={brightcoveAccountId}
-                playerId={brightcovePlayerId}
+                accountId={accountId}
+                playerId={playerId}
             />
         );
     }

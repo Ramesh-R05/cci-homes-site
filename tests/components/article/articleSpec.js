@@ -16,7 +16,6 @@ const RecommendationsStub = Context.createStubComponent();
 const SchemaArticleStub = Context.createStubComponentWithChildren();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 
-const config = { foo: `bar` };
 const Article = proxyquire('../../../app/components/article/article', {
     'react': React,
     'react/addons': React,
@@ -27,8 +26,7 @@ const Article = proxyquire('../../../app/components/article/article', {
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
-    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub,
-    '@bxm/config': { load: () => config }
+    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
 });
 
 describe(`Article Component`, () => {
@@ -52,6 +50,12 @@ describe(`Article Component`, () => {
         imageCaption: articleMock.imageCaption
     };
 
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: { foo: `bar` }
+    };
+
     let reactModule;
 
     afterEach(Context.cleanup);
@@ -69,7 +73,7 @@ describe(`Article Component`, () => {
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
                 authorProfiles, className, contentBody, dateCreated, imageUrl, heroItem, source, summary, tags, title
-            });
+            }, [contextConfigStub]);
 
             const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             topAdSub = adSubs[0];
@@ -223,8 +227,8 @@ describe(`Article Component`, () => {
                 expect(contentBodySub.props.className).to.eq(contentBodyClass);
             });
 
-            it(`should get the app config"`, () => {
-                expect(contentBodySub.props.config).to.deep.eq(config);
+            it(`should get the context config"`, () => {
+                expect(contentBodySub.props.config).to.deep.eq({ foo: `bar` });
             });
         });
 

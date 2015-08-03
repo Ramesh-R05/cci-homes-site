@@ -9,8 +9,6 @@ import Recommendations from '../recommendations/recommendations';
 import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
 import SchemaArticle from '@bxm/article/lib/components/schema/article';
-import {load} from '@bxm/config';
-const config = load();
 
 class Article extends Component {
 
@@ -28,6 +26,10 @@ class Article extends Component {
         themeClass: PropTypes.string,
         title: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
+    };
+
+    static contextTypes = {
+        config: PropTypes.object
     };
 
     constructor(props, context) {
@@ -74,7 +76,7 @@ class Article extends Component {
                     body={this.props.contentBody}
                     breakpoints={breakpoints}
                     className="article__body article__body--top-border"
-                    config={config}
+                    config={this.context.config}
                 />
                 <Footer
                     authorProfiles={this.props.authorProfiles}
