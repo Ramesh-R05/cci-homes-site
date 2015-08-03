@@ -424,6 +424,26 @@ a {
     @include type-social-link-label;
 }
 
+
+
+// Error page
+@mixin type-error-page {
+    color: $color-black;
+    font: 400 14px/2 $font-family-serif-primary;
+
+    @media #{$medium-up} {
+        font-size: 18px;
+    }
+
+    @media #{$large-up} {
+        font-size: 22px;
+    }
+}
+
+.type-error-page {
+    @include type-error-page;
+}
+
 // ---------------------------------------------------- reset mixins
 
 @mixin reset-list {

@@ -1,32 +1,12 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import forOwn from 'lodash/object/forOwn';
+import cloneDeep from 'lodash/lang/cloneDeep';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
 const TestUtils = Context.TestUtils;
 
-let content;
-Context.addStore('EntityStore', {
-    getContent() {
-        return content;
-    }
-});
-
-let isSideMenuOpen = false;
-let navItems = [
-    { name: 'Home tours', url: '/home-tours' },
-    { name: 'Interiors', url: '/interiors' },
-    { name: 'Outdoor', url: '/outdoor' },
-    { name: 'Renovate', url: '/renovate' }
-];
-Context.addStore('MenuStore', {
-    isSideMenuOpen() {
-        return isSideMenuOpen;
-    },
-    getNavItems() {
-        return navItems;
-    }
-});
+// ----------------------------------------------------------------------------- Stub components
 
 const NetworkHeaderStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
@@ -37,6 +17,60 @@ const GalleryStub = Context.createStubComponent();
 const SideMenuStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponentWithChildren();
 const proxyquire = require('proxyquire').noCallThru();
+
+// ----------------------------------------------------------------------------- Store config
+
+const navItems = [
+    { name: 'Home tours', url: '/home-tours' },
+    { name: 'Interiors', url: '/interiors' },
+    { name: 'Outdoor', url: '/outdoor' },
+    { name: 'Renovate', url: '/renovate' }
+];
+const defaultStoreData = {
+    MenuStore: {
+        navItems,
+        sideMenuOpen: false
+    },
+    EntityStore: {
+        content: { some: 'content' },
+        error: undefined
+    }
+};
+
+let storeData;
+function resetStoreData() {
+    storeData = cloneDeep(defaultStoreData);
+}
+
+Context.addStore('EntityStore', {
+    getContent() {
+        return storeData.EntityStore.content;
+    },
+    getErrorStatus() {
+        return storeData.EntityStore.error;
+    }
+});
+
+Context.addStore('MenuStore', {
+    isSideMenuOpen() {
+        return storeData.EntityStore.sideMenuOpen;
+    },
+    getNavItems() {
+        return storeData.MenuStore.navItems;
+    }
+});
+
+// ----------------------------------------------------------------------------- Load with mocks
+
+const Error404Stub = Context.createStubComponent();
+const Error500Stub = Context.createStubComponent();
+function mockErrorHandlerBuilder(code) {
+    switch (code) {
+        case 404: return Error404Stub;
+        case 500: return Error500Stub;
+    }
+}
+
 const Default = proxyquire('../../../app/components/templates/default', {
     'react': React,
     'react/addons': React,
@@ -47,7 +81,8 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../article/section': HomesArticleStub,
     '../section/section': SectionStub,
     '../gallery/gallery': GalleryStub,
-    '../footer/footer': FooterStub
+    '../footer/footer': FooterStub,
+    '../error/errorHandlerBuilder': mockErrorHandlerBuilder
 });
 
 describe('Default Component template', () => {
@@ -58,21 +93,44 @@ describe('Default Component template', () => {
     let sideMenu;
     let footer;
 
-    it('does not render if content is not specified', () => {
-        content = undefined;
-        reactModule = Context.mountComponent(Default);
-        expect(React.findDOMNode(reactModule)).to.be.null;
-    });
+    beforeEach(resetStoreData);
 
-    it('does not render if nodeType is unknown', () => {
-        content = { nodeType: 'RickRoll' };
-        reactModule = Context.mountComponent(Default);
-        expect(React.findDOMNode(reactModule)).to.be.null;
+    describe('Error Handling', () => {
+        it('shows 500 error if nodeType is unknown', () => {
+            storeData.EntityStore.content = { nodeType: 'RickRoll' };
+            reactModule = Context.mountComponent(Default);
+            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+        });
+
+        it('shows 500 error if content is not specified', () => {
+            storeData.EntityStore.content = null;
+            reactModule = Context.mountComponent(Default);
+            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+        });
+
+        it('shows 404 error when error status code is 404', () => {
+            storeData.EntityStore.content = null;
+            storeData.EntityStore.error = { status: 404 };
+            reactModule = Context.mountComponent(Default);
+            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error404Stub)[0]).to.exist;
+        });
+
+        it('shows 500 error when error status code is 500', () => {
+            storeData.EntityStore.error = { status: 500 };
+            reactModule = Context.mountComponent(Default);
+            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+        });
+
+        it('shows 500 error when error status code is unknown', () => {
+            storeData.EntityStore.error = { status: -1 };
+            reactModule = Context.mountComponent(Default);
+            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+        });
     });
 
     describe('Home Page', () => {
         before(() => {
-            content = { nodeType: 'Homepage' };
+            storeData.EntityStore.content = { nodeType: 'Homepage' };
             reactModule = Context.mountComponent(Default);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
@@ -131,15 +189,15 @@ describe('Default Component template', () => {
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
-                    content = { nodeType };
+                    storeData.EntityStore.content = {nodeType};
                     reactModule = Context.mountComponent(Default);
                     header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub)[0];
                     footer = TestUtils.scryRenderedComponentsWithType(reactModule, FooterStub)[0];
                 });
 
                 it('returns the correct handler', () => {
-                    template = TestUtils.findRenderedComponentWithType(reactModule, component);
-                    expect(template).to.exist;
+                    template = TestUtils.scryRenderedComponentsWithType(reactModule, component);
+                    expect(template).to.have.length(1);
                 });
 
                 it(`${hideNetworkHeader ? 'hides' : 'shows'} the network header`, () => {

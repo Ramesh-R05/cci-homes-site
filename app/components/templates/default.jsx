@@ -6,7 +6,7 @@ import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import SideMenu from '../side-menu/sideMenu';
-import isUndefined from 'lodash/lang/isUndefined';
+import errorHandlerBuilder from '../error/errorHandlerBuilder';
 import cx from 'classnames';
 
 class DefaultTemplate extends Component {
@@ -14,12 +14,16 @@ class DefaultTemplate extends Component {
     static propTypes = {
         content: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        navItems: PropTypes.array
+        navItems: PropTypes.array,
+        contentErrorStatus: PropTypes.object
+
     };
 
     static defaultProps = {
+        content: null,
         isSideMenuOpen: false,
-        navItems: []
+        navItems: [],
+        contentErrorStatus: null
     };
 
     static contextTypes = {
@@ -31,12 +35,7 @@ class DefaultTemplate extends Component {
     }
 
     render() {
-        if (isUndefined(this.props.content)) return null;
-
-        const page = this.getPageMetadata();
-        if (!page) return null;
-
-        const {Handler, hideNetworkHeader, hideFooter, hideHeader, isExpanded} = page;
+        const {Handler, hideNetworkHeader, hideFooter, hideHeader, isExpanded} = this.getPageMetadata();
         const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
@@ -62,40 +61,63 @@ class DefaultTemplate extends Component {
                     isSideMenuOpen={this.props.isSideMenuOpen}
                 />
                 {hideFooter ? null : <Footer />}
-
             </div>
         );
     }
 
     getPageMetadata() {
-        switch (this.props.content.nodeType) {
-            case 'Homepage': return {
-                Handler: require('../home/home'),
-                isExpanded: true
-            };
-            case 'HomesArticle': return {
-                Handler: require('../article/section'),
-                hideFooter: true
-            };
-            case 'NavigationSection': return {
-                Handler: require('../section/section')
-            };
-            case 'Gallery': return {
-                Handler: require('../gallery/gallery'),
-                hideNetworkHeader: true,
-                hideHeader: true,
-                hideFooter: true
-            };
-            default:
-                console.error({message: 'NotFound is not implemented'});
-                return null;
+        // Error cases
+        if (this.props.contentErrorStatus) {
+            return this.handleContentError(this.props.contentErrorStatus);
+        } else if (!this.props.content) {
+            return this.handleNoContent();
         }
+
+        switch (this.props.content.nodeType) {
+            case 'Homepage':
+                return {
+                    Handler: require('../home/home'),
+                    isExpanded: true
+                };
+            case 'HomesArticle':
+                return {
+                    Handler: require('../article/section'),
+                    hideFooter: true
+                };
+            case 'NavigationSection':
+                return {
+                    Handler: require('../section/section')
+                };
+            case 'Gallery':
+                return {
+                    Handler: require('../gallery/gallery'),
+                    hideNetworkHeader: true,
+                    hideHeader: true,
+                    hideFooter: true
+                };
+            default:
+                console.error({message: `Unsupported nodeType (${this.props.content.nodeType})`});
+                return this.handleNoContent();
+        }
+    }
+
+    handleNoContent() {
+        return {
+            Handler: errorHandlerBuilder(500)
+        };
+    }
+
+    handleContentError(errorStatus) {
+        return {
+            Handler: errorHandlerBuilder(errorStatus.status) || errorHandlerBuilder(500)
+        };
     }
 }
 
 export default connectToStores(DefaultTemplate, [EntityStore, MenuStore], (stores) => {
     return {
         content: stores.EntityStore.getContent(),
+        contentErrorStatus: stores.EntityStore.getErrorStatus(),
         isSideMenuOpen: stores.MenuStore.isSideMenuOpen(),
         navItems: stores.MenuStore.getNavItems()
     };
