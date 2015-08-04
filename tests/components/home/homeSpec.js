@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import {articles as homeArticlesMock} from '../../mock/articles';
+import exposeProps from '../../test-util/exposeProps';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
@@ -70,6 +71,28 @@ describe('Home', () => {
 
         it(`should be targeted with position 2`, () => {
             expect(ad.props.targets).to.deep.equal({position: 3});
+        });
+    });
+
+    describe(`side menu behavior`, () => {
+        let domNode;
+
+        before(() => {
+            reactModule = Context.mountComponent(exposeProps(Home));
+            domNode = React.findDOMNode(reactModule);
+        });
+
+        it(`should have class name "side-menu-slider"`, () => {
+            expect(domNode).to.have.className('side-menu-slider');
+        });
+
+        it(`should default to closed state`, () => {
+            expect(domNode).not.to.have.className('side-menu-slider--side-menu-open');
+        });
+
+        it(`should open when isSideMenuOpen is true`, () => {
+            reactModule.setProps({ isSideMenuOpen: true });
+            expect(domNode).to.have.className('side-menu-slider--side-menu-open');
         });
     });
 

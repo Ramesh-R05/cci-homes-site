@@ -3,6 +3,7 @@ import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import {connectToStores} from '@bxm/flux';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
+import cx from 'classnames';
 import EntityStore from '../../stores/entity';
 import TaggedArticlesStore from '../../stores/facetedStores/taggedArticles';
 import * as FacetedModuleActions from '../../actions/facetedModule';
@@ -29,7 +30,8 @@ class Section extends Component {
         moduleConfig: PropTypes.object,
         navigationTags: PropTypes.array.isRequired,
         currentPage: PropTypes.number.isRequired,
-        isLoading: PropTypes.bool.isrequired
+        isLoading: PropTypes.bool.isrequired,
+        isSideMenuOpen: PropTypes.bool
     };
 
     static defaultProps = {
@@ -40,7 +42,8 @@ class Section extends Component {
         },
         currentPage: 0,
         moduleConfig: {},
-        navigationTags: []
+        navigationTags: [],
+        isSideMenuOpen: false
     };
 
     constructor(props, context) {
@@ -98,8 +101,13 @@ class Section extends Component {
             loadMoreBtn = <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading}/>;
         }
 
+        const menuSliderClassName = cx({
+            'side-menu-slider': true,
+            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+        });
+
         return (
-            <div className="container section-landing">
+            <div className={cx('container section-landing', menuSliderClassName)}>
                 <div className="row">
                     <Header tags={this.props.navigationTags}>
                         <Ad
