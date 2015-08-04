@@ -1,0 +1,54 @@
+.magshop {
+    margin-top: 10px;
+    text-align: center;
+    @include grid-column(12);
+
+    @media #{$medium-up} {
+        @include grid-column(6);
+        margin-top: 20px;
+    }
+
+    @media #{$large-up} {
+        margin-top: 25px;
+    }
+
+    @media #{$xlarge-up} {
+        @include grid-column(8);
+        margin-top: 60px;
+    }
+
+    &__subscribe {
+        margin: -20px auto auto;
+        max-width: 350px;
+        padding: 0 15px;
+
+        @media #{$medium-up} {
+            margin-top: 20px;
+        }
+
+        @media #{$xlarge-up} {
+            margin-top: 40px;
+        }
+    }
+
+    &__heading {
+        @include type-magshop-heading;
+    }
+
+    &__content {
+        @include type-magshop-content;
+        margin-bottom: 15px;
+        margin-top: 4px;
+
+        @media #{$medium-up} {
+            margin-bottom: 30px;
+            margin-top: 13px;
+        }
+    }
+
+    &__action {
+        @media #{$medium-up} {
+            margin-top: -5px;
+        }
+    }
+}

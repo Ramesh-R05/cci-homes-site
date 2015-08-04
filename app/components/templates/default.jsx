@@ -4,6 +4,7 @@ import EntityStore from '../../stores/entity';
 import MenuStore from '../../stores/menu';
 import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
+import Footer from '../footer/footer';
 import SideMenu from '../side-menu/sideMenu';
 import {isUndefined} from 'lodash/lang';
 import cx from 'classnames';
@@ -35,7 +36,7 @@ class DefaultTemplate extends Component {
         const page = this.getPageMetadata();
         if (!page) return null;
 
-        const {Handler, hideNetworkHeader, hideHeader, isExpanded} = page;
+        const {Handler, hideNetworkHeader, hideFooter, hideHeader, isExpanded} = page;
         const menuSliderClassName = cx({
             'side-menu-slider': true,
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
@@ -61,6 +62,8 @@ class DefaultTemplate extends Component {
                     content={this.props.content}
                     isSideMenuOpen={this.props.isSideMenuOpen}
                 />
+                {hideFooter ? null : <Footer />}
+
             </div>
         );
     }
@@ -72,7 +75,8 @@ class DefaultTemplate extends Component {
                 isExpanded: true
             };
             case 'HomesArticle': return {
-                Handler: require('../article/section')
+                Handler: require('../article/section'),
+                hideFooter: true
             };
             case 'NavigationSection': return {
                 Handler: require('../section/section')

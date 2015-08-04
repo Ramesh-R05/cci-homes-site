@@ -16,7 +16,6 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     '../polar/polarTeaser': PolarTeaserStub
 });
 
-
 describe('SectionFeatured', () => {
 
     afterEach(Context.cleanup);
@@ -123,20 +122,6 @@ describe('SectionFeatured', () => {
             });
         });
 
-        describe(`Bottom banner/leaderboard/billboard ad`, () => {
-            it(`should display either a banner, leaderboard or a billboard ad`, () => {
-                const expectedSizes = {
-                    small: 'banner',
-                    leaderboard: 'leaderboard',
-                    billboard: ['billboard', 'leaderboard']
-                };
-                expect(ads[6].props.sizes).to.deep.equal(expectedSizes);
-            });
-
-            it(`should be targeted with position 2`, () => {
-                expect(ads[6].props.targets).to.deep.equal({position: 3});
-            });
-        });
 
         describe(`Hero for sm/md/lg viewports`, () => {
             it(`should have the first article data`, () => {

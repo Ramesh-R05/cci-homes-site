@@ -86,7 +86,6 @@ describe(`Article Component`, () => {
             recommendationsStub = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
         });
 
-
         it(`should render the component with class "${articleClassName}"`, () => {
             const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
             expect(classNames).to.contain(articleClassName);

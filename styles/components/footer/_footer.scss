@@ -1,0 +1,28 @@
+.footer {
+    background-image: url('/assets/images/footer-bg.png');
+    background-repeat: repeat;
+    margin-top: -33px;
+    padding: 30px 0;
+
+    @media #{$medium-up} {
+        margin-top: 30px;
+        padding: 50px 0;
+    }
+
+    @media #{$large-up} {
+        padding: 50px 0 56px;
+    }
+
+    &__copyright {
+        line-height: 15px;
+        padding-top: 4px;
+        text-align: center;
+
+        span {
+            color: $color-grey-dark;
+            font-family: $font-family-sans-serif-primary;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+    }
+}

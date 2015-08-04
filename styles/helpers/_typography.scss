@@ -297,15 +297,16 @@ a {
 }
 
 // Composite text
-@mixin type-composite {
-    color: $color-grey-dark;
+@mixin type-composite($color: $color-grey-dark, $boldcolor: $color-grey-darker) {
+    color: $color;
     font: 300 36px/.889 $font-family-sans-serif-primary;
     letter-spacing: .1em;
     text-transform: uppercase;
 
+    strong,
     b,
     .bold {
-        color: $color-grey-darker;
+        color: $boldcolor;
         font: 400 39px/.842 $font-family-serif-secondary;
     }
 }
@@ -342,11 +343,11 @@ a {
     @include type-section-heading;
 }
 
-@mixin type-underlined {
+@mixin type-underlined($border-color: $color-section-separator, $border-size: 2px) {
     text-align: center;
 
     &:after {
-        border-bottom: 2px solid $color-section-separator;
+        border-bottom: $border-size solid $border-color;
         content: '';
         display: inline-block;
         position: relative;
@@ -357,6 +358,71 @@ a {
 
 .type-underlined {
     @include type-underlined;
+}
+
+@mixin type-network-info {
+    color: $color-grey-light;
+    font-family: $font-family-sans-serif-primary;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        font-weight: 500;
+        margin-bottom: -10px;
+    }
+}
+
+.type-network-info {
+    @include type-network-info;
+}
+
+@mixin type-magshop-heading {
+    color: $color-white;
+    font-family: $font-family-sans-serif-primary;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        font-size: 24px;
+    }
+}
+
+.type-magshop-heading {
+    @include type-magshop-heading;
+}
+
+.black-bg {
+    background-color: $color-black;
+}
+
+@mixin type-magshop-content() {
+    color: $color-grey-light;
+    font-family: $font-family-sans-serif-secondary;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: .021em;
+    line-height: 24px;
+}
+
+.type-magshop-content {
+    @include type-magshop-content;
+}
+
+@mixin type-social-link-label() {
+    color: $color-grey-light;
+    font-family: $font-family-sans-serif-secondary;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: .021em;
+}
+
+.type-social-link-label {
+    @include type-social-link-label;
 }
 
 // ---------------------------------------------------- reset mixins
