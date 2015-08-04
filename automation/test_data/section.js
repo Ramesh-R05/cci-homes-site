@@ -138,7 +138,7 @@ module.exports = {
                 "facetConfiguration": [
                     {
                         "label": "Tag",
-                        "field": "articleTags",
+                        "field": "tags",
                         "query": "tags",
                         "sortBy": 0,
                         "sortDirection": 0

@@ -1,7 +1,7 @@
 export default [
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Budget buys"
         ],
@@ -105,7 +105,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Decorating 101"
         ],
@@ -209,7 +209,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Feature room"
         ],
@@ -313,7 +313,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Bathroom news"
         ],
@@ -417,7 +417,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Kitchen news"
         ],
@@ -521,7 +521,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Budget buys"
         ],
@@ -625,7 +625,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Decorating 101"
         ],
@@ -729,7 +729,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Feature room"
         ],
@@ -833,7 +833,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Bathroom news"
         ],
@@ -937,7 +937,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Homes navigation:Indoor",
             "food:Topic:Kitchen news"
         ],
@@ -1041,7 +1041,7 @@ export default [
     },
     {
         "campaign": [],
-        "articleTags": [
+        "tags": [
             "food:Topic:Creative home",
             "food:Homes navigation:Indoor"
         ],

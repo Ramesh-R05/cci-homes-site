@@ -42,7 +42,7 @@ export default class FeedItem extends Component {
         const {gtmClass, item} = this.props;
         const {url, imageUrl, title, source} = item;
         const sourceClassName = `source-${FeedItem.sourceClassNameMap[source]}`;
-        const topic = getFirstTagNameForCategory(this.props.item.articleTags, 'Topic');
+        const topic = getFirstTagNameForCategory(this.props.item.tags, 'Topic');
         return (
             <li className={`feed-item ${sourceClassName}`}>
                 <TeaserImage

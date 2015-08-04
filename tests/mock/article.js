@@ -1,6 +1,6 @@
 export default {
     "campaign": [],
-    "articleTags": [
+    "tags": [
         "homes:Topic:Garden planner",
         "homes:Homes navigation:Outdoor",
         "homes:Homes navigation:Garden"

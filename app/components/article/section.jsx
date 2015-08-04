@@ -34,7 +34,7 @@ class Section extends Component {
     }
 
     componentWillMount() {
-        const tags = this.props.content.articleTags;
+        const tags = this.props.content.tags;
         const navigationTag = getCategoryFirstTag(tags, 'Homes navigation');
         this.context.executeAction(FacetedModuleActions.getPage, {
             page: 0,
@@ -67,7 +67,7 @@ class Section extends Component {
                         imageUrl={content.imageUrl}
                         source={content.source}
                         summary={content.summary}
-                        tags={content.articleTags}
+                        tags={content.tags}
                         authorProfiles={content.authorProfiles}
                         pageId={content.id}
                         dateCreated={content.dateCreated}
@@ -79,7 +79,7 @@ class Section extends Component {
                     <Feed
                         items={this.props.feedItems}
                         pageId={content.id}
-                        articleTags={content.articleTags}
+                        tags={content.tags}
                         source={content.source}
                         isSideMenuOpen={this.props.isSideMenuOpen}
                     />

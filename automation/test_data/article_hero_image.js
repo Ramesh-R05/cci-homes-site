@@ -13,7 +13,7 @@ module.exports =
             "nodeType": "Campaign"
         }
     ],
-    "articleTags": [
+    "tags": [
         "food:Homes navigation:Home Tours",
         "food:Audience:Designer",
         "food:Building:Type:House",
@@ -251,7 +251,7 @@ module.exports =
   "previous": {
     "entity": {
       "campaign": [],
-      "articleTags": [
+      "tags": [
         "food:Topic:Before and after",
         "food:Homes navigation:DIY & How To"
       ],
@@ -508,7 +508,7 @@ module.exports =
       },
       {
         "campaign": [],
-        "articleTags": [
+        "tags": [
           "food:Topic:Creative home",
           "food:Homes navigation:Indoor",
           "food:Profiles:Designer"
@@ -613,7 +613,7 @@ module.exports =
               "facetConfiguration": [
                   {
                       "label": "Tag",
-                      "field": "articleTags",
+                      "field": "tags",
                       "query": "tags",
                       "sortBy": 0,
                       "sortDirection": 0

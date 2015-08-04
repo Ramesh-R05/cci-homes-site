@@ -110,7 +110,7 @@ var Gallery = React.createClass({
             galleryItems = this.state.galleryItems,
             shareDescription = (gallery.summary || gallery.title || ""),
             shareTitle = gallery.title || gallery.name,
-            keyword = getKeywordsFromTags(gallery.contentTags);
+            keyword = getKeywordsFromTags(gallery.tags);
 
         /* jshint ignore:start */
         return (

@@ -49,7 +49,7 @@ module.exports = {
         "facetConfiguration": [
             {
                 "label": "Tag",
-                "field": "articleTags",
+                "field": "tags",
                 "query": "tags",
                 "sortBy": 0,
                 "sortDirection": 0,
@@ -97,7 +97,7 @@ module.exports = {
         "fieldConfigurations": [
             {
                 "label": "Tag",
-                "field": "articleTags",
+                "field": "tags",
                 "query": "tags",
                 "sortBy": 0,
                 "sortDirection": 0,
@@ -110,7 +110,7 @@ module.exports = {
             "facetDates": {},
             "facetFields": [
                 {
-                    "name": "articleTags",
+                    "name": "tags",
                     "values": [
                         {
                             "value": "food:Homes navigation:DIY & How To",
@@ -242,7 +242,7 @@ module.exports = {
         "customFilters": [],
         "facetFilters": [
             {
-                "name": "articleTags",
+                "name": "tags",
                 "value": {
                     "values": [
                         "Indoor"
@@ -253,7 +253,7 @@ module.exports = {
         "facetFields": [
             {
                 "label": "Tag",
-                "field": "articleTags",
+                "field": "tags",
                 "query": "tags",
                 "sortBy": 0,
                 "sortDirection": 0,
@@ -266,7 +266,7 @@ module.exports = {
     "items": [
         {
             "campaign": [],
-            "articleTags": [
+            "tags": [
                 "food:Profiles:Handyman",
                 "food:Homes navigation:Renovate",
                 "food:Topic:DIY",

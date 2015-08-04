@@ -122,7 +122,7 @@ module.exports = function(id) {
                 "valid": true
             }
         ],
-        "contentTags": [
+        "tags": [
             "royalty:Royal family",
             "people:family:British Royal Family",
             "royalty:monarch:Elizabeth II",

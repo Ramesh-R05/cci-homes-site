@@ -8,7 +8,7 @@ export default {
         title: 'Renting shouldn\'t mean sacrificing personality 1',
         source: 'homes+',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati, qui, quibusdam repellat rerum sed sunt temporibus...',
-        articleTags: [
+        tags: [
             'food:Decorating:Colour:Pink',
             'food:Decorating:Colour:Purple',
             'food:Decorating:Colour:Red',
