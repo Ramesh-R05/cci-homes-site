@@ -84,7 +84,8 @@ class DefaultTemplate extends Component {
             case 'Gallery': return {
                 Handler: require('../gallery/gallery'),
                 hideNetworkHeader: true,
-                hideHeader: true
+                hideHeader: true,
+                hideFooter: true
             };
             default:
                 console.error({message: 'NotFound is not implemented'});
