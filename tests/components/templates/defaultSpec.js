@@ -70,32 +70,6 @@ describe('Default Component template', () => {
         expect(React.findDOMNode(reactModule)).to.be.null;
     });
 
-    describe('Section Page', () => {
-        before(() => {
-            content = {nodeType: 'NavigationSection'};
-            reactModule = Context.mountComponent(Default);
-            footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
-        });
-
-        it('renders the footer COmponent', () => {
-            expect(footer).to.exist;
-        });
-
-    });
-
-    describe('Article Page', () => {
-        before(() => {
-            content = {nodeType: 'HomesArticle'};
-            reactModule = Context.mountComponent(Default);
-            footer = TestUtils.scryRenderedComponentsWithType(reactModule, FooterStub);
-        });
-
-        it('does not renders the footer COmponent', () => {
-            expect(footer.length).to.eq(0);
-        });
-
-    });
-
     describe('Home Page', () => {
         before(() => {
             content = { nodeType: 'Homepage' };
@@ -120,46 +94,47 @@ describe('Default Component template', () => {
         it('sets SideMenu "items" prop to array', () => {
             expect(sideMenu.props.navItems).to.eql(navItems);
         });
-
-        it('renders the footer COmponent', () => {
-            expect(footer).to.exist;
-        });
     });
 
-    describe('header visibility', () => {
+    describe('header and footer visibility', () => {
         forOwn({
             'Homepage': {
                 component: HomepageStub,
                 hideNetworkHeader: false,
                 hideHeader: false,
-                isExpanded: true
+                isExpanded: true,
+                hideFooter: false
             },
             'HomesArticle': {
                 component: HomesArticleStub,
                 hideNetworkHeader: false,
                 hideHeader: false,
-                isExpanded: false
+                isExpanded: false,
+                hideFooter: true
             },
             'NavigationSection': {
                 component: SectionStub,
                 hideNetworkHeader: false,
                 hideHeader: false,
-                isExpanded: false
+                isExpanded: false,
+                hideFooter: false
             },
             'Gallery': {
                 component: GalleryStub,
                 hideNetworkHeader: true,
                 hideHeader: true,
-                isExpanded: false
+                isExpanded: false,
+                hideFooter: true
             }
         }, (metadata, nodeType) => {
-            const {component, hideNetworkHeader, hideHeader, isExpanded} = metadata;
+            const {component, hideFooter, hideNetworkHeader, hideHeader, isExpanded} = metadata;
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
                     content = { nodeType };
                     reactModule = Context.mountComponent(Default);
                     header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub)[0];
+                    footer = TestUtils.scryRenderedComponentsWithType(reactModule, FooterStub)[0];
                 });
 
                 it('returns the correct handler', () => {
@@ -177,6 +152,14 @@ describe('Default Component template', () => {
                         expect(React.findDOMNode(header)).not.to.exist;
                     } else {
                         expect(React.findDOMNode(header)).to.exist;
+                    }
+                });
+
+                it(`${hideFooter ? 'hides' : 'shows'} the footer`, () => {
+                    if (hideFooter) {
+                        expect(React.findDOMNode(footer)).not.to.exist;
+                    } else {
+                        expect(React.findDOMNode(footer)).to.exist;
                     }
                 });
 
