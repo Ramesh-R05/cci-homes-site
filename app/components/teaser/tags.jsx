@@ -32,13 +32,14 @@ export default class Tags extends Component {
 
         if (isUndefined(tags.primary)) return null;
 
-        const separator = !isUndefined(tags.secondary) ? ', ' : '';
-        const primaryTagHtml = <span className="tag-primary">{`${tags.primary}${separator}`}</span>;
+        const primaryTagHtml = <span className="tag-primary">{tags.primary}</span>;
+        const separator = isUndefined(tags.secondary) ? null : <span className="tag-separator">, </span>;
         const secondaryTagHtml = isUndefined(tags.secondary) ? null : <span className="tag-secondary">{tags.secondary}</span>;
 
         return (
             <p className="teaser__tags">
                 {primaryTagHtml}
+                {separator}
                 {secondaryTagHtml}
             </p>
         );

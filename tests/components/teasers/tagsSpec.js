@@ -25,7 +25,7 @@ describe('TeaserTags', () => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
         });
 
-        const expectedPrimaryTag = 'Gardening, ';
+        const expectedPrimaryTag = 'Gardening';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
             expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
@@ -35,6 +35,12 @@ describe('TeaserTags', () => {
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
             expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
+        });
+
+        const expectedSeparator = ', ';
+        it(`should have the separator equal to ${expectedSeparator}`, () => {
+            const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-separator');
+            expect(tag.getDOMNode().textContent).to.equal(expectedSeparator);
         });
     });
 
@@ -49,7 +55,7 @@ describe('TeaserTags', () => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
         });
 
-        const expectedPrimaryTag = 'Gardening, ';
+        const expectedPrimaryTag = 'Gardening';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
             expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
@@ -74,7 +80,7 @@ describe('TeaserTags', () => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
         });
 
-        const expectedPrimaryTag = 'DIY, ';
+        const expectedPrimaryTag = 'DIY';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
             expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
@@ -122,6 +128,28 @@ describe('TeaserTags', () => {
 
         it('should not be rendered', () => {
             expect(React.findDOMNode(reactModule)).to.not.exist;
+        });
+    });
+
+    describe('with the topic tag only', () => {
+
+        const tags = [
+            'homes:Topic:Gardening'
+        ];
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+        });
+
+        const expectedPrimaryTag = 'Gardening';
+        it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
+            const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
+            expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
+        });
+
+        it(`should not have the comma separator`, () => {
+            const separator = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'tag-separator');
+            expect(separator.length).to.equal(0);
         });
     });
 
