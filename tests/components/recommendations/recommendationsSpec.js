@@ -9,7 +9,7 @@ const Recommendations = proxyquire('../../../app/components/recommendations/reco
     '../teaser/teaser': Context.createStubComponent()
 });
 
-const recommendationsClassName = 'dacrm-recommendations';
+const recommendationsClassName = 'recommendations';
 
 describe(`Recommendation`, () => {
     let reactModule;

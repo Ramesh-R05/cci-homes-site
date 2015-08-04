@@ -1,4 +1,4 @@
-.dacrm-recommendations {
+.recommendations {
     @include grid-row();
     @include teaser-icon-centered-small();
 
@@ -28,7 +28,7 @@
         }
     }
 
-    .dacrm-recommendations__heading {
+    .recommendations__heading {
         @include type-composite;
         @include type-underlined;
         display: inline-block;

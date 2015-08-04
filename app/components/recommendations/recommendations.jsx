@@ -49,9 +49,9 @@ export default class Recommendations extends Component {
         // end test data
 
         return (
-            <div className="dacrm-recommendations">
+            <div className="recommendations">
                 <h2>
-                    <span className="dacrm-recommendations__heading">YOU MAY <b>ALSO LIKE</b></span>
+                    <span className="recommendations__heading">YOU MAY <b>ALSO LIKE</b></span>
                 </h2>
 
                 <div className="dacrm-recommendations__teaser-list">
