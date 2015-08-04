@@ -5,16 +5,19 @@ import InFocusArticlesStore from '../../stores/articles/inFocus';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import cx from 'classnames';
 
 class Home extends Component {
     static propTypes = {
         articles: PropTypes.array,
-        inFocusArticles: PropTypes.array
+        inFocusArticles: PropTypes.array,
+        isSideMenuOpen: PropTypes.bool
     };
 
     static defaultProps = {
         articles: [],
-        inFocusArticles: []
+        inFocusArticles: [],
+        isSideMenuOpen: false
     };
 
     static contextTypes = {
@@ -27,8 +30,12 @@ class Home extends Component {
     }
 
     render() {
+        const menuSliderClassName = cx('side-menu-slider', {
+            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+        });
+
         return (
-            <div>
+            <div className={menuSliderClassName}>
                 <SectionFeatured articles={this.props.articles} className="home__body">
                     <InFocus articles={this.props.inFocusArticles} modifier="border-bottom"/>
                 </SectionFeatured>

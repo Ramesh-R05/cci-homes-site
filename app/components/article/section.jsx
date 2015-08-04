@@ -52,8 +52,7 @@ class Section extends Component {
         const {content} = this.props;
         const heroItem = this.getHero();
 
-        const menuSliderClassName = cx({
-            'side-menu-slider': true,
+        const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 

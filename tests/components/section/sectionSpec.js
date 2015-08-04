@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
+import exposeProps from '../../test-util/exposeProps';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -67,8 +68,10 @@ Context.addStore('EntityStore', {
 });
 
 describe(`Section`, () => {
+    let reactModule;
     let loadMoreEnableStub;
     let paginationConfig;
+
     before(() => {
         loadMoreEnableStub = sinon.stub(config, 'isFeatureEnabled');
         paginationConfig = sinon.stub(config, 'get');
@@ -82,7 +85,6 @@ describe(`Section`, () => {
 
     describe(`With Load More Disabled`, () => {
 
-        let reactModule;
         let loadMore;
 
         before(() => {
@@ -98,7 +100,6 @@ describe(`Section`, () => {
 
     describe(`With Load More enabled`, () => {
         const sectionClassName = 'container';
-        let reactModule;
         let section;
         let header;
         let inFocus;
@@ -282,5 +283,26 @@ describe(`Section`, () => {
 
     });
 
+    describe(`side menu behavior`, () => {
+        let domNode;
+
+        before(() => {
+            reactModule = Context.mountComponent(exposeProps(Section));
+            domNode = React.findDOMNode(reactModule);
+        });
+
+        it(`should have class name "side-menu-slider"`, () => {
+            expect(domNode).to.have.className('side-menu-slider');
+        });
+
+        it(`should default to closed state`, () => {
+            expect(domNode).not.to.have.className('side-menu-slider--side-menu-open');
+        });
+
+        it(`should open when isSideMenuOpen is true`, () => {
+            reactModule.setProps({ isSideMenuOpen: true });
+            expect(domNode).to.have.className('side-menu-slider--side-menu-open');
+        });
+    });
 });
 
