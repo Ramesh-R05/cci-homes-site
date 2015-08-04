@@ -30,8 +30,7 @@ class Home extends Component {
     }
 
     render() {
-        const menuSliderClassName = cx({
-            'side-menu-slider': true,
+        const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 

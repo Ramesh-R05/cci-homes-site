@@ -101,8 +101,7 @@ class Section extends Component {
             loadMoreBtn = <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading}/>;
         }
 
-        const menuSliderClassName = cx({
-            'side-menu-slider': true,
+        const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
