@@ -27,9 +27,7 @@ const Header = proxyquire('../../../app/components/article/header', {
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/article/lib/components/header/title': ArticleTitleStub,
     '@bxm/article/lib/components/header/summary': ArticleSummaryStub,
-    '@bxm/config': {
-        load: () => { return config }
-    },
+    '@bxm/config': { load: () => { return config } },
     '@bxm/ui/lib/social/components/SocialShareBlock': ArticleSocialShareBlockStub
 });
 

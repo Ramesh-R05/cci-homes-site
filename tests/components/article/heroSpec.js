@@ -9,6 +9,9 @@ const HeroImageStub = Context.createStubComponent();
 const HeroVideoStub = Context.createStubComponent();
 const breakpointsMock = { breakpoints: true };
 
+const playerId = 'i-can-see-you';
+const accountId = 'but-i-can-never-reach-you';
+let config = { brightcove: { accountId, playerId } };
 const Hero = proxyquire('../../../app/components/article/hero', {
     'react': React,
     'react/addons': React,
@@ -18,6 +21,12 @@ const Hero = proxyquire('../../../app/components/article/hero', {
 });
 
 describe('Hero Component', () => {
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: { brightcove: { accountId, playerId } }
+    };
+
     let reactModule;
 
     describe('display a hero image', () => {
@@ -67,25 +76,27 @@ describe('Hero Component', () => {
         };
         const item = { video };
 
+        let heroVideo;
+
         before(() => {
-            reactModule = Context.mountComponent(Hero, { item });
+            reactModule = Context.mountComponent(Hero, { item }, [contextConfigStub]);
+            heroVideo = TestUtils.scryRenderedComponentsWithType(reactModule, HeroVideoStub)[0];
         });
 
         it('renders a HeroVideo', () => {
-            expect(TestUtils.scryRenderedComponentsWithType(reactModule, HeroVideoStub))
-                .to.have.length(1);
+            expect(heroVideo).to.exist;
         });
 
-        describe('props', () => {
-            let heroVideo;
+        it(`sets the brightcoveId prop to "${brightcoveId}"`, () => {
+            expect(heroVideo.props.brightcoveId).to.eq(brightcoveId);
+        });
 
-            before(() => {
-                heroVideo = TestUtils.findRenderedComponentWithType(reactModule, HeroVideoStub)
-            });
+        it(`sets the accountId prop to "${accountId}"`, () => {
+            expect(heroVideo.props.accountId).to.eq(accountId);
+        });
 
-            it('sets the HeroVideo prop "brightcoveId"', () => {
-                expect(heroVideo.props).to.have.property('brightcoveId', brightcoveId);
-            });
+        it(`sets the playerId prop to "${playerId}"`, () => {
+            expect(heroVideo.props.playerId).to.eq(playerId);
         });
     });
 

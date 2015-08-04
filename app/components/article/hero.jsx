@@ -1,13 +1,19 @@
 import React, {Component, PropTypes} from 'react';
 import HeroImage from '@bxm/article/lib/components/hero/image';
 import HeroVideo from '@bxm/article/lib/components/hero/video';
-import {isObject, isString} from 'lodash/lang';
+import isString from 'lodash/lang/isString';
+import isObject from 'lodash/lang/isObject';
+import get from 'lodash/object/get';
 import breakpoints from '../../breakpoints';
 
 export default class Hero extends Component {
 
     static propTypes = {
         item: PropTypes.object.isRequired
+    };
+
+    static contextTypes = {
+        config: PropTypes.object
     };
 
     constructor(props, context) {
@@ -23,14 +29,19 @@ export default class Hero extends Component {
     }
 
     renderHeroVideo() {
-        let brightcoveId = null;
-        try {
-            brightcoveId = this.props.item.video.properties.videoConfiguration.brightcoveId;
-        } catch (e) {
-            console.error('Could not read brightcoveId from video object', e);
-            return null;
-        }
-        return <HeroVideo brightcoveId={brightcoveId}/>;
+        const brightcoveId = get(this.props, 'item.video.properties.videoConfiguration.brightcoveId');
+        if (!brightcoveId) return null;
+
+        const accountId = get(this.context, 'config.brightcove.accountId');
+        const playerId = get(this.context, 'config.brightcove.playerId');
+
+        return (
+            <HeroVideo
+                brightcoveId={brightcoveId}
+                accountId={accountId}
+                playerId={playerId}
+            />
+        );
     }
 
     renderHeroImage() {

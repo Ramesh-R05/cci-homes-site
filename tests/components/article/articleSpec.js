@@ -15,6 +15,7 @@ const ContentBody = Context.createStubComponent();
 const RecommendationsStub = Context.createStubComponent();
 const SchemaArticleStub = Context.createStubComponentWithChildren();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
+
 const Article = proxyquire('../../../app/components/article/article', {
     'react': React,
     'react/addons': React,
@@ -49,6 +50,12 @@ describe(`Article Component`, () => {
         imageCaption: articleMock.imageCaption
     };
 
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: { foo: `bar` }
+    };
+
     let reactModule;
 
     afterEach(Context.cleanup);
@@ -66,7 +73,7 @@ describe(`Article Component`, () => {
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Article, {
                 authorProfiles, className, contentBody, dateCreated, imageUrl, heroItem, source, summary, tags, title
-            });
+            }, [contextConfigStub]);
 
             const adSubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             topAdSub = adSubs[0];
@@ -218,6 +225,10 @@ describe(`Article Component`, () => {
 
             it(`should have class "${contentBodyClass}"`, () => {
                 expect(contentBodySub.props.className).to.eq(contentBodyClass);
+            });
+
+            it(`should get the context config"`, () => {
+                expect(contentBodySub.props.config).to.deep.eq({ foo: `bar` });
             });
         });
 

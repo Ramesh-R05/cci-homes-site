@@ -28,6 +28,10 @@ class Article extends Component {
         url: PropTypes.string.isRequired
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     constructor(props, context) {
         super(props, context);
     }
@@ -72,6 +76,7 @@ class Article extends Component {
                     body={this.props.contentBody}
                     breakpoints={breakpoints}
                     className="article__body article__body--top-border"
+                    config={this.context.config}
                 />
                 <Footer
                     authorProfiles={this.props.authorProfiles}
