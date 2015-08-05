@@ -75,9 +75,9 @@ var start = function(port) {
         res.json(subSectionPage);
     });
 
-    server.get('/sandbox/2015/07/kev-test-gallery', function(req, res) {
-        var subSectionPage = require('../../tests/mock/gallery');
-        res.json(subSectionPage);
+    server.get('/section/gallery', function(req, res) {
+        var gallery = require(cwd + '/automation/test_data/gallery');
+        res.json(gallery);
     });
 
     server.listen(port);
