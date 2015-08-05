@@ -3,7 +3,7 @@
  */
 
 import React, {Component, PropTypes} from 'react';
-import {noop} from 'lodash/utility';
+import noop from 'lodash/utility/noop';
 
 export default class Input extends Component {
 

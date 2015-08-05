@@ -1,4 +1,4 @@
-import {clone} from 'lodash/lang';
+import clone from 'lodash/lang/clone';
 import {betterMockComponentContext} from '@bxm/flux';
 
 const Context = betterMockComponentContext();

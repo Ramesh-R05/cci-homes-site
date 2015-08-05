@@ -1,7 +1,7 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
-import {intersection} from 'lodash/array';
-import {extend} from 'lodash/object';
+import intersection from 'lodash/array/intersection';
+import extend from 'lodash/object/extend';
 
 const Context = betterMockComponentContext();
 const React = Context.React;

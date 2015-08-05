@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import {debounce} from 'lodash/function';
+import debounce from 'lodash/function/debounce';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 
 export default (Component) => class extends React.Component {
