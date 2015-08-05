@@ -37,9 +37,9 @@ describe(`Article Component`, () => {
     const contentBody = articleMock.body;
     const contentBodyClass = `article__body article__body--top-border`;
     const source = articleMock.source;
-    const targets = { brand: source };
     const summary = articleMock.summary;
     const tags = articleMock.tags;
+    const adKeywords = ['Garden planner', 'Outdoor', 'Garden'];
     const className = `test-article`;
     const classThemeName = `theme-australian_house_and_garden`;
     const allowedThemeClasses = ['theme-australian_house_and_garden', 'theme-real_living', 'theme-homes_', 'theme-belle'];
@@ -128,6 +128,11 @@ describe(`Article Component`, () => {
                 railLeaderboard: 'leaderboard',
                 xlarge: ['billboard', 'leaderboard']
             };
+            const targets = {
+                brand: source,
+                keyword: adKeywords,
+                position: 1
+            };
 
             it(`should have className "${className}"`, () => {
                 expect(topAdSub.props.className).to.eq(className);
@@ -157,7 +162,11 @@ describe(`Article Component`, () => {
                 railLeaderboard: 'leaderboard',
                 xlarge: ['billboard', 'leaderboard']
             };
-
+            const targets = {
+                brand: source,
+                keyword: adKeywords,
+                position: 2
+            };
 
             it(`should have className "${className}"`, () => {
                 expect(bottomAdSub.props.className).to.eq(className);

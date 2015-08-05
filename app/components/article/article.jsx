@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import ContentBody from '@bxm/ui/lib/markdown/components/contentBody';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import NativeAd from '@bxm/ad/lib/google/components/nativeAd';
+import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
 import Footer from './footer';
 import Header from './header';
 import Recommendations from '../recommendations/recommendations';
@@ -37,8 +38,10 @@ class Article extends Component {
     }
 
     render() {
+        const {source, tags} = this.props;
         const cssClass = classNames(`article`, this.props.className, this.props.themeClass);
-        const sizes = {
+        const adKeywords = getKeywordsFromTags(tags);
+        const adSizes = {
             small: 'banner',
             banner: 'banner',
             leaderboard: 'leaderboard',
@@ -51,14 +54,18 @@ class Article extends Component {
             <article className={cssClass} itemScope itemType="http://schema.org/NewsArticle">
                 <SchemaArticle
                     image={this.props.imageUrl}
-                    publisher={this.props.source}
+                    publisher={source}
                     datePublished={this.props.dateCreated}
                 />
                 <Ad
                     className="ad--article-top"
                     displayFor={['medium', 'large', 'xlarge']}
-                    sizes={sizes}
-                    targets={{brand: this.props.source}}
+                    sizes={adSizes}
+                    targets={{
+                        brand: source,
+                        keyword: adKeywords,
+                        position: 1
+                    }}
                 />
                 <NativeAd
                     className="ad--article-native"
@@ -70,7 +77,7 @@ class Article extends Component {
                     heroItem={this.props.heroItem}
                     summary={this.props.summary}
                     title={this.props.title}
-                    source={this.props.source}
+                    source={source}
                 />
                 <ContentBody
                     body={this.props.contentBody}
@@ -80,15 +87,19 @@ class Article extends Component {
                 />
                 <Footer
                     authorProfiles={this.props.authorProfiles}
-                    source={this.props.source}
-                    tags={this.props.tags}
+                    source={source}
+                    tags={tags}
                 />
                 <Recommendations />
                 <Ad
                     className="ad--article-beneath-recommendations"
                     displayFor={['small', 'medium', 'large', 'xlarge']}
-                    sizes={sizes}
-                    targets={{brand: this.props.source}}
+                    sizes={adSizes}
+                    targets={{
+                        brand: source,
+                        keyword: adKeywords,
+                        position: 2
+                    }}
                 />
             </article>
         );
