@@ -12,17 +12,19 @@ class ModuleConfiguration {
     }
 }
 
+export const handlers = {
+    'LOAD_CONTENT': 'onLoadContent',
+    'FACETED_MODULE:PAGE_RECEIVED': 'onPageReceived',
+    'FACETED_MODULE:PAGE_RECEIVED:FAILURE': 'onPageReceivedFailure',
+    'NAVIGATE_SUCCESS': 'onNavigateSuccess',
+    'NAVIGATE_START': 'onNavigateStart'
+};
+
 export default class FacetedModuleStore extends BaseStore {
 
     static storeName = 'FacetedModuleStore';
 
-    static handlers = {
-        'LOAD_CONTENT': 'onLoadContent',
-        'FACETED_MODULE:PAGE_RECEIVED': 'onPageReceived',
-        'FACETED_MODULE:PAGE_RECEIVED:FAILURE': 'onPageReceivedFailure',
-        'NAVIGATE_SUCCESS': 'onNavigateSuccess',
-        'NAVIGATE_START': 'onNavigateStart'
-    };
+    static handlers = handlers;
 
     constructor(dispatcher, lynxStoreName) {
         if (!lynxStoreName) throw new Error('lynxStoreName must be provided by the implementor store');

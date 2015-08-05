@@ -1,4 +1,4 @@
-import FacetedModuleStore from '../../../app/stores/facetedStores/facetedModule';
+import FacetedModuleStore, {handlers} from '../../../app/stores/facetedStores/facetedModule';
 
 export default class FacetedModuleStoreImpl extends FacetedModuleStore {
     constructor(dispatcher) {
@@ -7,3 +7,4 @@ export default class FacetedModuleStoreImpl extends FacetedModuleStore {
 }
 
 FacetedModuleStoreImpl.storeName = 'FacetedModuleStoreImpl';
+FacetedModuleStoreImpl.handlers = handlers;
