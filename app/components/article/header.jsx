@@ -36,12 +36,10 @@ export default class Header extends Component {
         let getSocial;
 
         if (config.isFeatureEnabled('socialShareBlock') === true) {
-            const siteUrl = `http://${config.get('site.host')}`;
-
             getSocial = (
                 <SocialShareBlock
                     parentBlock={this.props}
-                    url={siteUrl + url}
+                    url={`${config.get('site.host')}${url}`}
                     title={title}
                     tweetBody={title + ' | HOMES TO LOVE {shortURL} #homestoloveau '}
                     description={summary}
