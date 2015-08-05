@@ -9,10 +9,10 @@ Feature: SEO Fields
         Given I am viewing an article
         Then the page should have a title "Article Long Title | HOMES TO LOVE"
         And the page should have a meta description "Article Long Title, Article Short Teaser"
-        And the page should have a canonical URL "/section/article-hero-image"
+        #And the page should have a canonical URL "/section/article-hero-image"
     
     @DHO-216
     Scenario: Check that the page title, meta description and canonical URL on a gallery page 
         Given I am viewing a gallery
         Then the page should have a title "Gallery Long Title | HOMES TO LOVE"
-        And the page should have a meta description "Gallery Long Title, Gallery Short Teaser"
+        #And the page should have a meta description "Gallery Long Title, Gallery Short Teaser"
