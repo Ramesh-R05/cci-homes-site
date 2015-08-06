@@ -6,7 +6,7 @@ import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import SideMenu from '../side-menu/sideMenu';
-import {isUndefined} from 'lodash/lang';
+import isUndefined from 'lodash/lang/isUndefined';
 import cx from 'classnames';
 
 class DefaultTemplate extends Component {

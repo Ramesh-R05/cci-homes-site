@@ -1,5 +1,6 @@
 import React from 'react';
-import {isUndefined, isString} from 'lodash/lang';
+import isString from 'lodash/lang/isString';
+import isUndefined from 'lodash/lang/isUndefined';
 /**
  * Usage
  *

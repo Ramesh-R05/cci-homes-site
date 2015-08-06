@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {noop} from 'lodash/utility';
+import noop from 'lodash/utility/noop';
 import classnames from 'classnames';
 
 export default class Button extends Component {

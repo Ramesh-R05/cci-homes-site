@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import breakpoints from '../../breakpoints';
 import classnames from 'classnames';
-import {isUndefined} from 'lodash/lang';
+import isUndefined from 'lodash/lang/isUndefined';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';

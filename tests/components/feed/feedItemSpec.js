@@ -1,4 +1,4 @@
-import {extend} from 'lodash';
+import extend from 'lodash/object/extend';
 import {betterMockComponentContext} from '@bxm/flux';
 import feedDataMock from '../../mock/feed';
 import staticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';

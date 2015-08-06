@@ -1,4 +1,4 @@
-import {merge} from 'lodash/object';
+import merge from 'lodash/object/merge';
 import breakpoints from '../breakpoints';
 import adConfig from '@bxm/ad/lib/google/config';
 

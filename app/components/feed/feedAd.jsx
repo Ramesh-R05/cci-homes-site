@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import {isString, isNumber} from 'lodash/lang';
+import isNumber from 'lodash/lang/isNumber';
+import isString from 'lodash/lang/isString';
 const isArray = Array.isArray;
 
 export default class FeedAd extends Component {

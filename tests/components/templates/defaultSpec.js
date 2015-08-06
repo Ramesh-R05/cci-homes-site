@@ -1,5 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import {forOwn} from 'lodash/object';
+import forOwn from 'lodash/object/forOwn';
 
 const Context = betterMockComponentContext();
 const React = Context.React;

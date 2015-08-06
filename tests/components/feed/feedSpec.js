@@ -1,6 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import feedDataMock from '../../mock/feed';
-import {times} from 'lodash/utility';
+import times from 'lodash/utility/times';
 
 const Context = betterMockComponentContext();
 const React = Context.React;

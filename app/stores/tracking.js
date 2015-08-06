@@ -1,4 +1,4 @@
-import {isUndefined} from 'lodash/lang';
+import isUndefined from 'lodash/lang/isUndefined';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import {createStore} from '@bxm/flux';
 

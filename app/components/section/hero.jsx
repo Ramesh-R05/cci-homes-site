@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
-import {size} from 'lodash/collection';
+import size from 'lodash/collection/size';
 
 export default class SectionHero extends Component {
 
