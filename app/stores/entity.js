@@ -6,55 +6,59 @@ export default class EntityStore extends BaseStore {
     static storeName = 'EntityStore';
 
     static handlers = {
-        'LOAD_CONTENT': 'onLoadContent'
+        'LOAD_CONTENT': 'onLoadContent',
+        'LOAD_CONTENT_FAILED': 'onLoadContentFailed'
     };
 
     constructor(dispatcher) {
         super(dispatcher);
-        this.title = '';
-        this.content = {};
-        this.navigationTags = [];
+        this.state = {};
+        this.state.title = '';
+        this.state.content = {};
+        this.state.navigationTags = [];
     }
 
     onLoadContent(payload) {
         let entity = payload.body.entity;
         if (!entity) return;
 
-        this.title = entity.title;
-        this.content = entity;
-        this.navigationTags = entity.navigationTags;
+        this.state.error = null;
+        this.state.title = entity.title;
+        this.state.content = entity;
+        this.state.navigationTags = entity.navigationTags;
+
+        this.emitChange();
+    }
+
+    onLoadContentFailed(payload) {
+        this.state.error = payload.response.error;
+        this.state.content = null;
 
         this.emitChange();
     }
 
     getTitle() {
-        return this.title;
+        return this.state.title;
     }
 
     getContent() {
-        return this.content;
+        return this.state.content;
+    }
+
+    getErrorStatus() {
+        return this.state.error;
     }
 
     getNavigationTags() {
-        return this.navigationTags;
-    }
-
-    getState() {
-        return {
-            title: this.title,
-            content: this.content,
-            navigationTags: this.navigationTags
-        };
+        return this.state.navigationTags;
     }
 
     dehydrate() {
-        return this.getState();
+        return this.state;
     }
 
     rehydrate(state) {
-        this.title = state.title;
-        this.content = state.content;
-        this.navigationTags = state.navigationTags;
+        this.state = state;
     }
 
 }

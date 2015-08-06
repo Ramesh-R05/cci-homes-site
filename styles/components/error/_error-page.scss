@@ -1,0 +1,35 @@
+.error-page {
+    @include grid-row;
+
+    padding: {
+        bottom: 90px;
+        top: 60px;
+    }
+
+    @media #{$medium-up} {
+        padding: {
+            bottom: 60px;
+            top: 60px;
+        }
+    }
+
+    &__title,
+    &__body-item,
+    &__footer {
+        @include grid-column(12);
+        text-align: center;
+    }
+
+    &__title,
+    &__body-item {
+        @include type-error-page;
+    }
+
+    &__footer {
+        margin-top: 30px;
+
+        @media #{$small-only} {
+            font-size: 14px;
+        }
+    }
+}

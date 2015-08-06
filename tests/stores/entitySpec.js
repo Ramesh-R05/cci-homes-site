@@ -4,6 +4,7 @@ import entityMocks from '../mock/entities';
 
 describe('Entity store', () => {
     let store;
+    let emitChangeStub;
 
     describe('after initialising', () => {
         before(() => {
@@ -92,6 +93,30 @@ describe('Entity store', () => {
 
         it('should have an empty sectionTags', () => {
             expect(store.getNavigationTags()).to.deep.equal([]);
+        });
+    });
+
+    describe('after receiving an error', () => {
+        const error = { code: 418 };
+
+        before(() => {
+            store = new EntityStore();
+            emitChangeStub = sinon.stub(store, 'emitChange');
+            store.onLoadContentFailed({
+                response: { error }
+            });
+        });
+
+        it('stores the error data', () => {
+            expect(store.getErrorStatus()).to.deep.eq(error);
+        });
+
+        it('sets its own content to null', () => {
+            expect(store.getContent()).to.be.null;
+        });
+
+        it('emits a change', () => {
+            expect(emitChangeStub).to.have.been.calledOnce;
         });
     });
 });
