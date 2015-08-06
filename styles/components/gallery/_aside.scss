@@ -57,21 +57,22 @@
             padding: 0 0 300px;
         }
 
-        @media #{$large-up} {
-
-            .gallery__summary-content {
-                height: 100%;
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
-        }
-
         p {
             color: $color-grey-dark;
             font-size: 14px;
             line-height: 1;
             margin-bottom: 25px;
             padding: 0;
+        }
+    }
+
+    .gallery__summary-content {
+        background: $color-white;
+
+        @media #{$large-up} {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
     }
 
