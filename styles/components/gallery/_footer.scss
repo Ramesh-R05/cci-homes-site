@@ -6,7 +6,9 @@ $gallery-footer-minor-bp-2: 1500px;
     @include grid-column(12);
     color: $color-grey-darker;
     padding: 0;
+    position: relative;
     font-size: 14px;
+    z-index: $z-index--gallery-caption;
 
     p {
         color: $color-grey-dark;
@@ -30,8 +32,10 @@ $gallery-footer-minor-bp-2: 1500px;
 }
 
 .gallery__footer-ad {
+    background: $color-white;
     display: none;
     clear: both;
+    z-index: $z-index--gallery-bottom-ad;
 
     @media #{$large-up} {
         display: block;
