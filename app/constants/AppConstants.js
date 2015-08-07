@@ -3,8 +3,6 @@ import keyMirror from 'react/lib/keyMirror';
 module.exports = {
     ActionTypes: keyMirror({
         LOAD_CONTENT: null,
-
-        RECEIVE_GALLERY: null,
         RECEIVE_GALLERIES: null,
         OPENED_GALLERY: null,
         COMPLETED_GALLERY: null,
