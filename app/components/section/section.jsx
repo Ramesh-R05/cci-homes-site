@@ -136,7 +136,13 @@ class Section extends Component {
                 </div>
                 {/* Three teasers with ad - xlarge bp only*/}
                 <div className="row hidden-for-large-only">
-                    <Group articles={slice(articles, 4, 7)} modifier="3-items">
+                    <Group
+                        articles={slice(articles, 4, 7)}
+                        modifier="3-items"
+                        polarAd={{
+                            label: 'section_teaser_1',
+                            index: 1
+                        }}>
                         <Ad
                             className="ad--section-mrec"
                             displayFor={['xlarge']}
@@ -150,13 +156,19 @@ class Section extends Component {
                         articles={slice(articles, 7, 11)}
                         className="hidden-for-large-only"
                         modifier="6-or-4-items"
-                        teaserModifier="img-top" />
+                        teaserModifier="img-top"
+                    />
                     {/* 6 teasers with ad - visible for large bp only*/}
                     <Group
                         articles={slice(articles, 5, 11)}
                         className="visible-for-large-only"
                         modifier="6-or-4-items"
-                        teaserModifier="img-top" />
+                        polarAd={{
+                            label: 'section_teaser_1',
+                            index: 0
+                        }}
+                        teaserModifier="img-top"
+                    />
                 </div>
                 {/* Group repeated when paginating */}
                 <div className="row">
@@ -179,7 +191,6 @@ class Section extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }

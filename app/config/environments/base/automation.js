@@ -1,4 +1,7 @@
 export default {
+    polar: {
+        propertyId: 'NA-HOMETOLOVE-AUTOMATION'
+    },
     services: {
         content: {
             remote: 'http://localhost:3000',

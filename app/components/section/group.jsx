@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react';
+import PolarTeaser from '../polar/polarTeaser';
 import Teaser from '../teaser/teaser';
 import classnames from 'classnames';
+import get from 'lodash/object/get';
 
 export default class Group extends Component {
 
@@ -9,6 +11,10 @@ export default class Group extends Component {
         className: PropTypes.string,
         children: PropTypes.any,
         modifier: PropTypes.string.isRequired,
+        polarAd: PropTypes.shape({
+            label: PropTypes.string,
+            index: PropTypes.number
+        }),
         teaserModifier: PropTypes.string
     };
 
@@ -18,8 +24,31 @@ export default class Group extends Component {
         teaserModifier: 'img-left'
     };
 
+    getTeasers() {
+        const {polarAd, teaserModifier} = this.props;
+
+        return this.props.articles.map((item, index) => {
+            if (get(polarAd, 'index') === index) {
+                return (
+                    <PolarTeaser
+                        {...item}
+                        ad={{
+                            label: polarAd.label,
+                            targets: {
+                                kw: polarAd.label
+                            }
+                        }}
+                        key={item.id}
+                        modifier={teaserModifier}
+                    />
+                );
+            }
+            return <Teaser {...item} key={item.id} modifier={teaserModifier} />;
+        });
+    }
+
     render() {
-        const {articles, className, modifier, teaserModifier} = this.props;
+        const {articles, className, modifier} = this.props;
 
         if (!articles.length || !modifier) return null;
 
@@ -32,7 +61,7 @@ export default class Group extends Component {
 
         return (
             <section className={classNames}>
-                {articles.map(item => <Teaser {...item} key={item.id} modifier={teaserModifier} />)}
+                {this.getTeasers()}
                 {subsection}
             </section>
         );

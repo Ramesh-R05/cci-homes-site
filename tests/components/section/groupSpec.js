@@ -6,10 +6,12 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
-const TeaserStub = Context.createStubComponentWithChildren();
+const TeaserStub = Context.createStubComponentWithChildren({className: 'teaser'});
+const PolarTeaserStub = Context.createStubComponentWithChildren({className: 'teaser teaser--native'});
 const Group = proxyquire('../../../app/components/section/group', {
     'react': React,
-    '../teaser/teaser': TeaserStub
+    '../teaser/teaser': TeaserStub,
+    '../polar/polarTeaser': PolarTeaserStub
 });
 
 describe('Group', () => {
@@ -105,6 +107,94 @@ describe('Group', () => {
         it('should render the child component', () => {
             expect(React.findDOMNode(childComponent)).to.exist;
         });
+    });
+
+    describe('with the polarAd prop', () => {
+        const polarAdLabel = 'label_1';
+        const teaserModifier = 'teaser-modifier';
+        let reactModule;
+        let articleTeasers;
+        let polarTeaser;
+        let allTeasers;
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(
+                <Group
+                    articles={articlesMock.slice(1, 4)}
+                    modifier={'modifier'}
+                    polarAd={{
+                        index: 1,
+                        label: polarAdLabel
+                    }}
+                    teaserModifier={teaserModifier}
+                />
+            );
+            articleTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
+            polarTeaser = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
+            allTeasers = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'teaser');
+        });
+
+        const expectedNumTeasers = 2;
+        it(`should render ${expectedNumTeasers} teasers`, () => {
+            expect(articleTeasers.length).to.equal(expectedNumTeasers);
+        });
+
+        const expectedNumPolarTeasers = 1;
+        it(`should render ${expectedNumPolarTeasers} polar teasers`, () => {
+            expect(polarTeaser.length).to.equal(expectedNumPolarTeasers);
+        });
+
+        it(`should render the polar teaser in the second position`, () => {
+            expect(allTeasers[1]).to.have.className('teaser--native');
+        });
+
+        it(`should pass down the ad settings to the PolarTeaser`, () => {
+            expect(polarTeaser[0].props.ad).to.deep.equal({
+                label: polarAdLabel,
+                targets: {
+                    kw: polarAdLabel
+                }
+            });
+        });
+
+        it(`should pass down the modifier to the PolarTeaser`, () => {
+            expect(polarTeaser[0].props.modifier).to.equal(teaserModifier);
+        });
+
+        it(`should pass down the initial article to the PolarTeaser`, () => {
+            expect(polarTeaser[0].props.id).to.equal(articlesMock[2].id);
+        });
+    });
+
+    describe('with the polarAd prop but no index key', () => {
+        let reactModule;
+        let articleTeasers;
+        let polarTeaser;
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(
+                <Group
+                    articles={articlesMock.slice(1, 4)}
+                    modifier={'modifier'}
+                    polarAd={{
+                        label: 'label_1'
+                    }}
+                />
+            );
+            articleTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
+            polarTeaser = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
+        });
+
+        const expectedNumTeasers = 3;
+        it(`should render ${expectedNumTeasers} teasers`, () => {
+            expect(articleTeasers.length).to.equal(expectedNumTeasers);
+        });
+
+        const expectedNumPolarTeasers = 0;
+        it(`should render ${expectedNumPolarTeasers} polar teasers`, () => {
+            expect(polarTeaser.length).to.equal(expectedNumPolarTeasers);
+        });
+
     });
 
     describe('without the articles prop as an empty array', () => {
