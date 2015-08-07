@@ -1,4 +1,7 @@
 export default {
+    polar: {
+        propertyId: 'NA-HOMETOLOVE-AUTOMATION'
+    },
     server: {
         port: 8080
     },
