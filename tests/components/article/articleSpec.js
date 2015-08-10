@@ -21,7 +21,7 @@ const Article = proxyquire('../../../app/components/article/article', {
     'react/addons': React,
     './header': HeaderStub,
     './footer': FooterStub,
-    '../recommendations/recommendations': RecommendationsStub,
+    '@bxm/recommendations/lib/components/recommendations': RecommendationsStub,
     '@bxm/article/lib/components/schema/article': SchemaArticleStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,

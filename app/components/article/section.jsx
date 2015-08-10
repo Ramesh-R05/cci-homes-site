@@ -68,6 +68,7 @@ class Section extends Component {
                         summary={content.summary}
                         tags={content.tags}
                         authorProfiles={content.authorProfiles}
+                        nodeType={this.props.nodeType}
                         pageId={content.id}
                         dateCreated={content.dateCreated}
                         url={content.url}
