@@ -6,7 +6,7 @@ import NativeAd from '@bxm/ad/lib/google/components/nativeAd';
 import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
 import Footer from './footer';
 import Header from './header';
-import Recommendations from '../recommendations/recommendations';
+import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
 import SchemaArticle from '@bxm/article/lib/components/schema/article';
@@ -20,6 +20,7 @@ class Article extends Component {
         dateCreated: PropTypes.string.isRequired,
         heroItem: PropTypes.object.isRequired,
         imageUrl: PropTypes.string.isRequired,
+        nodeType: PropTypes.string.isRequired,
         pageId: PropTypes.string.isRequired,
         source: PropTypes.string,
         summary: PropTypes.string,
@@ -90,7 +91,10 @@ class Article extends Component {
                     source={source}
                     tags={tags}
                 />
-                <Recommendations />
+                <Recommendations
+                    nodeType={this.props.nodeType}
+                    nodeId={this.props.pageId}
+                />
                 <Ad
                     className="ad--article-beneath-recommendations"
                     displayFor={['small', 'medium', 'large', 'xlarge']}
