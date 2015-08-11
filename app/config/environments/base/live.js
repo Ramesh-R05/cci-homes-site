@@ -23,6 +23,6 @@ export default {
         }
     },
     site: {
-        host: 'http://homestolove.com.au'
+        host: 'http://www.homestolove.com.au'
     }
 };
