@@ -25,6 +25,10 @@ export default class Credits extends Component {
         'Australian House and Garden': {
             pageUrl: 'http://www.homestolove.com.au/house-and-garden/',
             logo: 'australian-house-and-garden.svg'
+        },
+        'Homes To Love': {
+            pageUrl: 'http://www.homestolove.com.au',
+            logo: 'homes-to-love.svg'
         }
     };
 
