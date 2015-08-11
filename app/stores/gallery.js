@@ -1,9 +1,8 @@
-'use strict';
+import {createStore} from '@bxm/flux';
+import {pushAds} from '@bxm/ad/lib/google/storeUtils';
+import {ActionTypes} from '../constants/AppConstants';
+import uniq from 'lodash/array/uniq';
 
-var createStore = require('@bxm/flux').createStore;
-var GalleryUtil = require('../utils/gallery');
-var pushAds = require('@bxm/ad/lib/google/storeUtils').pushAds;
-var ActionTypes = require('../constants/AppConstants').ActionTypes;
 
 module.exports = createStore({
 
@@ -12,11 +11,10 @@ module.exports = createStore({
     storeName: 'GalleryPageStore',
 
     initialize: function () {
-        console.log('initialize');
         this.galleries = [];
         this.slides = [];
         this.currentGallery = null;
-        this.currentGalleryIndex = -1;
+        this.currentGalleryIndex = 0;
         this.nextGallery = null;
         this.numAds = 0;
     },
@@ -53,7 +51,6 @@ module.exports = createStore({
 
     handlers: {
         [ActionTypes.LOAD_CONTENT]: 'onLoadContent',
-        [ActionTypes.RECEIVE_GALLERY]: 'onReceiveGallery',
         [ActionTypes.NEXT_GALLERY]: 'onNextGallery'
     },
 
@@ -70,11 +67,6 @@ module.exports = createStore({
         this.emitChange();
     },
 
-    onReceiveGallery: function(payload) {
-        this.addGallery(payload.gallery);
-        this.emitChange();
-    },
-
     onNextGallery: function() {
         this.setNextActiveGallery();
         this.emitChange();
@@ -82,18 +74,23 @@ module.exports = createStore({
 
     addGalleries: function(current, more) {
         this.currentGallery = current;
+
         this.galleries = more;
+        this.galleries.unshift(current); // add current gallery in first position
+        this.galleries = uniq(this.galleries, 'id'); // remove duplicates
+
         this.setNextGallery();
         this.setGalleryItems(this.currentGallery);
         this.numAds = this.insertAds(this.currentGallery);
     },
 
-    addGallery: function(gallery) {
-        this.galleries.push(gallery);
-    },
-
     setNextGallery: function() {
-        this.currentGalleryIndex = GalleryUtil.setNextGalleryIndex(this.galleries, this.currentGallery, this.currentGalleryIndex);
+        if (this.currentGalleryIndex === this.galleries.length - 1) {
+            // last gallery go to start
+            this.currentGalleryIndex = 0;
+        } else {
+            this.currentGalleryIndex++;
+        }
         this.nextGallery = this.galleries[this.currentGalleryIndex];
     },
 
