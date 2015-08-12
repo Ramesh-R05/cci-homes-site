@@ -32,10 +32,14 @@ var GalleryDetailsImageDescription = React.createClass({
             : this.props.activeGalleryItem.caption;
 
         /* jshint ignore:start */
-        return <GalleryCaption
-            caption={caption}
-            onCaptionToggle={this.handleCaptionToggle}
-            linesToShow={2} />;
+        return (
+            <GalleryCaption
+                caption={caption}
+                onCaptionToggle={this.handleCaptionToggle}
+                linesToShow={2}
+                wrapperHeight={this.props.wrapperHeight}
+            />
+        );
         /* jshint ignore:end */
     },
 

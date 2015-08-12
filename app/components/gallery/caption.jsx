@@ -7,6 +7,7 @@ var markdownParser = require('@bxm/ui/lib/markdown/markdown');
 var DEFAULT_MARGIN_BOTTOM = 15;
 var DEFAULT_TOP_DISTANCE = 0;
 var WindowResizeMixin = require('@bxm/ui/lib/to-love/utils/mixin/WindowResizeMixin');
+var breakpoints = require('../../breakpoints');
 
 var GalleryCaption = React.createClass({
     mixins: [WindowResizeMixin],
@@ -36,6 +37,9 @@ var GalleryCaption = React.createClass({
     },
 
     toggleCaption: function() {
+        if (this.state.expanded) {
+            React.findDOMNode(this.refs.captionContentHolder).scrollTop = 0;
+        }
         this.setState(merge({ expanded: !this.state.expanded }, this.getCaptionDimensions()));
     },
 
@@ -48,22 +52,25 @@ var GalleryCaption = React.createClass({
             };
         }
 
-        var expandedHeight = React.findDOMNode(this.refs.captionContent).offsetHeight;
         var linesOfText = React.findDOMNode(this.refs.captionContent).getClientRects().length;
+        var captionHeight = React.findDOMNode(this.refs.captionContent).offsetHeight;
+        var isSmallViewport = window.innerWidth <= parseInt(breakpoints.smallRangeMax, 10);
+        var maxHeight = this.props.wrapperHeight || 200;
+        var expandedHeight = captionHeight;
+        var scrollable = false;
+
+        if (isSmallViewport && captionHeight > maxHeight) {
+            // enable vertical scroll if high text caption on mobile
+            expandedHeight = maxHeight;
+            scrollable = true;
+        }
 
         return {
             expandedHeight: expandedHeight,
             linesOfText: linesOfText,
-            lineHeight: expandedHeight / linesOfText
+            lineHeight: captionHeight / linesOfText,
+            scrollable: scrollable
         };
-    },
-
-    getCurrentCaptionHeight: function () {
-        if (this.state.expanded) {
-            return this.state.expandedHeight;
-        } else {
-            return this.state.lineHeight * this.props.linesToShow;
-        }
     },
 
     getCurrentCaptionTopDistance: function () {
@@ -76,6 +83,21 @@ var GalleryCaption = React.createClass({
 
     getCurrentCaptionMarginBottom: function () {
         return DEFAULT_MARGIN_BOTTOM + this.getCurrentCaptionTopDistance();
+    },
+
+    getCurrentCaptionHolderStyles: function() {
+        var captionStyle = {};
+
+        if (this.state.expanded) {
+            captionStyle.height = this.state.expandedHeight;
+            if (this.state.scrollable) {
+                captionStyle.overflowY = 'scroll';
+            }
+        } else {
+            captionStyle.height = this.state.lineHeight * this.props.linesToShow;
+        }
+
+        return captionStyle;
     },
 
     isCaptionLongEnoughToRequireExpansion: function () {
@@ -113,11 +135,7 @@ var GalleryCaption = React.createClass({
         if (!this.props.caption || this.props.caption === '') return null;
 
         var caption = markdownParser.parse(this.props.caption);
-
-        var captionContentHolderStyle = {
-            height: this.getCurrentCaptionHeight(),
-        };
-
+        var captionContentHolderStyle = this.getCurrentCaptionHolderStyles();
         var captionStyle = {
             overflow: 'hidden',
             position: 'relative',
@@ -128,7 +146,7 @@ var GalleryCaption = React.createClass({
         /* jshint ignore:start */
         return (
             <div className="gallery-caption" ref="caption" style={captionStyle}>
-                <div className="gallery-caption__content-holder" style={captionContentHolderStyle}>
+                <div className="gallery-caption__content-holder" ref="captionContentHolder" style={captionContentHolderStyle}>
                     <p
                         ref="captionContent"
                         dangerouslySetInnerHTML={{__html: caption}}

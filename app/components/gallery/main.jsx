@@ -39,7 +39,6 @@ var GalleryMain = React.createClass({
     componentDidMount: onChange,
 
     render: function() {
-
         var galleryTitle = null,
             gallery = this.props.gallery,
             nextGallery = this.props.nextGallery,
@@ -78,6 +77,7 @@ var GalleryMain = React.createClass({
                 <GalleryFooter
                     ref="galleryFooter"
                     {...this.props}
+                    wrapperHeight={this.state.wrapperHeight}
                     onComponentUpdate={onComponentUpdate.bind(this)}
                 />
             </section>
@@ -133,7 +133,8 @@ function onChange() {
         this.setState({
             minHeight: '0px',
             galleryItemWidth: galleryItemWidth,
-            galleryMaxHeight: newState
+            galleryMaxHeight: newState,
+            wrapperHeight: slideWrapRect.height
         });
     } else {
 
@@ -146,7 +147,8 @@ function onChange() {
         this.setState({
             minHeight: Math.max((document.body.clientHeight - slideTop - lineHeight * 2 - 22), 200) + 'px',
             galleryItemWidth: galleryItemWidth,
-            galleryMaxHeight: "100%"
+            galleryMaxHeight: "100%",
+            wrapperHeight: slideWrapRect.height
         });
     }
 }
