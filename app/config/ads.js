@@ -11,7 +11,10 @@ export default {
                 HomesArticle: 'article'
             },
             siteId: 'HomesToLove',
-            tagsObject: 'tags'
+            tagsObject: 'tags',
+            sizes: {
+                'native': [250, 30]
+            }
         });
     }
 };
