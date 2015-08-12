@@ -10,6 +10,10 @@ $font-family-serif-primary: 'Libre Baskerville', serif;
 
 // ---------------------------------------------------- base elements
 
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 body {
     color: $color-grey-light;
     font-family: $font-family-serif-primary;
