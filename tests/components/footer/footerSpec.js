@@ -10,6 +10,7 @@ const FooterNetworkInfoStub = Context.createStubComponentWithChildren();
 const FooterNavigationStub = Context.createStubComponentWithChildren();
 const FooterMagShopStub = Context.createStubComponentWithChildren();
 const FooterNewsletterStub = Context.createStubComponent();
+const BackToTopStub = Context.createStubComponent();
 
 const Footer = proxyquire('../../../app/components/footer/footer', {
     'react': React,
@@ -17,17 +18,18 @@ const Footer = proxyquire('../../../app/components/footer/footer', {
     './footerNavigation': FooterNavigationStub,
     './footerNetworkInfo': FooterNetworkInfoStub,
     '../newsletter/newsletter': FooterNewsletterStub,
-    './footerSocialLinks': FooterSocialLinksStub
+    './footerSocialLinks': FooterSocialLinksStub,
+    '@bxm/ui/lib/back-to-top/backToTop': BackToTopStub
 });
 
 describe(`Footer`, () => {
     let reactModule;
-    let footerCopyright;
     let footerMagShop;
     let footerNavigation;
     let footerNetworkInfo;
     let footerNewsletter;
     let footerSocialLinks;
+    let backToTop;
 
     before(() => {
         reactModule = Context.mountComponent(Footer);
@@ -36,6 +38,7 @@ describe(`Footer`, () => {
         footerNetworkInfo = TestUtils.findRenderedComponentWithType(reactModule, FooterNetworkInfoStub);
         footerNewsletter = TestUtils.findRenderedComponentWithType(reactModule, FooterNewsletterStub);
         footerSocialLinks = TestUtils.findRenderedComponentWithType(reactModule, FooterSocialLinksStub);
+        backToTop = TestUtils.findRenderedComponentWithType(reactModule, BackToTopStub);
     });
 
     it(`should render the FooterMagShop Component`, () => {
@@ -58,4 +61,8 @@ describe(`Footer`, () => {
         expect(footerSocialLinks).to.exist;
     });
 
+    const expectedBackToTopClassName = 'button';
+    it(`should render the BackToTop with the classname prop equal to '${expectedBackToTopClassName} `, () => {
+        expect(backToTop.props.className).to.equal(expectedBackToTopClassName);
+    });
 });

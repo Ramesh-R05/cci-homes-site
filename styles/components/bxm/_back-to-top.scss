@@ -1,0 +1,11 @@
+$back-to-top-background-color: $color-primary;
+
+@import './back-to-top/styles';
+
+.back-to-top {
+    &:hover,
+    &:focus {
+        color: $color-white;
+    }
+}
+
