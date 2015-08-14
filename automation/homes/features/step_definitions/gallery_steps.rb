@@ -80,7 +80,6 @@ Then(/^I should see (\d+)(?:st|nd|rd|th) MREC after the (?:first|next) (\d+) ima
 	int_ad_number = Integer(ad_number)
 	int_ad_position = Integer(ad_position)
 
-
 	if int_ad_number == 1
 		int_ad_position = 3
 	else
@@ -94,12 +93,3 @@ Then(/^I should see (\d+)(?:st|nd|rd|th) MREC after the (?:first|next) (\d+) ima
 	end  
 	step "I should see the Mrec"
 end
-
-Then(/^I should see a MREC every (\d+)(?:st|nd|rd|th) position$/) do |ad_position|
-	i = 0
-	while i < Integer(ad_position) do
-		step "I click on the next slide arrow"
-		i += 1
-	end  
-	step "I should see the Mrec"
-end 
