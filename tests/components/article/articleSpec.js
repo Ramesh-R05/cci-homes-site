@@ -13,6 +13,7 @@ const HeaderStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const ContentBody = Context.createStubComponent();
 const RecommendationsStub = Context.createStubComponent();
+const RelatedContentComponentStub = Context.createStubComponent();
 const SchemaArticleStub = Context.createStubComponentWithChildren();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 
@@ -26,7 +27,8 @@ const Article = proxyquire('../../../app/components/article/article', {
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/nativeAd': NativeAdStub,
     '@bxm/ui/lib/markdown/components/contentBody': ContentBody,
-    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub
+    '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub,
+    './relatedContent': RelatedContentComponentStub
 });
 
 describe(`Article Component`, () => {
@@ -237,6 +239,10 @@ describe(`Article Component`, () => {
 
             it(`should get the context config"`, () => {
                 expect(contentBodySub.props.config).to.deep.eq({ foo: `bar` });
+            });
+
+            it(`should pass the relatedContentComponent prop`, () => {
+                expect(contentBodySub.props.relatedContentComponent).to.eq(RelatedContentComponentStub);
             });
         });
 

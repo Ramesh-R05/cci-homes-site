@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import classNames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import TeaserImage from '@bxm/article/lib/components/teaser/image';
 import Icon from '../teaser/icon';
@@ -43,6 +44,7 @@ export default class FeedItem extends Component {
         const {url, imageUrl, title, source} = item;
         const sourceClassName = `source-${FeedItem.sourceClassNameMap[source]}`;
         const topic = getFirstTagNameForCategory(this.props.item.tags, 'Topic');
+        const textLink = classNames('feed-item__body-title', gtmClass);
         return (
             <li className={`feed-item ${sourceClassName}`}>
                 <TeaserImage
@@ -61,7 +63,7 @@ export default class FeedItem extends Component {
                     <span className="feed-item__body-source">
                         {topic}
                     </span>
-                    <a className="feed-item__body-title" href={url}>{title}</a>
+                    <a className={textLink} href={url}>{title}</a>
                 </div>
             </li>
         );

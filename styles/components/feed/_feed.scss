@@ -21,8 +21,8 @@
     &__container {
         height: calc(100% - #{$network-header-height + $header-height-desktop});
         margin-top: $network-header-height + $header-height-desktop;
-        overflow-y: scroll;
         -webkit-overflow-scrolling: touch; // Must come after overflow-y
+        overflow-y: scroll;
         transition: margin-top $transition-duration, height $transition-duration;
     }
 
