@@ -46,8 +46,9 @@ describe('SectionFeatured', () => {
         });
 
         describe(`Mobile Top banner ad`, () => {
-            it(`should display a banner ad`, () => {
-                expect(ads[1].props.sizes).to.deep.equal('banner');
+            it(`should display a banner ad at position 1`, () => {
+                expect(ads[1].props.sizes).to.equal('banner');
+                expect(ads[1].props.targets).to.deep.equal({position: 1});
             });
 
             it(`should be displayed on medium viewport and up`, () => {
@@ -62,6 +63,7 @@ describe('SectionFeatured', () => {
                     billboard: ['billboard', 'leaderboard']
                 };
                 expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[1].props.targets).to.deep.equal({position: 1});
             });
 
             it(`should be displayed on medium viewport and up`, () => {
@@ -70,17 +72,18 @@ describe('SectionFeatured', () => {
         });
 
         describe(`Top MREC ad`, () => {
-            it(`should display either a double mrec or a double-mrec`, () => {
+            it(`should display either a double mrec or a double-mrec at position 1`, () => {
                 const expectedSizes = {
                     small: 'mrec',
                     xlarge: ['double-mrec', 'mrec']
                 };
                 expect(ads[2].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[2].props.targets).to.deep.equal({position: 1});
             });
         });
 
         describe(`Middle banner/leaderboard/billboard ad`, () => {
-            it(`should display either a banner, leaderboard or a billboard ad`, () => {
+            it(`should display either a banner, leaderboard or a billboard ad at position 2`, () => {
                 const expectedSizes = {
                     small: 'banner',
                     leaderboard: 'leaderboard',

@@ -76,6 +76,10 @@ describe('GroupRepeatable', () => {
                 expect(ads[0].props.className).to.equal(expectedClassname);
             });
 
+            it(`should be at position 2`, () => {
+                expect(ads[0].props.targets).to.deep.equal({position: 2});
+            });
+
             const expectedSizes = {
                 small: 'banner',
                 leaderboard: 'leaderboard',
@@ -102,6 +106,10 @@ describe('GroupRepeatable', () => {
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
                 expect(ads[1].props.displayFor).to.equal(expectedDisplayFor);
             });
+
+            it(`should be at position 2`, () => {
+                expect(ads[1].props.targets).to.deep.equal({position: 2});
+            });
         });
 
         describe(`Mrec ad (visible only on small/medium/xlarge viewports)`, () => {
@@ -121,6 +129,10 @@ describe('GroupRepeatable', () => {
             const expectedDisplayFor = ['small', 'medium', 'xlarge'];
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
                 expect(ads[2].props.displayFor).to.deep.equal(expectedDisplayFor);
+            });
+
+            it(`should be at position 2`, () => {
+                expect(ads[2].props.targets).to.deep.equal({position: 2});
             });
         });
 
