@@ -12,3 +12,8 @@ When(/^I switch to "([^"]+)" view$/) do |mode|
     page.driver.browser.manage.window.resize_to(resolutions[mode][0], resolutions[mode][1])
   end
 end
+
+When(/^I pause$/) do
+  print "Press Return to continue"
+  STDIN.getc
+end

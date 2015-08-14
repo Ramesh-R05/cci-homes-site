@@ -1,16 +1,23 @@
-@local @gallery
+@local @gallery @javascript
 Feature: HomesToLove Gallery Detail Page
     As a user
     I want to be able to browse a gallery
     So that I can view more images
 
-    @DAW-67 @javascript
     Scenario: Check the required details are displayed on the gallery page
-        And I am viewing the generic gallery page
+        Given I am viewing a gallery
         Then I should see the gallery title and summary
         And I should see the right slide arrows and the image
         And I should see the slide count and the image caption
         And I should see the sub-section title above the gallery summary
+    
+    @DHO-109
+    Scenario: check all ad slots are visible on the gallery detail page
+        Given I am viewing a gallery
+        Then I should see 1 "gallery__aside-ad" ad slot
+        And I should see 1 "gallery__footer-ad" ad slot
+        And I should see 1st MREC after the first 3 images
+        And I should see 2nd MREC after the next 4 images
 
   #out of scope for now
 #    @DAW-98 @javascript
