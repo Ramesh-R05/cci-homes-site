@@ -11,11 +11,13 @@ Feature: HomesToLove Gallery Detail Page
         And I should see the slide count and the image caption
         And I should see the sub-section title above the gallery summary
     
+    @DHO-109
     Scenario: check all ad slots are visible on the gallery detail page
         Given I am viewing a gallery
         Then I should see 1 "gallery__aside-ad" ad slot
         And I should see 1 "gallery__footer-ad" ad slot
-        And I should see a MREC after the first 3 images
+        And I should see 1st MREC after the first 3 images
+        And I should see 2nd MREC after the next 4 images
 
   #out of scope for now
 #    @DAW-98 @javascript
