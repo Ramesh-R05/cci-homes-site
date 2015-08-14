@@ -4309,6 +4309,61 @@ module.exports = {
                 }
             ],
             "totalResults": 5
+        },
+        "galleryOfGalleries": {
+            "module": {
+                "includeDynamic": true,
+                "contentType": "Galleries",
+                "contentSections": "Custom",
+                "sections": [
+                    "HOMES-1579"
+                ],
+                "sorting": "DateCreatedDesc",
+                "facetConfiguration": [
+                    {
+                        "label": "Tag",
+                        "field": "combinedTags",
+                        "query": "tags",
+                        "sortBy": 0,
+                        "sortDirection": 0
+                    }
+                ],
+                "enableTextSearch": true,
+                "textSearchConfiguration": {
+                    "label": "Search",
+                    "criteria": "query",
+                    "queryString": "q"
+                },
+                "supportsPreview": true,
+                "pageSize": 5,
+                "moduleName": "galleryOfGalleries",
+                "storeName": "galleryOfGalleries",
+                "id": "inline-gallery",
+                "parentId": "HOMES-1159",
+                "level": 3,
+                "sortOrder": 7,
+                "name": "Gallery of Galleries",
+                "dateIndexed": "2015-09-08T11:45:10",
+                "pathIds": [
+                    "HOMES--1",
+                    "HOMES-1158",
+                    "HOMES-1159",
+                    "HOMES-1680"
+                ],
+                "urlName": "gallery-of-galleries",
+                "url": "/modules/gallery-of-galleries",
+                "nodeType": "FacetedModule",
+                "template": "Index",
+                "siteCode": "56421E16-B4AB-417C-9645-A6A89644D4B4",
+                "siteName": "homes",
+                "siteUrl": "http://dev.homes-site.wn.bauer-media.net.au",
+                "nodeTypeAliasPath": [
+                    "Modules",
+                    "PagedModules",
+                    "FacetedModule"
+                ]
+            },
+            "items": []
         }
     }
 };

@@ -95,6 +95,9 @@
     }
 
     &--section-middle-leaderboard {
+        @media #{$small-only} {
+            margin-top: 10px;
+        }
         @media #{$xlarge-up} {
             margin-bottom: $column-gutter * 2;
         }

@@ -1,0 +1,22 @@
+$carousel-xlarge-list-item-image-width: 1270px;
+$carousel-xlarge-list-item-padding-width: 33px;
+$carousel-xlarge-list-item-width: $carousel-xlarge-list-item-image-width + ($carousel-xlarge-list-item-padding-width * 2);
+
+$carousel-nav-button-height: 45px;
+$carousel-small-item-meta-height: 132px;
+
+$carousel-background-color: $color-white;
+$carousel-primary-color: $color-primary;
+$carousel-arrow-hover-color: $color-primary-light;
+
+$carousel-column-gutter: $column-gutter;
+
+// scss-lint:disable ColorVariable
+.carousel__pagination {
+    border-bottom: 2px solid #e5e5e5;
+
+    @media #{$medium-up} {
+        border-width: 0;
+    }
+}
+// scss-lint:enable all

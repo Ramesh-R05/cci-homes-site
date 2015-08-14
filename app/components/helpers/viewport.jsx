@@ -21,18 +21,18 @@ import React from 'react';
 import debounce from 'lodash/function/debounce';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 
-export default (Component) => class extends React.Component {
+export default (Component, debounceInt = 500) => class extends React.Component {
     constructor(props) {
         super(props);
         let viewport = {width: 320, height: 568};
         if (canUseDOM) viewport = this.getViewport();
-        this.state = {viewport: viewport};
+        this.state = viewport;
     }
 
     componentDidMount() {
         this.debouncedOnResize = debounce(() => {
             this.onResize();
-        }, 500);
+        }, debounceInt);
         window.addEventListener('resize', this.debouncedOnResize, false);
     }
 
@@ -42,20 +42,20 @@ export default (Component) => class extends React.Component {
 
     getViewport() {
         return {
-            width: window.innerWidth,
-            height: window.innerHeight
+            width: document.body.clientWidth,
+            height: document.body.clientHeight
         };
     }
 
     onResize() {
         const viewport = this.getViewport();
-        if (this.state.viewport.width !== viewport.width ||
-            this.state.viewport.height !== viewport.height) {
-            this.setState({viewport: viewport});
+        if (this.state.width !== viewport.width ||
+            this.state.height !== viewport.height) {
+            this.setState(viewport);
         }
     }
 
     render() {
-        return <Component {...this.props} viewport={this.state.viewport} />;
+        return <Component {...this.props} viewportWidth={this.state.width} viewportHeight={this.state.height} />;
     }
 };

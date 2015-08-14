@@ -1,4 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
+import {items as gogMock} from '../../mock/galleryOfGalleries';
+import exposeProps from '../../test-util/exposeProps';
 import {entity, articles as homeArticlesMock} from '../../mock/articles';
 const proxyquire = require('proxyquire').noCallThru();
 
@@ -14,6 +16,9 @@ const RecommendationsStub = Context.createStubComponent();
 
 const Home = proxyquire('../../../app/components/home/home', {
     'react': React,
+    '../../actions/facetedModule': {
+        getPage: () => {}
+    },
     './sectionFeatured': SectionFeatured,
     '../inFocus/inFocus': InFocusStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
@@ -30,6 +35,15 @@ Context.addStore('HomeArticles', {
 Context.addStore('InFocusArticles', {
     getItems() {
         return inFocusArticlesMock;
+    }
+});
+Context.addStore('GalleryOfGalleriesStore', {
+    getItems() {
+        return gogMock;
+    },
+
+    getConfiguration() {
+        return null;
     }
 });
 
@@ -58,6 +72,10 @@ describe('Home', () => {
 
     it(`should pass down the articles to the SectionFeatured component`, () => {
         expect(sectionFeatured.props.articles).to.deep.equal(homeArticlesMock);
+    });
+
+    it(`should pass down the gallery of galleries to the SectionFeatured component`, () => {
+        expect(sectionFeatured.props.galleries).to.deep.equal(gogMock);
     });
 
     it(`should pass down the in focus articles to the InFocus component`, () => {

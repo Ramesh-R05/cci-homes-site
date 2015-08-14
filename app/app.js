@@ -13,7 +13,8 @@ import networkHeaderService from '@bxm/header/lib/header/headerService';
 import AdStore from '@bxm/ad/lib/google/stores/ad';
 import EntityStore from './stores/entity';
 import FeedStore from './stores/facetedStores/feed';
-import GalleryPageStore from './stores/gallery.js';
+import GalleryPageStore from './stores/gallery';
+import GalleryOfGalleriesStore from './stores/facetedStores/galleryOfGalleries';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import HomeArticles from './stores/articles/home';
 import HtmlStore from '@bxm/server/lib/stores/html';
@@ -40,6 +41,7 @@ let app = new Flux({
         FeedStore,
         GalleryPageStore,
         GalleryStore,
+        GalleryOfGalleriesStore,
         HomeArticles,
         HtmlStore,
         InFocusArticles,
