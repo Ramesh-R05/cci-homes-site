@@ -29,7 +29,7 @@ Feature: Recommendations
         Then I should see 5 network recommendations
         And I should see 2 MRECs in the recommendation section
     
-    @DHO-13 @janice
+    @DHO-13
     Scenario: Confirm that links are working for recommendations
         Given I am viewing an article
         When I click on the teaser image for first network recommendation
