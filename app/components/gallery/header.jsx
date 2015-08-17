@@ -5,6 +5,7 @@ var GalleryCounter = require('./counter');
 var GalleryHeader = React.createClass({
 
     propTypes: {
+        activeGalleryItem: ReactPropTypes.object.isRequired,
         gallery: ReactPropTypes.object.isRequired,
         galleryItems: ReactPropTypes.array.isRequired,
         isGalleryCompletedItemActive: ReactPropTypes.bool

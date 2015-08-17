@@ -14,6 +14,7 @@ import Teaser from '../teaser/teaser';
 class PolarTeaser extends Component {
 
     static propTypes = {
+        id: PropTypes.string,
         ad: PropTypes.shape({
             label: PropTypes.string
         }).isRequired,
@@ -22,6 +23,7 @@ class PolarTeaser extends Component {
     };
 
     static defaultProps = {
+        id: '',
         ad: {},
         modifier: 'img-left'
     };
@@ -34,17 +36,18 @@ class PolarTeaser extends Component {
 
         // render Polar Native Ad teaser
         const ad = this.props.nativeAd.response.model;
+        const gtmClass = `gtm-native-${this.props.id}`;
         const className = `teaser teaser--${this.props.modifier} teaser--native`;
 
         return (
             <article className={className}>
-                <a href={ad.link} className="teaser__image">
+                <a href={ad.link} className={`teaser__image ${gtmClass}`}>
                     <img src={ad.image.href} alt={ad.image.caption} />
                     <Icon icon={ad.custom.icon} />
                 </a>
                 <div className="teaser__content">
                     <Sponsor name={ad.sponsor.name} />
-                    <Title title={ad.title} url={ad.link} />
+                    <Title title={ad.title} url={ad.link} gtmClass={gtmClass} />
                     <Summary summary={ad.summary} />
                 </div>
             </article>

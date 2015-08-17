@@ -30,7 +30,7 @@ class Section extends Component {
         moduleConfig: PropTypes.object,
         navigationTags: PropTypes.array.isRequired,
         currentPage: PropTypes.number.isRequired,
-        isLoading: PropTypes.bool.isrequired,
+        isLoading: PropTypes.bool.isRequired,
         isSideMenuOpen: PropTypes.bool
     };
 

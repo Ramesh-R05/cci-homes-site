@@ -124,7 +124,7 @@ export default class SectionFeatured extends Component {
                             sizes="mrec"
                             targets={{position: 2}}
                         />
-                        {slice(articles, 21, 22).map(item => <Teaser {...item} key={item.id} modifier="hero" imageSizes="section-hero" />)}
+                        {slice(articles, 21, 22).map(item => <Teaser {...item} key={item.id} modifier="hero" />)}
                         {slice(articles, 22, 26).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
                     </div>
                     <div className="fixed-column fixed-column--sticky">

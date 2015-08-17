@@ -31,8 +31,8 @@ var Gallery = React.createClass({
             gallery: this.galleryPageStore.getGallery(),
             galleryItems: this.galleryPageStore.getGalleryItems(),
             totalItems: this.galleryStore.getTotalItems(),
-            activeGalleryItemIndex: this.galleryStore.getActiveIndex(),
-            activeGalleryItem: this.galleryStore.getActiveItem(),
+            activeGalleryItemIndex: this.galleryStore.getActiveIndex() || 0, // I have to set this here rather than in the @bxm/gallery since during the 1st render this value is null hence React throws a warning of missing prop being passed. Same thing for activeGalleryItem below
+            activeGalleryItem: this.galleryStore.getActiveItem() || {},
             nextGallery: this.galleryPageStore.getNextGallery(),
             isGalleryCompletedItemActive: this.galleryStore.isGalleryCompletedItemActive,
             numAds: this.galleryPageStore.getNumAds()
@@ -62,7 +62,7 @@ var Gallery = React.createClass({
     },
 
     componentWillUnmount: function componentWillUnmount() {
-    window.removeEventListener('popstate', this.onPop, false);
+        window.removeEventListener('popstate', this.onPop, false);
     },
 
     componentWillUpdate: function(nextProps, nextState) {
