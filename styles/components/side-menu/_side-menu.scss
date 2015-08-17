@@ -1,10 +1,12 @@
 .side-menu {
-
+    // scss-lint:disable PropertySortOrder
     &__bar {
         background-color: $color-grey-darker;
-        height: 110%;
+        height: 100%;
         left: 0;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; // Must come after overflow-y
         position: fixed;
         top: 0;
         transform: translate(-100%, 0);
@@ -16,38 +18,86 @@
             width: $side-menu-width-big;
         }
     }
+    // scss-lint:enable PropertySortOrder
 
     &--open &__bar {
         transform: translate(0, 0);
     }
 
     &__container {
+        left: $column-gutter / 2;
         position: absolute;
-        right: $column-gutter / 2;
         top: $global-header-height;
-        width: $side-menu-width - $column-gutter;
+        width: $side-menu-width - $column-gutter / 2;
 
         @media #{$medium-up} {
-            right: $column-gutter * 2;
+            left: $column-gutter * 2;
             top: $global-header-height-desktop + 6px;
-            width: $side-menu-width-big - $column-gutter * 4;
+            width: $side-menu-width-big - $column-gutter * 3;
         }
+
+        .newsletter,
+        .magshop {
+            float: none;
+            margin: {
+                bottom: 51px;
+                left: -10px;
+                top: 14px;
+            }
+            overflow: hidden;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+
+            @media #{$medium-up} {
+                margin: {
+                    bottom: 40px;
+                    left: -15px;
+                }
+            }
+
+            iframe {
+                height: 220px;
+            }
+        }
+
+        .magshop {
+            margin: {
+                left: -15px;
+                top: 24px;
+            }
+        }
+
+        .magshop__subscribe {
+            margin: 0;
+            padding: 0;
+        }
+
+        .magshop__heading {
+            font-size: 20px;
+        }
+
     }
 
-    &__nav a {
-        @include type-side-menu-link;
-        clear: left;
-        display: block;
-        float: left;
-        margin-bottom: 13px;
+    &__nav {
+        margin-bottom: 38px;
+        overflow: hidden;
 
-        &:hover {
-            color: $color-grey-light;
-        }
+        a {
+            @include type-side-menu-link;
+            clear: left;
+            display: block;
+            float: left;
+            margin-bottom: 13px;
 
-        &:active,
-        &:focus {
-            color: $color-primary;
+            &:hover {
+                color: $color-primary;
+            }
+
+            &:active,
+            &:focus {
+                color: $color-primary;
+            }
         }
     }
 
@@ -57,7 +107,7 @@
         background-color: transparent;
         line-height: 44px;
         position: absolute;
-        right: -11px;
+        right: 0;
         top: -11px;
         width: 44px;
 
@@ -91,6 +141,12 @@
         height: 110%;
         opacity: .5;
     }
+}
+
+.side-menu__separator {
+    background-color: $color-primary;
+    height: 3px;
+    width: 60px;
 }
 
 .side-menu-slider {

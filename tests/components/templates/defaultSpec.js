@@ -1,10 +1,14 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import forOwn from 'lodash/object/forOwn';
 import cloneDeep from 'lodash/lang/cloneDeep';
+import {localeData} from '../../mock/config';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
 const TestUtils = Context.TestUtils;
+const config = {
+    get: () => {}
+};
 
 // ----------------------------------------------------------------------------- Stub components
 
@@ -82,7 +86,8 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../section/section': SectionStub,
     '../gallery/gallery': GalleryStub,
     '../footer/footer': FooterStub,
-    '../error/errorHandlerBuilder': mockErrorHandlerBuilder
+    '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
+    '@bxm/config': { load: () => { return config } }
 });
 
 describe('Default Component template', () => {
@@ -92,8 +97,19 @@ describe('Default Component template', () => {
     let header;
     let sideMenu;
     let footer;
+    let data;
 
-    beforeEach(resetStoreData);
+    before( () => {
+        data = sinon.stub(config, 'get').returns(localeData);
+    });
+
+    beforeEach( () => {
+        resetStoreData();
+    });
+
+    after( () => {
+        data.restore();
+    });
 
     describe('Error Handling', () => {
         it('shows 500 error if nodeType is unknown', () => {
@@ -137,20 +153,28 @@ describe('Default Component template', () => {
             footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
         });
 
-        it('sets Header "isSideMenuOpen" prop to "false"', () => {
+        it(`sets Header 'isSideMenuOpen' prop to 'false'`, () => {
             expect(header.props.isSideMenuOpen).to.be.false;
         });
 
-        it('sets Header "isSideMenuOpen" prop to "false"', () => {
+        it(`sets Header 'navItems' prop correctly to array`, () => {
             expect(header.props.navItems).to.eql(navItems);
         });
 
-        it('sets SideMenu "open" prop to "false"', () => {
+        it(`sets SideMenu 'open' prop to 'false'`, () => {
             expect(sideMenu.props.open).to.be.false;
         });
 
-        it('sets SideMenu "items" prop to array', () => {
+        it(`sets SideMenu 'items' prop to array`, () => {
             expect(sideMenu.props.navItems).to.eql(navItems);
+        });
+
+        it(`sets SideMenu 'data' prop properly`, () => {
+            expect(sideMenu.props.data).to.eql(localeData);
+        });
+
+        it(`sets Footer 'data' prop properly`, () => {
+            expect(footer.props.data).to.eql(localeData);
         });
     });
 
