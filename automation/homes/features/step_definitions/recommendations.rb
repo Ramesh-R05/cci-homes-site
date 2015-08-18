@@ -1,5 +1,5 @@
 Then(/^I should see (\d+) (Homes|network) recommendations$/) do |expected_count, source_name|
-    dynamic_wait('.recommendations')
+    page.find('.recommendations')
     if source_name == "Homes"
       actual_count = all_homes_recommendations.count
     else
@@ -14,7 +14,7 @@ Then(/^I should see (\d+) MRECs in the recommendation section$/) do |expected_co
 end
 
 When(/^I click on the teaser (image|text) for first network recommendation$/) do |teaser_element|
-    dynamic_wait('.recommendations')
+    page.find('.recommendations')
     if teaser_element == "image"
         find('article.dacrm-teaser > a.dacrm-teaser__image', match: :first).click
     else
