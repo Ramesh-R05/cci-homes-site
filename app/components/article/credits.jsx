@@ -43,10 +43,10 @@ export default class Credits extends Component {
         const className = `article-credit article-credit--${cleanLabel}`;
 
         return (
-            <li className={className}>
+            <li className={className} key={`credit-${cleanLabel}`}>
                 {label}: {authors.map((author, i) => [
                     (i !== 0 ? ', ' : null),
-                    <span className="article-credit__value">{author}</span>
+                    <span className="article-credit__value" key={i}>{author}</span>
                 ])}
             </li>
         );

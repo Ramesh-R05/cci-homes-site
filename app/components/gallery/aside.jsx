@@ -10,6 +10,7 @@ var WindowResizeMixin = require('@bxm/ui/lib/to-love/utils/mixin/WindowResizeMix
 var Ad = require('@bxm/ad/lib/google/components/ad');
 var campaignUtils = require('@bxm/ad/lib/google/utils/campaign');
 var getFirstTagNameForCategory = require('../../utils/tagUtils').getFirstTagNameForCategory;
+var breakpoints = require('../../breakpoints');
 
 var HEADER_STATIC_HEIGHT = 65,
     LARGE_RANGE_MAX = parseInt(breakpoints.largeRangeMin, 10);
@@ -93,7 +94,7 @@ var GalleryAside = React.createClass({
                         <p>
                             <span className="gallery__date">{dateCreated}</span>
                         </p>
-                        <ContentBody body={gallery.body} className="gallery__summary-text" />
+                        <ContentBody body={gallery.body} className="gallery__summary-text" breakpoints={breakpoints} />
                     </div>
                 </div>
             );

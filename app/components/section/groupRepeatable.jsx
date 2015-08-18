@@ -26,7 +26,7 @@ export default class GroupRepeatable extends Component {
                 {groups.map((groupArticles, index) => {
                     const polarAdLabel = `section_teaser_${index + 2}`;
                     return (
-                        <div>
+                        <div key={index}>
                             <div className="section-heading">
                                 <Ad
                                     className="ad--section-middle-leaderboard"

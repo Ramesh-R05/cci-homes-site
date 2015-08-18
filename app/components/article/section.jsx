@@ -13,7 +13,6 @@ class Section extends Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
         title: PropTypes.string.isRequired,
-        nodeType: PropTypes.string,
         feedModuleConfig: PropTypes.any,
         feedItems: PropTypes.array.isRequired,
         isSideMenuOpen: PropTypes.bool
@@ -68,7 +67,7 @@ class Section extends Component {
                         summary={content.summary}
                         tags={content.tags}
                         authorProfiles={content.authorProfiles}
-                        nodeType={this.props.nodeType}
+                        nodeType={content.nodeType}
                         pageId={content.id}
                         dateCreated={content.dateCreated}
                         url={content.url}

@@ -14,7 +14,7 @@ var GalleryCaption = React.createClass({
 
     propTypes: {
         caption: PropTypes.string.isRequired,
-        onCaptionToggle: PropTypes.function
+        onCaptionToggle: PropTypes.func
     },
 
     getInitialState: function () {
