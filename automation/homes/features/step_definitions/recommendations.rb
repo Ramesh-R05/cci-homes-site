@@ -23,9 +23,10 @@ When(/^I click on the teaser (image|text) for first network recommendation$/) do
 end
 
 Then(/^I should be on a Home article or gallery page$/) do
-    sleep 10
-    current_path = URI.parse(current_url).path
-    expect(current_path).to_not eq("/section/article-hero-image")
+    if page.has_css?('home__body') || page.has_css?('gallery')
+        current_path = URI.parse(current_url).path
+        expect(current_path).to_not eq("/section/article-hero-image")
+    end
 end
 
 def all_homes_recommendations
