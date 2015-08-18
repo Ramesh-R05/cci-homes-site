@@ -8,25 +8,25 @@ Feature: Recommendations
     Scenario: Check that the network recommendations are shown for articles
         Given I am viewing an article
         Then I should see 5 Homes recommendations
-        Then I should see 5 network recommendations
+        And I should see 5 network recommendations
         And I should see 2 MRECs in the recommendation section
 
         When I switch to "tablet landscape" view
         And I am viewing an article
         Then I should see 5 Homes recommendations
-        Then I should see 5 network recommendations
+        And I should see 5 network recommendations
         And I should see 2 MRECs in the recommendation section
 
         When I switch to "tablet portrait" view
         And I am viewing an article
         Then I should see 5 Homes recommendations
-        Then I should see 5 network recommendations
+        And I should see 5 network recommendations
         And I should see 2 MRECs in the recommendation section
 
         When I switch to "mobile" view
         And I am viewing an article
         Then I should see 5 Homes recommendations
-        Then I should see 5 network recommendations
+        And I should see 5 network recommendations
         And I should see 2 MRECs in the recommendation section
     
     @DHO-13
