@@ -16,11 +16,12 @@ export default class SectionFeatured extends Component {
 
     static defaultProps = {
         articles: [],
-        className: ''
+        className: '',
+        children: []
     };
 
     render() {
-        const articles = this.props.articles;
+        const {articles, children} = this.props;
         const hero = first(articles);
 
         if (articles.length === 0) return null;
@@ -79,7 +80,7 @@ export default class SectionFeatured extends Component {
                 <div className="row">
                     {/* In Focus articles */}
                     <div className="fixed-column fixed-column--in-focus">
-                        {this.props.children}
+                        {children[0]}
                     </div>
                     {/* Next 5 articles */}
                     <section className="section-featured section-featured--heroes">
@@ -110,7 +111,6 @@ export default class SectionFeatured extends Component {
 
                 {/* Include gallery of galleries here*/}
 
-
                 <div className="row">
                     <div className="section-featured section-featured--bottom">
                         {slice(articles, 15, 16).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
@@ -140,7 +140,8 @@ export default class SectionFeatured extends Component {
                     </div>
                 </div>
 
-
+                {/* Recommendations */}
+                {children[1]}
             </div>
         );
     }

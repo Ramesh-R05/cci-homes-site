@@ -1,6 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import {articles as homeArticlesMock} from '../../mock/articles';
-import exposeProps from '../../test-util/exposeProps';
+import {entity, articles as homeArticlesMock} from '../../mock/articles';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
@@ -11,12 +10,14 @@ const SectionFeatured = Context.createStubComponentWithChildren();
 const InFocusStub = Context.createStubComponentWithChildren();
 const FooterStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
+const RecommendationsStub = Context.createStubComponent();
 
 const Home = proxyquire('../../../app/components/home/home', {
     'react': React,
     './sectionFeatured': SectionFeatured,
     '../inFocus/inFocus': InFocusStub,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/recommendations/lib/components/recommendations': RecommendationsStub
 });
 
 const inFocusArticlesMock = homeArticlesMock.slice(0, 5);
@@ -32,11 +33,18 @@ Context.addStore('InFocusArticles', {
     }
 });
 
+Context.addStore('EntityStore', {
+    getContent() {
+        return entity;
+    }
+});
+
 describe('Home', () => {
     let reactModule;
     let inFocus;
     let sectionFeatured;
     let ad;
+    let recommendations;
 
     afterEach(Context.cleanup);
 
@@ -45,6 +53,7 @@ describe('Home', () => {
         inFocus = TestUtils.findRenderedComponentWithType(reactModule, InFocusStub);
         sectionFeatured = TestUtils.findRenderedComponentWithType(reactModule, SectionFeatured);
         ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+        recommendations = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
     });
 
     it(`should pass down the articles to the SectionFeatured component`, () => {
@@ -63,6 +72,15 @@ describe('Home', () => {
             leaderboard: 'leaderboard',
             billboard: ['billboard', 'leaderboard']
         });
+    });
+
+    it(`should render the Recommendations component`, () => {
+        expect(recommendations).to.exist;
+    });
+
+    it(`should pass down the correct props to the Recommendations component`, () => {
+        expect(recommendations.props.nodeType).to.equal('Homepage');
+        expect(recommendations.props.nodeId).to.equal('HOMES-1158');
     });
 
     describe(`Bottom banner/leaderboard/billboard ad`, () => {
@@ -84,7 +102,7 @@ describe('Home', () => {
         let domNode;
 
         before(() => {
-            reactModule = Context.mountComponent(exposeProps(Home));
+            reactModule = Context.mountComponent(Home);
             domNode = React.findDOMNode(reactModule);
         });
 
@@ -97,7 +115,9 @@ describe('Home', () => {
         });
 
         it(`should open when isSideMenuOpen is true`, () => {
-            reactModule.setProps({ isSideMenuOpen: true });
+            reactModule = Context.mountComponent(Home, {isSideMenuOpen: true});
+            domNode = React.findDOMNode(reactModule);
+            // reactModule.setProps({ isSideMenuOpen: true });
             expect(domNode).to.have.className('side-menu-slider--side-menu-open');
         });
     });

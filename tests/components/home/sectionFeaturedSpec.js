@@ -22,6 +22,7 @@ describe('SectionFeatured', () => {
 
     describe(`with articles`, () => {
         let reactModule;
+        let domElements;
         let ads;
         let teasers;
         let polarTeasers;
@@ -30,9 +31,20 @@ describe('SectionFeatured', () => {
             reactModule = TestUtils.renderIntoDocument(
                 <SectionFeatured articles={articlesMock}/>
             );
+
+            domElements = React.findDOMNode(reactModule);
+
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             polarTeasers =  TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
+        });
+
+        it('should NOT render In Focus items', () => {
+            expect(domElements.querySelector('.section-in-focus')).to.not.exist;
+        });
+
+        it('should NOT render Recommendations items', () => {
+            expect(domElements.querySelector('.recommendations')).to.not.exist;
         });
 
         const expectedNumTeasers = 25; // hero is duplicated

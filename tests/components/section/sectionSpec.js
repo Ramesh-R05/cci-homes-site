@@ -1,5 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import {entity, articles as articlesMock} from '../../mock/articles';
 import exposeProps from '../../test-util/exposeProps';
 
 const Context = betterMockComponentContext();
@@ -14,6 +14,7 @@ const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const HeroStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const LoadMoreStub = Context.createStubComponentWithChildren();
+const RecommendationsStub = Context.createStubComponent();
 const config = {
     get: () => {},
     isFeatureEnabled: () => {},
@@ -37,7 +38,8 @@ const Section = proxyquire('../../../app/components/section/section', {
     '@bxm/config': {
         load: () => { return config }
     },
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/recommendations/lib/components/recommendations': RecommendationsStub
 });
 
 const featuredArticles = articlesMock.slice(1, 4);
@@ -64,6 +66,9 @@ Context.addStore('TaggedArticlesStore', {
 Context.addStore('EntityStore', {
     getNavigationTags() {
         return navigationTags;
+    },
+    getContent() {
+        return entity;
     }
 });
 
@@ -108,6 +113,7 @@ describe(`Section`, () => {
         let hero;
         let ads;
         let loadMore;
+        let recommendations;
 
         before(() => {
             loadMoreEnableStub.withArgs('loadMoreBtn').returns(true);
@@ -120,10 +126,20 @@ describe(`Section`, () => {
             groupRepeatable = TestUtils.findRenderedComponentWithType(reactModule, GroupRepeatableStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
+            recommendations = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
         });
 
         it(`should render the Section component on the page`, () => {
             expect(React.findDOMNode(section)).to.exist;
+        });
+
+        it(`should render Recommendations component`, () => {
+            expect(recommendations).to.exist;
+        });
+
+        it(`should pass down the correct props to the Recommendations component`, () => {
+            expect(recommendations.props.nodeType).to.equal('Homepage');
+            expect(recommendations.props.nodeId).to.equal('HOMES-1158');
         });
 
         it(`should pass down the tags prop to the Heading component as ${navigationTags}`, () => {

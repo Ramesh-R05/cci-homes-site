@@ -1,4 +1,8 @@
 export default {
+    entity: {
+        "id": "HOMES-1158",
+        "nodeType": "Homepage"
+    },
     articles: [
         {
             id: "HOMES-1",
