@@ -10,6 +10,7 @@ import Recommendations from '@bxm/recommendations/lib/components/recommendations
 import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
 import SchemaArticle from '@bxm/article/lib/components/schema/article';
+import RelatedContentComponent from './relatedContent';
 
 class Article extends Component {
 
@@ -85,6 +86,7 @@ class Article extends Component {
                     breakpoints={breakpoints}
                     className="article__body article__body--top-border"
                     config={this.context.config}
+                    relatedContentComponent={RelatedContentComponent}
                 />
                 <Footer
                     authorProfiles={this.props.authorProfiles}

@@ -26,7 +26,6 @@ $header-nav-link-padding: 30px;
 
     a {
         @include type-header;
-        
         display: none;
         padding: 0 $header-nav-link-padding;
         position: relative;

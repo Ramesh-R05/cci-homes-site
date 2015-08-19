@@ -55,6 +55,132 @@ export default {
             "type": "paragraph",
             "label": "Paragraph",
             "content": "“The great thing about this kitchen is that if a door or handle gets damaged it’s easy and affordable to replace. That’s important when you have children and you’re renovating over a number of years.”"
+        },
+        {
+            "type": "related-content",
+            "label": "Related Content",
+            "content": [
+                {
+                    "title": "Test Article - 22 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/17/1419/diy_-2163.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "video": {
+                        "id": "VIDEO-2265",
+                        "name": "4141553739001",
+                        "type": "VideoItem",
+                        "properties": {
+                            "videoConfiguration": {
+                                "videoId": "VIDEO-2265",
+                                "status": "Video upload is complete",
+                                "brightcoveId": "4141553739001",
+                                "statusCode": 200
+                            }
+                        }
+                    },
+                    "tags": [
+                        "food:Topic:Readers' home",
+                        "food:Homes navigation:Renovate",
+                        "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Bathroom basins",
+                        "food:Homes navigation:Outdoor",
+                        "food:Homes navigation:Home Tours"
+                    ],
+                    "source": "Belle",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "typeName": "TeaserDto",
+                    "id": "HOMES-1419",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 21,
+                    "name": "Test Article - 22",
+                    "dateIndexed": "2015-08-14T10:02:23",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1419"
+                    ],
+                    "urlName": "test-article-22",
+                    "url": "/test-article-22-1419",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                },
+                {
+                    "title": "Test Article - 21 - How to care for fine china",
+                    "summaryTitle": "How to care for fine china",
+                    "summary": "There’s something special about using fine china so it’s worth looking after.",
+                    "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/01/1259/chinamans3.jpg",
+                    "imageAltText": "Fine china",
+                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
+                    "video": {
+                        "id": "VIDEO-2265",
+                        "name": "4141553739001",
+                        "type": "VideoItem",
+                        "properties": {
+                            "videoConfiguration": {
+                                "videoId": "VIDEO-2265",
+                                "status": "Video upload is complete",
+                                "brightcoveId": "4141553739001",
+                                "statusCode": 200
+                            }
+                        }
+                    },
+                    "tags": [
+                        "food:Decorating:Colour:Natural",
+                        "food:Topic:Creative home",
+                        "food:Homes navigation:Renovate",
+                        "food:Homes navigation:Outdoor",
+                        "food:Homes navigation:Home Tours"
+                    ],
+                    "source": "Australian House and Garden",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "typeName": "TeaserDto",
+                    "id": "HOMES-1417",
+                    "parentId": "HOMES-1319",
+                    "level": 5,
+                    "sortOrder": 20,
+                    "name": "Test Article - 21",
+                    "dateIndexed": "2015-08-14T10:02:17",
+                    "pathIds": [
+                        "HOMES--1",
+                        "HOMES-1158",
+                        "HOMES-1161",
+                        "HOMES-1257",
+                        "HOMES-1319",
+                        "HOMES-1417"
+                    ],
+                    "urlName": "test-article-21",
+                    "url": "/test-article-21-1417",
+                    "nodeType": "HomesArticle",
+                    "template": "Index",
+                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+                    "siteName": "Homes",
+                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "HomesArticle"
+                    ]
+                }
+            ]
         }
     ],
     "author": [],
