@@ -11,7 +11,7 @@ end
 
 Then(/^I should see "([^"]+)" as the title$/) do |title|
     article_title = find("h1.article__title").text
-    expect(article_title).to eq(title)
+    expect(article_title).to have_content(title)
 end
 
 Then(/^I should see a hero image$/) do
@@ -58,4 +58,22 @@ Then(/^I should see the (\d+)(?:[rn]d|st|th) ad in the (\d+)(?:[rn]d|st|th) posi
         end
     end
     expect(found_ad).to be_true, "did not find ad #{ad_number}"
+end
+
+Then(/^I should see the cover image and the title of the related gallery$/) do
+    page.execute_script('window.scrollTo(0,100000)')
+
+    cover_img = find('.content-body__gallery-link img')
+    gallery_title = find('.content-body__gallery-link-title').text
+
+    expect(cover_img.visible?).to eq(true)
+    expect(gallery_title).to eq("HOT DESKING: CREATE A HOME OFFICE TO SUIT YOUR STYLE")
+end
+
+When(/^I click on the image of the gallery link$/) do
+    find('.content-body__gallery-link-info .content-body__gallery-link-title').click
+end
+
+Then(/^I should land on the detail page of the linked gallery$/) do
+    page.should_not have_title("Article Long Title")
 end
