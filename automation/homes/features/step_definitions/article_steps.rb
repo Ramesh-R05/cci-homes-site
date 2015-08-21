@@ -39,6 +39,7 @@ Then(/^I should see a hero video$/) do
     expect(hero_video.visible?).to eq(true)
 end
 
+#Ads
 Then(/^I should see (\d+) "([^"]+)" ad slots?$/) do |slot_count, ad_slot|
     expect(page).to have_selector(".#{ad_slot} > div > div", count: slot_count.to_i)
 end
@@ -60,6 +61,7 @@ Then(/^I should see the (\d+)(?:[rn]d|st|th) ad in the (\d+)(?:[rn]d|st|th) posi
     expect(found_ad).to be_true, "did not find ad #{ad_number}"
 end
 
+#Gallery Link
 Then(/^I should see the cover image and the title of the related gallery$/) do
     page.execute_script('window.scrollTo(0,100000)')
 
@@ -75,5 +77,36 @@ When(/^I click on the image of the gallery link$/) do
 end
 
 Then(/^I should land on the detail page of the linked gallery$/) do
+    page.should_not have_title("Article Long Title")
+end
+
+#Related Content
+Then(/^I should see (\d+) related articles$/) do |related_article_count|
+    expect(page).to have_selector('.related-content-items > .feed-item', count: related_article_count.to_i)
+end
+
+Then(/^I should see the image, title and topic tag of the related article$/) do
+    image = find('.related-content-items > .feed-item', match: :first).find('.teaser__image')
+    title = find('.related-content-items > .feed-item', match: :first).find('.feed-item__body > .feed-item__body-title')
+    topic_tag = find('.related-content-items > .feed-item', match: :first).find('.feed-item__body > .feed-item__body-source')
+
+    expect(image.visible?).to eq(true)
+    expect(title.visible?).to eq(true)
+    expect(topic_tag.visible?).to eq(true)
+end
+
+Then(/^I should not see the image for the related article in mobile$/) do
+    expect(page).to have_no_selector('.related-content-items > .feed-item > .teaser__image')
+end
+
+When(/^I click on the image of the related content$/) do
+    find('.related-content-items > .feed-item', match: :first).find('.teaser__image').click
+end
+
+When(/^I click on the title of the related content$/) do
+    find('.related-content-items > .feed-item', match: :first).find('.feed-item__body > .feed-item__body-title').click
+end
+
+Then(/^I should land on the detail page of the related article$/) do
     page.should_not have_title("Article Long Title")
 end
