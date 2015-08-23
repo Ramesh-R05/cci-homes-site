@@ -25,7 +25,7 @@ Feature: article detail page
         When I click on the image of the gallery link
         Then I should land on the detail page of the linked gallery    
 
-    @DHO-157 @janice
+    @DHO-157
     Scenario: Check related content
         Given I am viewing an article
         Then I should see 2 related articles
