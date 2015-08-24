@@ -109,7 +109,7 @@ end
 
 Then(/^I should land on the detail page of the related article$/) do
     old_path = URI.parse(current_url).path 
-    while (old_path == "/section/article-long-title") do
+    while (old_path == "/section/article-hero-image") do
         sleep 1
     end 
     new_path = URI.parse(current_url).path  
