@@ -111,7 +111,8 @@ Then(/^I should land on the detail page of the related article$/) do
     old_path = URI.parse(current_url).path 
     while (old_path == "/section/article-hero-image") do
         sleep 1
+        old_path = URI.parse(current_url).path 
     end 
-    new_path = URI.parse(current_url).path  
+    new_path = URI.parse(current_url).path 
     expect(new_path).to eq("/8-ingredients-for-the-perfect-kitchen-design-1645") 
 end
