@@ -5,7 +5,7 @@ export default {
         }
     },
     gigya: {
-        apiKey: '3_ghsdy4V7gVQHU_8eFfPgTAKIw-3ct5dXWtLoc86lIcHaPQOswMYyMkMKCe377vah'
+        apiKey: '3_PV8TmIRNKAgRIsjss-5ZrHQEcexerbmgDhJFUyTKWHZFPgou5P4QGIL8-zSsA-v5'
     },
     polar: {
         propertyId: 'NA-HOMETOLOVE-11237320',
