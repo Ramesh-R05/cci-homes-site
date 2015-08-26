@@ -55,8 +55,14 @@ describe('Home', () => {
         expect(inFocus.props.articles).to.deep.equal(inFocusArticlesMock);
     });
 
-    it(`should render the Ad component`, () => {
+    it(`should render the Ad component with correct position and sizes`, () => {
         expect(ad).to.exist;
+        expect(ad.props.targets).to.deep.equal({position: 3});
+        expect(ad.props.sizes).to.deep.equal({
+            small: 'banner',
+            leaderboard: 'leaderboard',
+            billboard: ['billboard', 'leaderboard']
+        });
     });
 
     describe(`Bottom banner/leaderboard/billboard ad`, () => {

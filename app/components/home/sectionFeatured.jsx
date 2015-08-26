@@ -39,6 +39,7 @@ export default class SectionFeatured extends Component {
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}
+                            targets={{position: 1}}
                         />
                     </div>
                     {/* First 10 articles */}
@@ -50,6 +51,7 @@ export default class SectionFeatured extends Component {
                                 className="ad--section-top-leaderboard"
                                 displayFor={['small']}
                                 sizes="banner"
+                                targets={{position: 1}}
                             />
                         </div>
                         {slice(articles, 1, 2).map(item => <Teaser {...item} key={item.id} />)}
@@ -69,6 +71,7 @@ export default class SectionFeatured extends Component {
                                 small: 'mrec',
                                 xlarge: ['double-mrec', 'mrec']
                             }}
+                            targets={{position: 1}}
                         />
                         {slice(articles, 6, 10).map(item => <Teaser {...item} key={item.id} />)}
                     </section>

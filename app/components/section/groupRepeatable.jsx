@@ -36,7 +36,7 @@ export default class GroupRepeatable extends Component {
                                         billboard: ['billboard', 'leaderboard']
                                     }}
                                     targets={{
-                                        position: 1
+                                        position: 2
                                     }}
                                 />
                             </div>

@@ -116,6 +116,7 @@ class Section extends Component {
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}
+                            targets={{position: 1}}
                         />
                     </Header>
                 </div>
@@ -130,6 +131,7 @@ class Section extends Component {
                                 className="ad--section-mrec"
                                 displayFor={['small', 'medium', 'large']}
                                 sizes="mrec"
+                                targets={{position: 1}}
                             />
                         </InFocus>
                     </div>
@@ -147,6 +149,7 @@ class Section extends Component {
                             className="ad--section-mrec"
                             displayFor={['xlarge']}
                             sizes={['double-mrec', 'mrec']}
+                            targets={{position: 1}}
                         />
                     </Group>
                 </div>
