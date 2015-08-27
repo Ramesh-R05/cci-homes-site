@@ -22,7 +22,7 @@ import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
 import MenuStore from './stores/menu';
-import SocialStore from './../node_modules/@bxm/ui/lib/social/stores/SocialStore';
+import SocialStore from '@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
 import TrackingStore from './stores/tracking';
 
