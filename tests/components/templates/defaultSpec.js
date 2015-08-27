@@ -53,7 +53,7 @@ Context.addStore('EntityStore', {
 
 Context.addStore('MenuStore', {
     isSideMenuOpen() {
-        return storeData.EntityStore.sideMenuOpen;
+        return storeData.MenuStore.sideMenuOpen;
     },
     getNavItems() {
         return storeData.MenuStore.navItems;
@@ -129,7 +129,7 @@ describe('Default Component template', () => {
     });
 
     describe('Home Page', () => {
-        before(() => {
+        beforeEach(() => {
             storeData.EntityStore.content = { nodeType: 'Homepage' };
             reactModule = Context.mountComponent(Default);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);

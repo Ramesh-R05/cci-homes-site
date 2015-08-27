@@ -15,6 +15,7 @@ import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import LoadMore from '../loadMore/loadMore';
 import {load} from '@bxm/config';
+import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 const config = load();
 
 class Section extends Component {
@@ -25,6 +26,7 @@ class Section extends Component {
     };
 
     static propTypes = {
+        content: PropTypes.object.isRequired,
         articles: PropTypes.array.isRequired,
         paging: PropTypes.object.isRequired,
         moduleConfig: PropTypes.object,
@@ -92,7 +94,7 @@ class Section extends Component {
     }
 
     render() {
-        const {articles} = this.props;
+        const {articles, content} = this.props;
         let loadMoreBtn;
 
         if (!articles.length) return null;
@@ -179,6 +181,13 @@ class Section extends Component {
                 </div>
                 {/* LoadMore btn*/}
                 {loadMoreBtn}
+
+                {/* Recommendations */}
+                <Recommendations
+                    nodeType={content.nodeType}
+                    nodeId={content.id}
+                />
+
                 {/* Bottom ad */}
                 <div className="row">
                     <div className="columns small-12">
@@ -200,6 +209,7 @@ class Section extends Component {
 
 export default connectToStores(Section, [TaggedArticlesStore, EntityStore], (stores) => {
     return {
+        content: stores.EntityStore.getContent(),
         articles: stores.TaggedArticlesStore.getItems(),
         moduleConfig: stores.TaggedArticlesStore.getConfiguration(),
         navigationTags: stores.EntityStore.getNavigationTags(),
