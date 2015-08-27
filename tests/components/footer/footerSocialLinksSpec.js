@@ -32,9 +32,9 @@ describe(`FooterSocialLinks`, () => {
     });
 
     each([
-        { name: 'facebook', url: 'http://www.facebook.com/homestoloveau', label: 'homestolove' },
-        { name: 'twitter', url: 'http://twitter.com/homestoloveau', label: '@homestolove' },
-        { name: 'instagram', url: 'http://instagram.com/homestoloveau/', label: 'homestolove' }
+        { name: 'facebook', url: 'http://www.facebook.com/homestoloveau', label: 'homestoloveau' },
+        { name: 'twitter', url: 'http://twitter.com/homestoloveau', label: '@homestoloveau' },
+        { name: 'instagram', url: 'http://instagram.com/homestoloveau/', label: 'homestoloveau' }
     ], (icon, i) => {
         const {name, url, label} = icon;
 
