@@ -91,6 +91,10 @@ class DefaultTemplate extends Component {
                 return {
                     Handler: require('../section/section')
                 };
+            case 'BrandSection':
+                return {
+                    Handler: require('../brand/section')
+                };
             case 'Gallery':
                 return {
                     Handler: require('../gallery/gallery'),

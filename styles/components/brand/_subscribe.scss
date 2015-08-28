@@ -1,0 +1,43 @@
+.brand-subscribe {
+    .teaser {
+        @media #{$small-only} {
+            margin-bottom: 27px;
+        }
+    }
+
+    .teaser__title {
+        @media #{$small-only} {
+            font-size: 22px;
+        }
+    }
+
+    .teaser__content {
+        padding: {
+            left: 25px;
+            right: 25px;
+            top: 0;
+        };
+        text-align: center;
+    }
+
+    .teaser__summary {
+        display: block;
+    }
+
+    .teaser__image {
+        display: block;
+        height: 160px;
+        margin-bottom: 16px;
+        overflow: hidden;
+
+        @media #{$medium-up} {
+            height: auto;
+        }
+
+        img {
+            height: auto;
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
