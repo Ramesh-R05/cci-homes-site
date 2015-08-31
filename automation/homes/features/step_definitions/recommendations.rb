@@ -1,4 +1,5 @@
 Then(/^I should see (\d+) (Homes|network) recommendations$/) do |expected_count, source_name|
+    page.execute_script "window.scrollBy(0,5000)"
     page.find('.recommendations')
     if source_name == "Homes"
       actual_count = all_homes_recommendations.count
@@ -13,7 +14,7 @@ Then(/^I should see (\d+) MRECs in the recommendation section$/) do |expected_co
     expect(actual_count).to eq(expected_count.to_i)
 end
 
-When(/^I click on the teaser (image|text) for first network recommendation$/) do |teaser_element|
+When(/^I click on the teaser (image|text) for first Homes recommendation$/) do |teaser_element|
     page.find('.recommendations')
     if teaser_element == "image"
         find('article.dacrm-teaser > a.dacrm-teaser__image', match: :first).click
@@ -27,6 +28,11 @@ Then(/^I should be on a Home article or gallery page$/) do
         current_path = URI.parse(current_url).path
         expect(current_path).to_not eq("/section/article-hero-image")
     end
+end
+
+Then(/^I should not see ad in the recommendation section$/) do
+    actual_count = all_ad_recommendations.count
+    expect(actual_count).to eq(0)
 end
 
 def all_homes_recommendations
@@ -43,7 +49,7 @@ end
 
 def all_ad_recommendations
     ad_recommendations = all('.recommendations .dacrm-ad--recommendations')
-    raise "could not find any ad in the recommendations" if ad_recommendations.count == 0
+    #raise "could not find any ad in the recommendations" if ad_recommendations.count == 0
     ad_recommendations 
 end
 
