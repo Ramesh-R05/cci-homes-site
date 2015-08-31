@@ -76,7 +76,7 @@ When(/^I click on the image of the gallery link$/) do
     find('.content-body__gallery-link-info .content-body__gallery-link-title').click
 end
 
-Then(/^I should land on the detail page of the linked gallery$/) do
+Then(/^I should be redirected to the detail page of the linked gallery$/) do
     page.should_not have_title("Article Long Title")
 end
 
@@ -107,10 +107,13 @@ When(/^I click on the title of the related content$/) do
     find('.related-content-items > .feed-item', match: :first).find('.feed-item__body > .feed-item__body-title').click
 end
 
-Then(/^I should land on the detail page of the related article$/) do
+Then(/^I should be redirected to the detail page of the related article$/) do
+    i = 0
+    timeout = 10
     old_path = URI.parse(current_url).path 
-    while (old_path == "/section/article-hero-image") do
+    while (old_path == "/section/article-hero-image") && (i < timeout) do
         sleep 1
+        i = i + 1
         old_path = URI.parse(current_url).path 
     end 
     new_path = URI.parse(current_url).path 
