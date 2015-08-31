@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import FooterSocialLinks from './footerSocialLinks';
 import FooterNetworkInfo from './footerNetworkInfo';
 import FooterNavigation from './footerNavigation';
-import FooterMagShop from './footerMagShop';
-import FooterNewsletter from '../newsletter/newsletter';
+import MagShop from '../magshop/magshop';
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
+import FooterNewsletter from '@bxm/newsletter/lib/components/newsletter';
 
 export default class FooterSection extends Component {
 
@@ -12,14 +12,21 @@ export default class FooterSection extends Component {
         super(...args);
     }
 
+    static propTypes = {
+        data: PropTypes.object.isRequired
+    }
+
     render() {
+        const {data} = this.props;
+        const iframeUrl = data.newsletter.footerIframeUrl;
+
         return (
             <div>
                 <footer className="footer">
                     <FooterSocialLinks />
                     <div className="row">
-                        <FooterNewsletter url="https://d4jqclkssewcy.cloudfront.net/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=homes_to_love!wnfooter" />
-                        <FooterMagShop />
+                        <FooterNewsletter url={iframeUrl} />
+                        <MagShop content={data.magShop} />
                     </div>
                     <div className="row">
                         <FooterNetworkInfo />

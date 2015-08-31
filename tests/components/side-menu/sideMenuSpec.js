@@ -1,6 +1,7 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import findWhere from 'lodash/collection/findWhere';
 import remove from 'lodash/array/remove';
+import {localeData} from '../../mock/config';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -9,10 +10,12 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const activateSideMenu = () => {};
 const NavigationStub = Context.createStubComponent();
+const MagshopStub = Context.createStubComponent();
 const SideMenu = proxyquire('../../../app/components/side-menu/sideMenu', {
     'react': React,
     'react/addons': React,
     '../header/navigation': NavigationStub,
+    '../magshop/magshop': MagshopStub,
     '../../actions/menuActions': { activateSideMenu }
 });
 
@@ -30,6 +33,8 @@ describe(`SideMenu Component`, () => {
     let closeButton;
     let nav;
     let overlay;
+    let magshop;
+    let separators;
 
     describe('render and class names', () => {
         before(renderDefault);
@@ -65,6 +70,15 @@ describe(`SideMenu Component`, () => {
         it('renders the overlay', () => {
             expect(React.findDOMNode(overlay)).to.exist;
         });
+
+        it('renders the Magshop subscription section', () => {
+            expect(React.findDOMNode(magshop)).to.exist;
+        });
+
+        const separatorLength = 1;
+        it(`renders ${separatorLength} separators`, () => {
+            expect(separators.length).to.equal(separatorLength);
+        });
     });
 
     describe('invalid props', () => {
@@ -95,7 +109,7 @@ describe(`SideMenu Component`, () => {
         let activateSideMenuAction;
 
         before(() => {
-            reactModule = Context.mountComponent(SideMenu, { open: true, navItems });
+            reactModule = Context.mountComponent(SideMenu, { open: true, navItems, data: localeData });
             closeButton = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__close')[0];
             overlay = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__overlay')[0];
         });
@@ -126,14 +140,16 @@ describe(`SideMenu Component`, () => {
 
     function renderDefault() {
         reactModule = TestUtils.renderIntoDocument(
-            <SideMenu navItems={navItems}>
+            <SideMenu navItems={navItems} data={localeData}>
                 <div className="some-content">foo</div>
             </SideMenu>
         );
-        bar = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__bar')[0];
-        container = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__container')[0];
-        closeButton = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__close')[0];
-        nav = TestUtils.scryRenderedComponentsWithType(reactModule, NavigationStub)[0];
-        overlay = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__overlay')[0];
+        bar = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__bar');
+        container = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__container');
+        closeButton = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__close');
+        nav = TestUtils.findRenderedComponentWithType(reactModule, NavigationStub);
+        magshop = TestUtils.findRenderedComponentWithType(reactModule, MagshopStub);
+        overlay = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__overlay');
+        separators = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__separator');
     }
 });

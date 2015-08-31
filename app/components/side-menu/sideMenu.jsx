@@ -1,11 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import Navigation from '../header/navigation';
+import MagShop from '../magshop/magshop';
 import * as MenuActions from '../../actions/menuActions';
 import clone from 'lodash/lang/clone';
 
 export default class SideMenu extends Component {
     static propTypes = {
+        data: PropTypes.object.isRequired,
         open: PropTypes.bool,
         navItems: PropTypes.array.isRequired
     };
@@ -27,15 +29,19 @@ export default class SideMenu extends Component {
     };
 
     render() {
-        if (!this.props.navItems) return null;
+        const {data, open, navItems} = this.props;
+
+        if (!navItems) return null;
+
+        const magShopData = data.magShop;
 
         const className = classNames({
             'side-menu': true,
-            'side-menu--open': this.props.open
+            'side-menu--open': open
         });
 
-        const navItems = clone(this.props.navItems);
-        navItems.unshift({ name: 'Home', url: '/' });
+        const items = clone(navItems);
+        items.unshift({ name: 'Home', url: '/' });
 
         return (
             <div className={className}>
@@ -52,8 +58,10 @@ export default class SideMenu extends Component {
                         ></button>
                         <Navigation
                             className="side-menu__nav"
-                            items={navItems}
+                            items={items}
                         />
+                        <div className="side-menu__separator"></div>
+                        <MagShop inSideNav={true} content={magShopData} />
                     </div>
                 </div>
                 <button className="side-menu__overlay" onClick={this.activateSideMenu}></button>

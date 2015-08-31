@@ -8,6 +8,8 @@ import Footer from '../footer/footer';
 import SideMenu from '../side-menu/sideMenu';
 import errorHandlerBuilder from '../error/errorHandlerBuilder';
 import cx from 'classnames';
+import {load} from '@bxm/config';
+const config = load();
 
 class DefaultTemplate extends Component {
 
@@ -16,7 +18,6 @@ class DefaultTemplate extends Component {
         isSideMenuOpen: PropTypes.bool,
         navItems: PropTypes.array,
         contentErrorStatus: PropTypes.object
-
     };
 
     static defaultProps = {
@@ -36,6 +37,7 @@ class DefaultTemplate extends Component {
 
     render() {
         const {Handler, hideNetworkHeader, hideFooter, hideHeader, isExpanded} = this.getPageMetadata();
+        const localeData = config.get('localeData');
         const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
@@ -55,12 +57,13 @@ class DefaultTemplate extends Component {
                 <SideMenu
                     open={this.props.isSideMenuOpen}
                     navItems={this.props.navItems}
+                    data={localeData}
                 />
                 <Handler
                     content={this.props.content}
                     isSideMenuOpen={this.props.isSideMenuOpen}
                 />
-                {hideFooter ? null : <Footer />}
+                {hideFooter ? null : <Footer data={localeData} />}
             </div>
         );
     }

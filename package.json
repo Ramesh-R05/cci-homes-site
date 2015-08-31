@@ -23,6 +23,7 @@
     "@bxm/gallery": "^2.1.1",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "2.0.7",
+    "@bxm/newsletter": "^0.1.1",
     "@bxm/login-radius-stub": "^1.1.0",
     "@bxm/recommendations": "^1.0.0",
     "@bxm/server": "^4.1.7",
