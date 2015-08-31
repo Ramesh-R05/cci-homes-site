@@ -39,7 +39,7 @@ Feature: article detail page
         When I click on the title of the related content
         Then I should land on the detail page of the related article       
 
-    @DHO-192 @DHO-194
+    @DHO-192 @DHO-194 @article-detail-page-ads
     Scenario: Check all ad slots are visible on the article detail page
         Given I am viewing an article
         Then I should see 1 "ad--article-top" ad slot
@@ -64,7 +64,7 @@ Feature: article detail page
         And I should see 1 "ad--article-native" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot
 
-    @DHO-195 @desktop
+    @DHO-195 @desktop @article-detail-page-ads
     Scenario: Check all ad slots are visible on the left-hand rail
         When I am viewing an article
         # Assume ads start at the 3rd slot

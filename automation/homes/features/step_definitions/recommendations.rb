@@ -14,25 +14,39 @@ Then(/^I should see (\d+) MRECs in the recommendation section$/) do |expected_co
     expect(actual_count).to eq(expected_count.to_i)
 end
 
-When(/^I click on the teaser (image|text) for first Homes recommendation$/) do |teaser_element|
+When(/^I click on the teaser (image|text) for first (?:Homes|network) recommendation$/) do |teaser_element|
     page.find('.recommendations')
-    if teaser_element == "image"
+    if (teaser_element == "image")
         find('article.dacrm-teaser > a.dacrm-teaser__image', match: :first).click
     else
         find('article.dacrm-teaser > a.gtm-recommendation-link', match: :first).click
     end
 end
 
-Then(/^I should be on a Home article or gallery page$/) do
-    if page.has_css?('article-section') || page.has_css?('gallery')
-        current_path = URI.parse(current_url).path
-        expect(current_path).to_not eq("/section/article-hero-image")
-    end
-end
-
 Then(/^I should not see ad in the recommendation section$/) do
     actual_count = all_ad_recommendations.count
     expect(actual_count).to eq(0)
+end
+
+Then(/^I should be redirected to a (?:Homes|network) article or gallery page from the (homepage|section landing page|article page)$/) do |condition|
+    print URI.parse(current_url).path
+    case condition
+    when 'section landing page'
+        testdata_path = "/section"
+    when 'article page'
+        testdata_path = "/section/article-hero-video"
+    else
+        testdata_path = "/"
+    end
+
+    old_path = URI.parse(current_url).path 
+    while (old_path == testdata_path) do
+        sleep 1
+        old_path = URI.parse(current_url).path 
+    end 
+    new_path = URI.parse(current_url).path 
+    expect(new_path).to_not eq(testdata_path) 
+
 end
 
 def all_homes_recommendations
