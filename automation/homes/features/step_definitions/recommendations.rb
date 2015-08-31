@@ -29,7 +29,6 @@ Then(/^I should not see ad in the recommendation section$/) do
 end
 
 Then(/^I should be redirected to a (?:Homes|network) article or gallery page from the (homepage|section landing page|article page)$/) do |condition|
-    print URI.parse(current_url).path
     case condition
     when 'section landing page'
         testdata_path = "/section"
