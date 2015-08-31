@@ -9,11 +9,13 @@ const TestUtils = Context.TestUtils;
 const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const PolarTeaserStub = Context.createStubComponentWithChildren();
+const StickyAdStub = Context.createStubComponentWithChildren();
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '../polar/polarTeaser': PolarTeaserStub
+    '../polar/polarTeaser': PolarTeaserStub,
+    '../section/sticky': StickyAdStub
 });
 
 describe('SectionFeatured', () => {
@@ -26,6 +28,7 @@ describe('SectionFeatured', () => {
         let ads;
         let teasers;
         let polarTeasers;
+        let sticky;
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
@@ -37,6 +40,7 @@ describe('SectionFeatured', () => {
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             polarTeasers =  TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
+            sticky = TestUtils.findRenderedComponentWithType(reactModule, StickyAdStub);
         });
 
         it('should NOT render In Focus items', () => {
@@ -55,6 +59,10 @@ describe('SectionFeatured', () => {
         const expectedNumPolarTeasers = 2;
         it(`should render ${expectedNumPolarTeasers} Polar native teasers`, () => {
             expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
+        });
+
+        it('should render Sticky Ad section', () => {
+            expect(sticky).to.exist;
         });
 
         describe(`Mobile Top banner ad`, () => {

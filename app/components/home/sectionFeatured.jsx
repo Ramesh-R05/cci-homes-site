@@ -3,6 +3,7 @@ import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import PolarTeaser from '../polar/polarTeaser';
+import StickyBlock from '../section/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import classNames from 'classnames';
 
@@ -130,14 +131,19 @@ export default class SectionFeatured extends Component {
                         {slice(articles, 21, 22).map(item => <Teaser {...item} key={item.id} modifier="hero" />)}
                         {slice(articles, 22, 26).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
                     </div>
-                    <div className="fixed-column fixed-column--sticky">
+
+                    {/* Sticky Ad */}
+                    <StickyBlock
+                        breakpoints={['xlarge']}
+                        containerMarginBottom={60}
+                        containerClasses="show-for-large-up xlarge-3 columns">
                         <Ad
                             className="ad--section-mrec"
                             displayFor={['large', 'xlarge']}
                             sizes={['double-mrec', 'mrec']}
                             targets={{position: 2}}
                         />
-                    </div>
+                    </StickyBlock>
                 </div>
 
                 {/* Recommendations */}
