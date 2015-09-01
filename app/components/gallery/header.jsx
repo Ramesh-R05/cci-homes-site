@@ -2,6 +2,8 @@
 var React = require('react/addons');
 var ReactPropTypes = React.PropTypes;
 var GalleryCounter = require('./counter');
+var SocialShareBlock = require('@bxm/ui/lib/social/components/SocialShareBlock');
+
 var GalleryHeader = React.createClass({
 
     propTypes: {
@@ -9,6 +11,10 @@ var GalleryHeader = React.createClass({
         gallery: ReactPropTypes.object.isRequired,
         galleryItems: ReactPropTypes.array.isRequired,
         isGalleryCompletedItemActive: ReactPropTypes.bool
+    },
+
+    contextTypes: {
+        config: ReactPropTypes.object
     },
 
     render: function() {
@@ -19,6 +25,22 @@ var GalleryHeader = React.createClass({
             shareTitle = gallery.title || gallery.name || "";
 
         title = this.props.isGalleryCompletedItemActive ? null: gallery.title;
+        var getSocial = null;
+        if (this.context.config.isFeatureEnabled('socialShareBlock') === true) {
+            getSocial = (
+                <SocialShareBlock
+                    url={`${this.context.config.site.host}${gallery.url}`}
+                    title={shareTitle}
+                    tweetBody={title + ' | HOMES TO LOVE {shortURL} #homestoloveau '}
+                    description={shareDescription}
+                    imageUrl={gallery.imageUrl}
+                    className={"social-share-block"}
+                    countText={false}
+                    nodeId={gallery.id}
+                    gigyaApiKey={this.context.config.gigya.apiKey}
+                    />
+            );
+        }
 
         /* jshint ignore:start */
         return (
@@ -34,7 +56,7 @@ var GalleryHeader = React.createClass({
                     </h1>
 
                     <GalleryCounter {...this.props} />
-
+                    {getSocial}
                 </div>
             </header>
         );

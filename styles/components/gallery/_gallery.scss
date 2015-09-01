@@ -1,3 +1,5 @@
+$share-border-color: #ddd;
+
 .gallery {
     padding: 0;
 
@@ -26,6 +28,43 @@
     .ad--top-label > div,
     .ad--top-label .ad__label {
         display: block;  // override article listing ads display
+    }
+
+    .social-share-block--mobile {
+        @extend .hide-for-large-up;
+
+        border: 1px solid $share-border-color;
+        margin: 0 $column-gutter/2 40px;
+
+        .social-share {
+            height: 50px;
+            margin-right: 15px;
+            position: relative;
+            vertical-align: middle;
+            width: 10%;
+
+            @media #{$medium-up} {
+                width: 8%;
+            }
+        }
+
+        .social-share-count {
+            border: 0;
+            line-height: 50px;
+            margin-left: 18px;
+            padding-left: 20px;
+            width: 38px;
+
+            @media #{$medium-up} {
+                padding-left: 35px;
+            }
+        }
+
+        .email {
+            display: inline-block;
+            line-height: 48px;
+            margin-right: 0;
+        }
     }
 
 }

@@ -18,12 +18,18 @@ var breakpoints = require('../../breakpoints');
 var GALLERY_LARGE_BREAKPOINT = parseInt(breakpoints.largeRangeMin, 10),
     HEADER_HEIGHT = 65;
 
+var SocialShareBlock = require('@bxm/ui/lib/social/components/SocialShareBlock');
+
 var Gallery = React.createClass({
 
     mixins: [WindowResizeMixin, FluxMixin],
 
     statics: {
         storeListeners: [GalleryStore, GalleryPageStore]
+    },
+
+    contextTypes: {
+        config: React.PropTypes.object
     },
 
     getState: function() {
@@ -112,6 +118,23 @@ var Gallery = React.createClass({
             shareTitle = gallery.title || gallery.name,
             keyword = getKeywordsFromTags(gallery.tags);
 
+        var getSocial = null;
+        if (this.context.config.isFeatureEnabled('socialShareBlock')) {
+            getSocial = (
+                <SocialShareBlock
+                    url={`${this.context.config.site.host}${gallery.url}`}
+                    title={shareTitle}
+                    tweetBody={gallery.title + ' | HOMES TO LOVE {shortURL} #homestoloveau '}
+                    description={shareDescription}
+                    imageUrl={gallery.imageUrl}
+                    className={"social-share-block social-share-block--mobile"}
+                    countText={false}
+                    nodeId={gallery.id}
+                    gigyaApiKey={this.context.config.gigya.apiKey}
+                    />
+            );
+        }
+
         /* jshint ignore:start */
         return (
             <section
@@ -141,7 +164,7 @@ var Gallery = React.createClass({
                         keyword={keyword}
                     />
                 </section>
-
+                {getSocial}
             </section>
         );
         /* jshint ignore:end */
