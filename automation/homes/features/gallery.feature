@@ -11,7 +11,7 @@ Feature: HomesToLove Gallery Detail Page
         And I should see the slide count and the image caption
         And I should see the sub-section title above the gallery summary
     
-    @DHO-109
+    @DHO-109 @gallery-ads
     Scenario: check all ad slots are visible on the gallery detail page
         Given I am viewing a gallery
         Then I should see 1 "gallery__aside-ad" ad slot
