@@ -41,6 +41,11 @@
         overflow: hidden;
     }
 
+    .react-swipe ,
+    .react-swipe > div {
+        height: 100%;
+    }
+
     .gallery-items {
         position: relative;
         top: 0;

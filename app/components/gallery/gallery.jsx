@@ -58,6 +58,7 @@ var Gallery = React.createClass({
         }
 
         this.executeAction(GalleryActionCreators.initialize, {
+            galleryId: this.state.gallery.id,
             galleryTitle: this.state.gallery.title,
             items: this.state.galleryItems
         });
@@ -74,6 +75,7 @@ var Gallery = React.createClass({
     componentWillUpdate: function(nextProps, nextState) {
         if (nextState.galleryItems !== this.state.galleryItems) {
             this.executeAction(GalleryActionCreators.initialize, {
+                galleryId: nextState.gallery.id,
                 galleryTitle: nextState.gallery.title,
                 items: nextState.galleryItems
             });
