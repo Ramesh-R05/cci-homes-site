@@ -81,7 +81,9 @@ export default {
         redirect: {
             site: 'homes',
             url: 'http://dev.redirect.services.bauer-media.net.au'
-        }
+        },
+        googlePlusUrl: 'https://plus.google.com/+HomesToLoveAu/',
+        faceBookAppID: '852557544824192'
     },
 
     localeData: {
