@@ -1,7 +1,7 @@
 export default {
     features: {
         socialShareBlock: {
-            enabled: true
+            enabled: false
         }
     },
     gigya: {
