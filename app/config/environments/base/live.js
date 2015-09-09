@@ -1,8 +1,8 @@
 export default {
     features: {
         socialShareBlock: {
-            enabled: false
-        }
+            enabled: true
+    }
     },
     gigya: {
         apiKey: '3_PV8TmIRNKAgRIsjss-5ZrHQEcexerbmgDhJFUyTKWHZFPgou5P4QGIL8-zSsA-v5'
