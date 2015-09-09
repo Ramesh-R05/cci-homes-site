@@ -1,8 +1,9 @@
 import React, {Component, PropTypes} from 'react';
-import * as TagUtils from '../../utils/tagUtils';
+import * as TagUtils from '@bxm/tags/lib/utils';
 import difference from 'lodash/array/difference';
 import union from 'lodash/array/union';
 import isUndefined from 'lodash/lang/isUndefined';
+import TagLink from '@bxm/tags/lib/components/link';
 
 export default class Tags extends Component {
 
@@ -32,9 +33,9 @@ export default class Tags extends Component {
 
         if (isUndefined(tags.primary)) return null;
 
-        const primaryTagHtml = <span className="tag-primary">{tags.primary}</span>;
+        const primaryTagHtml = <span className="tag-primary"><TagLink name={tags.primary} /></span>;
         const separator = isUndefined(tags.secondary) ? null : <span className="tag-separator">, </span>;
-        const secondaryTagHtml = isUndefined(tags.secondary) ? null : <span className="tag-secondary">{tags.secondary}</span>;
+        const secondaryTagHtml = isUndefined(tags.secondary) ? null : <span className="tag-secondary"><TagLink name={tags.secondary} /></span>;
 
         return (
             <p className="teaser__tags">

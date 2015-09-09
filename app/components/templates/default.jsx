@@ -89,7 +89,11 @@ class DefaultTemplate extends Component {
                 };
             case 'NavigationSection':
                 return {
-                    Handler: require('../section/section')
+                    Handler: require('../section/navigationTag/section')
+                };
+            case 'TagSection':
+                return {
+                    Handler: require('../section/tag/section')
                 };
             case 'BrandSection':
                 return {

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import * as TagUtils from '../../utils/tagUtils';
+import * as TagUtils from '@bxm/tags/lib/utils';
 import isUndefined from 'lodash/lang/isUndefined';
 
 
@@ -30,7 +30,15 @@ export default class Header extends Component {
             htmlHeading = <h1><b>{heading}</b></h1>;
         } else {
             htmlHeading = (
-                <h1>{words.map((word, i) => (i % 2 === 0) ? {word} : <b> {word} </b>)}</h1>
+                <h1>
+                    {words.map((word, i) => {
+                        const key = `heading-word-${i}`;
+                        if (i % 2 === 0) {
+                            return <span key={key}>{word}</span>;
+                        }
+                        return <b key={key}> {word} </b>;
+                    })}
+                </h1>
             );
         }
 

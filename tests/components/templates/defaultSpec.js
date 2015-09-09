@@ -16,7 +16,8 @@ const NetworkHeaderStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
 const HomepageStub = Context.createStubComponent();
 const HomesArticleStub = Context.createStubComponent();
-const SectionStub = Context.createStubComponent();
+const TagSectionStub = Context.createStubComponent();
+const NavigationTagSectionStub = Context.createStubComponent();
 const GalleryStub = Context.createStubComponent();
 const SideMenuStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponentWithChildren();
@@ -83,12 +84,15 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../side-menu/sideMenu': SideMenuStub,
     '../home/home': HomepageStub,
     '../article/section': HomesArticleStub,
-    '../section/section': SectionStub,
+    '../section/tag/section': TagSectionStub,
+    '../section/navigationTag/section': NavigationTagSectionStub,
     '@bxm/gallery/lib/components/page/gallery': GalleryStub,
     '../footer/footer': FooterStub,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
     '@bxm/config': { load: () => { return config } }
 });
+
+// ----------------------------------------------------------------------------- tests
 
 describe('Default Component template', () => {
     let reactModule;
@@ -195,7 +199,14 @@ describe('Default Component template', () => {
                 hideFooter: true
             },
             'NavigationSection': {
-                component: SectionStub,
+                component: NavigationTagSectionStub,
+                hideNetworkHeader: false,
+                hideHeader: false,
+                isExpanded: false,
+                hideFooter: false
+            },
+            'TagSection': {
+                component: TagSectionStub,
                 hideNetworkHeader: false,
                 hideHeader: false,
                 isExpanded: false,

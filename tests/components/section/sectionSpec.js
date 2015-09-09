@@ -1,11 +1,13 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import {entity, articles as articlesMock} from '../../mock/articles';
-import {items as gogMock} from '../../mock/galleryOfGalleries';
 import exposeProps from '../../test-util/exposeProps';
+import cloneDeep from 'lodash/lang/cloneDeep';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
 const TestUtils = Context.TestUtils;
+
+// ----------------------------------------------------------------------------- Stubbed components
 
 const proxyquire = require('proxyquire').noCallThru();
 const HeaderStub = Context.createStubComponentWithChildren();
@@ -15,148 +17,68 @@ const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const HeroStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const LoadMoreStub = Context.createStubComponentWithChildren();
-const InlineGalleryStub = Context.createStubComponent();
 const RecommendationsStub = Context.createStubComponent();
-const contextConfigStub = {
-    key: 'config',
-    type: '',
-    value: {
-        get: () => {},
-        isFeatureEnabled: () => {},
-        pagination: {
-            nbFirstPageItems: 20,
-            nbLoadMoreItems: 18
-        }
-    }
-};
 
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
-    '../../actions/facetedModule': {
-        getPage: () => {}
-    },
     './header': HeaderStub,
     './group': GroupStub,
     '../inFocus/inFocus': InFocusStub,
     './groupRepeatable': GroupRepeatableStub,
     './hero': HeroStub,
     '../loadMore/loadMore': LoadMoreStub,
-    '../inlineGallery/customInlineGallery': InlineGalleryStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/recommendations/lib/components/recommendations': RecommendationsStub
 });
 
+// ----------------------------------------------------------------------------- Mocked data, context and props
+
 const featuredArticles = articlesMock.slice(1, 4);
-let navigationTags = ['homes:Homes navigation:Section'];
+const navigationTags = ['Test'];
+const contextConfigStub = {key: 'config', type: '', value: {isFeatureEnabled: () => false}};
+const defaultProps = {
+    articles: articlesMock,
+    content: {
+        nodeType: 'Homepage',
+        id: 'HOMES-1158'
+    },
+    currentPage: 0,
+    isLoading: false,
+    isSideMenuOpen: false,
+    nbLoadMoreClicks: 1,
+    pagination: {
+        nbFirstPageItems: 20,
+        nbLoadMoreItems: 18
+    },
+    paging: {
+        pages: 2
+    },
+    tags: ['Test']
+};
 
-Context.addStore('TaggedArticlesStore', {
-    getItems() {
-        return articlesMock;
-    },
-    getConfiguration() {
-        return null;
-    },
-    getIsLoading() {
-        return false;
-    },
-    getPaging() {
-        return {};
-    },
-    getCurrentPage() {
-        return 0;
-    }
-});
-
-Context.addStore('GalleryOfGalleriesStore', {
-    getItems() {
-        return gogMock;
-    },
-
-    getConfiguration() {
-        return null;
-    }
-});
-
-Context.addStore('EntityStore', {
-    getNavigationTags() {
-        return navigationTags;
-    },
-    getContent() {
-        return entity;
-    }
-});
+// ----------------------------------------------------------------------------- tests
 
 describe(`Section`, () => {
     let reactModule;
-    let isFeatureEnabledStub;
-    let paginationConfig;
-
-    before(() => {
-        isFeatureEnabledStub = sinon.stub(contextConfigStub.value, 'isFeatureEnabled');
-        paginationConfig = sinon.stub(contextConfigStub.value, 'get');
-    });
-
-    after(function() {
-        isFeatureEnabledStub.restore();
-    });
 
     afterEach(Context.cleanup);
 
     describe(`With Load More Disabled`, () => {
-
         let loadMore;
 
         before(() => {
-            isFeatureEnabledStub.withArgs('loadMoreBtn').returns(false);
-            reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
             loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
         });
 
         it(`LoadMore button shouldn't exist`, () => {
-            expect(loadMore.length).to.be.eq(0);
-        });
-    });
-
-    describe(`Inline Gallery Component`, () => {
-        describe(`when on the renovate page`, () => {
-            let oldNavigationTags;
-            let inlineGallery;
-
-            before(() => {
-                oldNavigationTags = navigationTags ;
-                navigationTags = ['homes:Homes navigation:Renovate'];
-                isFeatureEnabledStub.withArgs('galleryOfGalleries').returns(true);
-                reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
-                inlineGallery = TestUtils.scryRenderedComponentsWithType(reactModule, InlineGalleryStub);
-            });
-
-            after(() => {
-                navigationTags = oldNavigationTags;
-            });
-
-            it(`should not render the inline gallery component`, () => {
-                expect(inlineGallery.length).to.equal(0);
-            });
-        });
-
-        describe(`when on any other section page`, () => {
-            let inlineGallery;
-
-            before(() => {
-                isFeatureEnabledStub.withArgs('galleryOfGalleries').returns(true);
-                reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
-                inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
-            });
-
-            it(`should render the inline gallery component and pass through galleries`, () => {
-                expect(inlineGallery).to.exist;
-                expect(inlineGallery.props.galleries).to.deep.equal(gogMock);
-            });
+            expect(loadMore.length).to.eq(0);
         });
     });
 
     describe(`With Load More enabled`, () => {
         const sectionClassName = 'section-landing';
+        const contextConfigStubEnabled = {key: 'config', type: '', value: {isFeatureEnabled: () => true}};
         let section;
         let header;
         let inFocus;
@@ -168,8 +90,7 @@ describe(`Section`, () => {
         let recommendations;
 
         before(() => {
-            isFeatureEnabledStub.withArgs('loadMoreBtn').returns(true);
-            reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStubEnabled]);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             hero = TestUtils.findRenderedComponentWithType(reactModule, HeroStub);
@@ -386,26 +307,37 @@ describe(`Section`, () => {
 
     });
 
-    describe(`side menu behavior`, () => {
-        let domNode;
-
+    describe(`with the side menu closed`, () => {
         before(() => {
-            reactModule = Context.mountComponent(exposeProps(Section), {}, [contextConfigStub]);
-            domNode = React.findDOMNode(reactModule);
+            reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
         });
 
-        it(`should have class name "side-menu-slider"`, () => {
-            expect(domNode).to.have.className('side-menu-slider');
+        const expectedClassName = "side-menu-slider";
+        it(`should have class name "${expectedClassName}"`, () => {
+            const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedClassName);
+            expect(section).to.have.length(1);
         });
 
+        const expectedOpenClassName = "side-menu-slider--side-menu-open";
         it(`should default to closed state`, () => {
-            expect(domNode).not.to.have.className('side-menu-slider--side-menu-open');
-        });
-
-        it(`should open when isSideMenuOpen is true`, () => {
-            reactModule.setProps({ isSideMenuOpen: true });
-            expect(domNode).to.have.className('side-menu-slider--side-menu-open');
+            const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedOpenClassName);
+            expect(section).to.have.length(0);
         });
     });
-});
 
+    describe(`with the side menu opened`, () => {
+        const customProps = cloneDeep(defaultProps);
+        customProps.isSideMenuOpen = true;
+
+        before(() => {
+            reactModule = Context.mountComponent(Section, customProps, [contextConfigStub]);
+        });
+
+        const expectedOpenClassName = "side-menu-slider--side-menu-open";
+        it(`should open when isSideMenuOpen is true`, () => {
+            const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedOpenClassName);
+            expect(section).to.have.length(1);
+        });
+    });
+
+});

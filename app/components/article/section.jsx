@@ -6,7 +6,7 @@ import FeedStore from '../../stores/facetedStores/feed';
 import Article from './article';
 import Feed from '../feed/feed';
 import Footer from '../footer/footer';
-import {getCategoryFirstTag} from '../../utils/tagUtils';
+import getCategoryFirstTag from '@bxm/tags/lib/utils/getCategoryFirstTag';
 import * as FacetedModuleActions from '../../actions/facetedModule';
 
 class Section extends Component {

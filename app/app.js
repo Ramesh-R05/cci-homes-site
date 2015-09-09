@@ -24,8 +24,10 @@ import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
 import MenuStore from './stores/menu';
+import RequestStore from './stores/request';
 import SocialStore from '@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
+import TagSectionStore from './stores/facetedStores/tagSection';
 import TrackingStore from './stores/tracking';
 
 import {load, configPlugin} from '@bxm/config';
@@ -51,8 +53,10 @@ let app = new Flux({
         PolarAdStore,
         RouteStore,
         MenuStore,
+        RequestStore,
         SocialStore,
         TaggedArticlesStore,
+        TagSectionStore,
         TrackingStore
     ]
 });

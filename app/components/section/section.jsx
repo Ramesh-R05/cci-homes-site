@@ -1,15 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
-import {connectToStores} from '@bxm/flux';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
-import isUndefined from 'lodash/lang/isUndefined';
 import cx from 'classnames';
-import EntityStore from '../../stores/entity';
-import TaggedArticlesStore from '../../stores/facetedStores/taggedArticles';
-import GalleryOfGalleriesStore from '../../stores/facetedStores/galleryOfGalleries';
-import * as FacetedModuleActions from '../../actions/facetedModule';
-import * as TagUtils from '../../utils/tagUtils';
 import Header from './header';
 import Group from './group';
 import InFocus from '../inFocus/inFocus';
@@ -17,95 +9,53 @@ import GroupRepeatable from './groupRepeatable';
 import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import LoadMore from '../loadMore/loadMore';
-import CustomInlineGallery from '../inlineGallery/customInlineGallery';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 
-class Section extends Component {
+export default class Section extends Component {
+
+    static displayName = 'GenericSection';
 
     static contextTypes = {
-        config: PropTypes.object,
-        getStore: PropTypes.func,
-        executeAction: PropTypes.func
+        config: PropTypes.object
     };
 
     static propTypes = {
-        content: PropTypes.object.isRequired,
         articles: PropTypes.array.isRequired,
-        galleries: PropTypes.array,
-        galleriesModuleConfig: PropTypes.any,
-        paging: PropTypes.object.isRequired,
-        moduleConfig: PropTypes.object,
-        navigationTags: PropTypes.array.isRequired,
+        content: PropTypes.object.isRequired,
         currentPage: PropTypes.number.isRequired,
+        inlineGalleries: PropTypes.element,
         isLoading: PropTypes.bool.isRequired,
-        isSideMenuOpen: PropTypes.bool
+        isSideMenuOpen: PropTypes.bool,
+        nbLoadMoreClicks: PropTypes.number.isRequired,
+        pagination: PropTypes.object.isRequired,
+        paging: PropTypes.object.isRequired,
+        tags: PropTypes.array.isRequired
     };
 
     static defaultProps = {
         articles: [],
-        galleries: [],
+        currentPage: 0,
+        isSideMenuOpen: false,
+        pagination: {},
         paging: {
             pages: 0,
             isLoading: false
         },
-        currentPage: 0,
-        moduleConfig: {},
-        navigationTags: [],
-        isSideMenuOpen: false
+        tags: []
     };
 
-    constructor(props, context) {
-        super(props, context);
-        this.nbLoadMoreClicks = 0;
-    }
-
     getGroupRepeatableItemLength() {
-        const nbFirstPageItems = this.context.config.pagination.nbFirstPageItems;
-        const nbLoadMoreItems = this.context.config.pagination.nbLoadMoreItems;
+        const nbFirstPageItems = this.props.pagination.nbFirstPageItems;
+        const nbLoadMoreItems = this.props.pagination.nbLoadMoreItems;
 
-        if ((this.props.currentPage + 1) === this.props.paging.pages) {
+        if (!this.props.nbLoadMoreClicks || this.props.currentPage + 1 === this.props.paging.pages) {
             return this.props.articles.length;
         }
-        if ( this.nbLoadMoreClicks === 0) {
-            return this.props.articles.length;
-        }
-        return nbFirstPageItems + nbLoadMoreItems * this.nbLoadMoreClicks;
-    }
-
-    getAsyncData() {
-        const page = this.props.currentPage ? this.props.currentPage : 0;
-
-        // SEO Task : params = { pagestart: 0, pageend: page };
-        this.context.executeAction(FacetedModuleActions.getPage, {
-            params: {
-                page: page,
-                tags: this.props.navigationTags
-            },
-            moduleConfig: this.props.moduleConfig
-        });
-
-        this.context.executeAction(FacetedModuleActions.getPage, {
-            params: {
-                page: 0,
-                tags: this.props.navigationTags
-            },
-            moduleConfig: this.props.galleriesModuleConfig
-        });
-    }
-
-    componentWillMount() {
-        if (!canUseDOM) this.getAsyncData();
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.currentPage !== this.props.currentPage) {
-            this.nbLoadMoreClicks++;
-            this.getAsyncData();
-        }
+        return nbFirstPageItems + nbLoadMoreItems * this.props.nbLoadMoreClicks;
     }
 
     render() {
-        const {articles, content, navigationTags} = this.props;
+        const {articles, content} = this.props;
         let loadMoreBtn;
 
         if (!articles.length) return null;
@@ -118,22 +68,11 @@ class Section extends Component {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
-        let inlineGalleries = null;
-        let sectionTitle = null;
-
-        if (!isUndefined(navigationTags) && Array.isArray(navigationTags) && navigationTags.length) {
-            sectionTitle = TagUtils.getTagName(navigationTags[0]).toLowerCase();
-        }
-
-        if (sectionTitle && sectionTitle !== 'renovate') {
-            inlineGalleries = <CustomInlineGallery galleries={this.props.galleries}/>;
-        }
-
         return (
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="row">
-                        <Header tags={navigationTags}>
+                        <Header tags={this.props.tags}>
                             <Ad
                                 className="ad--section-top-leaderboard"
                                 sizes={{
@@ -201,16 +140,17 @@ class Section extends Component {
                             <Ad
                                 className="ad--section-middle-leaderboard"
                                 sizes={{
-                            small: 'banner',
-                            leaderboard: 'leaderboard',
-                            billboard: ['billboard', 'leaderboard']
-                        }}
-                                targets={{position: 2}} />
+                                    small: 'banner',
+                                    leaderboard: 'leaderboard',
+                                    billboard: ['billboard', 'leaderboard']
+                                }}
+                                targets={{position: 2}}
+                            />
                         </div>
                     </div>
                 </div>
 
-                {inlineGalleries}
+                {this.props.inlineGalleries}
 
                 <div className="container">
                     {/* Group repeated when paginating */}
@@ -245,17 +185,3 @@ class Section extends Component {
         );
     }
 }
-
-export default connectToStores(Section, [TaggedArticlesStore, EntityStore, GalleryOfGalleriesStore], (stores) => {
-    return {
-        content: stores.EntityStore.getContent(),
-        articles: stores.TaggedArticlesStore.getItems(),
-        galleriesModuleConfig: stores.GalleryOfGalleriesStore.getConfiguration(),
-        galleries: stores.GalleryOfGalleriesStore.getItems(),
-        moduleConfig: stores.TaggedArticlesStore.getConfiguration(),
-        navigationTags: stores.EntityStore.getNavigationTags(),
-        paging: stores.TaggedArticlesStore.getPaging(),
-        currentPage: stores.TaggedArticlesStore.getCurrentPage(),
-        isLoading: stores.TaggedArticlesStore.getIsLoading()
-    };
-});

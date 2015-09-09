@@ -11,11 +11,13 @@ const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserImageStub = Context.createStubComponentWithChildren();
 const TeaserIconStub = Context.createStubComponent();
+const TagLinkStub = Context.createStubComponent();
 const FeedItem = proxyquire('../../../app/components/feed/feedItem', {
     'react': React,
     'react/addons': React,
     '@bxm/article/lib/components/teaser/image': TeaserImageStub,
     '../teaser/icon': TeaserIconStub,
+    '@bxm/tags/lib/components/link': TagLinkStub,
     '../helpers/theme': (Component) => class extends React.Component {
         render() {
             return <Component {...this.props} themeClass="theme-stub" />;
@@ -26,8 +28,8 @@ const FeedItem = proxyquire('../../../app/components/feed/feedItem', {
 describe('FeedItem Component', () => {
     let reactModule;
     let teaserImage;
+    let teaserTagLink;
     let teaserBodyTitle;
-    let teaserBodySource;
 
     const feedItemData = feedDataMock[1];
 
@@ -38,8 +40,8 @@ describe('FeedItem Component', () => {
                 item={feedItemData}/>
         );
         teaserImage = TestUtils.findRenderedComponentWithType(reactModule, TeaserImageStub);
+        teaserTagLink = TestUtils.findRenderedComponentWithType(reactModule, TagLinkStub);
         teaserBodyTitle = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-title');
-        teaserBodySource = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-source');
     });
 
     it('sets the classNames of the div', () => {
@@ -90,16 +92,17 @@ describe('FeedItem Component', () => {
         expect(teaserImage.props.quality).to.eq(85);
     });
 
+    const expectedTag = 'Decorating 101';
+    it(`sets the TagLink name to ${expectedTag}`, () => {
+        expect(teaserTagLink.props.name).to.eq(expectedTag);
+    });
+
     it('sets the body title text', () => {
         expect(React.findDOMNode(teaserBodyTitle).textContent).to.eq(feedItemData.title);
     });
 
     it('sets the body title href', () => {
         expect(React.findDOMNode(teaserBodyTitle).getAttribute('href')).to.eq(feedItemData.url);
-    });
-
-    it('sets the body source text to the topic', () => {
-        expect(React.findDOMNode(teaserBodySource).textContent).to.eq('Decorating 101');
     });
 
     describe('badge permutations', () => {
