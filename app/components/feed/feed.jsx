@@ -1,13 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
+import slice from 'lodash/array/slice';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
 import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
 import pin from '../helpers/pin';
 import FeedItem from './feedItem';
+import PolarFeedItem from '../polar/polarFeedItem';
 import FeedAd from './feedAd';
 
 const firstAdIndex = 2;
 const adSpacing = 12;
+const polarAdIndex = 5;
 
 class Feed extends Component {
 
@@ -22,6 +25,7 @@ class Feed extends Component {
 
     static defaultProps = {
         pinned: false,
+        items: [],
         isSideMenuOpen: false
     };
 
@@ -36,13 +40,28 @@ class Feed extends Component {
 
     getFeedItems() {
         const {items, pageId, tags, source} = this.props;
-        const feedItems = items.map((item, i) =>
+
+        let feedItems = items.map((item, i) =>
             <FeedItem
                 key={`feed-item-${i}`}
                 gtmClass={`feed-item-${i}`}
                 item={item}
             />
         );
+
+        // Make sure the array has some elements before replacing with polar ad
+        if (feedItems.length > 0) {
+            const polarItem = items[polarAdIndex];
+
+            feedItems.splice(polarAdIndex, 1,
+                <PolarFeedItem
+                    key="polar-feed-item"
+                    gtmClass="polar-feed-item"
+                    ad={{label: 'article_feed_item_1'}}
+                    item={polarItem}
+                />
+            );
+        };
 
         const keyword = getKeywordsFromTags(tags);
         let adPosition = 0;

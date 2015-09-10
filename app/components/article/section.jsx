@@ -48,18 +48,18 @@ class Section extends Component {
     }
 
     render() {
-        const {content} = this.props;
+        const {content, feedItems, isSideMenuOpen, title} = this.props;
         const heroItem = this.getHero();
 
         const menuSliderClassName = cx('side-menu-slider', {
-            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+            'side-menu-slider--side-menu-open': isSideMenuOpen
         });
 
         return (
             <div>
                 <div className={`article-section main-wrapper container row ${menuSliderClassName}`}>
                     <Article
-                        title={this.props.title}
+                        title={title}
                         heroItem={heroItem}
                         contentBody={content.body}
                         imageUrl={content.imageUrl}
@@ -76,11 +76,11 @@ class Section extends Component {
 
                 <div className="article-feed-container container row">
                     <Feed
-                        items={this.props.feedItems}
+                        items={feedItems}
                         pageId={content.id}
                         tags={content.tags}
                         source={content.source}
-                        isSideMenuOpen={this.props.isSideMenuOpen}
+                        isSideMenuOpen={isSideMenuOpen}
                     />
                 </div>
             </div>
