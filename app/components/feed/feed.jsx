@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
-import slice from 'lodash/array/slice';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
 import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
 import pin from '../helpers/pin';
