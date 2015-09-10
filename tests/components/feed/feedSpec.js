@@ -17,15 +17,22 @@ const FeedAdStub = React.createClass({
     render: () => <li className={feedAdClassName}>Foo</li>
 });
 
+const polarFeedItemClassName = 'polar-feed-item';
+const PolarFeedItemStub = React.createClass({
+    render: () => <li className={polarFeedItemClassName}>Foo</li>
+});
+
 const Feed = proxyquire('../../../app/components/feed/feed', {
     'react': React,
     'react/addons': React,
     './feedItem': FeedItemStub,
+    '../polar/polarFeedItem': PolarFeedItemStub,
     './feedAd': FeedAdStub
 });
 
 describe('Feed Component', () => {
     const firstAdIndex = 2;
+    const polarAdIndex = 5;
     const adSpacing = 12;
     const tags = ['homes:Color:red', 'homes:Color:white', 'homes:Room:kitchen'];
     const pageId = 'kitchen-1032';
@@ -35,10 +42,12 @@ describe('Feed Component', () => {
 
     describe('feed items', () => {
         let feedItems;
+        let polarFeedItem;
 
         before(() => {
             reactModule = Context.mountComponent(Feed, { pageId, tags, items: feedDataMock });
             feedItems = TestUtils.scryRenderedComponentsWithType(reactModule, FeedItemStub);
+            polarFeedItem = TestUtils.findRenderedComponentWithType(reactModule, PolarFeedItemStub);
         });
 
         it('should have the feed container', () => {
@@ -51,8 +60,8 @@ describe('Feed Component', () => {
                 .to.have.length(1);
         });
 
-        it('should have one FeedItem for each item in the feed data', () => {
-            expect(feedItems).to.have.length(feedDataMock.length);
+        it('should have one FeedItem for each item in the feed data minus 1 PolarFeedItem component', () => {
+            expect(feedItems).to.have.length(feedDataMock.length-1);
         });
 
         it('should set the FeedItem gtmClass', () => {
@@ -61,6 +70,14 @@ describe('Feed Component', () => {
 
         it('should set the FeedItem items', () => {
             expect(feedItems[0].props).to.have.property('item', feedDataMock[0]);
+        });
+
+        it('should set the PolarFeedItem gtmClass', () => {
+            expect(polarFeedItem.props).to.have.property('gtmClass', 'polar-feed-item');
+        });
+
+        it('should set the PolarFeedItem items', () => {
+            expect(polarFeedItem.props).to.have.property('item', feedDataMock[polarAdIndex]);
         });
     });
 
@@ -76,6 +93,10 @@ describe('Feed Component', () => {
 
         it('should have an ad as the 3rd item', () => {
             expect(feedListItems[firstAdIndex]).to.have.classNames(feedAdClassName);
+        });
+
+        it('should render Polar Feed Item at 6th position excluding feed ad', () => {
+            expect(feedListItems[polarAdIndex+1]).to.have.classNames(polarFeedItemClassName);
         });
 
         it(`should have an ad after every ${adSpacing} teasers`, () => {

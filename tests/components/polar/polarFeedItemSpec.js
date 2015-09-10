@@ -16,7 +16,7 @@ const PolarFeedItem = proxyquire('../../../app/components/polar/polarFeedItem', 
     '../feed/feedItem': FeedItemStub
 });
 
-describe.only('PolarFeedItem', () => {
+describe('PolarFeedItem', () => {
     let feedItem;
     let feedItemData;
 
