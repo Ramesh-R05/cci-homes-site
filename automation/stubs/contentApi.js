@@ -18,6 +18,11 @@ var start = function(port) {
         res.json(home);
     });
 
+    server.get('/inline-gallery', function(req, res) {
+        var inlineGallery = require(cwd + '/automation/test_data/faceted/inline-gallery');
+        res.json(inlineGallery);
+    });
+
     // Section
     server.get('/section', function(req, res) {
         var home = require(cwd + '/automation/test_data/section');

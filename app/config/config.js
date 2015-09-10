@@ -20,6 +20,9 @@ export default {
     },
 
     features: {
+        galleryOfGalleries: {
+            enabled: true
+        },
         socialShareBlock: {
             enabled: true
         },

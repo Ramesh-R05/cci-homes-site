@@ -3,22 +3,27 @@ import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';
 import HomeArticlesStore from '../../stores/articles/home';
 import InFocusArticlesStore from '../../stores/articles/inFocus';
+import GalleryOfGalleriesStore from '../../stores/facetedStores/galleryOfGalleries';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import cx from 'classnames';
+import * as FacetedModuleActions from '../../actions/facetedModule';
 
 class Home extends Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
         articles: PropTypes.array,
+        galleries: PropTypes.array,
+        galleriesModuleConfig: PropTypes.any,
         inFocusArticles: PropTypes.array,
         isSideMenuOpen: PropTypes.bool
     };
 
     static defaultProps = {
         articles: [],
+        galleries: [],
         inFocusArticles: [],
         isSideMenuOpen: false
     };
@@ -32,6 +37,13 @@ class Home extends Component {
         super(...args);
     }
 
+    componentWillMount() {
+        this.context.executeAction(FacetedModuleActions.getPage, {
+            page: 0,
+            moduleConfig: this.props.galleriesModuleConfig
+        });
+    }
+
     render() {
         const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
@@ -41,7 +53,7 @@ class Home extends Component {
 
         return (
             <div className={menuSliderClassName}>
-                <SectionFeatured articles={this.props.articles} className="home__body">
+                <SectionFeatured articles={this.props.articles} galleries={this.props.galleries} className="home__body">
                     <InFocus articles={this.props.inFocusArticles} modifier="border-bottom"/>
                     <Recommendations
                         nodeType={content.nodeType}
@@ -69,10 +81,12 @@ class Home extends Component {
 }
 
 
-export default connectToStores(Home, [EntityStore, HomeArticlesStore, InFocusArticlesStore], (stores) => {
+export default connectToStores(Home, [EntityStore, HomeArticlesStore, InFocusArticlesStore, GalleryOfGalleriesStore], (stores) => {
     return {
         content: stores.EntityStore.getContent(),
         articles: stores.HomeArticles.getItems(),
+        galleriesModuleConfig: stores.GalleryOfGalleriesStore.getConfiguration(),
+        galleries: stores.GalleryOfGalleriesStore.getItems(),
         inFocusArticles: stores.InFocusArticles.getItems()
     };
 });
