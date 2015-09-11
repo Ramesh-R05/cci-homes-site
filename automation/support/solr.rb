@@ -51,9 +51,12 @@ module Solr
     raise "SOLR must be initialised before checking a collection" unless @solr
 
     puts "checking if collection #{collection_name} exist?" if $verbose_logging
-    response = @solr.get('admin/cores', :params => { :action => 'STATUS' })
+    response = @solr.get('admin/collections', :params => {
+        :action => 'LIST',
+        :wt => 'json'
+    })
 
-    exists = !! (response['status'].keys.index (collection_name + '_shard1_replica1'))
+    exists = !! (response[:collections].include?(collection_name))
     puts "  it does#{exists ? '' : 'n\'t'} exist" if $verbose_logging
 
     exists
