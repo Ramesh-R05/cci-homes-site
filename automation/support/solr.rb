@@ -65,7 +65,7 @@ module Solr
   def Solr.create_document(collection_name, document, commit = true)
     raise "SOLR must be initialised before creating document(s)" unless @solr
 
-    full_collection_name = "#{collection_name}_shard1_replica1"
+    full_collection_name = "#{collection_name}_shard1_replica2"
 
     puts "adding document(s) to SOLR collection - #{full_collection_name}" if $verbose_logging
 
