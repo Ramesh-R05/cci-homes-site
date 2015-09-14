@@ -7,9 +7,11 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
+const LinkStub = Context.createStubComponentWithChildren();
 const Source = proxyquire('../../../app/components/article/source', {
     'react': React,
-    'react/addons': React
+    'react/addons': React,
+    '../brand/link': LinkStub
 });
 
 describe(`Source Component`, () => {
@@ -21,11 +23,10 @@ describe(`Source Component`, () => {
         const source = articleMock.source;
         const className = `article__source`;
         const imgPath = `/assets/images/source`;
-        const sourceUrl = `http://www.homestolove.com.au/house-and-garden/`;
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Source, { source });
-            link = TestUtils.findRenderedDOMComponentWithTag(reactModule, `a`);
+            link = TestUtils.findRenderedComponentWithType(reactModule, LinkStub);
             image = TestUtils.findRenderedDOMComponentWithTag(link, `img`);
         });
 
@@ -41,22 +42,23 @@ describe(`Source Component`, () => {
             expect(image.props.src).to.eq(`${imgPath}/australian-house-and-garden.svg`);
         });
 
-        it(`should link the brand logo to URL "${sourceUrl}"`, () => {
-            expect(link.props.href).to.eq(sourceUrl);
+        it(`should wrap the image logo with the Source Link component`, () => {
+            const linkImage = TestUtils.findRenderedDOMComponentWithTag(link, 'img');
+            expect(link.props.source).to.eq(source);
+            expect(linkImage).to.deep.eq(image);
         });
     });
 
     describe(`source links`, () => {
-        each({
-            'homes+': 'http://www.homestolove.com.au/homes-plus/',
-            'real living': 'http://www.homestolove.com.au/real-living/',
-            'Belle': 'http://www.homestolove.com.au/belle/',
-            'Australian House and Garden': 'http://www.homestolove.com.au/house-and-garden/'
-        }, (sourceUrl, source) => {
-            it(`should link the ${source} brand logo to "${sourceUrl}"`, () => {
+        each(['homes+', 'real living','Belle', 'Australian House and Garden'], (source) => {
+            it(`should link the ${source} brand logo`, () => {
                 reactModule = Context.mountComponent(Source, { source });
-                link = TestUtils.findRenderedDOMComponentWithTag(reactModule, `a`);
-                expect(link.props.href).to.eq(sourceUrl);
+                link = TestUtils.findRenderedComponentWithType(reactModule, LinkStub);
+                image = TestUtils.findRenderedDOMComponentWithTag(link, `img`);
+
+                const linkImage = TestUtils.findRenderedDOMComponentWithTag(link, 'img');
+                expect(link.props.source).to.eq(source);
+                expect(linkImage).to.deep.eq(image);
             });
         });
 
