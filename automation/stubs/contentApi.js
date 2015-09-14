@@ -23,6 +23,18 @@ var start = function(port) {
         res.json(inlineGallery);
     });
 
+    // Brand - Australian House and Garden
+
+    server.get('/brand', function(req, res) {
+        var brand = require(cwd + '/automation/test_data/brand');
+        res.json(brand);
+    });
+
+    server.get('/brand-australian-house-garden', function(req, res) {
+        var facetData = require(cwd + '/automation/test_data/faceted/brand-australian-house-garden');
+        res.json(facetData);
+    });
+
     // Section
     server.get('/section', function(req, res) {
         var home = require(cwd + '/automation/test_data/section');

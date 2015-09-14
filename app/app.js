@@ -11,6 +11,7 @@ import networkHeaderService from '@bxm/header/lib/header/headerService';
 
 // Keep store imports in alphabetical order to make diffs easier
 import AdStore from '@bxm/ad/lib/google/stores/ad';
+import BrandSectionStore from './stores/facetedStores/brand';
 import EntityStore from './stores/entity';
 import FeedStore from './stores/facetedStores/feed';
 import GalleryPageStore from './stores/gallery';
@@ -37,6 +38,7 @@ let app = new Flux({
     stores: [
         // Keep in alphabetical order to make diffs easier
         AdStore,
+        BrandSectionStore,
         EntityStore,
         FeedStore,
         GalleryPageStore,

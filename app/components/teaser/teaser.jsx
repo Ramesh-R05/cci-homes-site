@@ -62,6 +62,12 @@ class Teaser extends Component {
             l: {w: 400, h: 213},
             xl: {w: 300, h: 160}
         },
+        'large': {
+            s: {w: 320, h: 264},
+            m: {w: 705, h: 593},
+            l: {w: 563, h: 470},
+            xl: {w: 750, h: 625}
+        },
         'small-hero': {
             s: {w: 320, h: 264},
             m: {w: 400, h: 330},
