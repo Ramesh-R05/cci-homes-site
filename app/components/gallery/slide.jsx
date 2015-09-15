@@ -6,6 +6,9 @@ var GalleryImage = require('./image');
 var Ad = require('@bxm/ad/lib/google/components/ad');
 
 var Gallery = require('@bxm/gallery/lib/components/gallery');
+var hasTouch = require('has-touch');
+
+var AD_MIN_HEIGHT = 390;
 
 var GallerySlide = React.createClass({
     getInitialState: function() {
@@ -25,9 +28,21 @@ var GallerySlide = React.createClass({
         if (_.has(item, 'ad')) {
             if (index !== activeIndex) return null;
 
+            var minHeight = this.props.minHeight;
+            var swipeIndicator = null;
+
+            if (hasTouch) {
+                swipeIndicator = <div className="gallery__slide-swipe-indicator">SWIPE HERE TO SKIP AD</div>;
+
+                if (parseInt(minHeight, 10) < AD_MIN_HEIGHT) {
+                    minHeight = AD_MIN_HEIGHT + 'px';
+                }
+            }
+
             /* jshint ignore:start */
             return (
-                <div style={{minHeight:parseInt(this.props.minHeight, 10) + 'px'}}>
+                <div style={{minHeight:minHeight}}>
+                    {swipeIndicator}
                     <Ad
                         className='gallery__slide-ad'
                         sizes='mrec'

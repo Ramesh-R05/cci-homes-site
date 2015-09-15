@@ -56,6 +56,16 @@
         min-height: 1px;
     }
 
+    .gallery__slide-swipe-indicator {
+        width: 300px;
+        border: 1px solid $line-color;
+        color: $color-primary;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 17px;
+        margin: 15px auto 0;
+        padding: 15px 0;
+    }
+
     // scss-lint:disable ImportantRule
     &.gallery__slide--ad {
         max-height: 100% !important;
