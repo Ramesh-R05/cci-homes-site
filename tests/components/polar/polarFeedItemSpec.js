@@ -93,7 +93,7 @@ describe('PolarFeedItem', () => {
         let reactModule;
         let polarFeedItem;
         let image;
-        let topic;
+        let sponsor;
         let textLink;
 
         feedItemData = feedDataMock[1];
@@ -111,7 +111,9 @@ describe('PolarFeedItem', () => {
                         },
                         link: 'http://link.com',
                         title: 'title',
-                        topic: 'topic'
+                        sponsor: {
+                            name: 'bauer'
+                        }
                     }
                 }
             }
@@ -130,7 +132,7 @@ describe('PolarFeedItem', () => {
 
             image = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'img');
 
-            topic = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-source');
+            sponsor = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-source');
 
             textLink = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-title');
         });
@@ -147,8 +149,8 @@ describe('PolarFeedItem', () => {
             expect(image.props.alt).to.equal(model.image.caption);
         });
 
-        it(`should pass down the 'topic' prop to the feed item image`, () => {
-            expect(React.findDOMNode(topic).textContent).to.equal(model.topic);
+        it(`should pass down the 'sponsor' prop to the feed item ad`, () => {
+            expect(React.findDOMNode(sponsor).textContent).to.equal(`Powered by ${model.sponsor.name}`);
         });
 
         it(`should pass down the 'textLink' prop to the feed item image`, () => {
