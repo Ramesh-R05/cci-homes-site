@@ -49,7 +49,7 @@ class Feed extends Component {
         );
 
         // Make sure the array has some elements before replacing with polar ad
-        if (feedItems.length > 0) {
+        if (feedItems.length > polarAdIndex) {
             // Get the 6th item and replace with Polar Ad
             const polarItem = items[polarAdIndex];
 
