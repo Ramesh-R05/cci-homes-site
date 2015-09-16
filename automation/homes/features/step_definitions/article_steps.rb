@@ -108,14 +108,6 @@ When(/^I click on the title of the related content$/) do
 end
 
 Then(/^I should be redirected to the detail page of the related article$/) do
-    i = 0
-    timeout = 10
-    old_path = URI.parse(current_url).path 
-    while (old_path == "/section/article-hero-image") && (i < timeout) do
-        sleep 1
-        i = i + 1
-        old_path = URI.parse(current_url).path 
-    end 
-    new_path = URI.parse(current_url).path 
+    new_path = redirect_page("/section/article-hero-image")
     expect(new_path).to eq("/8-ingredients-for-the-perfect-kitchen-design-1645") 
 end

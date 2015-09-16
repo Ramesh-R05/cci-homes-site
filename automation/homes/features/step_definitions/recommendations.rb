@@ -38,15 +38,7 @@ Then(/^I should be redirected to a (?:Homes|network) article or gallery page fro
         testdata_path = "/"
     end
 
-    i = 0
-    timeout = 10
-    old_path = URI.parse(current_url).path 
-    while (old_path == testdata_path) && (i < timeout) do
-        sleep 1
-        i = i + 1
-        old_path = URI.parse(current_url).path 
-    end 
-    new_path = URI.parse(current_url).path 
+    new_path = redirect_page(testdata_path)
     expect(new_path).to_not eq(testdata_path) 
 end
 
