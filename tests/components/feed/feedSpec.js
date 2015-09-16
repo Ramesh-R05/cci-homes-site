@@ -32,7 +32,7 @@ const Feed = proxyquire('../../../app/components/feed/feed', {
 
 describe('Feed Component', () => {
     const firstAdIndex = 2;
-    const polarAdIndex = 5;
+    const polarAdIndex = 4;
     const adSpacing = 12;
     const tags = ['homes:Color:red', 'homes:Color:white', 'homes:Room:kitchen'];
     const pageId = 'kitchen-1032';

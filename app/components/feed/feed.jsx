@@ -9,7 +9,7 @@ import FeedAd from './feedAd';
 
 const firstAdIndex = 2;
 const adSpacing = 12;
-const polarAdIndex = 5;
+const polarAdIndex = 4;
 
 class Feed extends Component {
 
