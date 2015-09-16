@@ -4,6 +4,7 @@ require 'yaml'
 require 'active_support/time'
 require 'andand'
 require 'rspec'
+require 'selenium/webdriver'
 
 # Load matcher files under 'support/matcher' folder
 Dir[File.expand_path('../matcher/*.rb', __FILE__)].each {|f| require f}
@@ -26,7 +27,11 @@ $verbose_logging = ENV['logging'] || false
 
 # Capybara setup
 ENV['no_proxy'] = "127.0.0.1"
-Capybara.register_driver(:chrome) { |app| Capybara::Selenium::Driver.new(app, :browser => :chrome) }
+Capybara.register_driver :chrome do |app|
+caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => [ "--touch-events" ]})
+Capybara::Selenium::Driver.new(app, {:browser => :chrome, :desired_capabilities => caps})
+end
+# Capybara.register_driver(:chrome) { |app| Capybara::Selenium::Driver.new(app, :browser => :chrome, :desired_capabilities => caps) }
 Capybara.register_driver(:poltergeist) { |app| Capybara::Poltergeist::Driver.new(app, :phantomjs => $phantomjs_path, :js_errors => false) }
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :chrome

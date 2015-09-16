@@ -100,5 +100,5 @@ end
 
 
 Then (/^I should see the swipe to skip add button$/) do
-    expect(find('gallery__slide-swipe-indicator')).to exist
+    find("div.gallery__slide-swipe-indicator")
 end
