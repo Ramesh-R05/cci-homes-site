@@ -48,7 +48,7 @@ class Section extends Component {
     }
 
     render() {
-        const {content, feedItems, isSideMenuOpen, title} = this.props;
+        const {content, isSideMenuOpen, title} = this.props;
         const heroItem = this.getHero();
 
         const menuSliderClassName = cx('side-menu-slider', {
@@ -76,7 +76,7 @@ class Section extends Component {
 
                 <div className="article-feed-container container row">
                     <Feed
-                        items={feedItems}
+                        items={this.props.feedItems}
                         pageId={content.id}
                         tags={content.tags}
                         source={content.source}

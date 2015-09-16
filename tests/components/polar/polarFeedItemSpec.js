@@ -9,16 +9,19 @@ const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
 const FeedItemStub = Context.createStubComponentWithChildren();
+const IconStub = Context.createStubComponent();
 const PolarFeedItem = proxyquire('../../../app/components/polar/polarFeedItem', {
     'react': React,
     '@bxm/ad/lib/polar/decorators/polarAd': (component) => component,
     '@bxm/ad/lib/polar/decorators/polarConfig': (component) => component,
-    '../feed/feedItem': FeedItemStub
+    '../feed/feedItem': FeedItemStub,
+    '../teaser/icon': IconStub
 });
 
 describe('PolarFeedItem', () => {
     let feedItem;
     let feedItemData;
+    let icon;
 
     describe(`without the ad prop`, () => {
         let reactModule;
@@ -113,6 +116,9 @@ describe('PolarFeedItem', () => {
                         title: 'title',
                         sponsor: {
                             name: 'bauer'
+                        },
+                        custom: {
+                            icon: 'gallery'
                         }
                     }
                 }
@@ -135,10 +141,16 @@ describe('PolarFeedItem', () => {
             sponsor = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-source');
 
             textLink = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'feed-item__body-title');
+
+            icon = TestUtils.findRenderedComponentWithType(reactModule, IconStub);
         });
 
         it('should render the polar feed item', () => {
             expect(polarFeedItem).to.exist;
+        });
+
+        it('should render the icon component', () => {
+            expect(icon).to.exist;
         });
 
         it(`should pass down the 'src' prop to the feed item image`, () => {
@@ -153,8 +165,12 @@ describe('PolarFeedItem', () => {
             expect(React.findDOMNode(sponsor).textContent).to.equal(`Powered by ${model.sponsor.name}`);
         });
 
-        it(`should pass down the 'textLink' prop to the feed item image`, () => {
+        it(`should pass down the 'textLink' prop to the feed item title`, () => {
             expect(React.findDOMNode(textLink).textContent).to.equal(model.title);
+        });
+
+        it('should set the correct url to the polar ad', () => {
+            expect(React.findDOMNode(textLink).getAttribute('href')).to.equal(model.link);
         });
     });
 });

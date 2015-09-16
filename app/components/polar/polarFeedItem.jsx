@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import has from 'lodash/object/has';
 import FeedItem from '../feed/feedItem';
+import Icon from '../teaser/icon';
 import polarAd from '@bxm/ad/lib/polar/decorators/polarAd';
 import polarConfig from '@bxm/ad/lib/polar/decorators/polarConfig';
 
@@ -44,12 +45,13 @@ class PolarFeedItem extends Component {
             <li className="feed-item polar-feed-item">
                 <a href={nativeAdModel.link} className={gtmClass}>
                     <img src={nativeAdModel.image.href} alt={nativeAdModel.image.caption} />
+                    <Icon icon={nativeAdModel.custom.icon} />
                 </a>
                 <div className="feed-item__body">
                     <span className="feed-item__body-source">
                         Powered by {nativeAdModel.sponsor.name}
                     </span>
-                    <a className={textLink} href={nativeAdModel.url}>{nativeAdModel.title}</a>
+                    <a className={textLink} href={nativeAdModel.link}>{nativeAdModel.title}</a>
                 </div>
             </li>
         );

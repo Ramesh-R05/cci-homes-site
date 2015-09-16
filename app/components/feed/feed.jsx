@@ -61,7 +61,7 @@ class Feed extends Component {
                     item={polarItem}
                 />
             );
-        };
+        }
 
         const keyword = getKeywordsFromTags(tags);
         let adPosition = 0;
