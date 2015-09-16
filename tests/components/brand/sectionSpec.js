@@ -1,6 +1,7 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import {entity, request, articles as articlesMock} from '../../mock/articles';
 import exposeProps from '../../test-util/exposeProps';
+import clone from 'lodash/lang/clone';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -46,7 +47,7 @@ Context.addStore('BrandSectionStore', {
 
 Context.addStore('EntityStore', {
     getContent() {
-        let content = {...entity};
+        let content = clone(entity);
         content.urlName = 'belle';
         content.title = 'Belle';
         return content;
