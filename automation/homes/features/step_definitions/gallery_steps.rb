@@ -90,6 +90,15 @@ Then(/^I should see (\d+)(?:st|nd|rd|th) MREC after the (?:first|next) (\d+) ima
 	while i < int_ad_position do
 		step "I click on the next slide arrow"
 		i += 1
-	end  
+	end
 	step "I should see the Mrec"
+end
+
+Given(/^I am viewing gallery "(.*?)"$/) do |gallery|
+    visit "/#{gallery}"
+end
+
+
+Then (/^I should see the swipe to skip add button$/) do
+    find("div.gallery__slide-swipe-indicator")
 end
