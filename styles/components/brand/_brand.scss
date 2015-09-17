@@ -19,7 +19,8 @@
     text-align: center;
 
     img {
-        height: 100px;
+        height: 100%;
+        max-height: 100px;
         width: 70%;
     }
 }
@@ -205,6 +206,10 @@
                 margin-bottom: 60px;
                 display: block;
 
+                .teaser__title {
+                    margin-bottom: 20px;
+                }
+
                 .teaser__content {
                     position: absolute;
                 }
@@ -287,6 +292,10 @@
                 @include teaser-small-hero;
 
                 margin-bottom: 60px;
+
+                .teaser__title {
+                    margin-bottom: 20px;
+                }
 
                 .teaser__content {
                     position: absolute;
