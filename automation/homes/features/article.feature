@@ -41,8 +41,8 @@ Feature: article detail page
 
     @DHO-192 @DHO-194 @article-detail-page-ads
     Scenario: Check all ad slots are visible on the article detail page
-        Given I am viewing an article with a hero image
-        Then I should see 1 "ad--article-top" ad slot
+        Given I am viewing an article
+        #Then I should see 1 "ad--article-top" ad slot
         #And I should see 1 "ad--article-native" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot
 
