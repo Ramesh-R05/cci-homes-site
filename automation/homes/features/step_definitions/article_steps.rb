@@ -41,7 +41,7 @@ end
 
 #Ads
 Then(/^I should see (\d+) "([^"]+)" ad slots?$/) do |slot_count, ad_slot|
-    wait_until { find(".#{ad_slot} > div > div") }
+    sleep 5
     expect(page).to have_selector(".#{ad_slot} > div > div", count: slot_count.to_i)
 end
 
