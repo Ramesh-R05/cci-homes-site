@@ -6,7 +6,7 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
-const SocialIcon = proxyquire('../../../app/components/brand/SocialIcon', {
+const SocialIcon = proxyquire('../../../app/components/brand/socialIcon', {
     'react': React
 });
 
