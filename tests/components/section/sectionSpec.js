@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import {entity, articles as articlesMock} from '../../mock/articles';
+import {items as gogMock} from '../../mock/galleryOfGalleries';
 import exposeProps from '../../test-util/exposeProps';
 
 const Context = betterMockComponentContext();
@@ -14,13 +15,18 @@ const GroupRepeatableStub = Context.createStubComponentWithChildren();
 const HeroStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const LoadMoreStub = Context.createStubComponentWithChildren();
+const InlineGalleryStub = Context.createStubComponent();
 const RecommendationsStub = Context.createStubComponent();
-const config = {
-    get: () => {},
-    isFeatureEnabled: () => {},
-    pagination: {
-        nbFirstPageItems: 20,
-        nbLoadMoreItems: 18
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        get: () => {},
+        isFeatureEnabled: () => {},
+        pagination: {
+            nbFirstPageItems: 20,
+            nbLoadMoreItems: 18
+        }
     }
 };
 
@@ -35,15 +41,13 @@ const Section = proxyquire('../../../app/components/section/section', {
     './groupRepeatable': GroupRepeatableStub,
     './hero': HeroStub,
     '../loadMore/loadMore': LoadMoreStub,
-    '@bxm/config': {
-        load: () => { return config }
-    },
+    '../inlineGallery/customInlineGallery': InlineGalleryStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/recommendations/lib/components/recommendations': RecommendationsStub
 });
 
 const featuredArticles = articlesMock.slice(1, 4);
-const navigationTags = ['Test'];
+let navigationTags = ['homes:Homes navigation:Section'];
 
 Context.addStore('TaggedArticlesStore', {
     getItems() {
@@ -63,6 +67,16 @@ Context.addStore('TaggedArticlesStore', {
     }
 });
 
+Context.addStore('GalleryOfGalleriesStore', {
+    getItems() {
+        return gogMock;
+    },
+
+    getConfiguration() {
+        return null;
+    }
+});
+
 Context.addStore('EntityStore', {
     getNavigationTags() {
         return navigationTags;
@@ -74,16 +88,16 @@ Context.addStore('EntityStore', {
 
 describe(`Section`, () => {
     let reactModule;
-    let loadMoreEnableStub;
+    let isFeatureEnabledStub;
     let paginationConfig;
 
     before(() => {
-        loadMoreEnableStub = sinon.stub(config, 'isFeatureEnabled');
-        paginationConfig = sinon.stub(config, 'get');
+        isFeatureEnabledStub = sinon.stub(contextConfigStub.value, 'isFeatureEnabled');
+        paginationConfig = sinon.stub(contextConfigStub.value, 'get');
     });
 
     after(function() {
-        loadMoreEnableStub.restore();
+        isFeatureEnabledStub.restore();
     });
 
     afterEach(Context.cleanup);
@@ -93,8 +107,8 @@ describe(`Section`, () => {
         let loadMore;
 
         before(() => {
-            loadMoreEnableStub.withArgs('loadMoreBtn').returns(false);
-            reactModule = Context.mountComponent(Section);
+            isFeatureEnabledStub.withArgs('loadMoreBtn').returns(false);
+            reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
             loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
         });
 
@@ -103,8 +117,46 @@ describe(`Section`, () => {
         });
     });
 
+    describe(`Inline Gallery Component`, () => {
+        describe(`when on the renovate page`, () => {
+            let oldNavigationTags;
+            let inlineGallery;
+
+            before(() => {
+                oldNavigationTags = navigationTags ;
+                navigationTags = ['homes:Homes navigation:Renovate'];
+                isFeatureEnabledStub.withArgs('galleryOfGalleries').returns(true);
+                reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
+                inlineGallery = TestUtils.scryRenderedComponentsWithType(reactModule, InlineGalleryStub);
+            });
+
+            after(() => {
+                navigationTags = oldNavigationTags;
+            });
+
+            it(`should not render the inline gallery component`, () => {
+                expect(inlineGallery.length).to.equal(0);
+            });
+        });
+
+        describe(`when on any other section page`, () => {
+            let inlineGallery;
+
+            before(() => {
+                isFeatureEnabledStub.withArgs('galleryOfGalleries').returns(true);
+                reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
+                inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
+            });
+
+            it(`should render the inline gallery component and pass through galleries`, () => {
+                expect(inlineGallery).to.exist;
+                expect(inlineGallery.props.galleries).to.deep.equal(gogMock);
+            });
+        });
+    });
+
     describe(`With Load More enabled`, () => {
-        const sectionClassName = 'container';
+        const sectionClassName = 'section-landing';
         let section;
         let header;
         let inFocus;
@@ -116,8 +168,8 @@ describe(`Section`, () => {
         let recommendations;
 
         before(() => {
-            loadMoreEnableStub.withArgs('loadMoreBtn').returns(true);
-            reactModule = Context.mountComponent(Section);
+            isFeatureEnabledStub.withArgs('loadMoreBtn').returns(true);
+            reactModule = Context.mountComponent(Section, {}, [contextConfigStub]);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             hero = TestUtils.findRenderedComponentWithType(reactModule, HeroStub);
@@ -234,7 +286,7 @@ describe(`Section`, () => {
         });
 
         describe(`Number of AdStubs`, () => {
-            const numberOfAds = 4;
+            const numberOfAds = 5;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
             });
@@ -290,8 +342,8 @@ describe(`Section`, () => {
             });
         });
 
-        describe(`Bottom banner/leaderboard/billboard ad before the Network section`, () => {
-            const expectedClassname = 'ad--section-bottom-leaderboard';
+        describe(`Middle banner/leaderboard/billboard ad before the Inline Gallery`, () => {
+            const expectedClassname = 'ad--section-middle-leaderboard';
             it(`should have the classname prop equal to ${expectedClassname}`, () => {
                 expect(ads[3].props.className).to.equal(expectedClassname);
             });
@@ -305,9 +357,30 @@ describe(`Section`, () => {
                 expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            const targets = {position: 3};
+            const targets = {position: 2};
             it(`should have the targets props equal to ${targets}`, () => {
                 expect(ads[3].props.targets).to.deep.equal(targets);
+            });
+        });
+
+        describe(`Bottom banner/leaderboard/billboard ad before the Network section`, () => {
+            const expectedClassname = 'ad--section-bottom-leaderboard';
+            it(`should have the classname prop equal to ${expectedClassname}`, () => {
+                expect(ads[4].props.className).to.equal(expectedClassname);
+            });
+
+            const expectedSizes = {
+                small: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            };
+            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
+                expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
+            });
+
+            const targets = {position: 3};
+            it(`should have the targets props equal to ${targets}`, () => {
+                expect(ads[4].props.targets).to.deep.equal(targets);
             });
         });
 
@@ -317,7 +390,7 @@ describe(`Section`, () => {
         let domNode;
 
         before(() => {
-            reactModule = Context.mountComponent(exposeProps(Section));
+            reactModule = Context.mountComponent(exposeProps(Section), {}, [contextConfigStub]);
             domNode = React.findDOMNode(reactModule);
         });
 

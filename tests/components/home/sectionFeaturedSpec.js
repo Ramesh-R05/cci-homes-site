@@ -12,32 +12,14 @@ const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const PolarTeaserStub = Context.createStubComponentWithChildren();
 const StickyAdStub = Context.createStubComponentWithChildren();
-const breakPoints = {
-    smallRangeMax: 700,
-    mediumRangeMax: 1000,
-    largeRangeMax: 1400
-};
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
-    '../../breakpoints': breakPoints,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '../polar/polarTeaser': PolarTeaserStub,
     '../section/sticky': StickyAdStub,
-    '@bxm/gallery/lib/components/inlineGallery': InlineGalleryStub
+    '../inlineGallery/customInlineGallery': InlineGalleryStub
 });
-
-let isGOGEnabled = true;
-
-const contextConfigStub = {
-    key: 'config',
-    type: '',
-    value: {
-        isFeatureEnabled() {
-            return isGOGEnabled;
-        }
-    }
-};
 
 describe('SectionFeatured', () => {
 
@@ -50,86 +32,13 @@ describe('SectionFeatured', () => {
         before(() => {
             reactModule = Context.mountComponent(SectionFeatured, {
                 articles: articlesMock, galleries: gogMock
-            }, [contextConfigStub]);
+            });
             inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
         });
 
-        it(`should render the InlineGallery component and pass through galleries`, () => {
+        it(`should render the CustomInlineGallery component and pass through galleries`, () => {
             expect(inlineGallery).to.exist;
             expect(inlineGallery.props.galleries).to.deep.equal(gogMock);
-        });
-
-        it(`should pass the renderSlide prop to the InlineGallery component`, () => {
-            expect(inlineGallery.props.renderSlide).to.equal(reactModule.renderSlide);
-        });
-
-        it(`should pass the imageSizes prop to the InlineGallery component`, () => {
-            expect(inlineGallery.props.imageSizes).to.equal(SectionFeatured.inlineGalleryImageSizes);
-        });
-
-        it(`should pass the breakpoints prop to the InlineGallery component`, () => {
-            expect(inlineGallery.props.breakpoints).to.equal(breakPoints);
-        });
-
-        describe(`#renderSlide`, () => {
-            it('should render a GallerySlide Component with relevant props', () => {
-                const imageUrl = 'IMAGE URL';
-                const itemMock = gogMock[0];
-                const component = reactModule.renderSlide(itemMock, 1, imageUrl);
-                let cloneProps = {...itemMock};
-                cloneProps.imageUrl = imageUrl;
-                expect(component.props).to.deep.eq(cloneProps);
-            });
-
-            it('should return null when no args passed', () => {
-                const component = reactModule.renderSlide();
-                expect(component).to.eq(null);
-            });
-
-            it('should render null when image is not passed', () => {
-                const itemMock = gogMock[0];
-                const component = reactModule.renderSlide(itemMock, 0);
-                expect(component).to.eq(null);
-            });
-        });
-    });
-
-    describe(`with galleries and galleryOfGalleries feature is toggled off`, () => {
-        let reactModule;
-        let inlineGallery;
-
-        before(() => {
-            isGOGEnabled = false;
-            reactModule = Context.mountComponent(SectionFeatured, {
-                articles: articlesMock,
-                galleries: gogMock
-            }, [contextConfigStub]);
-            inlineGallery = TestUtils.scryRenderedComponentsWithType(reactModule, InlineGalleryStub);
-        });
-
-        after(() => {
-            isGOGEnabled = true;
-        });
-
-        it(`should not render the InlineGallery component`, () => {
-            expect(inlineGallery.length).to.equal(0);
-        });
-    });
-
-    describe(`without galleries`, () => {
-        let reactModule;
-        let inlineGallery;
-
-        before(() => {
-            reactModule = Context.mountComponent(SectionFeatured, {
-                articles: articlesMock,
-            }, [contextConfigStub]);
-            inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
-        });
-
-        it(`should render the InlineGallery component and pass through an empty array for galleries`, () => {
-            expect(inlineGallery).to.exist;
-            expect(inlineGallery.props.galleries).to.deep.equal([]);
         });
     });
 
@@ -144,7 +53,7 @@ describe('SectionFeatured', () => {
         before(() => {
             reactModule = Context.mountComponent(SectionFeatured, {
                 articles: articlesMock
-            }, [contextConfigStub]);
+            });
 
             domElements = React.findDOMNode(reactModule);
 
@@ -304,7 +213,7 @@ describe('SectionFeatured', () => {
         let reactModule;
 
         before(() => {
-            reactModule = Context.mountComponent(SectionFeatured, {}, [contextConfigStub]);
+            reactModule = Context.mountComponent(SectionFeatured, {});
         });
 
         it('should not be rendered', () => {

@@ -1,13 +1,11 @@
 import React, {Component, PropTypes} from 'react';
-import breakpoints from '../../breakpoints';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import PolarTeaser from '../polar/polarTeaser';
 import StickyBlock from '../section/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import InlineGallery from '@bxm/gallery/lib/components/inlineGallery';
-import InlineGallerySlide from '../inlineGallery/item';
+import CustomInlineGallery from '../inlineGallery/customInlineGallery';
 
 export default class SectionFeatured extends Component {
 
@@ -25,27 +23,8 @@ export default class SectionFeatured extends Component {
         children: []
     };
 
-    static inlineGalleryImageSizes = {
-        s: {w: 750, h: 625},
-        m: {w: 940, h: 790},
-        l: {w: 1482, h: 833},
-        xl: {w: 1270, h: 715}
-    };
-
-    static contextTypes = {
-        config: PropTypes.object
-    };
-
-    renderSlide(item, i, image) {
-        if (!item || !image) return null;
-
-        return <InlineGallerySlide key={i} {...item} imageUrl={image} />;
-    }
-
     constructor(props, context) {
         super(props, context);
-
-        this.renderSlide = this.renderSlide.bind(this);
     }
 
     render() {
@@ -53,18 +32,6 @@ export default class SectionFeatured extends Component {
         const hero = first(articles);
 
         if (articles.length === 0) return null;
-
-        let inlineGalleries = null;
-
-        if (this.context.config.isFeatureEnabled('galleryOfGalleries')) {
-            inlineGalleries = (
-                <InlineGallery
-                    breakpoints={breakpoints}
-                    galleries={galleries}
-                    imageSizes={SectionFeatured.inlineGalleryImageSizes}
-                    renderSlide={this.renderSlide} />
-            );
-        }
 
         return (
             <div className={this.props.className}>
@@ -149,7 +116,7 @@ export default class SectionFeatured extends Component {
                     </div>
                 </div>
 
-                {inlineGalleries}
+                <CustomInlineGallery galleries={galleries} />
 
                 <div className="container">
                     <div className="row">
