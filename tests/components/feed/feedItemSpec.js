@@ -2,6 +2,7 @@ import extend from 'lodash/object/extend';
 import {betterMockComponentContext} from '@bxm/flux';
 import feedDataMock from '../../mock/feed';
 import staticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
+import imageResize from '@bxm/ui/lib/common/ImageResize';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
@@ -14,7 +15,12 @@ const FeedItem = proxyquire('../../../app/components/feed/feedItem', {
     'react': React,
     'react/addons': React,
     '@bxm/article/lib/components/teaser/image': TeaserImageStub,
-    '../teaser/icon': TeaserIconStub
+    '../teaser/icon': TeaserIconStub,
+    '../helpers/theme': (Component) => class extends React.Component {
+        render() {
+            return <Component {...this.props} themeClass="theme-stub" />;
+        }
+    }
 });
 
 describe('FeedItem Component', () => {
@@ -37,7 +43,7 @@ describe('FeedItem Component', () => {
     });
 
     it('sets the classNames of the div', () => {
-        const expectedSourceClassName = `source-${FeedItem.sourceClassNameMap[feedItemData.source]}`;
+        const expectedSourceClassName = `theme-stub`;
         expect(React.findDOMNode(reactModule)).to.have.classNames('feed-item', expectedSourceClassName);
     });
 
@@ -62,11 +68,22 @@ describe('FeedItem Component', () => {
     });
 
     it('sets the TeaserImage sizes prop', () => {
-        expect(teaserImage.props.imageSizes).to.eql(FeedItem.teaserSizes);
+        const expectedImgSizes = {
+            s: { w: 132, h: 107 },
+            m: { w: 132, h: 107 },
+            l: { w: 132, h: 107 },
+            xl: { w: 132, h: 107 }
+        };
+        expect(teaserImage.props.imageSizes).to.eql(expectedImgSizes);
     });
 
     it('sets the TeaserImage responsiveConfig prop', () => {
-        expect(teaserImage.props.responsiveConfig).to.eql(FeedItem.teaserResponsiveConfig);
+        const expectedResponsiveConfig = {
+            scale: imageResize.scale.BOTH,
+            anchor: imageResize.anchor.MC,
+            mode: imageResize.mode.CROP
+        };
+        expect(teaserImage.props.responsiveConfig).to.eql(expectedResponsiveConfig);
     });
 
     it('sets the TeaserImage quality to 85', () => {

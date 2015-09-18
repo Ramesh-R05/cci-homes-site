@@ -1,16 +1,19 @@
 import React, {Component, PropTypes} from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import TeaserImage from '@bxm/article/lib/components/teaser/image';
 import Icon from '../teaser/icon';
 import breakpoints from '../../breakpoints';
 import {getFirstTagNameForCategory} from '../../utils/tagUtils';
+import theme from '../helpers/theme';
 
-export default class FeedItem extends Component {
+
+class FeedItem extends Component {
 
     static propTypes = {
         gtmClass: PropTypes.string.isRequired,
-        item: PropTypes.object.isRequired
+        item: PropTypes.object.isRequired,
+        themeClass: PropTypes.string
     };
 
     static imageQuality = 85;
@@ -28,25 +31,18 @@ export default class FeedItem extends Component {
         xl: { w: 132, h: 107 }
     };
 
-    static sourceClassNameMap = {
-        'homes+': 'homes-plus',
-        'real living': 'real-living',
-        'Belle': 'belle',
-        'Australian House and Garden': 'house-and-garden'
-    };
-
     constructor(props, context) {
         super(props, context);
     }
 
     render() {
-        const {gtmClass, item} = this.props;
-        const {url, imageUrl, title, source} = item;
-        const sourceClassName = `source-${FeedItem.sourceClassNameMap[source]}`;
+        const {gtmClass, item, themeClass} = this.props;
+        const {url, imageUrl, title} = item;
+        const classNames = classnames('feed-item', themeClass);
         const topic = getFirstTagNameForCategory(this.props.item.tags, 'Topic');
-        const textLink = classNames('feed-item__body-title', gtmClass);
+        const textLink = classnames('feed-item__body-title', gtmClass);
         return (
-            <li className={`feed-item ${sourceClassName}`}>
+            <li className={classNames}>
                 <TeaserImage
                     link={url}
                     imageUrl={imageUrl}
@@ -68,5 +64,6 @@ export default class FeedItem extends Component {
             </li>
         );
     }
-
 }
+
+export default theme(FeedItem, 'item.source');

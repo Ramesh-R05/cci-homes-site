@@ -1,6 +1,8 @@
 import React from 'react';
+import get from 'lodash/object/get';
 import isString from 'lodash/lang/isString';
 import isUndefined from 'lodash/lang/isUndefined';
+
 /**
  * Usage
  *
@@ -14,7 +16,7 @@ import isUndefined from 'lodash/lang/isUndefined';
  * Replace styles/helpers/_theme.scss with the updated list of sanitized source name coming from the setThemeClass() func.
  */
 
-let theme = (Component, sourcePropName) => class Theme extends React.Component {
+export default (Component, sourcePropName) => class Theme extends React.Component {
 
     constructor(props, context) {
         super(props, context);
@@ -22,10 +24,12 @@ let theme = (Component, sourcePropName) => class Theme extends React.Component {
     }
 
     setThemeClass() {
-        if ( isUndefined(this.props[sourcePropName]) || !isString(this.props[sourcePropName]) ) {
+        const source = get(this.props, sourcePropName);
+
+        if (isUndefined(source) || !isString(source)) {
             this.themeClass = null;
         } else {
-            this.themeClass = ('theme-' + this.props[sourcePropName].replace(/[^a-z]/gi, '_' )).toLowerCase();
+            this.themeClass = (`theme-${source.replace(/[^a-z]/gi, '_' ).toLowerCase()}`);
         }
     }
 
@@ -33,5 +37,3 @@ let theme = (Component, sourcePropName) => class Theme extends React.Component {
         return <Component {...this.props} themeClass={this.themeClass} />;
     }
 };
-
-export default theme;

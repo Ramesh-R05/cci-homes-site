@@ -8,7 +8,12 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 
 const InlineGalleryItem = proxyquire('../../../app/components/inlineGallery/item', {
-    'react': React
+    'react': React,
+    '../helpers/theme': (Component) => class extends React.Component {
+        render() {
+            return <Component {...this.props} themeClass="theme-stub" />;
+        }
+    }
 });
 
 describe('InlineGalleryItem', () => {
@@ -40,7 +45,8 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should render the correct source class`, () => {
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${InlineGalleryItem.sourceClassNameMap[source]}`);
+            const expectedSourceClassName = `gallery-item--australian_house_and_garden`;
+            expect(React.findDOMNode(reactModule)).to.have.classNames('gallery-item', expectedSourceClassName);
         });
 
         it(`should render a link with the correct href`, () => {
@@ -130,10 +136,11 @@ describe('InlineGalleryItem', () => {
     });
 
     describe(`different sources`, () => {
-        const homesPlus = 'homes-plus';
-        const realLiving = 'real-living';
+        const homesPlus = 'homes_';
+        const realLiving = 'real_living';
         const belle = 'belle';
-        const houseGarden = 'house-and-garden';
+        const houseGarden = 'australian_house_and_garden';
+        const homesToLove = 'homes_to_love';
 
         it(`should render the source class ${homesPlus}`, () => {
             let newProps = {...props};
@@ -163,11 +170,18 @@ describe('InlineGalleryItem', () => {
             expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${houseGarden}`);
         });
 
-        it(`should not render a random source`, () => {
+        it(`should render the source class ${homesToLove}`, () => {
+            let newProps = {...props};
+            newProps.source = 'Homes To Love';
+            reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
+            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${homesToLove}`);
+        });
+
+        it(`should render random source`, () => {
             let newProps = {...props};
             newProps.source = 'random';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.not.contain(`gallery-item--random`);
+            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--random`);
         });
     });
 });
