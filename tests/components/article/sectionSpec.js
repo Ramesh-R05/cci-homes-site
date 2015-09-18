@@ -11,6 +11,7 @@ const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const ArticleStub = Context.createStubComponent();
 const FeedStub = Context.createStubComponent();
+const FooterStub = Context.createStubComponent();
 const feedConfigMock = {};
 const getPageMock = () => {};
 const ArticleSection = proxyquire('../../../app/components/article/section', {
@@ -18,6 +19,7 @@ const ArticleSection = proxyquire('../../../app/components/article/section', {
     'react/addons': React,
     './article': ArticleStub,
     '../feed/feed': FeedStub,
+    '../footer/footer': FooterStub,
     '../../actions/facetedModule': { getPage: getPageMock }
 });
 
@@ -43,9 +45,16 @@ Context.addStore('FeedStore', {
 describe(`ArticleSection Component`, () => {
     const sectionClassName = `article-section`;
     let reactModule;
+    const localDataMock = {iframeUrl: ''};
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: { get: (key) => key === 'localeData' ? localDataMock : {} }
+    };
+
 
     before(`rendering component`, () => {
-        reactModule = Context.mountComponent(ArticleSection);
+        reactModule = Context.mountComponent(ArticleSection, {}, [contextConfigStub]);
     });
 
     describe(`Stores`, () => {
@@ -150,6 +159,27 @@ describe(`ArticleSection Component`, () => {
 
         it(`sets the pageId to ${pageId}`, () => {
             expect(feed.props).to.have.property('pageId', pageId);
+        });
+    });
+
+    describe(`Footer`, () => {
+        let footer;
+        before(() => {
+            footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
+        });
+
+        const expectedIframeId = 'articlefooter';
+        it(`sets the items to ${expectedIframeId}`, () => {
+            expect(footer.props.iframeKey).to.eql(expectedIframeId);
+        });
+
+        it(`sets the correct data`, () => {
+            expect(footer.props.config).to.deep.eql(localDataMock);
+        });
+
+        const expectedModifier = 'article';
+        it(`sets the modifier to ${expectedModifier}`, () => {
+            expect(footer.props.modifier).to.eql(expectedModifier);
         });
     });
 });

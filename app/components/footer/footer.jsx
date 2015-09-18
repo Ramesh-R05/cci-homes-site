@@ -4,7 +4,7 @@ import FooterNetworkInfo from './footerNetworkInfo';
 import FooterNavigation from './footerNavigation';
 import MagShop from '../magshop/magshop';
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
-import FooterNewsletter from '@bxm/newsletter/lib/components/newsletter';
+import Newsletter from '@bxm/newsletter/lib/components/newsletter';
 
 export default class FooterSection extends Component {
 
@@ -13,20 +13,29 @@ export default class FooterSection extends Component {
     }
 
     static propTypes = {
-        data: PropTypes.object.isRequired
-    }
+        config: PropTypes.object.isRequired,
+        iframeKey: PropTypes.string,
+        modifier: PropTypes.string
+    };
+
+    static defaultProps = {
+        config: {},
+        iframeKey: 'wnfooter'
+    };
 
     render() {
-        const {data} = this.props;
-        const iframeUrl = data.newsletter.footerIframeUrl;
+        const {iframeKey, config, modifier} = this.props;
+        let classNames = 'footer';
+
+        if (modifier) classNames += ` footer--${modifier}`;
 
         return (
             <div>
-                <footer className="footer">
+                <footer className={classNames}>
                     <FooterSocialLinks />
                     <div className="row">
-                        <FooterNewsletter url={iframeUrl} />
-                        <MagShop content={data.magShop} />
+                        <Newsletter url={`${config.newsletterIframeUrl}!${iframeKey}`} />
+                        <MagShop content={config.magShop} />
                     </div>
                     <div className="row">
                         <FooterNetworkInfo />

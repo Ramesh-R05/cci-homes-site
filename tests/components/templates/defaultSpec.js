@@ -173,8 +173,8 @@ describe('Default Component template', () => {
             expect(sideMenu.props.data).to.eql(localeData);
         });
 
-        it(`sets Footer 'data' prop properly`, () => {
-            expect(footer.props.data).to.eql(localeData);
+        it(`sets Footer 'config' prop properly`, () => {
+            expect(footer.props.config).to.eql(localeData);
         });
     });
 

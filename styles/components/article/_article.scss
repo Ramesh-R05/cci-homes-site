@@ -12,6 +12,7 @@
     @media #{$large-up} {
         border-left: 1px solid $line-color;
         float: right;
+        padding-bottom: 60px;
         width: calc(100% - #{$article-feed-container-width});
     }
 

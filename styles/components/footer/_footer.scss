@@ -26,3 +26,55 @@
         }
     }
 }
+
+.footer--article {
+    @media #{$large-only} {
+        .network-info img {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .network-info__belle img {
+            width: 60px;
+        }
+
+        .network-info__real-living img {
+            width: 138px;
+        }
+
+        .network-info__homes img {
+            width: 121px;
+        }
+
+        .network-info__house-and-garden img {
+            width: 86px;
+        }
+    }
+
+    @media #{$large-up} {
+        clear: both;
+        float: right;
+        margin-right: -$column-gutter / 2;
+        margin-top: 0;
+        padding-top: 0;
+        width: calc(100% - #{$article-feed-container-width});
+
+        .get-social,
+        .magshop {
+            display: none;
+        }
+
+        .newsletter {
+            margin-top: 45px;
+            width: 100%;
+        }
+
+        .network-info {
+            margin-top: 30px;
+        }
+    }
+
+    @media #{$xlarge-up} {
+        margin-right: 0;
+    }
+}
