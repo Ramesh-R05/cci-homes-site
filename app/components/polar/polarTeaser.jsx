@@ -19,7 +19,9 @@ class PolarTeaser extends Component {
             label: PropTypes.string
         }).isRequired,
         modifier: PropTypes.string,
-        nativeAd: PropTypes.object
+        // provided by @polarAd
+        nativeAd: PropTypes.object,
+        trackClick: PropTypes.func
     };
 
     static defaultProps = {
@@ -40,7 +42,7 @@ class PolarTeaser extends Component {
         const className = `teaser teaser--${this.props.modifier} teaser--native`;
 
         return (
-            <article className={className}>
+            <article className={className} onClick={this.props.trackClick}>
                 <a href={ad.link} className={`teaser__image ${gtmClass}`}>
                     <img src={ad.image.href} alt={ad.image.caption} />
                     <Icon icon={ad.custom.icon} />

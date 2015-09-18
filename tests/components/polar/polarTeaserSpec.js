@@ -26,7 +26,6 @@ const Teaser = proxyquire('../../../app/components/polar/polarTeaser', {
 });
 
 
-
 describe('PolarTeaser', () => {
 
     describe(`without the ad prop`, () => {
@@ -101,6 +100,7 @@ describe('PolarTeaser', () => {
         let sponsor;
         let title;
         let summary;
+        const trackClickSpy = sinon.spy();
         const props = {
             ad: { label: 'ad_label' },
             nativeAd: {
@@ -118,7 +118,8 @@ describe('PolarTeaser', () => {
                         title: 'title'
                     }
                 }
-            }
+            },
+            trackClick: trackClickSpy
         };
         const model = props.nativeAd.response.model;
 
@@ -167,6 +168,12 @@ describe('PolarTeaser', () => {
 
         it('should pass down the summary prop to the Summary component', () => {
             expect(summary.props.summary).to.equal(model.summary);
+        });
+
+        it('should call the trackClick method when clicking on the teaser', () => {
+            const article = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'article');
+            TestUtils.Simulate.click(article);
+            expect(trackClickSpy).to.have.been.calledOnce;
         });
     });
 });
