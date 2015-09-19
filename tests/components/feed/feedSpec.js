@@ -73,7 +73,7 @@ describe('Feed Component', () => {
         });
 
         it('should set the PolarFeedItem gtmClass', () => {
-            expect(polarFeedItem.props).to.have.property('gtmClass', 'polar-feed-item');
+            expect(polarFeedItem.props).to.have.property('gtmClass', 'polar-article-feed-item');
         });
 
         it('should set the PolarFeedItem items', () => {

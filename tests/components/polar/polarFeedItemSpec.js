@@ -95,9 +95,12 @@ describe('PolarFeedItem', () => {
     describe(`when polar returns a correct response`, () => {
         let reactModule;
         let polarFeedItem;
+        let polarFeedItemLink;
         let image;
         let sponsor;
         let textLink;
+
+        const trackClickSpy = sinon.spy();
 
         feedItemData = feedDataMock[1];
 
@@ -122,7 +125,8 @@ describe('PolarFeedItem', () => {
                         }
                     }
                 }
-            }
+            },
+            trackClick: trackClickSpy
         });
 
         const model = props.nativeAd.response.model;
@@ -135,6 +139,8 @@ describe('PolarFeedItem', () => {
             );
 
             polarFeedItem = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'polar-feed-item');
+
+            polarFeedItemLink = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'feed-item-0');
 
             image = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'img');
 
@@ -171,6 +177,18 @@ describe('PolarFeedItem', () => {
 
         it('should set the correct url to the polar ad', () => {
             expect(React.findDOMNode(textLink).getAttribute('href')).to.equal(model.link);
+        });
+
+        it('should call the trackClick method when clicking on the teaser image', () => {
+            TestUtils.Simulate.click(polarFeedItemLink
+                [0]);
+            expect(trackClickSpy).to.have.been.called;
+        });
+
+        it('should call the trackClick method when clicking on the teaser title', () => {
+            TestUtils.Simulate.click(polarFeedItemLink
+                [1]);
+            expect(trackClickSpy).to.have.been.called;
         });
     });
 });
