@@ -1,22 +1,34 @@
 import {betterMockComponentContext} from '@bxm/flux';
-const proxyquire = require('proxyquire').noCallThru();
+import FooterNetworkInfo from '../../../app/components/footer/footerNetworkInfo';
 
 const Context = betterMockComponentContext();
 const React = Context.React;
-
-const FooterNetworkInfo = proxyquire('../../../app/components/footer/footerNetworkInfo', {
-    'react': React
-});
+const TestUtils = Context.TestUtils;
 
 
 describe(`FooterNetworkInfo`, () => {
     let reactModule;
+    let links;
+    const trackClickSpy = sinon.spy();
 
     before(() => {
-        reactModule = Context.mountComponent(FooterNetworkInfo);
+        window.dataLayer = {
+            push: trackClickSpy
+        };
+        reactModule = TestUtils.renderIntoDocument(<FooterNetworkInfo />);
+        links = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
     });
 
-    it(`should render the FooterNetworkInfo Component`, () => {
-        expect(React.findDOMNode(reactModule)).to.exist;
+    it('should send the click event on each link to the dataLayer', () => {
+        links.forEach((link) => {
+            TestUtils.Simulate.click(link);
+            expect(trackClickSpy.withArgs({event: 'click:brandlink'})).to.have.been.called;
+        });
+    });
+
+    it('should open each link in the same window', () => {
+        links.forEach((link) => {
+            expect(React.findDOMNode(link).getAttribute('target')).to.be.null;
+        });
     });
 });
