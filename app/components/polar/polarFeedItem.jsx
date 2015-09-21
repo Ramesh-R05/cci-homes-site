@@ -16,7 +16,8 @@ class PolarFeedItem extends Component {
         }).isRequired,
         item: PropTypes.object.isRequired,
         modifier: PropTypes.string,
-        nativeAd: PropTypes.object
+        nativeAd: PropTypes.object,
+        trackClick: PropTypes.func
     };
 
     constructor(props, context) {
@@ -24,10 +25,10 @@ class PolarFeedItem extends Component {
     }
 
     render() {
-        const {ad, item, nativeAd, gtmClass} = this.props;
+        const {ad, item, nativeAd, gtmClass, trackClick} = this.props;
 
         if (!has(ad, 'label') || !has(nativeAd, 'response')) {
-            const key = 'feed-item-5';
+            const key = 'feed-item-4';
 
             return (
                 <FeedItem
@@ -43,7 +44,7 @@ class PolarFeedItem extends Component {
 
         return (
             <li className="feed-item polar-feed-item">
-                <a href={nativeAdModel.link} className={gtmClass}>
+                <a href={nativeAdModel.link} className={gtmClass} onClick={trackClick}>
                     <img src={nativeAdModel.image.href} alt={nativeAdModel.image.caption} />
                     <Icon icon={nativeAdModel.custom.icon} />
                 </a>
@@ -51,7 +52,7 @@ class PolarFeedItem extends Component {
                     <span className="feed-item__body-source">
                         Powered by {nativeAdModel.sponsor.name}
                     </span>
-                    <a className={textLink} href={nativeAdModel.link}>{nativeAdModel.title}</a>
+                    <a className={textLink} href={nativeAdModel.link} onClick={trackClick}>{nativeAdModel.title}</a>
                 </div>
             </li>
         );

@@ -55,8 +55,8 @@ class Feed extends Component {
 
             feedItems.splice(polarAdIndex, 1,
                 <PolarFeedItem
-                    key="polar-feed-item"
-                    gtmClass="polar-feed-item"
+                    key="polar-article-feed-item"
+                    gtmClass="polar-article-feed-item"
                     ad={{label: 'article_feed_item_1'}}
                     item={polarItem}
                 />
