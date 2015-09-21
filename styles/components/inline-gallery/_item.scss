@@ -1,5 +1,5 @@
 .gallery-item {
-    @each $source, $color in $source-colors {
+    @each $source, $color in $theme-colors {
         &--#{$source} {
             .gallery-item__topic {
                 color: nth($color, 1);

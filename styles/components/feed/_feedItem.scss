@@ -84,8 +84,8 @@ $feed-item-body-width: $feed-item-width
     }
 }
 
-@each $source, $color in $source-colors {
-    &.source-#{$source} {
+@each $source, $color in $theme-colors {
+    &.theme-#{$source} {
         .feed-item__body-source {
             color: nth($color, 1);
 
