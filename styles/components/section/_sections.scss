@@ -356,6 +356,16 @@ $section-minor-bp-1: 1590px;
             @include grid-column(6);
             @include teaser-small-hero;
             @include teaser-hide-summary-source;
+
+            margin-bottom: 60px;
+
+            .teaser__title {
+                margin-bottom: 20px;
+            }
+
+            .teaser__content {
+                position: absolute;
+            }
         }
 
         .tag-separator,
