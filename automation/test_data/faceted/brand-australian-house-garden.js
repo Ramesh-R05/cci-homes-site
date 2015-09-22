@@ -206,7 +206,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "A quality carpet takes a floor from drab to fab. Itâ€™s transformative because it softens the look of a room and absorbs noise, creating a cosy, nurturing environment. \n\nTo choose the best carpet for your home, you'll want to think through these things:\n\n**1. Consider the way you live**\nIf you have a young family and pets then look for a hardwearing carpet in a forgiving colour, such as a textured loop pile or a quality hard-twist cut. If youâ€™re a couple looking for a touch of luxury, you might opt for a plush pile in a flat colour. If youâ€™re an entertainer, a combination cut and loop pile in mid-to-dark tones or a stippled cut pile would suit. \n\n**2. Think about plush piles**\nCut piles include plush piles, which are super soft and look like velvet. If you want that squishy, luxurious feeling then dense, plush-pile carpets are lovely, but bear in mind they show footprints. \n\n**3. Take a look at loop piles** \nLoop piles are exactly that; the yarn is formed into loops. There are lots of variations: some have a formal, linear look, some have a ribbed pattern, giving them a sisal look. Random loop piles give the carpet a textured, casual look.\n\n**4. Mix it up**\nCombination cut and loop pile carpets, where the contrasting textures create a light and dark pattern are less likely to show footprints and have a lovely texture underfoot.\n\n**5. Understand how carpet colour works**\nDarker colours help make a room appear cosier. Lighter colours make a room appear larger. A popular option is to choose a carpet that combines two colours in a subtle, neutral blend. Itâ€™s more forgiving when it comes to stains. \n\n**6. Anticipate a fade**\nCarpet will appear lighter once installed and will fade over time, so choose one that is a shade or two deeper than you planned. \n\n**7. Consider your preferred fibre type**\nCarpets are available in 100-per-cent wool, wool-nylon mixes and myriad synthetic fibres. Wool is cool in summer and warm in winter â€“ and itâ€™s not necessarily more expensive. Of the synthetic fibres, solution-dyed nylon is the pick. Itâ€™s generally fade resistant and soft to touch.\n\n**8. Lie on it**\nIf people in your family like to lounge on the floor, make sure you buy a heavy weight, dense carpet. The heavier a carpet sample, the more yarn it's likely to have.\n\n**9. Check the ratings**\nThere is a ratings system for Australian carpets. Look for a carpet that has an â€˜extra heavy duty gradeâ€™ residential rating. And if youâ€™re carpeting stairs, make sure it has a stairs rating."
+                    "content": "A quality carpet takes a floor from drab to fab. It's transformative because it softens the look of a room and absorbs noise, creating a cosy, nurturing environment. \n\nTo choose the best carpet for your home, you'll want to think through these things:\n\n**1. Consider the way you live**\nIf you have a young family and pets then look for a hardwearing carpet in a forgiving colour, such as a textured loop pile or a quality hard-twist cut. If you're a couple looking for a touch of luxury, you might opt for a plush pile in a flat colour. If you're an entertainer, a combination cut and loop pile in mid-to-dark tones or a stippled cut pile would suit. \n\n**2. Think about plush piles**\nCut piles include plush piles, which are super soft and look like velvet. If you want that squishy, luxurious feeling then dense, plush-pile carpets are lovely, but bear in mind they show footprints. \n\n**3. Take a look at loop piles** \nLoop piles are exactly that; the yarn is formed into loops. There are lots of variations: some have a formal, linear look, some have a ribbed pattern, giving them a sisal look. Random loop piles give the carpet a textured, casual look.\n\n**4. Mix it up**\nCombination cut and loop pile carpets, where the contrasting textures create a light and dark pattern are less likely to show footprints and have a lovely texture underfoot.\n\n**5. Understand how carpet colour works**\nDarker colours help make a room appear cosier. Lighter colours make a room appear larger. A popular option is to choose a carpet that combines two colours in a subtle, neutral blend. It's more forgiving when it comes to stains. \n\n**6. Anticipate a fade**\nCarpet will appear lighter once installed and will fade over time, so choose one that is a shade or two deeper than you planned. \n\n**7. Consider your preferred fibre type**\nCarpets are available in 100-per-cent wool, wool-nylon mixes and myriad synthetic fibres. Wool is cool in summer and warm in winter â€“ and it's not necessarily more expensive. Of the synthetic fibres, solution-dyed nylon is the pick. It's generally fade resistant and soft to touch.\n\n**8. Lie on it**\nIf people in your family like to lounge on the floor, make sure you buy a heavy weight, dense carpet. The heavier a carpet sample, the more yarn it's likely to have.\n\n**9. Check the ratings**\nThere is a ratings system for Australian carpets. Look for a carpet that has an â€˜extra heavy duty grade' residential rating. And if you're carpeting stairs, make sure it has a stairs rating."
                 }
             ],
             "author": [
@@ -546,7 +546,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Thereâ€™s a good reason for the popularity of timber floors: they look great. Theyâ€™re also long-lasting, if you look after them.\n\nThe reality is that regardless of its density, hardness or coating, timber floors will mark and scratch.\n\nThey can be resurfaced and re-coated as required. But before you get to that stage there are some things you can do to look after them from day dot and beyond."
+                    "content": "There's a good reason for the popularity of timber floors: they look great. They're also long-lasting, if you look after them.\n\nThe reality is that regardless of its density, hardness or coating, timber floors will mark and scratch.\n\nThey can be resurfaced and re-coated as required. But before you get to that stage there are some things you can do to look after them from day dot and beyond."
                 },
                 {
                     "type": "heading",
@@ -556,7 +556,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Pre-finished timber floors can be used immediately, but bring your furniture in carefully. â€œIf a floor is being coated on-site, wait 48 hours for it to harden before you use it,â€ says Sue Smith, sales consultant at [Queensland Timber Flooring](http://www.queenslandtimberflooring.com/|target=\"_blank\")\n\nShe also suggests that all furniture placed on your new floor should have protective pads underneath. And go easy when you install appliances, advises Kendall Waller, national product manager for [Premium Floors](http://www.premiumfloors.com.au/|target=\"_blank\").\n\nEach appliance should be moved across one sheet of MDF or masonite and straight onto a second one, â€˜leapfroggingâ€™ the sheets as you move the appliance to the right position.\n\nâ€œThis way, the appliance is never in contact with the floor, nor is anything dragged along the floor,â€ says Waller. â€œIf I had a dollar for every new floor Iâ€™ve seen damaged from appliance moves, Iâ€™d be rich!â€"
+                    "content": "Pre-finished timber floors can be used immediately, but bring your furniture in carefully. â€œIf a floor is being coated on-site, wait 48 hours for it to harden before you use it,â€ says Sue Smith, sales consultant at [Queensland Timber Flooring](http://www.queenslandtimberflooring.com/|target=\"_blank\")\n\nShe also suggests that all furniture placed on your new floor should have protective pads underneath. And go easy when you install appliances, advises Kendall Waller, national product manager for [Premium Floors](http://www.premiumfloors.com.au/|target=\"_blank\").\n\nEach appliance should be moved across one sheet of MDF or masonite and straight onto a second one, â€˜leapfrogging' the sheets as you move the appliance to the right position.\n\nâ€œThis way, the appliance is never in contact with the floor, nor is anything dragged along the floor,â€ says Waller. â€œIf I had a dollar for every new floor I've seen damaged from appliance moves, I'd be rich!â€"
                 },
                 {
                     "type": "heading",
@@ -566,7 +566,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The type of coating on your timber boards will determine what sort of maintenance is required. Oil-based coatings will scratch more readily than others, but they can easily be patch-coated as required.\n\nâ€œYou might need to touch things up between one and three times a year, depending on the pattern of use,â€ says Waller. Water and solvent-based polyurethanes are more durable but canâ€™t be patch-coated.\n\nâ€œTheyâ€™ll leave application marks and you may see gloss variations,â€ Waller explains. â€œSo the whole floor needs to be re-coated, generally every three to seven years.â€"
+                    "content": "The type of coating on your timber boards will determine what sort of maintenance is required. Oil-based coatings will scratch more readily than others, but they can easily be patch-coated as required.\n\nâ€œYou might need to touch things up between one and three times a year, depending on the pattern of use,â€ says Waller. Water and solvent-based polyurethanes are more durable but can't be patch-coated.\n\nâ€œThey'll leave application marks and you may see gloss variations,â€ Waller explains. â€œSo the whole floor needs to be re-coated, generally every three to seven years.â€"
                 },
                 {
                     "type": "heading",
@@ -576,7 +576,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "No matter what type of timber floor you have, the basic cleaning method is the same control the dust and debris with a soft broom or vacuum.\n\nOnce any abrasive materials have been removed, you can spot-clean the floor with a damp cloth and mild cleaner.\n\nItâ€™s best to give your timber flooring a barely damp mopping once a week. Gloss-finished floors may need to be towel-dried afterwards to avoid water marks.\n\nSpecialist timber cleaning products are available: Queensland Timber Flooring recommends [Feast Watson](http://www.feastwatson.com.au/|target=\"_blank\") Floorclean to clients."
+                    "content": "No matter what type of timber floor you have, the basic cleaning method is the same control the dust and debris with a soft broom or vacuum.\n\nOnce any abrasive materials have been removed, you can spot-clean the floor with a damp cloth and mild cleaner.\n\nIt's best to give your timber flooring a barely damp mopping once a week. Gloss-finished floors may need to be towel-dried afterwards to avoid water marks.\n\nSpecialist timber cleaning products are available: Queensland Timber Flooring recommends [Feast Watson](http://www.feastwatson.com.au/|target=\"_blank\") Floorclean to clients."
                 }
             ],
             "author": [
@@ -761,7 +761,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Willawong, at Merricks North on Victoriaâ€™s picturesque Mornington Peninsula, is a garden that reveals itself slowly with graceful vistas and surprising turns. The first of these moments is the welcoming party â€“ a flock of geese occupying the paddock beside the tree-lined driveway.\n\nGeese can be territorial, often protecting properties like guard dogs, but these birds barely look up when a newcomer arrives. \n\nOwner Jenny Lansell says a gaggle of these rather regal-looking birds was already in residence when she and her husband Cyril bought the property more than 20 years ago. As well as the geese, there were two timber cottages on the property; one was restored, the other replaced."
+                    "content": "Willawong, at Merricks North on Victoria's picturesque Mornington Peninsula, is a garden that reveals itself slowly with graceful vistas and surprising turns. The first of these moments is the welcoming party â€“ a flock of geese occupying the paddock beside the tree-lined driveway.\n\nGeese can be territorial, often protecting properties like guard dogs, but these birds barely look up when a newcomer arrives. \n\nOwner Jenny Lansell says a gaggle of these rather regal-looking birds was already in residence when she and her husband Cyril bought the property more than 20 years ago. As well as the geese, there were two timber cottages on the property; one was restored, the other replaced."
                 },
                 {
                     "type": "gallery",
@@ -771,7 +771,7 @@ module.exports =
                             "galleryItems": [
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438147915260_F5A6270-var-3.jpg",
-                                    "caption": "â€˜Altissimoâ€™, a red climbing rose, is trained up the verandah posts of the coupleâ€™s lovingly restored cottage, prettying up the entrance.",
+                                    "caption": "â€˜Altissimo', a red climbing rose, is trained up the verandah posts of the couple's lovingly restored cottage, prettying up the entrance.",
                                     "title": "_F5A6270-var-3.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -792,7 +792,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438147915275_GALLERYHEROF5A6132-var-5.jpg",
-                                    "caption": "Pink â€˜Albertineâ€™ roses tumble over an arbour at the entrance to the lake walk.",
+                                    "caption": "Pink â€˜Albertine' roses tumble over an arbour at the entrance to the lake walk.",
                                     "title": "GALLERY_HERO__F5A6132-var-5.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -851,7 +851,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438147915270_F5A6327-var-2.jpg",
-                                    "caption": "Willawongâ€™s geese forage beneath a stand of red hot pokers (*Kniphofia uvaria*).",
+                                    "caption": "Willawong's geese forage beneath a stand of red hot pokers (*Kniphofia uvaria*).",
                                     "title": "_F5A6327-var-2.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -961,7 +961,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438147915272_ArticleHeroF5A6223.jpg",
-                                    "caption": "Jenny and Cyrilâ€™s sunny cottage garden is filled with Mediterranean plants, as well as plenty of places for the couple to sit and admire the view.",
+                                    "caption": "Jenny and Cyril's sunny cottage garden is filled with Mediterranean plants, as well as plenty of places for the couple to sit and admire the view.",
                                     "title": "Article_Hero__F5A6223.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -1002,9 +1002,9 @@ module.exports =
                                     "open": true
                                 }
                             ],
-                            "title": "Gallery: Jennyâ€™s picturesque country garden",
-                            "summaryTitle": "Gallery: Jennyâ€™s picturesque country garden",
-                            "summary": "On Victoriaâ€™s beautiful Mornington Peninsula, this lush country garden is home to a variety of native plants, rolling lawns, colourful flower beds and even a gaggle of geese.",
+                            "title": "Gallery: Jenny's picturesque country garden",
+                            "summaryTitle": "Gallery: Jenny's picturesque country garden",
+                            "summary": "On Victoria's beautiful Mornington Peninsula, this lush country garden is home to a variety of native plants, rolling lawns, colourful flower beds and even a gaggle of geese.",
                             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1658/GALLERY_HERO__F5A6132-var-5.jpg",
                             "imageAltText": "Morning Peninsula cottage arbour",
                             "photoCredit": "Claire Takacs",
@@ -1025,7 +1025,7 @@ module.exports =
                             "parentId": "HOMES-1581",
                             "level": 5,
                             "sortOrder": 47,
-                            "name": "Gallery: Jennyâ€™s picturesque country garden",
+                            "name": "Gallery: Jenny's picturesque country garden",
                             "dateIndexed": "2015-08-31T11:35:10",
                             "pathIds": [
                                 "HOMES--1",
@@ -1058,7 +1058,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Even before work began on the buildings, Jenny set to work on the garden, enlisting local gardener Martin Edney of [Gardens for Living](http://www.gardensforliving.com.au/|target=\"_blank\") to help bring it to life. \n\nThe garden now occupies 4ha of the 23ha property. Jenny loves mass planting and a swathe of agapanthus edges the driveway, filling the garden with blue flowers in summer.\n\nâ€œThe site is sloping and exposed, so our priority was to create level areas and shelter,â€ says Jenny. Dry-stone terraces were built to the south of the new house, while to the north lawn terraces create a platform for enjoying the country views.\n\nHedges are another signature design element: a thick border of willow-leaved hakea (*Hakea salicifolia*) is planted along the boundary for shelter, while clipped hedges of fragrant Mexican orange blossom (*Choisya ternate*) enclose four sides of the house. There are also low hedges of coastal rosemary (*Westringia fruticosa*) â€˜Smokeyâ€™."
+                    "content": "Even before work began on the buildings, Jenny set to work on the garden, enlisting local gardener Martin Edney of [Gardens for Living](http://www.gardensforliving.com.au/|target=\"_blank\") to help bring it to life. \n\nThe garden now occupies 4ha of the 23ha property. Jenny loves mass planting and a swathe of agapanthus edges the driveway, filling the garden with blue flowers in summer.\n\nâ€œThe site is sloping and exposed, so our priority was to create level areas and shelter,â€ says Jenny. Dry-stone terraces were built to the south of the new house, while to the north lawn terraces create a platform for enjoying the country views.\n\nHedges are another signature design element: a thick border of willow-leaved hakea (*Hakea salicifolia*) is planted along the boundary for shelter, while clipped hedges of fragrant Mexican orange blossom (*Choisya ternate*) enclose four sides of the house. There are also low hedges of coastal rosemary (*Westringia fruticosa*) â€˜Smokey'."
                 },
                 {
                     "type": "heading",
@@ -1080,14 +1080,14 @@ module.exports =
                         ],
                         "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438149052203_F5A5915-var.jpg",
                         "valid": true,
-                        "caption": "In autumn, the â€˜oak lawnâ€™ blushes with shades of red and orange.",
+                        "caption": "In autumn, the â€˜oak lawn' blushes with shades of red and orange.",
                         "source": "Australian House and Garden"
                     }
                 },
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Trees are strategically planted for shade and colour. Immediately to the east of the house is an area Jenny calls the oak lawn. It is planted with pin oaks that blush with vibrant reds, oranges and yellows in autumn. \n\nBeside the oaks is a stand of crab apple trees that produce a mass of pink and white flowers in spring. The blooms are followed in late summer by attractive red, yellow and orange â€˜crabsâ€™.\n\nNext to the house is the birch lawn, inspired by the random planting theory promoted by the late noted Australian garden designer, Edna Walling. \n\nâ€œI read that Edna Walling tossed a bucket of potatoes out across the lawn to get a random planting pattern so we did that here,â€ says Jenny. â€œWe tossed the potatoes and planted a birch where each potato landed. It worked well.â€"
+                    "content": "Trees are strategically planted for shade and colour. Immediately to the east of the house is an area Jenny calls the oak lawn. It is planted with pin oaks that blush with vibrant reds, oranges and yellows in autumn. \n\nBeside the oaks is a stand of crab apple trees that produce a mass of pink and white flowers in spring. The blooms are followed in late summer by attractive red, yellow and orange â€˜crabs'.\n\nNext to the house is the birch lawn, inspired by the random planting theory promoted by the late noted Australian garden designer, Edna Walling. \n\nâ€œI read that Edna Walling tossed a bucket of potatoes out across the lawn to get a random planting pattern so we did that here,â€ says Jenny. â€œWe tossed the potatoes and planted a birch where each potato landed. It worked well.â€"
                 },
                 {
                     "type": "heading",
@@ -1097,12 +1097,12 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Hidden away in the centre of Willawong is an oasis-like pool garden and entertaining area. This area is enclosed by self-sufficient Australian natives and drought-hardy succulents, which provide year-round colour. \n\nIn a sheltered sunny spot not far from the kitchen is a Mediterranean-style garden with a formal arrangement of raised beds, overflowing with vegies and herbs. And this is not the only productive area of the garden: a short walk from the house there is an orchard, and beyond that a garden devoted to citrus and still more vegetable gardens, with a large area for pumpkins and raspberries. \n\nMartin is still helping Jenny shape her garden paradise, assisted these days by his son Shannon, who was three when his father started working at Willawong. â€œMartinâ€™s skill and vision have helped me develop this garden,â€ says Jenny. â€œItâ€™s been a joint venture all the way.â€"
+                    "content": "Hidden away in the centre of Willawong is an oasis-like pool garden and entertaining area. This area is enclosed by self-sufficient Australian natives and drought-hardy succulents, which provide year-round colour. \n\nIn a sheltered sunny spot not far from the kitchen is a Mediterranean-style garden with a formal arrangement of raised beds, overflowing with vegies and herbs. And this is not the only productive area of the garden: a short walk from the house there is an orchard, and beyond that a garden devoted to citrus and still more vegetable gardens, with a large area for pumpkins and raspberries. \n\nMartin is still helping Jenny shape her garden paradise, assisted these days by his son Shannon, who was three when his father started working at Willawong. â€œMartin's skill and vision have helped me develop this garden,â€ says Jenny. â€œIt's been a joint venture all the way.â€"
                 },
                 {
                     "type": "tips",
                     "label": "Tips",
-                    "content": "## Jennyâ€™s top plants\n* **Liliums:** â€œEspecially because they flower for Christmas.â€\n* **Trees:** â€œParticularly oak trees â€“ they have such fabulous form.â€\n* **Succulents:** â€œThey flower so effortlessly by the pool.â€\n* **Roses:** â€œIn general, and the â€˜Altissimoâ€™ variety in particular, which is so red and glorious on the verandah.â€\n* **Vegetables**"
+                    "content": "## Jenny's top plants\n* **Liliums:** â€œEspecially because they flower for Christmas.â€\n* **Trees:** â€œParticularly oak trees â€“ they have such fabulous form.â€\n* **Succulents:** â€œThey flower so effortlessly by the pool.â€\n* **Roses:** â€œIn general, and the â€˜Altissimo' variety in particular, which is so red and glorious on the verandah.â€\n* **Vegetables**"
                 }
             ],
             "author": [
@@ -1181,18 +1181,18 @@ module.exports =
                     ]
                 }
             ],
-            "title": "Jennyâ€™s picturesque Mornington Peninsula country garden",
-            "summaryTitle": "Jennyâ€™s picturesque Mornington Peninsula country garden",
-            "summary": "This beautiful garden on Victoriaâ€™s Mornington Peninsula has it all, from mature trees with fiery foliage to a serene lake thatâ€™s home to the feathered locals.",
+            "title": "Jenny's picturesque Mornington Peninsula country garden",
+            "summaryTitle": "Jenny's picturesque Mornington Peninsula country garden",
+            "summary": "This beautiful garden on Victoria's Mornington Peninsula has it all, from mature trees with fiery foliage to a serene lake that's home to the feathered locals.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1659/Article_Hero__F5A6223.jpg",
             "imageAltText": "Sunny cottage garden",
-            "imageCaption": "Jenny and Cyrilâ€™s sunny cottage garden is filled with Mediterranean plants, as well as plenty of places for the couple to sit and admire the view. Photo: Claire Takacs",
+            "imageCaption": "Jenny and Cyril's sunny cottage garden is filled with Mediterranean plants, as well as plenty of places for the couple to sit and admire the view. Photo: Claire Takacs",
             "photoCredit": "Claire Takacs",
             "redirect": {
                 "mode": 2
             },
-            "pageTitle": "Jennyâ€™s Mornington Peninsula Country Garden",
-            "metaDescription": "Check out Jenny and Cyrilâ€™s Mornington Peninsula garden. Ranging over four hectares, the garden features rolling lawns, hardy natives, fruitful vegie beds and a flock of geese.",
+            "pageTitle": "Jenny's Mornington Peninsula Country Garden",
+            "metaDescription": "Check out Jenny and Cyril's Mornington Peninsula garden. Ranging over four hectares, the garden features rolling lawns, hardy natives, fruitful vegie beds and a flock of geese.",
             "imageFacebookUrl": {
                 "tags": [],
                 "source": "",
@@ -1251,7 +1251,7 @@ module.exports =
             "parentId": "HOMES-1394",
             "level": 5,
             "sortOrder": 104,
-            "name": "Jennyâ€™s picturesque Mornington Peninsula country garden",
+            "name": "Jenny's picturesque Mornington Peninsula country garden",
             "dateIndexed": "2015-08-31T11:36:15",
             "pathIds": [
                 "HOMES--1",
@@ -1293,7 +1293,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œCrumbling, leaking and barely habitable, with an English cottage-style garden scorched by the heat of a fierce summer.â€ Thatâ€™s how Nicholas and Fiona Murray describe the 1880s Gothic Revival property in inner Melbourne they bought in 2009. \n\nBut stepping through the dilapidated single-storey, three-bedroom house and into the shade of a 100-year-old ginkgo biloba tree in the garden, they realised this was the ideal location to create a beautiful home for themselves and their children Nixon, eight, and Nouvelle, six."
+                    "content": "â€œCrumbling, leaking and barely habitable, with an English cottage-style garden scorched by the heat of a fierce summer.â€ That's how Nicholas and Fiona Murray describe the 1880s Gothic Revival property in inner Melbourne they bought in 2009. \n\nBut stepping through the dilapidated single-storey, three-bedroom house and into the shade of a 100-year-old ginkgo biloba tree in the garden, they realised this was the ideal location to create a beautiful home for themselves and their children Nixon, eight, and Nouvelle, six."
                 },
                 {
                     "type": "gallery",
@@ -1303,7 +1303,7 @@ module.exports =
                             "galleryItems": [
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438145393134_hg0714MurrayVICArmadale09R1.1.jpg",
-                                    "caption": "Linearity and luxury are the dominant attributes of this home. Look closer, however, and youâ€™ll find a mix of styles from different eras, artfully merged into contemporary coherence. \n\n**Table** and **bench seats**, [House of Orange](http://houseoforange.com.au/|target=\"_blank\"). **Chairs**, [Space to Create](http://spacetocreate.co/|target=\"_blank\"). **Cladding** by [VM Zinc](http://www.vmzinc.com.au/|target=\"_blank\").",
+                                    "caption": "Linearity and luxury are the dominant attributes of this home. Look closer, however, and you'll find a mix of styles from different eras, artfully merged into contemporary coherence. \n\n**Table** and **bench seats**, [House of Orange](http://houseoforange.com.au/|target=\"_blank\"). **Chairs**, [Space to Create](http://spacetocreate.co/|target=\"_blank\"). **Cladding** by [VM Zinc](http://www.vmzinc.com.au/|target=\"_blank\").",
                                     "title": "hg0714MurrayVIC_Armadale09R1.1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -1467,7 +1467,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438145393157_hg0714MurrayVICArmadale28.jpg",
-                                    "caption": "The graphic flocked wallpaper is an original â€™70s design. For similar, try [Flashback Fabrics & Wallpaper](http://www.flashbackfabric.com.au/|target=\"_blank\").",
+                                    "caption": "The graphic flocked wallpaper is an original '70s design. For similar, try [Flashback Fabrics & Wallpaper](http://www.flashbackfabric.com.au/|target=\"_blank\").",
                                     "title": "hg0714MurrayVIC_Armadale28.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -1535,8 +1535,8 @@ module.exports =
                                     "open": true
                                 }
                             ],
-                            "title": "Gallery: Fiona and Nicholasâ€™ Gothic Revival renovation",
-                            "summaryTitle": "Gallery: Fiona and Nicholasâ€™ Gothic Revival renovation",
+                            "title": "Gallery: Fiona and Nicholas' Gothic Revival renovation",
+                            "summaryTitle": "Gallery: Fiona and Nicholas' Gothic Revival renovation",
                             "summary": "Take a tour of this Gothic Revival home in inner-city Melbourne that was destined demolition. The owners chose instead to restore the property, creating a family home that combines old and new.",
                             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1654/GALLERY_HERO_hg0714MurrayVIC_Armadale03R1.jpg",
                             "imageAltText": "Gothic open living renovation",
@@ -1562,7 +1562,7 @@ module.exports =
                             "parentId": "HOMES-1581",
                             "level": 5,
                             "sortOrder": 46,
-                            "name": "Gallery: Fiona and Nicholasâ€™ Gothic Revival renovation",
+                            "name": "Gallery: Fiona and Nicholas' Gothic Revival renovation",
                             "dateIndexed": "2015-08-31T11:35:22",
                             "pathIds": [
                                 "HOMES--1",
@@ -1595,7 +1595,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Surprisingly, there were no heritage overlays on the title and Nicholas and Fiona were excited by the prospect of knocking down and rebuilding a larger, ultra-modern abode. But the house â€“ once home to eminent Victorian educator, Sir James Darling â€“ got under their skin and the notion of restoring it to its former glory grew more appealing. \n\nâ€œWe were torn,â€ says Nicholas, an architect. â€œIn the end, we just couldnâ€™t bring ourselves to demolish it.â€ And so began the process of designing and building a structure that was sympathetic to the homeâ€™s DNA yet true to the coupleâ€™s vision. \n\nToday, the Murrays are relishing life in a four-bedroom home spread over two levels (plus basement wine cellar and car parking) that transitions the centuries beautifully. In restoring the original section of the house, Nicholas and Fiona re-used as many of the existing elements and materials as possible, including bricks, windows, fire surrounds, even curtains, which now hang in the formal living room. â€œWe wanted a memento of the previous owners. Call us sentimental!â€ says Fiona, with a laugh."
+                    "content": "Surprisingly, there were no heritage overlays on the title and Nicholas and Fiona were excited by the prospect of knocking down and rebuilding a larger, ultra-modern abode. But the house â€“ once home to eminent Victorian educator, Sir James Darling â€“ got under their skin and the notion of restoring it to its former glory grew more appealing. \n\nâ€œWe were torn,â€ says Nicholas, an architect. â€œIn the end, we just couldn't bring ourselves to demolish it.â€ And so began the process of designing and building a structure that was sympathetic to the home's DNA yet true to the couple's vision. \n\nToday, the Murrays are relishing life in a four-bedroom home spread over two levels (plus basement wine cellar and car parking) that transitions the centuries beautifully. In restoring the original section of the house, Nicholas and Fiona re-used as many of the existing elements and materials as possible, including bricks, windows, fire surrounds, even curtains, which now hang in the formal living room. â€œWe wanted a memento of the previous owners. Call us sentimental!â€ says Fiona, with a laugh."
                 },
                 {
                     "type": "heading",
@@ -1636,7 +1636,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Diverse textures in the form of timber, marble, concrete, steel and zinc contribute to the homeâ€™s warmth and richness. Siding glass panels retract completely to connect the informal living room to the deck with dining area and barbecue, giving the family and visitors more space and freedom to roam around."
+                    "content": "Diverse textures in the form of timber, marble, concrete, steel and zinc contribute to the home's warmth and richness. Siding glass panels retract completely to connect the informal living room to the deck with dining area and barbecue, giving the family and visitors more space and freedom to roam around."
                 },
                 {
                     "type": "heading",
@@ -1646,7 +1646,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The coupleâ€™s love of 1970s music, fashion and furniture led them to source boldly coloured and textured wallpapers from the era, which they installed in the kitchen, laundry and main bedroom. Itâ€™s a quirky and very personal point of difference in a house that pushes so many design boundaries. \n\nâ€œWe found the wallpaper in the kitchen out the back of a paint shop in Port Melbourne â€“ it even smelled like the â€™70s,â€ says Fiona. â€œWe love it. It gives the kitchen real presence.â€ \n\nThere were many challenges during construction, but Fiona says she cherishes the time spent researching the history of the old girl. The beautiful Gothic Revival architecture â€“ now restored to its former glory â€“ gives barely a hint of the striking, ultra-modern home the Murrays have created around it. Itâ€™s a family home for the ages."
+                    "content": "The couple's love of 1970s music, fashion and furniture led them to source boldly coloured and textured wallpapers from the era, which they installed in the kitchen, laundry and main bedroom. It's a quirky and very personal point of difference in a house that pushes so many design boundaries. \n\nâ€œWe found the wallpaper in the kitchen out the back of a paint shop in Port Melbourne â€“ it even smelled like the '70s,â€ says Fiona. â€œWe love it. It gives the kitchen real presence.â€ \n\nThere were many challenges during construction, but Fiona says she cherishes the time spent researching the history of the old girl. The beautiful Gothic Revival architecture â€“ now restored to its former glory â€“ gives barely a hint of the striking, ultra-modern home the Murrays have created around it. It's a family home for the ages."
                 }
             ],
             "author": [
@@ -1729,7 +1729,7 @@ module.exports =
             "summary": "After narrowly escaping demolition, this 19th century Gothic Revival home went from a wreck into an ultra-modern family home with a retro edge.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1656/Article_HERO_hg0714MurrayVIC_Armadale09R1.jpg",
             "imageAltText": "Restored outdoor living gothic home",
-            "imageCaption": "â€œWhat I love most about this house are the things that â€˜floatâ€™,â€ says owner and architect Nicholas Murray. Photo: Armelle Habib ",
+            "imageCaption": "â€œWhat I love most about this house are the things that â€˜float',â€ says owner and architect Nicholas Murray. Photo: Armelle Habib ",
             "photoCredit": "Armelle Habib",
             "redirect": {
                 "mode": 2
@@ -1836,7 +1836,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Droubalgie is an elegant country estate perched on the banks of the Lachlan River in western NSW. Itâ€™s the birthplace and part-time residence of renowned industrial designer Charles Wilson and his sister Virginia, an art consultant with a notable clientele. \n\nThe foundations of the homestead were laid in 1862 by Sir Frederick William Pottinger, an aristocratic constable who successfully arrested a notorious local bushranger named Ben Hall. \n\nThe east wing, a simple construction of five rooms, was built first and overlooks what is now a neatly manicured lawn (great for croquet, a game at which Charles excels). \n\nThe rest followed in increments until the 1950s when Jane, a decorator from New Zealand, fell in love with Alan Wilson of NSW and decided to up sticks and move in."
+                    "content": "Droubalgie is an elegant country estate perched on the banks of the Lachlan River in western NSW. It's the birthplace and part-time residence of renowned industrial designer Charles Wilson and his sister Virginia, an art consultant with a notable clientele. \n\nThe foundations of the homestead were laid in 1862 by Sir Frederick William Pottinger, an aristocratic constable who successfully arrested a notorious local bushranger named Ben Hall. \n\nThe east wing, a simple construction of five rooms, was built first and overlooks what is now a neatly manicured lawn (great for croquet, a game at which Charles excels). \n\nThe rest followed in increments until the 1950s when Jane, a decorator from New Zealand, fell in love with Alan Wilson of NSW and decided to up sticks and move in."
                 },
                 {
                     "type": "gallery",
@@ -1944,7 +1944,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438134573251_hg0514UpfrontDroubalgie-C13F7971-5029.jpg",
-                                    "caption": "The original [Aga](http://www.agaaustralia.com.au/|target=\"_blank\") stove is Charlesâ€™ domain. The kitchen was renovated in the 1970s by Sydney architect Barry Noble.",
+                                    "caption": "The original [Aga](http://www.agaaustralia.com.au/|target=\"_blank\") stove is Charles' domain. The kitchen was renovated in the 1970s by Sydney architect Barry Noble.",
                                     "title": "hg0514Upfront_Droubalgie-C13F7971 -5029.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -2018,7 +2018,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438134573263_hg0514UpfrontDroubalgie-C13F79714718.jpg",
-                                    "caption": "â€œThe bedhead and end were â€˜antiquedâ€™ by Mum,â€ says Charles. The low-back Seymour chair creates a dynamic contrast to the 1950s wallpaper, linen and curtains. On the bedside table is Charlesâ€™ Atomic white onyx **vase**, a prototype.",
+                                    "caption": "â€œThe bedhead and end were â€˜antiqued' by Mum,â€ says Charles. The low-back Seymour chair creates a dynamic contrast to the 1950s wallpaper, linen and curtains. On the bedside table is Charles' Atomic white onyx **vase**, a prototype.",
                                     "title": "hg0514Upfront_Droubalgie-C13F7971_4718.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -2045,7 +2045,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438134573242_hg0514UpfrontDroubalgie-C13F7971-5023.jpg",
-                                    "caption": "In the guestroom are orange hessian curtains hand-dyed by Charlesâ€™ mother. The roses were picked from the garden planted by his grandmother some 50 years ago. The teacup is a souvenir from her travels in China around the same time.",
+                                    "caption": "In the guestroom are orange hessian curtains hand-dyed by Charles' mother. The roses were picked from the garden planted by his grandmother some 50 years ago. The teacup is a souvenir from her travels in China around the same time.",
                                     "title": "hg0514Upfront_Droubalgie-C13F7971 -5023.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -2071,7 +2071,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438134573230_hg0514UpfrontDroubalgie-C13F7971-4561.jpg",
-                                    "caption": "The garden shed, where Charlesâ€™ father and aunt were tutored as children. In front is a giant pond filled with water plants and fish from a local billabong. Itâ€™s also suitable for swimming.",
+                                    "caption": "The garden shed, where Charles' father and aunt were tutored as children. In front is a giant pond filled with water plants and fish from a local billabong. It's also suitable for swimming.",
                                     "title": "hg0514Upfront_Droubalgie-C13F7971 -4561.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -2140,7 +2140,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438134573253_hg0514UpfrontDroubalgie-C13F7971-5045.jpg",
-                                    "caption": "The verdant garden is overseen by what Charles calls his â€˜welcome palmsâ€™. â€œOut here, theyâ€™re a sign of civilisation,â€ he says. â€œI was once told they were planted to signal exactly where the homestead was.â€",
+                                    "caption": "The verdant garden is overseen by what Charles calls his â€˜welcome palms'. â€œOut here, they're a sign of civilisation,â€ he says. â€œI was once told they were planted to signal exactly where the homestead was.â€",
                                     "title": "hg0514Upfront_Droubalgie-C13F7971 -5045.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -2162,8 +2162,8 @@ module.exports =
                                     "open": true
                                 }
                             ],
-                            "title": "Gallery: Charlesâ€™ charming country homestead",
-                            "summaryTitle": "Gallery: Charlesâ€™ charming country homestead",
+                            "title": "Gallery: Charles' charming country homestead",
+                            "summaryTitle": "Gallery: Charles' charming country homestead",
                             "summary": "The family estate of designer Charles Wilson is a surprising mix of modernism and traditional decor.",
                             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1642/GALLERYHERO_hg0514Upfront_Droubalgie-C13F7971-4479.jpg",
                             "imageAltText": "Charming country homestead",
@@ -2191,7 +2191,7 @@ module.exports =
                             "parentId": "HOMES-1581",
                             "level": 5,
                             "sortOrder": 42,
-                            "name": "Gallery: Charlesâ€™ charming country homestead",
+                            "name": "Gallery: Charles' charming country homestead",
                             "dateIndexed": "2015-08-31T11:35:33",
                             "pathIds": [
                                 "HOMES--1",
@@ -2219,12 +2219,12 @@ module.exports =
                 {
                     "type": "heading",
                     "label": "Heading",
-                    "content": "A womanâ€™s touch"
+                    "content": "A woman's touch"
                 },
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Jane brought her high style to Droubalgie and years later, her choices still delight: the rooms are generous, the ceilings high, the proportions perfect. \n\nShe carpeted the long, central hallway in green silk â€“ all the better to pick up the shifting sunlight. The main guestroom â€“ and most contested room â€“ is layered with elaborate printed wallpaper and fabric. A bookshelf in the living room bursts with old volumes on floristry (Janeâ€™s passion) and vintage cars (most definitely Alanâ€™s). \n\nThe Garden Room, a gracious screened annex appended in the 1950s, is where Charles does much of his design work. Commissions for clients like [Herman Miller](http://www.hermanmiller.com/|target=\"_blank\"), [Woodmark](http://woodmark.com.au/|target=\"_blank\"), and [King Living](http://www.kingliving.com.au/|target=\"_blank\") are placed around the house. \n\nIn the living room, Charlesâ€™ high-back Seymour swivels in a cut windowpane velour, a chunky matching ottoman at its feet. In the Bird Room, a Seymour low-back steel chair is upholstered in blue â€“ a serene resting point amid the cacophony of print."
+                    "content": "Jane brought her high style to Droubalgie and years later, her choices still delight: the rooms are generous, the ceilings high, the proportions perfect. \n\nShe carpeted the long, central hallway in green silk â€“ all the better to pick up the shifting sunlight. The main guestroom â€“ and most contested room â€“ is layered with elaborate printed wallpaper and fabric. A bookshelf in the living room bursts with old volumes on floristry (Jane's passion) and vintage cars (most definitely Alan's). \n\nThe Garden Room, a gracious screened annex appended in the 1950s, is where Charles does much of his design work. Commissions for clients like [Herman Miller](http://www.hermanmiller.com/|target=\"_blank\"), [Woodmark](http://woodmark.com.au/|target=\"_blank\"), and [King Living](http://www.kingliving.com.au/|target=\"_blank\") are placed around the house. \n\nIn the living room, Charles' high-back Seymour swivels in a cut windowpane velour, a chunky matching ottoman at its feet. In the Bird Room, a Seymour low-back steel chair is upholstered in blue â€“ a serene resting point amid the cacophony of print."
                 },
                 {
                     "type": "heading",
@@ -2234,7 +2234,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Droubalgie is a total comfort zone, a place where you donâ€™t ask, â€œDo you have a..?â€ but â€œWhere is the..?â€ Everything is here, and has been for a long time, from the tiny silver tea strainer to vintage pie moulds to antique jigsaw puzzles cut by real jigsaws. Thereâ€™s even a hacksaw hanging in the kitchen for unwieldy cuts of meat. \n\nAt night, the curtains close with a gravitas that comes with thick linen lining and the carpets are soft underfoot. Encircled by an English-style garden, with endless paddocks beyond, and overlooked by what Charles calls â€˜welcome palmsâ€™, itâ€™s an oasis of calm on a real working farm. \n\nCharles is clearly at ease here; when not wrangling with the original Aga to whip up memorable meals, he can be found outside, tending his plants."
+                    "content": "Droubalgie is a total comfort zone, a place where you don't ask, â€œDo you have a..?â€ but â€œWhere is the..?â€ Everything is here, and has been for a long time, from the tiny silver tea strainer to vintage pie moulds to antique jigsaw puzzles cut by real jigsaws. There's even a hacksaw hanging in the kitchen for unwieldy cuts of meat. \n\nAt night, the curtains close with a gravitas that comes with thick linen lining and the carpets are soft underfoot. Encircled by an English-style garden, with endless paddocks beyond, and overlooked by what Charles calls â€˜welcome palms', it's an oasis of calm on a real working farm. \n\nCharles is clearly at ease here; when not wrangling with the original Aga to whip up memorable meals, he can be found outside, tending his plants."
                 },
                 {
                     "type": "heading",
@@ -2265,7 +2265,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "For an avowed Modernist designer, Charlesâ€™ delight in tradition can surprise. Heâ€™s as likely to wax lyrical about the proportions of French doors or the sash window panes as he is to debate the merits of Bauhaus. \n\nItâ€™s intriguing to see his contemporary designs worked into this gracious heritage home. His latest design, the white onyx Atomic vase, adorns various rooms, and his Serif stool (an occasional seat that appears to be modelled on machinery debris) brings a modern industrial allure to the 19th-century setting. \n\nWhen back in Sydney, Charles lives in a stylish Art Deco apartment with a picture-postcard view of the harbour. Beautiful as it is, Droubalgie is where heâ€™s most at home."
+                    "content": "For an avowed Modernist designer, Charles' delight in tradition can surprise. He's as likely to wax lyrical about the proportions of French doors or the sash window panes as he is to debate the merits of Bauhaus. \n\nIt's intriguing to see his contemporary designs worked into this gracious heritage home. His latest design, the white onyx Atomic vase, adorns various rooms, and his Serif stool (an occasional seat that appears to be modelled on machinery debris) brings a modern industrial allure to the 19th-century setting. \n\nWhen back in Sydney, Charles lives in a stylish Art Deco apartment with a picture-postcard view of the harbour. Beautiful as it is, Droubalgie is where he's most at home."
                 }
             ],
             "author": [
@@ -2377,18 +2377,18 @@ module.exports =
                     ]
                 }
             ],
-            "title": "Charles Wilsonâ€™s charming country homestead",
-            "summaryTitle": "Charles Wilsonâ€™s charming country homestead",
+            "title": "Charles Wilson's charming country homestead",
+            "summaryTitle": "Charles Wilson's charming country homestead",
             "summary": "Droubalgie, the family estate of designer Charles Wilson, is a surprising mix of modernism and traditional decor.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1644/ARTICLEHERO_hg0514Upfront_Droubalgie-C13F7971--4782.jpg",
             "imageAltText": "Country casual dining room",
-            "imageCaption": "The mesh-walled garden room is an airy annex for casual dining and a great place to work. â€œItâ€™s my office in the summer time,â€ says Charles. Photo: Maree Homer | Stylist: Kate Nixon",
+            "imageCaption": "The mesh-walled garden room is an airy annex for casual dining and a great place to work. â€œIt's my office in the summer time,â€ says Charles. Photo: Maree Homer | Stylist: Kate Nixon",
             "photoCredit": "Maree Homer",
             "redirect": {
                 "mode": 2
             },
-            "pageTitle": "Charles Wilsonâ€™s Charming Country Homestead",
-            "metaDescription": "Take a tour of designer Charles Wilsonâ€™s charming family estate in country New South Wales.",
+            "pageTitle": "Charles Wilson's Charming Country Homestead",
+            "metaDescription": "Take a tour of designer Charles Wilson's charming family estate in country New South Wales.",
             "imageFacebookUrl": {
                 "tags": [],
                 "source": "",
@@ -2450,7 +2450,7 @@ module.exports =
             "parentId": "HOMES-1394",
             "level": 5,
             "sortOrder": 101,
-            "name": "Charles Wilsonâ€™s charming country homestead",
+            "name": "Charles Wilson's charming country homestead",
             "dateIndexed": "2015-08-31T11:36:15",
             "pathIds": [
                 "HOMES--1",
@@ -2733,7 +2733,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Itâ€™s an issue that many renovators face: how do you modernise a bathroom but still stay true to the era of the home? â€œItâ€™s in a Californian bungalow that was built in the 1920s and renovated in the â€˜70s. It was a bit sparse and missing a few 21st-century comforts,â€ says Lexie. â€œWe remodelled the space to allow for a freestanding bath, two vanities and a large shower.â€"
+                    "content": "It's an issue that many renovators face: how do you modernise a bathroom but still stay true to the era of the home? â€œIt's in a Californian bungalow that was built in the 1920s and renovated in the â€˜70s. It was a bit sparse and missing a few 21st-century comforts,â€ says Lexie. â€œWe remodelled the space to allow for a freestanding bath, two vanities and a large shower.â€"
                 },
                 {
                     "type": "portrait-image",
@@ -2767,7 +2767,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Glazed ceramic tiles from [Skheme](http://www.skheme.com/|target=\"_blank\") were the starting point for the design. â€œThey are the most beautiful pale blue, with a delicate embossed pattern and slight shimmer,â€ says Lexie. â€œThey tie in beautifully with the existing house, as theyâ€™re not too contemporary.â€"
+                    "content": "Glazed ceramic tiles from [Skheme](http://www.skheme.com/|target=\"_blank\") were the starting point for the design. â€œThey are the most beautiful pale blue, with a delicate embossed pattern and slight shimmer,â€ says Lexie. â€œThey tie in beautifully with the existing house, as they're not too contemporary.â€"
                 },
                 {
                     "type": "portrait-image",
@@ -2789,14 +2789,14 @@ module.exports =
                         ],
                         "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438133022297_191112030.jpg",
                         "valid": true,
-                        "caption": "â€œThe result is quite feminine and elegant, but not at all precious,â€ says Lexie Vatavalis. â€œA bathroom used by three little girls canâ€™t be precious.â€ Photo: Maree Homer | Styling: Lucy McCabe",
+                        "caption": "â€œThe result is quite feminine and elegant, but not at all precious,â€ says Lexie Vatavalis. â€œA bathroom used by three little girls can't be precious.â€ Photo: Maree Homer | Styling: Lucy McCabe",
                         "source": "Australian House and Garden"
                     }
                 },
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Her clients werenâ€™t mad about the tiles at first but they trusted her choice. â€œIt can be hard to visualise a finished bathroom when youâ€™re looking at a small tile sample,â€ says Lexie. â€œTo be honest, these tiles ended up being far lovelier than even Iâ€™d imagined.â€\n\nThe tiles may steal the show, but the [Apaiser](http://www.apaiser.com/|target=\"_blank\") bath is an impressive inclusion in its own right. â€œI think the stone composite is more refined than some of the other options on the market,â€ says Lexie."
+                    "content": "Her clients weren't mad about the tiles at first but they trusted her choice. â€œIt can be hard to visualise a finished bathroom when you're looking at a small tile sample,â€ says Lexie. â€œTo be honest, these tiles ended up being far lovelier than even I'd imagined.â€\n\nThe tiles may steal the show, but the [Apaiser](http://www.apaiser.com/|target=\"_blank\") bath is an impressive inclusion in its own right. â€œI think the stone composite is more refined than some of the other options on the market,â€ says Lexie."
                 },
                 {
                     "type": "portrait-image",
@@ -2834,7 +2834,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œThe height and space we gained in the renovation have a big role to play in making this room feel so serene,â€ says Lexie. â€œThe result is quite feminine and elegant, but not at all precious. A bathroom used by three little girls canâ€™t be precious.â€"
+                    "content": "â€œThe height and space we gained in the renovation have a big role to play in making this room feel so serene,â€ says Lexie. â€œThe result is quite feminine and elegant, but not at all precious. A bathroom used by three little girls can't be precious.â€"
                 },
                 {
                     "type": "heading",
@@ -2844,7 +2844,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Here, Lexie shares her top three tips:\n* While thereâ€™s no need to be totally locked into the design features of an era, â€œitâ€™s important to be sympathetic to a homeâ€™s heritageâ€, she says. In this case, she chose to retain the existing door, window, cornices and picture rails.\n* Make tiles work hard for the space. â€œI used embossed tiles, which give a wallpaper-like impression and add charm to the space.â€\n* Sometimes, introducing new colours is all it takes. â€œThe use of a lighter palette will give the space a fresh feel and bring it up to date.â€"
+                    "content": "Here, Lexie shares her top three tips:\n* While there's no need to be totally locked into the design features of an era, â€œit's important to be sympathetic to a home's heritageâ€, she says. In this case, she chose to retain the existing door, window, cornices and picture rails.\n* Make tiles work hard for the space. â€œI used embossed tiles, which give a wallpaper-like impression and add charm to the space.â€\n* Sometimes, introducing new colours is all it takes. â€œThe use of a lighter palette will give the space a fresh feel and bring it up to date.â€"
                 },
                 {
                     "type": "tips",
@@ -3032,7 +3032,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Homeowners Patrick and Alex Nicholas are big into surfing. So when Patrick, an architect at [AN+A](http://www.anplusa.com/|target=\"_blank\"), saw a 1970s house on a battle-axe block in North Bondi, he didnâ€™t hesitate to snap it up for the couple and their three kids. \n\nâ€œOriginally, the lower level had never been excavated,â€ he explains. â€œWe decided to scoop out the undercroft and relocate the living spaces to the ground floor to give them garden access and then use the unearthed sandstone to level the garden for a real indoor-outdoor connection.â€"
+                    "content": "Homeowners Patrick and Alex Nicholas are big into surfing. So when Patrick, an architect at [AN+A](http://www.anplusa.com/|target=\"_blank\"), saw a 1970s house on a battle-axe block in North Bondi, he didn't hesitate to snap it up for the couple and their three kids. \n\nâ€œOriginally, the lower level had never been excavated,â€ he explains. â€œWe decided to scoop out the undercroft and relocate the living spaces to the ground floor to give them garden access and then use the unearthed sandstone to level the garden for a real indoor-outdoor connection.â€"
                 },
                 {
                     "type": "gallery",
@@ -3066,7 +3066,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438128308846_hg03Nicholas049.jpg",
-                                    "caption": "A blade wall in cross-cut travertine gives the room a strong focus (and sets off border collie Pipâ€™s coat). Collected treasures, such as the ceramics on the lounge fireplace mantel, date from the 1960s and â€™70s and are a feature of the home. â€œMy mother started a pottery/arts and crafts centre in Lane Cove in the â€™70s so I have an affinity to pieces like this,â€ Patrick says. \n\nNorman+Quaine Hudson **sofa** (in striped fabric), from [Living Edge](http://www.livingedge.com.au/|target=\"_blank\").**Lamp** from [Ikea](http://www.ikea.com.au/|target=\"_blank\"). **Heater** from [Jetmaster](http://www.jetmaster.com.au/|target=\"_blank\"). **Throw** from [Maison Montage](http://www.maisonmontage.com.au/|target=\"_blank\"). **ON MANTLEPIECE** **Candleholders** from [Country Road](http://www.countryroad.com.au/|target=\"_blank\"). **Paper ball** from [Leura Fine Woodwork Gallery](http://www.finewoodwork.com.au/|target=\"_blank\"). Shaft **artwork** by Elwyn Lynn. The timber Cubebot robot by David Weeks is from [Dedece](http://www.dedece.com/|target=\"_blank\").",
+                                    "caption": "A blade wall in cross-cut travertine gives the room a strong focus (and sets off border collie Pip's coat). Collected treasures, such as the ceramics on the lounge fireplace mantel, date from the 1960s and '70s and are a feature of the home. â€œMy mother started a pottery/arts and crafts centre in Lane Cove in the '70s so I have an affinity to pieces like this,â€ Patrick says. \n\nNorman+Quaine Hudson **sofa** (in striped fabric), from [Living Edge](http://www.livingedge.com.au/|target=\"_blank\").**Lamp** from [Ikea](http://www.ikea.com.au/|target=\"_blank\"). **Heater** from [Jetmaster](http://www.jetmaster.com.au/|target=\"_blank\"). **Throw** from [Maison Montage](http://www.maisonmontage.com.au/|target=\"_blank\"). **ON MANTLEPIECE** **Candleholders** from [Country Road](http://www.countryroad.com.au/|target=\"_blank\"). **Paper ball** from [Leura Fine Woodwork Gallery](http://www.finewoodwork.com.au/|target=\"_blank\"). Shaft **artwork** by Elwyn Lynn. The timber Cubebot robot by David Weeks is from [Dedece](http://www.dedece.com/|target=\"_blank\").",
                                     "title": "hg03Nicholas_049.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -3091,7 +3091,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438128308850_hg03Nicholas071.jpg",
-                                    "caption": "With a view from the living room, this recent outdoor addition is the ownersâ€™ favourite spot in the house. â€œFor parties, we put coloured globes inside the paper lanterns,â€ says Alex. \n\nThe striped outdoor cushion is from [Maison Montage](http://www.maisonmontage.com.au/|target=\"_blank\"). The skateboard deck on the wall is from [Skater HQ](http://www.skaterhq.com.au/|target=\"_blank\").",
+                                    "caption": "With a view from the living room, this recent outdoor addition is the owners' favourite spot in the house. â€œFor parties, we put coloured globes inside the paper lanterns,â€ says Alex. \n\nThe striped outdoor cushion is from [Maison Montage](http://www.maisonmontage.com.au/|target=\"_blank\"). The skateboard deck on the wall is from [Skater HQ](http://www.skaterhq.com.au/|target=\"_blank\").",
                                     "title": "hg03Nicholas_071.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -3181,7 +3181,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1438128308864_hg03Nicholas111.jpg",
-                                    "caption": "This peaceful space fuses contemporary and antique elements. â€œThe 19th-century oak country chest started life as a commode holding a chamber pot. At some stage it was converted into a chest of drawers,â€ Patrick says. The old dressmakerâ€™s dummy holds Alexâ€™s scarfs.\n\n**Quilt cover** and **pillowcases** from [Country Road](http://www.countryroad.com.au/|target=\"_blank\"). **White cushion** from [The Country Trader](http://www.thecountrytrader.com.au/|target=\"_blank\"). **Orange cushions** from [Maison Montage](http://www.maisonmontage.com.au/|target=\"_blank\"). For a similar **throw**, try [St Albans](https://www.stalbans.com.au/|target=\"_blank\").",
+                                    "caption": "This peaceful space fuses contemporary and antique elements. â€œThe 19th-century oak country chest started life as a commode holding a chamber pot. At some stage it was converted into a chest of drawers,â€ Patrick says. The old dressmaker's dummy holds Alex's scarfs.\n\n**Quilt cover** and **pillowcases** from [Country Road](http://www.countryroad.com.au/|target=\"_blank\"). **White cushion** from [The Country Trader](http://www.thecountrytrader.com.au/|target=\"_blank\"). **Orange cushions** from [Maison Montage](http://www.maisonmontage.com.au/|target=\"_blank\"). For a similar **throw**, try [St Albans](https://www.stalbans.com.au/|target=\"_blank\").",
                                     "title": "hg03Nicholas_111.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -3348,12 +3348,12 @@ module.exports =
                 {
                     "type": "quote",
                     "label": "Quote",
-                    "content": "The former living room has become the kidsâ€™ playroom. We didnâ€™t have the heart to carve it up."
+                    "content": "The former living room has become the kids' playroom. We didn't have the heart to carve it up."
                 },
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Upstairs, the main bedroom was rebuilt into a former balcony and an ensuite created. The childrenâ€™s bedrooms were retained, including the original windows. â€œThe former living room has become the kidsâ€™ playroom. We didnâ€™t have the heart to carve it up,â€ Patrick says."
+                    "content": "Upstairs, the main bedroom was rebuilt into a former balcony and an ensuite created. The children's bedrooms were retained, including the original windows. â€œThe former living room has become the kids' playroom. We didn't have the heart to carve it up,â€ Patrick says."
                 },
                 {
                     "type": "heading",
@@ -3363,7 +3363,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The abodeâ€™s 1972 birth-date combined with the coupleâ€™s admiration for Californian mid-century architecture informed the shading solution for the west-facing rear exterior. A white screen with adjustable aluminium blades protecting the full faÃ§ade is a visor-like piece de resistance. In contrast, the laid-back, new outdoor room built from spotted gum softens the homeâ€™s glass and steel-frame geometric lines. \n\nThroughout all the interiors, curated collections of flotsam and jetsam happily co-exist alongside pieces such as wall-mounted Andy Warhol skateboard decks, inherited vintage maps, ceramics, sculptures, indigenous artefacts and street art. Adding tactile interest is a palette of natural materials such as the cross-cut travertine that features around the fireplace.\n\nWhile it may be non-conformist, this home with its easy-breezy coastal vibe perfectly captures the familyâ€™s heartbeat. â€œWeâ€™ve filled it with items that we love and we use â€“ such as the surfboards and skateboards â€“ and thereâ€™s enough space to have these out on display,â€ Patrick says."
+                    "content": "The abode's 1972 birth-date combined with the couple's admiration for Californian mid-century architecture informed the shading solution for the west-facing rear exterior. A white screen with adjustable aluminium blades protecting the full faÃ§ade is a visor-like piece de resistance. In contrast, the laid-back, new outdoor room built from spotted gum softens the home's glass and steel-frame geometric lines. \n\nThroughout all the interiors, curated collections of flotsam and jetsam happily co-exist alongside pieces such as wall-mounted Andy Warhol skateboard decks, inherited vintage maps, ceramics, sculptures, indigenous artefacts and street art. Adding tactile interest is a palette of natural materials such as the cross-cut travertine that features around the fireplace.\n\nWhile it may be non-conformist, this home with its easy-breezy coastal vibe perfectly captures the family's heartbeat. â€œWe've filled it with items that we love and we use â€“ such as the surfboards and skateboards â€“ and there's enough space to have these out on display,â€ Patrick says."
                 }
             ],
             "author": [
@@ -3476,9 +3476,9 @@ module.exports =
                     ]
                 }
             ],
-            "title": "Alex and Patrickâ€™s retro-inspired Bondi beach house",
-            "summaryTitle": "Alex and Patrickâ€™s retro-inspired Bondi beach house",
-            "summary": "Designed by homeowner and architect Patrick Nicholas, this relaxed home at Sydneyâ€™s idyllic Bondi Beach offers a variety of zones where the family of five can come together or do their own thing.",
+            "title": "Alex and Patrick's retro-inspired Bondi beach house",
+            "summaryTitle": "Alex and Patrick's retro-inspired Bondi beach house",
+            "summary": "Designed by homeowner and architect Patrick Nicholas, this relaxed home at Sydney's idyllic Bondi Beach offers a variety of zones where the family of five can come together or do their own thing.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/29/1637/HERO_hg03Nicholas_038.jpg",
             "imageAltText": "Vintage Bondi dining room",
             "imageCaption": "Vintage chairs complement an oak table and vintage sideboard in the dining room. Photo: John Paul Urizar",
@@ -3541,7 +3541,7 @@ module.exports =
             "parentId": "HOMES-1394",
             "level": 5,
             "sortOrder": 98,
-            "name": "Alex and Patrickâ€™s retro-inspired Bondi beach house",
+            "name": "Alex and Patrick's retro-inspired Bondi beach house",
             "dateIndexed": "2015-08-31T11:36:13",
             "pathIds": [
                 "HOMES--1",
@@ -3583,7 +3583,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Itâ€™s summertime, and the garden is growing faster than ever. You want to entertain outdoors but somehow itâ€™s all got out of hand. Itâ€™s time for some quick fixes."
+                    "content": "It's summertime, and the garden is growing faster than ever. You want to entertain outdoors but somehow it's all got out of hand. It's time for some quick fixes."
                 },
                 {
                     "type": "heading",
@@ -3593,7 +3593,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Help for lawns is available in a bottle, with hose-on lawn fertilisers making lawns noticeably greener in about a week. The bottle clicks onto your garden hose and can take as little as two minutes to apply. Try these products:\n* Yates Lawn Master Rapid Greening Lawn Food\n* Munns Organic Lawn Booster \n* Seasol For Lush Green Lawns \n* Amgrow Hose On Lawn Greener \nThese are suitable for any type of lawn in a summer garden, and should be watered in thoroughly after applying. \n\nMow the lawn a day before visitors arrive, but make sure you donâ€™t cut it too short. A longer lawn appears more lush and gives more protection in hot weather."
+                    "content": "Help for lawns is available in a bottle, with hose-on lawn fertilisers making lawns noticeably greener in about a week. The bottle clicks onto your garden hose and can take as little as two minutes to apply. Try these products:\n* Yates Lawn Master Rapid Greening Lawn Food\n* Munns Organic Lawn Booster \n* Seasol For Lush Green Lawns \n* Amgrow Hose On Lawn Greener \nThese are suitable for any type of lawn in a summer garden, and should be watered in thoroughly after applying. \n\nMow the lawn a day before visitors arrive, but make sure you don't cut it too short. A longer lawn appears more lush and gives more protection in hot weather."
                 },
                 {
                     "type": "heading",
@@ -3603,7 +3603,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "If youâ€™re short on time, yank out tall weeds, then cover the rest with newspaper 6-8 sheets thick. Make sure you overlap the edges and tuck it around the plants throughout the bed. Then cover with a layer of mulch, such as sugar cane mulch or fine-grade pine bark, about 30mm thick. \n\nYour garden will look loved, and weeds will be smothered and die. Itâ€™s best to do this when the soil is moist, so it can stay moist under the mulch. If itâ€™s windy, wet the newspaper as you work so it wonâ€™t blow away. \n\nWhen you have a little more time, you can spray weeds in the garden before you smother them using either a glyphosatebased spray, such as Roundup or Zero, or an organic weed-killer such as Richgro Beat-a-Weed (based on vinegar and salt) or Amgrow Weed Blitz (based on pine oil)."
+                    "content": "If you're short on time, yank out tall weeds, then cover the rest with newspaper 6-8 sheets thick. Make sure you overlap the edges and tuck it around the plants throughout the bed. Then cover with a layer of mulch, such as sugar cane mulch or fine-grade pine bark, about 30mm thick. \n\nYour garden will look loved, and weeds will be smothered and die. It's best to do this when the soil is moist, so it can stay moist under the mulch. If it's windy, wet the newspaper as you work so it won't blow away. \n\nWhen you have a little more time, you can spray weeds in the garden before you smother them using either a glyphosatebased spray, such as Roundup or Zero, or an organic weed-killer such as Richgro Beat-a-Weed (based on vinegar and salt) or Amgrow Weed Blitz (based on pine oil)."
                 },
                 {
                     "type": "tips",
@@ -3618,7 +3618,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Summer is the perfect time to fill your garden with pots of vibrant flowers. Petunias are your best friends in summer. \n\nYou can buy flowering pots of them for a few dollars each, in pastels or rich pinks, purples, red, white, and even striped bi-colours. Look out for â€˜spreadingâ€™ petunias as these can cover as much as a square metre each. Petunias love sun and will flower for months. Cram them into pots and window boxes or use them along the edge of paving in high-use areas."
+                    "content": "Summer is the perfect time to fill your garden with pots of vibrant flowers. Petunias are your best friends in summer. \n\nYou can buy flowering pots of them for a few dollars each, in pastels or rich pinks, purples, red, white, and even striped bi-colours. Look out for â€˜spreading' petunias as these can cover as much as a square metre each. Petunias love sun and will flower for months. Cram them into pots and window boxes or use them along the edge of paving in high-use areas."
                 }
             ],
             "author": [
@@ -3663,7 +3663,7 @@ module.exports =
             ],
             "title": "Summer garden spruce-up!",
             "summaryTitle": "Summer garden spruce-up!",
-            "summary": "Horticulturist Helen Youngâ€™s expert advice on how to get your garden ready for summer entertaining, when you have no time at all.",
+            "summary": "Horticulturist Helen Young's expert advice on how to get your garden ready for summer entertaining, when you have no time at all.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/21/1500/201011093537556713.jpg",
             "imageAltText": "Rustic potted flower",
             "imageCaption": "A quick way to get your garden ready for summer is by adding potted Petunias in rich colours. \r\nPhoto: Prue Ruscoe / bauersyndication.com.au",
@@ -3773,7 +3773,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "A â€˜new homeâ€™ aesthetic is a drawcard for many homeowners, but not for Gerard and Kristen. â€œWe wanted a house that look lived-in, not something that looked clinical and new,â€ says Gerard. By using modern lines, natural materials and fresh, contemporary colours, theyâ€™ve achieved their goal: a fuss-free home that performs perfectly for their young family.\n\n\nThe innovative design was driven by nostalgia and shaped by the constraints of the sloping, 410m2 block in a beachside Perth suburb. â€œI spent my childhood holidays in an old-style stilt house, which I loved,â€ says Gerard. â€œWe mentioned this to our architects [Klopper & Davis Architects](http://www.kada.com.au/|target=\"_blank\") and they took the stilt concept to another level completely.â€"
+                    "content": "A â€˜new home' aesthetic is a drawcard for many homeowners, but not for Gerard and Kristen. â€œWe wanted a house that look lived-in, not something that looked clinical and new,â€ says Gerard. By using modern lines, natural materials and fresh, contemporary colours, they've achieved their goal: a fuss-free home that performs perfectly for their young family.\n\n\nThe innovative design was driven by nostalgia and shaped by the constraints of the sloping, 410m2 block in a beachside Perth suburb. â€œI spent my childhood holidays in an old-style stilt house, which I loved,â€ says Gerard. â€œWe mentioned this to our architects [Klopper & Davis Architects](http://www.kada.com.au/|target=\"_blank\") and they took the stilt concept to another level completely.â€"
                 },
                 {
                     "type": "heading",
@@ -3783,7 +3783,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The home references a pair of oversized shipping containers, one elevated on pylons and reaching out towards the beach, the other at the rear. Only 70m2 of the house touches the ground, leaving plenty of free space on the property.\n\n\nFrom the outset the concept wowed the couple and captured the imagination of their sons Harry and Sam, who followed each step of construction with excitement and dubbed the result â€œour floating houseâ€.\n\n\nThe exterior features reclaimed bricks from the siteâ€™s original house. A long driveway ends at a yellow front door that opens to the lower ground floor. This space contains just two rooms: a study and a large, multi-functional space."
+                    "content": "The home references a pair of oversized shipping containers, one elevated on pylons and reaching out towards the beach, the other at the rear. Only 70m2 of the house touches the ground, leaving plenty of free space on the property.\n\n\nFrom the outset the concept wowed the couple and captured the imagination of their sons Harry and Sam, who followed each step of construction with excitement and dubbed the result â€œour floating houseâ€.\n\n\nThe exterior features reclaimed bricks from the site's original house. A long driveway ends at a yellow front door that opens to the lower ground floor. This space contains just two rooms: a study and a large, multi-functional space."
                 },
                 {
                     "type": "gallery",
@@ -3793,7 +3793,7 @@ module.exports =
                             "galleryItems": [
                                 {
                                     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437972838269_hg0215005-KADA-ScarboroughHigh-ResR1.jpg",
-                                    "caption": "The homeâ€™s street frontage features a dramatic west-facing projection, in a shape reminiscent of a shipping container, set on yellow pylons for added colour and effect.",
+                                    "caption": "The home's street frontage features a dramatic west-facing projection, in a shape reminiscent of a shipping container, set on yellow pylons for added colour and effect.",
                                     "title": "hg0215_005_High-ResR1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -3926,7 +3926,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973001095_hg0215034-KADA-ScarboroughHigh-ResR1.jpg",
-                                    "caption": "Gerard heads upstairs to the parentsâ€™ retreat. The slatted joinery divider that masks off the stairs and adds interest to the dining area is made from jarrah. The vase and bowl are both from [Empire](http://www.worldofempire.com/|target=\"_blank\").",
+                                    "caption": "Gerard heads upstairs to the parents' retreat. The slatted joinery divider that masks off the stairs and adds interest to the dining area is made from jarrah. The vase and bowl are both from [Empire](http://www.worldofempire.com/|target=\"_blank\").",
                                     "title": "hg0215_034_High-ResR1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -3948,7 +3948,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973202856_ARTICLEHEROhg0215016KADAScarboroughHighResR1.jpg",
-                                    "caption": "The homeâ€™s main living area is where the family spends most of their time together. It was designed to provide maximum comfort and practicality, as well as style.\n\n\n**Sofa** from [Blu Peter](http://www.blupeter.com.au/|target=\"_blank\"). Coffee table from [Freedom](http://www.freedom.com.au/|target=\"_blank\").  Chairs from [DesignFarm](http://www.designfarm.com.au/|target=\"_blank\"). **Artwork** by [Jo Derbyshire](http://www.joderbyshire.com/|target=\"_blank\") (left) and Michael Phelps.",
+                                    "caption": "The home's main living area is where the family spends most of their time together. It was designed to provide maximum comfort and practicality, as well as style.\n\n\n**Sofa** from [Blu Peter](http://www.blupeter.com.au/|target=\"_blank\"). Coffee table from [Freedom](http://www.freedom.com.au/|target=\"_blank\").  Chairs from [DesignFarm](http://www.designfarm.com.au/|target=\"_blank\"). **Artwork** by [Jo Derbyshire](http://www.joderbyshire.com/|target=\"_blank\") (left) and Michael Phelps.",
                                     "title": "ARTICLEHERO_hg0215_016_High ResR1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -3994,7 +3994,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973025647_hg0215045-KADA-ScarboroughHigh-Res.jpg",
-                                    "caption": "Soft, dreamy colours add to the sense of sanctuary in Kristen and Gerardâ€™s main bedroom.\n\n\n**Bedlinen** and pink **cushion** from [Kip & Co](http://kipandco.net.au/|target=\"_blank\"). Bedside **lamp** from [Freedom](http://www.freedom.com.au/|target=\"_blank\"). **Artwork** by [Jo Derbyshire](http://www.joderbyshire.com/|target=\"_blank\").",
+                                    "caption": "Soft, dreamy colours add to the sense of sanctuary in Kristen and Gerard's main bedroom.\n\n\n**Bedlinen** and pink **cushion** from [Kip & Co](http://kipandco.net.au/|target=\"_blank\"). Bedside **lamp** from [Freedom](http://www.freedom.com.au/|target=\"_blank\"). **Artwork** by [Jo Derbyshire](http://www.joderbyshire.com/|target=\"_blank\").",
                                     "title": "hg0215_045_high-Res.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4019,7 +4019,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973037120_hg0215050-KADA-ScarboroughHigh-Res.jpg",
-                                    "caption": "â€œItâ€™s like a European-style wetroom,â€ Kristen says of the main bathroom. â€œThe kids can splash and I donâ€™t have to worry about mess.â€\n\n\n**Taps** from [Phoenix Tapware](http://www.phoenixtapware.com.au/|target=\"_blank\"). Johnson Tiles **wall tiles** from [Bunnings](http://www.bunnings.com.au/|target=\"_blank\"). Timber **bathmat** from [Remedy](http://www.remedyonline.net.au/|target=\"_blank\").",
+                                    "caption": "â€œIt's like a European-style wetroom,â€ Kristen says of the main bathroom. â€œThe kids can splash and I don't have to worry about mess.â€\n\n\n**Taps** from [Phoenix Tapware](http://www.phoenixtapware.com.au/|target=\"_blank\"). Johnson Tiles **wall tiles** from [Bunnings](http://www.bunnings.com.au/|target=\"_blank\"). Timber **bathmat** from [Remedy](http://www.remedyonline.net.au/|target=\"_blank\").",
                                     "title": "hg0215_050_High-Res.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4038,8 +4038,8 @@ module.exports =
                                     "open": false
                                 }
                             ],
-                            "title": "Gallery: Kristen and Gerardâ€™s bright coastal home",
-                            "summaryTitle": "Gallery: Kristen and Gerardâ€™s bright coastal home",
+                            "title": "Gallery: Kristen and Gerard's bright coastal home",
+                            "summaryTitle": "Gallery: Kristen and Gerard's bright coastal home",
                             "summary": "Inspired by an old-style stilt house, this new build home in Perth has a contemporary look that really stands out from the crowd.",
                             "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/28/1623/gallery_hero_hg0215_030-kada-scarborough_high-res.jpg",
                             "imageAltText": "Contemporary beachside architecture, Perth",
@@ -4062,7 +4062,7 @@ module.exports =
                             "parentId": "HOMES-1581",
                             "level": 5,
                             "sortOrder": 38,
-                            "name": "Gallery: Kristen and Gerardâ€™s bright coastal home",
+                            "name": "Gallery: Kristen and Gerard's bright coastal home",
                             "dateIndexed": "2015-08-31T11:35:34",
                             "pathIds": [
                                 "HOMES--1",
@@ -4095,7 +4095,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Family members spend much of their time on the middle level, which features a long, open-plan living, kitchen and dining space, with windows along the northern side and a floor-to-ceiling sliding door that opens to the backyard. \n\n\nItâ€™s completely private, yet open, airy, and filled with natural light. â€œIn our last home, we found we only lived in one room,â€ says Gerard. â€œWe didnâ€™t want to waste any space, so asked the architects to design one main living area.â€\n\n\nThis open-plan scheme mixes French oak, jarrah and pressed tin, with a refreshing slice of green in the kitchen cabinetry. The last was a point of contention between husband and wife. â€œI wanted green and Gerard wanted yellow,â€ says the victor, Kristen, with a laugh. â€œThe pop of vibrant colour is a signature of the architects.â€"
+                    "content": "Family members spend much of their time on the middle level, which features a long, open-plan living, kitchen and dining space, with windows along the northern side and a floor-to-ceiling sliding door that opens to the backyard. \n\n\nIt's completely private, yet open, airy, and filled with natural light. â€œIn our last home, we found we only lived in one room,â€ says Gerard. â€œWe didn't want to waste any space, so asked the architects to design one main living area.â€\n\n\nThis open-plan scheme mixes French oak, jarrah and pressed tin, with a refreshing slice of green in the kitchen cabinetry. The last was a point of contention between husband and wife. â€œI wanted green and Gerard wanted yellow,â€ says the victor, Kristen, with a laugh. â€œThe pop of vibrant colour is a signature of the architects.â€"
                 },
                 {
                     "type": "heading",
@@ -4105,12 +4105,12 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Harry and Samâ€™s rooms, along with their splash-proof bathroom and a laundry, lie behind the kitchen. The hallway leading to their rooms can be closed off from the main living area. A study nook has been incorporated into the hall and, while Kristen catches up on emails there now, itâ€™s a future-proof inclusion that the boys will also use in years to come. On the top level is the large main bedroom, with windows that wrap around the exterior for ocean views.\n\n\nâ€œWhile the upstairs area is our escape, as a family we live in the main area, eating, playing and enjoying time together,â€ says Kristen. â€œThis house has given us everything that we need to live together happily and easily.â€"
+                    "content": "Harry and Sam's rooms, along with their splash-proof bathroom and a laundry, lie behind the kitchen. The hallway leading to their rooms can be closed off from the main living area. A study nook has been incorporated into the hall and, while Kristen catches up on emails there now, it's a future-proof inclusion that the boys will also use in years to come. On the top level is the large main bedroom, with windows that wrap around the exterior for ocean views.\n\n\nâ€œWhile the upstairs area is our escape, as a family we live in the main area, eating, playing and enjoying time together,â€ says Kristen. â€œThis house has given us everything that we need to live together happily and easily.â€"
                 },
                 {
                     "type": "tips",
                     "label": "Tips",
-                    "content": "## 5 clever design ideas\n\n**1. Fitting in:** Klopper & Davis Architects drove around the surrounding neighbourhood to get a feel for the local style. They noticed bricks featured heavily and incorporated bricks from the siteâ€™s original house in the exterior. â€œIt gives the house a grounded sort of feeling,â€ says Gerard.\n\n**2. Eco-friendly:** â€œWe have louvres at the front and back of the house, and at the top and bottom, so we have natural air movement that cools the house in summer,â€ says Kristen. â€œAnd, with the big windows on the northern side, our interior is naturally heated in winter.â€\n\n**3. Splish splash:**  The main bathroom used by Harry and Sam is completely waterproof. â€œIt is like a European-style wet room, which is brilliant!â€ says Gerard. â€œThe kids can splash and you donâ€™t have to worry.â€\n\n**4. Hole-proof:** The couple specified a hanging rail for displaying art in the living room. â€œWe had seen it somewhere and we thought it was a better idea than holes in the wall,â€ says Gerard.\n\n**5. Wash off:** The original plan was to have an outdoor shower in the backyard, but they decided to lay grass for the kids instead. â€œIt made sense to us to have the outdoor shower near the entrance for rinsing off after weâ€™ve been to the beach,â€ says Gerard."
+                    "content": "## 5 clever design ideas\n\n**1. Fitting in:** Klopper & Davis Architects drove around the surrounding neighbourhood to get a feel for the local style. They noticed bricks featured heavily and incorporated bricks from the site's original house in the exterior. â€œIt gives the house a grounded sort of feeling,â€ says Gerard.\n\n**2. Eco-friendly:** â€œWe have louvres at the front and back of the house, and at the top and bottom, so we have natural air movement that cools the house in summer,â€ says Kristen. â€œAnd, with the big windows on the northern side, our interior is naturally heated in winter.â€\n\n**3. Splish splash:**  The main bathroom used by Harry and Sam is completely waterproof. â€œIt is like a European-style wet room, which is brilliant!â€ says Gerard. â€œThe kids can splash and you don't have to worry.â€\n\n**4. Hole-proof:** The couple specified a hanging rail for displaying art in the living room. â€œWe had seen it somewhere and we thought it was a better idea than holes in the wall,â€ says Gerard.\n\n**5. Wash off:** The original plan was to have an outdoor shower in the backyard, but they decided to lay grass for the kids instead. â€œIt made sense to us to have the outdoor shower near the entrance for rinsing off after we've been to the beach,â€ says Gerard."
                 }
             ],
             "author": [
@@ -4187,8 +4187,8 @@ module.exports =
                     ]
                 }
             ],
-            "title": "Kristen and Gerardâ€™s bright coastal home",
-            "summaryTitle": "Kristen and Gerardâ€™s bright coastal home",
+            "title": "Kristen and Gerard's bright coastal home",
+            "summaryTitle": "Kristen and Gerard's bright coastal home",
             "summary": "This architect-designed coastal home features bright pops of colour and stunning natural light.",
             "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1626/articlehero_hg0215_016-kada-scarborough_high-resr1.jpg",
             "imageAltText": "A light and bright living room in Perth.",
@@ -4197,7 +4197,7 @@ module.exports =
             "redirect": {
                 "mode": 2
             },
-            "pageTitle": "Kristen and Gerardâ€™s Bright Coastal Home",
+            "pageTitle": "Kristen and Gerard's Bright Coastal Home",
             "metaDescription": "This architect-designed new build coastal home in Perth features bright pops of colour and stunning natural light.",
             "imageFacebookUrl": {
                 "tags": [],
@@ -4253,7 +4253,7 @@ module.exports =
             "parentId": "HOMES-1394",
             "level": 5,
             "sortOrder": 96,
-            "name": "Kristen and Gerardâ€™s bright coastal home",
+            "name": "Kristen and Gerard's bright coastal home",
             "dateIndexed": "2015-08-31T11:36:32",
             "pathIds": [
                 "HOMES--1",
@@ -4290,7 +4290,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "With many of us living on smaller blocks, where space is at a premium, the humble garage has been forced to raise its game. \n\nâ€œWhereas once the garage was viewed as simply somewhere to put the car and store away items that you might only use once or twice a year, now it might incorporate day-to-day storage, a work space, a laundry or even a playroom,â€ says Mike Jefferies, sales and product manager at [GarageTek](http://www.garagetek.com.au/|target=\"_blank\"). \n\nAs a result, thereâ€™s growing demand for storage that will transform even the messiest garage into an organised, multi-purpose space. \n\nâ€œThe garage is often a blank canvas, so itâ€™s easy to put strategies in place that will transform it into a very effective storage space,â€ says Cathy Player, expert organiser at [Howards Storage World](http://www.hsw.com.au/?site&pg_name=index|target=\"_blank\")."
+                    "content": "With many of us living on smaller blocks, where space is at a premium, the humble garage has been forced to raise its game. \n\nâ€œWhereas once the garage was viewed as simply somewhere to put the car and store away items that you might only use once or twice a year, now it might incorporate day-to-day storage, a work space, a laundry or even a playroom,â€ says Mike Jefferies, sales and product manager at [GarageTek](http://www.garagetek.com.au/|target=\"_blank\"). \n\nAs a result, there's growing demand for storage that will transform even the messiest garage into an organised, multi-purpose space. \n\nâ€œThe garage is often a blank canvas, so it's easy to put strategies in place that will transform it into a very effective storage space,â€ says Cathy Player, expert organiser at [Howards Storage World](http://www.hsw.com.au/?site&pg_name=index|target=\"_blank\")."
                 },
                 {
                     "type": "heading",
@@ -4310,12 +4310,12 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "A standard double-garage makeover from a specialist company such as GarageTek will set you back between $5000 and $8000. Or, for a fraction of the cost, you can do it yourself by choosing from the vast range of garage storage products available from companies such as Howards Storage World. \n\nIf space is tight, consider ceiling-mounted storage (check out [Lifespace](http://www.lifespace.com.au/|target=\"_blank\")) or even an over-car cabinet that occupies the space above a car bonnet (available from [The Box Thing](http://www.theboxthing.com.au/|target=\"_blank\")). \n\nSturdy, plastic-lidded boxes are ideal for storing smaller bits; stacked vertically, they donâ€™t swallow up floor space. Also look for hidden storage opportunities, such as the backs of doors, where you can hang baskets. â€œWith proper organisation and the right storage tools you can reveal usable space you never even knew you had,â€ says Player."
+                    "content": "A standard double-garage makeover from a specialist company such as GarageTek will set you back between $5000 and $8000. Or, for a fraction of the cost, you can do it yourself by choosing from the vast range of garage storage products available from companies such as Howards Storage World. \n\nIf space is tight, consider ceiling-mounted storage (check out [Lifespace](http://www.lifespace.com.au/|target=\"_blank\")) or even an over-car cabinet that occupies the space above a car bonnet (available from [The Box Thing](http://www.theboxthing.com.au/|target=\"_blank\")). \n\nSturdy, plastic-lidded boxes are ideal for storing smaller bits; stacked vertically, they don't swallow up floor space. Also look for hidden storage opportunities, such as the backs of doors, where you can hang baskets. â€œWith proper organisation and the right storage tools you can reveal usable space you never even knew you had,â€ says Player."
                 },
                 {
                     "type": "tips",
                     "label": "Tips",
-                    "content": "## Garage overhaul\nCathy Player of Howards Storage World shares her top tips for organising your garage:\n* Start by decluttering. Pull everything out and divide into three piles: everyday, occasional and deep archive. Throw out what you donâ€™t need. Â¬\n* Store frequently used items at hand height, occasionally used ones at shoulder height or above, and heavy items down low. Â¬\n* Keep the lawnmower and bikes near the garage door so they donâ€™t track in dirt. \n* Drawers are great for small, similar items. You can use the cabinet top as a work surface.\n* Create a â€˜clutter trapâ€™ near the door to the house to prevent mess entering â€“ think coat hooks, boot storage, and generous baskets."
+                    "content": "## Garage overhaul\nCathy Player of Howards Storage World shares her top tips for organising your garage:\n* Start by decluttering. Pull everything out and divide into three piles: everyday, occasional and deep archive. Throw out what you don't need. Â¬\n* Store frequently used items at hand height, occasionally used ones at shoulder height or above, and heavy items down low. Â¬\n* Keep the lawnmower and bikes near the garage door so they don't track in dirt. \n* Drawers are great for small, similar items. You can use the cabinet top as a work surface.\n* Create a â€˜clutter trap' near the door to the house to prevent mess entering â€“ think coat hooks, boot storage, and generous baskets."
                 }
             ],
             "author": [
@@ -4479,7 +4479,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The price of a bespoke kitchen can easily run upwards of $40,000, says Tim Prevade, Ikeaâ€™s country sales leader for kitchens. Whereas, a basic L-shaped flat pack kitchen from Ikea with laminate benchtops and melamine cabinetry finishes will cost you about $1500-$2000. \n\nAdding appliances adds up to about $3000. If you would prefer a solid timber benchtop, factor in an extra $300-$400, while a Caesarstone benchtop will add about $1000-$1500 to the total.\n\nâ€œIn addition, rather than waiting six to eight weeks for a bespoke kitchen to be installed, you could pick up an off the-shelf design today and have it up by the end of the weekend,â€ says Prevade."
+                    "content": "The price of a bespoke kitchen can easily run upwards of $40,000, says Tim Prevade, Ikea's country sales leader for kitchens. Whereas, a basic L-shaped flat pack kitchen from Ikea with laminate benchtops and melamine cabinetry finishes will cost you about $1500-$2000. \n\nAdding appliances adds up to about $3000. If you would prefer a solid timber benchtop, factor in an extra $300-$400, while a Caesarstone benchtop will add about $1000-$1500 to the total.\n\nâ€œIn addition, rather than waiting six to eight weeks for a bespoke kitchen to be installed, you could pick up an off the-shelf design today and have it up by the end of the weekend,â€ says Prevade."
                 },
                 {
                     "type": "heading",
@@ -4489,7 +4489,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "If you think that going the budget route means compromising on style, you neednâ€™t worry. Many of the cutting edge design trends seen in top-of-the line kitchens can now be found in budget ranges. \n\nHigh-gloss cabinetry finishes, handle-free doors and the popular rustic-meets-modern aesthetic, which pairs sleek cabinetry with timber-look or marble-effect laminate benchtops are all available."
+                    "content": "If you think that going the budget route means compromising on style, you needn't worry. Many of the cutting edge design trends seen in top-of-the line kitchens can now be found in budget ranges. \n\nHigh-gloss cabinetry finishes, handle-free doors and the popular rustic-meets-modern aesthetic, which pairs sleek cabinetry with timber-look or marble-effect laminate benchtops are all available."
                 },
                 {
                     "type": "quote",
@@ -4499,7 +4499,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Features once found only in pricey custom kitchens, such as quality runners, cutlery drawer organisers and soft closing mechanisms, now come as standard in most good packages.\nThe quality of such extras largely depends on what youâ€™re prepared to spend, says Michael Caminer, director of Alsa Manufacturing Company, makers of [Creativ Kitchens](http://www.creativkitchensaustralia.com.au/|target=\"_blank\") and [Smartpack Kitchens](http://www.smartpackkit.com.au/|target=\"_blank\"). â€œBudget-end drawer lighting and pull-out bins start from just $30 per drawer but rise to around $100 each for a quality version,â€ he says."
+                    "content": "Features once found only in pricey custom kitchens, such as quality runners, cutlery drawer organisers and soft closing mechanisms, now come as standard in most good packages.\nThe quality of such extras largely depends on what you're prepared to spend, says Michael Caminer, director of Alsa Manufacturing Company, makers of [Creativ Kitchens](http://www.creativkitchensaustralia.com.au/|target=\"_blank\") and [Smartpack Kitchens](http://www.smartpackkit.com.au/|target=\"_blank\"). â€œBudget-end drawer lighting and pull-out bins start from just $30 per drawer but rise to around $100 each for a quality version,â€ he says."
                 },
                 {
                     "type": "heading",
@@ -4509,7 +4509,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Thereâ€™s now more scope for customisation in flat pack kitchens when it comes to cabinet facings, benchtop sizes and materials, and optional extras such as pull-out pantries and lighting, which can transform the useability of your kitchen.\n\nâ€œUnder-cabinet lighting might only add a few hundred dollars to your purchase price,â€ says Jenny Oâ€™Connell, retail design manager at [Freedom Kitchens](https://www.freedomkitchens.com.au|target=\"_blank\"). â€œBut it means you can see what youâ€™re doing when youâ€™re cooking, and it can create dramatic mood lighting at night.â€ She also suggests replacing some cupboards with extra drawers. â€œTheyâ€™re more practical than cupboards and can even be used as a pull-out pantry, so ingredients are right where you need them when youâ€™re cooking.â€"
+                    "content": "There's now more scope for customisation in flat pack kitchens when it comes to cabinet facings, benchtop sizes and materials, and optional extras such as pull-out pantries and lighting, which can transform the useability of your kitchen.\n\nâ€œUnder-cabinet lighting might only add a few hundred dollars to your purchase price,â€ says Jenny O'Connell, retail design manager at [Freedom Kitchens](https://www.freedomkitchens.com.au|target=\"_blank\"). â€œBut it means you can see what you're doing when you're cooking, and it can create dramatic mood lighting at night.â€ She also suggests replacing some cupboards with extra drawers. â€œThey're more practical than cupboards and can even be used as a pull-out pantry, so ingredients are right where you need them when you're cooking.â€"
                 },
                 {
                     "type": "heading",
@@ -4519,7 +4519,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œBudget kitchens once meant white, white and more white, but the design options today are virtually endless,â€ says Oâ€™Connell. â€œYouâ€™ll find a huge choice of colours, textures and patterns, from matt and gloss finishes to a vast array of timber grains, all of which make it easy to stamp your own personality on a space.â€\n\nYouâ€™ll also discover all manner of interesting timber grains, thanks to improvements in laminate technology. â€œNew textured laminates give you the look and feel of the real thing: think on trend blond or smoky European oak,â€ she says. â€œThey cost a little more than non-textured laminates, but the boost it gives your kitchen is worth it.â€ What if you have specific cabinetry sizes in mind, or an awkward space? [Ikea](http://www.ikea.com/au|target=\"_blank\"), for example, has approximately 17,000 options in cabinetry components, so your layout should be covered."
+                    "content": "â€œBudget kitchens once meant white, white and more white, but the design options today are virtually endless,â€ says O'Connell. â€œYou'll find a huge choice of colours, textures and patterns, from matt and gloss finishes to a vast array of timber grains, all of which make it easy to stamp your own personality on a space.â€\n\nYou'll also discover all manner of interesting timber grains, thanks to improvements in laminate technology. â€œNew textured laminates give you the look and feel of the real thing: think on trend blond or smoky European oak,â€ she says. â€œThey cost a little more than non-textured laminates, but the boost it gives your kitchen is worth it.â€ What if you have specific cabinetry sizes in mind, or an awkward space? [Ikea](http://www.ikea.com/au|target=\"_blank\"), for example, has approximately 17,000 options in cabinetry components, so your layout should be covered."
                 },
                 {
                     "type": "heading",
@@ -4529,7 +4529,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Of course, installing a kitchen is not a job for the faint-hearted. It does take a reasonable level of DIY competence and a couple of days to assemble the cabinetry. Youâ€™ll need a qualified electrician and plumber for the technical bits. But the potential cost savings can be impressive.\n\nSo whatâ€™s the one essential piece of advice you should take with you to the showroom? â€œNot all budget kitchens are made the same; many flat packs literally wobble in the wind,â€ says Prevade. Oâ€™Connell concurs: â€œMake sure that the components are strong and stable, the drawers are full-extension, and that soft-closing drawers and doors come as standardâ€."
+                    "content": "Of course, installing a kitchen is not a job for the faint-hearted. It does take a reasonable level of DIY competence and a couple of days to assemble the cabinetry. You'll need a qualified electrician and plumber for the technical bits. But the potential cost savings can be impressive.\n\nSo what's the one essential piece of advice you should take with you to the showroom? â€œNot all budget kitchens are made the same; many flat packs literally wobble in the wind,â€ says Prevade. O'Connell concurs: â€œMake sure that the components are strong and stable, the drawers are full-extension, and that soft-closing drawers and doors come as standardâ€."
                 },
                 {
                     "type": "tips",
@@ -4614,7 +4614,7 @@ module.exports =
             ],
             "title": "Are flat pack kitchens any good?",
             "summaryTitle": "Are flat pack kitchens any good?",
-            "summary": "Dreaming of a new kitchen but find your budget wonâ€™t stretch to a bespoke design? Off-the-shelf â€“ or flat pack kitchens â€“ are now a practical, affordable and stylish alternative.",
+            "summary": "Dreaming of a new kitchen but find your budget won't stretch to a bespoke design? Off-the-shelf â€“ or flat pack kitchens â€“ are now a practical, affordable and stylish alternative.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/24/1592/HERO_C1452992-House-Garden-Maria-Kitchen--007.jpg",
             "imageAltText": "Flat pack kitchen",
             "imageCaption": "This stylish flat pack kitchen in a 1920s Sydney home was built with a budget of just $20,000. Photo: John Paul Urizar / Bauersyndication.com.au",
@@ -4698,7 +4698,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Urban courtyards are the perfect places in which to â€œthink bigâ€, says Richard Unsworth from landscape design firm [Garden Life](http://gardenlife.com.au/|target=\"_blank\"). \n\nItâ€™s an approach he applied when asked to reinvigorate this courtyard and internal atrium, part of a warehouse conversion in Sydneyâ€™s Inner West. â€œThey were beautiful spaces but the planting was uninspiring and the scale of the elements within them was wrong,â€ says Richard. â€œEverything was small, with things dotted here and there.â€"
+                    "content": "Urban courtyards are the perfect places in which to â€œthink bigâ€, says Richard Unsworth from landscape design firm [Garden Life](http://gardenlife.com.au/|target=\"_blank\"). \n\nIt's an approach he applied when asked to reinvigorate this courtyard and internal atrium, part of a warehouse conversion in Sydney's Inner West. â€œThey were beautiful spaces but the planting was uninspiring and the scale of the elements within them was wrong,â€ says Richard. â€œEverything was small, with things dotted here and there.â€"
                 },
                 {
                     "type": "gallery",
@@ -4728,7 +4728,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1437624289725_HG0714gardenhowtoGL-248JohnsonAnnandale08-03-20140163R2.jpg",
-                                    "caption": "Landscape designer Richard Unsworth of [Garden Life](http://gardenlife.com.au/|target=\"_blank\") took his design cues from the building itself. â€œItâ€™s a solid, robust old building with a cutting-edge renovation within, so we created a scheme thatâ€™s bold but has warmth and texture.â€",
+                                    "caption": "Landscape designer Richard Unsworth of [Garden Life](http://gardenlife.com.au/|target=\"_blank\") took his design cues from the building itself. â€œIt's a solid, robust old building with a cutting-edge renovation within, so we created a scheme that's bold but has warmth and texture.â€",
                                     "title": "HG0714 garden how to GL - 248 Johnson Annandale 08-03-2014_0163R2.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4749,7 +4749,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1437624289728_HG0714gardenhowtoGL-248JohnsonAnnandale08-03-20140196R1.jpg",
-                                    "caption": "A hanging reed sculpture by Tracey Deep enlivens the atrium. To soften the sandstone wall that snakes through the space, Richard has planted a variety of foliage plants including strappy wild iris, mounds of Pittosporum â€˜Miss Muffetâ€™ and long-leafed *Sansevieria* â€˜Congoâ€™. The groundcover is *Trachelospermum asiaticum* (Japanese star jasmine) and the concrete bowl is planted with mondo grass.",
+                                    "caption": "A hanging reed sculpture by Tracey Deep enlivens the atrium. To soften the sandstone wall that snakes through the space, Richard has planted a variety of foliage plants including strappy wild iris, mounds of Pittosporum â€˜Miss Muffet' and long-leafed *Sansevieria* â€˜Congo'. The groundcover is *Trachelospermum asiaticum* (Japanese star jasmine) and the concrete bowl is planted with mondo grass.",
                                     "title": "HG0714 garden how to GL - 248 Johnson Annandale 08-03-2014_0196R1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4770,7 +4770,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1437624289735_HG0714gardenhowtoGL-248JohnsonAnnandale08-03-20140249R1.jpg",
-                                    "caption": "Healthy specimens include *Spathiphyllum* â€˜Sensationâ€™ (left) and a bromeliad, *Vriesea fosteriana*.",
+                                    "caption": "Healthy specimens include *Spathiphyllum* â€˜Sensation' (left) and a bromeliad, *Vriesea fosteriana*.",
                                     "title": "HG0714 garden how to GL - 248 Johnson Annandale 08-03-2014_0249R1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4808,7 +4808,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1437624289679_GL-248JohnsonAnnandale08-03-20140251.JPG",
-                                    "caption": "Planted inside the trough is hardy *Carex* â€˜Frosted Curlsâ€™, a grass with brown-green tones that provides visual and textural contrast.\nThe strands of grass have been woven into rounded shapes for an unexpected twist.",
+                                    "caption": "Planted inside the trough is hardy *Carex* â€˜Frosted Curls', a grass with brown-green tones that provides visual and textural contrast.\nThe strands of grass have been woven into rounded shapes for an unexpected twist.",
                                     "title": "GL - 248 Johnson Annandale 08-03-2014_0251.JPG",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4827,7 +4827,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1437624289738_HG0714gardenhowtoGL-248JohnsonAnnandale08-03-20140311R1.jpg",
-                                    "caption": "This overhead view of the atrium shows the sandstone wall and river pebbles curving through the space. For a groundcover, Richard has used Japanese star jasmine (*Trachelospermum asiaticum*). Itâ€™s finer than Chinese star jasmine yet itâ€™s a vigorous grower that does well in either sun or shade.",
+                                    "caption": "This overhead view of the atrium shows the sandstone wall and river pebbles curving through the space. For a groundcover, Richard has used Japanese star jasmine (*Trachelospermum asiaticum*). It's finer than Chinese star jasmine yet it's a vigorous grower that does well in either sun or shade.",
                                     "title": "HG0714 garden how to GL - 248 Johnson Annandale 08-03-2014_0311R1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4869,7 +4869,7 @@ module.exports =
                                 },
                                 {
                                     "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1437624289715_HG0714gardenhowtoGL-248JohnsonAnnandale08-03-20140085R1.jpg",
-                                    "caption": "â€œEverything is visible from the home, and thereâ€™s no room for plants that donâ€™t perform,â€ says Richard.",
+                                    "caption": "â€œEverything is visible from the home, and there's no room for plants that don't perform,â€ says Richard.",
                                     "title": "HG0714 garden how to GL - 248 Johnson Annandale 08-03-2014_0085R1.jpg",
                                     "valid": true,
                                     "mediaType": "image",
@@ -4892,7 +4892,7 @@ module.exports =
                             ],
                             "title": "Gallery: Industrial-style urban courtyard",
                             "summaryTitle": "Gallery: Industrial-style urban courtyard",
-                            "summary": "A warehouse conversion has inspired industrial-style landscaping in this spectacular urban courtyard located in Sydneyâ€™s inner west.",
+                            "summary": "A warehouse conversion has inspired industrial-style landscaping in this spectacular urban courtyard located in Sydney's inner west.",
                             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1573/HG0714-garden-how-to-GL---248-Johnson-Annandale-08-03-2014_0038R2.jpg",
                             "imageAltText": "Industrial courtyard garden",
                             "photoCredit": "Nicholas Watts",
@@ -4943,7 +4943,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "In the 100mÂ² courtyard, he installed a lightweight 2x2m concrete and fibreglass planter. Planted with two towering Japanese maples, it has become the centrepiece of the space. \n\nRichard planted swathes of strappy foliage plants, in the earth and in oversized pots, around an existing sandstone wall in the 50mÂ² atrium. \n\nâ€œWeâ€™ve softened the spaces, adding movement and warmth,â€ he says. â€œIn these inner-city spaces, itâ€™s all about the textures and composition of the elements.â€"
+                    "content": "In the 100mÂ² courtyard, he installed a lightweight 2x2m concrete and fibreglass planter. Planted with two towering Japanese maples, it has become the centrepiece of the space. \n\nRichard planted swathes of strappy foliage plants, in the earth and in oversized pots, around an existing sandstone wall in the 50mÂ² atrium. \n\nâ€œWe've softened the spaces, adding movement and warmth,â€ he says. â€œIn these inner-city spaces, it's all about the textures and composition of the elements.â€"
                 },
                 {
                     "type": "heading",
@@ -4953,27 +4953,27 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œEverything is visible from the home, and thereâ€™s no room for plants that donâ€™t perform,â€ says Richard. Both the courtyard and atrium are subject to extreme shade and sun. â€œWhen it comes to choosing plants that perform, I always choose foliage plants with good form rather than flowering\nplants,â€ says Richard. \n\nColour variation is important, too, from the emerald Dietes to the brown-hued grasses and deep green hedge of *Nandina domestica*. â€œWe can see each element and plant for what it is,â€ says Richard. â€œItâ€™s all about creating good tension.â€"
+                    "content": "â€œEverything is visible from the home, and there's no room for plants that don't perform,â€ says Richard. Both the courtyard and atrium are subject to extreme shade and sun. â€œWhen it comes to choosing plants that perform, I always choose foliage plants with good form rather than flowering\nplants,â€ says Richard. \n\nColour variation is important, too, from the emerald Dietes to the brown-hued grasses and deep green hedge of *Nandina domestica*. â€œWe can see each element and plant for what it is,â€ says Richard. â€œIt's all about creating good tension.â€"
                 },
                 {
                     "type": "tips",
                     "label": "Tips",
-                    "content": "## Richardâ€™s tips for outdoor spaces\n* Plant choice is crucial. Select plants that will thrive in particular conditions: they may need to withstand sun exposure, for example, or long periods of shade.\n* In windy spots, use robust pots with large bases and avoid tall, skinny shapes that will easily blow over.\n* Think about scale: make bold statements and avoid the use of small pots in confined spaces.\n* To keep the composition interesting, establish a strong focal point and use groupings of different plants.\n* Layer plants for a full look and take care to create interest in the foreground as well as in the distance.\n* Bring together different elements for textural contrast. For example, you might place a slick, minimalist white cylinder pot next to an antique or rustic timber one, or use soft, mounding foliage with architectural or grassy foliage."
+                    "content": "## Richard's tips for outdoor spaces\n* Plant choice is crucial. Select plants that will thrive in particular conditions: they may need to withstand sun exposure, for example, or long periods of shade.\n* In windy spots, use robust pots with large bases and avoid tall, skinny shapes that will easily blow over.\n* Think about scale: make bold statements and avoid the use of small pots in confined spaces.\n* To keep the composition interesting, establish a strong focal point and use groupings of different plants.\n* Layer plants for a full look and take care to create interest in the foreground as well as in the distance.\n* Bring together different elements for textural contrast. For example, you might place a slick, minimalist white cylinder pot next to an antique or rustic timber one, or use soft, mounding foliage with architectural or grassy foliage."
                 }
             ],
             "author": [],
             "title": "Tough exterior: An industrial-style urban courtyard",
             "summaryTitle": "Tough exterior: An industrial-style urban courtyard",
-            "summary": "A warehouse conversion has inspired industrial-style landscaping in Sydneyâ€™s inner west.",
+            "summary": "A warehouse conversion has inspired industrial-style landscaping in Sydney's inner west.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1575/HERO-hg0714-how-to-garden-new-image-GL---248-Johnson-Annandale-08-03-2014_0266.jpg",
             "imageAltText": "Warehouse courtyard conversion",
-            "imageCaption": "A *Ficus lyrata* (fiddleleaf fig) above planters filled with Pittosporum â€˜Miss Muffetâ€™, a reliable mounding plant in sun or shade.",
+            "imageCaption": "A *Ficus lyrata* (fiddleleaf fig) above planters filled with Pittosporum â€˜Miss Muffet', a reliable mounding plant in sun or shade.",
             "photoCredit": "Nicholas Watt",
             "redirect": {
                 "mode": 2
             },
             "pageTitle": "Tough exterior: An industrial-style urban courtyard",
-            "metaDescription": "A warehouse conversion has inspired industrial-style landscaping in this spectacular urban courtyard located in Sydneyâ€™s inner west.",
+            "metaDescription": "A warehouse conversion has inspired industrial-style landscaping in this spectacular urban courtyard located in Sydney's inner west.",
             "imageFacebookUrl": {
                 "tags": [],
                 "source": "",
@@ -5056,7 +5056,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Thereâ€™s nothing quite like slipping your shoes off at the end of the day and sinking your tired feet into soft carpet. And now, advances in technology mean you can expect more from your carpet than a warm welcome home. The latest options require less maintenance, offer better stain- and fade-resistance, and are available in just about every texture and pattern you could imagine."
+                    "content": "There's nothing quite like slipping your shoes off at the end of the day and sinking your tired feet into soft carpet. And now, advances in technology mean you can expect more from your carpet than a warm welcome home. The latest options require less maintenance, offer better stain- and fade-resistance, and are available in just about every texture and pattern you could imagine."
                 },
                 {
                     "type": "heading",
@@ -5066,12 +5066,12 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "* **Wool:** Eco-friendly wool comes with the highest price tag, but is generally considered the ultimate carpet choice. It breathes, keeps your home warmer in winter and cooler in summer, provides acoustic protection, as well as being naturally fire- and stain-resistant.\n* **Wool-nylon blend:** Combines the beauty of wool with robust nylon, making it a good choice for family homes. As a rule, the higher the percentage of wool, the better the quality.\n* **Synthetic:** Nylon, polyester and Triexta (a synthetic made from renewable resources) are durable, stain-resistant and pop back into shape even under heavy footfall. Theyâ€™re also less likely to fade. For superior fade-resistance and vibrancy, look for solution-dyed nylons where the colour permeates the entire fibre.\n* **Natural flooring:** Woven jute, sisal and coir are durable, have textural appeal, are good at dampening noise and regulating temperature. They are not suited to wet areas such as laundries and bathrooms.\n\nOf all carpet materials, synthetics have perhaps seen the biggest advances in recent years, to the point where itâ€™s often hard to distinguish the quality ones from wool. \n\nNew synthetics offer all manner of appealing features too, including advanced stain-blocking and fade resistance that are specially designed to withstand our harsh Aussie climate. They also offer anti-odour and antibacterial protection, which is great for homes with kids or pets."
+                    "content": "* **Wool:** Eco-friendly wool comes with the highest price tag, but is generally considered the ultimate carpet choice. It breathes, keeps your home warmer in winter and cooler in summer, provides acoustic protection, as well as being naturally fire- and stain-resistant.\n* **Wool-nylon blend:** Combines the beauty of wool with robust nylon, making it a good choice for family homes. As a rule, the higher the percentage of wool, the better the quality.\n* **Synthetic:** Nylon, polyester and Triexta (a synthetic made from renewable resources) are durable, stain-resistant and pop back into shape even under heavy footfall. They're also less likely to fade. For superior fade-resistance and vibrancy, look for solution-dyed nylons where the colour permeates the entire fibre.\n* **Natural flooring:** Woven jute, sisal and coir are durable, have textural appeal, are good at dampening noise and regulating temperature. They are not suited to wet areas such as laundries and bathrooms.\n\nOf all carpet materials, synthetics have perhaps seen the biggest advances in recent years, to the point where it's often hard to distinguish the quality ones from wool. \n\nNew synthetics offer all manner of appealing features too, including advanced stain-blocking and fade resistance that are specially designed to withstand our harsh Aussie climate. They also offer anti-odour and antibacterial protection, which is great for homes with kids or pets."
                 },
                 {
                     "type": "tips",
                     "label": "Tips",
-                    "content": "## Choosing the right carpet\n\nIngrid Powell, online content manager at [Choices Flooring](http://www.choicesflooring.com.au/|target=\"_blank\"), outlines the features to look out for:\n\n* A dense weave indicates high quality: Assess this by parting the tufts on a carpet sample in both directions â€“ the less backing you see, the tighter the density.\n* Pay careful attention to the labelling on the back of the sample, which provides useful technical information, including how long the carpet is expected to last, warranty details, and fade- and stain resistance.\n* The label should also state the carpetâ€™s Australian Carpet Classification Scheme rating (up to five stars), indicating how much traffic it can handle.\n* Test softness with your bare feet rather than your hands."
+                    "content": "## Choosing the right carpet\n\nIngrid Powell, online content manager at [Choices Flooring](http://www.choicesflooring.com.au/|target=\"_blank\"), outlines the features to look out for:\n\n* A dense weave indicates high quality: Assess this by parting the tufts on a carpet sample in both directions â€“ the less backing you see, the tighter the density.\n* Pay careful attention to the labelling on the back of the sample, which provides useful technical information, including how long the carpet is expected to last, warranty details, and fade- and stain resistance.\n* The label should also state the carpet's Australian Carpet Classification Scheme rating (up to five stars), indicating how much traffic it can handle.\n* Test softness with your bare feet rather than your hands."
                 }
             ],
             "author": [
@@ -5119,7 +5119,7 @@ module.exports =
             "summary": "New carpet technology is driving modern carpet trends. The latest material options require less maintenance and come in every texture and pattern imaginable.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/23/1566/HERO_CARPETDECORATING_HG_OconHou_052-var_v0.1.jpg",
             "imageAltText": "Apartment bedroom wool carpet",
-            "imageCaption": "Rich wool carpet from [Don Currie Carpets] adds depth to the serene bedroom of architects Annick Houle and Stephen Oâ€™Connor. Photo: Derek Swalwell / bauersyndication.com.au",
+            "imageCaption": "Rich wool carpet from [Don Currie Carpets] adds depth to the serene bedroom of architects Annick Houle and Stephen O'Connor. Photo: Derek Swalwell / bauersyndication.com.au",
             "photoCredit": "Derek Swalwell / bauersyndication.com.au",
             "redirect": {
                 "mode": 2
@@ -5211,7 +5211,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The lifestyle benefits of a swimming pool are manifest â€“ relaxation, entertainment, exercise, aesthetics, a social hub for the kids â€“ but will it add monetary value to your property? \n\nIt may seem counter-intuitive but from my observation, the most popular location for pools is in seaside suburbs. In these areas, living on the water is a whole way of life to many, so the idea of a pool has value.\n\nBuilding a pool in a cooler climate is generally not a good idea as it can only be used for a few months of the year. Iâ€™ve seen cases where people have spent hundreds of thousands on heated indoor pools and havenâ€™t been able to recover anything like that when they sell. \n\nBefore making a decision, look at the local market. Do most houses in your area have pools? If not, there may be a good reason. A pool may reduce your pool of potential buyers (pardon the pun) because those who donâ€™t want a pool will cross you off their list. Those who do can always build one themselves. If itâ€™s an upmarket area in a warm climate, however, having a pool may be an expectation."
+                    "content": "The lifestyle benefits of a swimming pool are manifest â€“ relaxation, entertainment, exercise, aesthetics, a social hub for the kids â€“ but will it add monetary value to your property? \n\nIt may seem counter-intuitive but from my observation, the most popular location for pools is in seaside suburbs. In these areas, living on the water is a whole way of life to many, so the idea of a pool has value.\n\nBuilding a pool in a cooler climate is generally not a good idea as it can only be used for a few months of the year. I've seen cases where people have spent hundreds of thousands on heated indoor pools and haven't been able to recover anything like that when they sell. \n\nBefore making a decision, look at the local market. Do most houses in your area have pools? If not, there may be a good reason. A pool may reduce your pool of potential buyers (pardon the pun) because those who don't want a pool will cross you off their list. Those who do can always build one themselves. If it's an upmarket area in a warm climate, however, having a pool may be an expectation."
                 },
                 {
                     "type": "heading",
@@ -5221,7 +5221,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Talk to a local real estate agent about how much extra a pool may (or may not) be worth when you sell, before you outlay big money. Look at the potential costs and site constraints, too. \n\nA pool may be cost effective if you have a level block with good access for machinery. But if itâ€™s a sloping site, or rocky, or it has difficult access or underground services that have to be relocated, the costs may outweigh the benefits. â€œSome buyers may see a pool as an inconvenience and shy away from buying a property that includes one, but equally, many buyers prefer to have a pool and may be willing to pay extra to secure one,â€ says Angus Raine, chairman and CEO of real estate group [Raine & Horne](http://www.raineandhorne.com.au/|target=\"_blank\"). \n\nâ€œIf you are investing in a pool, you must be careful that it doesnâ€™t dominate your outdoor space and leave you with little or no yard. Just like your home, the presentation and maintenance of your pool will go a long way to determining how much of an asset it is when it comes time to sell.â€"
+                    "content": "Talk to a local real estate agent about how much extra a pool may (or may not) be worth when you sell, before you outlay big money. Look at the potential costs and site constraints, too. \n\nA pool may be cost effective if you have a level block with good access for machinery. But if it's a sloping site, or rocky, or it has difficult access or underground services that have to be relocated, the costs may outweigh the benefits. â€œSome buyers may see a pool as an inconvenience and shy away from buying a property that includes one, but equally, many buyers prefer to have a pool and may be willing to pay extra to secure one,â€ says Angus Raine, chairman and CEO of real estate group [Raine & Horne](http://www.raineandhorne.com.au/|target=\"_blank\"). \n\nâ€œIf you are investing in a pool, you must be careful that it doesn't dominate your outdoor space and leave you with little or no yard. Just like your home, the presentation and maintenance of your pool will go a long way to determining how much of an asset it is when it comes time to sell.â€"
                 },
                 {
                     "type": "heading",
@@ -5231,7 +5231,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "My rule of thumb is this: if you have young children, a swimming pool can be worthwhile, as they tend to live in their swimmers and will have years of enjoyment. But when theyâ€™re teens, theyâ€™ll want to go to the beach with their mates â€“ and youâ€™ll be left holding the leaf scoop."
+                    "content": "My rule of thumb is this: if you have young children, a swimming pool can be worthwhile, as they tend to live in their swimmers and will have years of enjoyment. But when they're teens, they'll want to go to the beach with their mates â€“ and you'll be left holding the leaf scoop."
                 },
                 {
                     "type": "tips",
@@ -5317,7 +5317,7 @@ module.exports =
             ],
             "title": "Does a swimming pool add value to a home?",
             "summaryTitle": "Does a swimming pool add value to a home?",
-            "summary": "Everyone loves having a backyard pool but does it add monetary value to your home, especially when itâ€™s time to sell?",
+            "summary": "Everyone loves having a backyard pool but does it add monetary value to your home, especially when it's time to sell?",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/22/1558/201303073942443215-(1).jpg",
             "imageAltText": "Swimming pool renovation",
             "imageCaption": "An in-ground concrete pool is most likely to add value if the pool is well landscaped. Photo: Alicia Taylor / bauersyndication.com.au",
@@ -5326,7 +5326,7 @@ module.exports =
                 "mode": 2
             },
             "pageTitle": "Does a Swimming Pool Add Value to a Home?",
-            "metaDescription": "Is it worth adding a swimming pool? Will it add value to your home when itâ€™s time to sell? It depends on a myriad of factors. Get the answers here.",
+            "metaDescription": "Is it worth adding a swimming pool? Will it add value to your home when it's time to sell? It depends on a myriad of factors. Get the answers here.",
             "imageFacebookUrl": {
                 "tags": [],
                 "source": "",
@@ -5433,7 +5433,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "But downsizing is not all beer and skittles. Itâ€™s a life-changing move that needs to be carefully planned. \n\nWill you be close to family and friends? What will the children think of you flogging â€˜theirâ€™ family home? What will you do with the decadesâ€™ worth of stuff that wonâ€™t fit into a more compact abode? What of your own emotional response to leaving the house where youâ€™ve raised your children, and to disposing of all your much-loved treasures? \n\nWill your furniture fit in the smaller home? This is where a tape measure comes in handy. Measure your existing furniture and see if and where it will fit in."
+                    "content": "But downsizing is not all beer and skittles. It's a life-changing move that needs to be carefully planned. \n\nWill you be close to family and friends? What will the children think of you flogging â€˜their' family home? What will you do with the decades' worth of stuff that won't fit into a more compact abode? What of your own emotional response to leaving the house where you've raised your children, and to disposing of all your much-loved treasures? \n\nWill your furniture fit in the smaller home? This is where a tape measure comes in handy. Measure your existing furniture and see if and where it will fit in."
                 },
                 {
                     "type": "heading",
@@ -5443,7 +5443,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Of course, downsizing may not put extra cash in your pocket; in fact it can cost more. Upmarket apartments on the water or near the city often cost more than a four-bedroom house in a middle or outer suburb and you will lose perhaps $50,000 in agentâ€™s fees on your sale and stamp duty on your purchase. \n\nAnd, if the move does leave you with extra cash, it may have an impact on your pension entitlements. All these issues need to be researched, discussed and resolved before you make a decision.\n\nThen you must decide what you take with you, what is passed on to family, and what goes into a garage sale or donated to charity. \n\nYou may need to hang on to that box trailer just a little longer, but that geriatric lawnmower and the suit you got married in could be the first things to go."
+                    "content": "Of course, downsizing may not put extra cash in your pocket; in fact it can cost more. Upmarket apartments on the water or near the city often cost more than a four-bedroom house in a middle or outer suburb and you will lose perhaps $50,000 in agent's fees on your sale and stamp duty on your purchase. \n\nAnd, if the move does leave you with extra cash, it may have an impact on your pension entitlements. All these issues need to be researched, discussed and resolved before you make a decision.\n\nThen you must decide what you take with you, what is passed on to family, and what goes into a garage sale or donated to charity. \n\nYou may need to hang on to that box trailer just a little longer, but that geriatric lawnmower and the suit you got married in could be the first things to go."
                 },
                 {
                     "type": "tips",
@@ -5531,7 +5531,7 @@ module.exports =
             "summary": "With enough research and planning, downsizing can be a liberating experience.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/22/1554/201310183184059096-(1).jpg",
             "imageAltText": "Backyard casual seating",
-            "imageCaption": "Downsizing doesnâ€™t need to be as drastic as this but it still needs careful consideration. Photo: John Paul Urizar",
+            "imageCaption": "Downsizing doesn't need to be as drastic as this but it still needs careful consideration. Photo: John Paul Urizar",
             "photoCredit": "John Paul Urizar",
             "redirect": {
                 "mode": 2
@@ -5610,7 +5610,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "China comes in several forms, including fine bone china, porcelain and stoneware. â€œDespite its delicate appearance, fine bone china is actually the strongest,â€ says Jane Varley, marketing manager at [WWRD Australia](http://www.wwrd.com.au/|target=\"_blank\"), distributors of Waterford, Wedgwood, Royal Doulton and Royal Albert ranges. \n\nâ€œMany people are scared to use fine china, but they shouldnâ€™t be,â€ says Joseph Dâ€™Rozario, butler at [The Hotel Windsor](http://www.thehotelwindsor.com.au/|target=\"_blank\") in Melbourne, where afternoon tea is served on [Noritake](http://www.noritake.com.au/|target=\"_blank\") fine china. â€œItâ€™s there to be enjoyed, and with proper care should last a lifetime.â€"
+                    "content": "China comes in several forms, including fine bone china, porcelain and stoneware. â€œDespite its delicate appearance, fine bone china is actually the strongest,â€ says Jane Varley, marketing manager at [WWRD Australia](http://www.wwrd.com.au/|target=\"_blank\"), distributors of Waterford, Wedgwood, Royal Doulton and Royal Albert ranges. \n\nâ€œMany people are scared to use fine china, but they shouldn't be,â€ says Joseph D'Rozario, butler at [The Hotel Windsor](http://www.thehotelwindsor.com.au/|target=\"_blank\") in Melbourne, where afternoon tea is served on [Noritake](http://www.noritake.com.au/|target=\"_blank\") fine china. â€œIt's there to be enjoyed, and with proper care should last a lifetime.â€"
                 },
                 {
                     "type": "heading",
@@ -5620,7 +5620,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œItâ€™s safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,â€ says Dâ€™Rozario. Varley agrees. â€œRinse pieces before placing them in the machine and make sure that items donâ€™t bump against each other.â€ She advises using a gentle wash cycle with a maximum temperature of 65ËšC."
+                    "content": "â€œIt's safe to wash china in a dishwasher as long as the machine is stacked properly and not over-filled,â€ says D'Rozario. Varley agrees. â€œRinse pieces before placing them in the machine and make sure that items don't bump against each other.â€ She advises using a gentle wash cycle with a maximum temperature of 65ËšC."
                 },
                 {
                     "type": "tips",
@@ -5640,7 +5640,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. â€œRemove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for â€˜pencilâ€™ marks caused by cutlery use silverware cleaner or Bar Keepers Friend.â€ Scratches, cracks and fading are another matter and may call for a replacement piece. \n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://www.chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://www.chinafinders.com.au/|target=\"_blank\")."
+                    "content": "China that is used and enjoyed will get the odd mark but most of these come out fairly easily, says Varley. â€œRemove tea or coffee stains with a weak bleach solution or bicarb soda mixed with water, and for â€˜pencil' marks caused by cutlery use silverware cleaner or Bar Keepers Friend.â€ Scratches, cracks and fading are another matter and may call for a replacement piece. \n\nIf you find that your pattern has been discontinued, try a specialist website such as [chinamatching.com.au](http://www.chinamatching.com.au/|target=\"_blank\") or [chinafinders.com.au](http://www.chinafinders.com.au/|target=\"_blank\")."
                 },
                 {
                     "type": "heading",
@@ -5650,7 +5650,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œWhen stacking plates, put a linen cloth between each piece so thereâ€™s no risk of marking the one underneath,â€ says Dâ€™Rozario. Avoid over-stacking â€“ no more than four plates high â€“ as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. â€œFor example, never transfer a bone china plate straight from the fridge into a hot oven,â€ says Varley."
+                    "content": "â€œWhen stacking plates, put a linen cloth between each piece so there's no risk of marking the one underneath,â€ says D'Rozario. Avoid over-stacking â€“ no more than four plates high â€“ as the weight can weaken the rims and cause damage. Cups and mugs should not be stacked or hung by their handles, which can result in cracks or scratches. \n\nAnd be mindful of extreme temperature changes. â€œFor example, never transfer a bone china plate straight from the fridge into a hot oven,â€ says Varley."
                 }
             ],
             "author": [
@@ -5695,10 +5695,10 @@ module.exports =
             ],
             "title": "How to care for fine china",
             "summaryTitle": "How to care for fine china",
-            "summary": "Thereâ€™s something special about using fine china so itâ€™s worth looking after.",
+            "summary": "There's something special about using fine china so it's worth looking after.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/22/1551/Arris_LS_1.jpg",
             "imageAltText": "Porcelain fine chine dinnerware",
-            "imageCaption": "The [Wedgwood](http://www.wedgwood.com/|target=\"_blank\") â€˜Arrisâ€™ range of fine bone china.",
+            "imageCaption": "The [Wedgwood](http://www.wedgwood.com/|target=\"_blank\") â€˜Arris' range of fine bone china.",
             "redirect": {
                 "mode": 2
             },
@@ -5783,7 +5783,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "When their children hit adulthood, the owners of this home in Melbourneâ€™s Eastern suburbs commissioned landscape designer [Ian Barker](http://www.landscape.net.au/|target=\"_blank\") to build an outdoor room specifically for entertaining. â€œThey knew they had 21st birthday parties coming up, so the focus was on creating a relaxed, appealing spot that could accommodate lots of friends,â€ says Barker."
+                    "content": "When their children hit adulthood, the owners of this home in Melbourne's Eastern suburbs commissioned landscape designer [Ian Barker](http://www.landscape.net.au/|target=\"_blank\") to build an outdoor room specifically for entertaining. â€œThey knew they had 21st birthday parties coming up, so the focus was on creating a relaxed, appealing spot that could accommodate lots of friends,â€ says Barker."
                 },
                 {
                     "type": "heading",
@@ -5820,7 +5820,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "â€œWeâ€™ve designed a space that has party written all over it,â€ says Barker. â€œThe pizza oven was one thing the owners insisted we include and I know theyâ€™re thrilled with how it, and the entire space, looks. They must be; theyâ€™ve invited me round for pizza!â€"
+                    "content": "â€œWe've designed a space that has party written all over it,â€ says Barker. â€œThe pizza oven was one thing the owners insisted we include and I know they're thrilled with how it, and the entire space, looks. They must be; they've invited me round for pizza!â€"
                 },
                 {
                     "type": "tips",
@@ -5831,16 +5831,16 @@ module.exports =
             "author": [],
             "title": "From courtyard deck to versatile outdoor room",
             "summaryTitle": "From courtyard deck to versatile outdoor room",
-            "summary": "A neglected garden is decked out as an outdoor room thatâ€™s open all hours.",
+            "summary": "A neglected garden is decked out as an outdoor room that's open all hours.",
             "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/22/1548/hg0214-Outdoor-rooms-8949.jpg",
             "imageAltText": "Outdoor kitchen renovation",
-            "imageCaption": "â€œWeâ€™ve designed a space that has party written all over it,â€ says landscape designer Ian Barker. Photo: Patrick Redmond",
+            "imageCaption": "â€œWe've designed a space that has party written all over it,â€ says landscape designer Ian Barker. Photo: Patrick Redmond",
             "photoCredit": "Patrick Redmond",
             "redirect": {
                 "mode": 2
             },
             "pageTitle": "From Courtyard Deck to Versatile Outdoor Room",
-            "metaDescription": "A neglected garden is decked out as an outdoor room thatâ€™s open all hours.",
+            "metaDescription": "A neglected garden is decked out as an outdoor room that's open all hours.",
             "imageFacebookUrl": {
                 "tags": [],
                 "source": "",
@@ -5930,7 +5930,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "When you want to add a hit of colour, pattern and texture to a kitchen, bathroom or outdoor area, thereâ€™s no tool quite as effective as tiles. â€œTiles add dimension and visual excitement that canâ€™t be attained by other mediums such as paint and wallpaper,â€ says interior designer Ruth Levine.\nJenny Wasson, design coordinator at [The Winchester Tile Company](http://www.winchestertiles.com/|target=\"_blank\") agrees: â€œAs well as being tactile and offering endless design possibilities, tiles are hardwearing and generally easy to care forâ€."
+                    "content": "When you want to add a hit of colour, pattern and texture to a kitchen, bathroom or outdoor area, there's no tool quite as effective as tiles. â€œTiles add dimension and visual excitement that can't be attained by other mediums such as paint and wallpaper,â€ says interior designer Ruth Levine.\nJenny Wasson, design coordinator at [The Winchester Tile Company](http://www.winchestertiles.com/|target=\"_blank\") agrees: â€œAs well as being tactile and offering endless design possibilities, tiles are hardwearing and generally easy to care forâ€."
                 },
                 {
                     "type": "heading",
@@ -5954,14 +5954,14 @@ module.exports =
                         ],
                         "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/22/1437534621907_hg0215BuyersGuideC1454222HG0624R1.jpg",
                         "valid": true,
-                        "caption": "Punched from a solid piece of high-quality copper, the show-stopping â€˜Honeyâ€™ copper mosiac (29X25MM) hexagonal tiles from [Alloy](http://www.alloydesign.com.au|target=\"_blank\") naturally oxidise over time to develop a subtle green-hued patina. Can be used on all interior and exterior walls and floors.",
+                        "caption": "Punched from a solid piece of high-quality copper, the show-stopping â€˜Honey' copper mosiac (29X25MM) hexagonal tiles from [Alloy](http://www.alloydesign.com.au|target=\"_blank\") naturally oxidise over time to develop a subtle green-hued patina. Can be used on all interior and exterior walls and floors.",
                         "source": "Australian House and Garden"
                     }
                 },
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "Texture is another key feature. There are three-dimensional tiles in neutral shades of black, white and grey that use light and shadow to create visual impact, as well as clever interactive designs such as InStyleâ€™s 3D modular Foliar tiles, which mimic the plants and flowers found in nature."
+                    "content": "Texture is another key feature. There are three-dimensional tiles in neutral shades of black, white and grey that use light and shadow to create visual impact, as well as clever interactive designs such as InStyle's 3D modular Foliar tiles, which mimic the plants and flowers found in nature."
                 },
                 {
                     "type": "heading",
@@ -5990,7 +5990,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "For lovers of all things retro, weâ€™re seeing a return to shapes with a 1960s and â€™70s flair, says Tina Di Lorenzo, marketing and product manager at [Di Lorenzo](http://www.dilorenzo.com.au/|target=\"_blank\"). According to Di Lorenzo, hexagons, rhombuses, chevron patterns and other geometric shapes are among the top sellers. \n\nOther eye-catching designs to look for include fish-scale designs, penny-round mosaics, tiles that mimic the crackled effect of time-worn plaster, and ones made from recycled timber."
+                    "content": "For lovers of all things retro, we're seeing a return to shapes with a 1960s and '70s flair, says Tina Di Lorenzo, marketing and product manager at [Di Lorenzo](http://www.dilorenzo.com.au/|target=\"_blank\"). According to Di Lorenzo, hexagons, rhombuses, chevron patterns and other geometric shapes are among the top sellers. \n\nOther eye-catching designs to look for include fish-scale designs, penny-round mosaics, tiles that mimic the crackled effect of time-worn plaster, and ones made from recycled timber."
                 },
                 {
                     "type": "heading",
@@ -6010,7 +6010,7 @@ module.exports =
                         ],
                         "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/22/1437534888676_visionsbeigewoodlosagna.jpg",
                         "valid": true,
-                        "caption": "Visions matt â€˜Wood Beigeâ€™ losagna tile from [Di Lorenzo](http://www.dilorenzo.com.au/|target=\"_blank\") have the natural look of distressed timber â€“ but are actually made from porcelain.",
+                        "caption": "Visions matt â€˜Wood Beige' losagna tile from [Di Lorenzo](http://www.dilorenzo.com.au/|target=\"_blank\") have the natural look of distressed timber â€“ but are actually made from porcelain.",
                         "source": "Australian House and Garden"
                     }
                 },
@@ -6042,7 +6042,7 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "At the other end of the spectrum, thereâ€™s renewed appreciation for artisan tiles. In the case of handpainted, and handcrafted tiles, the odd imperfection only adds to the charm. In antique tiles the pattern may have mellowed with age \nâ€œCustomers are responding to the uniqueness of each tile, such as the pooled glazes, undulating surfaces and rustic edges,â€ says Wasson."
+                    "content": "At the other end of the spectrum, there's renewed appreciation for artisan tiles. In the case of handpainted, and handcrafted tiles, the odd imperfection only adds to the charm. In antique tiles the pattern may have mellowed with age \nâ€œCustomers are responding to the uniqueness of each tile, such as the pooled glazes, undulating surfaces and rustic edges,â€ says Wasson."
                 },
                 {
                     "type": "heading",
@@ -6062,12 +6062,12 @@ module.exports =
                 {
                     "type": "paragraph",
                     "label": "Paragraph",
-                    "content": "The key to creating impact with decorative tiles, says Di Lorenzo, is to use them sparingly. â€œPeople often make the mistake of choosing the largest wall as the feature, but this isnâ€™t always the best option. Itâ€™s also important to factor in the colours of the surrounding walls and floor when choosing a design.â€ \nLevine concurs: â€œAlways aim to balance busyness with plain, so the decorative becomes the most important element in the space.â€"
+                    "content": "The key to creating impact with decorative tiles, says Di Lorenzo, is to use them sparingly. â€œPeople often make the mistake of choosing the largest wall as the feature, but this isn't always the best option. It's also important to factor in the colours of the surrounding walls and floor when choosing a design.â€ \nLevine concurs: â€œAlways aim to balance busyness with plain, so the decorative becomes the most important element in the space.â€"
                 },
                 {
                     "type": "tips",
                     "label": "Tips",
-                    "content": "## Between the lines â€“ grout is more than just a filler!\n\nGrout plays an important functional role, filling the gaps and protecting tile edges from wear and tear, but it can be used as a decorative tool too, says Brad Lawrence, national flooring buyer at Bunnings. â€œChoose a matching grout to achieve a uniform look or a contrasting grout â€“ black grout with red tiles, for example â€“ to really highlight the tiles. Itâ€™s a fun way to achieve a retro checkerboard effect or to produce a classic black and white floor pattern.â€"
+                    "content": "## Between the lines â€“ grout is more than just a filler!\n\nGrout plays an important functional role, filling the gaps and protecting tile edges from wear and tear, but it can be used as a decorative tool too, says Brad Lawrence, national flooring buyer at Bunnings. â€œChoose a matching grout to achieve a uniform look or a contrasting grout â€“ black grout with red tiles, for example â€“ to really highlight the tiles. It's a fun way to achieve a retro checkerboard effect or to produce a classic black and white floor pattern.â€"
                 }
             ],
             "author": [
@@ -6184,7 +6184,7 @@ module.exports =
             "summary": "Decorative tiles are the ultimate style statement â€“ get the goss from Aussie tile experts on the latest distinctive designs on offer.",
             "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/22/1538/hero_hg1114top50_064r1-(2).jpg",
             "imageAltText": "Artistic tiled bathroom",
-            "imageCaption": "For those who want to make a real style statement, mosaic specialist Bisazza offers â€˜story panelsâ€™, such as this Eastern-inspired peacock motif in an ensuite designed by Ruth Levine.\r\nPhoto: Nicholas Watt",
+            "imageCaption": "For those who want to make a real style statement, mosaic specialist Bisazza offers â€˜story panels', such as this Eastern-inspired peacock motif in an ensuite designed by Ruth Levine.\r\nPhoto: Nicholas Watt",
             "photoCredit": "Nicholas Watt",
             "redirect": {
                 "mode": 2
