@@ -48,6 +48,10 @@ export default {
         }
     },
 
+    ads: {
+        targets: {'env': 'test'}
+    },
+
     polar: {
         url: '//plugin.mediavoice.com/plugin.js',
         propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',

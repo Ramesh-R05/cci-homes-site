@@ -10,6 +10,11 @@ export default {
     gigya: {
         apiKey: '3_PV8TmIRNKAgRIsjss-5ZrHQEcexerbmgDhJFUyTKWHZFPgou5P4QGIL8-zSsA-v5'
     },
+
+    ads: {
+        targets: ''
+    },
+
     polar: {
         propertyId: 'NA-HOMETOLOVE-11237320',
         targets: ''
