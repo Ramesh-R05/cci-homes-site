@@ -16,7 +16,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@bxm/ad": "^2.7.2",
+    "@bxm/ad": "^2.7.3",
     "@bxm/article": "^1.5.0",
     "@bxm/config": "^1.2.0",
     "@bxm/flux": "^1.4.1",
