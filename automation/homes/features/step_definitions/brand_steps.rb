@@ -7,13 +7,15 @@ Then(/^I should see "([^"]+)" logo$/) do |brand_name|
     expect(image_alt).to have_content(brand_name)
 end
 
-Then(/^I should see subscribe image$/) do
-    subscribe_image = find('article.teaser--img-top > a.teaser__image')
-    expect(subscribe_image.visible?).to eq(true)
-end
+Then(/^I should see the Subscribe (image|title) link redirected to the magshop in the current window$/) do |item_type|
+    if (item_type == 'image')     
+        link = find(".brand-subscribe a.teaser__#{item_type}", match: :first)
+    else
+        link = find(".brand-subscribe h3.teaser__#{item_type} a", match: :first)
+    end
 
-Then(/^I should see "([^"]+)" with href "([^"]+)"$/) do |text, href|
-    expect(page.find('h3.teaser__title > a.gtm-brand-subscribe')).to have_link(text, :href=>href)
+    expect(link[:href]).to eq('https://www.magshop.com.au/australian-house-and-garden/HL510HGN')
+    expect(link[:target]).to_not eq('_blank')
 end
 
 Then(/^I should see (\d+) teasers on the page$/) do |teaser_count|
@@ -43,15 +45,4 @@ end
 Then(/^I should not see the (Facebook|Instagram|Twitter|Pinterest) link$/) do |social_name|
     social_name_lowercase = social_name.downcase 
     expect(page).to have_no_selector(".social-icon--#{social_name_lowercase}")
-end
-
-Then(/^I should see the Subscribe (image|title) link redirected to the magshop in the current window$/) do |item_type|
-    if (item_type == 'image')     
-        link = find("a.teaser__#{item_type}", match: :first)
-    else
-        link = find("h3.teaser__#{item_type} a", match: :first)
-    end
-
-    expect(link[:href]).to eq('https://www.magshop.com.au/australian-house-and-garden/HL510HGN')
-    expect(link[:target]).to_not eq('_blank')
 end
