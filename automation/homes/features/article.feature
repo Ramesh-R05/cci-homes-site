@@ -4,7 +4,7 @@ Feature: article detail page
     I want to view the article
     So that I can browser the content I enjoy
 
-    @DHO-41 @DHO-101
+    @DHO-41 @DHO-101 @DHO-228
     Scenario: Check article title, summary, content body, inline image with caption and source
         Given I am viewing an article with a hero image
         Then I should see "Article Long Title" as the title
