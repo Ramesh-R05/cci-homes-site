@@ -11,7 +11,7 @@ Feature: HomesToLove Gallery Detail Page
         And I should see the slide count and the image caption
         And I should see the sub-section title above the gallery summary
 
-    @DHO-109 @gallery-ads
+    @DHO-109 @gallery-ads @manual
     Scenario: check all ad slots are visible on the gallery detail page
         Given I am viewing a gallery
         Then I should see 1 "gallery__aside-ad" ad slot
@@ -19,7 +19,7 @@ Feature: HomesToLove Gallery Detail Page
         And I should see 1st MREC after the first 3 images
         And I should see 2nd MREC after the next 4 images
 
-    @DSP-890 @tablet-portrait @gallery-ads
+    @DSP-890 @tablet-portrait @gallery-ads @manual
     Scenario: check all ad slots can Swipe to skip Ad on a Tablet
         Given I am viewing a gallery
         And I should see 1 "gallery__aside-ad" ad slot
@@ -28,7 +28,7 @@ Feature: HomesToLove Gallery Detail Page
         And I should see 2nd MREC after the next 4 images
         And I should see the swipe to skip add button
 
-    @DSP-890 @mobile @gallery-ads
+    @DSP-890 @mobile @gallery-ads @manual
     Scenario: check all ad slots can Swipe to skip Ad on a mobile device
         Given I am viewing a gallery
         And I should see 1 "gallery__aside-ad" ad slot
