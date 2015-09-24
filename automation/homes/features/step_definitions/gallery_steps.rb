@@ -94,10 +94,6 @@ Then(/^I should see (\d+)(?:st|nd|rd|th) MREC after the (?:first|next) (\d+) ima
 	step "I should see the Mrec"
 end
 
-#Given(/^I am viewing gallery "(.*?)"$/) do |gallery|
-#    visit "/#{gallery}"
-#end
-
 Then (/^I should see the swipe to skip add button$/) do
     find("div.gallery__slide-swipe-indicator")
 end
