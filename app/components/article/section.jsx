@@ -5,6 +5,7 @@ import EntityStore from '../../stores/entity';
 import FeedStore from '../../stores/facetedStores/feed';
 import Article from './article';
 import Feed from '../feed/feed';
+import Footer from '../footer/footer';
 import {getCategoryFirstTag} from '../../utils/tagUtils';
 import * as FacetedModuleActions from '../../actions/facetedModule';
 
@@ -19,6 +20,7 @@ class Section extends Component {
     };
 
     static contextTypes = {
+        config: PropTypes.object,
         getStore: PropTypes.func,
         executeAction: PropTypes.func
     };
@@ -71,6 +73,11 @@ class Section extends Component {
                         pageId={content.id}
                         dateCreated={content.dateCreated}
                         url={content.url}
+                    />
+                    <Footer
+                        config={this.context.config.get('localeData')}
+                        iframeKey="articlefooter"
+                        modifier="article"
                     />
                 </div>
 

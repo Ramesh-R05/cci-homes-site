@@ -92,6 +92,8 @@
     &__house-and-garden {
 
         img {
+            position: relative;
+            top: 4px;
             width: 75px;
 
             @media #{$medium} {

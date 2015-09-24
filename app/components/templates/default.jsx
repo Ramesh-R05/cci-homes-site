@@ -63,7 +63,7 @@ class DefaultTemplate extends Component {
                     content={this.props.content}
                     isSideMenuOpen={this.props.isSideMenuOpen}
                 />
-                {hideFooter ? null : <Footer data={localeData} />}
+                {hideFooter ? null : <Footer config={localeData} />}
             </div>
         );
     }

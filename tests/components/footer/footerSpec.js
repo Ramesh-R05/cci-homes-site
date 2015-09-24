@@ -33,48 +33,86 @@ describe(`Footer`, () => {
     let footerSocialLinks;
     let backToTop;
 
-    before(() => {
-        reactModule = Context.mountComponent(Footer, {
-            data: localeData
+    describe('with default props', () => {
+        before(() => {
+            reactModule = Context.mountComponent(Footer, {
+                config: localeData
+            });
+            magshop = TestUtils.findRenderedComponentWithType(reactModule, MagShopStub);
+            footerNavigation = TestUtils.findRenderedComponentWithType(reactModule, FooterNavigationStub);
+            footerNetworkInfo = TestUtils.findRenderedComponentWithType(reactModule, FooterNetworkInfoStub);
+            footerNewsletter = TestUtils.findRenderedComponentWithType(reactModule, FooterNewsletterStub);
+            footerSocialLinks = TestUtils.findRenderedComponentWithType(reactModule, FooterSocialLinksStub);
+            backToTop = TestUtils.findRenderedComponentWithType(reactModule, BackToTopStub);
         });
-        magshop = TestUtils.findRenderedComponentWithType(reactModule, MagShopStub);
-        footerNavigation = TestUtils.findRenderedComponentWithType(reactModule, FooterNavigationStub);
-        footerNetworkInfo = TestUtils.findRenderedComponentWithType(reactModule, FooterNetworkInfoStub);
-        footerNewsletter = TestUtils.findRenderedComponentWithType(reactModule, FooterNewsletterStub);
-        footerSocialLinks = TestUtils.findRenderedComponentWithType(reactModule, FooterSocialLinksStub);
-        backToTop = TestUtils.findRenderedComponentWithType(reactModule, BackToTopStub);
+
+        it(`should render the MagShop Component`, () => {
+            expect(magshop).to.exist;
+        });
+
+        it(`should set the MagShop 'content' props to correct config`, () => {
+            expect(magshop.props.content).to.deep.equal(localeData.magShop);
+        });
+
+        it(`should render the FooterNavigation Component`, () => {
+            expect(footerNavigation).to.exist;
+        });
+
+        it(`should render the FooterNetworkInfo Component`, () => {
+            expect(footerNetworkInfo).to.exist;
+        });
+
+        it(`should render the FooterNewsletter Component`, () => {
+            expect(footerNewsletter).to.exist;
+        });
+
+        const expectedIframeUrl = `${localeData.newsletterIframeUrl}!wnfooter`;
+        it(`should set FooterNewsletter 'url' prop to ${expectedIframeUrl}`, () => {
+            expect(footerNewsletter.props.url).to.equal(expectedIframeUrl);
+        });
+
+        it(`should render the FooterSocialLinks Component`, () => {
+            expect(footerSocialLinks).to.exist;
+        });
+
+        const expectedBackToTopClassName = 'button';
+        it(`should render the BackToTop with the classname prop equal to '${expectedBackToTopClassName} `, () => {
+            expect(backToTop.props.className).to.equal(expectedBackToTopClassName);
+        });
     });
 
-    it(`should render the MagShop Component`, () => {
-        expect(magshop).to.exist;
+    describe('with a modifier prop', () => {
+        const modifier = 'article';
+        let footer;
+
+        before(() => {
+            reactModule = Context.mountComponent(Footer, {
+                config: localeData,
+                modifier: modifier
+            });
+            footer = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'footer');
+        });
+
+        const expectedModifierClassName = `footer--${modifier}`;
+        it(`should render footer with the ${expectedModifierClassName} class`, () => {
+            expect(React.findDOMNode(footer)).to.have.className(expectedModifierClassName);
+        });
     });
 
-    it(`should set the MagShop 'content' props to correct data`, () => {
-        expect(magshop.props.content).to.deep.equal(localeData.magShop);
-    });
+    describe('with an iframeKey prop', () => {
+        const iframeKey = 'article';
 
-    it(`should render the FooterNavigation Component`, () => {
-        expect(footerNavigation).to.exist;
-    });
+        before(() => {
+            reactModule = Context.mountComponent(Footer, {
+                config: localeData,
+                iframeKey: iframeKey
+            });
+            footerNewsletter = TestUtils.findRenderedComponentWithType(reactModule, FooterNewsletterStub);
+        });
 
-    it(`should render the FooterNetworkInfo Component`, () => {
-        expect(footerNetworkInfo).to.exist;
-    });
-
-    it(`should render the FooterNewsletter Component`, () => {
-        expect(footerNewsletter).to.exist;
-    });
-
-    it(`should set FooterNewsletter 'url' prop to ${localeData.newsletter.footerIframeUrl}`, () => {
-        expect(footerNewsletter.props.url).to.equal(localeData.newsletter.footerIframeUrl);
-    });
-
-    it(`should render the FooterSocialLinks Component`, () => {
-        expect(footerSocialLinks).to.exist;
-    });
-
-    const expectedBackToTopClassName = 'button';
-    it(`should render the BackToTop with the classname prop equal to '${expectedBackToTopClassName} `, () => {
-        expect(backToTop.props.className).to.equal(expectedBackToTopClassName);
+        const expectedIframeUrl = `${localeData.newsletterIframeUrl}!${iframeKey}`;
+        it(`should set FooterNewsletter 'url' prop to ${expectedIframeUrl}`, () => {
+            expect(footerNewsletter.props.url).to.equal(expectedIframeUrl);
+        });
     });
 });
