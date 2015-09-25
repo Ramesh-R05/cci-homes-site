@@ -4,14 +4,14 @@ Feature: article detail page
     I want to view the article
     So that I can browser the content I enjoy
 
-    @DHO-41 @DHO-101
+    @DHO-41 @DHO-101 @DHO-228
     Scenario: Check article title, summary, content body, inline image with caption and source
         Given I am viewing an article with a hero image
         Then I should see "Article Long Title" as the title
         And I should see a hero image
         And I should see "Article Short Teaser" within the summary
         And I should see "Technically black and white are not even colours" within the first paragragh
-        And I should see a source logo
+        And I should see the source logo redirected to the brand listing page in the current window
 
     @DHO-183
     Scenario: Check hero video
