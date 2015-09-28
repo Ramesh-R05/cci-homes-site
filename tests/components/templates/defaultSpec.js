@@ -84,7 +84,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../home/home': HomepageStub,
     '../article/section': HomesArticleStub,
     '../section/section': SectionStub,
-    '../gallery/gallery': GalleryStub,
+    '@bxm/gallery/lib/components/page/gallery': GalleryStub,
     '../footer/footer': FooterStub,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
     '@bxm/config': { load: () => { return config } }

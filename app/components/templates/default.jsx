@@ -97,7 +97,7 @@ class DefaultTemplate extends Component {
                 };
             case 'Gallery':
                 return {
-                    Handler: require('../gallery/gallery'),
+                    Handler: require('@bxm/gallery/lib/components/page/gallery'),
                     hideNetworkHeader: true,
                     hideHeader: true,
                     hideFooter: true

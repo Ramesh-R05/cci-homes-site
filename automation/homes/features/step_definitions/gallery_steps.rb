@@ -43,7 +43,7 @@ When(/^I click on the next slide arrow$/) do
 end
 
 Then(/^I should see the sub-section title above the gallery summary$/) do
-  sub_section_title = find('.gallery__subSection')
+  sub_section_title = find('.gallery__subsection')
 
   expect(sub_section_title.text).to eq("CREATIVE HOME")
   expect(sub_section_title.visible?).to eq(true)
