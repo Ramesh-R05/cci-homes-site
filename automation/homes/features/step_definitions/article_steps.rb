@@ -62,23 +62,21 @@ Then(/^I should see the (\d+)(?:[rn]d|st|th) ad in the (\d+)(?:[rn]d|st|th) posi
     expect(found_ad).to be_true, "did not find ad #{ad_number}"
 end
 
-#Gallery Link
-Then(/^I should see the cover image and the title of the related gallery$/) do
-    page.execute_script('window.scrollTo(0,100000)')
+#Inline Gallery
+Then(/^I should see the inline gallery cover image redirected to the gallery page in the current window$/) do
+    inline_gallery_link = find('.content-body__gallery-link a', match: :first)
+    expect(inline_gallery_link[:href]).to have_content('/hot-desking-create-a-home-office-to-suit-your-style-1517')
+    expect(inline_gallery_link[:target]).to_not eq('_blank')
+end
 
-    cover_img = find('.content-body__gallery-link img')
+Then(/^I should see "([^"]+)", "([^"]+)" and "([^"]+)" on the inline gallery cover image$/) do |category, count, title|
+    gallery_category = find('.content-body__gallery-link-category').text
+    gallery_count = find('.content-body__gallery-link-count').text
     gallery_title = find('.content-body__gallery-link-title').text
 
-    expect(cover_img.visible?).to eq(true)
-    expect(gallery_title).to eq("HOT DESKING: CREATE A HOME OFFICE TO SUIT YOUR STYLE")
-end
-
-When(/^I click on the image of the gallery link$/) do
-    find('.content-body__gallery-link-info .content-body__gallery-link-title').click
-end
-
-Then(/^I should be redirected to the detail page of the linked gallery$/) do
-    page.should_not have_title("Article Long Title")
+    expect(gallery_category).to eq(category)
+    expect(gallery_count).to eq(count)
+    expect(gallery_title).to eq(title)
 end
 
 #Related Content

@@ -346,7 +346,7 @@ module.exports =
           "HOMES-1517"
         ],
         "urlName": "hot-desking-create-a-home-office-to-suit-your-style",
-        "url": "/hot-desking-create-a-home-office-to-suit-your-style-1517",
+        "url": "http://www.homestolove.com.au/hot-desking-create-a-home-office-to-suit-your-style-1517",
         "nodeType": "Gallery",
         "template": "Index",
         "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
