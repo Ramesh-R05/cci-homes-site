@@ -18,12 +18,11 @@ Feature: article detail page
         When I am viewing an article with a hero video
         Then I should see a hero video
 
-#    @DHO-258
-#    Scenario: Check gallery link
-#        Given I am viewing an article
-#        Then I should see the cover image and the title of the related gallery
-#        When I click on the image of the gallery link
-#        Then I should be redirected to the detail page of the linked gallery
+    @DHO-258
+    Scenario: Check inline gallery
+        Given I am viewing an article
+        Then I should see the inline gallery cover image redirected to the gallery page in the current window
+        And I should see "GALLERY", "9 PHOTOS" and "HOT DESKING: CREATE A HOME OFFICE TO SUIT YOUR STYLE" on the inline gallery cover image  
 
     @DHO-157
     Scenario: Check related content
