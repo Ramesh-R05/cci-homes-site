@@ -50,8 +50,11 @@ end
 
 Then(/^I (should|should not) see subscribe image and button(?: links to "([^"]+)" in a new window)?$/) do |status, url|
     if (status == "should")
-    	expect(find('.magshop a', match: :first)).to have_xpath("//a[@href = '#{url}' and @target = '_blank']")
-        expect(find('.magshop__subscribe > .magshop__action > a.button')).to have_xpath("//a[@href = '#{url}' and @target = '_blank']")
+        actual_content = all('.magshop a').map { |a| a['href'] }
+        expect(actual_content.count("#{url}")).to eq(2)
+
+        actual_target = all('.magshop a').map { |a| a['target'] }
+        expect(actual_target.count("_blank")).to eq(2)
     else
         expect(page).to have_no_selector('.magshop')
     end
