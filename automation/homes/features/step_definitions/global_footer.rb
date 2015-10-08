@@ -47,9 +47,8 @@ Then(/^I should see the newsletter sign up$/) do
     expect(find('.newsletter').visible?).to eq(true)
 end 
 
-Then(/^I (should|should not) see magshop logo and subscribe links(?: to "([^"]+)" in a new window)?$/) do |status, url|
+Then(/^I (should|should not) see subscribe image and button(?: links to "([^"]+)" in a new window)?$/) do |status, url|
     if (status == "should")
-        expect(find('.magshop img')[:src]).to_not be_empty
     	expect(find('.magshop a', match: :first)).to have_xpath("//a[@href = '#{url}' and @target = '_blank']")
     	expect(find('.button--subscribe')).to have_xpath("//a[@href = '#{url}' and @target = '_blank']")
     else
