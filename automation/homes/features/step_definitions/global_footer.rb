@@ -27,7 +27,7 @@ Then(/^I (should|should not) see the Facebook, Twitter and Instagram links(?: op
         actual_target = all('.social-link a').map { |a| a['target'] }
         expect(actual_target.count("_blank")).to eq(actual_target.size)
     else
-        expect(page).to have_no_selector('.social-link a')
+        expect(page).to have_no_selector('.footer > section.get-social')
     end
 end
 
