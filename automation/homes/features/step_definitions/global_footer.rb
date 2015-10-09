@@ -28,14 +28,15 @@ Then(/^I (should|should not) see the Facebook, Twitter and Instagram links(?: op
         expect(actual_target.count("_blank")).to eq(actual_target.size)
     else
         expect(page).to have_no_selector('.get-social')
+        #expect(find('.get-social__links').visible?).to eq(false)
     end
 end
 
 Then(/^I should see Belle, Real Living, Homes\+ and House & Garden links redirected to the brand page in the current window$/) do
-    expected_content = Array.new(["#{$base_url}/belle/",
-    	"#{$base_url}/real-living/",
-    	"#{$base_url}/homes-plus/",
-    	"#{$base_url}/australian-house-and-garden/"])    
+    expected_content = Array.new(["#{$base_url}belle/",
+    	"#{$base_url}real-living/",
+    	"#{$base_url}homes-plus/",
+    	"#{$base_url}australian-house-and-garden/"])    
     
     actual_content = all('.network-info__supported-content a').map { |a| a['href'] }
     expect(actual_content).to eq(expected_content)
