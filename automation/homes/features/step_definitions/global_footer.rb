@@ -15,20 +15,16 @@ Then(/^I should see the Privacy Policy, Advertise and Terms of Use links open in
   	end
 end
 
-Then(/^I (should|should not) see the Facebook, Twitter and Instagram links(?: open in a new window)?$/) do |status|
-	if (status == "should")
-        expected_content = Array.new(['http://www.facebook.com/homestoloveau', 
-    	    'http://twitter.com/homestoloveau', 
-    	    'http://instagram.com/homestoloveau/'])
+Then(/^I should see the Facebook, Twitter and Instagram links(?: open in a new window)?$/) do
+    expected_content = Array.new(['http://www.facebook.com/homestoloveau', 
+    	'http://twitter.com/homestoloveau', 
+    	'http://instagram.com/homestoloveau/'])
 
-        actual_content = all('.social-link a').map { |a| a['href'] }
-        expect(actual_content).to eq(expected_content)
+    actual_content = all('.social-link a').map { |a| a['href'] }
+    expect(actual_content).to eq(expected_content)
 
-        actual_target = all('.social-link a').map { |a| a['target'] }
-        expect(actual_target.count("_blank")).to eq(actual_target.size)
-    else
-        expect(page).to have_no_selector('.footer > section.get-social')
-    end
+    actual_target = all('.social-link a').map { |a| a['target'] }
+    expect(actual_target.count("_blank")).to eq(actual_target.size)
 end
 
 Then(/^I should see Belle, Real Living, Homes\+ and House & Garden links redirected to the brand page in the current window$/) do
@@ -48,14 +44,10 @@ Then(/^I should see the newsletter sign up$/) do
     expect(find('.newsletter').visible?).to eq(true)
 end 
 
-Then(/^I (should|should not) see subscribe image and button(?: links to "([^"]+)" in a new window)?$/) do |status, url|
-    if (status == "should")
-        actual_content = all('.magshop a').map { |a| a['href'] }
-        expect(actual_content.count("#{url}")).to eq(2)
+Then(/^I should see subscribe image and button(?: links to "([^"]+)" in a new window)?$/) do |url|
+    actual_content = all('.magshop a').map { |a| a['href'] }
+    expect(actual_content.count("#{url}")).to eq(2)
 
-        actual_target = all('.magshop a').map { |a| a['target'] }
-        expect(actual_target.count("_blank")).to eq(2)
-    else
-        expect(page).to have_no_selector('.magshop')
-    end
+    actual_target = all('.magshop a').map { |a| a['target'] }
+    expect(actual_target.count("_blank")).to eq(2)
 end

@@ -25,8 +25,6 @@ Feature: The global footer should appear at the bottom of the page
     Scenario: Check the global footer is displayed correctly on article page
         Given I am viewing an article
         Then I should see the global footer
-        And I should not see the Facebook, Twitter and Instagram links
         And I should see the newsletter sign up
-        And I should not see subscribe image and button
         And I should see Belle, Real Living, Homes+ and House & Garden links redirected to the brand page in the current window
         And I should see the Privacy Policy, Advertise and Terms of Use links open in a new window
