@@ -1,11 +1,15 @@
+$homes_facebook_url = "http://www.facebook.com/homestoloveau"
+$homes_twitter_url = "http://twitter.com/homestoloveau"
+$homes_instagram_url = "http://instagram.com/homestoloveau/"
+
 Then(/^I should see the global footer$/) do
-	page.execute_script('window.scrollTo(0,100000)')
+	  page.execute_script('window.scrollTo(0,100000)')
     expect(page).to have_selector('.footer')
 end
 
 Then(/^I should see the Privacy Policy, Advertise and Terms of Use links open in a new window$/) do
-	within('.footer__navigation') do
-  	    expect(page).to have_link('Privacy Policy', :href => 'http://www.bauer-media.com.au/privacy')
+	  within('.footer__navigation') do
+  	    expect(page).to have_link('Privacy Policy', :href=>'http://www.bauer-media.com.au/privacy')
   	    expect(page).to have_link('Advertise', :href=>'http://www.bauer-media.com.au/advertising/advertise-with-us')
   	    expect(page).to have_link('Terms of Use', :href=>'http://www.bauer-media.com.au/terms/website-terms')
 
@@ -16,9 +20,9 @@ Then(/^I should see the Privacy Policy, Advertise and Terms of Use links open in
 end
 
 Then(/^I should see the Facebook, Twitter and Instagram links(?: open in a new window)?$/) do
-    expected_content = Array.new(['http://www.facebook.com/homestoloveau', 
-    	'http://twitter.com/homestoloveau', 
-    	'http://instagram.com/homestoloveau/'])
+    expected_content = Array.new(["#{$homes_facebook_url}", 
+    	"#{$homes_twitter_url}", 
+    	"#{$homes_instagram_url}"])
 
     actual_content = all('.social-link a').map { |a| a['href'] }
     expect(actual_content).to eq(expected_content)
