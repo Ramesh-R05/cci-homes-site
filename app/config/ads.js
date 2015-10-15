@@ -13,7 +13,8 @@ export default {
             siteId: 'HomesToLove',
             tagsObject: 'tags',
             sizes: {
-                'native': [250, 30]
+                'native': [250, 30],
+                'leaderboard-wide': [760, 120]
             }
         });
     }

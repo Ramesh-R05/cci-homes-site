@@ -1,9 +1,3 @@
-// scss-lint:disable PropertySortOrder
-@mixin gallery-paddings {
-    padding-left: $column-gutter/2;
-    padding-right: $column-gutter/2;
-}
-
 .gallery__aside {
 
     @media #{$small-only} {
@@ -11,25 +5,7 @@
         padding-right: 0;
     }
 
-    @media #{$large-up} {
-        width: $gallery-aside-large-width;
-        position: absolute;
-        right: 0;
-        padding-left: $column-gutter;
-        padding-right: $column-gutter;
-        padding-top: 20px;
-    }
-
-    .gallery__break {
-        margin-bottom: 30px;
-        width: 65px;
-        height: 3px;
-        margin-left: $column-gutter/2;
-        background: $color-primary;
-    }
-
-    // scss-lint:disable SelectorFormat
-    .gallery__subSection {
+    .gallery__subsection {
         @include gallery-paddings;
         color: $color-primary;
         font-family: $font-family-sans-serif-primary;
@@ -39,41 +15,15 @@
         padding: 0;
         text-transform: uppercase;
     }
-    // scss-lint:enable SelectorFormat
 
     .gallery__summary {
-        color: $color-grey-darker;
-        font-size: 20px;
-        padding: 0 15px;
-
-        @media #{$medium-up} {
-            padding: 0;
-        }
-
-        @media #{$large-up} {
-            box-sizing: border-box;
-            height: 100%;
-            margin-bottom: -290px;
-            padding: 0 0 300px;
-        }
-
         p {
-            color: $color-grey-dark;
             font-size: 14px;
-            line-height: 1;
-            margin-bottom: 19px;
-            padding: 0;
         }
     }
 
-    .gallery__summary-content {
-        background: $color-white;
-
-        @media #{$large-up} {
-            height: 100%;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+    .gallery__date {
+        display: none;
     }
 
     .gallery__summary-text {
@@ -94,48 +44,12 @@
         }
     }
 
-    .gallery__date {
-        color: $silver;
-        display: none;
-        font-family: $font-family-sans-serif;
-        font-size: 14px;
-        font-weight: 400;
-        padding-top: 6px;
-        padding-bottom: 5px;
-    }
+    .content-body {
+        margin: 0;
+        width: auto;
 
-    .ad--native-logo {
-        color: $silver;
-        text-align: left;
-        padding: 0;
-
-        &:after {
-            border-bottom: 3px solid $color-primary;
-            content: '';
-            display: block;
-            margin: 20px 0;
-            width: 100%;
-        }
-    }
-
-    &-ad {
-        clear: both;
-        margin: 0 auto 40px;
-        position: relative;
-        width: 320px;
-
-        @media #{$medium-up} {
-            padding-left: 0;
-        }
-
-        @media #{$large-up} {
-            @include gallery-paddings;
-            bottom: 20px;
-            margin-bottom: 0;
-            max-height: 270px;
-            padding-left: 0;
-            position: absolute;
-            width: 300px;
+        p {
+            padding-top: 0;
         }
     }
 }

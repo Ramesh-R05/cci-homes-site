@@ -1,49 +1,15 @@
 // scss-lint:disable LeadingZero, PropertySortOrder
 .gallery__header {
-    $header-height: 65px;
-
     $ipad-only: "#{$screen} and (min-width:1024px) and (max-width:1024px)" !default;
-
+    $header-height: 65px;
+    box-shadow: none;
     border-bottom: 1px solid $line-color;
-    height: $header-height;
-    padding: 0;
-    z-index: 1;
-
-    .gallery__header-container {
-        position: relative;
-        overflow: hidden;
-
-        @media (min-width: 1500px) {
-            max-width: 1560px;
-        }
-    }
-
-    .hamburger-menu {
-        border: 0;
-        color: $color-primary;
-        float: left;
-
-        &:focus,
-        &:active,
-        &:hover {
-            background: transparent;
-        }
-    }
 
     .gallery__logo {
         float: left;
         font-size: 1.7em;
         line-height: $header-height;
         padding: 0 0 0 15px;
-        position: relative;
-
-        a {
-            color: $color-primary;
-        }
-
-        @media (min-width:1500px) {
-            padding-left: 0;
-        }
 
         .icon-logo {
             background-image: url('../../images/logo/homes-logo-mobile.svg');
@@ -83,47 +49,16 @@
         }
 
         @media #{$ipad-only} {
-            letter-spacing: 0.01em;
+            letter-spacing: .01em;
             font-size: 20px;
             margin: 2px 0 0 35px;
         }
     }
 
     .gallery__slide-count {
-        @extend .hide-for-large-up;
-
         font-family: $font-family-sans-serif-primary;
         font-size: 15px;
-        margin: 0;
-        float: right;
         color: $color-grey-darker;
-        line-height: 65px;
-        padding-right: 15px;
         white-space: nowrap; // fixes issue with font, sometimes wrapping text on newline
-    }
-
-    .gallery__exit {
-        float: right;
-        color: $color-primary;
-        line-height: 65px;
-    }
-
-    .social-share-block {
-        @extend .show-for-large-up;
-
-        margin-top: 20px;
-        padding: {
-            left: $column-gutter/2;
-            right: $column-gutter;
-        };
-        position: absolute;
-        right: 0;
-        text-align: left;
-        width: $gallery-aside-large-width;
-
-        .social-share-count {
-            padding-left: 30px;
-            margin-left: 10px;
-        }
     }
 }

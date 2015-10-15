@@ -1,4 +1,5 @@
 @import './helpers/breakpoints';
+@import './helpers/colors';
 
 // Grid
 $row-width: 1590px;
@@ -43,4 +44,4 @@ $side-menu-width-big: 450px;
 $transition-duration: 200ms;
 
 // Gallery
-$gallery-aside-large-width: 360px;
+$gallery-color-primary: $color-primary;

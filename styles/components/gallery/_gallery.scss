@@ -1,39 +1,29 @@
-$share-border-color: #ddd;
+@import './header';
+@import './main';
+@import './aside';
+@import './next';
 
-.gallery {
-    padding: 0;
+.gallery__slide-count {
+    font-family: $font-family-sans-serif-primary;
+    color: $color-grey-darker;
+    white-space: nowrap; // fixes issue with font sometimes wrapping text on newline
 
-    .gallery__body {
-        position: relative;
-        z-index: 0;
-
-        @media #{$small-up} {
-            padding: 0;
-        }
-
-        @media #{$medium-up} {
-            overflow: hidden;
-        }
-
-        @media (min-width: 1500px) {
-            max-width: 1560px;
-        }
+    @media #{$large-up} {
+        font-weight: 500;
     }
+}
 
-    .content-body {
-        margin: 0;
-        width: auto; // override article content-body width
+.gallery__image-details {
+    font-size: 14px;
+
+    p {
+        font-size: 14px;
     }
+}
 
-    .ad--top-label > div,
-    .ad--top-label .ad__label {
-        display: block;  // override article listing ads display
-    }
-
-    .social-share-block--mobile {
-        @extend .hide-for-large-up;
-
-        border: 1px solid $share-border-color;
+.gallery .social-share-block {
+    &.hide-for-large-up {
+        border: 1px solid $line-color;
         margin: 0 $column-gutter/2 40px;
 
         .social-share {
@@ -67,4 +57,21 @@ $share-border-color: #ddd;
         }
     }
 
+    &.show-for-large-up {
+        margin-top: 20px;
+        padding: {
+            left: $column-gutter/2;
+            right: $column-gutter;
+        }
+
+        position: absolute;
+        right: 0;
+        text-align: left;
+        width: $gallery-aside-large-width;
+
+        .social-share-count {
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+    }
 }
