@@ -44,6 +44,7 @@ Then(/^I should see the additionals (sites|links) opened in the current window w
 end
 
 Then(/^I should see the following logos opened in the current window with the specific url:$/) do |table|
+	dynamic_wait('.mobile-menu-column--image')
 	all_actual_image = all('.mobile-menu-column--image img').map { |img| img['alt'] }
 	all_actual_url = all('.mobile-menu-column--image a').map { |a| a['href'] }
 
