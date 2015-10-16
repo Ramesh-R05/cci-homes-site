@@ -28,7 +28,7 @@ Feature: The network header should appear at the top of the page with a menu
             |Woman's Day Win it       |http://winit.womansday.com.au/     |
             |Reader Rewards           |http://www.readerrewards.com.au/   |
     
-    @mobile
+    @mobile @manual
     Scenario: On mobile, check the menu items are displayed correctly
         Given I am on the homepage
         And I click on the network header logo
