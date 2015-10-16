@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
-import {getRelatedTags} from '../../utils/tagUtils';
+import getRelatedTags from '@bxm/tags/lib/utils/getRelatedTags';
+import TagLink from '@bxm/tags/lib/components/link';
 
 export default class Tags extends Component {
 
@@ -15,10 +16,10 @@ export default class Tags extends Component {
 
     static filters = [
         { category: 'Audience' },
-        { category: 'Building', subCategory: 'Building style'},
-        { category: 'Building', subCategory: 'Type'},
-        { category: 'Decorating', subCategory: 'Style'},
-        { category: 'DIY and craft', subCategory: 'DIY projects'},
+        { category: 'Building', subCategory: 'Building style' },
+        { category: 'Building', subCategory: 'Type' },
+        { category: 'Decorating', subCategory: 'Style' },
+        { category: 'DIY and craft', subCategory: 'DIY projects' },
         { category: 'Difficulty' },
         { category: 'Duration' },
         { category: 'Garden/Outdoor', subCategory: 'Garden style' },
@@ -36,13 +37,18 @@ export default class Tags extends Component {
 
         if (relatedTags.length === 0) return null;
 
+        const linkedTags = relatedTags.map((tagName, index) => {
+            const separator = index < relatedTags.length - 1 ? ', ' : '';
+            return <li key={`tag-link-${index}`}><TagLink name={tagName} />{separator}</li>;
+        });
+
         relatedTags = relatedTags.join(', ');
 
         return (
             <section className="article__tags">
                 <meta itemProp="keywords" content={relatedTags}/>
                 <span className="tags__title">RELATED TAGS: </span>
-                <span className="related-tags">{relatedTags}</span>
+                <ul className="related-tags">{linkedTags}</ul>
             </section>
         );
     }

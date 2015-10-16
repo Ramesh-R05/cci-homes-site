@@ -89,10 +89,9 @@ $feed-item-body-width: $feed-item-width
         .feed-item__body-source {
             color: nth($color, 1);
 
-            // TODO (cjenkins 05/06/2015): Remove until this is a link
-            //&:hover {
-            //    color: nth($color, 2);
-            //}
+            &:hover {
+                color: nth($color, 2);
+            }
         }
 
         .teaser__icon path {

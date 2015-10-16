@@ -157,24 +157,24 @@ describe('GroupRepeatable', () => {
         });
 
         describe(`banner/leaderboard/billboard ad in 2nd section`, () => {
-             const expectedClassname = 'ad--section-middle-leaderboard';
-             it(`should have the classname prop equal to ${expectedClassname}`, () => {
+            const expectedClassname = 'ad--section-middle-leaderboard';
+            it(`should have the classname prop equal to ${expectedClassname}`, () => {
                 expect(ads[2].props.className).to.equal(expectedClassname);
-             });
+            });
 
-             it(`should be at position 2`, () => {
+            it(`should be at position 2`, () => {
                 expect(ads[2].props.targets).to.deep.equal({position: 2});
-             });
+            });
 
-             const expectedSizes = {
-             small: 'banner',
-             leaderboard: 'leaderboard',
-             billboard: ['billboard', 'leaderboard']
-             };
+            const expectedSizes = {
+                small: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            };
 
-             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
+            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
                 expect(ads[2].props.sizes).to.eql(expectedSizes);
-             });
+            });
         });
 
         describe(`Mrec ad (visible only on large viewport) in 2nd section`, () => {

@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
-import {getFirstTagNameForCategory} from '../../utils/tagUtils';
+import getFirstTagNameForCategory from '@bxm/tags/lib/utils/getFirstTagNameForCategory';
 
 class Item extends Component {
     static propTypes = {

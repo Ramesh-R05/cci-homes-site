@@ -10,7 +10,8 @@
         .article__hero-container a,
         .content-body a,
         .content-body__tips a,
-        .content-body__inline-image-caption a {
+        .content-body__inline-image-caption a,
+        .related-tags a {
             color: nth($color, 1);
 
             &:hover {

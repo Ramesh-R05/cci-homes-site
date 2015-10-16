@@ -3,8 +3,9 @@ import classnames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import TeaserImage from '@bxm/article/lib/components/teaser/image';
 import Icon from '../teaser/icon';
+import TagLink from '@bxm/tags/lib/components/link';
 import breakpoints from '../../breakpoints';
-import {getFirstTagNameForCategory} from '../../utils/tagUtils';
+import getFirstTagNameForCategory from '@bxm/tags/lib/utils/getFirstTagNameForCategory';
 import theme from '../helpers/theme';
 
 
@@ -39,7 +40,7 @@ class FeedItem extends Component {
         const {gtmClass, item, themeClass} = this.props;
         const {url, imageUrl, title} = item;
         const classNames = classnames('feed-item', themeClass);
-        const topic = getFirstTagNameForCategory(this.props.item.tags, 'Topic');
+        const tagName = getFirstTagNameForCategory(this.props.item.tags, 'Topic');
         const textLink = classnames('feed-item__body-title', gtmClass);
         return (
             <li className={classNames}>
@@ -57,7 +58,7 @@ class FeedItem extends Component {
                 </TeaserImage>
                 <div className="feed-item__body">
                     <span className="feed-item__body-source">
-                        {topic}
+                        <TagLink name={tagName} className="feed-item__body-source" />
                     </span>
                     <a className={textLink} href={url}>{title}</a>
                 </div>

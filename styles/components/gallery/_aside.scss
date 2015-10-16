@@ -5,7 +5,7 @@
         padding-right: 0;
     }
 
-    .gallery__subsection {
+    .gallery__subsection a {
         @include gallery-paddings;
         color: $color-primary;
         font-family: $font-family-sans-serif-primary;
@@ -14,6 +14,11 @@
         letter-spacing: .04em;
         padding: 0;
         text-transform: uppercase;
+
+        &:hover,
+        &:focus {
+            color: $color-primary-light;
+        }
     }
 
     .gallery__summary {
