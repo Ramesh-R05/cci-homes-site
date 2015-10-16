@@ -3,8 +3,8 @@ Then(/^I should see the "([^"]+)" menu item with href "([^"]+)"$/) do |menu_item
 end
 
 When(/^I hover on the "More" menu item$/) do
-	page.find('.global-nav-list__has-children .tl-header__link span', text: 'More')
-	page.find('.global-nav-list__has-children .tl-header__link span', text: 'More').hover
+	dynamic_wait('.global-nav-list__has-children .tl-header__link span')
+	page.driver.browser.action.move_to(page.find('.global-nav-list__has-children .tl-header__link span', text: 'More').native).perform
 end
 
 Then(/^I should see the "([^"]+)" menu heading$/) do |menu_heading|
@@ -16,7 +16,8 @@ When(/^I click on the network header logo$/) do
 end
 
 Then(/^I should see the expanded menu/) do
-    expect(page).to have_selector('.tl-modal--menu')
+	dynamic_wait('.tl-modal__content')
+    expect(page).to have_selector('.tl-modal__content')
 end
 
 Then(/^I should see the following sites opened in the current window with the specific url:$/) do |table|
