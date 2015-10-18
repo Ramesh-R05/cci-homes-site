@@ -5,6 +5,7 @@ end
 When(/^I hover on the "More" menu item$/) do
 	dynamic_wait('.global-nav-list__has-children .tl-header__link span')
 	page.driver.browser.action.move_to(page.find('.global-nav-list__has-children .tl-header__link span', text: 'More').native).perform
+	expect(page).to have_selector('.global-nav-list__dropdown')
 end
 
 Then(/^I should see the "([^"]+)" menu heading$/) do |menu_heading|
