@@ -29,6 +29,8 @@ import SocialStore from '@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
 import TagSectionStore from './stores/facetedStores/tagSection';
 import TrackingStore from './stores/tracking';
+import articleStore from '@bxm/article/lib/stores/articleStore';
+import articleFeedService from '@bxm/article/lib/services/articleFeedService';
 
 import {load, configPlugin} from '@bxm/config';
 const config = load();
@@ -57,7 +59,8 @@ let app = new Flux({
         SocialStore,
         TaggedArticlesStore,
         TagSectionStore,
-        TrackingStore
+        TrackingStore,
+        articleStore
     ]
 });
 
@@ -66,6 +69,7 @@ let servicePlugin = servicesPlugin(config);
 servicePlugin.registerService(contentService);
 servicePlugin.registerService(facetedModuleService);
 servicePlugin.registerService(networkHeaderService);
+servicePlugin.registerService(articleFeedService);
 
 app.plug(servicePlugin);
 app.plug(configsPlugin);
