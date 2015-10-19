@@ -8,7 +8,7 @@ Feature: The network header should appear at the top of the page with a menu
             |name                     |url                               |
             |Australian Women's Weekly|http://aww.com.au/                |
             |Woman's Day              |http://womansday.com.au/          |
-            #|Food To Love             |http://www.foodtolove.com.au/     |
+            |Food To Love             |http://www.foodtolove.com.au/     |
             |Homes To Love            |http://www.homestolove.com.au/    |   
         When I hover on the "More" menu item
         Then I should see the "Competitions & Rewards" menu heading
@@ -21,7 +21,7 @@ Feature: The network header should appear at the top of the page with a menu
             |Dolly                    |http://www.dolly.com.au/           |
             |Shop Til You Drop        |http://www.shoptilyoudrop.com.au/  |
             |Mother & Baby            |http://www.motherandbaby.com.au/   |
-            #|Bounty Rewards           |http://www.bountyrewards.com.au/   |
+            |Bounty Rewards           |http://www.bountyrewards.com.au/   |
             |Harper's Bazaar          |http://www.harpersbazaar.com.au/   |
             |Take 5                   |http://www.take5mag.com.au/        |
             |Sweepon.com.au           |http://www.sweepon.com.au/         |
@@ -37,7 +37,7 @@ Feature: The network header should appear at the top of the page with a menu
             |name                     |url                               |
             |Australian Women's Weekly|http://aww.com.au/                |
             |Woman's Day              |http://womansday.com.au/          |
-            #|Food To Love             |http://www.foodtolove.com.au/     |
+            |Food To Love             |http://www.foodtolove.com.au/     |
             |Homes To Love            |http://www.homestolove.com.au/    |   
         And I should see the additionals links opened in the current window with the specific url:
             |name                     |url                                |
@@ -48,7 +48,7 @@ Feature: The network header should appear at the top of the page with a menu
             |Dolly                    |http://www.dolly.com.au/           |
             |Shop Til You Drop        |http://www.shoptilyoudrop.com.au/  |
             |Mother & Baby            |http://www.motherandbaby.com.au/   |
-            #|Bounty Rewards           |http://www.bountyrewards.com.au/   |
+            |Bounty Rewards           |http://www.bountyrewards.com.au/   |
             |Harper's Bazaar          |http://www.harpersbazaar.com.au/   |
             |Take 5                   |http://www.take5mag.com.au/        |
             |Sweepon.com.au           |http://www.sweepon.com.au/         |
