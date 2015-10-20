@@ -24,7 +24,7 @@ var start = function(port) {
         res.json(inlineGallery);
     });
 
-    // Brand - Australian House and Garden
+    //Brand - Australian House and Garden
     server.get('/brand', function(req, res) {
         var brand = require(cwd + '/automation/test_data/brand');
         res.json(brand);
@@ -35,7 +35,7 @@ var start = function(port) {
         res.json(facetData);
     });
 
-    // Section
+    //Section
     server.get('/section', function(req, res) {
         var home = require(cwd + '/automation/test_data/section');
         res.json(home);
@@ -99,11 +99,6 @@ var start = function(port) {
         var tag_landing = require(cwd + '/automation/test_data/tag');
         res.json(tag_landing);
     });
-
-    //server.get('/tag-section', function(req, res) {
-    //    var tag_landing = require(cwd + '/automation/test_data/faceted/tag-section');
-    //    res.json(tag_landing);
-    //});
 
     server.get('/tag-feature-home', function(req, res) {
         var tag_landing = require(cwd + '/automation/test_data/faceted/tag-feature-home');
