@@ -13,7 +13,7 @@ end
 
 Then(/^I should see "([^"]+)" as a primary tag on all teasers$/) do |primay_tag|
     actual_primary_tag = all('.tag-primary a').collect(&:text)
-    expect(actual_primary_tag.count(primay_tag)).to eq(actual_primary_tag.length)
+    expect(actual_primary_tag.count(primary_tag)).to eq(actual_primary_tag.length)
 end
 
 Then(/^I should be navigated to the "([^"]+)" page in the current window after clicking any primary tag$/) do |tag_link|
