@@ -13,6 +13,7 @@ var start = function(port) {
         next();
     });
 
+    //Homepage
     server.get('/', function(req, res) {
         var home = require(process.cwd() + '/automation/test_data/home');
         res.json(home);
@@ -23,8 +24,7 @@ var start = function(port) {
         res.json(inlineGallery);
     });
 
-    // Brand - Australian House and Garden
-
+    //Brand - Australian House and Garden
     server.get('/brand', function(req, res) {
         var brand = require(cwd + '/automation/test_data/brand');
         res.json(brand);
@@ -35,7 +35,7 @@ var start = function(port) {
         res.json(facetData);
     });
 
-    // Section
+    //Section
     server.get('/section', function(req, res) {
         var home = require(cwd + '/automation/test_data/section');
         res.json(home);
@@ -77,6 +77,7 @@ var start = function(port) {
         res.json(home);
     });
 
+    //Article Pages
     server.get('/section/article-hero-image', function(req, res) {
         var article_hero_image = require(cwd + '/automation/test_data/article_hero_image');
         res.json(article_hero_image);
@@ -87,9 +88,21 @@ var start = function(port) {
         res.json(article_hero_video);
     });
 
+    //Gallery
     server.get('/section/gallery', function(req, res) {
         var gallery = require(cwd + '/automation/test_data/gallery');
         res.json(gallery);
+    });
+
+    //Tag Landing Page - Feature Home
+    server.get('/tags/feature-home', function(req, res) {
+        var tag_landing = require(cwd + '/automation/test_data/tag');
+        res.json(tag_landing);
+    });
+
+    server.get('/tag-feature-home', function(req, res) {
+        var tag_landing = require(cwd + '/automation/test_data/faceted/tag-feature-home');
+        res.json(tag_landing);
     });
 
     server.listen(port);
