@@ -11,7 +11,7 @@ Then(/^I should see (\d+) teasers on the tag landing page$/) do |teaser_count|
     expect(page).to have_selector("article.teaser > a.teaser__image", count: teaser_count.to_i)
 end
 
-Then(/^I should see "([^"]+)" as a primary tag on all teasers$/) do |primay_tag|
+Then(/^I should see "([^"]+)" as a primary tag on all teasers$/) do |primary_tag|
     actual_primary_tag = all('.tag-primary a').collect(&:text)
     expect(actual_primary_tag.count(primary_tag)).to eq(actual_primary_tag.length)
 end
