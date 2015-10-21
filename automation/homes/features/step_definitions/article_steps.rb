@@ -98,15 +98,19 @@ Then(/^I should not see the image for the related article in mobile$/) do
     expect(page).to have_no_selector('.related-content-items > .feed-item > .teaser__image')
 end
 
-When(/^I click on the image of the related content$/) do
-    find('.related-content-items > .feed-item', match: :first).find('.teaser__image').click
-end
+Then(/^I should see the related content (image|title) links redirected to the specific article page in the current window$/) do |type|
+    expected_content = Array.new(["#{$base_url}8-ingredients-for-the-perfect-kitchen-design-1645",
+        "#{$base_url}alex-and-patricks-retro-inspired-bondi-beach-house-1637"])
 
-When(/^I click on the title of the related content$/) do
-    find('.related-content-items > .feed-item', match: :first).find('.feed-item__body > .feed-item__body-title').click
-end
+    if (type == "image")
+        element = "teaser__image"
+    else
+        element = "feed-item__body-title"
+    end
 
-Then(/^I should be redirected to the detail page of the related article$/) do
-    new_path = redirect_page("/section/article-hero-image")
-    expect(new_path).to eq("/8-ingredients-for-the-perfect-kitchen-design-1645") 
-end
+    actual_content = all(".related-content a.#{element}").map { |a| a['href'] }
+    actual_target = all(".related-content a.#{element}").map { |a| a['target'] }
+
+    expect(actual_content).to eq(expected_content)
+    expect(actual_target.count("_blank")).to eq(0)
+end 
