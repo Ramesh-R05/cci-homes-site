@@ -52,6 +52,7 @@
 @import 'components/header/header-logo';
 @import 'components/header/header-nav';
 @import 'components/section/sections';
+@import 'components/section/sponsor-header';
 @import '../node_modules/@bxm/gallery/styles/page';
 @import 'components/gallery/gallery';
 @import 'components/home/home';
@@ -80,3 +81,5 @@
 @import './carousel/main';
 @import 'components/inline-gallery/carousel';
 @import 'components/inline-gallery/item';
+@import "./polar/native-hub";
+@import 'components/native-hub/native-hub';

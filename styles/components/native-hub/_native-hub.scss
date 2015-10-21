@@ -1,0 +1,30 @@
+$native-hub-color: $color-grey-darker;
+$native-hub-heading-font: 400 39px/.842 $font-family-serif-secondary;
+
+.native-hub {
+    @media #{$xlarge-up} {
+        padding-bottom: 40px;
+    }
+}
+
+.native-hub__header-inner {
+    @media #{$large-up} {
+        margin-top: -105px;
+    }
+
+    h1 {
+        @media #{$medium-up} {
+            padding: {
+                bottom: 1px;
+                left: 40px;
+                right: 40px;
+            } ;
+        }
+    }
+}
+
+.native-hub__sponsor {
+    @media #{$medium-up} {
+        margin-top: 15px;
+    }
+}
