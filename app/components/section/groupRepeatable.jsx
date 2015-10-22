@@ -8,7 +8,8 @@ import chunk from 'lodash/array/chunk';
 export default class GroupRepeatable extends Component {
 
     static propTypes = {
-        articles: PropTypes.array.isRequired
+        articles: PropTypes.array.isRequired,
+        kingtag: PropTypes.string
     };
 
     static defaultProps = {
@@ -20,6 +21,11 @@ export default class GroupRepeatable extends Component {
         if (!articles.length) return null;
 
         const groups = chunk(articles, 9);
+
+        let targets = {position: 2}
+        if (this.props.kingtag) {
+            targets.kingtag = this.props.kingtag;
+        }
 
         return (
             <div>
@@ -36,9 +42,7 @@ export default class GroupRepeatable extends Component {
                                         leaderboard: 'leaderboard',
                                         billboard: ['billboard', 'leaderboard']
                                     }}
-                                    targets={{
-                                        position: 2
-                                    }}
+                                    targets={targets}
                                     />
                             </div>
                         );
@@ -62,9 +66,7 @@ export default class GroupRepeatable extends Component {
                                     className="ad--section-mrec"
                                     displayFor="large"
                                     sizes="mrec"
-                                    targets={{
-                                        position: 2
-                                    }}
+                                    targets={targets}
                                 />
                                 {groupArticles.slice(2, 3).map(item => <Teaser {...item} key={item.id} />)}
                                 <Ad
@@ -74,9 +76,7 @@ export default class GroupRepeatable extends Component {
                                         small: 'mrec',
                                         xlarge: ['double-mrec', 'mrec']
                                     }}
-                                    targets={{
-                                        position: 2
-                                    }}
+                                    targets={targets}
                                 />
                                 {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
                                 {groupArticles.slice(7, 9).map(item => <Teaser {...item} key={item.id} modifier="img-top" sizes="small-hero" />)}

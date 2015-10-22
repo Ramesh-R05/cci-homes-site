@@ -10,6 +10,7 @@ import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import LoadMore from '../loadMore/loadMore';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
+import {getTagName} from '@bxm/tags/lib/utils';
 
 export default class Section extends Component {
 
@@ -68,6 +69,8 @@ export default class Section extends Component {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
+        const kingtag = getTagName(this.props.tags[0]);
+
         return (
             <div className={sectionClassName}>
                 <div className="container">
@@ -80,7 +83,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 1}}
+                                targets={{position: 1, kingtag}}
                             />
                         </Header>
                     </div>
@@ -95,7 +98,7 @@ export default class Section extends Component {
                                     className="ad--section-mrec"
                                     displayFor={['small', 'medium', 'large']}
                                     sizes="mrec"
-                                    targets={{position: 1}}
+                                    targets={{position: 1, kingtag}}
                                 />
                             </InFocus>
                         </div>
@@ -113,7 +116,7 @@ export default class Section extends Component {
                                 className="ad--section-mrec"
                                 displayFor={['xlarge']}
                                 sizes={['double-mrec', 'mrec']}
-                                targets={{position: 1}}
+                                targets={{position: 1, kingtag}}
                             />
                         </Group>
                     </div>
@@ -144,7 +147,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 2}}
+                                targets={{position: 2, kingtag}}
                             />
                         </div>
                     </div>
@@ -155,7 +158,7 @@ export default class Section extends Component {
                 <div className="container">
                     {/* Group repeated when paginating */}
                     <div className="row">
-                        <GroupRepeatable articles={slice(articles, 11, this.getGroupRepeatableItemLength())} />
+                        <GroupRepeatable kingtag={kingtag} articles={slice(articles, 11, this.getGroupRepeatableItemLength())} />
                     </div>
                     {/* LoadMore btn*/}
                     {loadMoreBtn}
@@ -176,7 +179,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 3}}
+                                targets={{position: 3, kingtag}}
                             />
                         </div>
                     </div>
