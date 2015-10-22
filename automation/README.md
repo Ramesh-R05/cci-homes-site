@@ -9,7 +9,6 @@ Setup Your Local Develop Environment
 ====================================
 For more instructions on installing Ruby and setting up your local environment go to [Confluence Page](https://jira.bauermedia.net.au/confluence/display/ADD/Automation+-+Local+Environment+Setup)
 
-
 Work with Automation
 ====================
 1. Create a feature branch and name it based on the project and feature you are working on
@@ -25,20 +24,23 @@ Create Your First Test Case
 3. Copy and paste what's in sandbox.feature & sandbox_steps.rb into the files you just created
 4. Customize the steps using [Capybara DSL](https://github.com/jnicklas/capybara#the-dsl)
 
-
 Execute Test Cases On Your Local
 ================================
-1. Open ansicon.exe
-2. Navigate to your project folder
-3. execute command: cucumber is_local=yes project=ausgeo URL=prod --tags @tag1 --tags @tag2
+Prerequiste:
+> Open ".cucumberrc.rb", add the following values:
+>>  $environment = "local"
+>>  $base_url = "http://localhost:3001/"
 
+1. Open Git Bash, checkout the specific branch.
+2. On the specific branch, run "gulp --stubbed"
+3. Open ansicon.exe, navigate to the specific automation folder.
+4. execute command: cucumber --tags=@tag_name
 
 Generate Steps Structure
 ========================
 1. Have your feature file written
 2. Execute that feature file and the steps structure will be generated in the output
 3. Copy and paste the steps into the right steps ruby file
-
 
 Where to Keep All Xpaths
 ========================
