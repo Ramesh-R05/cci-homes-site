@@ -29,19 +29,19 @@ Feature: article detail page
         Given I am viewing an article
         Then I should see 2 related articles
         And I should see the image, title and topic tag of the related article
-        When I click on the image of the related content
-        Then I should be redirected to the detail page of the related article
+        And I should see the related content image links redirected to the specific article page in the current window
+        And I should see the related content title links redirected to the specific article page in the current window
 
         When I switch to "mobile" view
         And I am viewing an article
         Then I should not see the image for the related article in mobile
-        When I click on the title of the related content
-        Then I should be redirected to the detail page of the related article
+        And I should see the related content title links redirected to the specific article page in the current window
 
     @DHO-192 @DHO-194 @article-detail-page-ads
     Scenario: Check all ad slots are visible on the article detail page
+        When I switch to "desktop" view
         Given I am viewing an article
-        #Then I should see 1 "ad--article-top" ad slot
+        Then I should see 1 "ad--article-top" ad slot
         #And I should see 1 "ad--article-native" ad slot
         And I should see 1 "ad--article-beneath-recommendations" ad slot
 
