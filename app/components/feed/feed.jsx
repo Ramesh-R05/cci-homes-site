@@ -77,6 +77,7 @@ class Feed extends Component {
                         keyword={keyword}
                         pageId={pageId}
                         source={source}
+                        tags={tags}
                     />
                 );
             });

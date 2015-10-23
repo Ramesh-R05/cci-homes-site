@@ -133,7 +133,8 @@ describe(`Article Component`, () => {
             const targets = {
                 brand: source,
                 keyword: adKeywords,
-                position: 1
+                position: 1,
+                kingtag: 'Outdoor'
             };
 
             it(`should have className "${className}"`, () => {
@@ -167,7 +168,8 @@ describe(`Article Component`, () => {
             const targets = {
                 brand: source,
                 keyword: adKeywords,
-                position: 2
+                position: 2,
+                kingtag: 'Outdoor'
             };
 
             it(`should have className "${className}"`, () => {

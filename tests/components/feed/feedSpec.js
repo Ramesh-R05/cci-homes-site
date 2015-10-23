@@ -36,6 +36,7 @@ describe('Feed Component', () => {
     const adSpacing = 12;
     const tags = ['homes:Color:red', 'homes:Color:white', 'homes:Room:kitchen'];
     const pageId = 'kitchen-1032';
+    const source = 'test';
     let reactModule;
 
     afterEach(Context.cleanup);
@@ -86,7 +87,7 @@ describe('Feed Component', () => {
         let feedAds;
 
         before(() => {
-            reactModule = Context.mountComponent(Feed, { pageId, tags, items: generateLargeFeedItemList() });
+            reactModule = Context.mountComponent(Feed, { pageId, tags, items: generateLargeFeedItemList(), source });
             feedListItems = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'li');
             feedAds = TestUtils.scryRenderedComponentsWithType(reactModule, FeedAdStub);
         });
@@ -129,6 +130,18 @@ describe('Feed Component', () => {
             const expectedKeyword = ['red', 'white', 'kitchen'];
             feedAds.forEach((ad) => {
                 expect(ad.props.keyword).to.eql(expectedKeyword);
+            });
+        });
+
+        it(`should include ad source information`, () => {
+            feedAds.forEach((ad) => {
+                expect(ad.props.source).to.eql(source);
+            });
+        });
+
+        it(`should include ad tags information`, () => {
+            feedAds.forEach((ad) => {
+                expect(ad.props.tags).to.eql(tags);
             });
         });
     });

@@ -11,6 +11,9 @@ import theme from '../helpers/theme';
 import breakpoints from '../../breakpoints';
 import SchemaArticle from '@bxm/article/lib/components/schema/article';
 import RelatedContentComponent from './relatedContent';
+import {getFirstTagNameForCategory} from '@bxm/tags/lib/utils';
+import isEmpty from 'lodash/lang/isEmpty';
+import isUndefined from 'lodash/lang/isUndefined';
 
 class Article extends Component {
 
@@ -39,9 +42,8 @@ class Article extends Component {
         super(props, context);
     }
 
-    render() {
-        const {source, tags} = this.props;
-        const cssClass = classNames(`article`, this.props.className, this.props.themeClass);
+    renderAds(position, adClassName) {
+        const {tags} = this.props;
         const adKeywords = getKeywordsFromTags(tags);
         const adSizes = {
             small: 'banner',
@@ -51,6 +53,35 @@ class Article extends Component {
             railLeaderboard: 'leaderboard',
             xlarge: ['billboard', 'leaderboard']
         };
+        let screenSizes = ['medium', 'large', 'xlarge'];
+
+        // Add "small" screen for bottom ad
+        if (position === 2) screenSizes.unshift('small');
+
+        let targets = {
+            brand: this.props.source,
+            keyword: adKeywords,
+            position
+        };
+
+        const kingtag = getFirstTagNameForCategory(tags, 'Homes navigation');
+
+        // Add "kingtag" prop if defined
+        if (!isUndefined(kingtag) && !isEmpty(kingtag)) targets.kingtag = kingtag;
+
+        return (
+            <Ad
+                className={adClassName}
+                displayFor={screenSizes}
+                sizes={adSizes}
+                targets={targets}
+                />
+        );
+    }
+
+    render() {
+        const {source, tags} = this.props;
+        const cssClass = classNames(`article`, this.props.className, this.props.themeClass);
 
         return (
             <article className={cssClass} itemScope itemType="http://schema.org/NewsArticle">
@@ -59,16 +90,9 @@ class Article extends Component {
                     publisher={source}
                     datePublished={this.props.dateCreated}
                 />
-                <Ad
-                    className="ad--article-top"
-                    displayFor={['medium', 'large', 'xlarge']}
-                    sizes={adSizes}
-                    targets={{
-                        brand: source,
-                        keyword: adKeywords,
-                        position: 1
-                    }}
-                />
+
+                {this.renderAds(1, 'ad--article-top')}
+
                 <NativeAd
                     className="ad--article-native"
                     displayFor={['medium', 'large', 'xlarge']}
@@ -97,16 +121,8 @@ class Article extends Component {
                     nodeType={this.props.nodeType}
                     nodeId={this.props.pageId}
                 />
-                <Ad
-                    className="ad--article-beneath-recommendations"
-                    displayFor={['small', 'medium', 'large', 'xlarge']}
-                    sizes={adSizes}
-                    targets={{
-                        brand: source,
-                        keyword: adKeywords,
-                        position: 2
-                    }}
-                />
+
+                {this.renderAds(2, 'ad--article-beneath-recommendations')}
             </article>
         );
     }

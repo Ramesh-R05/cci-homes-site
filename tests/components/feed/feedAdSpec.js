@@ -18,7 +18,13 @@ describe('FeedAd Component', () => {
     const keyword = ['red', 'white', 'kitchen'];
     const pageId = 'kitchen-1032';
     const source = 'homes+';
-    const props = { position, keyword, pageId, source };
+    let tags = [
+        "food:Location and setting:Australia:Western Australia:Perth:Perth north-west",
+        "food:Building:Type:House",
+        "food:Homes navigation:Home Tours",
+        "food:Homes navigation:Renovate"
+    ];
+    const props = { position, keyword, pageId, source, tags };
     let reactModule;
 
     describe('all props set', () => {
@@ -66,6 +72,11 @@ describe('FeedAd Component', () => {
             it(`sets targets.position to ${position}`, () => {
                 expect(ad.props.targets.position).to.eq(position);
             });
+
+            const kingtag = 'Home Tours';
+            it(`sets targets.kingtag to ${kingtag}`, () => {
+                expect(ad.props.targets.kingtag).to.eq(kingtag);
+            });
         });
     });
 
@@ -83,7 +94,16 @@ describe('FeedAd Component', () => {
                 reactModule = TestUtils.renderIntoDocument(<FeedAd {...propsClone}/>);
                 expect(React.findDOMNode(reactModule)).to.not.exist;
             });
+        });
 
+        it(`should assign empty kingtag if tags prop is not passed`, () => {
+            reactModule = TestUtils.renderIntoDocument(
+                <FeedAd position={position} keyword={keyword} pageId={pageId} />
+            );
+
+            const ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+
+            expect(ad.props.targets.kingtag).to.be.undefined;
         });
     });
 });
