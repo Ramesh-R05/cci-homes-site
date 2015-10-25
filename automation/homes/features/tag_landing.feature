@@ -20,7 +20,7 @@ Feature: Tag Landing page
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
         And I should see 2 "ad--section-mrec" ad slot
-        
+
         When I switch to "tablet landscape" view
         Given I am viewing a tag landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
@@ -41,3 +41,24 @@ Feature: Tag Landing page
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
         And I should see 2 "ad--section-mrec" ad slot
+
+    @DHO-372 @manual @live
+    Scenario: Check ad slots have the tag landing page
+        Given I am on the "interiors?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Interior" as part of the ad targeting
+        Given I am on the "home-tours?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Home Tours" as part of the ad targeting
+        Given I am on the "outdoor?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Outdoor" as part of the ad targeting
+        Given I am on the "renovate?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Renovate" as part of the ad targeting
+
+        When I switch to "mobile" view
+        Given I am on the "interiors?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Interior" as part of the ad targeting
+        Given I am on the "home-tours?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Home Tours" as part of the ad targeting
+        Given I am on the "outdoor?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Outdoor" as part of the ad targeting
+        Given I am on the "renovate?googfc=1" landing page
+        Then I can see "Setting targeting attribute kingtag with value Renovate" as part of the ad targeting

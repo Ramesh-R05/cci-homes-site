@@ -29,7 +29,7 @@ Then(/^I should see "([^"]+)" within the first paragragh$/) do |body|
     expect(article_body).to have_content(body)
 end
 
-Then(/^I should see the source logo redirected to the brand listing page in the current window$/) do 
+Then(/^I should see the source logo redirected to the brand listing page in the current window$/) do
     link = find('.article__source a')
     expect(link[:href]).to have_content('/australian-house-and-garden')
     expect(link[:target]).to_not eq('_blank')
@@ -113,4 +113,4 @@ Then(/^I should see the related content (image|title) links redirected to the sp
 
     expect(actual_content).to eq(expected_content)
     expect(actual_target.count("_blank")).to eq(0)
-end 
+end

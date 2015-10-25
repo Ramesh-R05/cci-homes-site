@@ -278,7 +278,7 @@ describe(`Section`, () => {
                 expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            const targets = {position: 2};
+            const targets = {position: 2, kingtag: 'Test'};
             it(`should have the targets props equal to ${targets}`, () => {
                 expect(ads[3].props.targets).to.deep.equal(targets);
             });
@@ -299,7 +299,7 @@ describe(`Section`, () => {
                 expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            const targets = {position: 3};
+            const targets = {position: 3, kingtag: 'Test'};
             it(`should have the targets props equal to ${targets}`, () => {
                 expect(ads[4].props.targets).to.deep.equal(targets);
             });
