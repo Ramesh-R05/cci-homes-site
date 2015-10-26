@@ -41,11 +41,6 @@ var start = function(port) {
         res.json(home);
     });
 
-    server.get('/feed-articles', function(req, res) {
-        var home = require(cwd + '/automation/test_data/faceted/feed-articles');
-        res.json(home);
-    });
-
     server.get('/section-articles', function(req, res, next) {
         var home;
 
@@ -86,6 +81,11 @@ var start = function(port) {
     server.get('/section/article-hero-video', function(req, res) {
         var article_hero_video = require(cwd + '/automation/test_data/article_hero_video');
         res.json(article_hero_video);
+    });
+
+    server.get('/feed-articles', function(req, res) {
+        var article_lhr = require(cwd + '/automation/test_data/faceted/feed-articles');
+        res.json(article_lhr);
     });
 
     //Gallery
