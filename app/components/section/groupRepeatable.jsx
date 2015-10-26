@@ -22,7 +22,7 @@ export default class GroupRepeatable extends Component {
 
         const groups = chunk(articles, 9);
 
-        let targets = {position: 2}
+        let targets = {position: 2};
         if (this.props.kingtag) {
             targets.kingtag = this.props.kingtag;
         }
