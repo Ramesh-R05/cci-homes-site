@@ -4,7 +4,7 @@ Feature: Section landing
     I want to view the content based on navigation tag
     So that I can browser the content I enjoy
     
-    Scenario: Check heading, teasers and load more
+    Scenario: Check heading and teasers
         Given I am on a section landing page
         Then I should see "HOME TOURS" heading
         Then I should see 20 teasers
