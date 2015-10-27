@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Homes To Love web site",
   "main": "start.js",
+  "pre-push": "node node_modules/gulp/bin/gulp test",
   "scripts": {
     "test": "node node_modules/gulp/bin/gulp test",
     "cover": "node node_modules/gulp/bin/gulp cover",
@@ -52,6 +53,7 @@
     "immutable": "^3.7.4",
     "moment": "^2.10.3",
     "nock": "^2.6.0",
+    "pre-git": "^0.6.2",
     "proxyquire": "^1.5.0",
     "q": "^1.4.1"
   }
