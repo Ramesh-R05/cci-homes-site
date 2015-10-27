@@ -6,10 +6,9 @@ When(/^I am on the "([^"]+)" landing page(\d+)$/) do |section, page|
     visit '/' + section + '?page=' + page
 end
 
-Then(/^I should see (\d+) teasers?$/) do |teaser_count|
+Then(/^I should see (\d+) teasers$/) do |teaser_count|
     page.document.synchronize(40) do
-        page.execute_script("window.scrollBy(0, 10000)")
-        page.assert_selector("h3.teaser__title", :visible => :visible, :count => teaser_count)
+        expect(page).to have_selector("article.teaser > a.teaser__image", count: teaser_count.to_i)
     end
 end
 

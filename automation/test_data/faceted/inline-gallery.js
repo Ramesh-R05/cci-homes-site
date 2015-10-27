@@ -814,7 +814,7 @@ module.exports = {
                 "HOMES-1660"
             ],
             "urlName": "gallery-kimberly-and-stephens-byron-bay-beach-house",
-            "url": "/gallery-kimberly-and-stephens-byron-bay-beach-house-1660",
+            "url": "http://dev.homes-site.wn.bauer-media.net.au/gallery-kimberly-and-stephens-byron-bay-beach-house-1660",
             "nodeType": "Gallery",
             "template": "Index",
             "siteCode": "56421E16-B4AB-417C-9645-A6A89644D4B4",

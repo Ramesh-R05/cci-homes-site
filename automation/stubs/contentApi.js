@@ -35,9 +35,20 @@ var start = function(port) {
         res.json(facetData);
     });
 
-    //Section
+    //Section Landing Page - Home Tours
+    server.get('/home-tours', function(req, res) {
+        var section_home_tours = require(cwd + '/automation/test_data/section_landing');
+        res.json(section_home_tours);
+    });
+
+    server.get('/section-home-tours', function(req, res) {
+        var article_lhr = require(cwd + '/automation/test_data/faceted/section-home-tours');
+        res.json(article_lhr);
+    });
+
+    //Section Landing Page - Load More
     server.get('/section', function(req, res) {
-        var home = require(cwd + '/automation/test_data/section');
+        var home = require(cwd + '/automation/test_data/section_load_more');
         res.json(home);
     });
 
