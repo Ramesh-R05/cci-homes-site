@@ -1,4 +1,4 @@
-@local @recommendations @javascript
+@local @recommendations @javascript @manual
 Feature: Recommendations
     As a user
     I want to be given a list of recommended articles
