@@ -1,11 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import * as TagUtils from '@bxm/tags/lib/utils';
 import isUndefined from 'lodash/lang/isUndefined';
-
+import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
 
 export default class Header extends Component {
 
-    static displayName = 'SectionHeader'
+    static displayName = 'SectionHeader';
 
     static propTypes = {
         children: PropTypes.any,
@@ -45,7 +45,11 @@ export default class Header extends Component {
         return (
             <div className="section-heading">
                 {this.props.children}
-                {htmlHeading}
+                <SponsorHeader
+                    id={'homes_sponsor'}
+                    title={<b>{heading}</b>}>
+                        {htmlHeading}
+                </SponsorHeader>
             </div>
         );
     }

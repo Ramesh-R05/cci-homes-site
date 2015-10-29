@@ -6,8 +6,10 @@ const React = Context.React;
 const TestUtils = Context.TestUtils;
 
 const proxyquire = require('proxyquire').noCallThru();
+const SponsorHeaderStub = Context.createStubComponentWithChildren();
 const Header = proxyquire('../../../app/components/section/header', {
-    'react': React
+    'react': React,
+    '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub
 });
 
 describe('SectionHeader', () => {
@@ -15,15 +17,28 @@ describe('SectionHeader', () => {
     const singleWordHeading = ['homes:Homes navigation:Section'];
     describe(`with the heading prop equal to ${singleWordHeading}`, () => {
         let reactModule;
+        let sponsorHeader;
+        let heading;
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Header tags={singleWordHeading} />);
+            sponsorHeader = TestUtils.findRenderedComponentWithType(reactModule, SponsorHeaderStub);
+            heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
         });
 
         const expectedHeading = 'Section';
         it(`should have the heading equal to ${expectedHeading}`, () => {
-            const heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
             expect(React.findDOMNode(heading).textContent).to.equal(expectedHeading);
+        });
+
+        it(`should pass a title prop to SponsorHeader equal to ${expectedHeading}`, () => {
+            const titleProp = sponsorHeader.props.title;
+            expect(titleProp.type).to.eq('b');
+            expect(titleProp._store.props.children).to.eq(expectedHeading);
+        });
+
+        it(`should pass a children prop to SponsorHeader equal to '${expectedHeading}`, () => {
+            expect(React.findDOMNode(heading).textContent).to.eq(expectedHeading);
         });
     });
 

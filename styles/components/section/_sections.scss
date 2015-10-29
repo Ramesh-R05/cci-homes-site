@@ -9,7 +9,14 @@ $section-minor-bp-1: 1590px;
 }
 
 .section-heading {
-    @include grid-column(12);
+    @include grid-column($columns: 12, $collapse: true);
+
+    @media #{$large-up} {
+        padding: {
+            left: $column-gutter/2;
+            right: $column-gutter/2;
+        };
+    }
 
     h1 {
         @include type-section-heading;

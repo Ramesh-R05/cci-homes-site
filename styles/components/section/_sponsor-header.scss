@@ -1,0 +1,7 @@
+.sponsored-header {
+    margin-top: -33px;
+
+    @media #{$medium-up} {
+        margin-top: 0;
+    }
+}
