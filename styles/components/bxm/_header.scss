@@ -5,7 +5,7 @@ $tl-header-heading-font-weight: 400;
 
 //Header
 @import './to-love/common';
-@import './to-love/modal/modal';
+@import '../node_modules/@bxm/modal/styles/modal';
 @import './header/header';
 
 .global-header-slider {
