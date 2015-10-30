@@ -36,7 +36,7 @@ class Section extends Component {
         belle: {
             subscribe: {
                 image: '/assets/images/brand-pages/subscribe/belle.jpg',
-                link: 'https://www.magshop.com.au/belle/HL510BEL'
+                link: 'https://www.magshop.com.au/store/homestolove'
             },
             logo: '/assets/svgs/belle.svg',
             social: {
@@ -48,7 +48,7 @@ class Section extends Component {
         realliving: {
             subscribe: {
                 image: '/assets/images/brand-pages/subscribe/real-living.jpg',
-                link: 'https://www.magshop.com.au/real-living/HL509HMG'
+                link: 'https://www.magshop.com.au/store/homestolove'
             },
             logo: '/assets/svgs/realliving_black.svg',
             social: {
@@ -60,7 +60,7 @@ class Section extends Component {
         homesplus: {
             subscribe: {
                 image: '/assets/images/brand-pages/subscribe/homes.jpg',
-                link: 'https://www.magshop.com.au/homes-plus/HL509HPL'
+                link: 'https://www.magshop.com.au/store/homestolove'
             },
             logo: '/assets/svgs/homesplus.svg',
             social: {
@@ -72,7 +72,7 @@ class Section extends Component {
         australianhouseandgarden: {
             subscribe: {
                 image: '/assets/images/brand-pages/subscribe/house-and-garden.jpg',
-                link: 'https://www.magshop.com.au/australian-house-and-garden/HL510HGN'
+                link: 'https://www.magshop.com.au/store/homestolove'
             },
             logo: '/assets/svgs/housegarden.svg',
             social: {
