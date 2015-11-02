@@ -113,7 +113,7 @@ module.exports = createStore({
         GALLERY_NEXT_ITEM: 'onGalleryNextItem',
         GALLERY_PREVIOUS_ITEM: 'onGalleryPreviousItem',
         GALLERY_COMPLETED: 'onGalleryCompleted',
-        NEXT_GALLERY: 'onNextGallery'
+        GALLERY_NEXT_GALLERY: 'onNextGallery'
     },
 
     onGalleryOpened: (payload) => {
