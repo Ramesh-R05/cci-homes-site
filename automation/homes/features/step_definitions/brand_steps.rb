@@ -15,7 +15,6 @@ Then(/^I should see the Subscribe (image|title) link redirected to the magshop i
     end
     
     expect(link[:href]).to eq('https://www.magshop.com.au/store/homestolove')
-    #expect(link[:href]).to eq('https://www.magshop.com.au/australian-house-and-garden/HL510HGN')
     expect(link[:target]).to_not eq('_blank')
 end
 
