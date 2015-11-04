@@ -1,8 +1,8 @@
-When(/^I am on the "([^"]+)" (?:article|gallery|section) page$/) do |page_name|
+When(/^I am on the "([^"]+)" (?:article|gallery|section|tag) page$/) do |page_name|
     visit '/' + page_name
 end
 
-Then(/^I can see "([^"]*)" as part of the ad targeting on the (article|gallery|section) page$/) do |text, page|
+Then(/^I can see "([^"]*)" as part of the ad targeting on the (article|gallery|section|tag) page$/) do |text, page|
     case page
     when 'article'
         position = 6

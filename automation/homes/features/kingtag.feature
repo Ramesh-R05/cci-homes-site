@@ -31,3 +31,8 @@ Feature: Kingtag
         Then I can see "Setting targeting attribute kingtag with value Outdoor" as part of the ad targeting on the section page
         Given I am on the "renovate?googfc=1" section page
         Then I can see "Setting targeting attribute kingtag with value Renovate" as part of the ad targeting on the section page
+
+    @DHO-372 @tag-landing-page @janice
+    Scenario: Check kingtag on the tag page
+        Given I am on the "tags/feature-home?googfc=1" tag page
+        Then I can see "Setting targeting attribute kingtag with value feature home" as part of the ad targeting on the tag page

@@ -1,4 +1,4 @@
-@local @tag-landing-page @javascript
+@local @tag-landing @javascript
 Feature: Tag Landing page
     As a user
     I want to view the content based on tag
