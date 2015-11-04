@@ -46,7 +46,7 @@
     "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "@bxm/node-tasks": "^4.16.0",
+    "@bxm/node-tasks": "^5.0.0",
     "babelify": "^6.1.2",
     "browser-sync": "2.7.1",
     "express": "^4.13.0",
