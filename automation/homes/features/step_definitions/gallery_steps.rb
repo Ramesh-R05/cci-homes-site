@@ -30,68 +30,53 @@ Then(/^I should see the slide count and the image caption$/) do
     expect(image_caption).to have_content("Gallery Image Caption")
 end
 
-Then(/^I should see the (\d+)(?:st|nd|rd|th) image and caption$/) do |ordinal|
-  image = find('.gallery__slide-image')[:src]
-  image_caption = find('.gallery__slide-caption p').text
-
-  expect(image).to eq(@gallery_image_collection[ordinal.to_i - 1]['contentImageUrl_s'])
-  expect(image_caption).to eq(@gallery_image_collection[ordinal.to_i - 1]['contentImageCaption_s'])
-end
-
 When(/^I click on the next slide arrow$/) do
-  find('.gallery__nav--next').click
+    find('.gallery__nav--next').click
 end
 
-Then(/^I should see the sub-section title above the gallery summary$/) do
-  sub_section_title = find('.gallery__subsection')
-
-  expect(sub_section_title.text).to eq("CREATIVE HOME")
-  expect(sub_section_title.visible?).to eq(true)
+Then(/^I should see "([^"]+)" as the sub-section title above the gallery summary$/) do |title|
+    sub_section_title = find('.gallery__subsection')
+    expect(sub_section_title.text).to eq(title)
+    expect(sub_section_title.visible?).to eq(true)
 end
 
 When(/^I am viewing the last image of the current gallery$/) do
-  step "I click on the next slide arrow"
-  step "I click on the next slide arrow"
+    for i in 0..8
+        step "I click on the next slide arrow"
+    end  
 end
 
-Then(/^I should see the Mrec$/) do
-  expect(find('.gallery__slide-ad').visible?).to eq(true)
+Then(/^I should see "([^"]+)" as the section title on the next gallery page$/) do |title|
+    section_title = find('.gallery__next-container h5 span').text
+    expect(section_title).to eq(title)
 end
 
-Then(/^I should see the section title on the next gallery page$/) do
-  section_title = find('.gallery__next-container h5 span').text
-
-  expect(section_title).to eq("NEXT GALLERY")
-end
-
-Then(/^I should see the title of the (\d+)(?:st|nd|rd|th) gallery$/) do |ordinal|
-  gallery_title = find('.gallery__next-container h2').text
-
-  expect(gallery_title).to eq(@gallery_collection[(ordinal.to_i - 1)]['contentTitle_s'])
+Then(/^I should see "([^"]+)" as the title of the next gallery$/) do |gallery_title|
+    gallery_title = find('.gallery__next-container h2').text
+    expect(gallery_title).to eq(gallery_title)
 end
 
 Then(/^I should see "(.*?)" as the image count of the next gallery$/) do |image_count|
-  actual_image_count = find('.gallery__next-number-of-pic').text
-
-  expect(actual_image_count).to eq(image_count)
+    actual_image_count = find('.gallery__next-number-of-pic').text
+    expect(actual_image_count).to eq(image_count)
 end
 
 Then(/^I should see (\d+)(?:st|nd|rd|th) MREC after the (?:first|next) (\d+) images$/) do |ad_number, ad_position|
-	int_ad_number = Integer(ad_number)
-	int_ad_position = Integer(ad_position)
+    int_ad_number = Integer(ad_number)
+    int_ad_position = Integer(ad_position)
 
-	if int_ad_number == 1
-		int_ad_position = 3
-	else
-		int_ad_position = 5
-	end
+    if int_ad_number == 1
+        int_ad_position = 3
+    else
+        int_ad_position = 5
+    end
 
-	i = 0
-	while i < int_ad_position do
-		step "I click on the next slide arrow"
-		i += 1
-	end
-	step "I should see the Mrec"
+    i = 0
+    while i < int_ad_position do
+        step "I click on the next slide arrow"
+        i += 1
+    end
+    expect(find('.gallery__slide-ad').visible?).to eq(true)
 end
 
 Then (/^I should see the swipe to skip add button$/) do
