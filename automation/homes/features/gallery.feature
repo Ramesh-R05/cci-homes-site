@@ -36,7 +36,8 @@ Feature: HomesToLove Gallery Detail Page
         And I should see the swipe to skip add button
         And I should see 2nd MREC after the next 4 images
         And I should see the swipe to skip add button
-
+    
+    @desktop
     Scenario: Check the next gallery title and link on the next gallery slide at the end of the current gallery
         Given I am viewing a gallery
         And I am viewing the last image of the current gallery
