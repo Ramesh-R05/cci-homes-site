@@ -5,8 +5,8 @@ import Code from './core/code';
 import Notes from './core/notes';
 
 // Site components/utils
-import Feed from '../../../app/components/feed/feed';
-import FeedItem from '../../../app/components/feed/feedItem';
+import Feed from '@bxm/article/lib/module/components/feed/feed';
+import FeedItem from '@bxm/article/lib/module/components/feed/feedItem';
 
 // Test data
 import mockFeedItems from '../../../tests/mock/feed'

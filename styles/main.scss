@@ -28,15 +28,8 @@
 
 // Components
 @import 'components/helpers/theme';
-@import 'components/article/article';
-@import 'components/article/credits';
-@import 'components/article/relatedContent';
-@import 'components/article/section';
-@import 'components/article/theme';
 @import 'components/bxm/social-share';
 @import 'components/bxm/recommendations';
-@import 'components/feed/feed';
-@import 'components/feed/feedItem';
 @import 'components/content-body/content-body';
 @import 'components/form/input';
 @import 'components/form/checkbox';
@@ -83,3 +76,11 @@
 @import 'components/inline-gallery/item';
 @import "./polar/native-hub";
 @import 'components/native-hub/native-hub';
+
+@import '../node_modules/@bxm/article/styles/components/article/article';
+@import '../node_modules/@bxm/article/styles/components/article/credits';
+@import '../node_modules/@bxm/article/styles/components/article/relatedContent';
+@import '../node_modules/@bxm/article/styles/components/article/section';
+@import '../node_modules/@bxm/article/styles/components/article/theme';
+@import '../node_modules/@bxm/article/styles/components/feed/feed';
+@import '../node_modules/@bxm/article/styles/components/feed/feedItem';
