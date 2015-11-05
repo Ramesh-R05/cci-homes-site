@@ -7,7 +7,7 @@ Feature: Kingtag
         Then I can see "Setting targeting attribute kingtag with value Home Tours" as part of the ad targeting on the article page
         
     @DHO-371 @gallery
-    Scenario: Check kingtag on the article page
+    Scenario: Check kingtag on the gallery page
         Given I am on the "gallery-imogen-and-grants-light-filled-perth-cottage-1443?googfc=1" gallery page
         Then I can see "Setting targeting attribute kingtag with value Home Tours" as part of the ad targeting on the gallery page
 
