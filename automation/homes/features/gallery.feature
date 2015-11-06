@@ -3,7 +3,7 @@ Feature: HomesToLove Gallery Detail Page
     As a user
     I want to be able to browse a gallery
     So that I can view more images
-    
+
     Scenario: Check the required details are displayed on the gallery page
         Given I am viewing a gallery
         Then I should see the gallery title and summary
