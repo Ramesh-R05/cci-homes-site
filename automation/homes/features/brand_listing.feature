@@ -1,4 +1,4 @@
-@local @brand-listing-page @javascript
+@local @brand-listing @javascript
 Feature: Brand Listing page
     As a user
     I want to view the content based on brand
@@ -16,7 +16,7 @@ Feature: Brand Listing page
         And I should see the Pinterest link opens in a new window
         And I should not see the Twitter link  
 
-    @DHO-76 @brand-listing-page-ads
+    @DHO-76 @brand-listing-ads
     Scenario: Check all ad slots are visible on the brand listing page
         Given I am viewing a brand listing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot

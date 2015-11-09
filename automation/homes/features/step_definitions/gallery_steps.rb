@@ -2,10 +2,6 @@ Given(/^I am viewing a gallery$/) do
     visit '/section/gallery'
 end
 
-When(/^I append a query string to the gallery URL and open the gallery page$/) do
-    visit @gallery_collection[0]['url_s'] << '?anything=test'
-end
-
 Then(/^I should see the gallery title and summary$/) do
     gallery_title = find('.gallery__title').text
     gallery_summary = find('.gallery__summary-text').text
