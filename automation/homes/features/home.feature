@@ -29,3 +29,7 @@ Feature: Homepage ads
         Then I should see the "Gallery: Kimberly and Stephen's Byron Bay beach house" gallery
         And I click on the gallery image
         Then I should be redirected to the specific gallery page
+
+    Scenario: Check source link
+        Given I am on the homepage
+        And I should see "AUSTRALIAN HOUSE AND GARDEN" link redirected to the brand listing page in the current window

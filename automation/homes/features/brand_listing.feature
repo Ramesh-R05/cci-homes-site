@@ -5,7 +5,7 @@ Feature: Brand Listing page
     So that I can browser the content I enjoy
 
     @DHO-130 @DHO-132
-    Scenario: Check teasers, subscribe now and social shares
+    Scenario: Check teasers, subscribe now, social shares and source link
         Given I am viewing a brand listing page
         Then I should see "Australian House and Garden" logo
         And I should see 12 teasers on the page
@@ -15,6 +15,7 @@ Feature: Brand Listing page
         And I should see the Instagram link opens in a new window
         And I should see the Pinterest link opens in a new window
         And I should not see the Twitter link  
+        And I should see "AUSTRALIAN HOUSE AND GARDEN" link redirected to the brand listing page in the current window
 
     @DHO-76 @brand-listing-ads
     Scenario: Check all ad slots are visible on the brand listing page
