@@ -5,7 +5,7 @@ import Notes from './core/notes';
 // Site components/utils
 import HeroImage from '@bxm/article/lib/components/hero/image';
 import Summary from '@bxm/article/lib/components/header/summary';
-import Footer from '@bxm/article/lib/module/components/article/footer';
+import Footer from '@bxm/article/lib/components/article/footer';
 import breakpoints from '../../../app/breakpoints';
 // Test data
 import articleData, {summary, source, tags} from '../../../tests/mock/article';
@@ -59,7 +59,7 @@ export default class Article extends Component {
 
                 {/* Tags */}
                 <h2 id="footer" className="heading2">Footer<br />
-                    <small className="file-path">@bxm/article/lib/module/components/article/footer</small></h2>
+                    <small className="file-path">@bxm/article/lib/components/article/footer</small></h2>
 
                 <Footer
                     credits={credits}
