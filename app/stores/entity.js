@@ -49,6 +49,10 @@ export default class EntityStore extends BaseStore {
         return this.state.error;
     }
 
+    getNodeType() {
+        return this.state.content ? this.state.content.nodeType : '';
+    }
+
     getNavigationTags() {
         return this.state.navigationTags;
     }

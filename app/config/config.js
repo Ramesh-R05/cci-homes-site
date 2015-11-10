@@ -159,6 +159,14 @@ export default {
             magshopUrl: 'https://www.magshop.com.au/store/homestolove'
         },
         newsletterIframeUrl: 'https://d4jqclkssewcy.cloudfront.net/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=homes_to_love'
-    }
+    },
 
+    cache: {
+        Homepage: 600,
+        Gallery: 1800,
+        HomesArticle: 1800,
+        NavigationSection: 3600,
+        BrandSection: 3600,
+        TagSection: 7200
+    }
 };
