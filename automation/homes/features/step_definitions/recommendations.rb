@@ -14,32 +14,25 @@ Then(/^I should see (\d+) MRECs in the recommendation section$/) do |expected_co
     expect(actual_count).to eq(expected_count.to_i)
 end
 
-When(/^I click on the teaser (image|text) for first (?:Homes|network) recommendation$/) do |teaser_element|
+Then(/^I should see (image|title|source) link redirected to a recommendation page in the current window$/) do |teaser_type|    
     page.find('.recommendations')
-    if (teaser_element == "image")
-        find('article.dacrm-teaser > a.dacrm-teaser__image', match: :first).click
+
+    case teaser_type
+    when 'title'
+        link = find("article.dacrm-teaser > div.dacrm-teaser__content > h3.dacrm-teaser__title a", match: :first)
+    when 'source'
+        link = find("article.dacrm-teaser > div.dacrm-teaser__content > div.dacrm-teaser__source a", match: :first)
     else
-        find('article.dacrm-teaser > a.gtm-recommendation-link', match: :first).click
+        link = find("article.dacrm-teaser > a.dacrm-teaser__image", match: :first)
     end
+
+    expect(link[:href]).to_not eq(URI.parse(current_url))
+    expect(link[:target]).to_not eq('_blank')
 end
 
 Then(/^I should not see ad in the recommendation section$/) do
     actual_count = all_ad_recommendations.count
     expect(actual_count).to eq(0)
-end
-
-Then(/^I should be redirected to a (?:Homes|network) article or gallery page from the (homepage|section landing page|article page)$/) do |condition|
-    case condition
-    when 'section landing page'
-        testdata_path = "/section"
-    when 'article page'
-        testdata_path = "/section/article-hero-video"
-    else
-        testdata_path = "/"
-    end
-
-    new_path = redirect_page(testdata_path)
-    expect(new_path).to_not eq(testdata_path) 
 end
 
 def all_homes_recommendations
