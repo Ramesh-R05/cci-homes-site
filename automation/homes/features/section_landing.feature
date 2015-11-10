@@ -4,10 +4,11 @@ Feature: Section landing
     I want to view the content based on navigation tag
     So that I can browser the content I enjoy
     
-    Scenario: Check heading and teasers
+    Scenario: Check heading, teasers and source link
         Given I am on a section landing page
         Then I should see "HOME TOURS" heading
-        Then I should see 20 teasers
+        And I should see 20 teasers
+        And I should see "AUSTRALIAN HOUSE AND GARDEN" link redirected to the brand listing page in the current window
 
     Scenario: Check gallery of galleries on the section landing page
         Given I am on a section landing page

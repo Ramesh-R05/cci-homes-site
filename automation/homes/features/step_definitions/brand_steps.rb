@@ -46,3 +46,10 @@ Then(/^I should not see the (Facebook|Instagram|Twitter|Pinterest) link$/) do |s
     social_name_lowercase = social_name.downcase 
     expect(page).to have_no_selector(".social-icon--#{social_name_lowercase}")
 end
+
+Then(/^I should see "([^"]+)" link redirected to the brand listing page in the current window$/) do |source_name|
+    source_link = source_name.downcase.gsub!(/\s/,'-')
+    link = find(".teaser__source a", match: :first)
+    expect(link[:href]).to have_content("/#{source_link}")
+    expect(link[:target]).to_not eq('_blank')
+end

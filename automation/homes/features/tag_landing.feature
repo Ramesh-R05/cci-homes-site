@@ -5,12 +5,13 @@ Feature: Tag Landing page
     So that I can browser the content I enjoy
 
     @DHO-119 @DHO-231
-    Scenario: Check heading, teasers and primary tag
+    Scenario: Check heading, teasers, primary tag and source link
         Given I am viewing a tag landing page
         Then I should see "FEATURE HOME" heading
         And I should see 20 teasers on the tag landing page
         And I should see "FEATURE HOME" as a primary tag on all teasers
         And I should be navigated to the "tags/feature-home" page in the current window after clicking any primary tag
+        And I should see "REAL LIVING" link redirected to the brand listing page in the current window
 
     @DHO-119 @DHO-231
     Scenario: Check all ad slots are visible on the tag landing page
