@@ -81,12 +81,12 @@ class Home extends Component {
 }
 
 
-export default connectToStores(Home, [EntityStore, HomeArticlesStore, InFocusArticlesStore, GalleryOfGalleriesStore], (stores) => {
+export default connectToStores(Home, [EntityStore, HomeArticlesStore, InFocusArticlesStore, GalleryOfGalleriesStore], (context) => {
     return {
-        content: stores.EntityStore.getContent(),
-        articles: stores.HomeArticles.getItems(),
-        galleriesModuleConfig: stores.GalleryOfGalleriesStore.getConfiguration(),
-        galleries: stores.GalleryOfGalleriesStore.getItems(),
-        inFocusArticles: stores.InFocusArticles.getItems()
+        content: context.getStore(EntityStore).getContent(),
+        articles: context.getStore(HomeArticlesStore).getItems(),
+        galleriesModuleConfig: context.getStore(GalleryOfGalleriesStore).getConfiguration(),
+        galleries: context.getStore(GalleryOfGalleriesStore).getItems(),
+        inFocusArticles: context.getStore(InFocusArticlesStore).getItems()
     };
 });
