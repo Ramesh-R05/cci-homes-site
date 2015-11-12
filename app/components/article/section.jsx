@@ -96,11 +96,11 @@ class Section extends Component {
 
 }
 
-export default connectToStores(Section, [EntityStore, FeedStore], (stores) => {
+export default connectToStores(Section, [EntityStore, FeedStore], (context) => {
     return {
-        content: stores.EntityStore.getContent(),
-        title: stores.EntityStore.getTitle(),
-        feedModuleConfig: stores.FeedStore.getConfiguration(),
-        feedItems: stores.FeedStore.getItems()
+        content: context.getStore(EntityStore).getContent(),
+        title: context.getStore(EntityStore).getTitle(),
+        feedModuleConfig: context.getStore(FeedStore).getConfiguration(),
+        feedItems: context.getStore(FeedStore).getItems()
     };
 });

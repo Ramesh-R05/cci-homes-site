@@ -85,14 +85,14 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, [TagSectionStore, EntityStore, RequestStore], (stores) => {
+export default connectToStores(Section, [TagSectionStore, EntityStore, RequestStore], (context) => {
     return {
-        content: stores.EntityStore.getContent(),
-        articles: stores.TagSectionStore.getItems(),
-        moduleConfig: stores.TagSectionStore.getConfiguration(),
-        paging: stores.TagSectionStore.getPaging(),
-        currentPage: stores.TagSectionStore.getCurrentPage(),
-        isLoading: stores.TagSectionStore.getIsLoading(),
-        tags: stores.RequestStore.getTagLeaf()
+        content: context.getStore(EntityStore).getContent(),
+        articles: context.getStore(TagSectionStore).getItems(),
+        moduleConfig: context.getStore(TagSectionStore).getConfiguration(),
+        paging: context.getStore(TagSectionStore).getPaging(),
+        currentPage: context.getStore(TagSectionStore).getCurrentPage(),
+        isLoading: context.getStore(TagSectionStore).getIsLoading(),
+        tags: context.getStore(RequestStore).getTagLeaf()
     };
 });

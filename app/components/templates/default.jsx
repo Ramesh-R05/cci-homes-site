@@ -129,11 +129,11 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, [EntityStore, MenuStore], (stores) => {
+export default connectToStores(DefaultTemplate, [EntityStore, MenuStore], (context) => {
     return {
-        content: stores.EntityStore.getContent(),
-        contentErrorStatus: stores.EntityStore.getErrorStatus(),
-        isSideMenuOpen: stores.MenuStore.isSideMenuOpen(),
-        navItems: stores.MenuStore.getNavItems()
+        content: context.getStore(EntityStore).getContent(),
+        contentErrorStatus: context.getStore(EntityStore).getErrorStatus(),
+        isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
+        navItems: context.getStore(MenuStore).getNavItems()
     };
 });

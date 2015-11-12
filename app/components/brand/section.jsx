@@ -203,10 +203,10 @@ class Section extends Component {
 }
 
 
-export default connectToStores(Section, [BrandSectionStore, EntityStore], (stores) => {
+export default connectToStores(Section, [BrandSectionStore, EntityStore], (context) => {
     return {
-        articles: stores.BrandSectionStore.getItems(),
-        content: stores.EntityStore.getContent(),
-        moduleConfig: stores.BrandSectionStore.getConfiguration()
+        articles: context.getStore(BrandSectionStore).getItems(),
+        content: context.getStore(EntityStore).getContent(),
+        moduleConfig: context.getStore(BrandSectionStore).getConfiguration()
     };
 });
