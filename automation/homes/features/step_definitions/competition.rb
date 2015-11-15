@@ -4,7 +4,6 @@ end
 
 Then(/^I should see "([^"]+)" as the embed code$/) do |form_id|
     page.should have_xpath("//iframe[@src='//display.engagesciences.com/display/container/#{form_id}']")
-    #janice = all(:xpath, './/iframe[contains(@id, "ngxFrame")]').size
 end
 
 And(/I fill in the following information:$/) do |table|
