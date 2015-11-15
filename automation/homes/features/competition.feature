@@ -22,4 +22,4 @@ Feature: Competition Form
         |Tell us in 25 words or less        |Janice Test                    |
         |I accept the Terms and Conditions  |Yes                            |
         And I click ENTER button
-        Then I should see "Thanks for entering" as a conformation message
+        Then I should see "Thanks for entering" as a confirmation message

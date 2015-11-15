@@ -32,7 +32,7 @@ And(/I click ENTER button$/) do
     end
 end
 
-And(/I should see "([^"]+)" as a conformation message/) do |msg|
+And(/I should see "([^"]+)" as a confirmation message/) do |msg|
     within_frame(page.find(:xpath, './/iframe[contains(@id, "ngxFrame")]')) do
         page.find('h1.xTitle')
         confirmation_msg = find("h1.xTitle").text
