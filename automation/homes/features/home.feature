@@ -19,7 +19,7 @@ Feature: Homepage ads
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
         And I should see 2 "ad--section-mrec" ad slot
     
-    @DHO-115
+    @DHO-115 @desktop
     Scenario: Check gallery of galleries on the homepage
         Given I am on the homepage
         Then I should see 5 galleries in the gallery of galleries
