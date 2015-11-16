@@ -83,17 +83,25 @@ var start = function(port) {
         res.json(home);
     });
 
-    //Article Pages
+    //Article Page - Hero Image
     server.get('/section/article-hero-image', function(req, res) {
         var article_hero_image = require(cwd + '/automation/test_data/article_hero_image');
         res.json(article_hero_image);
     });
-
+    
+    //Article Page - Hero Video
     server.get('/section/article-hero-video', function(req, res) {
         var article_hero_video = require(cwd + '/automation/test_data/article_hero_video');
         res.json(article_hero_video);
     });
 
+    //Article Page - Competition
+    server.get('/competition', function(req, res) {
+        var competition = require(cwd + '/automation/test_data/competition');
+        res.json(competition);
+    });
+
+    //Article Page - LHR
     server.get('/feed-articles', function(req, res) {
         var article_lhr = require(cwd + '/automation/test_data/faceted/feed-articles');
         res.json(article_lhr);
