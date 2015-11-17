@@ -4,7 +4,7 @@ export default {
 
     article: {
         sources: {
-            'belle': {
+            belle: {
                 path: '/belle',
                 logo: 'belle.svg'
             },
@@ -105,7 +105,7 @@ export default {
     },
 
     ads: {
-        targets: {'env': 'test'}
+        targets: {env: 'test'}
     },
 
     polar: {

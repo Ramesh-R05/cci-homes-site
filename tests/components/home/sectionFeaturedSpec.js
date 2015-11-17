@@ -12,13 +12,15 @@ const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const PolarTeaserStub = Context.createStubComponentWithChildren();
 const StickyAdStub = Context.createStubComponentWithChildren();
+const polarNativeHub = Context.createStubComponentWithChildren();
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '../polar/polarTeaser': PolarTeaserStub,
     '../section/sticky': StickyAdStub,
-    '../inlineGallery/customInlineGallery': InlineGalleryStub
+    '../inlineGallery/customInlineGallery': InlineGalleryStub,
+    '../polar/polarNativeHub': polarNativeHub
 });
 
 describe('SectionFeatured', () => {

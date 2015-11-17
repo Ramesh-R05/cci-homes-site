@@ -10,6 +10,7 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import cx from 'classnames';
 import * as FacetedModuleActions from '../../actions/facetedModule';
+import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
 
 class Home extends Component {
     static propTypes = {

@@ -1,3 +1,3 @@
 module.exports = {
-    'buildNumber': 'Updated during the TC build'
+    buildNumber: 'Updated during the TC build'
 };

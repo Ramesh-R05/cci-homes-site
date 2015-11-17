@@ -6,7 +6,7 @@ export default class RequestStore extends BaseStore {
     static storeName = 'RequestStore';
 
     static handlers = {
-        'LOAD_CONTENT': 'onLoadContent'
+        LOAD_CONTENT: 'onLoadContent'
     };
 
     constructor(dispatcher) {
