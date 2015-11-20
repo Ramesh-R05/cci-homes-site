@@ -33,8 +33,7 @@ export default class Featured extends Component {
             subscribeLink = brandConfig.subscribe.link;
         }
 
-        return (
-            <section className="brand-section brand-section--top">
+        return <section className="brand-section brand-section--top">
                 {/* Subscribe to be the first teaser on xl viewport */}
                 <Subscribe className="show-for-xlarge-up" image={subscribeImage} link={subscribeLink} />
                 {/* Hero article displayed in second position from xl viewports / first on lg down */}
@@ -54,7 +53,6 @@ export default class Featured extends Component {
                 {/* Subscribe to be the third teaser from lg and down viewport */}
                 <Subscribe className="hide-for-xlarge-up" image={subscribeImage} link={subscribeLink} />
                 {slice(articles, 1, 5).map(item => <Teaser {...item} key={item.id} modifier="img-top" sizes="large" />)}
-            </section>
-        );
+            </section>;
     }
 }

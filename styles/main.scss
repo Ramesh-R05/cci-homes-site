@@ -67,14 +67,14 @@
 @import 'styleguide/styleguide';
 
 // @bxm
-@import './to-love/video/videoPlayer';
+@import '../node_modules/@bxm/ui/lib/to-love/video/videoPlayer';
 @import 'components/bxm/header';
-@import './social/style/socialicons';
+@import '../node_modules/@bxm/ui/lib/social/style/socialicons';
 @import 'components/bxm/back-to-top';
-@import './carousel/main';
+@import '../node_modules/@bxm/gallery/styles/carousel/main';
 @import 'components/inline-gallery/carousel';
 @import 'components/inline-gallery/item';
-@import "./polar/native-hub";
+@import '../node_modules/@bxm/ad/styles/polar/native-hub';
 @import 'components/native-hub/native-hub';
 
 @import '../node_modules/@bxm/article/styles/components/article/article';

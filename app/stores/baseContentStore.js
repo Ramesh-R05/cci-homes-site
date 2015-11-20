@@ -7,7 +7,7 @@ export default class BaseContentStore extends BaseStore {
     static storeName = 'BaseContentStore';
 
     static handlers = {
-        'LOAD_CONTENT': 'onLoadContent'
+        LOAD_CONTENT: 'onLoadContent'
     };
 
     constructor(dispatcher, name) {

@@ -2,7 +2,7 @@ import isUndefined from 'lodash/lang/isUndefined';
 import {canUseDOM} from 'react/lib/ExecutionEnvironment';
 import {createStore} from '@bxm/flux';
 
-const dataLayer = (canUseDOM && !isUndefined(window.dataLayer)) ? window.dataLayer : [];
+const dataLayer = canUseDOM && !isUndefined(window.dataLayer) ? window.dataLayer : [];
 
 function dataLayerPush(data) {
     // Use dataslaayer to view data: https://chrome.google.com/webstore/detail/dataslayer/ikbablmmjldhamhcldjjigniffkkjgpo

@@ -6,6 +6,8 @@ import PolarTeaser from '../polar/polarTeaser';
 import StickyBlock from '../section/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import CustomInlineGallery from '../inlineGallery/customInlineGallery';
+import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
+import PolarNativeHub from '../polar/polarNativeHub';
 
 export default class SectionFeatured extends Component {
 
@@ -83,6 +85,9 @@ export default class SectionFeatured extends Component {
                             {slice(articles, 6, 10).map(item => <Teaser {...item} key={item.id} />)}
                         </section>
                     </div>
+
+                    <PolarNativeHub/>
+
                     <div className="row">
                         {/* In Focus articles */}
                         <div className="fixed-column fixed-column--in-focus">

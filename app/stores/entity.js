@@ -6,8 +6,8 @@ export default class EntityStore extends BaseStore {
     static storeName = 'EntityStore';
 
     static handlers = {
-        'LOAD_CONTENT': 'onLoadContent',
-        'LOAD_CONTENT_FAILED': 'onLoadContentFailed'
+        LOAD_CONTENT: 'onLoadContent',
+        LOAD_CONTENT_FAILED: 'onLoadContentFailed'
     };
 
     constructor(dispatcher) {

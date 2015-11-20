@@ -11,13 +11,14 @@ describe('Sponsor', () => {
     describe('with the name prop', () => {
         const nameValue = 'Bunnings';
         let sponsor;
+        const caption = "power by";
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Sponsor name={nameValue} />);
+            reactModule = TestUtils.renderIntoDocument(<Sponsor name={nameValue} caption={caption}/>);
             sponsor = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'teaser__tags');
         });
 
-        const expectedOutput = `Powered by ${nameValue}`;
+        const expectedOutput = `${caption} ${nameValue}`;
         it(`should have the output text equal to '${expectedOutput}'`, () => {
             expect(sponsor.getDOMNode().textContent).to.equal(expectedOutput);
         });

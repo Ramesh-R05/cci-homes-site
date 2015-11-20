@@ -3,11 +3,13 @@ import React, {Component, PropTypes} from 'react';
 export default class Sponsor extends Component {
 
     static propTypes = {
-        name: PropTypes.string.isRequired
+        name: PropTypes.string.isRequired,
+        caption: PropTypes.string
     };
 
     static defaultProps = {
-        name: ''
+        name: '',
+        caption: ''
     };
 
     render() {
@@ -16,7 +18,7 @@ export default class Sponsor extends Component {
         if (name === '') return null;
 
         return (
-            <p className="teaser__tags">Powered by {name}</p>
+            <p className="teaser__tags">{this.props.caption} {name}</p>
         );
     }
 }
