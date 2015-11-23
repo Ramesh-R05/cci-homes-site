@@ -40,7 +40,7 @@ Feature: Homepage ads
         And Wait for 2 seconds for the results to load on the page
         * I can validate that "targets":{"env":"test"}} is present
 
-    @testAdverts @manual @live @janice
+    @testAdverts @manual @live
     Scenario: Check Live Environment has the test advert configuration
         Given I am on the homepage
         * I can validate that "targets":{"env":"test"}} is NOT present
