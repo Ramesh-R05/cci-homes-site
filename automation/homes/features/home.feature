@@ -33,3 +33,14 @@ Feature: Homepage ads
     Scenario: Check source link
         Given I am on the homepage
         And I should see "AUSTRALIAN HOUSE AND GARDEN" link redirected to the brand listing page in the current window
+
+    @testAdverts
+    Scenario: Check non Live Environment has the test advert configuration
+        Given I am on the homepage
+        And Wait for 2 seconds for the results to load on the page
+        * I can validate that "targets":{"env":"test"}} is present
+
+    @testAdverts @manual @live @janice
+    Scenario: Check Live Environment has the test advert configuration
+        Given I am on the homepage
+        * I can validate that "targets":{"env":"test"}} is NOT present
