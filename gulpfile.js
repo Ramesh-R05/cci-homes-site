@@ -5,6 +5,7 @@ require('babel/register')({
 });
 
 var config = require('@bxm/node-tasks/lib/config');
+config.breakpoints.input = './styles/helpers/_breakpoints.scss';
 config.style.glob = 'styles/**/*.scss';
 config.style.path = './styles/';
 config.style.main = 'main.scss';
