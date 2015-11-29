@@ -7,7 +7,8 @@ Feature: The global footer should appear at the bottom of the page
         Then I should see the global footer
         And I should see the Facebook, Twitter and Instagram links open in a new window
         And I should see the newsletter sign up
-        And I should see subscribe image and button links to "https://www.magshop.com.au/store/homestolove" in a new window
+        #And I should see subscribe image and button links to "https://www.magshop.com.au/store/homestolove" in a new window
+        And I should see the subscribe button links to "https://www.magshop.com.au/store/homestolove" in a new window
         And I should see Belle, Real Living, Homes+ and House & Garden links redirected to the brand page in the current window
         And I should see the Privacy Policy, Advertise and Terms of Use links open in a new window
     
@@ -17,7 +18,8 @@ Feature: The global footer should appear at the bottom of the page
         Then I should see the global footer
         And I should see the Facebook, Twitter and Instagram links open in a new window
         And I should see the newsletter sign up
-        And I should see subscribe image and button links to "https://www.magshop.com.au/store/homestolove" in a new window
+        #And I should see subscribe image and button links to "https://www.magshop.com.au/store/homestolove" in a new window
+        And I should see the subscribe button links to "https://www.magshop.com.au/store/homestolove" in a new window
         And I should see Belle, Real Living, Homes+ and House & Garden links redirected to the brand page in the current window
         And I should see the Privacy Policy, Advertise and Terms of Use links open in a new window
 

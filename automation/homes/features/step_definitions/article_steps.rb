@@ -29,9 +29,10 @@ Then(/^I should see "([^"]+)" within the first paragragh$/) do |body|
     expect(article_body).to have_content(body)
 end
 
-Then(/^I should see the source logo redirected to the brand listing page in the current window$/) do
+Then(/^I should see the "([^"]+)" logo redirected to the brand listing page in the current window$/) do |source_name|
+    source_link = source_name.downcase.gsub!(/\s/,'-')
     link = find('.article__source a')
-    expect(link[:href]).to have_content('/australian-house-and-garden')
+    expect(link[:href]).to have_content("#{source_link}")
     expect(link[:target]).to_not eq('_blank')
 end
 

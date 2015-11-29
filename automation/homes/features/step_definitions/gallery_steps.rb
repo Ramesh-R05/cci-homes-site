@@ -2,12 +2,14 @@ Given(/^I am viewing a gallery$/) do
     visit '/section/gallery'
 end
 
-Then(/^I should see the gallery title and summary$/) do
+Then(/^I should see "([^"]+)" as the gallery title$/) do |title|
     gallery_title = find('.gallery__title').text
-    gallery_summary = find('.gallery__summary-text').text
+    expect(gallery_title).to eq(title)
+end
 
-    expect(gallery_title).to eq("Gallery Long Title")
-    expect(gallery_summary).to have_content("Gallery Body Text")
+Then(/^I should see "([^"]+)" contained in the gallery summary$/) do |summary|
+    gallery_summary = find('.gallery__summary-text').text
+    expect(gallery_summary).to have_content(summary)
 end
 
 Then(/^I should see the right slide arrows and the image$/) do
@@ -18,12 +20,20 @@ Then(/^I should see the right slide arrows and the image$/) do
     expect(image).to have_content("Chinamans3")
 end
 
-Then(/^I should see the slide count and the image caption$/) do
-    expect(page).to have_selector('.gallery__slide-current', text: '1')
-    expect(page).to have_selector('.gallery__slide-last', text: '8')
+Then(/^I should see the right slide arrows$/) do
+    next_btn = find('.gallery__nav--next')
+    expect(next_btn.visible?).to eq(true)
+end
 
+Then(/^I should see "([^"]+)" as the gallery count$/) do |number|
+    values = number.split("/")
+    expect(page).to have_selector('.gallery__slide-current', text: "#{values[0]}")
+    expect(page).to have_selector('.gallery__slide-last', text: "#{values[1]}")
+end
+
+Then(/^I should see "([^"]+)" contained in the image caption$/) do |caption|
     image_caption = find('.gallery-caption__content')
-    expect(image_caption).to have_content("Gallery Image Caption")
+    expect(image_caption).to have_content(caption)
 end
 
 When(/^I click on the next slide arrow$/) do

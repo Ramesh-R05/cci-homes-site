@@ -289,7 +289,7 @@ module.exports =
                         "url": "/cms/articles/2015/07/how-to-get-black-and-white-decorating-right/"
                     }
                 ],
-                "id": "brand-australian-house-garden",
+                "id": "brand-australian-house-and-garden",
                 "parentId": "HOMES-1159",
                 "level": 3,
                 "sortOrder": 9,

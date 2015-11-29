@@ -11,7 +11,7 @@ Feature: article detail page
         And I should see a hero image
         And I should see "Article Short Teaser" within the summary
         And I should see "Technically black and white are not even colours" within the first paragragh
-        And I should see the source logo redirected to the brand listing page in the current window
+        And I should see the "AUSTRALIAN HOUSE AND GARDEN" logo redirected to the brand listing page in the current window
 
     @DHO-183
     Scenario: Check hero video

@@ -26,26 +26,26 @@ Feature: Section landing
         Given I am on a section landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
 
         When I switch to "tablet landscape" view
         And I am on a section landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
 
         When I switch to "tablet portrait" view
         And I am on a section landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
 
         When I switch to "mobile" view
         And I am on a section landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot

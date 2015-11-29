@@ -20,25 +20,25 @@ Feature: Tag Landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
 
         When I switch to "tablet landscape" view
         Given I am viewing a tag landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
 
         When I switch to "tablet portrait" view
         Given I am viewing a tag landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
 
         When I switch to "mobile" view
         Given I am viewing a tag landing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
