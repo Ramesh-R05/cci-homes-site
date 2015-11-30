@@ -23,7 +23,8 @@ describe('Menu store', () => {
                 { name: 'Home tours', url: '/home-tours' },
                 { name: 'Interiors', url: '/interiors' },
                 { name: 'Outdoor', url: '/outdoor' },
-                { name: 'Renovate', url: '/renovate' }
+                { name: 'Renovate', url: '/renovate' },
+                { name: 'My Ideal House', url: '/my-ideal-house' }
             ]);
         });
     });

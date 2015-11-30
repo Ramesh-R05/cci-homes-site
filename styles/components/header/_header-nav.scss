@@ -1,3 +1,5 @@
+$custom-medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width: 890px)" !default;
+$custom-large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width: 1215px)" !default;
 $header-nav-link-padding: 30px;
 
 .header-nav {
@@ -55,19 +57,81 @@ $header-nav-link-padding: 30px;
     }
 }
 
-.header.header--expanded:not(.header--pinned) .header-nav {
-    @media #{$medium-up} {
-        nav {
-            margin-left: 50%;
-            transform: translate(-50%, 0);
-        }
+// Using custom breakpoints as design wants to adjust nav when it can no longer fit all nav items
 
-        a {
-            display: inline-block;
+.header-wrapper.header-wrapper--expanded {
+    @media #{$custom-medium-only} {
+        margin-bottom: 282px;
+    }
+}
+
+.header.header--expanded:not(.header--pinned) {
+    @media #{$custom-medium-only} {
+        line-height: 65px;
+    }
+
+    .header-menu {
+        @media #{$custom-medium-only} {
+            padding-right: 3px;
         }
     }
 
-    a:first-child:before {
-        opacity: 0;
+    .header-nav {
+        @media #{$custom-medium-only} {
+            a {
+                font-size: 80%;
+                padding: {
+                    left: 17px;
+                    right: 17px;
+                }
+            }
+        }
+
+        @media #{$medium-up} {
+            nav {
+                margin-left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            a {
+                display: inline-block;
+            }
+        }
+
+        a:first-child:before {
+            opacity: 0;
+        }
+    }
+}
+
+.header:not(.header--expanded) {
+    .header-menu {
+        @media #{$custom-large-only} {
+            margin-top: 1px;
+        }
+    }
+
+    .header-logo {
+        @media #{$custom-large-only} {
+            width: 285px;
+
+            a {
+                background-size: 252px 20px;
+                margin-left: 3px;
+                height: 20px;
+                width: 252px;
+            }
+        }
+    }
+    .header-nav {
+        @media #{$custom-large-only} {
+            a {
+                font-size: 80%;
+                padding: {
+                    left: 20px;
+                    right: 20px;
+                }
+            }
+        }
     }
 }
