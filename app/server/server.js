@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {navigateAction} from 'fluxible-router';
-import patternLab from '../../patternlab/app/server/middleware';
 import facetedModule from './middlewares/facetedModule';
 import sitemap from './middlewares/sitemap';
 import contentApiStub from '../../automation/stubs/contentApi';
@@ -14,7 +13,7 @@ const config = load();
 
 function siteMiddlewares(siteServer) {
     siteServer.use('/api/facetedModule', facetedModule);
-    siteServer.get(/\/patternlab(\?|$|\/).*/, patternLab);
+    if (config.patternlab) siteServer.get(/\/patternlab(\?|$|\/).*/, require('../../patternlab/app/server/middleware'));
     siteServer.use(/\/sitemap(\?|$|\/).*/, sitemap);
 }
 

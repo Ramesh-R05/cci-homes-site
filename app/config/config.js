@@ -2,6 +2,8 @@ import breakpoints from '../breakpoints';
 
 export default {
 
+    patternlab: false,
+
     article: {
         sources: {
             belle: {
