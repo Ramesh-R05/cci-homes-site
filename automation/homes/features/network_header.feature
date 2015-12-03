@@ -23,6 +23,7 @@ Feature: The network header should appear at the top of the page with a menu
             |Mother & Baby            |http://www.motherandbaby.com.au/   |
             |Bounty Rewards           |http://www.bountyrewards.com.au/   |
             |Harper's Bazaar          |http://www.harpersbazaar.com.au/   |
+            |Beauty Heaven            |http://www.beautyheaven.com.au/    |
             |Take 5                   |http://www.take5mag.com.au/        |
             |Sweepon.com.au           |http://www.sweepon.com.au/         |
             |Woman's Day Win it       |http://winit.womansday.com.au/     |
@@ -50,6 +51,7 @@ Feature: The network header should appear at the top of the page with a menu
             |Mother & Baby            |http://www.motherandbaby.com.au/   |
             |Bounty Rewards           |http://www.bountyrewards.com.au/   |
             |Harper's Bazaar          |http://www.harpersbazaar.com.au/   |
+            |Beauty Heaven            |http://www.beautyheaven.com.au/    |
             |Take 5                   |http://www.take5mag.com.au/        |
             |Sweepon.com.au           |http://www.sweepon.com.au/         |
             |Woman's Day Win it       |http://winit.womansday.com.au/     |
