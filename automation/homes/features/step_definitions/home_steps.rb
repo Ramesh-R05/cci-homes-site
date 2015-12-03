@@ -29,12 +29,10 @@ Then(/^I should be redirected to the specific gallery page$/) do
 end
 
 Given(/^I can validate that (.*?) is present$/) do |parameter|
-    #expect(page.source.gsub!(/[^0-9A-Za-z]/, '')).to include(parameter.gsub!(/[^0-9A-Za-z]/, ''))
     expect(page.source).to_not include(parameter)
 end
 
 Given(/^I can validate that (.*?) is NOT present$/) do |parameter|
-    #expect(page.source.gsub!(/[^0-9A-Za-z]/, '')).to_not include(parameter.gsub!(/[^0-9A-Za-z]/, ''))
     expect(page.source).to_not include(parameter)
 end
 
