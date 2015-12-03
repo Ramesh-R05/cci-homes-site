@@ -21,7 +21,7 @@ module.exports =
         },
         "month": 8,
         "year": 2015,
-        "id": "brand-australian-house-garden",
+        "id": "brand-australian-house-and-garden",
         "parentId": "HOMES-1158",
         "level": 2,
         "sortOrder": 9,

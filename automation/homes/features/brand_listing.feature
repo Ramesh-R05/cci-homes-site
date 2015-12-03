@@ -8,7 +8,7 @@ Feature: Brand Listing page
     Scenario: Check teasers, subscribe now, social shares and source link
         Given I am viewing a brand listing page
         Then I should see "Australian House and Garden" logo
-        And I should see 12 teasers on the page
+        And I should see 12 teasers on the brand listing page
         And I should see the Subscribe image link redirected to the magshop in the current window
         And I should see the Subscribe title link redirected to the magshop in the current window
         And I should see the Facebook link opens in a new window
@@ -23,25 +23,25 @@ Feature: Brand Listing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
         
         When I switch to "tablet landscape" view
         And I am viewing a brand listing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
 
         When I switch to "tablet portrait" view
         And I am viewing a brand listing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot
 
         When I switch to "mobile" view
         And I am viewing a brand listing page
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 2 "ad--section-mrec" ad slot

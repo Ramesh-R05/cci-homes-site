@@ -7,7 +7,7 @@ Then(/^I should see "([^"]+)" heading$/) do |heading|
     expect(page_heading).to have_content(heading)
 end
 
-Then(/^I should see (\d+) teasers on the tag landing page$/) do |teaser_count|
+Then(/^I should see (\d+) teasers on the (?:homepage|tag landing page)$/) do |teaser_count|
     expect(page).to have_selector("article.teaser > a.teaser__image", count: teaser_count.to_i)
 end
 

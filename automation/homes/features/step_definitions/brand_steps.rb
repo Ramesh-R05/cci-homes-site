@@ -1,5 +1,5 @@
 Given(/^I am viewing a brand listing page$/) do
-    visit '/brand'
+    visit '/australian-house-and-garden'
 end
 
 Then(/^I should see "([^"]+)" logo$/) do |brand_name|
@@ -18,7 +18,7 @@ Then(/^I should see the Subscribe (image|title) link redirected to the magshop i
     expect(link[:target]).to_not eq('_blank')
 end
 
-Then(/^I should see (\d+) teasers on the page$/) do |teaser_count|
+Then(/^I should see (\d+) teasers on the brand listing page$/) do |teaser_count|
     expect(page).to have_selector("article.theme-australian_house_and_garden", count: teaser_count.to_i)
 end
 

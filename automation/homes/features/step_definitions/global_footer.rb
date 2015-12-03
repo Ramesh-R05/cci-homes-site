@@ -55,3 +55,11 @@ Then(/^I should see subscribe image and button(?: links to "([^"]+)" in a new wi
     actual_target = all('.magshop a').map { |a| a['target'] }
     expect(actual_target.count("_blank")).to eq(2)
 end
+
+Then(/^I should see the subscribe button(?: links to "([^"]+)" in a new window)?$/) do |url|
+    actual_content = all('.magshop a.button').map { |a| a['href'] }
+    expect(actual_content.count("#{url}")).to eq(1)
+
+    actual_target = all('.magshop a.button').map { |a| a['target'] }
+    expect(actual_target.count("_blank")).to eq(1)
+end

@@ -6,9 +6,11 @@ Feature: HomesToLove Gallery Detail Page
 
     Scenario: Check the required details are displayed on the gallery page
         Given I am viewing a gallery
-        Then I should see the gallery title and summary
+        Then I should see "Gallery Long Title" as the gallery title
+        And I should see "Gallery Body Text" contained in the gallery summary
         And I should see the right slide arrows and the image
-        And I should see the slide count and the image caption
+        And I should see "1/8" as the gallery count
+        And I should see "Gallery Image Caption" contained in the image caption
         And I should see "CREATIVE HOME" as the sub-section title above the gallery summary
 
     @DHO-109 @gallery-ads @manual
