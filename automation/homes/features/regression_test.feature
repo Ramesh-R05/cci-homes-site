@@ -61,7 +61,7 @@ Feature: Regression Testing
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
         And I should see 2 "ad--section-mrec" ad slot
         And I should see a 'Load More' button
-        And I should be navigated to the "tags/feature-home" page in the current window after clicking any primary tag
+        And I should be navigated to the "/tags/feature-home" page in the current window after clicking any primary tag
         And I can validate that "\"ads\"\:\{\"targets\"\:\{\"env\"\:\"test\"\}\}" is NOT present
 
     Scenario: Article Page
