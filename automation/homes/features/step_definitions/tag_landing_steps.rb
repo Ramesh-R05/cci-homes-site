@@ -18,7 +18,10 @@ end
 
 Then(/^I should be navigated to the "([^"]+)" page in the current window after clicking any primary tag$/) do |tag_link|
     actual_link = all('.tag-primary a').map { |a| a['href'] }
-    expect(actual_link.count("#{$base_url}#{tag_link}")).to eq(actual_link.length)
+    actual_link.each_with_index do |link, index|
+        tag_name = link.split("\/tags\/")
+        expect("#{tag_name[1]}").to eq(tag_link)
+    end
 
     actual_target = all('.tag-primary a').map { |a| a['target'] }
     expect(actual_target.count("_blank")).to eq(0)
