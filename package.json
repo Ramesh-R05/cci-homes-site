@@ -23,7 +23,7 @@
     "@bxm/flux": "^3.0.0",
     "@bxm/gallery": "6.1.1-beta.1",
     "@bxm/global-header-stub": "^1.0.0",
-    "@bxm/header": "^8.0.0",
+    "@bxm/header": "^9.0.0",
     "@bxm/login-radius-stub": "^1.1.0",
     "@bxm/modal": "^1.0.0",
     "@bxm/newsletter": "^2.0.1",
