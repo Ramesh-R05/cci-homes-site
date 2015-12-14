@@ -21,7 +21,7 @@
     "@bxm/article": "4.0.1-beta.1",
     "@bxm/config": "^1.2.0",
     "@bxm/flux": "^3.0.0",
-    "@bxm/gallery": "6.1.1-beta.1",
+    "@bxm/gallery": "^6.2.0",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "^9.0.0",
     "@bxm/login-radius-stub": "^1.1.0",
