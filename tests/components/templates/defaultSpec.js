@@ -4,8 +4,7 @@ import cloneDeep from 'lodash/lang/cloneDeep';
 import {localeData} from '../../mock/config';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const config = {
     get: () => {}
 };
@@ -78,7 +77,6 @@ function mockErrorHandlerBuilder(code) {
 
 const Default = proxyquire('../../../app/components/templates/default', {
     'react': React,
-    'react/addons': React,
     '@bxm/header/lib/header/header': NetworkHeaderStub,
     '../header/header': HeaderStub,
     '../side-menu/sideMenu': SideMenuStub,
@@ -243,17 +241,17 @@ describe('Default Component template', () => {
 
                 it(`${hideHeader ? 'hides' : 'shows'} the header`, () => {
                     if (hideHeader) {
-                        expect(React.findDOMNode(header)).not.to.exist;
+                        expect(ReactDOM.findDOMNode(header)).not.to.exist;
                     } else {
-                        expect(React.findDOMNode(header)).to.exist;
+                        expect(ReactDOM.findDOMNode(header)).to.exist;
                     }
                 });
 
                 it(`${hideFooter ? 'hides' : 'shows'} the footer`, () => {
                     if (hideFooter) {
-                        expect(React.findDOMNode(footer)).not.to.exist;
+                        expect(ReactDOM.findDOMNode(footer)).not.to.exist;
                     } else {
-                        expect(React.findDOMNode(footer)).to.exist;
+                        expect(ReactDOM.findDOMNode(footer)).to.exist;
                     }
                 });
 

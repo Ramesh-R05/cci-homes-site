@@ -3,8 +3,7 @@ import feedDataMock from '../../mock/feed';
 import times from 'lodash/utility/times';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const feedItemClassName = 'feed-item';
@@ -24,7 +23,6 @@ const PolarFeedItemStub = React.createClass({
 
 const Feed = proxyquire('../../../app/components/feed/feed', {
     'react': React,
-    'react/addons': React,
     './feedItem': FeedItemStub,
     '../polar/polarFeedItem': PolarFeedItemStub,
     './feedAd': FeedAdStub

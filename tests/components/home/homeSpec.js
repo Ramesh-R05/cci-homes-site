@@ -5,8 +5,7 @@ import {entity, articles as homeArticlesMock} from '../../mock/articles';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
 const InFocusStub = Context.createStubComponentWithChildren();
@@ -121,7 +120,7 @@ describe('Home', () => {
 
         before(() => {
             reactModule = Context.mountComponent(Home);
-            domNode = React.findDOMNode(reactModule);
+            domNode = ReactDOM.findDOMNode(reactModule);
         });
 
         it(`should have class name "side-menu-slider"`, () => {
@@ -134,7 +133,7 @@ describe('Home', () => {
 
         it(`should open when isSideMenuOpen is true`, () => {
             reactModule = Context.mountComponent(Home, {isSideMenuOpen: true});
-            domNode = React.findDOMNode(reactModule);
+            domNode = ReactDOM.findDOMNode(reactModule);
             // reactModule.setProps({ isSideMenuOpen: true });
             expect(domNode).to.have.className('side-menu-slider--side-menu-open');
         });

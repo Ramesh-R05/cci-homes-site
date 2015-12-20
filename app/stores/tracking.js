@@ -1,5 +1,5 @@
 import isUndefined from 'lodash/lang/isUndefined';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 import {createStore} from '@bxm/flux';
 
 const dataLayer = canUseDOM && !isUndefined(window.dataLayer) ? window.dataLayer : [];

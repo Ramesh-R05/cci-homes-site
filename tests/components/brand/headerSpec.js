@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const AdStub = Context.createStubComponent();
@@ -31,7 +30,7 @@ describe('Brand Header', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render 1 brand logo`, () => {
@@ -58,7 +57,7 @@ describe('Brand Header', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -68,7 +67,7 @@ describe('Brand Header', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 

@@ -3,13 +3,11 @@ import feedDataMock from '../../mock/feed';
 import staticConfigurationStore from '@bxm/ui/lib/to-love/stores/staticConfigurationStore';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const Icon = proxyquire('../../../app/components/teaser/icon', {
-    'react': React,
-    'react/addons': React
+    'react': React
 });
 
 describe('TeaserIcon Component', () => {

@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const FooterSocialIcon = proxyquire('../../../app/components/footer/footerSocialIcon', {
     'react': React
@@ -43,11 +42,11 @@ describe(`FooterSocialIcon`, () => {
     });
 
     it(`renders`, () => {
-        expect(React.findDOMNode(reactModule)).to.exist;
+        expect(ReactDOM.findDOMNode(reactModule)).to.exist;
     });
 
     it(`sets the className to "${className}"`, () => {
-        expect(React.findDOMNode(reactModule)).to.have.className(className);
+        expect(ReactDOM.findDOMNode(reactModule)).to.have.className(className);
     });
 
     it(`renders the link with href "${url}"`, () => {
@@ -59,7 +58,7 @@ describe(`FooterSocialIcon`, () => {
     });
 
     it(`renders the label with text "${label}"`, () => {
-        expect(React.findDOMNode(labelSpan).textContent).to.eq(label);
+        expect(ReactDOM.findDOMNode(labelSpan).textContent).to.eq(label);
     });
 
     it(`sends clicks to the data layer`, () => {

@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SocialIconStub = Context.createStubComponent();
@@ -34,11 +33,11 @@ describe('Brand Social', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the text 'Follow ${brand}'`, () => {
-            expect(React.findDOMNode(followText).textContent).to.equal(`Follow ${brand}`);
+            expect(ReactDOM.findDOMNode(followText).textContent).to.equal(`Follow ${brand}`);
         });
 
         const expectedNumIcons = 4;
@@ -103,7 +102,7 @@ describe('Brand Social', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         const expectedNumIcons = 0;
@@ -120,7 +119,7 @@ describe('Brand Social', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const BreakpointsMock = {
     smallRangeMin: '0',
     smallRangeMax: '690px',
@@ -17,7 +16,7 @@ const proxyquire = require('proxyquire').noCallThru();
 const RafStub = Context.createStubComponentWithChildren();
 const Sticky = proxyquire('../../../app/components/section/sticky', {
     'react': React,
-    'react/lib/ExecutionEnvironment': EnvironmentMock,
+    'exenv': EnvironmentMock,
     '../../breakpoints': BreakpointsMock,
     '@bxm/ui/lib/common/requestAnimationFramePolyfill': AnimationFramePolyfillMock
 });
@@ -33,7 +32,7 @@ describe('Sticky Block', () => {
             reactModule = TestUtils.renderIntoDocument(
                 <Sticky />
             );
-            domElement = React.findDOMNode(reactModule);
+            domElement = ReactDOM.findDOMNode(reactModule);
         });
 
         it(`should render the component`, () => {
@@ -58,7 +57,7 @@ describe('Sticky Block', () => {
         });
 
         it('should render the child component', () => {
-            expect(React.findDOMNode(childComponent)).to.exist;
+            expect(ReactDOM.findDOMNode(childComponent)).to.exist;
         });
     });
 
@@ -98,7 +97,7 @@ describe('Sticky Block', () => {
 
             setStateSpy = sinon.spy(reactModule, 'setState');
 
-            domElement = React.findDOMNode(reactModule);
+            domElement = ReactDOM.findDOMNode(reactModule);
 
             scrollTo(1);
         });
@@ -172,7 +171,7 @@ describe('Sticky Block', () => {
             setStateSpy = sinon.spy(reactModule, 'setState');
             getCarriagePositionStub = sinon.stub(reactModule, 'getCarriagePosition')
 
-            domElement = React.findDOMNode(reactModule);
+            domElement = ReactDOM.findDOMNode(reactModule);
             resizeTo(768);
         });
 
@@ -204,7 +203,7 @@ describe('Sticky Block', () => {
 
             setStateSpy = sinon.spy(reactModule, 'setState');
 
-            domElement = React.findDOMNode(reactModule);
+            domElement = ReactDOM.findDOMNode(reactModule);
         });
 
         after( () => {

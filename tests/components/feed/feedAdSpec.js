@@ -2,14 +2,12 @@ import clone from 'lodash/lang/clone';
 import {betterMockComponentContext} from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const AdStub = Context.createStubComponent();
 const FeedAd = proxyquire('../../../app/components/feed/feedAd', {
     'react': React,
-    'react/addons': React,
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
@@ -40,7 +38,7 @@ describe('FeedAd Component', () => {
         describe('li', () => {
             const expectedClassName = 'feed-ad';
             it(`sets the className to "${expectedClassName}"`, () => {
-                expect(React.findDOMNode(li).className).to.eq(expectedClassName);
+                expect(ReactDOM.findDOMNode(li).className).to.eq(expectedClassName);
             });
         });
 
@@ -92,7 +90,7 @@ describe('FeedAd Component', () => {
             it(`returns an empty component when "${propName}" prop is empty`, () => {
                 delete propsClone[propName];
                 reactModule = TestUtils.renderIntoDocument(<FeedAd {...propsClone}/>);
-                expect(React.findDOMNode(reactModule)).to.not.exist;
+                expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
             });
         });
 

@@ -6,7 +6,7 @@ export default class Source extends Component {
     static displayName = 'TeaserSource';
 
     static propTypes = {
-        source: PropTypes.string.isRequired
+        source: PropTypes.string
     };
 
     render() {

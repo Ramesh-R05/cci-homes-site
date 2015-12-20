@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import React from 'react';
+const Context = betterMockComponentContext();
+const {React, ReactDOM, TestUtils} = Context;
 
 /* the createStubComponent() function doesn't set this.props correctly. To test HOC correctly,I need to get stubComponent to have this.props set in order to test access to 'themeAttribute' */
 let stubComponent = (props) => class extends React.Component{
@@ -12,16 +13,13 @@ let stubComponent = (props) => class extends React.Component{
     }
 };
 
-const Context = betterMockComponentContext();
-const TestUtils = Context.TestUtils;
 const proxyquire = require('proxyquire').noCallThru();
 const themeData = {'themeAttribute' : 'green'};
 const themeClass = 'theme-green';
 const ComponentStubWithNoThemeProperty = stubComponent();
 const ComponentStubWithThemeProperty = stubComponent(themeData);
 const theme = proxyquire('../../../app/components/helpers/theme', {
-    'react': React,
-    'react/addons': React
+    'react': React
 });
 
 describe(`Theme Helper`, () => {
@@ -50,7 +48,7 @@ describe(`Theme Helper`, () => {
         });
 
         it(`check if className attribute is set and empty`, () => {
-            const className = React.findDOMNode(reactModule).className;
+            const className = ReactDOM.findDOMNode(reactModule).className;
             expect(className).to.eq('');
         });
     });
@@ -70,7 +68,7 @@ describe(`Theme Helper`, () => {
         });
 
         it(`check if className attribute is set and is equal to "{$themeClass}"`, () => {
-            const className = React.findDOMNode(reactModule).className;
+            const className = ReactDOM.findDOMNode(reactModule).className;
             expect(className).to.eq(themeClass);
         });
     });

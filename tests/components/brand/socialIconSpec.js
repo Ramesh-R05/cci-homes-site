@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SocialIcon = proxyquire('../../../app/components/brand/socialIcon', {
@@ -27,7 +26,7 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the link with the correct url`, () => {
@@ -35,7 +34,7 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the svg image with the correct HTML`, () => {
-            expect(React.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
+            expect(ReactDOM.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
         });
     });
 
@@ -49,11 +48,11 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the svg image with the correct HTML`, () => {
-            expect(React.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
+            expect(ReactDOM.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
         });
     });
 
@@ -67,11 +66,11 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the svg image with the correct HTML`, () => {
-            expect(React.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
+            expect(ReactDOM.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
         });
     });
 
@@ -85,11 +84,11 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the svg image with the correct HTML`, () => {
-            expect(React.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
+            expect(ReactDOM.findDOMNode(svg).innerHTML).to.equal(SocialIcon.icons[name]);
         });
     });
 
@@ -102,7 +101,7 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -114,7 +113,7 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -126,7 +125,7 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 

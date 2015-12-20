@@ -4,8 +4,7 @@ import remove from 'lodash/array/remove';
 import {localeData} from '../../mock/config';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const activateSideMenu = () => {};
@@ -13,7 +12,6 @@ const NavigationStub = Context.createStubComponent();
 const MagshopStub = Context.createStubComponent();
 const SideMenu = proxyquire('../../../app/components/side-menu/sideMenu', {
     'react': React,
-    'react/addons': React,
     '../header/navigation': NavigationStub,
     '../magshop/magshop': MagshopStub,
     '../../actions/menuActions': { activateSideMenu }
@@ -40,39 +38,39 @@ describe(`SideMenu Component`, () => {
         before(renderDefault);
 
         it('renders the reactModule', () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it('does not set the side-menu--open state class', () => {
-            expect(React.findDOMNode(reactModule)).not.to.have.className('side-menu--open');
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.have.className('side-menu--open');
         });
 
         it('renders the bar', () => {
-            expect(React.findDOMNode(bar)).to.exist;
+            expect(ReactDOM.findDOMNode(bar)).to.exist;
         });
 
         it('renders the container', () => {
-            expect(React.findDOMNode(container)).to.exist;
+            expect(ReactDOM.findDOMNode(container)).to.exist;
         });
 
         it('renders the closeButton', () => {
-            expect(React.findDOMNode(closeButton)).to.exist;
+            expect(ReactDOM.findDOMNode(closeButton)).to.exist;
         });
 
         it('renders the closeButton icon', () => {
-            expect(React.findDOMNode(closeButton).innerHTML).to.contain('<svg');
+            expect(ReactDOM.findDOMNode(closeButton).innerHTML).to.contain('<svg');
         });
 
         it('renders the nav', () => {
-            expect(React.findDOMNode(nav)).to.exist;
+            expect(ReactDOM.findDOMNode(nav)).to.exist;
         });
 
         it('renders the overlay', () => {
-            expect(React.findDOMNode(overlay)).to.exist;
+            expect(ReactDOM.findDOMNode(overlay)).to.exist;
         });
 
         it('renders the Magshop subscription section', () => {
-            expect(React.findDOMNode(magshop)).to.exist;
+            expect(ReactDOM.findDOMNode(magshop)).to.exist;
         });
 
         const separatorLength = 1;
@@ -87,7 +85,7 @@ describe(`SideMenu Component`, () => {
         });
 
         it('does not render', () => {
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
     });
 
@@ -122,7 +120,7 @@ describe(`SideMenu Component`, () => {
         });
 
         it('renders with the side-menu--open state class', () => {
-            expect(React.findDOMNode(reactModule)).to.have.className('side-menu--open');
+            expect(ReactDOM.findDOMNode(reactModule)).to.have.className('side-menu--open');
         });
 
         it('issues a NavigationActions.activateSideMenu action when the close button is clicked', () => {

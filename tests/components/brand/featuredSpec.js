@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponent();
@@ -40,8 +39,8 @@ describe('Brand Featured', () => {
         });
 
         it(`should render the component with the class section`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
-            expect(React.findDOMNode(reactModule).className).to.contain(sectionClass);
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(sectionClass);
         });
 
         const expectedNumTeasers = 5;
@@ -118,7 +117,7 @@ describe('Brand Featured', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -130,7 +129,7 @@ describe('Brand Featured', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -143,7 +142,7 @@ describe('Brand Featured', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the social component with relevant props`, () => {
@@ -163,7 +162,7 @@ describe('Brand Featured', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should render the social component with relevant props`, () => {

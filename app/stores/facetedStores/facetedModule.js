@@ -1,4 +1,4 @@
-import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
+import {canUseDOM} from 'exenv';
 import {BaseStore} from '@bxm/flux';
 import uniq from 'lodash/array/uniq';
 import merge from 'lodash/object/merge';

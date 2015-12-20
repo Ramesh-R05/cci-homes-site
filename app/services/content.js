@@ -1,5 +1,5 @@
 import request from 'superagent';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment.js';
+import {canUseDOM} from 'exenv';
 
 let path;
 let host = '';

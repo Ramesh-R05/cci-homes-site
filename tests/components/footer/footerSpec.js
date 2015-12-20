@@ -4,8 +4,7 @@ import {localeData} from '../../mock/config';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const FooterSocialLinksStub = Context.createStubComponentWithChildren();
 const FooterNetworkInfoStub = Context.createStubComponentWithChildren();
@@ -95,7 +94,7 @@ describe(`Footer`, () => {
 
         const expectedModifierClassName = `footer--${modifier}`;
         it(`should render footer with the ${expectedModifierClassName} class`, () => {
-            expect(React.findDOMNode(footer)).to.have.className(expectedModifierClassName);
+            expect(ReactDOM.findDOMNode(footer)).to.have.className(expectedModifierClassName);
         });
     });
 

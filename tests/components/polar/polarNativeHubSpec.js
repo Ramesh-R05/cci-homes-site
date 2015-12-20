@@ -1,7 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const PolarHubStub = Context.createStubComponent();
@@ -72,7 +71,7 @@ describe('polarNativeHub', () => {
 
         it('should pass down the correct props for each teaser', () => {
             teasers.forEach((item, index) => {
-                const props = item._store.props;
+                const props = item.props;
                 const data = teasersData[index].data;
                 expect(props.nativeAd).to.deep.equal(data);
             });

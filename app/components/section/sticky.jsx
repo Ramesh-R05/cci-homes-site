@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 import raf from '@bxm/ui/lib/common/requestAnimationFramePolyfill';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 import siteBreakpoints from '../../breakpoints';
 import isEqual from 'lodash/lang/isEqual';
 import forEach from 'lodash/collection/forEach';
@@ -49,8 +50,8 @@ class StickyBlock extends Component {
     }
 
     componentDidMount() {
-        this.stickyBlock = React.findDOMNode(this);
-        this.carriage = React.findDOMNode(this.refs.carriage);
+        this.stickyBlock = ReactDOM.findDOMNode(this);
+        this.carriage = ReactDOM.findDOMNode(this.refs.carriage);
 
         this.setState(this.getState());
 
@@ -110,7 +111,7 @@ class StickyBlock extends Component {
         if (!isEqual(this.state.carriagePosition, newCarriagePosition)) {
             raf.requestAnimationFrame( () => {
                 this.setState({carriagePosition: newCarriagePosition});
-            }.bind(this));
+            });
         }
     }
 

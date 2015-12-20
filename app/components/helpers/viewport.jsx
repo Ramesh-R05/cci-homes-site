@@ -19,7 +19,7 @@
 
 import React from 'react';
 import debounce from 'lodash/function/debounce';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 
 export default (Component, debounceInt = 500) => class extends React.Component {
     constructor(props) {

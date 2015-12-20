@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
@@ -28,7 +27,7 @@ describe('InFocus', () => {
         const expectedHeading = 'In Focus';
         it(`should have the heading equal to '${expectedHeading}'`, () => {
             const heading = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'type-composite');
-            expect(heading.getDOMNode().textContent).to.equal(expectedHeading);
+            expect(ReactDOM.findDOMNode(heading).textContent).to.equal(expectedHeading);
         });
 
         it(`should render three teasers`, () => {
@@ -56,7 +55,7 @@ describe('InFocus', () => {
         });
 
         it('should render the child component', () => {
-            expect(React.findDOMNode(childComponent)).to.exist;
+            expect(ReactDOM.findDOMNode(childComponent)).to.exist;
         });
     });
 
@@ -86,7 +85,7 @@ describe('InFocus', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -98,7 +97,7 @@ describe('InFocus', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 

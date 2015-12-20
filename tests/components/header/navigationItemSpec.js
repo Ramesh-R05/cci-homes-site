@@ -1,13 +1,11 @@
 import {betterMockComponentContext} from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const NavigationItem = proxyquire('../../../app/components/header/navigationItem', {
-    'react': React,
-    'react/addons': React
+    'react': React
 });
 
 describe(`NavigationItem Component`, () => {
@@ -25,11 +23,11 @@ describe(`NavigationItem Component`, () => {
         });
 
         it('renders the component', () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it('renders the link', () => {
-            expect(React.findDOMNode(a)).to.exist;
+            expect(ReactDOM.findDOMNode(a)).to.exist;
         });
 
         it(`sets the link "href" prop to "${url}"`, () => {
@@ -37,19 +35,19 @@ describe(`NavigationItem Component`, () => {
         });
 
         it(`sets the link text to "${name}"`, () => {
-            expect(React.findDOMNode(a).textContent).to.eq(name);
+            expect(ReactDOM.findDOMNode(a).textContent).to.eq(name);
         });
     });
 
     describe('missing props', () => {
         it('does not render if the "name" prop is not set', () => {
             reactModule = Context.mountComponent(NavigationItem, { url });
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
 
         it('does not render if the "url" prop is not set', () => {
             reactModule = Context.mountComponent(NavigationItem, { name });
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
     });
 });

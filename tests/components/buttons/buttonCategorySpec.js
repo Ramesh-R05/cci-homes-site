@@ -1,7 +1,6 @@
-import React from 'react';
 import {betterMockComponentContext} from '@bxm/flux';
-
-const TestUtils = betterMockComponentContext().TestUtils;
+const Context = betterMockComponentContext();
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const ButtonCategory = proxyquire('../../../app/components/buttons/buttonCategory', {
     './button': React.createClass({
@@ -24,7 +23,7 @@ describe('ButtonCategory', () => {
 
     after(() => {
         if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-            let domElement = React.findDOMNode(reactModule);
+            let domElement = ReactDOM.findDOMNode(reactModule);
             if (domElement) React.unmountComponentAtNode(domElement.parentElement);
         }
     });

@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const FooterNavigation = proxyquire('../../../app/components/footer/footerNavigation', {
     'react': React
@@ -21,7 +20,7 @@ describe(`FooterNavigation`, () => {
     });
 
     it(`should render the FooterNavigation Component`, () => {
-        expect(React.findDOMNode(reactModule)).to.exist;
+        expect(ReactDOM.findDOMNode(reactModule)).to.exist;
     });
 
     it(`should render ${nbAnchors} Anchors`, () => {

@@ -1,8 +1,7 @@
 import {betterMockComponentContext} from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const MenuButtonStub = Context.createStubComponent();
@@ -12,7 +11,6 @@ const sandbox = sinon.sandbox.create();
 const pinStub = sandbox.stub().returnsArg(0);
 const Header = proxyquire('../../../app/components/header/header', {
     'react': React,
-    'react/addons': React,
     './menuButton': MenuButtonStub,
     './navigation': NavigationStub,
     '../helpers/pin': pinStub // stub the HOC
@@ -114,7 +112,7 @@ describe(`Header Component`, () => {
         });
 
         it('does not render', () => {
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
     });
 
@@ -134,31 +132,31 @@ describe(`Header Component`, () => {
 
         describe('Header banner', () => {
             it('renders', () => {
-                expect(React.findDOMNode(headerBanner)).to.exist;
+                expect(ReactDOM.findDOMNode(headerBanner)).to.exist;
             });
 
             it('links to the home page', () => {
-                const headerBannerLink = TestUtils.findRenderedDOMComponentWithTag(headerBanner, 'a');
-                expect(headerBannerLink.props.href).to.eq('/');
+                const headerBannerLink = ReactDOM.findDOMNode(headerBanner).getElementsByTagName('a')[0];
+                expect(headerBannerLink.getAttribute('href')).to.eq('/');
             });
         });
 
         describe('MenuButton', () => {
             it('renders', () => {
-                expect(React.findDOMNode(menuButton)).to.exist;
+                expect(ReactDOM.findDOMNode(menuButton)).to.exist;
             });
         });
 
         describe('Logo', () => {
             it('renders', () => {
-                expect(React.findDOMNode(logo)).to.exist;
+                expect(ReactDOM.findDOMNode(logo)).to.exist;
             });
 
         });
 
         describe('Navigation', () => {
             it('renders', () => {
-                expect(React.findDOMNode(navigation)).to.exist;
+                expect(ReactDOM.findDOMNode(navigation)).to.exist;
             });
 
             const expectedClassName = 'header-nav__nav';

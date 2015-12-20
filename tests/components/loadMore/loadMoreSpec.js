@@ -3,8 +3,7 @@ import {RouteStore} from 'fluxible-router';
 import Immutable from 'immutable';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const LoadingIconStub = Context.createStubComponentWithChildren();
 const ButtonStub = Context.createStubComponent();
@@ -15,7 +14,6 @@ const FlexibleRouter = {
 const currentRoute = Immutable.fromJS({params: {all: 'url'}});
 const LoadMore = proxyquire('../../../app/components/loadMore/loadMore', {
     'react': React,
-    'react/addons': React,
     '../buttons/button': ButtonStub,
     './loadingIcon': LoadingIconStub,
     'fluxible-router': FlexibleRouter
@@ -67,7 +65,7 @@ describe('Load More', function () {
         });
 
         it('should not render both a Button', () => {
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
     });
 });

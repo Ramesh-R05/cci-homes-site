@@ -16,8 +16,7 @@ const sandbox = sinon.sandbox.create();
 const environmentMock = { canUseDOM: true };
 const pin = proxyquire('../../../app/components/helpers/pin', {
     'react': React,
-    'react/addons': React,
-    'react/lib/ExecutionEnvironment': environmentMock,
+    'exenv': environmentMock,
     '../../breakpoints': mockBreakpoints
 });
 

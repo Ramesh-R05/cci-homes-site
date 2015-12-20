@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom/server';
 import {navigateAction} from 'fluxible-router';
 import serialize from 'serialize-javascript';
 import app from '../app';
@@ -12,9 +13,9 @@ export default function(req, res) {
     context.executeAction(navigateAction, { url: req.url }, (err) => {
         if (err) res.status(500).send('[patternlab] route not found');
         const exposed = `window.App=${serialize(app.dehydrate(context))};`;
-        const html = React.renderToStaticMarkup(htmlComponent({
+        const html = ReactDOM.renderToStaticMarkup(htmlComponent({
             state: exposed,
-            markup: React.renderToString(context.createElement()),
+            markup: ReactDOM.renderToString(context.createElement()),
             context: context.getComponentContext()
         }));
         res.send(html);

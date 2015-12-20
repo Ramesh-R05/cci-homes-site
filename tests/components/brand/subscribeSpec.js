@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponent();
@@ -38,7 +37,7 @@ describe('Brand Subscribe', () => {
         });
 
         it(`should render the component`, () => {
-            const dom = React.findDOMNode(reactModule);
+            const dom = ReactDOM.findDOMNode(reactModule);
             expect(dom).to.exist;
             expect(dom.className).to.contain(`brand-subscribe`);
             expect(dom.className).to.contain(className);
@@ -66,7 +65,7 @@ describe('Brand Subscribe', () => {
         });
 
         it(`should render the component`, () => {
-            const dom = React.findDOMNode(reactModule);
+            const dom = ReactDOM.findDOMNode(reactModule);
             expect(dom).to.exist;
             expect(dom.className).to.contain(`brand-subscribe`);
             expect(dom.className).to.not.contain(className);

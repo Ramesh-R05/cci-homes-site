@@ -4,8 +4,7 @@ import intersection from 'lodash/array/intersection';
 import extend from 'lodash/object/extend';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const ImageStub = Context.createStubComponentWithChildren();
@@ -49,7 +48,7 @@ describe('Teaser', () => {
 
         after(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-                let domElement = React.findDOMNode(reactModule);
+                let domElement = ReactDOM.findDOMNode(reactModule);
                 if (domElement) React.unmountComponentAtNode(domElement.parentElement);
             }
         });
@@ -70,7 +69,7 @@ describe('Teaser', () => {
         });
 
         it(`should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
-            const classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            const classNames = ReactDOM.findDOMNode(reactModule).className.split(/\s+/);
             const intersect = intersection(classNames, allowedThemeClasses);
             expect(intersect.length).to.eq(1);
         });
@@ -142,7 +141,7 @@ describe('Teaser', () => {
 
         after(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-                let domElement = React.findDOMNode(reactModule);
+                let domElement = ReactDOM.findDOMNode(reactModule);
                 if (domElement) React.unmountComponentAtNode(domElement.parentElement);
             }
         });
@@ -167,7 +166,7 @@ describe('Teaser', () => {
 
         after(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-                let domElement = React.findDOMNode(reactModule);
+                let domElement = ReactDOM.findDOMNode(reactModule);
                 if (domElement) React.unmountComponentAtNode(domElement.parentElement);
             }
         });
@@ -191,13 +190,13 @@ describe('Teaser', () => {
 
         after(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-                let domElement = React.findDOMNode(reactModule);
+                let domElement = ReactDOM.findDOMNode(reactModule);
                 if (domElement) React.unmountComponentAtNode(domElement.parentElement);
             }
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 

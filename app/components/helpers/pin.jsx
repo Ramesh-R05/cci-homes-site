@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 import breakpoints from '../../breakpoints';
 import cloneDeep from 'lodash/lang/cloneDeep';
 import isEqual from 'lodash/lang/isEqual';
