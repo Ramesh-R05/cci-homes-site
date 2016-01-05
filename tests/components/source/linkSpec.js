@@ -1,12 +1,10 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import each from 'lodash/collection/each';
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const BrandLink = proxyquire('../../../app/components/brand/link', {
-    'react': React,
-    'react/addons': React
+    'react': React
 });
 
 describe('BrandLink', () => {
@@ -33,7 +31,7 @@ describe('BrandLink', () => {
 
         it(`should wrap the link around the children passed'`, () => {
             const div = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'div');
-            expect(React.findDOMNode(link).innerHTML).to.eq(React.findDOMNode(div).outerHTML);
+            expect(ReactDOM.findDOMNode(link).innerHTML).to.eq(ReactDOM.findDOMNode(div).outerHTML);
         });
     });
 
@@ -53,7 +51,7 @@ describe('BrandLink', () => {
         it(`should only render the children with no link`, () => {
             const div = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'div');
             expect(link.length).to.eq(0);
-            expect(React.findDOMNode(reactModule).textContent).to.eq(React.findDOMNode(div).textContent);
+            expect(ReactDOM.findDOMNode(reactModule).textContent).to.eq(ReactDOM.findDOMNode(div).textContent);
         });
     });
 
@@ -77,7 +75,7 @@ describe('BrandLink', () => {
 
         it(`should wrap the link around the children passed'`, () => {
             const div = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'div');
-            expect(React.findDOMNode(link).innerHTML).to.eq(React.findDOMNode(div).outerHTML);
+            expect(ReactDOM.findDOMNode(link).innerHTML).to.eq(ReactDOM.findDOMNode(div).outerHTML);
         });
     });
 
@@ -89,7 +87,7 @@ describe('BrandLink', () => {
         });
 
         it('should not render the component', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         })
     });
 
@@ -110,7 +108,7 @@ describe('BrandLink', () => {
             );
             const link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
             expect(link.length).to.eq(0);
-            expect(React.findDOMNode(reactModule).textContent).to.eq('TEST');
+            expect(ReactDOM.findDOMNode(reactModule).textContent).to.eq('TEST');
         });
 
         it(`should only render the children with no link if no source is passed through`, () => {
@@ -119,7 +117,7 @@ describe('BrandLink', () => {
             );
             const link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
             expect(link.length).to.eq(0);
-            expect(React.findDOMNode(reactModule).textContent).to.eq('TEST');
+            expect(ReactDOM.findDOMNode(reactModule).textContent).to.eq('TEST');
         });
     })
 });

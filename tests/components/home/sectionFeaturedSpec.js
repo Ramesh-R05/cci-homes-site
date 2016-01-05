@@ -4,8 +4,7 @@ import {items as gogMock} from '../../mock/galleryOfGalleries';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const InlineGalleryStub = Context.createStubComponent();
 const TeaserStub = Context.createStubComponentWithChildren();
@@ -57,7 +56,7 @@ describe('SectionFeatured', () => {
                 articles: articlesMock
             });
 
-            domElements = React.findDOMNode(reactModule);
+            domElements = ReactDOM.findDOMNode(reactModule);
 
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
@@ -219,7 +218,7 @@ describe('SectionFeatured', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

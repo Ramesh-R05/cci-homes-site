@@ -4,8 +4,7 @@ import imageResize from '@bxm/ui/lib/common/ImageResize';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const InlineGalleryItem = proxyquire('../../../app/components/inlineGallery/item', {
     'react': React,
@@ -46,7 +45,7 @@ describe('InlineGalleryItem', () => {
 
         it(`should render the correct source class`, () => {
             const expectedSourceClassName = `gallery-item--australian_house_and_garden`;
-            expect(React.findDOMNode(reactModule)).to.have.classNames('gallery-item', expectedSourceClassName);
+            expect(ReactDOM.findDOMNode(reactModule)).to.have.classNames('gallery-item', expectedSourceClassName);
         });
 
         it(`should render a link with the correct href`, () => {
@@ -58,11 +57,11 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should render the correct topic tag`, () => {
-            expect(React.findDOMNode(topic).textContent).to.eq(`Tips and advice`);
+            expect(ReactDOM.findDOMNode(topic).textContent).to.eq(`Tips and advice`);
         });
 
         it(`should render the correct heading`, () => {
-            expect(React.findDOMNode(heading).textContent).to.eq(title);
+            expect(ReactDOM.findDOMNode(heading).textContent).to.eq(title);
         });
     });
 
@@ -72,7 +71,7 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should not render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -84,7 +83,7 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should not render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -94,7 +93,7 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should not render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -108,11 +107,11 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should hide the meta box`, () => {
-            expect(React.findDOMNode(meta).className.indexOf('hide')).to.be.greaterThan(-1);
+            expect(ReactDOM.findDOMNode(meta).className.indexOf('hide')).to.be.greaterThan(-1);
         });
     });
 
@@ -127,11 +126,11 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it(`should hide the topic component`, () => {
-            expect(React.findDOMNode(topic).className.indexOf('hide')).to.be.greaterThan(-1);
+            expect(ReactDOM.findDOMNode(topic).className.indexOf('hide')).to.be.greaterThan(-1);
         });
     });
 
@@ -146,42 +145,42 @@ describe('InlineGalleryItem', () => {
             let newProps = {...props};
             newProps.source = 'homes+';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${homesPlus}`);
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(`gallery-item--${homesPlus}`);
         });
 
         it(`should render the source class ${realLiving}`, () => {
             let newProps = {...props};
             newProps.source = 'real living';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${realLiving}`);
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(`gallery-item--${realLiving}`);
         });
 
         it(`should render the source class ${belle}`, () => {
             let newProps = {...props};
             newProps.source = 'Belle';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${belle}`);
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(`gallery-item--${belle}`);
         });
 
         it(`should render the source class ${houseGarden}`, () => {
             let newProps = {...props};
             newProps.source = 'Australian House and Garden';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${houseGarden}`);
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(`gallery-item--${houseGarden}`);
         });
 
         it(`should render the source class ${homesToLove}`, () => {
             let newProps = {...props};
             newProps.source = 'Homes To Love';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--${homesToLove}`);
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(`gallery-item--${homesToLove}`);
         });
 
         it(`should render random source`, () => {
             let newProps = {...props};
             newProps.source = 'random';
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...newProps} />);
-            expect(React.findDOMNode(reactModule).className).to.contain(`gallery-item--random`);
+            expect(ReactDOM.findDOMNode(reactModule).className).to.contain(`gallery-item--random`);
         });
     });
 });

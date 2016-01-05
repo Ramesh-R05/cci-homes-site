@@ -5,8 +5,7 @@ import merge from 'lodash/object/merge';
 import omit from 'lodash/object/omit';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();

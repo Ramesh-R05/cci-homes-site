@@ -9,7 +9,7 @@ export default class HomesPolarNativeHub extends Component {
 
     static propTypes = {
         hubId: PropTypes.string.isRequired,
-        targets: PropTypes.targets
+        targets: PropTypes.object
     };
 
     static defaultProps = {
@@ -17,8 +17,9 @@ export default class HomesPolarNativeHub extends Component {
         targets: {}
     };
 
-    static renderTeasers = (teasers, onClick) => teasers.map( teaser =>
+    static renderTeasers = (teasers, onClick) => teasers.map( (teaser, i) =>
         <PolarTeaserImage
+            key={i}
             nativeAd={get(teaser, 'data', {})}
             trackClick={onClick}
             caption="Sponsored By"

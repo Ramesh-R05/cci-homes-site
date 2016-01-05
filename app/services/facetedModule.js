@@ -1,7 +1,7 @@
 import isEmpty from 'lodash/lang/isEmpty';
 import map from 'lodash/collection/map';
 import request from 'superagent';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 
 function toQueryString(obj) {
     return map(obj, (v, k) => {

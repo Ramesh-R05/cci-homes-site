@@ -3,8 +3,7 @@ import {items as gogMock} from '../../mock/galleryOfGalleries';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const InlineGalleryStub = Context.createStubComponent();
 const breakPoints = {
@@ -98,7 +97,7 @@ describe('CustomInlineGallery', () => {
         });
 
         it(`should not render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -108,7 +107,7 @@ describe('CustomInlineGallery', () => {
         });
 
         it(`should not render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

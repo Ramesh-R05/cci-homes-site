@@ -1,7 +1,6 @@
-import React from 'react';
 import {betterMockComponentContext} from '@bxm/flux';
-
-const TestUtils = betterMockComponentContext().TestUtils;
+const Context = betterMockComponentContext();
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const Checkbox = proxyquire('../../../app/components/form/checkbox', {
   './input': React.createClass({
@@ -21,6 +20,6 @@ describe('Checkbox', () => {
 
     it(`should render an input with the ${expectedInputType} type`, () => {
         const input = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'input');
-        expect(input.getDOMNode().type).to.equal(expectedInputType);
+        expect(ReactDOM.findDOMNode(input).type).to.equal(expectedInputType);
     });
 });

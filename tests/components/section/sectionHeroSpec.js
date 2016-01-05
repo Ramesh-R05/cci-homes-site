@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
@@ -42,7 +41,7 @@ describe('GroupHero', () => {
         });
 
         it(`should render`, () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
     });
 
@@ -56,7 +55,7 @@ describe('GroupHero', () => {
         });
 
         it(`should not render`, () => {
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
     });
 

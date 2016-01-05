@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 import slice from 'lodash/array/slice';
 import {connectToStores} from '@bxm/flux';
 import EntityStore from '../../stores/entity';

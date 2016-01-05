@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SponsorHeaderStub = Context.createStubComponentWithChildren();
@@ -28,17 +27,17 @@ describe('SectionHeader', () => {
 
         const expectedHeading = 'Section';
         it(`should have the heading equal to ${expectedHeading}`, () => {
-            expect(React.findDOMNode(heading).textContent).to.equal(expectedHeading);
+            expect(ReactDOM.findDOMNode(heading).textContent).to.equal(expectedHeading);
         });
 
         it(`should pass a title prop to SponsorHeader equal to ${expectedHeading}`, () => {
             const titleProp = sponsorHeader.props.title;
             expect(titleProp.type).to.eq('b');
-            expect(titleProp._store.props.children).to.eq(expectedHeading);
+            expect(titleProp.props.children).to.eq(expectedHeading);
         });
 
         it(`should pass a children prop to SponsorHeader equal to '${expectedHeading}`, () => {
-            expect(React.findDOMNode(heading).textContent).to.eq(expectedHeading);
+            expect(ReactDOM.findDOMNode(heading).textContent).to.eq(expectedHeading);
         });
     });
 
@@ -53,13 +52,13 @@ describe('SectionHeader', () => {
         const expectedHeading = 'Section Tag';
         it(`should have the heading equal to ${expectedHeading}`, () => {
             const heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'h1');
-            expect(React.findDOMNode(heading).textContent.trim()).to.equal(expectedHeading);
+            expect(ReactDOM.findDOMNode(heading).textContent.trim()).to.equal(expectedHeading);
         });
 
         const expectedBoldWord = 'Tag';
         it(`should have the second word '${expectedBoldWord}' bold`, () => {
             const boldWord = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
-            expect(React.findDOMNode(boldWord).textContent.trim()).to.equal(expectedBoldWord);
+            expect(ReactDOM.findDOMNode(boldWord).textContent.trim()).to.equal(expectedBoldWord);
         });
     });
 
@@ -74,13 +73,13 @@ describe('SectionHeader', () => {
         const expectedHeading = 'Section Tag Landing';
         it(`should have the heading equal to ${expectedHeading}`, () => {
             const heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'h1');
-            expect(React.findDOMNode(heading).textContent).to.equal(expectedHeading);
+            expect(ReactDOM.findDOMNode(heading).textContent).to.equal(expectedHeading);
         });
 
         const expectedBoldWord = 'Tag';
         it(`should have the second word '${expectedBoldWord}' bold`, () => {
             const boldWord = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
-            expect(React.findDOMNode(boldWord).textContent.trim()).to.equal(expectedBoldWord);
+            expect(ReactDOM.findDOMNode(boldWord).textContent.trim()).to.equal(expectedBoldWord);
         });
     });
 
@@ -95,19 +94,19 @@ describe('SectionHeader', () => {
         const expectedHeading = 'Section Tag Landing Page';
         it(`should have the heading equal to ${expectedHeading}`, () => {
             const heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'h1');
-            expect(React.findDOMNode(heading).textContent.trim()).to.equal(expectedHeading);
+            expect(ReactDOM.findDOMNode(heading).textContent.trim()).to.equal(expectedHeading);
         });
 
         let expectedBoldWord = 'Tag';
         it(`should have the second word '${expectedBoldWord}' bold`, () => {
             const boldWord = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'b')[0];
-            expect(React.findDOMNode(boldWord).textContent.trim()).to.equal(expectedBoldWord);
+            expect(ReactDOM.findDOMNode(boldWord).textContent.trim()).to.equal(expectedBoldWord);
         });
 
         const expectedSecondBoldWord = 'Page';
         it(`should have the fourth word '${expectedSecondBoldWord}' bold`, () => {
             const boldWord = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'b')[1];
-            expect(React.findDOMNode(boldWord).textContent.trim()).to.equal(expectedSecondBoldWord);
+            expect(ReactDOM.findDOMNode(boldWord).textContent.trim()).to.equal(expectedSecondBoldWord);
         });
     });
 
@@ -126,7 +125,7 @@ describe('SectionHeader', () => {
         });
 
         it('should render the child component', () => {
-            expect(React.findDOMNode(childComponent)).to.exist;
+            expect(ReactDOM.findDOMNode(childComponent)).to.exist;
         });
     });
 
@@ -138,7 +137,7 @@ describe('SectionHeader', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -150,7 +149,7 @@ describe('SectionHeader', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

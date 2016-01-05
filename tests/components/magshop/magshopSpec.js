@@ -4,8 +4,7 @@ import {localeData} from '../../mock/config';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const MagShop = proxyquire('../../../app/components/magshop/magshop', {
     'react': React
@@ -33,7 +32,7 @@ describe(`MagShop`, () => {
         reactModule = Context.mountComponent(MagShop, {
             content: magShopData
         });
-        domElement = React.findDOMNode(reactModule);
+        domElement = ReactDOM.findDOMNode(reactModule);
     });
 
     after(() => {
@@ -66,7 +65,7 @@ describe(`MagShop`, () => {
                 inSideNav: true,
                 content: magShopData
             });
-            domElement = React.findDOMNode(reactModule);
+            domElement = ReactDOM.findDOMNode(reactModule);
         });
 
         it('should not render the magazine image', () => {

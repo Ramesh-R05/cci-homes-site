@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 import {provideContext} from '@bxm/flux';
 import {handleHistory} from 'fluxible-router';
 import platform from '@bxm/ui/lib/common/platform';

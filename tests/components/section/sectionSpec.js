@@ -4,8 +4,7 @@ import exposeProps from '../../test-util/exposeProps';
 import cloneDeep from 'lodash/lang/cloneDeep';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 // ----------------------------------------------------------------------------- Stubbed components
 
@@ -103,7 +102,7 @@ describe(`Section`, () => {
         });
 
         it(`should render the Section component on the page`, () => {
-            expect(React.findDOMNode(section)).to.exist;
+            expect(ReactDOM.findDOMNode(section)).to.exist;
         });
 
         it(`should render Recommendations component`, () => {

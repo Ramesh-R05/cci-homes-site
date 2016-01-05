@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TitleStub = Context.createStubComponentWithChildren();

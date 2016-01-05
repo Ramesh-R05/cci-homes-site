@@ -81,7 +81,7 @@ describe('Services', () => {
 const createNock = scope => nock(scope); //.log(console.log);
 const createService = (config, useDOM) => {
     const service = proxyquire('../../app/services/facetedModule', {
-        'react/lib/ExecutionEnvironment': {canUseDOM: useDOM}
+        'exenv': {canUseDOM: useDOM}
     });
     service.init(config);
     return service;

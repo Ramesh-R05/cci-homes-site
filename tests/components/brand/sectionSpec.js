@@ -4,8 +4,7 @@ import exposeProps from '../../test-util/exposeProps';
 import clone from 'lodash/lang/clone';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const HeaderStub = Context.createStubComponent();
@@ -80,7 +79,7 @@ describe(`Brand Section`, () => {
         });
 
         it(`should render the Section component on the page`, () => {
-            expect(React.findDOMNode(section)).to.exist;
+            expect(ReactDOM.findDOMNode(section)).to.exist;
         });
 
         // Recommendations
@@ -174,7 +173,7 @@ describe(`Brand Section`, () => {
 
         before(() => {
             reactModule = Context.mountComponent(exposeProps(Section), {});
-            domNode = React.findDOMNode(reactModule);
+            domNode = ReactDOM.findDOMNode(reactModule);
         });
 
         it(`should have class name "side-menu-slider"`, () => {

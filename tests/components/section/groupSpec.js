@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import {articles as articlesMock} from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren({className: 'teaser'});
@@ -81,11 +80,11 @@ describe('Group', () => {
         });
 
         it('Group should exist', () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it('should have the custom classname "${className}"', () => {
-            let classNames = React.findDOMNode(reactModule).className.split(/\s+/);
+            let classNames = ReactDOM.findDOMNode(reactModule).className.split(/\s+/);
             expect(classNames).to.contain(className);
         });
     });
@@ -105,7 +104,7 @@ describe('Group', () => {
         });
 
         it('should render the child component', () => {
-            expect(React.findDOMNode(childComponent)).to.exist;
+            expect(ReactDOM.findDOMNode(childComponent)).to.exist;
         });
     });
 
@@ -205,7 +204,7 @@ describe('Group', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -217,7 +216,7 @@ describe('Group', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -229,7 +228,7 @@ describe('Group', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 

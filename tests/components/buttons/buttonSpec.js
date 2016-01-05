@@ -1,9 +1,8 @@
-import React from 'react';
 import {betterMockComponentContext} from '@bxm/flux';
+const Context = betterMockComponentContext();
+const {React, ReactDOM, TestUtils} = Context;
 import Button from '../../../app/components/buttons/button';
 import {buttonMock1, buttonMock2} from '../../mock/button';
-
-const TestUtils = betterMockComponentContext().TestUtils;
 
 
 describe('Button', () => {
@@ -13,7 +12,7 @@ describe('Button', () => {
 
     after(() => {
         if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-            let domElement = React.findDOMNode(reactModule);
+            let domElement = ReactDOM.findDOMNode(reactModule);
             if (domElement) React.unmountComponentAtNode(domElement.parentElement);
         }
     });
@@ -28,15 +27,15 @@ describe('Button', () => {
         });
 
         it(`should have the label equal to '${props.children}'`, () => {
-            expect(button.getDOMNode().innerHTML).to.equal(props.children);
+            expect(ReactDOM.findDOMNode(button).innerHTML).to.equal(props.children);
         });
 
         it(`should have the value equal to '${props.name}'`, () => {
-            expect(button.getDOMNode().value).to.equal(props.value);
+            expect(ReactDOM.findDOMNode(button).value).to.equal(props.value);
         });
 
         it(`should have the type equal to '${props.type}'`, () => {
-            expect(button.getDOMNode().type).to.equal(props.type);
+            expect(ReactDOM.findDOMNode(button).type).to.equal(props.type);
         });
 
         it(`should have the default class equal to '${defaultClass}'`, () => {
@@ -51,7 +50,7 @@ describe('Button', () => {
         });
 
         it('should not be disabled', () => {
-            expect(button.getDOMNode().disabled).to.be.false;
+            expect(ReactDOM.findDOMNode(button).disabled).to.be.false;
         });
     });
 
@@ -91,12 +90,12 @@ describe('Button', () => {
 
         const expectedType = 'button';
         it(`should have the type equal to '${expectedType}'`, () => {
-            expect(button.getDOMNode().type).to.equal(expectedType);
+            expect(ReactDOM.findDOMNode(button).type).to.equal(expectedType);
         });
 
         const expectedValue = '';
         it(`should have the type equal to '${expectedValue}'`, () => {
-            expect(button.getDOMNode().value).to.equal(expectedValue);
+            expect(ReactDOM.findDOMNode(button).value).to.equal(expectedValue);
         });
 
         it(`should not have the ${activeClass} class after clicking on it`, () => {
@@ -119,7 +118,7 @@ describe('Button', () => {
         });
 
         it('should be disabled', () => {
-            expect(button.getDOMNode().disabled).to.be.true;
+            expect(ReactDOM.findDOMNode(button).disabled).to.be.true;
         });
 
     });

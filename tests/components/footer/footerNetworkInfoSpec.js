@@ -2,8 +2,7 @@ import {betterMockComponentContext} from '@bxm/flux';
 import FooterNetworkInfo from '../../../app/components/footer/footerNetworkInfo';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 
 describe(`FooterNetworkInfo`, () => {
@@ -28,7 +27,7 @@ describe(`FooterNetworkInfo`, () => {
 
     it('should open each link in the same window', () => {
         links.forEach((link) => {
-            expect(React.findDOMNode(link).getAttribute('target')).to.be.null;
+            expect(ReactDOM.findDOMNode(link).getAttribute('target')).to.be.null;
         });
     });
 });

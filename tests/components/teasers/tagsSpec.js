@@ -1,16 +1,15 @@
-import React from 'react';
 import {betterMockComponentContext} from '@bxm/flux';
 import Tags from '../../../app/components/teaser/tags';
 
 const ComponentContext = betterMockComponentContext();
-const TestUtils = ComponentContext.TestUtils;
+const {React, ReactDOM, TestUtils} = ComponentContext;
 
 describe('TeaserTags', () => {
     let reactModule;
 
     after(() => {
         if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
-            let domElement = React.findDOMNode(reactModule);
+            let domElement = ReactDOM.findDOMNode(reactModule);
             if (domElement) React.unmountComponentAtNode(domElement.parentElement);
         }
     });
@@ -28,19 +27,19 @@ describe('TeaserTags', () => {
         const expectedPrimaryTag = 'Gardening';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedPrimaryTag);
         });
 
         const expectedSecondaryTag = 'Bamboo';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedSecondaryTag);
         });
 
         const expectedSeparator = ', ';
         it(`should have the separator equal to ${expectedSeparator}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-separator');
-            expect(tag.getDOMNode().textContent).to.equal(expectedSeparator);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedSeparator);
         });
     });
 
@@ -58,13 +57,13 @@ describe('TeaserTags', () => {
         const expectedPrimaryTag = 'Gardening';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedPrimaryTag);
         });
 
         const expectedSecondaryTag = 'Wood';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedSecondaryTag);
         });
     });
 
@@ -83,13 +82,13 @@ describe('TeaserTags', () => {
         const expectedPrimaryTag = 'DIY';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedPrimaryTag);
         });
 
         const expectedSecondaryTag = 'Timber';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedSecondaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedSecondaryTag);
         });
     });
 
@@ -106,7 +105,7 @@ describe('TeaserTags', () => {
         const expectedPrimaryTag = 'Gardening';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedPrimaryTag);
         });
 
         it(`should have ignored the navigation tag`, () => {
@@ -127,7 +126,7 @@ describe('TeaserTags', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -144,7 +143,7 @@ describe('TeaserTags', () => {
         const expectedPrimaryTag = 'Gardening';
         it(`should have the primary tag equal to ${expectedPrimaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-primary');
-            expect(tag.getDOMNode().textContent).to.equal(expectedPrimaryTag);
+            expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedPrimaryTag);
         });
 
         it(`should not have the comma separator`, () => {
@@ -164,7 +163,7 @@ describe('TeaserTags', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -174,7 +173,7 @@ describe('TeaserTags', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -184,7 +183,7 @@ describe('TeaserTags', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -194,7 +193,7 @@ describe('TeaserTags', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

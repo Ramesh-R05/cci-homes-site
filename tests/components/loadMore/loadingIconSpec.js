@@ -1,12 +1,10 @@
 import {betterMockComponentContext} from '@bxm/flux';
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const shallowRenderer = TestUtils.createRenderer();
 const proxyquire = require('proxyquire').noCallThru();
 const LoadingIcon = proxyquire('../../../app/components/loadMore/loadingIcon', {
-    'react': React,
-    'react/addons': React
+    'react': React
 });
 let reactModule;
 let loadingIconClassName = 'loading-icon';

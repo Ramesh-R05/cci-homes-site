@@ -1,12 +1,10 @@
 import {betterMockComponentContext} from '@bxm/flux';
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const LinkStub = Context.createStubComponentWithChildren();
 const proxyquire = require('proxyquire').noCallThru();
 const Source = proxyquire('../../../app/components/teaser/source', {
     'react': React,
-    'react/addons': React,
     '../brand/link': LinkStub
 });
 
@@ -27,12 +25,12 @@ describe('TeaserSource', () => {
         });
 
         it(`should have the source text equal to '${sourceValue}'`, () => {
-            expect(source.getDOMNode().textContent.replace(/(\n|\s)/g,'')).to.equal(sourceValue);
+            expect(ReactDOM.findDOMNode(source).textContent.replace(/(\n|\s)/g,'')).to.equal(sourceValue);
         });
 
         it('should render the icon', () => {
             const icon = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'icon-source');
-            expect(React.findDOMNode(source)).to.exist;
+            expect(ReactDOM.findDOMNode(source)).to.exist;
         });
 
         it('should pass the relevant props to the SourceLink component', () => {
@@ -44,7 +42,7 @@ describe('TeaserSource', () => {
             const linkSVG = TestUtils.findRenderedDOMComponentWithClass(link, 'icon-source');
 
             expect(linkSVG).to.deep.eq(svg);
-            expect(React.findDOMNode(link).textContent.replace(/(\n|\s)/g,'')).to.equal(sourceValue);
+            expect(ReactDOM.findDOMNode(link).textContent.replace(/(\n|\s)/g,'')).to.equal(sourceValue);
         });
     });
 
@@ -54,7 +52,7 @@ describe('TeaserSource', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -64,7 +62,7 @@ describe('TeaserSource', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

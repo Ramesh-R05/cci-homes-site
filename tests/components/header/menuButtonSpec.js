@@ -3,14 +3,12 @@ import filter from 'lodash/collection/filter';
 import * as MenuActions from '../../../app/actions/menuActions';
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const sandbox = sinon.sandbox.create();
 const MenuButton = proxyquire('../../../app/components/header/menuButton', {
     'react': React,
-    'react/addons': React
 });
 
 describe(`MenuButton Component`, () => {
@@ -25,16 +23,16 @@ describe(`MenuButton Component`, () => {
         before(() => {
             reactModule = Context.mountComponent(MenuButton);
             container = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'header-menu')[0];
-            button = TestUtils.scryRenderedDOMComponentsWithTag(container, 'button')[0];
-            svg = TestUtils.scryRenderedDOMComponentsWithTag(button, 'svg')[0];
+            button = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'button')[0];
+            svg = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'svg')[0];
         });
 
         it('renders the component', () => {
-            expect(React.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
         });
 
         it('renders the containing div', () => {
-            expect(React.findDOMNode(container)).to.exist;
+            expect(ReactDOM.findDOMNode(container)).to.exist;
         });
 
         const expectedContainerClassName = 'header-menu';
@@ -43,7 +41,7 @@ describe(`MenuButton Component`, () => {
         });
 
         it('renders the button', () => {
-            expect(React.findDOMNode(button)).to.exist;
+            expect(ReactDOM.findDOMNode(button)).to.exist;
         });
 
         const expectedButtonClassName = 'header-menu__button-menu';
@@ -52,7 +50,7 @@ describe(`MenuButton Component`, () => {
         });
 
         it('renders the svg icon in the button', () => {
-            const svgHtml = React.findDOMNode(button).innerHTML;
+            const svgHtml = ReactDOM.findDOMNode(button).innerHTML;
             expect(svgHtml).to.contain('<svg ');
         });
     });

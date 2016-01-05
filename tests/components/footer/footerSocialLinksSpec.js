@@ -3,8 +3,7 @@ import each from 'lodash/collection/each';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
+const {React, ReactDOM, TestUtils} = Context;
 
 const FooterSocialIconStub = Context.createStubComponent();
 
@@ -24,7 +23,7 @@ describe(`FooterSocialLinks`, () => {
     });
 
     it(`should render the FooterSocialLinks Component`, () => {
-        expect(React.findDOMNode(reactModule)).to.exist;
+        expect(ReactDOM.findDOMNode(reactModule)).to.exist;
     });
 
     it(`should render ${nbSocialIcons} FooterSocialIcons components`, () => {

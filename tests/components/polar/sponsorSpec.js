@@ -1,9 +1,8 @@
-import React from 'react';
 import {betterMockComponentContext} from '@bxm/flux';
 import Sponsor from '../../../app/components/polar/sponsor';
 
 const ComponentContext = betterMockComponentContext();
-const TestUtils = ComponentContext.TestUtils;
+const {React, ReactDOM, TestUtils} = ComponentContext;
 
 describe('Sponsor', () => {
     let reactModule;
@@ -20,7 +19,7 @@ describe('Sponsor', () => {
 
         const expectedOutput = `${caption} ${nameValue}`;
         it(`should have the output text equal to '${expectedOutput}'`, () => {
-            expect(sponsor.getDOMNode().textContent).to.equal(expectedOutput);
+            expect(ReactDOM.findDOMNode(sponsor).textContent).to.equal(expectedOutput);
         });
 
     });
@@ -31,7 +30,7 @@ describe('Sponsor', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -41,7 +40,7 @@ describe('Sponsor', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 
@@ -51,7 +50,7 @@ describe('Sponsor', () => {
         });
 
         it('should not be rendered', () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
 });

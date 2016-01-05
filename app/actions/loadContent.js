@@ -1,5 +1,5 @@
 import contentService from '../services/content';
-import {canUseDOM} from 'react/lib/ExecutionEnvironment';
+import {canUseDOM} from 'exenv';
 
 export default function(context, payload) {
     if (canUseDOM) return false;
