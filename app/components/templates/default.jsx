@@ -39,6 +39,12 @@ class DefaultTemplate extends Component {
         super(...args);
     }
 
+    componentDidMount() {
+        // Temp added here due to unforseen update of versions when updating react.
+        // This loads <picture> element in older browsers and IE
+        require('picturefill');
+    }
+
     render() {
         const {Handler, hideNetworkHeader, hideFooter, hideHeader, isExpanded} = this.getPageMetadata();
         const localeData = config.get('localeData');
