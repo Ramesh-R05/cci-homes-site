@@ -42,6 +42,7 @@
     "fluxible-router": "~0.3.0",
     "lodash": "^3.9.1",
     "moment": "^2.10.3",
+    "picturefill": "^3.0.1",
     "prismjs": "0.0.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
