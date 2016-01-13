@@ -29,6 +29,7 @@ import SocialStore from '@bxm/ui/lib/social/stores/SocialStore';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
 import TagSectionStore from './stores/facetedStores/tagSection';
 import TrackingStore from './stores/tracking';
+import SponsorsStore from './stores/sponsor';
 import articleStore from '@bxm/article/lib/stores/articleStore';
 import articleFeedService from '@bxm/article/lib/services/articleFeedService';
 
@@ -60,7 +61,8 @@ let app = new Flux({
         TaggedArticlesStore,
         TagSectionStore,
         TrackingStore,
-        articleStore
+        articleStore,
+        SponsorsStore
     ]
 });
 
