@@ -44,7 +44,7 @@ Context.addStore('BrandSectionStore', {
     }
 });
 
-Context.addStore('EntityStore', {
+Context.addStore('PageStore', {
     getContent() {
         let content = clone(entity);
         content.urlName = 'belle';

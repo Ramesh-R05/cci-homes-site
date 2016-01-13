@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import EntityStore from '../../stores/entity';
+import PageStore from '../../stores/page';
 import MenuStore from '../../stores/menu';
 import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
@@ -135,10 +135,10 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, [EntityStore, MenuStore], (context) => {
+export default connectToStores(DefaultTemplate, [PageStore, MenuStore], (context) => {
     return {
-        content: context.getStore(EntityStore).getContent(),
-        contentErrorStatus: context.getStore(EntityStore).getErrorStatus(),
+        content: context.getStore(PageStore).getContent(),
+        contentErrorStatus: context.getStore(PageStore).getErrorStatus(),
         isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
         navItems: context.getStore(MenuStore).getNavItems()
     };

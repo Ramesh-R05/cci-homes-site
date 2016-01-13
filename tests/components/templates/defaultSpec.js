@@ -35,7 +35,7 @@ const defaultStoreData = {
         navItems,
         sideMenuOpen: false
     },
-    EntityStore: {
+    PageStore: {
         content: { some: 'content' },
         error: undefined
     }
@@ -46,12 +46,12 @@ function resetStoreData() {
     storeData = cloneDeep(defaultStoreData);
 }
 
-Context.addStore('EntityStore', {
+Context.addStore('PageStore', {
     getContent() {
-        return storeData.EntityStore.content;
+        return storeData.PageStore.content;
     },
     getErrorStatus() {
-        return storeData.EntityStore.error;
+        return storeData.PageStore.error;
     }
 });
 
@@ -88,7 +88,8 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '@bxm/gallery/lib/components/page/gallery': GalleryStub,
     '../footer/footer': FooterStub,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
-    '@bxm/config': { load: () => { return config } }
+    '@bxm/config': { load: () => { return config } },
+    'picturefill': {}
 });
 
 // ----------------------------------------------------------------------------- tests
@@ -116,32 +117,32 @@ describe('Default Component template', () => {
 
     describe('Error Handling', () => {
         it('shows 500 error if nodeType is unknown', () => {
-            storeData.EntityStore.content = { nodeType: 'RickRoll' };
+            storeData.PageStore.content = { nodeType: 'RickRoll' };
             reactModule = Context.mountComponent(Default);
             expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
         });
 
         it('shows 500 error if content is not specified', () => {
-            storeData.EntityStore.content = null;
+            storeData.PageStore.content = null;
             reactModule = Context.mountComponent(Default);
             expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
         });
 
         it('shows 404 error when error status code is 404', () => {
-            storeData.EntityStore.content = null;
-            storeData.EntityStore.error = { status: 404 };
+            storeData.PageStore.content = null;
+            storeData.PageStore.error = { status: 404 };
             reactModule = Context.mountComponent(Default);
             expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error404Stub)[0]).to.exist;
         });
 
         it('shows 500 error when error status code is 500', () => {
-            storeData.EntityStore.error = { status: 500 };
+            storeData.PageStore.error = { status: 500 };
             reactModule = Context.mountComponent(Default);
             expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
         });
 
         it('shows 500 error when error status code is unknown', () => {
-            storeData.EntityStore.error = { status: -1 };
+            storeData.PageStore.error = { status: -1 };
             reactModule = Context.mountComponent(Default);
             expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
         });
@@ -149,7 +150,7 @@ describe('Default Component template', () => {
 
     describe('Home Page', () => {
         beforeEach(() => {
-            storeData.EntityStore.content = { nodeType: 'Homepage' };
+            storeData.PageStore.content = { nodeType: 'Homepage' };
             reactModule = Context.mountComponent(Default);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
@@ -223,7 +224,7 @@ describe('Default Component template', () => {
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
-                    storeData.EntityStore.content = {nodeType};
+                    storeData.PageStore.content = {nodeType};
                     reactModule = Context.mountComponent(Default);
                     header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub)[0];
                     footer = TestUtils.scryRenderedComponentsWithType(reactModule, FooterStub)[0];

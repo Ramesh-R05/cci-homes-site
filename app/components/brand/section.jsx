@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import slice from 'lodash/array/slice';
 import {connectToStores} from '@bxm/flux';
-import EntityStore from '../../stores/entity';
+import PageStore from '../../stores/page';
 import BrandSectionStore from '../../stores/facetedStores/brand';
 import * as FacetedModuleActions from '../../actions/facetedModule';
 import Header from './header';
@@ -203,10 +203,10 @@ class Section extends Component {
 }
 
 
-export default connectToStores(Section, [BrandSectionStore, EntityStore], (context) => {
+export default connectToStores(Section, [BrandSectionStore, PageStore], (context) => {
     return {
         articles: context.getStore(BrandSectionStore).getItems(),
-        content: context.getStore(EntityStore).getContent(),
+        content: context.getStore(PageStore).getContent(),
         moduleConfig: context.getStore(BrandSectionStore).getConfiguration()
     };
 });

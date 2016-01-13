@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import EntityStore from '../../stores/entity';
+import PageStore from '../../stores/page';
 import HomeArticlesStore from '../../stores/articles/home';
 import InFocusArticlesStore from '../../stores/articles/inFocus';
 import GalleryOfGalleriesStore from '../../stores/facetedStores/galleryOfGalleries';
@@ -82,9 +82,9 @@ class Home extends Component {
 }
 
 
-export default connectToStores(Home, [EntityStore, HomeArticlesStore, InFocusArticlesStore, GalleryOfGalleriesStore], (context) => {
+export default connectToStores(Home, [PageStore, HomeArticlesStore, InFocusArticlesStore, GalleryOfGalleriesStore], (context) => {
     return {
-        content: context.getStore(EntityStore).getContent(),
+        content: context.getStore(PageStore).getContent(),
         articles: context.getStore(HomeArticlesStore).getItems(),
         galleriesModuleConfig: context.getStore(GalleryOfGalleriesStore).getConfiguration(),
         galleries: context.getStore(GalleryOfGalleriesStore).getItems(),

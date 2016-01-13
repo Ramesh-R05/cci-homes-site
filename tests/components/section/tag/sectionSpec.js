@@ -31,7 +31,7 @@ ComponentContext.addStore('TagSectionStore', {
     getCurrentPage: () => 0
 });
 
-ComponentContext.addStore('EntityStore', {
+ComponentContext.addStore('PageStore', {
     getNavigationTags: () => tags,
     getContent: () => entity
 });
