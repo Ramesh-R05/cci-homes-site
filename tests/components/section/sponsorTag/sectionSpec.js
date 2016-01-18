@@ -22,7 +22,7 @@ const sponsorsMock = [
     }
 ];
 
-Context.addStore('EntityStore', {
+Context.addStore('PageStore', {
     getContent: () => {
         return {
             title: tags

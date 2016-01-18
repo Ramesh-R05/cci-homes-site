@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import GenericSection from '../section';
 import SponsorArticlesStore from '../../../stores/sponsor';
-import EntityStore from '../../../stores/entity';
+import PageStore from '../../../stores/page';
 import TaggedArticlesStore from '../../../stores/facetedStores/taggedArticles';
 
 class Section extends Component {
@@ -42,10 +42,10 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, [EntityStore, SponsorArticlesStore, TaggedArticlesStore], (context) => {
+export default connectToStores(Section, [PageStore, SponsorArticlesStore, TaggedArticlesStore], (context) => {
     return {
         articles: context.getStore(SponsorArticlesStore).getItems(),
         moduleConfig: context.getStore(TaggedArticlesStore).getConfiguration(),
-        content: context.getStore(EntityStore).getContent()
+        content: context.getStore(PageStore).getContent()
     };
 });
