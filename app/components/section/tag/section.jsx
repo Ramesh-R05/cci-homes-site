@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import {connectToStores} from '@bxm/flux';
-import EntityStore from '../../../stores/entity';
+import PageStore from '../../../stores/page';
 import RequestStore from '../../../stores/request';
 import TagSectionStore from '../../../stores/facetedStores/tagSection';
 import * as FacetedModuleActions from '../../../actions/facetedModule';
@@ -85,9 +85,9 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, [TagSectionStore, EntityStore, RequestStore], (context) => {
+export default connectToStores(Section, [TagSectionStore, PageStore, RequestStore], (context) => {
     return {
-        content: context.getStore(EntityStore).getContent(),
+        content: context.getStore(PageStore).getContent(),
         articles: context.getStore(TagSectionStore).getItems(),
         moduleConfig: context.getStore(TagSectionStore).getConfiguration(),
         paging: context.getStore(TagSectionStore).getPaging(),

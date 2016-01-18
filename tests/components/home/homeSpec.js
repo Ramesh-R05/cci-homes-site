@@ -46,7 +46,7 @@ Context.addStore('GalleryOfGalleriesStore', {
     }
 });
 
-Context.addStore('EntityStore', {
+Context.addStore('PageStore', {
     getContent() {
         return entity;
     }

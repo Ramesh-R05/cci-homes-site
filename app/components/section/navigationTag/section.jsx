@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import {connectToStores} from '@bxm/flux';
 import isUndefined from 'lodash/lang/isUndefined';
-import EntityStore from '../../../stores/entity';
+import PageStore from '../../../stores/page';
 import GalleryOfGalleriesStore from '../../../stores/facetedStores/galleryOfGalleries';
 import TaggedArticlesStore from '../../../stores/facetedStores/taggedArticles';
 import * as FacetedModuleActions from '../../../actions/facetedModule';
@@ -106,14 +106,14 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, [EntityStore, GalleryOfGalleriesStore, TaggedArticlesStore], (context) => {
+export default connectToStores(Section, [PageStore, GalleryOfGalleriesStore, TaggedArticlesStore], (context) => {
     return {
-        content: context.getStore(EntityStore).getContent(),
+        content: context.getStore(PageStore).getContent(),
         articles: context.getStore(TaggedArticlesStore).getItems(),
         galleriesModuleConfig: context.getStore(GalleryOfGalleriesStore).getConfiguration(),
         galleries: context.getStore(GalleryOfGalleriesStore).getItems(),
         moduleConfig: context.getStore(TaggedArticlesStore).getConfiguration(),
-        tags: context.getStore(EntityStore).getNavigationTags(),
+        tags: context.getStore(PageStore).getNavigationTags(),
         paging: context.getStore(TaggedArticlesStore).getPaging(),
         currentPage: context.getStore(TaggedArticlesStore).getCurrentPage(),
         isLoading: context.getStore(TaggedArticlesStore).getIsLoading()

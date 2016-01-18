@@ -1,6 +1,6 @@
 import cloneDeep from 'lodash/lang/cloneDeep';
-import EntityStore from '../../app/stores/entity';
-import entityMocks from '../mock/entities';
+import PageStore from '../../app/stores/page';
+import entityMocks from '../mock/page';
 
 describe('Entity store', () => {
     let store;
@@ -8,7 +8,7 @@ describe('Entity store', () => {
 
     describe('after initialising', () => {
         before(() => {
-            store = new EntityStore();
+            store = new PageStore();
         });
 
         it('should initialize with empty title', () => {
@@ -30,7 +30,7 @@ describe('Entity store', () => {
         let emitChangeStub;
 
         before(() => {
-            store = new EntityStore();
+            store = new PageStore();
             emitChangeStub = sinon.stub(store, 'emitChange');
             store.onLoadContent(pageMock);
         });
@@ -57,7 +57,7 @@ describe('Entity store', () => {
         const entityMock = pageMock.body.entity;
 
         before(() => {
-            store = new EntityStore();
+            store = new PageStore();
             store.onLoadContent(pageMock);
         });
 
@@ -79,7 +79,7 @@ describe('Entity store', () => {
         delete pageMock.body.entity;
 
         before(() => {
-            store = new EntityStore();
+            store = new PageStore();
             store.onLoadContent(pageMock);
         });
 
@@ -100,7 +100,7 @@ describe('Entity store', () => {
         const error = { code: 418 };
 
         before(() => {
-            store = new EntityStore();
+            store = new PageStore();
             emitChangeStub = sinon.stub(store, 'emitChange');
             store.onLoadContentFailed({
                 response: { error }

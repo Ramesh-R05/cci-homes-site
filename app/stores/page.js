@@ -1,9 +1,9 @@
 import {BaseStore} from '@bxm/flux';
 
 
-export default class EntityStore extends BaseStore {
+export default class PageStore extends BaseStore {
 
-    static storeName = 'EntityStore';
+    static storeName = 'PageStore';
 
     static handlers = {
         LOAD_CONTENT: 'onLoadContent',
