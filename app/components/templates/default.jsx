@@ -109,6 +109,10 @@ class DefaultTemplate extends Component {
                 return {
                     Handler: require('../brand/section')
                 };
+            case 'Campaign':
+                return {
+                    Handler: require('../section/sponsorTag/section')
+                };
             case 'Gallery':
                 return {
                     Handler: require('@bxm/gallery/lib/components/page/gallery'),
