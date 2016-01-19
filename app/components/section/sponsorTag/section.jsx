@@ -37,7 +37,6 @@ class Section extends Component {
                 isLoading={false}
                 nbLoadMoreClicks={0}
                 tags={[this.props.content.title]}
-                sponsorName={this.props.content.sponsor}
             />
         );
     }
