@@ -9,7 +9,8 @@ export default class Header extends Component {
 
     static propTypes = {
         children: PropTypes.any,
-        tags: PropTypes.array.isRequired
+        tags: PropTypes.array.isRequired,
+        sponsorName: PropTypes.string.isRequired
     };
 
     static defaultProps = {
@@ -46,7 +47,7 @@ export default class Header extends Component {
             <div className="section-heading">
                 {this.props.children}
                 <SponsorHeader
-                    id={'homes_sponsor'}
+                    id={this.props.sponsorName}
                     title={<b>{heading}</b>}>
                         {htmlHeading}
                 </SponsorHeader>

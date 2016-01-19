@@ -30,7 +30,8 @@ export default class Section extends Component {
         nbLoadMoreClicks: PropTypes.number.isRequired,
         pagination: PropTypes.object.isRequired,
         paging: PropTypes.object.isRequired,
-        tags: PropTypes.array.isRequired
+        tags: PropTypes.array.isRequired,
+        sponsorName: PropTypes.string
     };
 
     static defaultProps = {
@@ -42,7 +43,8 @@ export default class Section extends Component {
             pages: 0,
             isLoading: false
         },
-        tags: []
+        tags: [],
+        sponsorName: 'homes_sponsor'
     };
 
     getGroupRepeatableItemLength() {
@@ -75,7 +77,7 @@ export default class Section extends Component {
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="row">
-                        <Header tags={this.props.tags}>
+                        <Header tags={this.props.tags} sponsorName={this.props.sponsorName}>
                             <Ad
                                 className="ad--section-top-leaderboard"
                                 sizes={{
