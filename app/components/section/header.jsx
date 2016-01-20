@@ -9,8 +9,7 @@ export default class Header extends Component {
 
     static propTypes = {
         children: PropTypes.any,
-        tags: PropTypes.array.isRequired,
-        sponsorName: PropTypes.string.isRequired
+        tags: PropTypes.array.isRequired
     };
 
     static defaultProps = {
