@@ -37,6 +37,7 @@ export default class Section extends Component {
         articles: [],
         currentPage: 0,
         isSideMenuOpen: false,
+
         pagination: {},
         paging: {
             pages: 0,
@@ -75,7 +76,7 @@ export default class Section extends Component {
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="row">
-                        <Header tags={this.props.tags}>
+                        <Header tags={this.props.tags} sponsorName={content.sponsor || 'homes_sponsor'}>
                             <Ad
                                 className="ad--section-top-leaderboard"
                                 sizes={{
