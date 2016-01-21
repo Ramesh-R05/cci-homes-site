@@ -77,6 +77,10 @@ describe('SectionFeatured', () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
 
+        it('should teaser lazyload to be turn off', () => {
+            expect(teasers[0].props.lazyload).to.eq(false);
+        });
+
         const expectedNumPolarTeasers = 2;
         it(`should render ${expectedNumPolarTeasers} Polar native teasers`, () => {
             expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);

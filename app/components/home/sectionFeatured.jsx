@@ -54,7 +54,7 @@ export default class SectionFeatured extends Component {
                         {/* First 10 articles */}
                         <section className="section-featured section-featured--top">
                             {/* Hero article displayed in first position from sm to lg viewports */}
-                            <Teaser {...hero} key={hero.id} modifier="hero" sizes="home-hero" />
+                            <Teaser {...hero} key={hero.id} lazyload={false} modifier="hero" sizes="home-hero" />
                             <div className="columns small-12 hide-for-medium-up">
                                 <Ad
                                     className="ad--section-top-leaderboard"

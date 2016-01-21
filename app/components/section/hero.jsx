@@ -22,7 +22,7 @@ export default class SectionHero extends Component {
         return (
             <section className="section--heroes">
                 {/*First hero*/}
-                <Teaser {...firstHero} key={firstHero.id} modifier="hero" />
+                <Teaser {...firstHero} key={firstHero.id} modifier="hero" lazyload={false} />
                 {/*Second hero (lg breakpoint only*/}
                 <Teaser {...secondHero} key={secondHero.id} modifier="hero" />
             </section>

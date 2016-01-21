@@ -29,6 +29,11 @@ describe('GroupHero', () => {
             expect(teasers.length).to.equal(2);
         });
 
+        it('should first teaser to be load with lazyloader off and second one on', () => {
+            expect(teasers[0].props.lazyload).to.equal(false);
+            expect(teasers[1].props.lazyload).to.equal(undefined);
+        });
+
     });
 
     describe('with only firstHero defined', () => {
