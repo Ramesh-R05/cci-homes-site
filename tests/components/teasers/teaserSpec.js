@@ -92,7 +92,7 @@ describe('Teaser', () => {
         });
 
         it(`should set the Image breakpoints prop`, () => {
-            expect(Image.props.breakpoints).to.equal(require('../../../app/breakpoints'));
+            expect(Image.props.breakpoints).to.deep.equal(require('../../../app/breakpoints'));
         });
 
         const expectedImgQuality = 80;

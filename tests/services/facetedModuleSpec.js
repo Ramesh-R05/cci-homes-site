@@ -60,7 +60,7 @@ describe('Services', () => {
             });
 
             it('should transform multiple params to comma separated', () => {
-                nockScope = createNock('http://api-host.tld:80').get('/api/facetedModule/MODULE-ID?node=ENTITY-ID&tags=Sample-Tag1%2CSample-Tag2').reply(200);
+                nockScope = createNock('http://api-host.tld:80').get('/api/facetedModule/MODULE-ID?node=ENTITY-ID&tags=Sample-Tag1,Sample-Tag2').reply(200);
 
                 const settings = extend({}, baseSettings, {params: {tags: ['Sample-Tag1', 'Sample-Tag2']}});
                 createService(serviceConfig, false).read(q.defer(), settings);
