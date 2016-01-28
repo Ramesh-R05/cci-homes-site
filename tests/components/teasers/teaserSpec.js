@@ -21,6 +21,7 @@ const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     './source': SourceStub,
     './icon': Context.createStubComponent()
 });
+const props = articlesMock.basic;
 
 
 
@@ -35,7 +36,6 @@ describe('Teaser', () => {
         let Summary;
         let Tags;
         let Source;
-        const props = articlesMock.basic;
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
@@ -61,6 +61,10 @@ describe('Teaser', () => {
 
         it(`Teaser should have the themeClass defined`, () => {
             expect(reactModule).to.have.property('themeClass');
+        });
+
+        it('Teaser should have lazyload true', () => {
+            expect(Image.props.lazyload).to.eq(true);
         });
 
         it(`Teaser should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
@@ -126,6 +130,24 @@ describe('Teaser', () => {
         //Tags
         it(`should set the Tags tags prop to ${props.tags}`, () => {
             expect(Tags.props.tags).to.deep.equal(props.tags);
+        });
+    });
+
+    describe('with lazyload not set', () => {
+        let reactModule;
+        let Image;
+
+        let propWithLazyload = Object.assign({}, props, {
+            Lazyload : false
+        });
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(<Teaser {...propWithLazyload} />);
+            Image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
+        });
+
+        it('Teaser should have lazyload true', () => {
+            expect(Image.props.lazyload).to.eq(true);
         });
     });
 
