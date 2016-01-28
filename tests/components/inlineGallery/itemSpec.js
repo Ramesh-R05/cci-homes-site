@@ -10,7 +10,7 @@ const InlineGalleryItem = proxyquire('../../../app/components/inlineGallery/item
     'react': React,
     '../helpers/theme': (Component) => class extends React.Component {
         render() {
-            return <Component {...this.props} themeClass="theme-stub" />;
+            return <Component {...this.props} className="theme-stub" />;
         }
     }
 });

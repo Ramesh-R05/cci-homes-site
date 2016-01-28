@@ -25,7 +25,7 @@ class Teaser extends Component {
         summary: PropTypes.string,
         tags: PropTypes.array,
         title: PropTypes.string.isRequired,
-        themeClass: PropTypes.string,
+        className: PropTypes.string,
         imageSizes: PropTypes.object,
         lazyload: PropTypes.bool
     };
@@ -114,9 +114,9 @@ class Teaser extends Component {
     render() {
         if (isUndefined(this.props.id)) return null;
 
-        const {url, modifier, sizes, themeClass, lazyload} = this.props;
+        const {url, modifier, sizes, className, lazyload} = this.props;
         const gtmClass = `gtm-${this.props.id}`;
-        const classNames = classnames('teaser', `teaser--${modifier}`, themeClass);
+        const classNames = classnames('teaser', `teaser--${modifier}`, className);
         const imgSizes = this.getImgSizes(sizes, modifier);
 
         return (

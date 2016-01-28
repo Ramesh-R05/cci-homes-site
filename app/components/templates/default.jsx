@@ -11,10 +11,6 @@ import cx from 'classnames';
 import {load} from '@bxm/config';
 const config = load();
 
-import {initalizeParts} from '@bxm/article/lib/bridgeUtils/partsFactory';
-initalizeParts({Footer});
-
-
 class DefaultTemplate extends Component {
 
     static propTypes = {
@@ -94,7 +90,7 @@ class DefaultTemplate extends Component {
                 };
             case 'HomesArticle':
                 return {
-                    Handler: require('@bxm/article/lib/article'),
+                    Handler: require('../article/page'),
                     hideFooter: true
                 };
             case 'NavigationSection':

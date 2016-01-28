@@ -18,7 +18,7 @@
   "license": "",
   "dependencies": {
     "@bxm/ad": "^6.0.0",
-    "@bxm/article": "^5.0.0",
+    "@bxm/article": "6.0.0-beta.5",
     "@bxm/config": "^1.2.0",
     "@bxm/flux": "^4.0.0",
     "@bxm/gallery": "^7.0.0",
@@ -30,7 +30,7 @@
     "@bxm/recommendations": "^4.0.0",
     "@bxm/server": "^10.0.0",
     "@bxm/services-stubs": "^2.0.0",
-    "@bxm/tags": "^2.0.0",
+    "@bxm/tags": "^2.1.0",
     "@bxm/ui": "^11.0.2",
     "babel": "^5.4.4",
     "body-parser": "^1.13.1",
