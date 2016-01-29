@@ -21,11 +21,12 @@ export default class PolarTeaserImage extends Component {
         trackClick: () => {}
     };
 
-    render(){
-
+    render() {
         const ad = this.props.nativeAd;
         const gtmClass = this.props.id ? `gtm-native-${this.props.id}` : '';
         const className = `teaser teaser--${this.props.modifier} teaser--native`;
+
+        ad.image.href = ad.image.href.replace(/\&w=\d+/, '&w=360').replace(/\&h=\d+/, '&h=300');
 
         return (
             <article className={className} onClick={this.props.trackClick}>
@@ -39,6 +40,6 @@ export default class PolarTeaserImage extends Component {
                     <Summary summary={ad.summary} />
                 </div>
             </article>
-        )
+        );
     }
 }
