@@ -35,7 +35,7 @@ describe('polarTeaserImage', () => {
                 href: 'http://href.com',
                 image: {
                     caption: 'caption text',
-                    href: 'http://image.com'
+                    href: 'http://meraxes-cdn.polarmobile.com/image/v1.0.0/bin/564d11acb5b25b1aa81d606f?v=7a243&w=1174&h=978'
                 },
                 link: 'http://link.com',
                 sponsor: { name: 'sponsor' },
@@ -91,6 +91,11 @@ describe('polarTeaserImage', () => {
 
         it('should pass down the summary prop to the Summary component', () => {
             expect(summary.props.summary).to.equal(model.summary);
+        });
+
+        it('should width and height be resized', () => {
+            expect(image.getAttribute('src')).to.contain('&w=360');
+            expect(image.getAttribute('src')).to.contain('&h=300');
         });
 
         it('should call the trackClick method when clicking on the teaser', () => {
