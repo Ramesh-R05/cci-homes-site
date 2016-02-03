@@ -97,7 +97,6 @@ function trackFollowOnClick(source) {
 
 function trackGalleryChanged(action) {
     trackFollowOnClick('Next gallery');
-    trackGalleryOpen(action);
 }
 
 // ---------------------------------------------------------------------------- store
