@@ -1,0 +1,9 @@
+.article-credit {
+    &--renovation-expert {
+        display: block;
+
+        &:before {
+            display: none;
+        }
+    }
+}

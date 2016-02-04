@@ -81,7 +81,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../header/header': HeaderStub,
     '../side-menu/sideMenu': SideMenuStub,
     '../home/home': HomepageStub,
-    '@bxm/article/lib/article': HomesArticleStub,
+    '../article/page': HomesArticleStub,
     '../section/tag/section': TagSectionStub,
     '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}},
     '../section/navigationTag/section': NavigationTagSectionStub,

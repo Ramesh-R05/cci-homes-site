@@ -2,6 +2,9 @@
 @import 'vendor/foundation/settings';
 @import 'settings';
 
+// @BXM Config
+@import '../node_modules/@bxm/article/styles/helpers/article-vars';
+
 // Vendor
 @import 'vendor/normalize';
 @import 'vendor/foundation/functions';
@@ -17,7 +20,7 @@
 @import 'helpers/grid';
 
 // Helpers - Mixins
-@import 'helpers/mixins/article';
+@import '../node_modules/@bxm/article/styles/helpers/mixins/article';
 @import 'helpers/mixins/side-menu-slider';
 
 // Page
@@ -30,7 +33,7 @@
 @import 'components/helpers/theme';
 @import 'components/bxm/social-share';
 @import 'components/bxm/recommendations';
-@import 'components/content-body/content-body';
+@import '../node_modules/@bxm/article/styles/components/content-body/content-body';
 @import 'components/form/input';
 @import 'components/form/checkbox';
 @import 'components/form/radio-button';
@@ -77,10 +80,7 @@
 @import '../node_modules/@bxm/ad/styles/polar/native-hub';
 @import 'components/native-hub/native-hub';
 
-@import '../node_modules/@bxm/article/styles/components/article/article';
-@import '../node_modules/@bxm/article/styles/components/article/credits';
-@import '../node_modules/@bxm/article/styles/components/article/relatedContent';
-@import '../node_modules/@bxm/article/styles/components/article/section';
-@import '../node_modules/@bxm/article/styles/components/article/theme';
-@import '../node_modules/@bxm/article/styles/components/feed/feed';
-@import '../node_modules/@bxm/article/styles/components/feed/feedItem';
+// Article
+@import '../node_modules/@bxm/article/styles/page';
+@import 'components/article/feedItem';
+@import 'components/article/theme';

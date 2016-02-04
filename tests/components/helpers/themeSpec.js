@@ -8,8 +8,8 @@ let stubComponent = (props) => class extends React.Component{
         super(props);
     }
     render(){
-        const {themeClass} = this.props;
-        return <div className={themeClass} />;
+        const {className} = this.props;
+        return <div className={className} />;
     }
 };
 
@@ -39,12 +39,12 @@ describe(`Theme Helper`, () => {
             component = TestUtils.findRenderedComponentWithType(reactModule, ComponentStubWithNoThemeProperty);
         });
 
-        it(`check if ThemeClass prop exists`, () => {
-            expect(component.props).to.have.property('themeClass');
+        it(`check if className prop exists`, () => {
+            expect(component.props).to.have.property('className');
         });
 
-        it(`check if ThemeClass prop exists and is null`, () => {
-            expect(component.props).to.have.property('themeClass', null);
+        it(`check if className prop exists and is empty`, () => {
+            expect(component.props).to.have.property('className', '');
         });
 
         it(`check if className attribute is set and empty`, () => {
@@ -59,15 +59,15 @@ describe(`Theme Helper`, () => {
             component = TestUtils.findRenderedComponentWithType(reactModule, ComponentStubWithThemeProperty);
         });
 
-        it(`check if ThemeClass prop exists`, () => {
-            expect(component.props).to.have.property('themeClass');
+        it(`check if className prop exists`, () => {
+            expect(component.props).to.have.property('className');
         });
 
-        it(`check if ThemeClass prop exists and is equal to "{$themeClass}"`, () => {
-            expect(component.props).to.have.property('themeClass', themeClass);
+        it(`check if className prop exists and is equal to "${themeClass}"`, () => {
+            expect(component.props).to.have.property('className', themeClass);
         });
 
-        it(`check if className attribute is set and is equal to "{$themeClass}"`, () => {
+        it(`check if className attribute is set and is equal to "${themeClass}"`, () => {
             const className = ReactDOM.findDOMNode(reactModule).className;
             expect(className).to.eq(themeClass);
         });

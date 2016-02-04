@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import get from 'lodash/object/get';
 import isString from 'lodash/lang/isString';
 import isUndefined from 'lodash/lang/isUndefined';
@@ -34,6 +35,6 @@ export default (Component, sourcePropName) => class Theme extends React.Componen
     }
 
     render() {
-        return <Component {...this.props} themeClass={this.themeClass} />;
+        return <Component {...this.props} className={classnames(this.props.className, this.themeClass)} />;
     }
 };

@@ -72,7 +72,7 @@ describe('Teaser', () => {
             expect(intersect.length).to.eq(1);
         });
 
-        it(`should have the themeClass set to one of these theme values .${allowedThemeClasses} `, () => {
+        it(`should have the className set to one of these theme values .${allowedThemeClasses} `, () => {
             const classNames = ReactDOM.findDOMNode(reactModule).className.split(/\s+/);
             const intersect = intersection(classNames, allowedThemeClasses);
             expect(intersect.length).to.eq(1);
