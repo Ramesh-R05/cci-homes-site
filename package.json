@@ -18,7 +18,7 @@
   "license": "",
   "dependencies": {
     "@bxm/ad": "^6.0.0",
-    "@bxm/article": "6.0.0-beta.5",
+    "@bxm/article": "6.0.0",
     "@bxm/config": "^1.2.0",
     "@bxm/flux": "^4.0.0",
     "@bxm/gallery": "^7.0.0",
