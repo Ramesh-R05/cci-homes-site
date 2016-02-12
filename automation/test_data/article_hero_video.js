@@ -36,6 +36,23 @@ module.exports =
     "content": "Perhaps the best way to make a house feel much larger is to raise the ceilings to 9, 10 or even 12 or 15 feet, says Trey Bitteker, general sales manager at Pulte Homes in Arizona. “High ceiling heights will certainly open up a house. When someone walks through it, every room feels a little bit larger,” he says."
   },
   {
+            "type": "video",
+            "label": "Video",
+            "content": {
+                "id": "VIDEO-5882",
+                "name": "4747539748001",
+                "type": "VideoItem",
+                "properties": {
+                    "videoConfiguration": {
+                        "videoId": "VIDEO-5882",
+                        "status": "Video upload is complete",
+                        "brightcoveId": "4747539748001",
+                        "statusCode": 200
+                    }
+                }
+            }
+        },
+  {
     "type": "paragraph",
     "label": "Paragraph",
     "content": "New homes today commonly have double-height or one-and-a half height ceilings in one or more rooms such as an entry hall, family room or formal living room, says Michael Malone, principal at Michael Malone Architects in Dallas. “No matter how small a room is,” Malone says, “that extra vertical height makes a lot of difference.”"

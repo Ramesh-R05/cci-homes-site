@@ -27,6 +27,42 @@ $verbose_logging = ENV['logging'] || false
 
 # Capybara setup
 ENV['no_proxy'] = "127.0.0.1"
+
+##crossbrowser
+url = "http://#{ENV['bsusername']}:#{ENV['bskey']}@hub.browserstack.com/wd/hub"
+Capybara.register_driver :browserstack do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.new
+
+    if ENV['BS_AUTOMATE_OS']
+        capabilities['os'] = ENV['BS_AUTOMATE_OS']
+        capabilities['os_version'] = ENV['BS_AUTOMATE_OS_VERSION']
+    else
+        capabilities['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
+    end
+
+    if ENV['SELENIUM_DEVICE']
+        capabilities['browserName'] = ENV['SELENIUM_DEVICE']
+        capabilities['device'] = ENV['SELENIUM_DEVICE_ID']
+    else
+        capabilities['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
+        capabilities['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
+    end
+
+    capabilities['browserstack.debug'] = 'true'
+    capabilities['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
+    capabilities['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
+
+    case ENV['SELENIUM_BROWSER']
+        when 'ie'
+            capabilities['browserstack.ie.driver'] = "2.45"
+    end
+    capabilities['resolution'] = '1600x1200'
+    Capybara::Selenium::Driver.new(app,
+                                   :browser => :remote, :url => url,
+                                   :desired_capabilities => capabilities)
+end
+##crossbrowser end
+
 Capybara.register_driver :chrome do |app|
 caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => [ "--touch-events" ]})
 Capybara::Selenium::Driver.new(app, {:browser => :chrome, :desired_capabilities => caps})
@@ -34,7 +70,15 @@ end
 # Capybara.register_driver(:chrome) { |app| Capybara::Selenium::Driver.new(app, :browser => :chrome, :desired_capabilities => caps) }
 Capybara.register_driver(:poltergeist) { |app| Capybara::Poltergeist::Driver.new(app, :phantomjs => $phantomjs_path, :js_errors => false) }
 Capybara.default_driver = :poltergeist
-Capybara.javascript_driver = :chrome
+
+##crossbrowser
+if ENV['crossbrowser'] == 'true'
+    Capybara.javascript_driver = :browserstack
+else
+    Capybara.javascript_driver = :chrome
+end
+##crossbrowser end
+
 Capybara.default_wait_time = 10
 Capybara.default_selector = :css
 

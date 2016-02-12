@@ -66,9 +66,7 @@ After do |scenario|
     rescue
       print 'unable to access current url'
     end
-    file_name = scenario.name.gsub(/ /, '-').gsub(/,/, '').downcase + '.png'
-    page.save_screenshot('artifacts/' + file_name, :full => true)
-    embed("#{file_name}", "image/png", "SCREENSHOT")
+    screenshot scenario.name
   end
 end
 
@@ -114,4 +112,12 @@ def base_url_without_port
   url_without_port = $base_url.sub( %r{:\d+/?}, '' )
   url_without_port = (url_without_port.end_with? "/") ? url_without_port[0..-2] : url_without_port
   url_without_port
+end
+
+
+
+def screenshot screen_name
+    file_name = screen_name.gsub(/ /, '-').gsub(/,/, '').downcase + Time.now.strftime("%Y%m%d-%H%M%S").to_s + '.png'
+    page.save_screenshot('artifacts/' + file_name, :full => true)
+    embed("#{file_name}", "image/png", "SCREENSHOT")
 end
