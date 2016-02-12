@@ -52,3 +52,9 @@ Points to note on Test Date
 1. We use json format for our test data
 2. Add you test data in /test_data/recipe-name.json
 3. The recipe-title should be simple plain text. Donot use -, _, ', ", : etc....
+
+For CrossBrowser Execution
+==================================
+1. tag your test case with @crossbrowser @javascript @manual so it is only picked for crossbrowser execution
+2. from the project folder execute command that will setup the environment and run the crossbrowser task:bundle exec rake crossbrowser["bsusername=bxmaccnt bskey=bxmkey"] nodes=1
+

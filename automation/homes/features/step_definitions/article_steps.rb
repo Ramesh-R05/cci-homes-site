@@ -39,6 +39,9 @@ end
 Then(/^I should see a hero video$/) do
     hero_video = find('.article__main-hero-video .video-wrapper')
     expect(hero_video.visible?).to eq(true)
+    find('.article__main-hero-video .video-wrapper').click
+    sleep(3) #have to sleep to capture the screenshot of the video
+    screenshot "video_screen"
 end
 
 Then(/^I should see (\d+) inline videos$/) do |number_of_videos|

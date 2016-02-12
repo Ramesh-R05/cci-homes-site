@@ -17,6 +17,10 @@ Feature: article detail page
     Scenario: Check hero video
         When I am viewing an article with a hero video
         Then I should see a hero video
+
+    @video @DHO-418
+    Scenario: Check inline video
+        When I am viewing an article with a hero video
         And I should see 1 inline videos
         When I am able to click the video
         Then I can see an ad is played
