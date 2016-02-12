@@ -41,6 +41,26 @@ Then(/^I should see a hero video$/) do
     expect(hero_video.visible?).to eq(true)
 end
 
+Then(/^I should see (\d+) inline videos$/) do |number_of_videos|
+    expect(page.all('.content-body__inline-video').count).to eq(number_of_videos.to_i)
+end
+
+Then(/^I am able to click the video$/) do
+    find('.content-body__inline-video').click
+end
+
+Then(/^I can see an ad is played$/) do
+    sleep(3) #have to sleep to capture the screenshot of the ad
+    find('.content-body__inline-video').find(".vjs-ad-playing")
+    screenshot "video_ad_screen"
+end
+
+Then(/^the video starts playing$/) do
+    sleep(8) #have to sleep to capture the screenshot of the video
+    find('.content-body__inline-video').find(".vjs-playing")
+    screenshot "video_screen"
+end
+
 #Ads
 Then(/^I should see (\d+) "([^"]+)" ad slots?$/) do |slot_count, ad_slot|
     expect(page).to have_selector(".#{ad_slot} > div > div", count: slot_count.to_i)

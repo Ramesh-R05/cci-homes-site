@@ -2,7 +2,7 @@
 Feature: article detail page
     As a user
     I want to view the article
-    So that I can browser the content I enjoy
+    So that I can browse the content I enjoy
 
     @DHO-41 @DHO-101 @DHO-228
     Scenario: Check article title, summary, content body, inline image with caption and source
@@ -13,16 +13,20 @@ Feature: article detail page
         And I should see "Technically black and white are not even colours" within the first paragragh
         And I should see the "AUSTRALIAN HOUSE AND GARDEN" logo redirected to the brand listing page in the current window
 
-    @DHO-183
+    @DHO-183 @video @crossbrowser
     Scenario: Check hero video
         When I am viewing an article with a hero video
         Then I should see a hero video
+        And I should see 1 inline videos
+        When I am able to click the video
+        Then I can see an ad is played
+        And the video starts playing
 
     @DHO-258
     Scenario: Check inline gallery
         Given I am viewing an article
         Then I should see the inline gallery cover image redirected to the gallery page in the current window
-        And I should see "GALLERY", "9 PHOTOS" and "HOT DESKING: CREATE A HOME OFFICE TO SUIT YOUR STYLE" on the inline gallery cover image  
+        And I should see "GALLERY", "9 PHOTOS" and "HOT DESKING: CREATE A HOME OFFICE TO SUIT YOUR STYLE" on the inline gallery cover image
 
     @DHO-157
     Scenario: Check related content
