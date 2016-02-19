@@ -11,6 +11,12 @@ Feature: SEO Fields
         And the page should have a meta description "Article Long Title, Article Short Teaser"
         And the page should have a canonical URL "/section/article-hero-image"
 
+    @DHO-421
+    Scenario: Check that the page title and canonical URL on tag page
+        Given I am on the "/tags/feature-home" landing page
+        Then the page should have a title "Feature Home | HOMES TO LOVE"
+        And the page should have a canonical URL "/tags/feature-home"
+
     @DHO-216
     Scenario: Check that the page title, meta description and canonical URL on a gallery page
         Given I am viewing a gallery
