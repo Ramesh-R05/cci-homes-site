@@ -31,7 +31,7 @@
     "@bxm/server": "^11.1.0",
     "@bxm/services-stubs": "^2.0.0",
     "@bxm/tags": "^2.1.0",
-    "@bxm/ui": "^12.2.0",
+    "@bxm/ui": "^13.0.0",
     "babel": "^5.4.4",
     "body-parser": "^1.13.1",
     "classnames": "^2.1.2",
