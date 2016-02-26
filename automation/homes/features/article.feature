@@ -13,14 +13,16 @@ Feature: article detail page
         And I should see "Technically black and white are not even colours" within the first paragragh
         And I should see the "AUSTRALIAN HOUSE AND GARDEN" logo redirected to the brand listing page in the current window
 
-    @DHO-183 @video @crossbrowser
+    @video @DHO-183 @crossbrowser
     Scenario: Check hero video
         When I am viewing an article with a hero video
-        Then I should see a hero video
-
+        Then I should see hero video title 
+        And I should see a hero video
+        
     @video @DHO-418
     Scenario: Check inline video
         When I am viewing an article with a hero video
+        Then I should see inline video title 
         And I should see 1 inline videos
         When I am able to click the video
         Then I can see an ad is played
