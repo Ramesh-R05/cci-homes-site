@@ -16,7 +16,7 @@ Feature: article detail page
     @video @DHO-183 @crossbrowser
     Scenario: Check hero video
         When I am viewing an article with a hero video
-        Then I should see hero video title
+        #Then I should see hero video title
         And I should see a hero video
 
     @video @DHO-418
