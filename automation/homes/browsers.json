@@ -4,27 +4,7 @@
         "browser_version": "8.0",
         "device": null,
         "os": "OS X",
-        "os_version": "Yosemite"
-    },
-    {
-        "browser": "Chrome",
-        "browser_version": "44.0",
-        "device": null,
-        "os": "Windows",
-        "os_version": "7"
-    },
-    {
-        "browser": "ie",
-        "browser_version": "11.0",
-        "device": null,
-        "os": "Windows",
-        "os_version": "7"
-    },
-    {
-        "browser": "firefox",
-        "browser_version": "40.0",
-        "device": null,
-        "os": "Windows",
-        "os_version": "7"
+        "os_version": "Yosemite",
+        "BS_REPORT":"Safari8Yos"
     }
 ]
