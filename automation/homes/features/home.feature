@@ -9,6 +9,12 @@ Feature: Homepage ads
         And I should see 30 teasers on the homepage
         And I should see "AUSTRALIAN HOUSE AND GARDEN" link redirected to the brand listing page in the current window
 
+    @crossbrowser @manual
+    Scenario: Check all ad slots are visible on the homepage
+        Given I am on the homepage
+        Then I should see 1 "ad--section-top-leaderboard" ad slot
+        And I should see 1 "ad--section-bottom-leaderboard" ad slot
+
     @homepage-ads
     Scenario: Check all ad slots are visible on the homepage
         Given I am on the homepage
@@ -23,7 +29,7 @@ Feature: Homepage ads
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
         #And I should see 2 "ad--section-mrec" ad slot
-    
+
     @DHO-115 @desktop
     Scenario: Check gallery of galleries on the homepage
         Given I am on the homepage

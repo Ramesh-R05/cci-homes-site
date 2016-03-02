@@ -1,4 +1,4 @@
-Before('~@mobile', '~@tablet-landscape', '~@tablet-portrait') do
+Before('~@mobile', '~@tablet-landscape', '~@tablet-portrait', '~@crossbrowser') do
   if Capybara.current_driver == Capybara.default_driver
     if page.nil? or page.driver.nil?
       puts "the page and driver are not defined"

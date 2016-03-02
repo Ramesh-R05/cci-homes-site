@@ -144,6 +144,3 @@ DEPENDENCIES
   rspec (= 2.14.1)
   selenium-client (= 1.2.18)
   selenium-webdriver (= 2.42.0)
-
-BUNDLED WITH
-   1.10.6

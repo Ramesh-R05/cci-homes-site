@@ -74,10 +74,11 @@ task :cucumber do
             ENV['SELENIUM_PLATFORM'] = browser['platform']
             ENV['SELENIUM_DEVICE'] = browser['browserName']
             ENV['SELENIUM_DEVICE_ID'] = browser['device']
+            ENV['BS_REPORT'] = browser['BS_REPORT']
 
             Rake::Task[:run_features].execute()
         rescue Exception => e
-            puts "Error while running task"
+            puts "Error while running task: " + e
         end
     end
 end

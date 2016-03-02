@@ -5,6 +5,7 @@ require 'active_support/time'
 require 'andand'
 require 'rspec'
 require 'selenium/webdriver'
+require 'parallel'
 
 # Load matcher files under 'support/matcher' folder
 Dir[File.expand_path('../matcher/*.rb', __FILE__)].each {|f| require f}
@@ -67,7 +68,6 @@ Capybara.register_driver :chrome do |app|
 caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => [ "--touch-events" ]})
 Capybara::Selenium::Driver.new(app, {:browser => :chrome, :desired_capabilities => caps})
 end
-# Capybara.register_driver(:chrome) { |app| Capybara::Selenium::Driver.new(app, :browser => :chrome, :desired_capabilities => caps) }
 Capybara.register_driver(:poltergeist) { |app| Capybara::Poltergeist::Driver.new(app, :phantomjs => $phantomjs_path, :js_errors => false) }
 Capybara.default_driver = :poltergeist
 

@@ -16,19 +16,19 @@ Feature: article detail page
     @video @DHO-183 @crossbrowser
     Scenario: Check hero video
         When I am viewing an article with a hero video
-        Then I should see hero video title 
+        #Then I should see hero video title
         And I should see a hero video
-        
+
     @video @DHO-418
     Scenario: Check inline video
         When I am viewing an article with a hero video
-        Then I should see inline video title 
+        Then I should see inline video title
         And I should see 1 inline videos
         When I am able to click the video
         Then I can see an ad is played
         And the video starts playing
 
-    @DHO-258
+    @DHO-258 @crossbrowser
     Scenario: Check inline gallery
         Given I am viewing an article
         Then I should see the inline gallery cover image redirected to the gallery page in the current window
