@@ -22,7 +22,7 @@ Feature: article detail page
     @video @DHO-418
     Scenario: Check inline video
         When I am viewing an article with a hero video
-        Then I should see inline video title
+        #Then I should see inline video title
         And I should see 1 inline videos
         When I am able to click the video
         Then I can see an ad is played
