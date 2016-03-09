@@ -2,7 +2,7 @@ module.exports =
 {
   "entity": {
     "galleryItems": [
-  {
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/22/1437541416314_Chinamans3.jpg",
     "caption": "Gallery Image Caption 01 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "Chinamans3.jpg",
@@ -12,8 +12,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/23/1437629179232_DIY-2163.jpg",
     "caption": "Gallery Image Caption 02 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "DIY_-2163.jpg",
@@ -23,8 +23,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/23/1437629210062_hg0215DecoratingMainC1457701-2R2.jpg",
     "caption": "Gallery Image Caption 03 -  “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "hg0215 Decorating MainC1457701-2R2.jpg",
@@ -34,8 +34,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/23/1437629237958_HG1214AbBeautThingsMCMENIMANSHOUSE-133R1.jpg",
     "caption": "Gallery Image Caption 04 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "HG1214_AbBeautThings_MCMENIMAN'S HOUSE-133R1.jpg",
@@ -45,8 +45,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/23/1437629306670_JHJCHINAMANS15-01-20150209.jpg",
     "caption": "Gallery Image Caption 05 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "JHJ_CHINAMANS 15-01-2015__0209.jpg",
@@ -56,8 +56,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973851484_Chinamans3.jpg",
     "caption": "Gallery Image Caption 06 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "Chinamans3.jpg",
@@ -67,8 +67,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973872659_DIY-2163.jpg",
     "caption": "Gallery Image Caption 07 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "DIY_-2163.jpg",
@@ -78,8 +78,8 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": false
-  },
-  {
+    },
+    {
     "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/07/27/1437973887007_hg0215DecoratingMainC1457701-2R2.jpg",
     "caption": "Gallery Image Caption 08 - “Many people are scared to use fine china, but they shouldn’t be,” says Joseph D’Rozario, butler at The Hotel Windsor in Melbourne, where afternoon tea is served on Noritake fine china. “It’s there to be enjoyed, and with proper care should last a lifetime.”  [Trebilcock & Associates Architects](http://www.trebilcock.com.au/|target=\"_blank\")",
     "title": "hg0215 Decorating MainC1457701-2R2.jpg",
@@ -89,7 +89,16 @@ module.exports =
     "credits": [],
     "tags": [],
     "open": true
-  }
+    },
+    {
+    "videoId": "4789284764001",
+    "brightcoveId": "4789284764001",
+    "videoTitle": "",
+    "open": false,
+    "mediaType": "video",
+    "valid": true,
+    "isopen": false
+    }
 ],
     "contentTags": [
       "food:Homes navigation:Outdoor",

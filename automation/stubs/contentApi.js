@@ -88,7 +88,7 @@ var start = function(port) {
         var article_hero_image = require(cwd + '/automation/test_data/article_hero_image');
         res.json(article_hero_image);
     });
-    
+
     //Article Page - Hero Video
     server.get('/section/article-hero-video', function(req, res) {
         var article_hero_video = require(cwd + '/automation/test_data/article_hero_video');

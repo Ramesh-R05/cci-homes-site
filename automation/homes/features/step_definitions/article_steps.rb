@@ -46,11 +46,12 @@ end
 
 Then(/^I should see (hero|inline) video title$/) do |position|
     if (position.downcase == 'inline')
-        video_title = find('.content-body__inline-video .video-title-bar').text
+        video_title = find('.content-body__inline-video .vjs-dock-title').text
     else
-        video_title = find('.article__main-hero-video .video-title-bar').text
+        video_title = find('.article__main-hero-video .vjs-dock-title').text
     end
     expect(video_title).to_not eq("")
+    puts video_title
 end
 
 Then(/^I should see (\d+) inline videos$/) do |number_of_videos|
