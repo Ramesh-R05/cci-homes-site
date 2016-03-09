@@ -13,7 +13,7 @@ const Header = proxyquire('../../../app/components/header/header', {
     'react': React,
     './menuButton': MenuButtonStub,
     './navigation': NavigationStub,
-    '../helpers/pin': pinStub // stub the HOC
+    '@bxm/behaviour/lib/components/pin': pinStub // stub the HOC
 });
 
 describe(`Header Component`, () => {

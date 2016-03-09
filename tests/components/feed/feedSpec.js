@@ -20,12 +20,14 @@ const polarFeedItemClassName = 'polar-feed-item';
 const PolarFeedItemStub = React.createClass({
     render: () => <li className={polarFeedItemClassName}>Foo</li>
 });
-
+const sandbox = sinon.sandbox.create();
+const pinStub = sandbox.stub().returnsArg(0);
 const Feed = proxyquire('../../../app/components/feed/feed', {
     'react': React,
     './feedItem': FeedItemStub,
     '../polar/polarFeedItem': PolarFeedItemStub,
-    './feedAd': FeedAdStub
+    './feedAd': FeedAdStub,
+    '@bxm/behaviour/lib/components/pin': pinStub
 });
 
 describe('Feed Component', () => {

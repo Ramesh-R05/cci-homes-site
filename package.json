@@ -19,6 +19,7 @@
   "dependencies": {
     "@bxm/ad": "^6.0.0",
     "@bxm/article": "^6.1.0",
+    "@bxm/behaviour": "^1.1.0",
     "@bxm/config": "^1.2.0",
     "@bxm/flux": "^4.0.0",
     "@bxm/gallery": "^7.0.0",
@@ -28,7 +29,7 @@
     "@bxm/modal": "^2.0.0",
     "@bxm/newsletter": "^3.0.0",
     "@bxm/recommendations": "^4.0.0",
-    "@bxm/server": "^11.1.0",
+    "@bxm/server": "^12.0.0",
     "@bxm/services-stubs": "^2.0.0",
     "@bxm/tags": "^2.1.0",
     "@bxm/ui": "^13.0.0",
