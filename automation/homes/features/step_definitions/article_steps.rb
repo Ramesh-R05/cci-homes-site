@@ -68,7 +68,7 @@ Then(/^I can see an ad is played$/) do
 end
 
 Then(/^the video starts playing$/) do
-    sleep(8) #have to sleep to capture the screenshot of the video
+    sleep(15) #have to sleep to capture the screenshot of the video
     find('.content-body__inline-video').find(".vjs-playing")
     screenshot "video_screen"
 end

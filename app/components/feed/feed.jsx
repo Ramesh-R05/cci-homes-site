@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
 import collectionSplice from '@bxm/ui/lib/common/collectionSplice';
 import {getKeywordsFromTags} from '@bxm/ad/lib/utils/tagsUtils';
-import pin from '../helpers/pin';
+import pin from '@bxm/behaviour/lib/components/pin';
 import FeedItem from './feedItem';
 import PolarFeedItem from '../polar/polarFeedItem';
 import FeedAd from './feedAd';

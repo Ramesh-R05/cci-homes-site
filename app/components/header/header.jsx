@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
 import MenuButton from './menuButton';
 import Navigation from './navigation';
-import pin from '../helpers/pin';
+import pin from '@bxm/behaviour/lib/components/pin';
 
 class Header extends Component {
     static propTypes = {
