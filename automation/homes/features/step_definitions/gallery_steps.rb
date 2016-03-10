@@ -47,9 +47,9 @@ Then(/^I should see "([^"]+)" as the sub-section title above the gallery summary
 end
 
 When(/^I am viewing the last image of the current gallery$/) do
-    for i in 0..8
+    for i in 0..9
         step "I click on the next slide arrow"
-    end  
+    end
 end
 
 Then(/^I should see "([^"]+)" as the section title on the next gallery page$/) do |title|
@@ -74,10 +74,10 @@ Then(/^I should see (\d+)(?:st|nd|rd|th) MREC after the (?:first|next) (\d+) ima
     if int_ad_number != 1
         int_img_position = 5
     end
-    
+
     (1..int_img_position).each do
-        step "I click on the next slide arrow" 
-    end 
+        step "I click on the next slide arrow"
+    end
 
     expect(find('.gallery__slide-ad').visible?).to eq(true)
 end

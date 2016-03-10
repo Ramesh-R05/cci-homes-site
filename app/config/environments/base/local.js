@@ -4,5 +4,8 @@ export default {
     },
     site: {
         host: 'http://localhost:8080'
+    },
+    brightcove: {
+        playerId: 'VkuyApojl'
     }
 };

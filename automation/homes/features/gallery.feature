@@ -9,7 +9,7 @@ Feature: HomesToLove Gallery Detail Page
         Then I should see "Gallery Long Title" as the gallery title
         And I should see "Gallery Body Text" contained in the gallery summary
         And I should see the right slide arrows and the image
-        And I should see "1/8" as the gallery count
+        And I should see "1/9" as the gallery count
         And I should see "Gallery Image Caption" contained in the image caption
         And I should see "CREATIVE HOME" as the sub-section title above the gallery summary
 
@@ -38,7 +38,7 @@ Feature: HomesToLove Gallery Detail Page
         And I should see the swipe to skip add button
         And I should see 2nd MREC after the next 4 images
         And I should see the swipe to skip add button
-    
+
     @desktop
     Scenario: Check the next gallery title and link on the next gallery slide at the end of the current gallery
         Given I am viewing a gallery
@@ -46,4 +46,4 @@ Feature: HomesToLove Gallery Detail Page
         When I click on the next slide arrow
         Then I should see "NEXT GALLERY" as the section title on the next gallery page
         And I should see "Gallery: Kimberly and Stephen’s Byron Bay beach house" as the title of the next gallery
-        And I should see "14 PHOTOS" as the image count of the next gallery    
+        And I should see "14 PHOTOS" as the image count of the next gallery
