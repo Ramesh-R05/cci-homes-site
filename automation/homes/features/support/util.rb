@@ -47,3 +47,10 @@ module Capybara
     end
   end
 end
+# To scroll the page down to ensure images are loaded
+def handle_lazy_load(round)
+    for i in 1..round
+        page.execute_script "window.scrollBy(0,1800)"
+        sleep(1)
+    end
+end
