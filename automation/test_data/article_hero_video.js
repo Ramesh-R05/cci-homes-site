@@ -40,13 +40,13 @@ module.exports =
             "label": "Video",
             "content": {
                 "id": "VIDEO-5882",
-                "name": "4747539748001",
+                "name": "4826022103001",
                 "type": "VideoItem",
                 "properties": {
                     "videoConfiguration": {
                         "videoId": "VIDEO-5882",
                         "status": "Video upload is complete",
-                        "brightcoveId": "4747539748001",
+                        "brightcoveId": "4826022103001",
                         "statusCode": 200
                     }
                 }
@@ -68,9 +68,9 @@ module.exports =
   "type": "VideoItem",
   "properties": {
     "videoConfiguration": {
-      "videoId": "VIDEO-2238",
+      "videoId": "4826022103001",
       "status": "Video upload is complete",
-      "brightcoveId": "4128484287001",
+      "brightcoveId": "4826022103001",
       "statusCode": 200
     }
   }
