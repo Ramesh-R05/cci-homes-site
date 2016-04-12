@@ -12,7 +12,10 @@ export default class Page extends Component {
         return (
             <div>
                 <Ad
-                    sizes='teads'
+                    label={{
+                        "active": false
+                    }}
+                    sizes="teads"
                 />
                 <Article
                     {...this.props}
