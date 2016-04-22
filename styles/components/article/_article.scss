@@ -1,0 +1,18 @@
+.article-section {
+  width: 100%;
+  overflow-x: hidden;
+
+  .article {
+    &__header {
+      display: table;
+    }
+
+    &__hero-container {
+      display: table-header-group;
+
+      @media #{$medium-up} {
+        display: table-footer-group;
+      }
+    }
+  }
+}

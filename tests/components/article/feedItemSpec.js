@@ -1,22 +1,25 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import proxyquire, {noCallThru} from 'proxyquire';
-noCallThru();
 const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
 const FeedItemStub = Context.createStubComponent();
-const themeStub = sinon.stub();
+const themeSpy = sinon.spy();
+noCallThru();
 
 describe('FeedItem', () => {
     const dataPath = 'item.source';
+    let HomesFeedItems;
 
     before(() => {
-        proxyquire('../../../app/components/article/feedItem', {
+        HomesFeedItems = proxyquire('../../../app/components/article/feedItem', {
+            '@bxm/tags/lib/components/link': FeedItemStub,
             '@bxm/article/lib/components/feed/feedItem': FeedItemStub,
-            '../helpers/theme': themeStub
+            '../helpers/theme': themeSpy
         });
     });
 
     it(`should call the theme higher order component with the FeedItem component and ${dataPath}`, () => {
-        expect(themeStub).to.have.been.calledWith(FeedItemStub, dataPath);
+        expect(themeSpy).to.be.calledOnce;
+        expect(themeSpy.args[0][1]).to.be.deep.eq(dataPath);
     });
 });

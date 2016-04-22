@@ -85,7 +85,9 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../section/tag/section': TagSectionStub,
     '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}},
     '../section/navigationTag/section': NavigationTagSectionStub,
-    '@bxm/gallery/lib/components/page/gallery': GalleryStub,
+    '@bxm/gallery/lib/components/page/gallery': {
+        default: GalleryStub
+    },
     '../footer/footer': FooterStub,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
     '@bxm/config': { load: () => { return config } },
