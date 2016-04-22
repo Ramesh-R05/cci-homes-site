@@ -34,7 +34,7 @@ Feature: article detail page
         Then I should see the inline gallery cover image redirected to the gallery page in the current window
         And I should see "GALLERY", "9 PHOTOS" and "HOT DESKING: CREATE A HOME OFFICE TO SUIT YOUR STYLE" on the inline gallery cover image
 
-    @DHO-157
+    @DHO-157 @manual
     Scenario: Check related content
         Given I am viewing an article
         Then I should see 2 related articles
