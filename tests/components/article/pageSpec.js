@@ -21,7 +21,13 @@ const ArticlePage = proxyquire('../../../app/components/article/page', {
 
 
 describe('ArticlePage', () => {
-    const testProps = {random: 'test', props: 'hello'};
+    const testProps = {
+        random: 'test',
+        props: 'hello',
+        content: {
+            source: 'test'
+        }
+    };
     let reactModule;
     let articleComponent;
 
