@@ -18,7 +18,7 @@
   "license": "",
   "dependencies": {
     "@bxm/ad": "^7.1.0",
-    "@bxm/article": "^10.0.0",
+    "@bxm/article": "10.3.1-beta.1",
     "@bxm/behaviour": "^1.1.0",
     "@bxm/config": "^1.2.0",
     "@bxm/datetime": "^2.0.0",
