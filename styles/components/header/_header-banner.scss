@@ -6,13 +6,14 @@
     line-height: $header-banner-logo-height;
     text-align: center;
 
-    a {
-        background-image: url('/assets/logo/homes-banner-logo.svg');
-        background-size: 285px 134px;
+    &__logo {
+        background-image: url('/assets/logo/homes-header-logo-desktop.svg');
+        background-size: 585px 134px;
         display: inline-block;
-        height: 134px;
+        height: 190px;
         vertical-align: middle;
-        width: 285px;
+        width: 585px;
+        background-repeat: no-repeat;
     }
 }
 
@@ -20,4 +21,9 @@
     @media #{$medium-up} {
         display: block;
     }
+}
+
+.header__sections--brick-bg {
+  background: url('/assets/images/homes-banner-background.jpg') repeat-x;
+  border-bottom: 1px solid #F3F3F3;
 }

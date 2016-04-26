@@ -58,12 +58,14 @@
     "@bxm/node-tasks": "^5.0.0",
     "babelify": "^6.1.2",
     "browser-sync": "2.7.1",
+    "enzyme": "^2.3.0",
     "express": "^4.13.0",
     "gulp": "^3.8.11",
     "immutable": "^3.7.4",
     "nock": "^2.6.0",
     "pre-git": "^0.6.2",
     "proxyquire": "^1.5.0",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "react-addons-test-utils": "^0.14.7"
   }
 }

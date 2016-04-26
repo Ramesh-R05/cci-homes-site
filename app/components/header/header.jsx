@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import MenuButton from './menuButton';
 import Navigation from './navigation';
 import pin from '@bxm/behaviour/lib/components/pin';
+import { SponsorsLinks } from './sponsorsLinks';
 
 class Header extends Component {
     static propTypes = {
@@ -34,6 +35,8 @@ class Header extends Component {
             'header--side-menu-open': this.props.isSideMenuOpen
         });
 
+        const headerClass = this.props.isExpanded ? '' : 'header__sections--brick-bg';
+
         return (
             <div className={wrapperClassName}>
                 <header
@@ -42,38 +45,33 @@ class Header extends Component {
                         role="banner"
                         style={{top: this.props.pinned ? `${this.props.pinOffset}px` : 'auto'}}>
                     <div className="header-banner">
-                        <a href="/">Homes to Love</a>
+                        <a href="/" className="header-banner__logo">Homes to Love</a>
                     </div>
-                    <div className="header__sections">
-                        <MenuButton/>
 
-                        <div className="header-logo">
-                            <a href="/" className="header-logo__link-image">Homes to Love</a>
+                    {this.props.isExpanded ? <SponsorsLinks
+                        expanded={this.props.isExpanded}
+                        by="powered by" /> : null }
+
+                    <div className={headerClass}>
+                        <div className="header__sections">
+                            <MenuButton/>
+
+                            <div className="header-logo">
+                                <a href="/" className="header-logo__link-image">Homes to Love</a>
+                            </div>
+
+                            <Navigation
+                                className="header-nav"
+                                items={this.props.navItems}
+                            />
                         </div>
-
-                        <Navigation
-                            className="header-nav"
-                            items={this.props.navItems}
-                        />
-
-                        {/*
-
-                        --- Coppied from AWW ---
-
-                        <div className="header-social">
-                            <HeaderSocialLinks
-                                facebook="https://www.facebook.com/WomensWeeklyMag"
-                                twitter="https://twitter.com/womensweeklymag"
-                                instagram="http://instagram.com/womensweeklymag"/>
-                        </div>
-
-                        <div className="header-search" role="search">
-                            <SubscribeButton />
-
-                            <SearchButton />
-                        </div>
-
-                        */}
+                    </div>
+                    <div>
+                        {!this.props.isExpanded ? <SponsorsLinks
+                            expanded={this.props.isExpanded}
+                            by="powered by"
+                            classNameModify="--text-only"
+                            displayTextOnly={true} /> : null }
                     </div>
                 </header>
             </div>
@@ -84,9 +82,9 @@ class Header extends Component {
 export default pin(Header, props =>
     props.isExpanded ? {
         small: { pinPoint: 40 },
-        medium: { pinPoint: 268 },
-        large: { pinPoint: 268 },
-        xlarge: { pinPoint: 268 }
+        medium: { pinPoint: 241 },
+        large: { pinPoint: 241 },
+        xlarge: { pinPoint: 241 }
     } : {
         small: { pinPoint: 40 },
         medium: { pinPoint: 51 },

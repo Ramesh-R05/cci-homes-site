@@ -35,9 +35,9 @@ describe(`Header Component`, () => {
         it('specifies the expanded pin points for all screen sizes', () => {
             expect(pinStub.lastCall.args[1]({ isExpanded: true })).to.eql({
                 small: { pinPoint: 40 },
-                medium: { pinPoint: 268 },
-                large: { pinPoint: 268 },
-                xlarge: { pinPoint: 268 }
+                medium: { pinPoint: 241 },
+                large: { pinPoint: 241 },
+                xlarge: { pinPoint: 241 }
             });
         });
 
