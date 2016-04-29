@@ -31,7 +31,7 @@
     "@bxm/modal": "^2.0.0",
     "@bxm/newsletter": "^3.0.0",
     "@bxm/recommendations": "^4.0.0",
-    "@bxm/server": "^12.0.0",
+    "@bxm/server": "^12.7.1",
     "@bxm/services-stubs": "^2.0.0",
     "@bxm/tags": "^2.1.0",
     "@bxm/teaser": "^4.3.0",
