@@ -75,7 +75,13 @@ Then(/^the video starts playing$/) do
 end
 
 #Ads
+Then(/^I can scroll bottom ad into view$/) do
+    handle_lazy_load(4)
+end
+
 Then(/^I should see (\d+) "([^"]+)" ad slots?$/) do |slot_count, ad_slot|
+    sleep(5)
+    find(".#{ad_slot} > div > div", count: slot_count.to_i)
     expect(page).to have_selector(".#{ad_slot} > div > div", count: slot_count.to_i)
 end
 

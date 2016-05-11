@@ -11,9 +11,11 @@ Feature: Homepage ads
 
     @crossbrowser @manual
     Scenario: Check all ad slots are visible on the homepage
+        When I switch to "desktop" view
         Given I am on the homepage
         Then I should see 1 "ad--section-top-leaderboard" ad slot
-        And I should see 1 "ad--section-bottom-leaderboard" ad slot
+        And I can scroll bottom ad into view
+        Then I should see 1 "ad--section-bottom-leaderboard" ad slot
 
     @homepage-ads
     Scenario: Check all ad slots are visible on the homepage
