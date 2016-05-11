@@ -19,9 +19,6 @@ end
 $phantomjs_path = ENV['phantomjs_path'] || $phantomjs_path
 $base_url = ENV['base_url'] || $base_url
 $environment = ENV['env'] || $environment
-$solr_base_url = ENV['solr_base_url'] || $solr_base_url
-$solr_collection_name = ENV['solr_collection_name'] || $solr_collection_name
-$solr_collection_search_name = ENV['solr_collection_search_name'] || $solr_collection_search_name
 $proxy_bypass = ENV['proxy_bypass'] || true
 $server_count = ENV['server_count'] || 2
 $verbose_logging = ENV['logging'] || false
@@ -99,26 +96,15 @@ if $environment != 'local'
   abort("The environment '#{$environment}' is not setup in config/environments.yml") unless environments[$environment]
 
   $base_url ||= environments[$environment]['web']
-  $solr_base_url ||= environments[$environment]['solr']
-  $solr_collection_name ||= environments[$environment]['solr_collection_name']
-  $solr_collection_search_name ||= environments[$environment]['solr_collection_search_name']
 end
 
 
-# if we still don't have a solr_collection_name, then generate one
-$solr_collection_name ||= "dev_#{ENV['USERNAME']}_#{$environment}_food_site"
-
-#if we still don't have a $solr_collection_search_name name, create it off the $solr_collection_name
-$solr_collection_search_name ||= $solr_collection_name + '-search'
 
 
 puts "--| Envrionment settings |--"
 puts "$project                     = #{$project}"
 puts "$environment                 = #{$environment}"
 puts "$base_url                    = #{$base_url}"
-puts "$solr_base_url               = #{$solr_base_url}"
-puts "$solr_collection_name        = #{$solr_collection_name}"
-puts "$solr_collection_search_name = #{$solr_collection_search_name}"
 puts "$phantomjs_path              = #{$phantomjs_path}"
 puts "$proxy_bypass                = #{$proxy_bypass}"
 puts "$server_count                = #{$server_count}"

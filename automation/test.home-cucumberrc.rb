@@ -1,6 +1,3 @@
 $phantomjs_path = "C:/PhantomJS/phantomjs.exe"
 $environment = "local"
 $base_url = "http://homes.local/"
-$solr_base_url = "http://solr-cluster01.digital.dev.local/solr/"
-$solr_collection_name = "homes-site-#{ENV['USERNAME']}-local"
-$solr_collection_search_name = "homes-site-#{ENV['USERNAME']}-local-search"
