@@ -4,8 +4,16 @@
         "browser_version": "8.0",
         "device": null,
         "os": "OS X",
-        "os_version": "Yosemite",
-        "BS_REPORT":"Safari8Yos"
+        "os_version": "El Capitan",
+        "BS_REPORT":"Safari8Cap"
+    },
+    {
+      "browser": "Chrome",
+      "browser_version": "48.0",
+      "device": null,
+      "os": "OS X",
+      "os_version": "El Capitan",
+      "BS_REPORT":"Chrome8Cap"
     },
     {
         "browser": "Chrome",
