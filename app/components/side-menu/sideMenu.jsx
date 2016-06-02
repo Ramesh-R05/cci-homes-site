@@ -4,6 +4,7 @@ import Navigation from '../header/navigation';
 import MagShop from '../magshop/magshop';
 import * as MenuActions from '../../actions/menuActions';
 import clone from 'lodash/lang/clone';
+import { SponsorsLinks } from '../header/sponsorsLinks';
 
 export default class SideMenu extends Component {
     static propTypes = {
@@ -60,6 +61,11 @@ export default class SideMenu extends Component {
                             className="side-menu__nav"
                             items={items}
                         />
+                        <div className="side-menu__separator"></div>
+                        <SponsorsLinks
+                            by="powered by"
+                            displayTextOnly={true}
+                            classNameModify="--text-vertical-only" />
                         <div className="side-menu__separator"></div>
                         <MagShop inSideNav={true} content={magShopData} />
                     </div>

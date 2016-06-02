@@ -73,7 +73,7 @@ describe(`SideMenu Component`, () => {
             expect(ReactDOM.findDOMNode(magshop)).to.exist;
         });
 
-        const separatorLength = 1;
+        const separatorLength = 2;
         it(`renders ${separatorLength} separators`, () => {
             expect(separators.length).to.equal(separatorLength);
         });
