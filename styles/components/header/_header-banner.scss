@@ -7,13 +7,11 @@
     text-align: center;
 
     &__logo {
-        background-image: url('/assets/logo/homes-header-logo-desktop.svg');
-        background-size: 585px 134px;
+        background: url('/assets/logo/homes-header-logo-desktop.svg') 0 44px / 585px 46px no-repeat;
         display: inline-block;
         height: 190px;
         vertical-align: middle;
         width: 585px;
-        background-repeat: no-repeat;
     }
 }
 
