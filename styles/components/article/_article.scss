@@ -4,11 +4,16 @@
 
   .article {
     &__header {
+      width: 100%;
       display: table;
     }
 
     &__hero-container {
       display: table-header-group;
+
+      noscript img {
+        position: absolute;
+      }
 
       @media #{$medium-up} {
         display: table-footer-group;
