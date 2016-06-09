@@ -1,31 +1,31 @@
 .article .sticky-block {
-  bottom: -80px;
-  @media #{$small-only} {
-    &--out-of-view:not(.sticky-block--at-top) {
-      background: #FFF;
-      border-top: 1px solid #ddd;
-      position: fixed;
-      transition: bottom 450ms;
-      width: 100%;
-      z-index: $z-index-11;
-      height: 50px;
-      margin-left: -15px;
+    bottom: -80px;
+    @media #{$small-only} {
+        &--out-of-view:not(.sticky-block--at-top) {
+            background: #FFF;
+            border-top: 1px solid #ddd;
+            position: fixed;
+            transition: bottom 450ms;
+            width: 100%;
+            z-index: $z-index-11;
+            height: 50px;
+            margin-left: -15px;
 
-      .ad {
-        padding-top: 0;
-        margin-bottom: 0;
-      }
-    }
+            .ad {
+                padding-top: 0;
+                margin-bottom: 0;
+            }
+        }
 
-    &--at-bottom {
-      bottom: 0;
-    }
+        &--at-bottom {
+            bottom: 0;
+        }
 
-    &--in-view {
-      bottom: 0;
-      position: static;
-      background: #F9F8F6;
-      padding-bottom: 20px;
+        &--in-view {
+            bottom: 0;
+            position: static;
+            background: #F9F8F6;
+            padding-bottom: 20px;
+        }
     }
-  }
 };
