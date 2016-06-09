@@ -39,7 +39,6 @@ export default class Page extends Component {
                     feedItemClass={FeedItem}
                     footerMetaClass={Source}
                     footerComponentClass={Footer}
-                    firstAdDistanceFromTop={654}
                     />
             </div>
         );
