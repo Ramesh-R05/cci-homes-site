@@ -21,3 +21,12 @@
     }
   }
 }
+
+.article .sticky-block {
+    @media #{$small-only} {
+        &--in-view {
+            background: #F9F8F6;
+        }
+    }
+}
+
