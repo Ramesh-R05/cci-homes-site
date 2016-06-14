@@ -35,7 +35,7 @@
     "@bxm/recommendations": "^4.0.0",
     "@bxm/server": "^12.7.1",
     "@bxm/services-stubs": "^2.0.0",
-    "@bxm/social": "1.1.2",
+    "@bxm/social": "^1.1.3",
     "@bxm/tags": "^2.1.0",
     "@bxm/teaser": "^4.3.0",
     "@bxm/ui": "^14.0.0",
