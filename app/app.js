@@ -25,7 +25,7 @@ import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
 import MenuStore from './stores/menu';
 import RequestStore from './stores/request';
-import SocialStore from '@bxm/ui/lib/social/stores/SocialStore';
+import SocialStore from '@bxm/social/lib/stores/social';
 import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
 import TagSectionStore from './stores/facetedStores/tagSection';
 import TrackingStore from './stores/tracking';
