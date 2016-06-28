@@ -33,6 +33,7 @@ import SponsorsStore from './stores/sponsor';
 import articleStore from '@bxm/article/lib/stores/articleStore';
 import articleFeedService from '@bxm/article/lib/services/articleFeedService';
 
+import batchedUpdatePlugin from 'fluxible-addons-react/batchedUpdatePlugin';
 import {load, configPlugin} from '@bxm/config';
 const config = load();
 
@@ -75,5 +76,6 @@ servicePlugin.registerService(articleFeedService);
 
 app.plug(servicePlugin);
 app.plug(configsPlugin);
+app.plug(batchedUpdatePlugin());
 
 export default app;
