@@ -34,7 +34,7 @@ export default class Page extends Component {
                 <Article
                     {...this.props}
                     enableTeads={true}
-                    articleHeaderOrder={['Title', 'Social', 'NativeAd', 'Hero', Ad, 'Summary']}
+                    articleHeaderOrder={['Title', 'NativeAd', 'Hero', Ad, 'Social', 'Summary']}
                     authorTranslationMap={Page.translationMap}
                     feedItemClass={FeedItem}
                     footerMetaClass={Source}

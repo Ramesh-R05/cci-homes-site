@@ -9,7 +9,7 @@
     $label-medium-pad: $label-medium-height - $label-text-height;
     $label-medium-line-height: $label-medium-height + $label-medium-pad;
 
-    $small-ad-padding: 20px;
+    $small-ad-padding: 10px;
 
     text-align: center;
 
@@ -50,10 +50,7 @@
     &__label {
         color: $color-grey-light;
         font-family: $font-family-sans-serif-primary;
-        font-size: 7px;
-        font-weight: 500;
-        letter-spacing: .1em;
-        text-transform: uppercase;
+        font-size: 11px;
         width: 100%;
     }
 
@@ -66,7 +63,7 @@
             left: -($column-gutter/2);
         }
         padding: {
-            bottom: $small-ad-padding - $label-small-pad;
+            bottom: 0;
             top: $small-ad-padding;
         }
         position: relative;
@@ -131,4 +128,9 @@
         }
     }
 
+    &.ad--slot-teads {
+        @media #{$small-only} {
+            display: block;
+        }
+    }
 }

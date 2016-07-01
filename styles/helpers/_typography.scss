@@ -67,7 +67,7 @@ a {
 // Article
 @mixin type-article-title {
     color: $color-black;
-    font: 400 30px/1.35 $font-family-serif-primary;
+    font: 400 22px/1.35 $font-family-serif-primary;
     letter-spacing: -.005em;
 
     @media #{$medium-up} {
