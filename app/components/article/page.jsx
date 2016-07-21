@@ -37,6 +37,7 @@ export default class Page extends Component {
                     articleHeaderOrder={['Title', 'NativeAd', 'Hero', Ad, 'Social', 'Summary']}
                     authorTranslationMap={Page.translationMap}
                     feedItemClass={FeedItem}
+                    contentBodyConfig={{disableAds: true}}
                     footerMetaClass={Source}
                     footerComponentClass={Footer}
                     />

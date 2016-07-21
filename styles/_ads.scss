@@ -13,10 +13,20 @@
 
     text-align: center;
 
+    &--content-body {
+        padding-top: 20px;
+    }
+
     &--top-label,
     &--bottom-label {
         display: table;
         width: 100%;
+
+        .content-body & {
+            @media #{$medium-up} {
+                width: auto;
+            }
+        }
 
         .ad__label {
             line-height: $label-small-line-height;
