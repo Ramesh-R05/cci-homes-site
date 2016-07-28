@@ -1,5 +1,8 @@
 import breakpoints from '../breakpoints';
 
+var accountId = '761709621001';
+var playerId = 'cf879d82-c4b2-4c3b-9a03-ae8567a693fc';
+
 export default {
 
     patternlab: false,
@@ -69,8 +72,9 @@ export default {
     },
 
     brightcove: {
-        accountId: '761709621001',
-        playerId: 'cf879d82-c4b2-4c3b-9a03-ae8567a693fc'
+        accountId: accountId,
+        playerId: playerId,
+        script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
     },
 
     gigya: {
@@ -123,7 +127,8 @@ export default {
         name: 'HOMES TO LOVE',
         shortName: 'Homes To Love',
         prefix: 'HOMES',
-        network: 'wn'
+        network: 'wn',
+        prodDomain: 'www.homestolove.com.au'
     },
 
     server: {

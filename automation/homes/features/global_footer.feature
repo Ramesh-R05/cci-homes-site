@@ -10,6 +10,7 @@ Feature: The global footer should appear at the bottom of the page
         #And I should see subscribe image and button links to "https://www.magshop.com.au/store/homestolove" in a new window
         And I should see the subscribe button links to "https://www.magshop.com.au/store/homestolove" in a new window
         And I should see the Privacy Policy, Advertise and Terms of Use links open in a new window
+        
 
     @DHO-35 @DHO-217 @DHO-360
     Scenario: Check the global footer is displayed correctly on section landing page

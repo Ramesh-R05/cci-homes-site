@@ -12,7 +12,7 @@
         padding: 0 0 0 15px;
 
         .icon-logo {
-            background-image: url('../../images/logo/homes-logo-mobile.svg');
+            background-image: url('/assets/images/logo/homes-logo-mobile.svg');
             background-repeat: no-repeat;
             background-size: 115px 35px;
             display: inline-block;
@@ -22,7 +22,7 @@
             width: 115px;
 
             @media #{$medium-up} {
-                background-image: url('../../images/logo/homes-logo-tablet.svg');
+                background-image: url('/assets/images/logo/homes-logo-tablet.svg');
                 background-size: 287px 23px;
                 height: 23px;
                 width: 287px;
