@@ -1,3 +1,6 @@
+var accountId = '761709621001';
+var playerId = 'VkuyApojl';
+
 export default {
     polar: {
         propertyId: 'NA-HOMETOLOVE-AUTOMATION'
@@ -27,6 +30,8 @@ export default {
         host: 'http://127.0.0.1:8080'
     },
     brightcove: {
-        playerId: 'VkuyApojl'
+        accountId: accountId,
+        playerId: playerId,
+        script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
     }
 };
