@@ -1,8 +1,0 @@
-User-agent: *
-Disallow: /api/
-Disallow: /app/
-Disallow: /deploy/
-Disallow: /patternlab/
-Disallow: /styles/
-Disallow: /gulpfile.js
-Disallow: /package.json

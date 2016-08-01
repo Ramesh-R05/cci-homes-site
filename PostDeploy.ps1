@@ -4,29 +4,6 @@ $npmRegistryUrl = "http://npm.digital.mgmt.local:8080/";
 $returnCode = 0;
 $global:hasErrors = $False;
 
-Function CopyEnvironmentDeployFiles
-{
-	$environment = $OctopusParameters['Octopus.Environment.Name'];
-	$pathToDeployFiles = "$websiteDirectory\deploy\$environment";
-
-	# ensure website exists!
-	If (!(Test-Path $websiteDirectory))
-	{
-		$Host.UI.WriteErrorLine("$websiteDirectory does not exist");
-		$global:hasErrors = $True;
-		Return;
-	}
-
-	# check whether we have any additional files to copy
-	If (!(Test-Path $pathToDeployFiles))
-	{
-		Write-Output "$pathToDeployFiles does not exist, no deploy files to copy...";
-		Return;
-	}
-
-	Copy-item -path "$pathToDeployFiles\*" -destination $websiteDirectory -force -recurse -Verbose;
-}
-
 Function ChangeServiceStatus
 {
     Param([string]$serviceName, [string]$newStatus)
@@ -174,7 +151,6 @@ Function CleanNpmOutput($npmOutput)
 
 # code
 NpmInstall;
-CopyEnvironmentDeployFiles;
 
 ChangeServiceStatus -serviceName "nxlog" -newStatus "start";
 ChangeServiceStatus -serviceName "NodeServer3000" -newStatus "start";
