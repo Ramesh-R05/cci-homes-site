@@ -1,7 +1,7 @@
 import breakpoints from '../breakpoints';
 
 var accountId = '761709621001';
-var playerId = 'cf879d82-c4b2-4c3b-9a03-ae8567a693fc';
+var playerId = 'VkuyApojl';
 
 export default {
 
