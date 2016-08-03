@@ -12,3 +12,10 @@
         }
     }
 }
+
+.feed-item__body {
+    .article__date-created {
+        display: none;
+        visibility: hidden;
+    }
+}
