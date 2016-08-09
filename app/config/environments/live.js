@@ -35,7 +35,7 @@ export default {
             remote: 'http://live.homes-api.wn.bauer-media.net.au'
         },
         redirect: {
-            url: 'http://live.redirect.services.bauer-media.net.au'
+            url: 'http://live.redirect.services.bauer-media.internal/v1/homes/301'
         }
     },
     site: {

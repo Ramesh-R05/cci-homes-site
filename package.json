@@ -32,7 +32,7 @@
     "@bxm/newsletter": "^3.0.0",
     "@bxm/react-script-loader": "^2.1.0",
     "@bxm/recommendations": "^4.0.0",
-    "@bxm/server": "^16.0.0",
+    "@bxm/server": "^16.3.1",
     "@bxm/services-stubs": "^2.0.0",
     "@bxm/social": "^1.1.4",
     "@bxm/tags": "^2.1.0",

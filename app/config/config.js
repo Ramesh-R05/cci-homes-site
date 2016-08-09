@@ -150,8 +150,7 @@ export default {
             url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
         },
         redirect: {
-            site: 'homes',
-            url: 'http://dev.redirect.services.bauer-media.net.au'
+            url: 'http://dev.redirect.services.bauer-media.internal/v1/homes/301'
         },
         googlePlusUrl: 'https://plus.google.com/+HomesToLoveAu/',
         faceBookAppID: '852557544824192'
