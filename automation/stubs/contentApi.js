@@ -130,6 +130,12 @@ var start = function(port) {
         res.json(tag_landing);
     });
 
+    //Share Repo Gallery
+    server.get('/fashion/automation-test-gallery-13302', function(req, res) {
+        var gallery = require(cwd + '/automation/test_data/share_repo_gallery');
+        res.json(gallery);
+    });
+
     server.listen(port);
     console.info('listening on port ' + port);
 };
