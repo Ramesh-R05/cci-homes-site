@@ -32,11 +32,19 @@
         "BS_REPORT":"Firefox44Win10"
     },
     {
-        "browser": "IE",
-        "browser_version": "11.0",
+        "browser": "Firefox",
+        "browser_version": "47.0",
         "device": null,
         "os": "Windows",
-        "os_version": "10",
-        "BS_REPORT":"IE11Win10"
+        "os_version": "7",
+        "BS_REPORT":"Firefox47Win7"
+    },
+    {
+        "browser": "Chrome",
+        "browser_version": "52.0",
+        "device": null,
+        "os": "Windows",
+        "os_version": "7",
+        "BS_REPORT":"Chrome52Win7"
     }
 ]
