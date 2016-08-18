@@ -74,6 +74,7 @@ export default {
     brightcove: {
         accountId: accountId,
         playerId: playerId,
+        playlistId: '5086182656001',
         script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
     },
 

@@ -71,7 +71,6 @@
 @import 'styleguide/styleguide';
 
 // @bxm
-@import '../node_modules/@bxm/ui/lib/to-love/video/videoPlayer';
 @import 'components/bxm/header';
 @import '../node_modules/@bxm/ui/lib/social/style/socialicons';
 @import 'components/bxm/back-to-top';
@@ -81,6 +80,7 @@
 @import '../node_modules/@bxm/ad/styles/polar/native-hub';
 @import 'components/native-hub/native-hub';
 @import "../node_modules/@bxm/ad/styles/google/adverts";
+@import "./components/article/video";
 
 // Article
 @import '../node_modules/@bxm/article/styles/page';
