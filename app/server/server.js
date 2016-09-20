@@ -2,7 +2,7 @@ import * as React from 'react';
 import {navigateAction} from 'fluxible-router';
 import facetedModule from './middlewares/facetedModule';
 import sitemap from './middlewares/sitemap';
-import contentApiStub from '../../automation/stubs/contentApi';
+import contentApiStub from '../../automation/test_data/contentApi';
 import Server from '@bxm/server';
 import env from '@bxm/server/lib/env';
 import app from '../app';

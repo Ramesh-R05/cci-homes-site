@@ -1,129 +1,20 @@
+var articleTemplate = require('../templates/videoArticle');
+
+var articles = [];
+articles.push(articleTemplate(0));
+
 module.exports =
 {
-  "entity": {
-    "campaign": [],
-    "tags": [
-      "food:Topic:Creative home",
-      "food:Homes navigation:Indoor",
-      "food:Profiles:Designer"
-    ],
-    "source": "Australian House and Garden",
-    "body": [
-  {
-    "type": "heading",
-    "label": "Heading",
-    "content": "How Builders Make New Homes More Spacious, Inside and Out"
-  },
-  {
-    "type": "image",
-    "label": "Image",
-    "content": {
-      "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
-      "valid": true,
-      "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-      "link": "https://www.google.com",
-      "title": "Inline Image Title"
-    }
-  },
-  {
-    "type": "heading",
-    "label": "Heading",
-    "content": "High Ceilings"
-  },
-  {
-    "type": "paragraph",
-    "label": "Paragraph",
-    "content": "Perhaps the best way to make a house feel much larger is to raise the ceilings to 9, 10 or even 12 or 15 feet, says Trey Bitteker, general sales manager at Pulte Homes in Arizona. “High ceiling heights will certainly open up a house. When someone walks through it, every room feels a little bit larger,” he says."
-  },
-  {
-            "type": "video",
-            "label": "Video",
-            "content": {
-                "id": "VIDEO-5882",
-                "name": "4826022103001",
-                "type": "VideoItem",
-                "properties": {
-                    "videoConfiguration": {
-                        "videoId": "VIDEO-5882",
-                        "status": "Video upload is complete",
-                        "brightcoveId": "4826022103001",
-                        "statusCode": 200
-                    }
-                }
-            }
-        },
-  {
-    "type": "paragraph",
-    "label": "Paragraph",
-    "content": "New homes today commonly have double-height or one-and-a half height ceilings in one or more rooms such as an entry hall, family room or formal living room, says Michael Malone, principal at Michael Malone Architects in Dallas. “No matter how small a room is,” Malone says, “that extra vertical height makes a lot of difference.”"
-  }
-],
-    "author": [],
-    "title": "Article Long Title",
-    "summaryTitle": "Article Short Title",
-    "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-    "video": {
-  "id": "VIDEO-2238",
-  "name": "4128484287001 (2)",
-  "type": "VideoItem",
-  "properties": {
-    "videoConfiguration": {
-      "videoId": "4826022103001",
-      "status": "Video upload is complete",
-      "brightcoveId": "4826022103001",
-      "statusCode": 200
-    }
-  }
-},
-    "redirect": {
-      "mode": 2
-    },
-    "imageFacebookUrl": {},
-    "accessLevels": [
-      "-1"
-    ],
-    "dateCreated": "2015-06-18T11:30:57",
-    "tracking": {
-      "dateIndexed": "2015-06-18T21:32:55"
-    },
-    "month": 6,
-    "year": 2015,
-    "id": "HOMES-1232",
-    "parentId": "HOMES-1206",
-    "level": 3,
-    "sortOrder": 18,
-    "name": "Article - Hero Video",
-    "dateIndexed": "2015-06-18T21:32:55",
-    "pathIds": [
-      "HOMES--1",
-      "HOMES-1158",
-      "HOMES-1206",
-      "HOMES-1232"
-    ],
-    "urlName": "article-hero-video",
-    "url": "/section/article-hero-video",
-    "nodeType": "HomesArticle",
-    "template": "Index",
-    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
-    "siteName": "Homes",
-    "siteUrl": "http://localhost/",
-    "nodeTypeAliasPath": [
-      "Page",
-      "Editorial",
-      "Articles",
-      "HomesArticle"
-    ]
-  },
+  "entity": articles[0],
   "next": {},
   "previous": {
     "entity": {
       "campaign": [],
       "tags": [
-        "food:Topic:Creative home",
-        "food:Homes navigation:Indoor",
-        "food:Profiles:Designer"
+        "food:Topic:Before and after",
+        "food:Homes navigation:DIY & How To"
       ],
-      "source": "Australian House and Garden",
+      "source": "homes+",
       "body": [
   {
     "type": "heading",
@@ -136,9 +27,9 @@ module.exports =
     "content": {
       "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/02/1433204812800_Home02.jpg",
       "valid": true,
-      "caption": "Inline Image Caption - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+      "caption": "Image 01 - Content Body - Image Caption",
       "link": "https://www.google.com",
-      "title": "Inline Image Title"
+      "title": "Image 01 - Content Body - Title"
     }
   },
   {
@@ -158,10 +49,10 @@ module.exports =
   }
 ],
       "author": [],
-      "title": "Article Long Title",
-      "summaryTitle": "Article Short Title",
-      "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-      "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
+      "title": "Article 16 - Before & After - Long Title",
+      "summaryTitle": "Article 16 - Before & After - Short Title",
+      "summary": "Article 16 - Before & After - Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+      "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/03/1224/home_17.jpg",
       "redirect": {
         "mode": 2
       },
@@ -169,26 +60,26 @@ module.exports =
       "accessLevels": [
         "-1"
       ],
-      "dateCreated": "2015-06-18T10:40:39",
+      "dateCreated": "2015-06-02T10:55:05",
       "tracking": {
-        "dateIndexed": "2015-06-18T21:16:27"
+        "dateIndexed": "2015-06-04T02:43:01"
       },
       "month": 6,
       "year": 2015,
-      "id": "HOMES-1231",
+      "id": "HOMES-1224",
       "parentId": "HOMES-1206",
       "level": 3,
-      "sortOrder": 17,
-      "name": "Article - Hero Image",
-      "dateIndexed": "2015-06-18T21:16:27",
+      "sortOrder": 16,
+      "name": "Article 16 - Before & After",
+      "dateIndexed": "2015-06-04T02:43:01",
       "pathIds": [
         "HOMES--1",
         "HOMES-1158",
         "HOMES-1206",
-        "HOMES-1231"
+        "HOMES-1224"
       ],
-      "urlName": "article-hero-image",
-      "url": "/section/article-hero-image",
+      "urlName": "article-16-before-and-after",
+      "url": "/section/article-16-before-and-after",
       "nodeType": "HomesArticle",
       "template": "Index",
       "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
@@ -201,7 +92,7 @@ module.exports =
         "HomesArticle"
       ]
     },
-    "url": "/section/article-hero-image"
+    "url": "/section/article-16-before-and-after"
   },
   "section": {
     "urlName": "section",
@@ -283,13 +174,13 @@ module.exports =
   },
   "headerMetaData": {
     "robots": "NOINDEX,NOFOLLOW",
-    "intId": "1232",
+    "intId": "1231",
     "googleTagManagerEnvironment": "Development",
     "googleTagManagerMasthead": "HOMES",
     "appId": "GTM-WJRM8R",
     "title": "Article Long Title",
-    "pageName": "Article - Hero Video",
-    "pageDescription": "Article Long Title, Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
+    "pageName": "Article - Hero Image",
+    "pageDescription": "Article Long Title, Article Short Teaser",
     "faceBookAdmins": "100002740190640",
     "breadcrumbs": [
       {
@@ -418,20 +309,8 @@ module.exports =
         "author": [],
         "title": "Article Long Title",
         "summaryTitle": "Article Short Title",
-        "summary": "Article Short Teaser - abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$%^&*()_+-={}|[]\\:\";'<>?,./",
-        "video": {
-  "id": "VIDEO-2238",
-  "name": "4128484287001 (2)",
-  "type": "VideoItem",
-  "properties": {
-    "videoConfiguration": {
-      "videoId": "VIDEO-2238",
-      "status": "Video upload is complete",
-      "brightcoveId": "4128484287001",
-      "statusCode": 200
-    }
-  }
-},
+        "summary": "Article Short Teaser",
+        "imageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2015/06/12/1209/fb_palmbeachtower_2014_hr_006.jpg",
         "redirect": {
           "mode": 2
         },
@@ -439,26 +318,26 @@ module.exports =
         "accessLevels": [
           "-1"
         ],
-        "dateCreated": "2015-06-18T11:30:57",
+        "dateCreated": "2015-06-18T10:40:39",
         "tracking": {
-          "dateIndexed": "2015-06-18T21:32:55"
+          "dateIndexed": "2015-06-18T21:16:27"
         },
         "month": 6,
         "year": 2015,
-        "id": "HOMES-1232",
+        "id": "HOMES-1231",
         "parentId": "HOMES-1206",
         "level": 3,
-        "sortOrder": 18,
-        "name": "Article - Hero Video",
-        "dateIndexed": "2015-06-18T21:32:55",
+        "sortOrder": 17,
+        "name": "Article - Hero Image",
+        "dateIndexed": "2015-06-18T21:16:27",
         "pathIds": [
           "HOMES--1",
           "HOMES-1158",
           "HOMES-1206",
-          "HOMES-1232"
+          "HOMES-1231"
         ],
-        "urlName": "article-hero-video",
-        "url": "/section/article-hero-video",
+        "urlName": "article-hero-image",
+        "url": "/section/article-hero-image",
         "nodeType": "HomesArticle",
         "template": "Index",
         "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
@@ -474,66 +353,66 @@ module.exports =
     ]
   },
   "request": {
-    "pathAndQuery": "/section/article-hero-video",
+    "pathAndQuery": "/section/article-hero-image",
     "userAgent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36",
     "queryString": [],
     "dnsSafeHost": "dev.homes-api.wn.bauer-media.net.au"
   },
   "stores": {
-        "leftHandRail": {
-            "module": {
-                "includeDynamic": true,
-                "contentType": "Editorials",
-                "contentSections": "Custom",
-                "sections": [
-                    "HOMES-1161",
-                    "HOMES-1237"
-                ],
-                "sorting": "DateCreatedDesc",
-                "facetConfiguration": [
-                    {
-                        "label": "Tag",
-                        "field": "tags",
-                        "query": "tags",
-                        "sortBy": 0,
-                        "sortDirection": 0
-                    }
-                ],
-                "enableTextSearch": true,
-                "textSearchConfiguration": {
-                    "label": "Search",
-                    "criteria": "query",
-                    "queryString": "q"
-                },
-                "supportsPreview": true,
-                "pageSize": 20,
-                "moduleName": "leftHandRail",
-                "storeName": "leftHandRail",
-                "id": "feed-articles",
-                "parentId": "HOMES-1159",
-                "level": 3,
-                "name": "Left Hand Rail",
-                "dateIndexed": "2015-07-08T21:34:54",
-                "pathIds": [
-                    "HOMES--1",
-                    "HOMES-1158",
-                    "HOMES-1159",
-                    "HOMES-1313"
-                ],
-                "urlName": "left-hand-rail",
-                "url": "/modules/left-hand-rail",
-                "nodeType": "FacetedModule",
-                "template": "Index",
-                "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
-                "siteName": "Homes",
-                "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
-                "nodeTypeAliasPath": [
-                    "Modules",
-                    "PagedModules",
-                    "FacetedModule"
-                ]
-            },
-            "items": []
-        }
-    }
+      "leftHandRail": {
+          "module": {
+              "includeDynamic": true,
+              "contentType": "Editorials",
+              "contentSections": "Custom",
+              "sections": [
+                  "HOMES-1161",
+                  "HOMES-1237"
+              ],
+              "sorting": "DateCreatedDesc",
+              "facetConfiguration": [
+                  {
+                      "label": "Tag",
+                      "field": "tags",
+                      "query": "tags",
+                      "sortBy": 0,
+                      "sortDirection": 0
+                  }
+              ],
+              "enableTextSearch": true,
+              "textSearchConfiguration": {
+                  "label": "Search",
+                  "criteria": "query",
+                  "queryString": "q"
+              },
+              "supportsPreview": true,
+              "pageSize": 20,
+              "moduleName": "leftHandRail",
+              "storeName": "leftHandRail",
+              "id": "feed-articles",
+              "parentId": "HOMES-1159",
+              "level": 3,
+              "name": "Left Hand Rail",
+              "dateIndexed": "2015-07-08T21:34:54",
+              "pathIds": [
+                  "HOMES--1",
+                  "HOMES-1158",
+                  "HOMES-1159",
+                  "HOMES-1313"
+              ],
+              "urlName": "left-hand-rail",
+              "url": "/modules/left-hand-rail",
+              "nodeType": "FacetedModule",
+              "template": "Index",
+              "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
+              "siteName": "Homes",
+              "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
+              "nodeTypeAliasPath": [
+                  "Modules",
+                  "PagedModules",
+                  "FacetedModule"
+              ]
+          },
+          "items": []
+      }
+  }
 };

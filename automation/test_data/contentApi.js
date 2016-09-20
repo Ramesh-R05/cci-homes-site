@@ -15,7 +15,7 @@ var start = function(port) {
 
     //Homepage
     server.get('/', function(req, res) {
-        var home = require(process.cwd() + '/automation/test_data/home');
+        var home = require(process.cwd() + '/automation/test_data/pages/home');
         res.json(home);
     });
 
@@ -26,7 +26,7 @@ var start = function(port) {
 
     //Brand - Australian House and Garden
     server.get('/australian-house-and-garden', function(req, res) {
-        var brand = require(cwd + '/automation/test_data/australian-house-and-garden');
+        var brand = require(cwd + '/automation/test_data/pages/australian-house-and-garden');
         res.json(brand);
     });
 
@@ -37,7 +37,7 @@ var start = function(port) {
 
     //Section Landing Page - Home Tours
     server.get('/home-tours', function(req, res) {
-        var section_home_tours = require(cwd + '/automation/test_data/section_landing');
+        var section_home_tours = require(cwd + '/automation/test_data/pages/section_landing');
         res.json(section_home_tours);
     });
 
@@ -48,7 +48,7 @@ var start = function(port) {
 
     //Section Landing Page - Load More
     server.get('/section', function(req, res) {
-        var home = require(cwd + '/automation/test_data/section_load_more');
+        var home = require(cwd + '/automation/test_data/pages/section_load_more');
         res.json(home);
     });
 
@@ -85,25 +85,19 @@ var start = function(port) {
 
     //Article Page - Hero Image
     server.get('/section/article-hero-image', function(req, res) {
-        var article_hero_image = require(cwd + '/automation/test_data/article_hero_image');
-        res.json(article_hero_image);
-    });
-
-    //Article Page - Hero Image
-    server.get('/fashion/automation-test-article-with-hero-image-3663', function(req, res) {
-        var article_hero_image = require(cwd + '/automation/test_data/article_hero_image');
+        var article_hero_image = require(cwd + '/automation/test_data/pages/article');
         res.json(article_hero_image);
     });
 
     //Article Page - Hero Video
     server.get('/section/article-hero-video', function(req, res) {
-        var article_hero_video = require(cwd + '/automation/test_data/article_hero_video');
+        var article_hero_video = require(cwd + '/automation/test_data/pages/videoArticle');
         res.json(article_hero_video);
     });
 
     //Article Page - Competition
     server.get('/competition', function(req, res) {
-        var competition = require(cwd + '/automation/test_data/competition');
+        var competition = require(cwd + '/automation/test_data/pages/competition');
         res.json(competition);
     });
 
@@ -115,13 +109,13 @@ var start = function(port) {
 
     //Gallery
     server.get('/section/gallery', function(req, res) {
-        var gallery = require(cwd + '/automation/test_data/gallery');
+        var gallery = require(cwd + '/automation/test_data/pages/gallery');
         res.json(gallery);
     });
 
     //Tag Landing Page - Feature Home
     server.get('/tags/feature-home', function(req, res) {
-        var tag_landing = require(cwd + '/automation/test_data/tag');
+        var tag_landing = require(cwd + '/automation/test_data/pages/tag');
         res.json(tag_landing);
     });
 
@@ -132,12 +126,23 @@ var start = function(port) {
 
     //Share Repo Gallery
     server.get('/fashion/automation-test-gallery-13302', function(req, res) {
-        var gallery = require(cwd + '/automation/test_data/share_repo_gallery');
+        var gallery = require(cwd + '/automation/test_data/pages/gallery');
         res.json(gallery);
     });
 
     server.listen(port);
     console.info('listening on port ' + port);
+
+    server.get('/fashion/automation-test-article-with-hero-image-3663', function(req, res) {
+        var subSectionPage = require('../../automation/test_data/pages/article');
+        res.json(subSectionPage);
+    });
+
+    server.get('/fashion/automation-test-article-with-hero-video-3664', function(req, res) {
+        var subSectionPage = require('../../automation/test_data/pages/videoArticle');
+        res.json(subSectionPage);
+    });
+
 };
 
 module.exports = {
