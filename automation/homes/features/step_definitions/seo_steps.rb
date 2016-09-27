@@ -3,7 +3,7 @@ Then(/^the page should have a title "([^"]+)"$/) do |title|
 end
 
 Then(/^the page should have a meta description "([^"]+)"$/) do |description_text|
-    page.should have_css("meta[name='description'][value='#{description_text}']", visible: false)
+    page.should have_css("meta[name='description'][content='#{description_text}']", visible: false)
 end
 
 Then(/^the page should have a canonical URL "([^"]+)"$/) do |canonical_url|
