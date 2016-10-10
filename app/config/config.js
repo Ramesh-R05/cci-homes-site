@@ -154,7 +154,10 @@ export default {
             url: 'http://dev.redirect.services.bauer-media.internal/v1/homes/301'
         },
         googlePlusUrl: 'https://plus.google.com/+HomesToLoveAu/',
-        faceBookAppID: '852557544824192'
+        faceBookAppID: '852557544824192',
+        seoApi: {
+            batman: 'http://dev.seo-batman.services.bauer-media.internal/v1/keywords'
+        }
     },
 
     localeData: {

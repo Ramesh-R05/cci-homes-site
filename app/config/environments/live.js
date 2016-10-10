@@ -36,6 +36,9 @@ export default {
         },
         redirect: {
             url: 'http://live.redirect.services.bauer-media.internal/v1/homes/301'
+        },
+        seoApi: {
+            batman: 'http://live.seo-batman.services.bauer-media.internal/v1/keywords'
         }
     },
     site: {
