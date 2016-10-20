@@ -11,7 +11,7 @@ const FlexibleRouter = {
     handleHistory: c => c,
     navigateAction: sinon.spy()
 };
-const currentRoute = Immutable.fromJS({params: {all: 'url'}});
+const currentRoute = {params: {all: 'url'}};
 const LoadMore = proxyquire('../../../app/components/loadMore/loadMore', {
     'react': React,
     '../buttons/button': ButtonStub,
@@ -19,7 +19,7 @@ const LoadMore = proxyquire('../../../app/components/loadMore/loadMore', {
     'fluxible-router': FlexibleRouter
 });
 const currentPage = 0;
-const expectedUrRL = '/' + currentRoute.get('params').get('all') + '?page=' + (currentPage + 1);
+const expectedUrRL = '/' + currentRoute.params.all + '?page=' + (currentPage + 1);
 
 Context.addStore('RouteStore', RouteStore);
 
