@@ -33,7 +33,7 @@ class LoadMore extends Component {
         e.preventDefault();
         if (this.props.isLoading === true) return false;
         this.context.executeAction(navigateAction, {
-            url: `/${this.props.currentRoute.get('params').get('all')}?page=${this.props.currentPage + 1}`
+            url: `/${this.props.currentRoute.params.all}?page=${this.props.currentPage + 1}`
         });
     };
 
