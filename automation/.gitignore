@@ -1,0 +1,9 @@
+#Ignore
+.screenshots
+reports/*.json
+reports/*.html
+screenshots/*.jpg
+cucumber.json
+
+#Include
+!reports/template.html
