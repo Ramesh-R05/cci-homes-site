@@ -58,7 +58,7 @@ module.exports = function() {
         var rows = dataTable.hashes();
 
         //below captures the array of menu items to validate agains the table
-        var mobileMenuTitle = browser.getAttribute('ul.mobile-menu-list li a', 'title');
+       var mobileMenuTitle = browser.getAttribute('ul.mobile-menu-list li a', 'title');
         var mobileMenuhref = browser.getAttribute('ul.mobile-menu-list li a', 'href');
         //end
 
@@ -95,7 +95,7 @@ module.exports = function() {
     this.When(/^I should see the clickable To Love$/, function () {
         //open menu
         menu.clickMobileMenu();
-        expect(browser.isVisible('nav.tl-header div.tl-modal--menu.tl-modal--dark.tl-modal')).toBe(true);
+        expect(browser.waitForVisible('nav.tl-header div.tl-modal--menu.tl-modal--dark.tl-modal', 3000)).toBe(true);
         //close menu
         menu.clickMobileMenu();
     });
