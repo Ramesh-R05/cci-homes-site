@@ -3,7 +3,7 @@ var hooks = function () {
 
 
     this.Before(function (scenario) {
-        browser.url(world.Urls.home_page + 'contentApiStub?enabled=true');
+        browser.url(world.Urls.home_page);
     });
 
     this.After(function (scenario) {

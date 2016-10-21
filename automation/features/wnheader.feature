@@ -167,6 +167,7 @@ Feature: WN Header
 
 @article
     Scenario: Verify desktop WN header is functional correctly on article page
+         When I switch to "desktop" view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
          * To Love is unclickable
          * I can navigate to all sites in the desktop list on the header
