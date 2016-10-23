@@ -41,37 +41,6 @@ servicesStubs.get('/section', function(req, res) {
     res.json(home);
 });
 
-servicesStubs.get('/section-articles', function(req, res, next) {
-    var home;
-
-    if (!isUndefined(req.query.page)) {
-        var page = parseInt(req.query.page, 10);
-        if (page > 2) {
-            throw ('Only Page 0,1 & 2 implemented in test. Page= ' + page + ' passed.');
-        }
-        home = require(cwd + '/automation/test_data/faceted/section-articles-page' + req.query.page);
-    }
-    else if (!isUndefined(req.query.pagestart) && !isUndefined(req.query.pageend)) {
-        var pageStart = parseInt(req.query.pagestart, 10);
-        var pageEnd = parseInt(req.query.pageend, 10);
-        if (pageStart > pageEnd) {
-            throw ('pageStart >' + ' pageEnd');
-        }
-        if (pageEnd > 2) {
-            throw ('Only Page 0,1 & 2 implemented in test. PageEnd= ' + pageEnd + ' passed.');
-        }
-        if (pageStart === pageEnd) {
-            home = require(cwd + '/automation/test_data/faceted/section-articles-page' + pageStart);
-        }
-        else{
-            home = require(cwd + '/automation/test_data/faceted/section-articles-pages-' + pageStart + '-' + pageEnd);
-        }
-    } else{
-        throw ('Page is not specified');
-    }
-    res.json(home);
-});
-
 //Article Page - Hero Image
 servicesStubs.get('/section/article-hero-image', function(req, res) {
     var article_hero_image = require(cwd + '/automation/test_data/pages/article');
