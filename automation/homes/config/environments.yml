@@ -1,8 +1,0 @@
-automation:
-  web: http://automation.homes-site.wn.bauer-media.net.au/
-
-local:
-  web: http://localhost:80
-
-stubbed:
-  web: http://localhost:8080
