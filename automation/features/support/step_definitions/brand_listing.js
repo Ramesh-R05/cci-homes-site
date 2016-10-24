@@ -1,4 +1,5 @@
 var brand_listing = require('../page_objects/brand_listing_widget');
+var wait = require('../utils/wait');
 
 module.exports = function() {
 
@@ -35,9 +36,11 @@ module.exports = function() {
         //This is to ensure that the teaser elements are loaded before checking text elements (solve for desktop case)
         //We are using scrolling three times for now unless we find a better solution in the future.
         browser.scroll(0,1000);
+        wait(1000);
         browser.scroll(0,2000);
+        wait(1000);
         browser.scroll(0,3000);
-
+        wait(1000);
 
         //verify titles of all teasers
         var brandArticleTitle = browser.getText(brand_listing.brandArticleTitle);
@@ -127,4 +130,3 @@ module.exports = function() {
     });
 
 };
-

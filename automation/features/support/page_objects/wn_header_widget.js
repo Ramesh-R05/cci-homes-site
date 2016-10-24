@@ -6,7 +6,7 @@ function wn_header_widget() {
     };
 
     this.clickMobileMenu = function () {
-        browser.waitForVisible(this.selectors.ToLove, 5000).click;
+        browser.click(this.selectors.ToLove)
     };
 
     this.hoverMore = function (x,y) {

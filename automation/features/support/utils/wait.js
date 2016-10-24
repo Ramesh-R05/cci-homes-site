@@ -1,3 +1,6 @@
+// waits in milliseconds
+// wait(1000); //=> this waits for 1sec
+
 function wait(ms) {
 
     var start = new Date().getTime();

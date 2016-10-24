@@ -15,7 +15,6 @@ module.exports = function() {
 
     this.Given(/^I can navigate to all sites in the desktop list under More$/, function (dataTable) {
         var rows = dataTable.hashes();
-
         //below captures the array of menu items to validate agains the table
         var menuTitle = browser.getAttribute('ul.global-nav-list__dropdown li a', 'title');
         var menuhref = browser.getAttribute('ul.global-nav-list__dropdown li a', 'href');
@@ -58,6 +57,8 @@ module.exports = function() {
         var rows = dataTable.hashes();
 
         //below captures the array of menu items to validate agains the table
+       // browser.timeoutsImplicitWait(5000);
+        browser.waitForEnabled('ul.mobile-menu-list li a', 5000);
        var mobileMenuTitle = browser.getAttribute('ul.mobile-menu-list li a', 'title');
         var mobileMenuhref = browser.getAttribute('ul.mobile-menu-list li a', 'href');
         //end
@@ -74,6 +75,8 @@ module.exports = function() {
         var rows = dataTable.hashes();
 
         //below captures the array of menu items to validate agains the table
+        //browser.timeoutsImplicitWait(5000);
+        browser.waitForEnabled('ul.mobile-menu-list li a', 5000);
         var mobileMenuTitle = browser.getAttribute('ul.mobile-menu-list li a', 'title');
         var mobileMenuhref = browser.getAttribute('ul.mobile-menu-list li a', 'href');
         //end
