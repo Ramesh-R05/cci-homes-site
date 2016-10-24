@@ -1,4 +1,0 @@
-# config/cucumber.yml
-##YAML Template
----
-default: --format pretty --format html --out=artifacts/<%= Time.now.strftime("%Y%m%d-%H%M%S") %>-features_report<%= ENV['BS_REPORT'] %>.html

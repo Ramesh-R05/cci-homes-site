@@ -1,4 +1,4 @@
-@ad @wd @aww @dolly @homes @food @cosmo
+@ad @homes
 Feature: Ad
     As a user
     I should be able to see the relevant Ads on the site
