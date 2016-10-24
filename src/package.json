@@ -46,6 +46,7 @@
     "@bxm/modal": "^2.0.0",
     "@bxm/nav": "^3.1.1",
     "@bxm/newsletter": "^3.0.0",
+    "@bxm/node-apm": "^1.0.1",
     "@bxm/react-script-loader": "^2.1.0",
     "@bxm/recommendations": "^4.0.0",
     "@bxm/server": "^17.0.0",
