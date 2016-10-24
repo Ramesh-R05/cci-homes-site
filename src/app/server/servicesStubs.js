@@ -1,4 +1,5 @@
 import express from 'express';
+import isUndefined from 'lodash/lang/isUndefined';
 
 const servicesStubs = express.Router();
 const cwd = process.cwd();
@@ -38,6 +39,39 @@ servicesStubs.get('/section-home-tours', function(req, res) {
 //Section Landing Page - Load More
 servicesStubs.get('/section', function(req, res) {
     var home = require(cwd + '/automation/test_data/pages/section_load_more');
+    res.json(home);
+});
+
+// used for retrieving stubbed articles via facetedModule for `/section`
+servicesStubs.get('/section-articles', function(req, res, next) {
+    console.log(req.originalUrl);
+    var home;
+
+    if (!isUndefined(req.query.page)) {
+        var page = parseInt(req.query.page, 10);
+        if (page > 2) {
+            throw ('Only Page 0,1 & 2 implemented in test. Page= ' + page + ' passed.');
+        }
+        home = require(cwd + '/automation/test_data/faceted/section-articles-page' + req.query.page);
+    }
+    else if (!isUndefined(req.query.pagestart) && !isUndefined(req.query.pageend)) {
+        var pageStart = parseInt(req.query.pagestart, 10);
+        var pageEnd = parseInt(req.query.pageend, 10);
+        if (pageStart > pageEnd) {
+            throw ('pageStart >' + ' pageEnd');
+        }
+        if (pageEnd > 2) {
+            throw ('Only Page 0,1 & 2 implemented in test. PageEnd= ' + pageEnd + ' passed.');
+        }
+        if (pageStart === pageEnd) {
+            home = require(cwd + '/automation/test_data/faceted/section-articles-page' + pageStart);
+        }
+        else{
+            home = require(cwd + '/automation/test_data/faceted/section-articles-pages-' + pageStart + '-' + pageEnd);
+        }
+    } else{
+        throw ('Page is not specified');
+    }
     res.json(home);
 });
 
@@ -96,6 +130,11 @@ servicesStubs.get('/fashion/automation-test-article-with-hero-image-3663', funct
 servicesStubs.get('/fashion/automation-test-article-with-hero-video-3664', function(req, res) {
     var subSectionPage = require(cwd + '/automation/test_data/pages/videoArticle');
     res.json(subSectionPage);
+});
+
+servicesStubs.use(function(req, res) {
+    console.log('[app/server/servicesStubs] Unhandled route for url - ', req.originalUrl);
+    res.status(404).json({});
 });
 
 export default servicesStubs;
