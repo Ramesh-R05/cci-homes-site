@@ -2,9 +2,13 @@
 var wn_ads = require('../page_objects/ads_widget');
 module.exports = function() {
 
-    this.Then(/^I should see (\d+) leaderboard ad slots$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.leaderBoard, 5000);
-        expect((adSlots.value.length.toString())).toEqual(slot_count);
+    this.Then(/^I should see (\d+) "([^"]*)" and "([^"]*)" and "([^"]*)" ad slots$/, function (slot_count, adSlot1, adSlot2, adSlot3) {
+        var adSlot1 = browser.elements(wn_ads.leaderBoard, 5000);
+        expect((adSlot1.value.length.toString())).toEqual(slot_count);
+        var adSlot2 = browser.elements(wn_ads.midLeaderBoard, 5000);
+        expect((adSlot2.value.length.toString())).toEqual(slot_count);
+        var adSlot3 = browser.elements(wn_ads.bottomLeaderBoard, 5000);
+        expect((adSlot3.value.length.toString())).toEqual(slot_count);
     });
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.mrec, 5000);
