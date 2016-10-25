@@ -6,6 +6,10 @@ export default {
         port: 3001
     },
     services: {
+        remote: {
+            entity: `http://localhost:3001/stub/entity-service`,
+            module: `http://localhost:3001/stub/module-service`
+        },
         content: {
             remote: 'http://127.0.0.1:3001',
             local: 'http://127.0.0.1',

@@ -5,6 +5,7 @@ import {Flux, servicesPlugin} from '@bxm/flux';
 import batchedUpdatePlugin from 'fluxible-addons-react/batchedUpdatePlugin';
 import AppComponent from './components/app';
 import contentService from './services/content';
+import pageService from './services/page';
 import adConfig from './config/ads';
 import facetedModuleService from './services/facetedModule';
 import networkHeaderService from '@bxm/header/lib/header/headerService';
@@ -68,6 +69,7 @@ let app = new Flux({
 let configsPlugin = configPlugin(config);
 let servicePlugin = servicesPlugin(config);
 servicePlugin.registerService(contentService);
+servicePlugin.registerService(pageService);
 servicePlugin.registerService(facetedModuleService);
 servicePlugin.registerService(networkHeaderService);
 servicePlugin.registerService(articleFeedService);

@@ -134,6 +134,18 @@ export default {
     },
 
     services: {
+        local: 'http://127.0.0.1',
+        remote: {
+            entity: 'http://dev.entities.services.bauer-media.internal/v1/homes',
+            listings: 'http://dev.listings.services.bauer-media.internal/v1/homes',
+            module: 'http://dev.modules.services.bauer-media.internal/v1/homes',
+            sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/homes',
+            tag: 'http://dev.tags.services.bauer-media.internal/v1/homes'
+        },
+        endpoints: {
+            page: '/api/getPageContent'
+        },
+
         content: {
             remote: 'http://dev.homes-api.wn.bauer-media.net.au',
             local: 'http://127.0.0.1',

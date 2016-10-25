@@ -7,8 +7,10 @@ instrumentation:
         'test/**',
         '**/config/**',
         'app/server/server.js',
+        'app/server/bff.js',
         'app/client.js',
         'app/app.js',
-        'app/breakpoints.js'
+        'app/breakpoints.js',
+        'stubs/**'
     ]
     extensions: ['.js', '.jsx']
