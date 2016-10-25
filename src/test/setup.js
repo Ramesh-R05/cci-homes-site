@@ -2,6 +2,7 @@ import { jsdom } from 'jsdom';
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
+import sinonAsPromised from 'sinon-as-promised';
 
 chai.use(sinonChai);
 

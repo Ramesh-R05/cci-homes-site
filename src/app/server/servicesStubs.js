@@ -1,5 +1,6 @@
 import express from 'express';
 import isUndefined from 'lodash/lang/isUndefined';
+import get from 'lodash/object/get';
 
 const servicesStubs = express.Router();
 const cwd = process.cwd();
@@ -132,6 +133,38 @@ servicesStubs.get('/fashion/automation-test-article-with-hero-video-3664', funct
     res.json(subSectionPage);
 });
 
+// content service stub routes
+servicesStubs.get('/entity-service/homepage', function(req, res) {
+    var home = require(cwd + '/stubs/entity-homepage');
+    res.json(home);
+});
+
+servicesStubs.get('/entity-service/homepage', function(req, res) {
+    var home = require(cwd + '/stubs/entity-homepage');
+    res.json(home);
+});
+
+servicesStubs.get('/module-service/:modules?', function(req, res) {
+    const moduleParam = get(req, 'params.modules');
+    let moduleNames = [];
+    if (moduleParam) {
+        moduleNames = moduleParam.split(',');
+    }
+
+    const moduleData = moduleNames.reduce((prev, curr) => {
+        const module = require(`${cwd}/stubs/module-${curr}`);
+        prev.push(module);
+
+        return prev;
+    }, []);
+
+    res.json({
+        totalCount: moduleNames.length,
+        data: moduleData
+    });
+});
+
+// catch any unhandled stub routes
 servicesStubs.use(function(req, res) {
     console.log('[app/server/servicesStubs] Unhandled route for url - ', req.originalUrl);
     res.status(404).json({});
