@@ -1,6 +1,8 @@
 var ads_widget = {
 
     leaderBoard: '.ad--section-top-leaderboard',
+    midLeaderBoard: '.ad--section-middle-leaderboard',
+    bottomLeaderBoard: '.ad--section-bottom-leaderboard',
     mrec: '.ad--section-mrec',
     middleLeaderBoard: '.ad--section-leaderboard',
     middleMrec: '.ad--teaser-list',

@@ -2,9 +2,13 @@
 var wn_ads = require('../page_objects/ads_widget');
 module.exports = function() {
 
-    this.Then(/^I should see (\d+) leaderboard ad slots$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.leaderBoard, 5000);
-        expect((adSlots.value.length.toString())).toEqual(slot_count);
+    this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
+       var topAdSlot = browser.elements(wn_ads.leaderBoard, 5000);
+        expect((topAdSlot.value.length)).toEqual(1);
+        var midAdSlot = browser.elements(wn_ads.midLeaderBoard, 5000);
+        expect((midAdSlot.value.length)).toEqual(1);
+        var bottomAdSlot = browser.elements(wn_ads.bottomLeaderBoard, 5000);
+        expect((bottomAdSlot.value.length)).toEqual(1);
     });
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.mrec, 5000);
