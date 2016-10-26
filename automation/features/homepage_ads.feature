@@ -1,4 +1,4 @@
- @homepage-ads @homes @watch
+ @homepage-ads @homes
 Feature: Homes Homepage Ads
   As the project owner
   I should see the ads on the homepage
