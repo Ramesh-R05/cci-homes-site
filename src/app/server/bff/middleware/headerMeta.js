@@ -19,12 +19,12 @@ export default function headerMeta(req, res, next) {
         // Alter meta title and description on entity object
         if (has(res, 'body.entity')) {
             const currentPageNo = get(res, 'body.list.params.pageNo');
-            entity.pageTitle = (entity.pageTitle || entity.contentTitle) + (currentPageNo > 1 ? ` - Page ${currentPageNo}` : '');
+            entity.pageTitle = (entity.pageTitle || entity.title) + (currentPageNo > 1 ? ` - Page ${currentPageNo}` : '');
 
             if (entity.pageMetaDescription) {
                 entity.pageMetaDescription = entity.pageMetaDescription + (currentPageNo > 1 ? ` - Page ${currentPageNo}` : '')
             } else {
-                entity.pageMetaDescription = entity.pageTitle + (entity.contentSummary ? `, ${entity.contentSummary}` : '');
+                entity.pageMetaDescription = entity.pageTitle + (entity.summary ? `, ${entity.summary}` : '');
             }
             // For future reference
             // https://bitbucket.org/bauermediaau/bauerdigital/src/5e59351b2544c5ce91bb20e0e4d99593076d074a/Lynx.Services.Common/Implementations/HeaderMetaService.cs?at=develop-v3.1&fileviewer=file-view-default#HeaderMetaService.cs-36
@@ -35,7 +35,7 @@ export default function headerMeta(req, res, next) {
             googleTagManagerMasthead: config.gtm.masthead,
             robots: `${robotsIndex},${robotsFollow}`,
             pageName: entity.nodeName,
-            title: entity.pageTitle,
+            title: entity.pageTitle || entity.title,
             canonicalUrl: entity.pageCanonicalUrl || '',
             pageDescription: entity.pageMetaDescription || '',
             GroupingCategory: entity.gtmGroupingCategory || '',

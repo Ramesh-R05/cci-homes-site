@@ -9,6 +9,12 @@ export default {
         handler: defaultTemplate,
         action: loadPageContent
     },
+    brand: {
+        path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden)',
+        method: 'get',
+        handler: defaultTemplate,
+        action: loadPageContent
+    },
     preview: {
         path: '/:preview(preview)/:page(.*\-):id([0-9]+)',
         method: 'get',

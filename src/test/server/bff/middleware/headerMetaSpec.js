@@ -41,26 +41,26 @@ describe('HeaderMeta middleware', () => {
         });
 
         describe('and there is an entity object', () => {
-            describe('that contains contentSummary and contentTitle', () => {
-                const contentTitle = 'Title';
-                const contentSummary = 'Summary';
+            describe('that contains the summary and title', () => {
+                const title = 'Title';
+                const summary = 'Summary';
 
                 beforeEach(() => {
                     res.body.entity = {
                         ...baseEntityInput,
-                        contentSummary, contentTitle
+                        summary, title
                     };
                     headerMetaMiddleware(req, res, next);
                 });
 
                 it(`should set the response body to contain 'headerMetaData' and updated entity object`, () => {
-                    const expectedPageMetaDescription = `${contentTitle}, ${contentSummary}`;
+                    const expectedPageMetaDescription = `${title}, ${summary}`;
                     expect(res.body).to.deep.eq({
                         entity: {
                             ...baseEntityInput,
-                            contentSummary,
-                            contentTitle,
-                            pageTitle: contentTitle,
+                            summary,
+                            title,
+                            pageTitle: title,
                             pageMetaDescription: expectedPageMetaDescription
                         },
                         headerMetaData: {
@@ -68,7 +68,7 @@ describe('HeaderMeta middleware', () => {
                             googleTagManagerEnvironment: 'development',
                             googleTagManagerMasthead: config.gtm.masthead,
                             robots: 'NOINDEX,NOFOLLOW',
-                            title: contentTitle,
+                            title: title,
                             pageDescription: expectedPageMetaDescription
                         }
                     });
@@ -80,16 +80,16 @@ describe('HeaderMeta middleware', () => {
             });
         });
 
-        describe('that contains contentSummary, contentTitle, pageTitle and pageMetaDescription', () => {
-            const contentTitle = 'Title';
+        describe('that contains required fields', () => {
+            const title = 'Title';
             const pageTitle = 'SEO TITLE';
-            const contentSummary = 'Summary';
+            const summary = 'Summary';
             const pageMetaDescription = 'SEO DESCRIPTION';
 
             beforeEach(() => {
                 res.body.entity = {
                     ...baseEntityInput,
-                    contentSummary, contentTitle, pageTitle, pageMetaDescription
+                    summary, title, pageTitle, pageMetaDescription
                 };
                 headerMetaMiddleware(req, res, next);
             });
@@ -98,8 +98,8 @@ describe('HeaderMeta middleware', () => {
                 expect(res.body).to.deep.eq({
                     entity: {
                         ...baseEntityInput,
-                        contentSummary,
-                        contentTitle,
+                        summary,
+                        title,
                         pageTitle,
                         pageMetaDescription
                     },

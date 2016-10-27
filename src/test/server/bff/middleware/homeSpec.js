@@ -71,6 +71,7 @@ const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', 
 
 describe('home middleware', () => {
     const req = {
+        query: {},
         app: {
             config: {
                 services: {
