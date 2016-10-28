@@ -19,7 +19,7 @@ const pageModulesMiddleware = proxyquire('../../../../app/server/bff/middleware/
     }
 });
 
-describe.only('PageModules middleware', () => {
+describe('PageModules middleware', () => {
     const res = {};
     const module = [];
     let req = {};
