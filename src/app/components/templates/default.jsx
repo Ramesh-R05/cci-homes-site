@@ -24,14 +24,14 @@ class DefaultTemplate extends Component {
     static propTypes = {
         content: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        navItems: PropTypes.array,
+        headerNavItems: PropTypes.array,
         contentErrorStatus: PropTypes.object
     };
 
     static defaultProps = {
         content: null,
         isSideMenuOpen: false,
-        navItems: [],
+        headerNavItems: [],
         contentErrorStatus: null
     };
 
@@ -70,7 +70,7 @@ class DefaultTemplate extends Component {
                 }
                 <SideMenu
                     open={this.props.isSideMenuOpen}
-                    navItems={this.props.navItems}
+                    navItems={this.props.headerNavItems}
                     data={localeData}
                 />
                 <Handler
@@ -148,7 +148,6 @@ export default connectToStores(DefaultTemplate, [PageStore, MenuStore, Navigatio
         content: context.getStore(PageStore).getContent(),
         contentErrorStatus: context.getStore(PageStore).getErrorStatus(),
         isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-        navItems: context.getStore(MenuStore).getNavItems(),
         headerNavItems: context.getStore(NavigationStore).getHeaderItems()
     };
 });
