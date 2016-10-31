@@ -23,11 +23,8 @@ export async function getModules(...args) {
             }
         });
         
-        if (args.length === 1) {
-            return moduleList[args];
-        } else {
-            return moduleList;
-        }
+        return moduleList;
+
     } catch(error) {
         logger.log('error', error);
         return {};

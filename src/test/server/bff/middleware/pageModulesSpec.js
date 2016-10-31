@@ -66,7 +66,7 @@ describe('PageModules middleware', () => {
 					expect(res.body.headerNavigation).to.deep.equal({ items: headernavigation });
                 done();
             }).catch(done);
-			
+
         });
     });
 });

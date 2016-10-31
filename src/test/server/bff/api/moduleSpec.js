@@ -37,7 +37,7 @@ describe(`Module API`, () => {
 
             describe(`and the response returns an empty object`, () => {
                 beforeEach(() => {
-                    headerNavigationModuleData = [];
+                    headerNavigationModuleData = {headernavigation: []};
                     makeRequestStub = sinon.stub().resolves([]);
                 });
 
@@ -53,7 +53,7 @@ describe(`Module API`, () => {
             describe(`and the response returns an object with an array of data`, () => {
                 describe(`and there is no moduleName that matches what is expected`, () => {
                     beforeEach(() => {
-                        headerNavigationModuleData = [];
+                        headerNavigationModuleData = {headernavigation: []};
                         makeRequestStub = sinon.stub().resolves({ data: [ { moduleName: 'headernavigation' } ] });
                     });
 
@@ -68,7 +68,7 @@ describe(`Module API`, () => {
                 describe(`and there is a moduleName that matches the arg being passed`, () => {
                     describe(`and there is no moduleManualContent property`, () => {
                         beforeEach(() => {
-                            headerNavigationModuleData = [];
+                            headerNavigationModuleData = {headernavigation: []};
                             makeRequestStub = sinon.stub().resolves({ data: [ { moduleName: 'headernavigation' } ] });
                         });
 
@@ -90,7 +90,7 @@ describe(`Module API`, () => {
 
                         it(`should return the footer data`, (done) => {
                             moduleApi.getModules('footer').then((modules) => {
-                                expect(modules).to.deep.eq(footerModuleData);
+                                expect(modules).to.deep.eq({footer: footerModuleData});
                                 done();
                             }).catch(done);
                         });
