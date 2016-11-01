@@ -2,9 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import slice from 'lodash/array/slice';
 import {connectToStores} from '@bxm/flux';
-import PageStore from '../../stores/page';
-import BrandSectionStore from '../../stores/facetedStores/brand';
-import * as FacetedModuleActions from '../../actions/facetedModule';
 import Header from './header';
 import Featured from './featured';
 import Group from './articleGroup';
@@ -184,10 +181,9 @@ class Section extends Component {
 }
 
 
-export default connectToStores(Section, ['AppStore', BrandSectionStore, PageStore], (context) => {
+export default connectToStores(Section, ['AppStore'], (context) => {
     return {
         articles: context.getStore('AppStore').getItems(),
-        content: context.getStore('AppStore').getContent(),
-        moduleConfig: context.getStore(BrandSectionStore).getConfiguration()
+        content: context.getStore('AppStore').getContent()
     };
 });

@@ -14,9 +14,6 @@ const RecommendationsStub = Context.createStubComponent();
 
 const Section = proxyquire('../../../app/components/brand/section', {
     'react': React,
-    '../../actions/facetedModule': {
-        getPage: () => {}
-    },
     './header': HeaderStub,
     './articleGroup': GroupStub,
     './featured': FeaturedStub,
@@ -26,30 +23,15 @@ const Section = proxyquire('../../../app/components/brand/section', {
 
 let brandArticlesStore = articlesMock;
 
-Context.addStore('BrandSectionStore', {
-    getItems() {
-        return brandArticlesStore;
-    },
-    getConfiguration() {
-        return null;
-    },
-    getIsLoading() {
-        return false;
-    },
-    getPaging() {
-        return {};
-    },
-    getCurrentPage() {
-        return 0;
-    }
-});
-
-Context.addStore('PageStore', {
+Context.addStore('AppStore', {
     getContent() {
         let content = clone(entity);
         content.urlName = 'belle';
         content.title = 'Belle';
         return content;
+    },
+    getItems() {
+        return brandArticlesStore;
     }
 });
 
@@ -177,7 +159,7 @@ describe(`Brand Section`, () => {
         });
 
         it(`should have class name "side-menu-slider"`, () => {
-            
+
             expect(domNode).to.contain('side-menu-slider');
         });
 
@@ -192,4 +174,3 @@ describe(`Brand Section`, () => {
         });
     });
 });
-
