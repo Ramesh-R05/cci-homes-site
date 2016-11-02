@@ -6,7 +6,7 @@ export default async function home(req, res, next) {
     try {
         const [pageData, modulesResp] = await Promise.all([
             makeRequest(`${req.app.config.services.remote.entity}/homepage`),
-            makeRequest(`${req.app.config.services.remote.module}/featuredArticles,infocusarticles`)
+            makeRequest(`${req.app.config.services.remote.module}/featuredarticles,infocusarticles`)
         ]);
 
         const modules = parseModules(modulesResp);

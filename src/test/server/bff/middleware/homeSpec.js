@@ -89,7 +89,7 @@ describe('home middleware', () => {
         it('should use the required config values for content service urls for the request', (done)=> {
             homeMiddleware(req, res, next).then(() => {
                 const entityServiceUrl = `${entityServiceMockUrl}/homepage`;
-                const modulesServiceUrl = `${moduleServiceMockUrl}/featuredArticles,infocusarticles`;
+                const modulesServiceUrl = `${moduleServiceMockUrl}/featuredarticles,infocusarticles`;
 
                 expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
                 expect(makeRequestSpy.secondCall.calledWith(modulesServiceUrl)).to.be.true;
