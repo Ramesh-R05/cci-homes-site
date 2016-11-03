@@ -65,8 +65,7 @@ const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', 
         parseModules: () => {
             return parseModulesStub()
         }
-    },
-    '@bxm/winston-logger': { backendLogger: { log(){} } }
+    }
 });
 
 describe('home middleware', () => {
