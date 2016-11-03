@@ -1,9 +1,9 @@
 import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-belle';
-import itemsStubData from '../../../../stubs/listing-belle';
+import itemsStubData from '../../../../stubs/listings-belle';
 
-const makeRequestStub = () => ({articleSource: entityStubData.source});
+const makeRequestStub = () => ({articleSource: entityStubData.articleSource});
 const getLatestTeasersStub = () => ({data: {}});
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
@@ -80,7 +80,7 @@ describe('brand middleware', () => {
                     const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.brand}`;
 
                     expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
-                    expect(getLatestTeasersSpy.firstCall.calledWith(12, 0, entityStubData.source, 'source')).to.be.true;
+                    expect(getLatestTeasersSpy.firstCall.calledWith(12, 0, entityStubData.articleSource, 'source')).to.be.true;
 
                     done();
                 }).catch(done);

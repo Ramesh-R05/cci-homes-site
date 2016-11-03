@@ -18,11 +18,13 @@ export default async function home(req, res, next) {
 
         const modules = parseModules(modulesResp);
 
-        res.body = res.body || {};
-        res.body.entity = parseEntity(pageData);
-        res.body.stores = {
-            featuredArticles: modules.featuredarticles,
-            inFocusArticles: modules.infocusarticles
+        res.body = {
+            ...res.body,
+            entity: parseEntity(pageData),
+            stores: {
+                featuredArticles: modules.featuredarticles,
+                inFocusArticles: modules.infocusarticles
+            }
         };
 
         next();

@@ -139,6 +139,11 @@ servicesStubs.get('/entity-service/homepage', function(req, res) {
     res.json(home);
 });
 
+servicesStubs.get('/entity-service/section/:section', function(req, res) {
+    var section = require(cwd + `/stubs/entity-${req.params.section.toLowerCase()}`);
+    res.json(section);
+});
+
 servicesStubs.get('/entity-service/:page', function(req, res) {
 
     let pageId = req.url.match(/\d{3,100}/)[0];
@@ -147,22 +152,43 @@ servicesStubs.get('/entity-service/:page', function(req, res) {
 
 });
 
-servicesStubs.get('/listings-service/teasers', function(req,res) {
-
+servicesStubs.get('/listings-service/teasers/', function(req, res) {
     const {$filter} = req.query;
+    const sourceMatch = $filter.match(/source eq '([^']+)'/i);
     const tagMatch = $filter.includes('tags');
     const galleryMatch = $filter.includes('Gallery');
+    
+    let teaserResponse = {
+        totalCount: 0,
+        data: []
+    };
+
+    if (sourceMatch) {
+        const source = sourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
+        teaserResponse.data = require(cwd + `/stubs/listings-${source.toLowerCase()}`);
+        teaserResponse.totalCount = teaserResponse.data.length;
+    }
 
     if (tagMatch) {
         const tagSource = $filter.replace(/[']/ig, '').replace(/[^a-z]/ig, '-').replace('tags-eq-', '');
-        const teaserResponse = require(cwd + `/stubs/listings-${tagSource}`);
-        res.json(teaserResponse);
+        teaserResponse = require(cwd + `/stubs/listings-${tagSource}`);
     }
 
     if (galleryMatch) {
-        const galleryResponse = require(cwd + '/stubs/listings-gallery')
+        const galleryResponse = require(cwd + '/stubs/listings-gallery');
         res.json(galleryResponse)
     }
+
+    res.json(teaserResponse);
+
+});
+
+servicesStubs.get('/listings-service/teasers', function(req,res) {
+
+    const {$filter} = req.query;
+    
+
+    
 
 });
 
@@ -174,7 +200,7 @@ servicesStubs.get('/module-service/:modules?', function(req, res) {
     }
 
     const moduleData = moduleNames.reduce((prev, curr) => {
-        const module = require(`${cwd}/stubs/module-${curr}`);
+        const module = require(`${cwd}/stubs/module-${curr.toLowerCase()}`);
         prev.push(module);
 
         return prev;
