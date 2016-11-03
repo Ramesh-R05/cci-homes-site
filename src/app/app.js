@@ -18,10 +18,8 @@ import FeedStore from './stores/facetedStores/feed';
 import GalleryPageStore from '@bxm/gallery/lib/stores/galleryPage';
 import GalleryOfGalleriesStore from './stores/facetedStores/galleryOfGalleries';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
-import HomeArticles from './stores/articles/home';
 import HtmlStore from '@bxm/server/lib/stores/html';
 import NavigationStore from '@bxm/site-header/lib/stores/navigation';
-import InFocusArticles from './stores/articles/inFocus';
 import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
@@ -49,10 +47,8 @@ let app = new Flux({
         GalleryPageStore,
         GalleryStore,
         GalleryOfGalleriesStore,
-        HomeArticles,
         HtmlStore,
         NavigationStore,
-        InFocusArticles,
         NetworkHeaderStore,
         PolarAdStore,
         RouteStore,

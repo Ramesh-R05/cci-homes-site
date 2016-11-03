@@ -3,30 +3,45 @@ import {createReducerStore} from 'fluxible-reducer-store';
 const AppStore = createReducerStore({
     storeName: 'AppStore',
     initialState: {
-        messages: {},
-        sortedByDate: []
+        error: null,
+        content: null
     },
     reducers: {
         LOAD_CONTENT: (state, payload) => {
-            let {entity, items} = payload.body;
+            let {
+                entity,
+                items,
+                inFocusArticles
+            } = payload.body;
             if (!entity) return;
 
             return {
-                error: null,
                 title: entity.title,
                 content: entity,
                 items,
-                navigationTags: entity.navigationTags
+                navigationTags: entity.navigationTags,
+                inFocusArticles
             };
         },
+        LOAD_CONTENT_FAILED: (state, payload) => {
+            return {
+                error: payload.response.error,
+                content: null
+            };
+        }
     },
     getters: {
-        getContent: function get(state) {
+        getContent: (state) => {
             return state.content;
         },
 
-        getItems: function get(state) {
+        getItems: (state) => {
             return state.items;
+        },
+
+        getModuleItems: (state, module) => {
+            if (!module) return [];
+            return state[module] || [];
         }
     }
 });

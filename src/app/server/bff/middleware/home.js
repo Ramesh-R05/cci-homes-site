@@ -21,10 +21,8 @@ export default async function home(req, res, next) {
         res.body = {
             ...res.body,
             entity: parseEntity(pageData),
-            stores: {
-                featuredArticles: modules.featuredarticles,
-                inFocusArticles: modules.infocusarticles
-            }
+            items: modules.featuredarticles.items,
+            inFocusArticles: modules.infocusarticles.items
         };
 
         next();
