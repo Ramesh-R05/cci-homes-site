@@ -11,6 +11,7 @@ const NavigationItem = proxyquire('../../../app/components/header/navigationItem
 describe(`NavigationItem Component`, () => {
     const name = 'I <3 cheesecake';
     const url = 'http://www.example.com/';
+	const linkClassName = 'gtm-navigation-section';
 
     let reactModule;
     let a;
@@ -18,7 +19,7 @@ describe(`NavigationItem Component`, () => {
     describe('with all props', () => {
 
         before(() => {
-            reactModule = Context.mountComponent(NavigationItem, { name, url });
+            reactModule = Context.mountComponent(NavigationItem, { name, url, linkClassName });
             a = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a')[0];
         });
 
@@ -36,6 +37,10 @@ describe(`NavigationItem Component`, () => {
 
         it(`sets the link text to "${name}"`, () => {
             expect(ReactDOM.findDOMNode(a).textContent).to.eq(name);
+        });
+
+        it(`sets the link "class" to "${linkClassName}"`, () => {
+            expect(a.props.className).to.eq(linkClassName);
         });
     });
 

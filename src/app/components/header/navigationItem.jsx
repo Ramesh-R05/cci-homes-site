@@ -3,7 +3,8 @@ import React, {PropTypes, Component} from 'react';
 export default class NavigationItem extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        linkClassName: PropTypes.string.isRequired
     };
 
     constructor(...args) {
@@ -13,6 +14,6 @@ export default class NavigationItem extends Component {
     render() {
         if (!this.props.name || !this.props.url) return null;
 
-        return <a href={this.props.url}>{this.props.name}</a>;
+        return <a className={this.props.linkClassName} href={this.props.url}>{this.props.name}</a>;
     }
 }
