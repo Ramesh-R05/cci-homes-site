@@ -1,4 +1,3 @@
-import get from 'lodash/object/get';
 import has from 'lodash/object/has';
 import { backendLogger as logger } from '@bxm/winston-logger';
 import { getModules } from '../api/module';

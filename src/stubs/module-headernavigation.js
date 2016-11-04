@@ -1,5 +1,4 @@
-
-    {
+export default {
       "id": "HOMES-1383",
       "url": "/modules/navigation-sections",
       "moduleName": "headernavigation",
@@ -63,4 +62,4 @@
           }
         ]
       }
-    }
+};

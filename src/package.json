@@ -23,7 +23,7 @@
     "dev:js": "watchify app/client.js --debug --extension=.jsx --extension=.js --transform babelify --plugin [minifyify --output ./dist/bundle.map] --ignore-missing --external request --outfile dist/scripts/main.js",
     "dev:serve": "nodemon --watch app start.js",
     "stubbed": "cross-env NODE_ENV=stubbed npm run dev",
-	"stubbed-win": "cross-env NODE_ENV=stubbed npm run dev-win",
+    "stubbed-win": "cross-env NODE_ENV=stubbed npm run dev-win",
     "lint:scss": "sass-lint --config .sass-lint.yml --ignore './**/vendor/**' --no-exit --verbose './styles/**/*.scss'"
   },
   "repository": {
