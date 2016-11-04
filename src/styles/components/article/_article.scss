@@ -1,31 +1,31 @@
 .article-section {
-  width: 100%;
-  overflow-x: hidden;
+    width: 100%;
+    overflow-x: hidden;
 
-  .article {
-    &__header {
-      width: 100%;
-      display: table;
+    .article {
+        &__header {
+            width: 100%;
+            display: table;
+        }
+
+        &__hero-container {
+            display: table-header-group;
+
+            noscript img {
+                position: absolute;
+            }
+
+            @media #{$medium-up} {
+                display: table-footer-group;
+            }
+        }
+
+        &__title {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
     }
-
-    &__hero-container {
-      display: table-header-group;
-
-      noscript img {
-        position: absolute;
-      }
-
-      @media #{$medium-up} {
-        display: table-footer-group;
-      }
-    }
-
-      &__title{
-          margin-top:5px;
-          margin-bottom:20px;
-          line-height:1.4;
-      }
-  }
 }
 
 .article .sticky-block {

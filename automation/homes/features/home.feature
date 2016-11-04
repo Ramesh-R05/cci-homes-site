@@ -23,14 +23,14 @@ Feature: Homepage ads
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-middle-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        #And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 3 "ad--section-mrec" ad slot
 
         # Ads have different placements on mobile
         When I switch to "mobile" view
         And I am on the homepage
         Then I should see 1 "ad--section-top-leaderboard" ad slot
         And I should see 1 "ad--section-bottom-leaderboard" ad slot
-        #And I should see 2 "ad--section-mrec" ad slot
+        #And I should see 3 "ad--section-mrec" ad slot
 
     @DHO-115 @desktop
     Scenario: Check gallery of galleries on the homepage

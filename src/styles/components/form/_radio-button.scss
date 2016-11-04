@@ -1,6 +1,5 @@
-.custom-input[type=radio] {
-
-    + label {
+.custom-input {
+    &[type=radio] + label {
         &:before {
             border-radius: 10px;
         }

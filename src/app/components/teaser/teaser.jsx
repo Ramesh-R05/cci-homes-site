@@ -13,6 +13,7 @@ import Icon from './icon';
 import theme from './../helpers/theme';
 
 class Teaser extends Component {
+    static displayName = 'Teaser';
 
     static propTypes = {
         id: PropTypes.string,
@@ -80,7 +81,7 @@ class Teaser extends Component {
             s: {w: 320, h: 264},
             m: {w: 940, h: 790},
             l: {w: 750, h: 700},
-            xl: {w: 750, h: 625}
+            xl: {w: 750, h: 700}
         },
         'base-to-narrow': {
             s: {w: 320, h: 264},

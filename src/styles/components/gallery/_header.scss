@@ -1,6 +1,6 @@
 // scss-lint:disable LeadingZero, PropertySortOrder
 .gallery__header {
-    $ipad-only: "#{$screen} and (min-width:1024px) and (max-width:1024px)" !default;
+    $ipad-only: '#{$screen} and (min-width:1024px) and (max-width:1024px)' !default;
     $header-height: 65px;
     box-shadow: none;
     border-bottom: 1px solid $line-color;

@@ -20,3 +20,10 @@ $carousel-column-gutter: $column-gutter;
     }
 }
 // scss-lint:enable all
+.carousel {
+    overflow: hidden;
+
+    @media #{$xlarge-only} {
+        overflow: visible;
+    }
+}

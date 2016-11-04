@@ -1,5 +1,5 @@
-$custom-medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width: 890px)" !default;
-$custom-large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width: 1215px)" !default;
+$custom-medium-only: '#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width: 890px)' !default;
+$custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width: 1215px)' !default;
 $header-nav-link-padding: 30px;
 
 .header-nav {
