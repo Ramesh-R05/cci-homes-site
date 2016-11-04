@@ -23,4 +23,4 @@ Feature: Homes Homepage Ads
       Given I switch to "mobile" view
       When I am currently viewing the homepage
       And I should see leaderboard ad slots at top middle and bottom
-      And I should see 2 mrec ad slots
+      And I should see 3 mrec ad slots
