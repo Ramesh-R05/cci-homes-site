@@ -26,16 +26,18 @@ const FooterStub = Context.createStubComponentWithChildren();
 
 // ----------------------------------------------------------------------------- Store config
 
-const navItems = [
-    { name: 'Home tours', url: '/home-tours' },
-    { name: 'Interiors', url: '/interiors' },
-    { name: 'Outdoor', url: '/outdoor' },
-    { name: 'Renovate', url: '/renovate' }
-];
+const headerItems = [
+    { name: 'Real Homes', url: '/real-homes' },
+    { name: 'Bedroom', url: '/bedroom' },
+    { name: 'Kitchen', url: '/kitchen' },
+    { name: 'DIY', url: '/diy' }];
+
 const defaultStoreData = {
     MenuStore: {
-        navItems,
         sideMenuOpen: false
+    },
+    NavigationStore: {
+        headerItems
     },
     PageStore: {
         content: { some: 'content' },
@@ -60,9 +62,12 @@ Context.addStore('PageStore', {
 Context.addStore('MenuStore', {
     isSideMenuOpen() {
         return storeData.MenuStore.sideMenuOpen;
-    },
-    getNavItems() {
-        return storeData.MenuStore.navItems;
+    }
+});
+
+Context.addStore('NavigationStore', {
+    getHeaderItems() {
+        return headerItems;
     }
 });
 
@@ -163,8 +168,9 @@ describe('Default Component template', () => {
             expect(header.props.isSideMenuOpen).to.be.false;
         });
 
+
         it(`sets Header 'navItems' prop correctly to array`, () => {
-            expect(header.props.navItems).to.eql(navItems);
+            expect(header.props.navItems).to.eql(headerItems);
         });
 
         it(`sets SideMenu 'open' prop to 'false'`, () => {
@@ -172,7 +178,7 @@ describe('Default Component template', () => {
         });
 
         it(`sets SideMenu 'items' prop to array`, () => {
-            expect(sideMenu.props.navItems).to.eql(navItems);
+            expect(sideMenu.props.navItems).to.eql(headerItems);
         });
 
         it(`sets SideMenu 'data' prop properly`, () => {

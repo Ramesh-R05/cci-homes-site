@@ -17,16 +17,6 @@ describe('Menu store', () => {
         it('should initialize with isSideMenuOpen set to false', () => {
             expect(store.isSideMenuOpen()).to.be.false;
         });
-
-        it('should initialize with isSideMenuOpen set to false', () => {
-            expect(store.getNavItems()).to.eql([
-                { name: 'Home tours', url: '/home-tours' },
-                { name: 'Interiors', url: '/interiors' },
-                { name: 'Outdoor', url: '/outdoor' },
-                { name: 'Renovate', url: '/renovate' },
-                { name: 'My Ideal House', url: '/my-ideal-house' }
-            ]);
-        });
     });
 
     describe('receive a menu activation event when closed', () => {

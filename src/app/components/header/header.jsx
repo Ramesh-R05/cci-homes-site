@@ -36,7 +36,7 @@ class Header extends Component {
         });
 
         const headerClass = this.props.isExpanded ? '' : 'header__sections--brick-bg';
-
+        
         return (
             <div className={wrapperClassName}>
                 <header
@@ -63,6 +63,7 @@ class Header extends Component {
                             <Navigation
                                 className="header-nav"
                                 items={this.props.navItems}
+                                linkClassName="gtm-navigation-section"
                             />
                         </div>
                     </div>

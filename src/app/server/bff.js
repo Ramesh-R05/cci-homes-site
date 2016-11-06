@@ -1,3 +1,4 @@
+import pageModules from './bff/middleware/pageModules';
 import home from './bff/middleware/home';
 import render from './bff/middleware/render';
 import error from './bff/middleware/error';
@@ -17,6 +18,7 @@ export default function bff(server) {
     server.get(
         server.config.services.endpoints.page,// Config set inside @bxm/server
         home,
+        pageModules,
         headerMeta,
         render,
         error

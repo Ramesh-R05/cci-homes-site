@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import PageStore from '../../stores/page';
 import MenuStore from '../../stores/menu';
+import NavigationStore from '@bxm/site-header/lib/stores/navigation';
 import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -23,14 +24,14 @@ class DefaultTemplate extends Component {
     static propTypes = {
         content: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        navItems: PropTypes.array,
+        headerNavItems: PropTypes.array,
         contentErrorStatus: PropTypes.object
     };
 
     static defaultProps = {
         content: null,
         isSideMenuOpen: false,
-        navItems: [],
+        headerNavItems: [],
         contentErrorStatus: null
     };
 
@@ -64,12 +65,12 @@ class DefaultTemplate extends Component {
                     <Header
                         isExpanded={isExpanded}
                         isSideMenuOpen={this.props.isSideMenuOpen}
-                        navItems={this.props.navItems}
+                        navItems={this.props.headerNavItems}
                     />
                 }
                 <SideMenu
                     open={this.props.isSideMenuOpen}
-                    navItems={this.props.navItems}
+                    navItems={this.props.headerNavItems}
                     data={localeData}
                 />
                 <Handler
@@ -142,11 +143,11 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, [PageStore, MenuStore], (context) => {
+export default connectToStores(DefaultTemplate, [PageStore, MenuStore, NavigationStore], (context) => {
     return {
         content: context.getStore(PageStore).getContent(),
         contentErrorStatus: context.getStore(PageStore).getErrorStatus(),
         isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-        navItems: context.getStore(MenuStore).getNavItems()
+        headerNavItems: context.getStore(NavigationStore).getHeaderItems()
     };
 });

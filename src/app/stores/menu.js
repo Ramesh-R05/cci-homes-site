@@ -21,20 +21,9 @@ export default class MenuStore extends BaseStore {
         return this.sideMenuOpen;
     }
 
-    getNavItems() {
-        return [
-            { name: 'Home tours', url: '/home-tours' },
-            { name: 'Interiors', url: '/interiors' },
-            { name: 'Outdoor', url: '/outdoor' },
-            { name: 'Renovate', url: '/renovate' },
-            { name: 'My Ideal House', url: '/my-ideal-house' }
-        ];
-    }
-
     getState() {
         return {
-            isSideMenuOpen: this.sideMenuOpen,
-            navItems: this.getNavItems()
+            isSideMenuOpen: this.sideMenuOpen
         };
     }
 

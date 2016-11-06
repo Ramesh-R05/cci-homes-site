@@ -23,6 +23,7 @@
     "dev:js": "watchify app/client.js --debug --extension=.jsx --extension=.js --transform babelify --plugin [minifyify --output ./dist/bundle.map] --ignore-missing --external request --outfile dist/scripts/main.js",
     "dev:serve": "nodemon --watch app start.js",
     "stubbed": "cross-env NODE_ENV=stubbed npm run dev",
+    "stubbed-win": "cross-env NODE_ENV=stubbed npm run dev-win",
     "lint:scss": "sass-lint --config .sass-lint.yml --ignore './**/vendor/**' --no-exit --verbose './styles/**/*.scss'"
   },
   "repository": {
@@ -51,6 +52,7 @@
     "@bxm/recommendations": "^4.0.0",
     "@bxm/server": "^17.0.0",
     "@bxm/services-stubs": "^2.0.0",
+    "@bxm/site-header": "^2.0.1",
     "@bxm/social": "^1.1.4",
     "@bxm/tags": "^2.1.0",
     "@bxm/teaser": "^4.3.0",

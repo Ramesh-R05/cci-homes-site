@@ -24,11 +24,14 @@ describe(`Navigation Component`, () => {
 
     describe('render and class names', () => {
         const navClassName = 'foo-nav';
+        const linkClass = "gtm-navigation-section";
+
 
         before(() => {
             reactModule = Context.mountComponent(Navigation, {
                 className: navClassName,
-                items: navItems
+                items: navItems,
+                linkClassName: linkClass
             });
             container = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, navClassName)[0];
             nav = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'nav')[0];
@@ -51,7 +54,7 @@ describe(`Navigation Component`, () => {
         });
     });
 
-    describe('nav items', () => {
+    describe('nav items and link class', () => {
         before(() => {
             reactModule = Context.mountComponent(Navigation, { items: navItems });
             navElements = TestUtils.scryRenderedComponentsWithType(reactModule, NavigationItemStub);
@@ -62,7 +65,7 @@ describe(`Navigation Component`, () => {
         });
 
         it('passes the item data as props', () => {
-            expect(navElements[0].props).to.eql(navItems[0]);
+            expect(navElements[0].props).to.eql({ ...navItems[0], linkClassName: '' });
         });
     });
 
