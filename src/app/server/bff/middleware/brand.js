@@ -22,7 +22,6 @@ export default async function brand(req, res, next) {
 
         next();
     } catch(error) {
-        console.error('[bff/middleware/brand]', error);
         next(error);
     }
 }
