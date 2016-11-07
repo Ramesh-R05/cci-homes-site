@@ -159,7 +159,7 @@ export default connectToStores(DefaultTemplate, [PageStore, MenuStore, Navigatio
             { name: 'Kitchen', url: '/kitchen' },
             { name: 'Living', url: '/living' },
             { name: 'Outdoor', url: '/outdoor' },
-            { name: 'Bathroom & Laundry', url: '/bathroom-&-laundry' },
+            { name: 'Bathroom', url: '/bathroom-&-laundry' },
             { name: 'My Ideal House', url: '/my-ideal-house' }
         ];
     }
