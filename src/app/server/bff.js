@@ -9,16 +9,6 @@ import article from './bff/middleware/article';
 import gallery from './bff/middleware/gallery'
 
 export default function bff(server) {
-    server.use('/api/facetedModule', (req, res, next) => {
-        // ignore the request from the homepage
-        // this is handled in the bff middlewares
-        if (req.query.node === 'HOMES-1158') {
-            res.json({items: []});
-        } else {
-            next();
-        }
-    });
-
     server.get(
         server.config.services.endpoints.page,// Config set inside @bxm/server
         pageModules,

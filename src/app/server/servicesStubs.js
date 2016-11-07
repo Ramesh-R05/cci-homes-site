@@ -135,12 +135,12 @@ servicesStubs.get('/fashion/automation-test-article-with-hero-video-3664', funct
 
 // content service stub routes
 servicesStubs.get('/entity-service/homepage', function(req, res) {
-    var home = require(cwd + '/stubs/entity-homepage');
+    const home = require(cwd + '/stubs/entity-homepage');
     res.json(home);
 });
 
 servicesStubs.get('/entity-service/section/:section', function(req, res) {
-    var section = require(cwd + `/stubs/entity-${req.params.section.toLowerCase()}`);
+    const section = require(cwd + `/stubs/entity-${req.params.section.toLowerCase()}`);
     res.json(section);
 });
 
