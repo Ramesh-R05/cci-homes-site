@@ -154,12 +154,10 @@ export default connectToStores(DefaultTemplate, [PageStore, MenuStore, Navigatio
 
     function getNavItems() {
         return [
-            { name: 'Real Homes', url: '/real-homes' },
-            { name: 'DIY', url: '/diy' },
-            { name: 'Kitchen', url: '/kitchen' },
-            { name: 'Living', url: '/living' },
+            { name: 'Home tours', url: '/home-tours' },
+            { name: 'Interiors', url: '/interiors' },
             { name: 'Outdoor', url: '/outdoor' },
-            { name: 'Bathroom', url: '/bathroom-&-laundry' },
+            { name: 'Renovate', url: '/renovate' },
             { name: 'My Ideal House', url: '/my-ideal-house' }
         ];
     }
