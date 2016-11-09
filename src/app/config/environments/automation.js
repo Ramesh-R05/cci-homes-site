@@ -4,11 +4,11 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://localhost:3001/stub/entity-service',
-            listings: 'http://localhost:3001/stub/listings-service',
-            module: 'http://localhost:3001/stub/module-service',
-            sitemap: 'http://localhost:3001/stub/sitemap-service',
-            tag: 'http://localhost:3001/stub/tag-service'
+            entity: 'http://automation.homes-site.bauer-media.net.au/stub/entity-service',
+            listings: 'http://automation.homes-site.bauer-media.net.au/stub/listings-service',
+            module: 'http://automation.homes-site.bauer-media.net.au/stub/module-service',
+            sitemap: 'http://automation.homes-site.bauer-media.net.au/stub/sitemap-service',
+            tag: 'http://automation.homes-site.bauer-media.net.au/stub/tag-service'
         },
         content: {
             remote: 'http://localhost:3001',
