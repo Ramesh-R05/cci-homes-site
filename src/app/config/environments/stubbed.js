@@ -7,8 +7,11 @@ export default {
     },
     services: {
         remote: {
-            entity: `http://localhost:3001/stub/entity-service`,
-            module: `http://localhost:3001/stub/module-service`
+            entity: 'http://localhost:3001/stub/entity-service',
+            listings: 'http://localhost:3001/stub/listings-service',
+            module: 'http://localhost:3001/stub/module-service',
+            sitemap: 'http://localhost:3001/stub/sitemap-service',
+            tag: 'http://localhost:3001/stub/tag-service'
         },
         content: {
             remote: 'http://127.0.0.1:3001',
