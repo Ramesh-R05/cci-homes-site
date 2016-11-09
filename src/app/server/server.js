@@ -25,10 +25,10 @@ const server = new Server({
         siteServer.use(/\/sitemap(\?|$|\/).*/, sitemap);
 
         if (env.stubbed || env.automation) {
-            siteServer.use('/stub', servicesStubs);
-
             //Network Header Stub
             siteServer.get('/stub/wn-header', (req, res) => res.json(networkHeaderMock));
+
+            siteServer.use('/stub', servicesStubs);
         }
     }
 });
