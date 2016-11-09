@@ -397,55 +397,55 @@ export default [
         "contentImageCaption": "“I make a lot of stuff, and I’m constantly making more stuff and filling the space with lots and lots of stuff,” says Jonathan."
     },
     {
-        "id": "HOMES-2921",
-        "url": "/happy-hour-bar-trolleys-are-making-a-comeback-2921",
-        "path": ["HOMES--1", "HOMES-1158", "HOMES-1579", "HOMES-2783", "HOMES-2892", "HOMES-2921"],
-        "tags": ["food:Room:Other rooms:Bar room", "food:Homes navigation:Interiors", "food:Topic:Buyer's guide", "food:Occasion:Dinner party", "food:Equipment:Dinnerware", "food:Occasion:Cocktail party", "food:Decorating:Style:Luxe"],
+        "id": "HOMES-2906",
+        "url": "/interior-designer-melissa-collison-transforms-50s-style-sydney-duplex-2906",
+        "path": ["HOMES--1", "HOMES-1158", "HOMES-1579", "HOMES-2783", "HOMES-2892", "HOMES-2906"],
+        "tags": ["food:Building:Building style:Modernist", "food:Topic:Luxury home", "food:Topic:Feature home", "food:Decorating:Style:Contemporary", "food:Building:Building style:Contemporary building", "food:Decorating:Style:Luxe"],
         "source": "Belle",
-        "sortOrder": "13",
-        "contentTags": ["food:Room:Other rooms:Bar room", "food:Homes navigation:Interiors", "food:Topic:Buyer's guide", "food:Occasion:Dinner party", "food:Equipment:Dinnerware", "food:Occasion:Cocktail party", "food:Decorating:Style:Luxe"],
+        "sortOrder": "7",
+        "contentTags": ["food:Building:Building style:Modernist", "food:Topic:Luxury home", "food:Topic:Feature home", "food:Decorating:Style:Contemporary", "food:Building:Building style:Contemporary building", "food:Decorating:Style:Luxe"],
         "contentYear": 2016,
         "tagsDetails": [{
-            "name": "food:Homes navigation:Interiors",
-            "urlName": "Interiors",
-            "fullName": "food_Homes_navigation_Interiors",
-            "displayName": "Interiors"
-        }, {
             "name": "food:Decorating:Style:Luxe",
             "urlName": "Luxe",
             "fullName": "food_Decorating_Style_Luxe",
             "displayName": "Luxe"
         }, {
-            "name": "food:Occasion:Cocktail party",
-            "urlName": "Cocktail-party",
-            "fullName": "food_Occasion_Cocktail_party",
-            "displayName": "Cocktail party"
+            "name": "food:Decorating:Style:Contemporary",
+            "urlName": "Contemporary",
+            "fullName": "food_Decorating_Style_Contemporary",
+            "displayName": "Contemporary"
         }, {
-            "name": "food:Occasion:Dinner party",
-            "urlName": "Dinner-party",
-            "fullName": "food_Occasion_Dinner_party",
-            "displayName": "Dinner party"
+            "name": "food:Building:Building style:Modernist",
+            "urlName": "Modernist",
+            "fullName": "food_Building_Building_style_Modernist",
+            "displayName": "Modernist"
         }, {
-            "name": "food:Topic:Buyer's guide",
-            "urlName": "Buyers-guide",
-            "fullName": "food_Topic_Buyers_guide",
-            "displayName": "Buyer's guide"
+            "name": "food:Building:Building style:Contemporary building",
+            "urlName": "Contemporary-building",
+            "fullName": "food_Building_Building_style_Contemporary_building",
+            "displayName": "Contemporary building"
         }, {
-            "name": "food:Room:Other rooms:Bar room",
-            "urlName": "Bar-room",
-            "fullName": "food_Room_Other_rooms_Bar_room",
-            "displayName": "Bar room"
+            "name": "food:Topic:Luxury home",
+            "urlName": "Luxury-home",
+            "fullName": "food_Topic_Luxury_home",
+            "displayName": "Luxury home"
+        }, {
+            "name": "food:Topic:Feature home",
+            "urlName": "Feature-home",
+            "fullName": "food_Topic_Feature_home",
+            "displayName": "Feature home"
         }],
         "contentMonth": 2,
-        "contentTitle": "Happy hour: bar trolleys are making a comeback",
+        "contentTitle": "Interior designer Melissa Collison transforms 50s-style Sydney duplex",
         "contentVideo": "",
         "nodeTypeAlias": "Gallery",
-        "contentSummary": "Pop a champagne cork, shake a martini, mix a gin and tonic – it will all seem so much more glamorous served from one of these bar trolleys.",
-        "pageSearchTags": ["Bar room", "Bar-room", "bar-room", "bar room", "Interiors", "interiors", "Buyer's guide", "Buyer's-guide", "buyer's-guide", "buyer's guide", "Dinner party", "Dinner-party", "dinner-party", "dinner party", "Dinnerware", "dinnerware", "Cocktail party", "Cocktail-party", "cocktail-party", "cocktail party", "Luxe", "luxe"],
+        "contentSummary": "Knocking down this house and starting again seemed like the right thing to do, until the owners spent time living in the property.",
+        "pageSearchTags": ["Modernist", "modernist", "Luxury home", "Luxury-home", "luxury-home", "luxury home", "Feature home", "Feature-home", "feature-home", "feature home", "Contemporary", "contemporary", "Contemporary building", "Contemporary-building", "contemporary-building", "contemporary building", "Luxe", "luxe"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2921/Bar-trolly-hero.jpg",
-        "pageDateCreated": "2016-02-04T01:27:12.00Z",
+        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2906/Vaucluse-hero-(1).jpg",
+        "pageDateCreated": "2016-02-01T06:15:39.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
-        "contentImageAltText": "Happy hour: bar trolleys are making a comeback "
+        "contentImageAltText": "Melissa Collison transforms 50s-style Sydney duplex"
     }
 ];
