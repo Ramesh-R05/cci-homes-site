@@ -20,7 +20,6 @@ export default async function home(req, res, next) {
 
         next();
     } catch(error) {
-        console.error('[bff/middleware/home]', error);
         next(error);
     }
 }

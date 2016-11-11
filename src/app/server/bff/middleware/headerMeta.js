@@ -49,7 +49,6 @@ export default function headerMeta(req, res, next) {
 
         next();
     } catch(error) {
-        console.error('[bff/middleware/headerMeta]', error);
         next(error);
     }
 }

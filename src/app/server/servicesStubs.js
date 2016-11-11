@@ -139,9 +139,31 @@ servicesStubs.get('/entity-service/homepage', function(req, res) {
     res.json(home);
 });
 
-servicesStubs.get('/entity-service/homepage', function(req, res) {
-    var home = require(cwd + '/stubs/entity-homepage');
-    res.json(home);
+servicesStubs.get('/entity-service/:page', function(req, res) {
+
+    let pageId = req.url.match(/\d{3,100}/)[0];
+    const pageResponse =  require(cwd + `/stubs/entity-${pageId}`);
+    res.json(pageResponse);
+
+});
+
+servicesStubs.get('/listings-service/teasers', function(req,res) {
+
+    const {$filter} = req.query;
+    const tagMatch = $filter.includes('tags');
+    const galleryMatch = $filter.includes('Gallery');
+
+    if (tagMatch) {
+        const tagSource = $filter.replace(/[']/ig, '').replace(/[^a-z]/ig, '-').replace('tags-eq-', '');
+        const teaserResponse = require(cwd + `/stubs/listings-${tagSource}`);
+        res.json(teaserResponse);
+    }
+
+    if (galleryMatch) {
+        const galleryResponse = require(cwd + '/stubs/listings-gallery')
+        res.json(galleryResponse)
+    }
+
 });
 
 servicesStubs.get('/module-service/:modules?', function(req, res) {

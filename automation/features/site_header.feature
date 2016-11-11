@@ -42,7 +42,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And I can see the link "FASHION" is highlighted on the hamburger navigation links
 
     Scenario: I can see the navigation widget on the article page
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "automation-test-article-with-hero-image-3663"
         When I switch to "tablet portrait" view
         Then I should see the site Header logo
         And I should see the site navigation links
@@ -52,7 +52,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
 
 
     Scenario: I can see the navigation widget on the gallery page
-        Given I am currently viewing "fashion/automation-test-gallery-13302"
+        Given I am currently viewing "automation-test-gallery-5152"
         When I switch to "mobile portrait" view
         Then I should not see the site navigation links
         And I can not see the hamburger menu

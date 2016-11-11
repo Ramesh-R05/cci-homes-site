@@ -3,6 +3,9 @@ import home from './bff/middleware/home';
 import render from './bff/middleware/render';
 import error from './bff/middleware/error';
 import headerMeta from './bff/middleware/headerMeta';
+import page from './bff/middleware/page';
+import article from './bff/middleware/article';
+import gallery from './bff/middleware/gallery'
 
 export default function bff(server) {
     server.use('/api/facetedModule', (req, res, next) => {
@@ -19,6 +22,9 @@ export default function bff(server) {
         server.config.services.endpoints.page,// Config set inside @bxm/server
         home,
         pageModules,
+        page,
+        article,
+        gallery,
         headerMeta,
         render,
         error
