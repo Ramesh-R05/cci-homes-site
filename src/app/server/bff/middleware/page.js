@@ -11,9 +11,7 @@ export default async function page(req, res, next) {
             next();
             return;
         }
-
-        console.log(res.body)
-
+        
         const saved = `?saved=${!!preview}`;
         const pageEntity = await makeRequest(`${req.app.config.services.remote.entity}/HOMES-${req.query.id}${saved}`);
 

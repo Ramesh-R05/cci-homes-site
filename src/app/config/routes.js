@@ -9,17 +9,17 @@ export default {
         handler: defaultTemplate,
         action: loadPageContent
     },
-    page: {
-      path: '/:page(.*\-):id([0-9]+)',
-      method: 'get',
-      handler: defaultTemplate,
-      action: loadPageContent
-    },
     preview: {
         path: '/:preview(preview)/:page(.*\-):id([0-9]+)',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
+    },
+    page: {
+      path: '/:page(.*\-):id([0-9]+)',
+      method: 'get',
+      handler: defaultTemplate,
+      action: loadPageContent
     },
     section: {
         path: '/:all*',
