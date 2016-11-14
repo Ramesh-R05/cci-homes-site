@@ -57,7 +57,7 @@
         margin-right: -$column-gutter / 2;
         margin-top: 0;
         padding-top: 0;
-        width: calc(100% - #{$article-feed-container-width});
+        width: calc(100% - #{$article-feed-container-width-left-aligned});
 
         .get-social,
         .magshop {

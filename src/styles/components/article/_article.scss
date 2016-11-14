@@ -2,6 +2,17 @@
     width: 100%;
     overflow-x: hidden;
 
+    @media #{$medium-up} {
+        margin-top: 0px;
+        padding-top: 130px;
+    }
+
+    &.article--right-aligned {
+        @media #{$medium-up} {
+            margin-top: 30px;
+        }
+    }
+
     .article {
         &__header {
             width: 100%;
@@ -36,3 +47,32 @@
     }
 }
 
+.article .sticky-block {
+    @media #{$small-only} {
+        &--out-of-view:not(.sticky-block--at-top) {
+            background: #FFF;
+            border-top: 1px solid #ddd;
+            position: fixed;
+            -webkit-transition: bottom 450ms;
+            transition: bottom 450ms;
+            width: 100%;
+            z-index: 1100;
+            height: 50px;
+            margin-left: -15px;
+        }
+
+        .ad--article-beneath-recommendations {
+            padding-top: 0;
+        }
+
+        &--at-bottom {
+            bottom: 0;
+        }
+
+        &--in-view {
+            bottom: 0;
+            position: static;
+            padding-bottom: 20px;
+        }
+    }
+};
