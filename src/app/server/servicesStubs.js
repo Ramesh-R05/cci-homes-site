@@ -152,12 +152,12 @@ servicesStubs.get('/entity-service/:page', function(req, res) {
 
 });
 
-servicesStubs.get('/listings-service/teasers/', function(req, res) {
+servicesStubs.get('/listings-service/teasers', function(req, res) {
     const {$filter} = req.query;
     const sourceMatch = $filter.match(/source eq '([^']+)'/i);
     const tagMatch = $filter.includes('tags');
     const galleryMatch = $filter.includes('Gallery');
-    
+
     let teaserResponse = {
         totalCount: 0,
         data: []
@@ -180,15 +180,6 @@ servicesStubs.get('/listings-service/teasers/', function(req, res) {
     }
 
     res.json(teaserResponse);
-
-});
-
-servicesStubs.get('/listings-service/teasers', function(req,res) {
-
-    const {$filter} = req.query;
-    
-
-    
 
 });
 
