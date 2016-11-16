@@ -134,6 +134,8 @@ export default class FacetedModuleStore extends BaseStore {
     }
 
     readConfiguration(payload) {
+        if (!payload.body.stores) return;
+
         let modules = {};
         Object.keys(payload.body.stores).forEach(key => {
             modules[payload.body.stores[key].module.storeName] = payload.body.stores[key].module.id;

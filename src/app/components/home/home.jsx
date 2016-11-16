@@ -1,16 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import PageStore from '../../stores/page';
-import HomeArticlesStore from '../../stores/articles/home';
-import InFocusArticlesStore from '../../stores/articles/inFocus';
 import GalleryOfGalleriesStore from '../../stores/facetedStores/galleryOfGalleries';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import cx from 'classnames';
-import * as FacetedModuleActions from '../../actions/facetedModule';
-import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
 
 class Home extends Component {
     static propTypes = {
@@ -36,13 +31,6 @@ class Home extends Component {
 
     constructor(...args) {
         super(...args);
-    }
-
-    componentWillMount() {
-        this.context.executeAction(FacetedModuleActions.getPage, {
-            page: 0,
-            moduleConfig: this.props.galleriesModuleConfig
-        });
     }
 
     render() {
@@ -82,12 +70,11 @@ class Home extends Component {
 }
 
 
-export default connectToStores(Home, [PageStore, HomeArticlesStore, InFocusArticlesStore, GalleryOfGalleriesStore], (context) => {
+export default connectToStores(Home, ['AppStore', GalleryOfGalleriesStore], (context) => {
     return {
-        content: context.getStore(PageStore).getContent(),
-        articles: context.getStore(HomeArticlesStore).getItems(),
-        galleriesModuleConfig: context.getStore(GalleryOfGalleriesStore).getConfiguration(),
+        content: context.getStore('AppStore').getContent(),
+        articles: context.getStore('AppStore').getItems(),
         galleries: context.getStore(GalleryOfGalleriesStore).getItems(),
-        inFocusArticles: context.getStore(InFocusArticlesStore).getItems()
+        inFocusArticles: context.getStore('AppStore').getModuleItems('inFocusArticles')
     };
 });

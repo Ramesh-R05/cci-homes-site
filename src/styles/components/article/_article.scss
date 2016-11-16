@@ -41,14 +41,6 @@
 
 .article .sticky-block {
     @media #{$small-only} {
-        &--in-view {
-            background: #F9F8F6;
-        }
-    }
-}
-
-.article .sticky-block {
-    @media #{$small-only} {
         &--out-of-view:not(.sticky-block--at-top) {
             background: #FFF;
             border-top: 1px solid #ddd;
@@ -70,6 +62,7 @@
         }
 
         &--in-view {
+            background: #F9F8F6;
             bottom: 0;
             position: static;
             padding-bottom: 20px;

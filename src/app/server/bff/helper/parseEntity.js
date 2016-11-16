@@ -19,12 +19,14 @@ const entityPropertyMap = {
     tags: 'tags',
     contentTags: 'tags',
     url: 'url',
+    urlName: 'urlName',
     location: 'url',
     parentName: 'parentName',
     parentUrl: 'parentUrl',
     contentVideo: 'video',
     contentGallery: 'galleryItems',
     siteUrl: 'siteUrl',
+    pageMetaDescription: 'pageMetaDescription',
     tagsDetails: 'tagsDetails'
 };
 

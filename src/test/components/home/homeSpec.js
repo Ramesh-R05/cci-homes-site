@@ -27,29 +27,23 @@ const Home = proxyquire('../../../app/components/home/home', {
 
 const inFocusArticlesMock = homeArticlesMock.slice(0, 5);
 
-Context.addStore('HomeArticles', {
-    getItems() {
-        return homeArticlesMock;
-    }
-});
-Context.addStore('InFocusArticles', {
-    getItems() {
-        return inFocusArticlesMock;
-    }
-});
 Context.addStore('GalleryOfGalleriesStore', {
     getItems() {
         return gogMock;
-    },
-
-    getConfiguration() {
-        return null;
     }
 });
 
-Context.addStore('PageStore', {
+Context.addStore('AppStore', {
     getContent() {
         return entity;
+    },
+
+    getItems() {
+        return homeArticlesMock;
+    },
+
+    getModuleItems() {
+        return inFocusArticlesMock;
     }
 });
 

@@ -2,9 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import slice from 'lodash/array/slice';
 import {connectToStores} from '@bxm/flux';
-import PageStore from '../../stores/page';
-import BrandSectionStore from '../../stores/facetedStores/brand';
-import * as FacetedModuleActions from '../../actions/facetedModule';
 import Header from './header';
 import Featured from './featured';
 import Group from './articleGroup';
@@ -87,21 +84,6 @@ class Section extends Component {
         super(...args);
     }
 
-    getAsyncData() {
-        const page = 0;
-        let params;
-
-        // SEO Task : params = { pagestart: 0, pageend: page };
-        params = {
-            page, source: this.props.content.source
-        };
-
-        this.context.executeAction(FacetedModuleActions.getPage, {
-            params: params,
-            moduleConfig: this.props.moduleConfig
-        });
-    }
-
     getGroupedArticles(articles) {
         const initIndex = 5;
         const incrementVal = 7;
@@ -126,10 +108,6 @@ class Section extends Component {
         }
 
         return group;
-    }
-
-    componentWillMount() {
-        if (!canUseDOM) this.getAsyncData();
     }
 
     getBrandAlias(brand) {
@@ -203,10 +181,9 @@ class Section extends Component {
 }
 
 
-export default connectToStores(Section, [BrandSectionStore, PageStore], (context) => {
+export default connectToStores(Section, ['AppStore'], (context) => {
     return {
-        articles: context.getStore(BrandSectionStore).getItems(),
-        content: context.getStore(PageStore).getContent(),
-        moduleConfig: context.getStore(BrandSectionStore).getConfiguration()
+        articles: context.getStore('AppStore').getItems(),
+        content: context.getStore('AppStore').getContent()
     };
 });

@@ -4,6 +4,13 @@ import {parseModules} from '../helper/parseModule';
 
 export default async function home(req, res, next) {
     try {
+        const {brand} = req.query;
+
+        if (brand) {
+            next();
+            return;
+        }
+
         const [pageData, modulesResp] = await Promise.all([
             makeRequest(`${req.app.config.services.remote.entity}/homepage`),
             makeRequest(`${req.app.config.services.remote.module}/featuredarticles,infocusarticles`)
@@ -11,11 +18,11 @@ export default async function home(req, res, next) {
 
         const modules = parseModules(modulesResp);
 
-        res.body = res.body || {};
-        res.body.entity = parseEntity(pageData);
-        res.body.stores = {
-            featuredArticles: modules.featuredarticles,
-            inFocusArticles: modules.infocusarticles
+        res.body = {
+            ...res.body,
+            entity: parseEntity(pageData),
+            items: modules.featuredarticles.items,
+            inFocusArticles: modules.infocusarticles.items
         };
 
         next();
