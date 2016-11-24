@@ -20,10 +20,10 @@ module.exports = function() {
         console.log("IMAGE SRC =" + " " + img);
     });
 
-    this.Given(/^I can see the custom label of the gallery "([^"]*)"$/, function(label) {
-        var galleryCustomLabel = browser.getText(gallery.galleryCustomLabel);
-        expect(galleryCustomLabel).toEqual(label);
-        console.log(galleryCustomLabel);
+    this.Given(/^I can see the tag name of the gallery "([^"]*)"$/, function(tagName) {
+        var galleryTagName = browser.getText(gallery.galleryTagName);
+        expect(galleryTagName).toEqual(tagName);
+        console.log(galleryTagName);
     });
 
     this.Given(/^I can see the created date of the gallery "([^"]*)"$/, function(date) {
@@ -126,6 +126,7 @@ module.exports = function() {
     this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
         browser.click(gallery.galleryNextButton);
         browser.click(gallery.galleryNextButton);
+        wait(500);
         expect(browser.getAttribute(gallery.videoWrapper, gallery.videoId)).toEqual(videoId)
     });
 
@@ -191,8 +192,7 @@ module.exports = function() {
         for (var i = 0; i < 3; i++) {
             wait(500);
             browser.waitForEnabled(gallery.galleryNextButton, 2000);
-            browser.click(gallery.galleryNextButton);
-        }
+            browser.click(gallery.galleryNextButton);}
     });
 
     this.When(/^I cannot go to the next slide when the ad is not loaded$/, function() {

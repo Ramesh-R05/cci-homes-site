@@ -4,7 +4,7 @@ var gallery_widget = {
     galleryLongTitle: '.gallery__title',
     galleryDescription: '.gallery__summary-text',
     galleryImg: 'img.gallery__slide-image',
-    galleryCustomLabel: '.gallery__subsection',
+    galleryTagName: '.gallery__subsection',
     galleryNextButton: 'button.gallery__nav.gallery__nav--next',
     galleryPrevButton: 'button.gallery__nav.gallery__nav--prev',
     galleryLastSlide: '.icon-arrow-next',

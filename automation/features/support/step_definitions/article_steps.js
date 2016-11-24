@@ -166,6 +166,7 @@ module.exports = function() {
     });
     this.Given(/^I can see the body image caption "([^"]*)"$/, function (ImgCaption) {
         var bodyImgCaption = browser.getText(wn_article.bodyImgCaption);
+        console.log(bodyImgCaption);
         expect(bodyImgCaption).toContain(ImgCaption);
     });
     this.Given(/^I can see the body gallery$/, function () {
@@ -222,11 +223,10 @@ module.exports = function() {
         console.log(videoEmbArry[1]); //The stubbed data of Vimeo is in the second iframe of video container.
         expect(videoEmbArry[1]).toEqual(vimeoUrl);
     });
-    this.Given(/^I can see the related tags "([^"]*)" "([^"]*)"$/, function (rTag1, rTag2) {
+    this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag) {
     var relatedTags = browser.getText(wn_article.relatedTags, 'href');
-        expect(relatedTags[0]).toEqual(rTag1);
-        expect(relatedTags[1]).toEqual(rTag2);
-    });
+        expect(relatedTags).toEqual(rTag);
+        });
     this.Given(/^I can see the author "([^"]*)"$/, function (authorName) {
       var author = browser.getText(wn_article.authorText);
         expect(author).toEqual(authorName);

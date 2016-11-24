@@ -13,7 +13,9 @@ export default
     "siteCode": "56421E16-B4AB-417C-9645-A6A89644D4B4",
     "siteName": "homes",
     "sortOrder": 2,
-    "articleTags": ["food:Homes navigation:Interiors", "food:Topic:Trend", "food:Topic:Profile"],
+    "articleTags": ["food:Homes navigation:Interiors", "food:Topic:Trend", "food:Topic:Profile", "people:profession:Designer",
+        "food:Building:Type:House",
+        "fashion:fashion_designer:Alexander McQueen"],
     "contentBody": [{
         "type": "paragraph",
         "label": "Paragraph",
@@ -149,18 +151,48 @@ export default
                 }
             }
         }
-    }, {
+    },
+        {
+            "type": "tips",
+            "label": "Tips",
+            "content": "Test body tips body tips body tips body tips body tips body tips body tips body tips body tips body tips EOM"
+        },
+        {
+            "type": "heading",
+            "label": "Heading",
+            "content": "TEST BODY HEADING BODY HEADING BODY HEADING"
+        },
+        {
+            "type": "image",
+            "label": "Image",
+            "content": {
+                "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479871292604_1454306243947image4.jpg",
+                "tags": [],
+                "title": "Sunset at Sydney Opera House",
+                "valid": true,
+                "credits": []
+            }
+        },
+        {
         "type": "twitter",
         "label": "Twitter",
         "content": {"url": "https://twitter.com/dollymag/status/697199025729048577"}
     }, {
         "type": "instagram",
         "label": "Instagram",
-        "content": {"url": "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/"}
+        "content": {
+            "url": "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/",
+            "includeCaption": true
+        }
+
     }, {
         "type": "instagram",
         "label": "Instagram",
-        "content": {"url": "https://www.instagram.com/p/BA4NkZeSr_r/embed/"}
+        "content": {
+            "url": "https://www.instagram.com/p/BA4NkZeSr_r/embed/",
+            "includeCaption": false
+        }
+
     }, {
         "type": "facebook",
         "label": "Facebook",
