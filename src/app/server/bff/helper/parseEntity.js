@@ -28,7 +28,8 @@ const entityPropertyMap = {
     siteUrl: 'siteUrl',
     pageMetaDescription: 'pageMetaDescription',
     tagsDetails: 'tagsDetails',
-    articleTags: 'tags'
+    articleTags: 'tags',
+    navigationTagsDetails: 'navigationTagsDetails'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {

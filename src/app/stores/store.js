@@ -11,14 +11,17 @@ const AppStore = createReducerStore({
             let {
                 entity,
                 items,
+                headerNavigation,
                 inFocusArticles
             } = payload.body;
+
             if (!entity) return;
 
             return {
                 title: entity.title,
                 content: entity,
                 items,
+                headerNavigation,
                 navigationTags: entity.navigationTags,
                 inFocusArticles
             };
@@ -42,6 +45,11 @@ const AppStore = createReducerStore({
         getModuleItems: (state, module) => {
             if (!module) return [];
             return state[module] || [];
+        },
+
+        getHeaderItems(state) {
+            if (!state.headerNavigation) return [];
+            return state.headerNavigation.items || [];
         }
     }
 });

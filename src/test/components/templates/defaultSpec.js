@@ -36,7 +36,7 @@ const defaultStoreData = {
     MenuStore: {
         sideMenuOpen: false
     },
-    NavigationStore: {
+    AppStore: {
         headerItems
     },
     PageStore: {
@@ -65,7 +65,7 @@ Context.addStore('MenuStore', {
     }
 });
 
-Context.addStore('NavigationStore', {
+Context.addStore('AppStore', {
     getHeaderItems() {
         return headerItems;
     }

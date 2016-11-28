@@ -61,6 +61,7 @@ export default class SideMenu extends Component {
                             className="side-menu__nav"
                             items={items}
                             linkClassName="gtm-hamburger-section"
+                            showGroupLabel={false}
                         />
                         <div className="side-menu__separator"></div>
                         <SponsorsLinks

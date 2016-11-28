@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import PageStore from '../../stores/page';
 import MenuStore from '../../stores/menu';
-import NavigationStore from '@bxm/site-header/lib/stores/navigation';
 import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -143,11 +142,11 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, [PageStore, MenuStore, NavigationStore], (context) => {
+export default connectToStores(DefaultTemplate, ['AppStore', PageStore, MenuStore], (context) => {
 
     //START********************************
     //NOTE: this is a temporary fix until ALL pages (tag, nav tag, brand, article, gallery) are available via the BFF.
-    let headerNavItems = context.getStore(NavigationStore).getHeaderItems();
+    let headerNavItems = context.getStore('AppStore').getHeaderItems();
 
     if(!headerNavItems || headerNavItems.length === 0)
         headerNavItems = getNavItems();

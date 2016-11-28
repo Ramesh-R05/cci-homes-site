@@ -22,7 +22,7 @@ export async function getModules(...args) {
                 moduleList[arg] = get(moduleConfig, 'moduleManualContent.data', []);
             }
         });
-        
+
         return moduleList;
 
     } catch(error) {

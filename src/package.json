@@ -52,7 +52,6 @@
     "@bxm/recommendations": "^4.0.0",
     "@bxm/server": "^17.0.0",
     "@bxm/services-stubs": "^2.0.0",
-    "@bxm/site-header": "^2.0.1",
     "@bxm/social": "^1.1.4",
     "@bxm/tags": "^2.1.0",
     "@bxm/teaser": "^4.3.0",

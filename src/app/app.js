@@ -19,7 +19,6 @@ import GalleryPageStore from '@bxm/gallery/lib/stores/galleryPage';
 import GalleryOfGalleriesStore from './stores/facetedStores/galleryOfGalleries';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import HtmlStore from '@bxm/server/lib/stores/html';
-import NavigationStore from '@bxm/site-header/lib/stores/navigation';
 import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
@@ -48,7 +47,6 @@ let app = new Flux({
         GalleryStore,
         GalleryOfGalleriesStore,
         HtmlStore,
-        NavigationStore,
         NetworkHeaderStore,
         PolarAdStore,
         RouteStore,

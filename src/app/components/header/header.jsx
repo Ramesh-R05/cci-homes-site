@@ -34,9 +34,9 @@ class Header extends Component {
             'header--pinned': this.props.pinned,
             'header--side-menu-open': this.props.isSideMenuOpen
         });
-
-        const headerClass = this.props.isExpanded ? '' : 'header__sections--brick-bg';
         
+        const headerClass = this.props.isExpanded ? '' : 'header__sections--brick-bg';
+
         return (
             <div className={wrapperClassName}>
                 <header

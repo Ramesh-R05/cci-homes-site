@@ -85,9 +85,7 @@
 
         a {
             @include type-side-menu-link;
-            clear: left;
             display: block;
-            float: left;
             margin-bottom: 13px;
 
             &:hover {
@@ -141,6 +139,25 @@
         height: 110%;
         opacity: .5;
     }
+
+	.header-sub-nav {
+		a {
+			&:hover {
+			color: $color-white;
+			}
+		}
+
+		.sub-nav-list__dropdown {
+				list-style-type: none;
+				padding: 0;
+
+				a {
+					&:hover {
+					color: $color-primary;
+				}
+			}
+		 }
+	 }
 }
 
 .side-menu__separator {

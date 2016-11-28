@@ -31,6 +31,7 @@ $header-nav-link-padding: 30px;
         display: none;
         padding: 0 $header-nav-link-padding;
         position: relative;
+		line-height: 75px;
 
         @media #{$large-up} {
             display: inline-block;
@@ -46,15 +47,83 @@ $header-nav-link-padding: 30px;
             border-left: 1px solid $line-color;
             content: '';
             display: block;
-            height: 100%;
+            height: 29%;
             left: 0;
             opacity: 1;
             position: absolute;
-            top: -1px;
+            top: 25px;
             transition: opacity $transition-duration;
             width: 1px;
         }
     }
+
+	.header-sub-nav {
+        display: inline;
+        position: relative;
+
+	   &:hover {
+			.sub-nav-list__dropdown {
+				display: block;
+			}
+		}
+
+		a {
+			.tl-icon-drop-menu:before {
+				content: '\ea50';
+				margin-left: 5px;
+			}
+
+			&:hover {
+				color: $color-grey-darker;
+			}
+
+			&:first-child:before {
+				opacity: 1;
+			}
+		}
+
+		.sub-nav-list__dropdown {
+			display: none;
+			position: absolute;
+			z-index: 1500;
+			background-color: #333;
+			list-style-type: none;
+			padding: 15px;
+			left: 0px;
+			top: 33px;
+			width: 130px;
+			text-align: center;
+			white-space: normal;
+
+			@media #{$large-up} {
+				width: 165px;
+			}
+
+			&:hover {
+				display: block;
+			}
+
+			li {
+				line-height: 28px;
+
+				a {
+					float: none;
+					padding: 5px 0;
+					display: block;
+					color: $color-grey-lighter;
+					line-height: 22px;
+
+					&:hover {
+						color: $color-primary;
+					}
+
+					&:first-child:before {
+						opacity: 0 !important;
+					}
+				}
+			}
+		}
+	}
 }
 
 // Using custom breakpoints as design wants to adjust nav when it can no longer fit all nav items
@@ -101,7 +170,15 @@ $header-nav-link-padding: 30px;
         a:first-child:before {
             opacity: 0;
         }
-    }
+
+		.header-sub-nav {
+			a {
+				&:first-child:before {
+					opacity: 1;
+				}
+			}
+		}
+	}
 }
 
 .header:not(.header--expanded) {
@@ -135,3 +212,4 @@ $header-nav-link-padding: 30px;
         }
     }
 }
+

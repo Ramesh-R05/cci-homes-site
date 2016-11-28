@@ -65,7 +65,7 @@ describe(`Navigation Component`, () => {
         });
 
         it('passes the item data as props', () => {
-            expect(navElements[0].props).to.eql({ ...navItems[0], linkClassName: '' });
+            expect(navElements[0].props).to.eql({ ...navItems[0], linkClassName: '', showGroupLabel: undefined });
         });
     });
 

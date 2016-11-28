@@ -29,8 +29,6 @@
 
     &__sections {
         @include grid-row();
-        overflow: hidden;
-        position: relative;
         vertical-align: top;
         white-space: nowrap;
     }
