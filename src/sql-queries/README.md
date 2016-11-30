@@ -82,7 +82,7 @@ Note the NEW food:Homes navigation:DIY tag at the end. So this is similar to how
 
 
 
-What is the TAG NAV MAPPING??
+## What is the TAG NAV MAPPING??
 
 I imported this spreadsheet into the database as a table to use against the queries / functions and perform the lookup. Existing tags are passed into one of the USER FUNCTIONS.
 
