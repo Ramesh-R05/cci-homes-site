@@ -38,18 +38,14 @@ Zip file is found here. Adi and Arvind knows how to run this.
 
 
 
-
-
 ## DEV TESTING
 
 This is a SQL query intended to run direct on the database. Open SQL management studio and connect to DEV.
 
-
-db02.prod.digital.bauer-media.net.au
-Database: Umbraco_Homes
-username: baudev
-password: $pa55word
-
+* db02.prod.digital.bauer-media.net.au
+* Database: Umbraco_Homes
+* username: baudev
+* password: $pa55word
 
 1) Any test work should be done on DEV. I have already taken a backup of the HOMES prod database we can use to run dev tests (NOTE this DB is being used by HOMES - DEV site). Any doubts just back it up before proceeding.
 
@@ -104,10 +100,10 @@ The databse will be updated, meaning the new NAV TAG will be seen on Umbraco UI 
 
 
 ## PRODUCTION
-db02.prod.digital.bauer-media.net.au
-Database: Umbraco_Homes
-username: homes-cms
-password: Sorry-Admire-Belt-Grave-8
+* db02.prod.digital.bauer-media.net.au
+* Database: Umbraco_Homes
+* username: homes-cms
+* password: Sorry-Admire-Belt-Grave-8
 
 ### BACKUP THIS DATABASE BEFORE ANY WORK ON THE QUERY. Again use the Azure tool, just back it up to the same server under a different name.
 
