@@ -77,21 +77,22 @@ set @docTypes = 'HomesArticle,Gallery'
 	WHERE 
 	    n.nodeObjectType =  'C66BA18E-EAF3-4CFF-8A22-41B16D66A972' AND
 		c.contentType IN (SELECT nodeid FROM @contentTypes) AND
-		n.[path] like @paths + '%' and
-	    n.id = 1686
+		n.[path] like @paths + '%'
 
-
-	--select * from @NewTags order by nodeid asc
-
-	/*SELECT *
+		
+    /*If needed run this select first to doubly check exactly what the UPDATE will be updating. Remove the WHERE to UPDATE all items 
+	
+	SELECT *
 		FROM
 		cmsPropertyData AS A
 		INNER JOIN @NewTags AS B
 			ON A.id = B.id
 	WHERE
-		A.contentNodeId = 1686*/
+		A.contentNodeId in (1686)*/
 
-	
+		
+		
+	/*At first for your tests add some specific IDs to the WHERE - like 'in (1686, 1234, 4567, etc....)'. Remove the WHERE to UPDATE all items*/
 	UPDATE
 		A
 	SET
@@ -101,4 +102,5 @@ set @docTypes = 'HomesArticle,Gallery'
 		INNER JOIN @NewTags AS B
 			ON A.id = B.id
 	WHERE
-		A.contentNodeId = 1686
+		A.contentNodeId in (1686)
+
