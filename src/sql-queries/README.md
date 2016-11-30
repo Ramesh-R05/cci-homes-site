@@ -1,6 +1,6 @@
-Tag Cleansing and Mapping. 
+# Tag Cleansing and Mapping. 
 
-SQL Queries
+## SQL Queries
 
 The aim of this query is to strip out any existing Homes Navigation Tag and then add a new one (based on a mapping criteria). In the end ALL articles and Galleries
 Will have ONE NEW homes navigation TAG.
@@ -40,7 +40,7 @@ Zip file is found here. Adi and Arvind knows how to run this.
 
 
 
-DEV TESTING
+## DEV TESTING
 
 This is a SQL query intended to run direct on the database. Open SQL management studio and connect to DEV.
 
@@ -54,7 +54,7 @@ password: $pa55word
 1) Any test work should be done on DEV. I have already taken a backup of the HOMES prod database we can use to run dev tests (NOTE this DB is being used by HOMES - DEV site). Any doubts just back it up before proceeding.
 
 
-RUN A SELECT
+## RUN A SELECT
 
 Drop in Homes_New_Tags-v3-newNavTags.sql
 
@@ -64,7 +64,7 @@ To start with use ONE node ID, make sure this works. Then use 5-10 .... check, m
 
 
 
-RUN THE UPDATE
+## RUN THE UPDATE
 
 Drop in Drop in Homes_New_Tags-v3-newNavTags-UPDATE.sql
 
@@ -103,20 +103,20 @@ The databse will be updated, meaning the new NAV TAG will be seen on Umbraco UI 
 
 
 
-PRODUCTION
+## PRODUCTION
 db02.prod.digital.bauer-media.net.au
 Database: Umbraco_Homes
 username: homes-cms
 password: Sorry-Admire-Belt-Grave-8
 
-BACKUP THIS DATABASE BEFORE ANY WORK ON THE QUERY. Again use the Azure tool, just back it up to the same server under a different name.
+### BACKUP THIS DATABASE BEFORE ANY WORK ON THE QUERY. Again use the Azure tool, just back it up to the same server under a different name.
 
 
 1) Run through similar steps to DEV. Remember to back it up first. Test on some individual node IDs before removing the running on ALL.
 
 
 
-PUBLISHING
+## PUBLISHING
 
 After DEV / PROD queries have been run we also need to publish to ensure the changes are seen in the module service (POST GRES). Easy on individual items, just publish them via UMBRACO but when running a mass UPDATE you will
 need to use the Publisher CLI.
