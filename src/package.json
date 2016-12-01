@@ -39,7 +39,7 @@
     "@bxm/config": "^4.0.0",
     "@bxm/datetime": "^2.0.0",
     "@bxm/flux": "^4.0.0",
-    "@bxm/gallery": "^13.0.0",
+    "@bxm/gallery": "^13.2.2",
     "@bxm/global-header-stub": "^1.0.0",
     "@bxm/header": "^11.0.0",
     "@bxm/login-radius-stub": "^1.1.0",
