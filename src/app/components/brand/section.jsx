@@ -6,8 +6,8 @@ import Header from './header';
 import Featured from './featured';
 import Group from './articleGroup';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import cx from 'classnames';
+import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 
 class Section extends Component {
     static propTypes = {
@@ -85,8 +85,8 @@ class Section extends Component {
     }
 
     getGroupedArticles(articles) {
-        const initIndex = 5;
-        const incrementVal = 7;
+        const initIndex = 7;
+        const incrementVal = 6;
         let moreArticles = articles[initIndex] ? true : false;
         let group = [];
         let startIndex = initIndex;
@@ -132,37 +132,47 @@ class Section extends Component {
                         <Header brand={content.title} logo={brandConfig.logo} />
 
                         <Featured
-                            articles={slice(articles, 0, 5)}
+                            articles={slice(articles, 0, 7)}
                             brand={content.title}
                             brandConfig={brandConfig} />
                     </div>
+                </div>
 
-                    <div className="row">
-                        {/* Middle ad */}
-                        <div className="columns small-12">
-                            <Ad
-                                className="ad--section-middle-leaderboard"
-                                sizes={{
+                <div className="row-fullwidth brand__body--fullwidth-ad">
+                        <Ad
+                            className="ad--section-middle-leaderboard"
+                            sizes={{
                                 small: 'banner',
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}
-                                targets={{ position: 2 }} />
+                            targets={{ position: 2 }} />
+                </div>
+
+                <div className="brand__body brand__body--bottom">
+                    <div className="row">
+                        <div className="brand-section--bottom-teasers columns small-12 large-8">
+                            {groupedArticles}
                         </div>
+
+                        <StickyBlock
+                            breakpoints={['large', 'xlarge']}
+                            containerClasses="columns show-for-large-up large-4 xlarge-4"
+                            containerMarginBottom={10}
+                            carriageYPosition={147}>
+                            <Ad
+                                className="ad--section-mrec"
+                                displayFor={["large","xlarge"]}
+                                sizes={{
+                                    large: ['mrec', 'double-mrec']
+                                }}
+                                targets={{position: 2}}/>
+                        </StickyBlock>
+
                     </div>
-                    {/* Insert Gallery of Galleries Here */}
-
-                    {/* Template for load more content */}
-
-                    {groupedArticles}
-
-                    <Recommendations
-                        nodeType={content.nodeType}
-                        nodeId={content.id} />
                 </div>
 
                 <div className="row">
-                    {/* Bottom ad */}
                     <div className="columns small-12">
                         <Ad
                             className="ad--section-bottom-leaderboard"
@@ -171,10 +181,12 @@ class Section extends Component {
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}
-                            targets={{position: 3}}
+                            targets={{position: 4}}
                         />
+
                     </div>
                 </div>
+
             </div>
         );
     }

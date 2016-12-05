@@ -10,7 +10,7 @@ const HeaderStub = Context.createStubComponent();
 const GroupStub = Context.createStubComponent();
 const FeaturedStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
-const RecommendationsStub = Context.createStubComponent();
+const StickyStub = Context.createStubComponentWithChildren();
 
 const Section = proxyquire('../../../app/components/brand/section', {
     'react': React,
@@ -18,7 +18,7 @@ const Section = proxyquire('../../../app/components/brand/section', {
     './articleGroup': GroupStub,
     './featured': FeaturedStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '@bxm/recommendations/lib/components/recommendations': RecommendationsStub
+    '@bxm/behaviour/lib/components/sticky': StickyStub,
 });
 
 let brandArticlesStore = articlesMock;
@@ -47,31 +47,19 @@ describe(`Brand Section`, () => {
         let group;
         let featured;
         let ads;
-        let recommendations;
 
         before(() => {
-            brandArticlesStore = articlesMock.slice(0, 12);
+            brandArticlesStore = articlesMock.slice(0, 13);
             reactModule = Context.mountComponent(Section, {});
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             featured = TestUtils.findRenderedComponentWithType(reactModule, FeaturedStub);
             group = TestUtils.findRenderedComponentWithType(reactModule, GroupStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
-            recommendations = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
         });
 
         it(`should render the Section component on the page`, () => {
             expect(ReactDOM.findDOMNode(section)).to.exist;
-        });
-
-        // Recommendations
-        it(`should render Recommendations component`, () => {
-            expect(recommendations).to.exist;
-        });
-
-        it(`should pass down the correct props to the Recommendations component`, () => {
-            expect(recommendations.props.nodeType).to.equal('Homepage');
-            expect(recommendations.props.nodeId).to.equal('HOMES-1158');
         });
 
         // Header
@@ -85,7 +73,7 @@ describe(`Brand Section`, () => {
 
         // Featured articles
         it(`should pass down the featured articles to the featured component`, () => {
-            expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 5));
+            expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 7));
         });
 
         it(`should pass down the brand and brandConfig`, () => {
@@ -95,12 +83,12 @@ describe(`Brand Section`, () => {
 
         // Group Articles
         it(`should pass down the other articles to the group component`, () => {
-            expect(group.props.articles).to.deep.equal(articlesMock.slice(5, 12));
+            expect(group.props.articles).to.deep.equal(articlesMock.slice(7, 13));
         });
 
         // Ads
         describe(`Ads`, () => {
-            const numberOfAds = 2;
+            const numberOfAds = 3;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
             });
@@ -117,15 +105,25 @@ describe(`Brand Section`, () => {
             });
 
             it(`should have the relevant props for the 2nd ad`, () => {
-                const size = {
+                const sizes = {
+                    large: ['mrec', 'double-mrec']
+                };
+                const targets = { position: 2 };
+                expect(ads[1].props.sizes).to.deep.equal(sizes);
+                expect(ads[1].props.targets).to.deep.equal(targets);
+            });
+
+            it(`should have the relevant props for the 3rd ad`, () => {
+                const sizes={
                     small: 'banner',
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
-                const targets = { position: 3 };
-                expect(ads[1].props.sizes).to.deep.equal(size);
-                expect(ads[1].props.targets).to.deep.equal(targets);
+                const targets = { position: 4 };
+                expect(ads[2].props.sizes).to.deep.equal(sizes);
+                expect(ads[2].props.targets).to.deep.equal(targets);
             });
+
         });
 
     });
@@ -140,13 +138,12 @@ describe(`Brand Section`, () => {
         });
 
         // Group Articles
-        it(`should render 2 group components`, () => {
-            expect(groups.length).to.equal(2);
+        it(`should render 1 group components`, () => {
+            expect(groups.length).to.equal(1);
         });
 
-        it(`should pass down the other articles to the 2 group components`, () => {
-            expect(groups[0].props.articles).to.deep.equal(articlesMock.slice(5, 12));
-            expect(groups[1].props.articles).to.deep.equal(articlesMock.slice(12, 13));
+        it(`should pass down the other articles to the group component`, () => {
+            expect(groups[0].props.articles).to.deep.equal(articlesMock.slice(7, 13));
         });
     });
 

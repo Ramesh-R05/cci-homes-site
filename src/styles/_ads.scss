@@ -69,7 +69,7 @@
     @mixin grey-mobile-banner() {
         background-color: $color-grey-lighter;
         margin: {
-            bottom: 33px;
+            bottom: 21px;
             left: -($column-gutter/2);
         }
         padding: {

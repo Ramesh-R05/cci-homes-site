@@ -12,7 +12,7 @@ export default async function brand(req, res, next) {
         }
 
         const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${brand}`);
-        const listingResponse = await getLatestTeasers(12, 0, entityResponse.articleSource, 'source');
+        const listingResponse = await getLatestTeasers(13, 0, entityResponse.articleSource, 'source');
 
         res.body = {
             ...res.body,

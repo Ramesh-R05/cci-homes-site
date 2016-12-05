@@ -15,7 +15,6 @@ export default class Header extends Component {
 
         return (
             <div className="columns small-12">
-                {/* Top ad */}
                 <Ad
                     className="ad--section-top-leaderboard"
                     sizes={{

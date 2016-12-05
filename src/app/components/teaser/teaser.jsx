@@ -95,6 +95,12 @@ class Teaser extends Component {
             l: {w: 750, h: 625},
             xl: {w: 750, h: 625}
         },
+        'brand-list' : {
+            s: {w: 322, h: 256},
+            m: {w: 420, h: 347},
+            l: {w: 300, h: 250},
+            xl: {w: 300, h: 250}
+        },
         recommendations: {
             s: {w: 322, h: 256},
             m: {w: 420, h: 347},

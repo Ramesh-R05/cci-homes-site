@@ -14,7 +14,7 @@ const ArticleGroup = proxyquire('../../../app/components/brand/articleGroup', {
 });
 
 describe('Brand ArticleGroup', () => {
-    const expectedNumTeasers = 7;
+    const expectedNumTeasers = 5;
 
     describe(`with ${expectedNumTeasers} articles`, () => {
         let reactModule;
@@ -24,7 +24,7 @@ describe('Brand ArticleGroup', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <ArticleGroup articles={articlesMock.slice(0, 7)} />
+                <ArticleGroup articles={articlesMock.slice(0, 5)} />
             );
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -42,53 +42,39 @@ describe('Brand ArticleGroup', () => {
         it(`should render the 1st article as the 1st teaser`, () => {
             const componentData = articlesMock[0];
             componentData.modifier = 'img-left';
+            componentData.sizes = 'brand-list';
             expect(teasers[0].props).to.deep.equal(componentData);
+            console.log(teasers[0].props)
         });
 
         it(`should render the 2nd article as the 2nd teaser`, () => {
             const componentData = articlesMock[1];
             componentData.modifier = 'img-left';
+            componentData.sizes = 'brand-list';
             expect(teasers[1].props).to.deep.equal(componentData);
         });
 
         it(`should render the 3rd article as the first teaser`, () => {
             const componentData = articlesMock[2];
             componentData.modifier = 'img-left';
+            componentData.sizes = 'brand-list';
             expect(teasers[2].props).to.deep.equal(componentData);
         });
 
         it(`should render the 4th article as the 4th teaser`, () => {
             const componentData = articlesMock[3];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'large';
+            componentData.modifier = 'img-left';
+            componentData.sizes = 'brand-list';
             expect(teasers[3].props).to.deep.equal(componentData);
         });
 
         it(`should render the 5th article as the 5th teaser`, () => {
             const componentData = articlesMock[4];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'large';
+            componentData.modifier = 'img-left';
+            componentData.sizes = 'brand-list';
             expect(teasers[4].props).to.deep.equal(componentData);
         });
 
-        it(`should render the 6th article as the 6th teaser`, () => {
-            const componentData = articlesMock[5];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'large';
-            expect(teasers[5].props).to.deep.equal(componentData);
-        });
-
-        it(`should render the 7th article as the 7th teaser`, () => {
-            const componentData = articlesMock[6];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'large';
-            expect(teasers[6].props).to.deep.equal(componentData);
-        });
-
-        const expectedNumAds = 1;
-        it(`should render ${expectedNumAds} Ads`, () => {
-            expect(ads.length).to.equal(expectedNumAds);
-        });
     });
 
     describe('without the articles prop as an empty array', () => {

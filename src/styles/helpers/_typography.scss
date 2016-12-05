@@ -218,7 +218,7 @@ a {
 // Default teaser (e.g homepage teasers below hero)
 @mixin type-teaser-title {
     color: $color-black;
-    font: 400 22px/1.556 $font-family-serif-primary;
+    font: 400 18px/1.556 $font-family-serif-primary;
 }
 
 .type-teaser-title {
@@ -247,7 +247,7 @@ a {
 
 @mixin type-teaser-summary {
     color: $color-grey;
-    font: italic 400 14px/1.714 $font-family-sans-serif-secondary;
+    font: 400 italic 14px/1.714 $font-family-sans-serif-secondary;
 }
 
 .type-teaser-summary {
@@ -277,7 +277,7 @@ a {
 
 @mixin type-hero-summary {
     color: $color-grey;
-    font: italic 400 14px/1.714 $font-family-sans-serif-secondary;
+    font: 400 14px/1.714 $font-family-sans-serif-secondary;
 
     @media #{$large-up} {
         font-size: 17px;

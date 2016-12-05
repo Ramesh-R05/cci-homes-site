@@ -49,6 +49,7 @@
     .teaser__content {
         display: block;
         width: 100%;
+        text-align: center;
     }
 
     .teaser__content {
@@ -73,7 +74,6 @@
     .teaser__content {
         background: $color-white;
         padding: 0 20px 25px;
-        position: relative;
         text-align: center;
         width: auto;
         z-index: $z-index--teaser-content;
@@ -82,12 +82,12 @@
     .teaser__tags {
         background: $color-white;
         display: inline-block;
-        margin: -10px 0 10px;
-        padding: 15px 25px 0;
+        margin: 11px 0 10px;
     }
 }
 
 @mixin teaser-hero {
+
     @include teaser-icon-centered-small;
     margin-bottom: 10px;
     overflow: hidden;
@@ -108,17 +108,19 @@
             background: $color-white;
             bottom: 40px;
             margin: 0 $column-gutter * 4;
-            padding: {
-                bottom: 25px;
-                top: 25px;
-            }
             position: absolute;
+            padding: {
+                bottom: 0px;
+                top: 0px;
+            }
             text-align: center;
-            width: calc(100% - #{$column-gutter * 8});
+
+            .teaser__source,
+            .teaser__summary {
+                display: none;
+            }
         }
 
-        @media #{$xlarge-up} {
-            padding: 30px 60px;
         }
     }
 
@@ -160,7 +162,8 @@
     @media #{$xlarge-up} {
         margin-bottom: $column-gutter * 2;
     }
-}
+
+
 
 // Hero content partially over the img
 @mixin teaser-half-hero {
@@ -169,7 +172,6 @@
     .teaser__content {
         margin-bottom: -80px;
         padding-top: 0;
-        position: relative;
         top: -65px;
     }
 

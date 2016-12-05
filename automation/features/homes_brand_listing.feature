@@ -12,9 +12,9 @@ Feature: Brand Listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
-        * I should see the brand subscribe teaser "under" the main hero and clickable to open its page
-        * I should see "Australian House and Garden" brand social
-        * I should see recommendations on brand listing page
+    #    * I should see the brand subscribe teaser "under" the main hero and clickable to open its page
+    #    * I should see "Australian House and Garden" brand social
+    #    * I should see recommendations on brand listing page
 
     Scenario: Verify a brand listing page on tablet portrait
         When I switch to "tablet portrait" view
@@ -24,9 +24,9 @@ Feature: Brand Listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
-        * I should see the brand subscribe teaser "under" the main hero and clickable to open its page
-        * I should see "Australian House and Garden" brand social
-        * I should see recommendations on brand listing page
+    #   * I should see the brand subscribe teaser "under" the main hero and clickable to open its page
+    #    * I should see "Australian House and Garden" brand social
+    #    * I should see recommendations on brand listing page
 
     Scenario: Verify a brand listing page on desktop
         When I switch to "desktop" view
@@ -36,6 +36,6 @@ Feature: Brand Listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
-        * I should see the brand subscribe teaser "in front of" the main hero and clickable to open its page
-        * I should see "Australian House and Garden" brand social
-        * I should see recommendations on brand listing page
+    #    * I should see the brand subscribe teaser "in front of" the main hero and clickable to open its page
+    #    * I should see "Australian House and Garden" brand social
+    #    * I should see recommendations on brand listing page

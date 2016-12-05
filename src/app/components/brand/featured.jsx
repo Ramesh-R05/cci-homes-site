@@ -3,8 +3,7 @@ import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import Subscribe from './subscribe';
-import Social from './social';
+import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 
 export default class Featured extends Component {
 
@@ -33,26 +32,45 @@ export default class Featured extends Component {
             subscribeLink = brandConfig.subscribe.link;
         }
 
-        return <section className="brand-section brand-section--top">
-                {/* Subscribe to be the first teaser on xl viewport */}
-                <Subscribe className="show-for-xlarge-up" image={subscribeImage} link={subscribeLink} />
-                {/* Hero article displayed in second position from xl viewports / first on lg down */}
-                <Teaser {...hero} key={`${hero.id}-xl`} modifier="hero" sizes="home-hero" />
-                <div className="brand__social columns small-12 medium-6 large-4 xlarge-3">
-                    {/* First MREC */}
-                    <Ad
-                        className="ad--section-mrec"
-                        sizes={{
-                            small: 'mrec'
-                        }}
-                        targets={{position: 1}}/>
-                    <Social
-                        brand={brand}
-                        social={brandConfig.social} />
+        return (
+            <section className="brand-section brand-section--top columns small-12">
+                <div className="row">
+                    <div className="brand-section--top-teasers columns small-12 medium-12 large-8 xlarge-8">
+                        <Teaser
+                            {...hero}
+                            key={`${hero.id}-xl`}
+                            modifier="hero"
+                            sizes="home-hero" />
+                        <Ad
+                            className="ad--section-mrec teaser"
+                            displayFor={['small', 'medium']}
+                            sizes={['double-mrec', 'mrec']}
+                            targets={{position: 1}}
+                        />
+                        {slice(articles, 1, 7).map(item => <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top"  />)}
+                        <Ad
+                            className="ad--section-mrec teaser"
+                            displayFor={["small","medium"]}
+                            sizes={{
+                                small: ['mrec', 'double-mrec'],
+                                medium: 'mrec'
+                            }}
+                            targets={{position: 2}}/>
+                    </div>
+                        <StickyBlock
+                            breakpoints={['large', 'xlarge']}
+                            containerClasses="columns show-for-large-up large-4 xlarge-4"
+                            containerMarginBottom={60}
+                            carriageYPosition={147}>
+                            <Ad
+                                className="ad--section-mrec"
+                                displayFor={['large', 'xlarge']}
+                                sizes={['double-mrec', 'mrec']}
+                                targets={{position: 1}}
+                            />
+                        </StickyBlock>
                 </div>
-                {/* Subscribe to be the third teaser from lg and down viewport */}
-                <Subscribe className="hide-for-xlarge-up" image={subscribeImage} link={subscribeLink} />
-                {slice(articles, 1, 5).map(item => <Teaser {...item} key={item.id} modifier="img-top" sizes="large" />)}
-            </section>;
+            </section>
+            );
     }
 }

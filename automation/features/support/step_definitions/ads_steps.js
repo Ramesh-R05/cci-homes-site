@@ -1,5 +1,6 @@
 
 var wn_ads = require('../page_objects/ads_widget');
+var wait = require('../utils/wait');
 module.exports = function() {
 
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
@@ -9,6 +10,30 @@ module.exports = function() {
         expect((midAdSlot.value.length)).toEqual(1);
         var bottomAdSlot = browser.elements(wn_ads.bottomLeaderBoard, 5000);
         expect((bottomAdSlot.value.length)).toEqual(1);
+
+    });
+    this.Given(/^I should see sticky MREC ad next to the top news feed$/, function () {
+        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
+       browser.scroll(0,500);
+       //Verify the ad is appearing
+        expect(browser.isVisible(wn_ads.topFeedMrec)).toBe(true);
+        //Verify the ad is a sticky ad after scrolling down
+        browser.scroll(0,900);
+        browser.scroll(0,1500);
+        expect(browser.isVisible(wn_ads.topFeedMrec)).toBe(true);
+        expect(browser.getAttribute(wn_ads.mrecTopFeedSticky, 'style')).toContain("fixed");
+    });
+    this.Given(/^I should see sticky MREC ad next to the bottom news feed$/, function () {
+        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
+        browser.scroll(0,2200);
+        //Verify the ad is appearing
+        expect(browser.isVisible(wn_ads.topFeedMrec)).toBe(true);
+        //Verify the ad is a sticky ad after scrolling down
+        wait(3000);
+        browser.scroll(0,2700);
+        browser.scroll(0,3000);
+        expect(browser.isVisible(wn_ads.bottomFeedMrec)).toBe(true);
+        expect(browser.getAttribute(wn_ads.mrecBottomFeedSticky, 'style')).toContain("fixed");
     });
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.mrec, 5000);
