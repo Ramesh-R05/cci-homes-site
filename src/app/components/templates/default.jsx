@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
 import PageStore from '../../stores/page';
 import MenuStore from '../../stores/menu';
-import NetworkHeader from '@bxm/header/lib/header/header';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import SideMenu from '../side-menu/sideMenu';
@@ -14,6 +13,7 @@ import BrandSectionHandler from '../brand/section';
 import CampaignSectionHandler from '../section/sponsorTag/section';
 import GalleryHandler from '@bxm/gallery/lib/components/page/gallery';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
+import Uniheader from '../header/uniheader';
 import cx from 'classnames';
 import {load} from '@bxm/config';
 const config = load();
@@ -49,7 +49,8 @@ class DefaultTemplate extends Component {
     }
 
     render() {
-        const {Handler, hideNetworkHeader, hideFooter, hideHeader, isExpanded} = this.getPageMetadata();
+        const {content} = this.props;
+        const {Handler, hideFooter, hideHeader, isExpanded} = this.getPageMetadata();
         const localeData = config.get('localeData');
         const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
@@ -57,9 +58,7 @@ class DefaultTemplate extends Component {
 
         return (
             <div className="default-template">
-                <div className={cx('global-header-slider', menuSliderClassName)}>
-                    {hideNetworkHeader ? null : <NetworkHeader/>}
-                </div>
+                {content && content.url === '/' ? <Uniheader /> : null }
                 {hideHeader ? null :
                     <Header
                         isExpanded={isExpanded}
@@ -119,7 +118,6 @@ class DefaultTemplate extends Component {
             case 'Gallery':
                 return {
                     Handler: GalleryHandler,
-                    hideNetworkHeader: true,
                     hideHeader: true,
                     hideFooter: true
                 };

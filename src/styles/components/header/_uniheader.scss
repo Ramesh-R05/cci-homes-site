@@ -1,0 +1,35 @@
+.uniheader {
+    background-color: #F9F9F9;
+    margin: 0 auto;
+
+    &__nav {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding-left: $column-gutter;
+        padding-right: $column-gutter;
+
+        li {
+            display: inline-block;
+            margin: 11px 0 14px 0;
+
+                &:nth-child(2) {
+                    position: relative;
+                    top: 3px;
+                }
+
+            a {
+                padding-right: 25px;
+                text-decoration: none;
+            }
+
+            img {
+                transition: all 0.4s;
+                max-height: 18px;
+
+                &:not(:hover) {
+                    filter: invert(0.5) opacity(0.8);
+                }
+            }
+        }
+    }
+}

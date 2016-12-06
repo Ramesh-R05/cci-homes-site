@@ -1,4 +1,5 @@
 import breakpoints from '../breakpoints';
+import brands from './brands'
 
 var accountId = '761709621001';
 var playerId = 'VkuyApojl';
@@ -78,6 +79,8 @@ export default {
     gigya: {
         apiKey: '3_ghsdy4V7gVQHU_8eFfPgTAKIw-3ct5dXWtLoc86lIcHaPQOswMYyMkMKCe377vah'
     },
+
+    brands,
 
     features: {
         galleryOfGalleries: {

@@ -13,8 +13,8 @@ const config = {
 
 // ----------------------------------------------------------------------------- Stub components
 
-const NetworkHeaderStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
+const UniHeaderStub = Context.createStubComponent();
 const HomepageStub = Context.createStubComponent();
 const HomesArticleStub = Context.createStubComponent();
 const TagSectionStub = Context.createStubComponent();
@@ -84,12 +84,12 @@ function mockErrorHandlerBuilder(code) {
 
 const Default = proxyquire('../../../app/components/templates/default', {
     'react': React,
-    '@bxm/header/lib/header/header': NetworkHeaderStub,
     '../header/header': HeaderStub,
     '../side-menu/sideMenu': SideMenuStub,
     '../home/home': HomepageStub,
     '../article/page': HomesArticleStub,
     '../section/tag/section': TagSectionStub,
+    '../header/uniheader' : UniHeaderStub,
     '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}},
     '../section/navigationTag/section': NavigationTagSectionStub,
     '@bxm/gallery/lib/components/page/gallery': GalleryStub,
@@ -104,7 +104,6 @@ const Default = proxyquire('../../../app/components/templates/default', {
 describe('Default Component template', () => {
     let reactModule;
     let template;
-    let networkHeader;
     let header;
     let sideMenu;
     let footer;
@@ -164,6 +163,7 @@ describe('Default Component template', () => {
             footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
         });
 
+
         it(`sets Header 'isSideMenuOpen' prop to 'false'`, () => {
             expect(header.props.isSideMenuOpen).to.be.false;
         });
@@ -190,45 +190,66 @@ describe('Default Component template', () => {
         });
     });
 
+    describe('Uniheader', () => {
+        describe('when on home page', () => {
+            before( () => {
+                resetStoreData();
+                storeData.PageStore.content = { nodeType: 'Homepage', url: '/' };
+                reactModule = Context.mountComponent(Default);
+            });
+            it('should render the uniheader', () => {
+                TestUtils.findRenderedComponentWithType(reactModule, UniHeaderStub);
+            });
+        });
+
+        describe('when not on home page', () => {
+            let UniHeader;
+            before( () => {
+                resetStoreData();
+                storeData.PageStore.content = { nodeType: 'Homepage', url: '/real-living/' };
+                reactModule = Context.mountComponent(Default);
+                UniHeader = TestUtils.scryRenderedComponentsWithType(reactModule, UniHeaderStub)[0];
+            });
+            it('should not render the uniheader', () => {
+                expect(ReactDOM.findDOMNode(UniHeader)).not.to.exist;
+            });
+        });
+    });
+
     describe('header and footer visibility', () => {
         forOwn({
             'Homepage': {
                 component: HomepageStub,
-                hideNetworkHeader: false,
                 hideHeader: false,
                 isExpanded: true,
                 hideFooter: false
             },
             'HomesArticle': {
                 component: HomesArticleStub,
-                hideNetworkHeader: false,
                 hideHeader: false,
                 isExpanded: false,
                 hideFooter: true
             },
             'NavigationSection': {
                 component: NavigationTagSectionStub,
-                hideNetworkHeader: false,
                 hideHeader: false,
                 isExpanded: false,
                 hideFooter: false
             },
             'TagSection': {
                 component: TagSectionStub,
-                hideNetworkHeader: false,
                 hideHeader: false,
                 isExpanded: false,
                 hideFooter: false
             },
             'Gallery': {
                 component: GalleryStub,
-                hideNetworkHeader: true,
                 hideHeader: true,
                 isExpanded: false,
                 hideFooter: true
             }
         }, (metadata, nodeType) => {
-            const {component, hideFooter, hideNetworkHeader, hideHeader, isExpanded} = metadata;
+            const {component, hideFooter, hideHeader, isExpanded} = metadata;
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
@@ -241,19 +262,6 @@ describe('Default Component template', () => {
                 it('returns the correct handler', () => {
                     template = TestUtils.scryRenderedComponentsWithType(reactModule, component);
                     expect(template).to.have.length(1);
-                });
-
-                it(`${hideNetworkHeader ? 'hides' : 'shows'} the network header`, () => {
-                    networkHeader = TestUtils.scryRenderedComponentsWithType(reactModule, NetworkHeaderStub);
-                    expect(networkHeader).to.have.length(hideNetworkHeader ? 0 : 1);
-                });
-
-                it(`${hideHeader ? 'hides' : 'shows'} the header`, () => {
-                    if (hideHeader) {
-                        expect(ReactDOM.findDOMNode(header)).not.to.exist;
-                    } else {
-                        expect(ReactDOM.findDOMNode(header)).to.exist;
-                    }
                 });
 
                 it(`${hideFooter ? 'hides' : 'shows'} the footer`, () => {
