@@ -17,7 +17,7 @@ module.exports = function() {
     this.When(/^I should see (\d+) teasers on the brand listing page$/, function (number) {
         //verify the number of teasers
         var brandArticle = browser.getAttribute(brand_listing.brandArticle, 'src');
-        expect(brandArticle.length).toEqual(parseInt(number),10);
+        expect(brandArticle.length).toEqual(parseInt(number,10));
     });
 
     this.When(/^I should see each teaser containing its image and clickable to open its page$/, function () {
