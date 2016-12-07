@@ -16,16 +16,6 @@ set @docTypes = 'HomesArticle,Gallery'
 		newTags varchar(max)
 	)
 
-	/*DECLARE @articles TABLE (
-		id int,
-		title varchar(255),
-		documentType varchar(255),
-		CountNavTag int,
-		navTag varchar(max),
-		newTags varchar(max),
-		originalTags varchar(max)
-	)*/
-
 	DECLARE @contentTypes TABLE (
 		nodeid int,
 		alias nvarchar(255)
@@ -101,6 +91,6 @@ set @docTypes = 'HomesArticle,Gallery'
 		cmsPropertyData AS A
 		INNER JOIN @NewTags AS B
 			ON A.id = B.id
-	WHERE
-		A.contentNodeId in (1686)
+	/*WHERE
+		A.contentNodeId in (1686)*/
 
