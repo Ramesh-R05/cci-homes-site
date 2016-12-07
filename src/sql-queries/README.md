@@ -1,4 +1,4 @@
-# HOMES NAVIGATION TAG CLEANSING AND MAPPING. 
+# Homes Navigation Tag Cleansing and Mapping 
 
 ## SQL Queries
 
