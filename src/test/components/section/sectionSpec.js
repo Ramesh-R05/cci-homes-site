@@ -41,17 +41,7 @@ const defaultProps = {
         nodeType: 'Homepage',
         id: 'HOMES-1158'
     },
-    currentPage: 0,
-    isLoading: false,
     isSideMenuOpen: false,
-    nbLoadMoreClicks: 1,
-    pagination: {
-        nbFirstPageItems: 20,
-        nbLoadMoreItems: 18
-    },
-    paging: {
-        pages: 2
-    },
     tags: ['Test']
 };
 
@@ -95,9 +85,7 @@ describe(`Section`, () => {
             hero = TestUtils.findRenderedComponentWithType(reactModule, HeroStub);
             inFocus = TestUtils.findRenderedComponentWithType(reactModule, InFocusStub);
             groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
-            groupRepeatable = TestUtils.findRenderedComponentWithType(reactModule, GroupRepeatableStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
-            loadMore = TestUtils.scryRenderedComponentsWithType(reactModule, LoadMoreStub);
             recommendations = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
         });
 
@@ -196,12 +184,6 @@ describe(`Section`, () => {
                     label: 'section_teaser_1',
                     index: 0
                 });
-            });
-        });
-
-        describe(`Repeatable group of articles`, () => {
-            it(`should pass down the remaining articles`, () => {
-                expect(groupRepeatable.props.articles).to.deep.equal(articlesMock.slice(11, articlesMock.length));
             });
         });
 

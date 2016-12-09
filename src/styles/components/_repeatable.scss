@@ -1,0 +1,48 @@
+.repeatable-component {
+    margin-top: 40px;
+
+    @media #{$large-up} {
+        margin-top: 60px;
+    }
+
+    .load-more {
+        @include grid-column(12);
+        text-align: center;
+
+        .button {
+            position: relative;
+            padding-right: 46px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                background: url('/assets/svgs/down-arrow.svg') no-repeat;
+                color: $color-primary;
+                width: 12px;
+                height: 8px;
+                top: 21px;
+                right: 22px;
+            }
+        }
+    }
+
+    .pagination {
+        display: none;
+    }
+}
+
+.no-js {
+    .load-more {
+        display: none;
+    }
+
+    .pagination {
+        @include grid-column(12);
+        display: inherit;
+        text-align: center;
+
+        .button {
+            margin-left: 10px;
+        }
+    }
+}

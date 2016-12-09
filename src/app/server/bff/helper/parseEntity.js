@@ -17,6 +17,7 @@ const entityPropertyMap = {
     source: 'source',
     articleSource: 'source',
     tags: 'tags',
+    navigationTags: 'navigationTags',
     contentTags: 'tags',
     url: 'url',
     urlName: 'urlName',

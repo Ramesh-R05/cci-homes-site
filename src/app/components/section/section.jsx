@@ -2,13 +2,14 @@ import React, {Component, PropTypes} from 'react';
 import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import cx from 'classnames';
+import loadList from '../../actions/loadList';
 import Header from './header';
 import Group from './group';
 import InFocus from '../inFocus/inFocus';
-import GroupRepeatable from './groupRepeatable';
+import RepeatableGroup from './repeatableGroup';
+import Repeatable from '../repeatable';
 import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import LoadMore from '../loadMore/loadMore';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import {getTagName} from '@bxm/tags/lib/utils';
 
@@ -23,48 +24,25 @@ export default class Section extends Component {
     static propTypes = {
         articles: PropTypes.array.isRequired,
         content: PropTypes.object.isRequired,
-        currentPage: PropTypes.number.isRequired,
         inlineGalleries: PropTypes.element,
-        isLoading: PropTypes.bool.isRequired,
         isSideMenuOpen: PropTypes.bool,
-        nbLoadMoreClicks: PropTypes.number.isRequired,
-        pagination: PropTypes.object.isRequired,
-        paging: PropTypes.object.isRequired,
-        tags: PropTypes.array.isRequired
+        tags: PropTypes.array.isRequired,
+        list: PropTypes.object.isRequired,
+        listNextParams: PropTypes.object.isRequired
     };
 
     static defaultProps = {
         articles: [],
-        currentPage: 0,
         isSideMenuOpen: false,
-
-        pagination: {},
-        paging: {
-            pages: 0,
-            isLoading: false
-        },
+        list: {},
         tags: []
     };
 
-    getGroupRepeatableItemLength() {
-        const nbFirstPageItems = this.props.pagination.nbFirstPageItems;
-        const nbLoadMoreItems = this.props.pagination.nbLoadMoreItems;
-
-        if (!this.props.nbLoadMoreClicks || this.props.currentPage + 1 === this.props.paging.pages) {
-            return this.props.articles.length;
-        }
-        return nbFirstPageItems + nbLoadMoreItems * this.props.nbLoadMoreClicks;
-    }
-
     render() {
-        const {articles, content} = this.props;
-        let loadMoreBtn;
+        const {articles, list, content} = this.props;
 
         if (!articles.length) return null;
-
-        if (this.context.config.isFeatureEnabled('loadMoreBtn') === true) {
-            loadMoreBtn = <LoadMore currentPage={this.props.currentPage} totalPages={this.props.paging.pages} isLoading={this.props.isLoading}/>;
-        }
+        if (!list && !list.items && !list.items.length) return null;
 
         const sectionClassName = cx('section-landing', 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
@@ -158,11 +136,14 @@ export default class Section extends Component {
 
                 <div className="container">
                     {/* Group repeated when paginating */}
-                    <div className="row">
-                        <GroupRepeatable kingtag={kingtag} articles={slice(articles, 11, this.getGroupRepeatableItemLength())} />
-                    </div>
-                    {/* LoadMore btn*/}
-                    {loadMoreBtn}
+                    <Repeatable
+                        component={RepeatableGroup}
+                        action={loadList}
+                        dataSource={this.props.list}
+                        nextParams={this.props.listNextParams}
+                        className="news-feed bottom-news-feed"
+                        adTargets={{ position: 3, kingtag }}
+                    />
 
                     {/* Recommendations */}
                     <Recommendations

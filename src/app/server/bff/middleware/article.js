@@ -16,7 +16,7 @@ export default async function article(req, res, next) {
         if (res.body.entity.tags) {
             const navTags = res.body.entity.tags.find((tag) => tag.includes('navigation'));
             if (navTags) {
-                const relatedArticles = await getLatestTeasers(20, 0, navTags, 'tags');
+                const relatedArticles = await getLatestTeasers(14, 0, navTags, 'tags');
                 res.body.leftHandSide = { items: parseEntities(relatedArticles.data) }
             }
         }

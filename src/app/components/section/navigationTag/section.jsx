@@ -2,9 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import {connectToStores} from '@bxm/flux';
 import isUndefined from 'lodash/lang/isUndefined';
-import PageStore from '../../../stores/page';
-import GalleryOfGalleriesStore from '../../../stores/facetedStores/galleryOfGalleries';
-import TaggedArticlesStore from '../../../stores/facetedStores/taggedArticles';
 import * as FacetedModuleActions from '../../../actions/facetedModule';
 import * as TagUtils from '@bxm/tags/lib/utils';
 import CustomInlineGallery from '../../inlineGallery/customInlineGallery';
@@ -16,70 +13,27 @@ class Section extends Component {
 
     static contextTypes = {
         config: PropTypes.object,
-        executeAction: PropTypes.func,
         getStore: PropTypes.func
     };
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.arrayOf(PropTypes.object).isRequired,
         content: PropTypes.object.isRequired,
-        currentPage: PropTypes.number.isRequired,
         galleries: PropTypes.array,
-        galleriesModuleConfig: PropTypes.any,
-        isLoading: PropTypes.bool.isRequired,
         isSideMenuOpen: PropTypes.bool,
-        moduleConfig: PropTypes.object,
-        paging: PropTypes.object.isRequired,
         tags: PropTypes.array.isRequired
     };
 
     static defaultProps = {
         articles: [],
-        currentPage: 0,
         galleries: [],
         isSideMenuOpen: false,
-        moduleConfig: {},
-        paging: {
-            pages: 0,
-            isLoading: false
-        },
         tags: []
     };
 
     constructor(...args) {
         super(...args);
         this.nbLoadMoreClicks = 0;
-    }
-
-    getAsyncData() {
-        const page = this.props.currentPage ? this.props.currentPage : 0;
-
-        this.context.executeAction(FacetedModuleActions.getPage, {
-            params: {
-                page: page,
-                tags: this.props.tags
-            },
-            moduleConfig: this.props.moduleConfig
-        });
-
-        this.context.executeAction(FacetedModuleActions.getPage, {
-            params: {
-                page: 0,
-                tags: this.props.tags
-            },
-            moduleConfig: this.props.galleriesModuleConfig
-        });
-    }
-
-    componentWillMount() {
-        if (!canUseDOM) this.getAsyncData();
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.currentPage !== this.props.currentPage) {
-            this.nbLoadMoreClicks++;
-            this.getAsyncData();
-        }
     }
 
     render() {
@@ -99,23 +53,18 @@ class Section extends Component {
             <GenericSection
                 {...this.props}
                 inlineGalleries={inlineGalleries}
-                pagination={this.context.config.pagination}
-                nbLoadMoreClicks={this.nbLoadMoreClicks}
             />
         );
     }
 }
 
-export default connectToStores(Section, [PageStore, GalleryOfGalleriesStore, TaggedArticlesStore], (context) => {
+export default connectToStores(Section, ['AppStore'], (context) => {
     return {
-        content: context.getStore(PageStore).getContent(),
-        articles: context.getStore(TaggedArticlesStore).getItems(),
-        galleriesModuleConfig: context.getStore(GalleryOfGalleriesStore).getConfiguration(),
-        galleries: context.getStore(GalleryOfGalleriesStore).getItems(),
-        moduleConfig: context.getStore(TaggedArticlesStore).getConfiguration(),
-        tags: context.getStore(PageStore).getNavigationTags(),
-        paging: context.getStore(TaggedArticlesStore).getPaging(),
-        currentPage: context.getStore(TaggedArticlesStore).getCurrentPage(),
-        isLoading: context.getStore(TaggedArticlesStore).getIsLoading()
+        content: context.getStore('AppStore').getContent(),
+        articles: context.getStore('AppStore').getItems(),
+        galleries: context.getStore('AppStore').getModuleItems('galleries'),
+        list: context.getStore('AppStore').getList(),
+        listNextParams: context.getStore('AppStore').getListNextParams(),
+        tags: context.getStore('AppStore').getNavigationTags()
     };
 });

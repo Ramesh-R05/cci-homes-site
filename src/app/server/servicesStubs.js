@@ -153,9 +153,9 @@ servicesStubs.get('/entity-service/:page', function(req, res) {
 });
 
 servicesStubs.get('/listings-service/teasers', function(req, res) {
-    const {$filter} = req.query;
+    const {$filter, $top} = req.query;
     const sourceMatch = $filter.match(/source eq '([^']+)'/i);
-    const tagMatch = $filter.includes('tags');
+    const tagMatch = $filter.match(/tags eq '([^']+)'/i);
     const galleryMatch = $filter.includes('Gallery');
 
     let teaserResponse = {
@@ -170,13 +170,16 @@ servicesStubs.get('/listings-service/teasers', function(req, res) {
     }
 
     if (tagMatch) {
-        const tagSource = $filter.replace(/[']/ig, '').replace(/[^a-z]/ig, '-').replace('tags-eq-', '');
-        teaserResponse = require(cwd + `/stubs/listings-${tagSource}`);
+        const tag = tagMatch[1].replace(/ |:/g, '-');
+        const teaserData = require(cwd + `/stubs/listings-${tag}`);
+        if ($top) teaserData.data.splice($top);
+        teaserResponse = teaserData;
     }
 
     if (galleryMatch) {
         const galleryResponse = require(cwd + '/stubs/listings-gallery');
-        res.json(galleryResponse)
+        res.json(galleryResponse);
+        return;
     }
 
     res.json(teaserResponse);

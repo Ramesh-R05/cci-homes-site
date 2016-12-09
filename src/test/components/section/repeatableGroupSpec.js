@@ -8,14 +8,14 @@ const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
 const PolarTeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
-const GroupRepeatable = proxyquire('../../../app/components/section/groupRepeatable', {
+const RepeatableGroup = proxyquire('../../../app/components/section/repeatableGroup', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '../polar/polarTeaser': PolarTeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
-describe('GroupRepeatable', () => {
+describe('RepeatableGroup', () => {
 
     describe('with 9 articles', () => {
         let section;
@@ -26,7 +26,7 @@ describe('GroupRepeatable', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <GroupRepeatable articles={articlesMock.slice(1, 10)} />
+                <RepeatableGroup items={articlesMock.slice(1, 10)} adTargets={{ position: 2 }} />
             );
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
@@ -132,7 +132,7 @@ describe('GroupRepeatable', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <GroupRepeatable articles={articlesMock.slice(0, 10)} />
+                <RepeatableGroup items={articlesMock.slice(0, 10)} adTargets={{ position: 2 }} />
             );
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
@@ -227,7 +227,7 @@ describe('GroupRepeatable', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<GroupRepeatable articles={[]} />);
+            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={[]} />);
         });
 
         it('should not be rendered', () => {
@@ -239,7 +239,7 @@ describe('GroupRepeatable', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<GroupRepeatable />);
+            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup />);
         });
 
         it('should not be rendered', () => {

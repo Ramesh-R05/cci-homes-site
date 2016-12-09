@@ -125,6 +125,12 @@ export default {
                 "food:Renovating:Materials:Carpet",
                 "food:Homes navigation:Interiors"
             ],
+            "tagsDetails": [
+                { name: "food:Renovating:Trims and fittings:Flooring:Carpet and floor tiles" },
+                { name: "food:Homes navigation:Renovate" },
+                { name: "food:Topic:Tips and advice" },
+                { name: "food:Renovating:Materials:Carpet" }
+            ],
             "id": "HOMES-1665",
             "parentId": "HOMES-1394",
             "level": 5,

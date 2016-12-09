@@ -33,7 +33,12 @@ class Application extends Component {
 
     render() {
         const Handler = this.props.currentRoute.handler;
-        return <Handler/>;
+        const className = canUseDOM ? '' : 'no-js';
+        return (
+            <div className={className}>
+                <Handler/>
+            </div>
+        );
     }
 }
 

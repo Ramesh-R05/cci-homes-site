@@ -4,7 +4,7 @@ import getFirstTagNameForCategory from '@bxm/tags/lib/utils/getFirstTagNameForCa
 
 class Item extends Component {
     static propTypes = {
-        tags: PropTypes.array,
+        tags: PropTypes.arrayOf(PropTypes.string),
         imageAltText: PropTypes.string,
         imageUrl: PropTypes.string.isRequired,
         source: PropTypes.string,

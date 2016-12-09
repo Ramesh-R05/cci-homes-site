@@ -5,13 +5,13 @@ import {parseEntity} from '../helper/parseEntity';
 export default async function page(req, res, next) {
 
     try {
-        const {page, preview} = req.query;
+        const {page, preview, navSection} = req.query;
 
-        if (!page) {
+        if (!page || navSection) {
             next();
             return;
         }
-        
+
         const saved = `?saved=${!!preview}`;
         const pageEntity = await makeRequest(`${req.app.config.services.remote.entity}/HOMES-${req.query.id}${saved}`);
 

@@ -12,7 +12,9 @@ const AppStore = createReducerStore({
                 entity,
                 items,
                 headerNavigation,
-                inFocusArticles
+                inFocusArticles,
+                galleries,
+                list = []
             } = payload.body;
 
             if (!entity) return;
@@ -23,13 +25,31 @@ const AppStore = createReducerStore({
                 items,
                 headerNavigation,
                 navigationTags: entity.navigationTags,
-                inFocusArticles
+                inFocusArticles,
+                galleries,
+                list
             };
         },
         LOAD_CONTENT_FAILED: (state, payload) => {
             return {
                 error: payload.response.error,
+                items: [],
+                inFocusArticles: [],
+                galleries: [],
+                list: [],
                 content: null
+            };
+        },
+        LOAD_LIST:  (state, payload) => {
+            return {
+                ...state,
+                list: {
+                    ...payload.body.list,
+                    items: [
+                        ...state.list.items,
+                        ...payload.body.list.items
+                    ]
+                }
             };
         }
     },
@@ -40,6 +60,22 @@ const AppStore = createReducerStore({
 
         getItems: (state) => {
             return state.items;
+        },
+
+        getNavigationTags: (state) => {
+            return state.navigationTags;
+        },
+
+        getList: (state) => {
+            return state.list;
+        },
+
+        getListNextParams: (state) => {
+            return {
+                ...state.list.params,
+                listName: state.list.listName,
+                pageNo: (state.list.params.pageNo + 1)
+            };
         },
 
         getModuleItems: (state, module) => {

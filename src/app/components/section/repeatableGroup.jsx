@@ -5,33 +5,32 @@ import Teaser from '../teaser/teaser';
 import chunk from 'lodash/array/chunk';
 
 
-export default class GroupRepeatable extends Component {
+export default class RepeatableGroup extends Component {
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
-        kingtag: PropTypes.string
+        items: PropTypes.array.isRequired,
+        className: PropTypes.string,
+        adTargets: PropTypes.object
     };
 
     static defaultProps = {
-        articles: []
+        items: [],
+        className: '',
+        adTargets: {}
     };
 
     render() {
-        const {articles} = this.props;
-        if (!articles.length) return null;
+        const {items, adTargets} = this.props;
+        if (!items.length) return null;
 
-        const groups = chunk(articles, 9);
-
-        let targets = {position: 2};
-        if (this.props.kingtag) {
-            targets.kingtag = this.props.kingtag;
-        }
+        const groups = chunk(items, 9);
 
         return (
             <div>
                 {groups.map((groupArticles, index) => {
                     const polarAdLabel = `section_teaser_${index + 2}`;
                     let topAd = null;
+
                     if (index) {
                         topAd = (
                             <div className="section-heading">
@@ -42,7 +41,7 @@ export default class GroupRepeatable extends Component {
                                         leaderboard: 'leaderboard',
                                         billboard: ['billboard', 'leaderboard']
                                     }}
-                                    targets={targets}
+                                    targets={adTargets}
                                     />
                             </div>
                         );
@@ -51,8 +50,10 @@ export default class GroupRepeatable extends Component {
                     return (
                         <div key={index}>
                             {topAd}
+
                             <section key={index} className="section--9-items">
                                 <Teaser {...groupArticles[0]} key={groupArticles[0].id} />
+
                                 <PolarTeaser
                                     {...groupArticles[1]}
                                     ad={{
@@ -62,13 +63,16 @@ export default class GroupRepeatable extends Component {
                                         }
                                     }}
                                 />
+
                                 <Ad
                                     className="ad--section-mrec"
                                     displayFor="large"
                                     sizes="mrec"
-                                    targets={targets}
+                                    targets={adTargets}
                                 />
+
                                 {groupArticles.slice(2, 3).map(item => <Teaser {...item} key={item.id} />)}
+
                                 <Ad
                                     className="ad--section-mrec"
                                     displayFor={['small', 'medium', 'xlarge']}
@@ -76,9 +80,11 @@ export default class GroupRepeatable extends Component {
                                         small: 'mrec',
                                         xlarge: ['double-mrec', 'mrec']
                                     }}
-                                    targets={targets}
+                                    targets={adTargets}
                                 />
+
                                 {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
+
                                 {groupArticles.slice(7, 9).map(item => <Teaser {...item} key={item.id} modifier="img-top" sizes="small-hero" />)}
                             </section>
                         </div>

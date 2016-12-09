@@ -146,7 +146,8 @@ export default {
             tag: 'http://dev.tags.services.bauer-media.internal/v1/homes'
         },
         endpoints: {
-            page: '/api/getPageContent'
+            page: '/api/getPageContent',
+            list: '/api/list'
         },
 
         content: {
