@@ -9,6 +9,28 @@ Feature: Ad
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         Then I can see the sticky ad when the top banner disappears from view
 
+    Scenario Outline: Ads on gallery page in the <device> view
+        Given I switch to "<device>" view
+        When I am currently viewing "automation-test-gallery-3201"
+        * I should see the bottom leaderboard ad under the gallery slide
+        * I should see the MREC ad at the bottom right of the gallery
+        * I should see the MREC ad after the 3 slide
+    Examples:
+        |device|
+        |desktop|
+        |tablet landscape|
+
+    Scenario Outline: Ads on gallery page in the <device> view
+        Given I switch to "<device>" view
+        When I am currently viewing "automation-test-gallery-3201"
+        * I should see the top leaderboard ad above the gallery slide
+        * I should not see the MREC ad at the bottom right of the gallery
+        * I should see the MREC ad after the 3 slide
+        Examples:
+            |device|
+            |mobile|
+            |tablet portrait|
+
     @BXMS-12
     Scenario Outline: Ads on brand landing page in the <device> view
         Given I switch to "<device>" view

@@ -16,6 +16,11 @@ var ads_widget = {
     articleBottomMrec: '.ad--article-before-recommendations',
     topMobileBanner: '.ad--beneath-hero',
     homesTopMobileBanner: '.ad--beneath-short-teaser',
-    homesBottomMobileBanner: '.ad--article-beneath-recommendations'
+    homesBottomMobileBanner: '.ad--article-beneath-recommendations',
+    galleryAdBottomLeaderBoard: '.ad.gallery__footer-ad.ad--top-label #gpt-slot-1',
+    galleryAdTopLeaderBoard: '.ad.gallery__mobile-ad.ad--bottom-label',
+    adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label #gpt-slot-2',
+    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label #gpt-slot-3'
+
 };
 module.exports = ads_widget;

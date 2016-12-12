@@ -1,5 +1,6 @@
 
 var wn_ads = require('../page_objects/ads_widget');
+var gallery = require('../page_objects/gallery_widget');
 var wait = require('../utils/wait');
 module.exports = function() {
 
@@ -75,6 +76,28 @@ module.exports = function() {
         var adSlots = browser.elements(wn_ads.homesBottomMobileBanner, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+    this.Then(/^I should see the top leaderboard ad above the gallery slide$/, function () {
+        expect(browser.isVisible(wn_ads.galleryAdTopLeaderBoard)).toBe(true);
+    });
 
+    this.Then(/^I should see the bottom leaderboard ad under the gallery slide$/, function () {
+        expect(browser.isVisible(wn_ads.galleryAdBottomLeaderBoard)).toBe(true);
+    });
+    this.Then(/^I should not see the MREC ad at the bottom right of the gallery$/, function () {
+        expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(false);
+    });
+    this.Then(/^I should see the MREC ad at the bottom right of the gallery$/, function () {
+        expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(true);
+    });
+
+    this.Then(/^I should see the MREC ad after the (\d+) slide$/, function (slide) {
+        //Go to the MREC slide
+        for (var i=0; i<slide; i++){
+            browser.click(gallery.galleryNextButton);
+        }
+        //Validate
+        browser.waitForVisible(wn_ads.adMrecInSlideGallery,3000);
+        expect(browser.isVisible(wn_ads.adMrecInSlideGallery)).toBe(true);
+    });
 
 };
