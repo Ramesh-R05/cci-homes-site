@@ -622,5 +622,62 @@ export default [
         "nodeTypeAliasPath": ["Page", "Editorial", "Articles", "HomesArticle"],
         "contentImageAltText": "Masterclass: grab attention with focal points",
         "contentImageCaption": "Take a masterclass in how to introduce focal points into your home. Photo: Scott Hawkins / bauersyndication.com.au"
+    },
+    {
+        id: "HOMES-3054",
+        url: "/spotlight-on-architect-kerstin-thompson-3054",
+        path: ["HOMES--1", "HOMES-1158", "HOMES-1579", "HOMES-2783", "HOMES-3051", "HOMES-3054"],
+        tags: ["food:Decorating:Style:Contemporary", "food:Topic:In focus", "food:Decorating:Style:Luxe", "food:Decorating:Style:Country", "food:Homes navigation:DIY"],
+        source: "Australian House and Garden",
+        sortOrder: "2",
+        contentTags: ["food:Decorating:Style:Contemporary", "food:Topic:In focus", "food:Decorating:Style:Luxe", "food:Decorating:Style:Country", "food:Homes navigation:DIY"],
+        contentYear: 2016,
+        tagsDetails: [
+            {
+                name: "food:Topic:In focus",
+                urlName: "in-focus",
+                fullName: "food_Topic_In_focus",
+                displayName: "In focus"
+            },
+            {
+                name: "food:Homes navigation:DIY",
+                urlName: "diy",
+                fullName: "food_Homes_navigation_DIY",
+                displayName: "DIY"
+            },
+            {
+                name: "food:Decorating:Style:Luxe",
+                urlName: "luxe",
+                fullName: "food_Decorating_Style_Luxe",
+                displayName: "Luxe"
+            },
+            {
+                name: "food:Decorating:Style:Country",
+                urlName: "country",
+                fullName: "food_Decorating_Style_Country",
+                displayName: "Country"
+            },
+            {
+                name: "food:Decorating:Style:Contemporary",
+                urlName: "contemporary",
+                fullName: "food_Decorating_Style_Contemporary",
+                displayName: "Contemporary"
+            }
+        ],
+        contentMonth: 3,
+        contentTitle: "Spotlight on architect Kerstin Thompson",
+        contentVideo: "",
+        nodeTypeAlias: "Gallery",
+        contentSummary: "Architect Kerstin Thompson amps up the impact in her subtle structures with raw materials that age gracefully.",
+        pageSearchTags: ["Contemporary", "contemporary","In focus","In-focus", "in-focus","in focus", "Luxe", "luxe", "Country", "country", "DIY", "diy"],
+        contentHasVideo: false,
+        contentImageUrl: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
+        pageDateCreated: "2016-03-01T04:07:50.00Z",
+        nodeTypeAliasPath: [
+            "Page",
+            "Editorial",
+            "Gallery"
+        ],
+        contentImageAltText: "Spotlight on architect Kerstin Thompson"
     }
 ];

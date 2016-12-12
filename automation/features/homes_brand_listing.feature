@@ -8,7 +8,7 @@ Feature: Brand Listing page
         When I switch to "mobile" view
         Given I am currently viewing "australian-house-and-garden"
         * I should see "Australian House and Garden" brand logo
-        * I should see 12 teasers on the brand listing page
+        * I should see 13 teasers on the brand listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
@@ -20,7 +20,7 @@ Feature: Brand Listing page
         When I switch to "tablet portrait" view
         Given I am currently viewing "australian-house-and-garden"
         * I should see "Australian House and Garden" brand logo
-        * I should see 12 teasers on the brand listing page
+        * I should see 13 teasers on the brand listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
@@ -32,7 +32,7 @@ Feature: Brand Listing page
         When I switch to "desktop" view
         Given I am currently viewing "australian-house-and-garden"
         * I should see "Australian House and Garden" brand logo
-        * I should see 12 teasers on the brand listing page
+        * I should see 13 teasers on the brand listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
