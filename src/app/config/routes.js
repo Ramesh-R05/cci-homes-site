@@ -9,6 +9,12 @@ export default {
         handler: defaultTemplate,
         action: loadPageContent
     },
+    tags: {
+        path: ':all(/tags/.+)',
+        method: 'get',
+        handler: defaultTemplate,
+        action: loadContent
+    },
     preview: {
         path: '/:preview(preview)/:page(.*\-):id([0-9]+)',
         method: 'get',

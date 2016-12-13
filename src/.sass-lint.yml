@@ -139,8 +139,8 @@ rules:
     - 0
     - include: false
   space-after-colon:
-    - 2
-    - include: true
+    - 0
+    - include: false
   space-after-comma: 0
   space-before-bang:
     - 0
