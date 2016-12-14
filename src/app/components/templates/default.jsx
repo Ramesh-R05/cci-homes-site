@@ -141,29 +141,10 @@ class DefaultTemplate extends Component {
 }
 
 export default connectToStores(DefaultTemplate, ['AppStore', PageStore, MenuStore], (context) => {
-
-    //START********************************
-    //NOTE: this is a temporary fix until ALL pages (tag, nav tag, brand, article, gallery) are available via the BFF.
-    let headerNavItems = context.getStore('AppStore').getHeaderItems();
-
-    if(!headerNavItems || headerNavItems.length === 0)
-        headerNavItems = getNavItems();
-
-    function getNavItems() {
-        return [
-            { name: 'Home tours', url: '/home-tours' },
-            { name: 'Interiors', url: '/interiors' },
-            { name: 'Outdoor', url: '/outdoor' },
-            { name: 'Renovate', url: '/renovate' },
-            { name: 'My Ideal House', url: '/my-ideal-house' }
-        ];
-    }
-    //*******************************END
-
     return {
         content: context.getStore(PageStore).getContent(),
         contentErrorStatus: context.getStore(PageStore).getErrorStatus(),
         isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-        headerNavItems: headerNavItems
+        headerNavItems: context.getStore('AppStore').getHeaderItems()
     };
 });
