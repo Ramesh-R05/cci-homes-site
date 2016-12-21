@@ -26,8 +26,8 @@ export default {
           },
           {
             "id": "HOMES-1307",
-            "url": "/kitchen",
-            "contentTitle": "Kitchen",
+            "url": "/interiors",
+            "contentTitle": "Interiors",
             "contentVideo": "",
             "nodeTypeAlias": "NavigationSection",
             "contentHasVideo": false,

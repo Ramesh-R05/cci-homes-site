@@ -23,5 +23,8 @@ export default {
     },
     site: {
         host: 'http://automation.homes-site.wn.bauer-media.net.au'
+    },
+    ads: {
+        targets: {'env': 'test3'}
     }
 };

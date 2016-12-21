@@ -1,5 +1,4 @@
-export default
-{
+export default{
     "totalCount": 368,
     "data": [
         {
