@@ -154,9 +154,9 @@ servicesStubs.get('/entity-service/:page', function(req, res) {
 
 servicesStubs.get('/listings-service/teasers', function(req, res) {
     const {$filter, $top} = req.query;
-    const sourceMatch = $filter.match(/source eq '([^']+)'/i);
-    const tagMatch = $filter.match(/tags eq '([^']+)'/i);
-    const galleryMatch = $filter.includes('Gallery');
+    const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
+    const tagMatch = $filter.match(/^tags eq '([^']+)'$/i);
+    const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
 
     let teaserResponse = {
         totalCount: 0,
