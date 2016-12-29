@@ -93,6 +93,10 @@
     }
 
     .brand-section--top-teasers {
+        @media #{$small-only} {
+            @include grid-column($collapse: true);
+        }
+
         @media #{$large-up} {
             border-right: 1px solid $color-section-separator;
             margin-bottom: 35px;
@@ -106,7 +110,7 @@
             @include grid-column(6);
 
             @media #{$small-only} {
-                @include grid-column(12);
+                @include grid-column($columns: 12, $collapse: true);
             }
         }
 
