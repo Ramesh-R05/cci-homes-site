@@ -64,8 +64,4 @@ describe('SponsorTagSection', () => {
     it(`should pass down the moduleConfig prop to the GenericSection component`, () => {
         expect(genericSection.props.moduleConfig).to.be.null;
     });
-
-    it(`should pass down the tags prop to the GenericSection component`, () => {
-        expect(genericSection.props.tags).to.deep.equal([tags]);
-    });
 });

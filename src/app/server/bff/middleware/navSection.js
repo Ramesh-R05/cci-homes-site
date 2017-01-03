@@ -4,7 +4,7 @@ import {getLatestTeasers} from '../api/listing';
 
 export default async function navSection(req, res, next) {
     try {
-        const itemsCount = 12;
+        const itemsCount = 11;
         const listCount = 9;
         const {navSection} = req.query;
 

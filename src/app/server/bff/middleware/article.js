@@ -6,15 +6,15 @@ export default async function article(req, res, next) {
 
     try {
 
-        const {nodeType} = res.body.entity;
+        const {entity} = res.body;
 
-        if (nodeType !== 'HomesArticle') {
+        if (!entity || entity.nodeType !== 'HomesArticle') {
             next();
             return;
         }
 
-        if (res.body.entity.tags) {
-            const navTags = res.body.entity.tags.find((tag) => tag.includes('navigation'));
+        if (entity.tags) {
+            const navTags = entity.tags.find((tag) => tag.includes('navigation'));
             if (navTags) {
                 const relatedArticles = await getLatestTeasers(14, 0, navTags, 'tags');
                 res.body.leftHandSide = { items: parseEntities(relatedArticles.data) }

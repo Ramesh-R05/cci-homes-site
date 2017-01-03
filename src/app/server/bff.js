@@ -8,6 +8,7 @@ import page from './bff/middleware/page';
 import article from './bff/middleware/article';
 import gallery from './bff/middleware/gallery';
 import navSection from './bff/middleware/navSection';
+import tag from './bff/middleware/tag';
 import list from './bff/middleware/list';
 
 export default function bff(server) {
@@ -25,6 +26,7 @@ export default function bff(server) {
         brand,
         page,
         navSection,
+        tag,
         article,
         gallery,
         headerMeta,

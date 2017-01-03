@@ -5,9 +5,9 @@ import {parseEntity} from '../helper/parseEntity';
 export default async function page(req, res, next) {
 
     try {
-        const {page, preview, navSection} = req.query;
+        const {page, preview} = req.query;
 
-        if (!page || navSection) {
+        if (!page) {
             next();
             return;
         }

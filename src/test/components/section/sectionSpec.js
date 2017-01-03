@@ -39,10 +39,13 @@ const defaultProps = {
     articles: articlesMock,
     content: {
         nodeType: 'Homepage',
-        id: 'HOMES-1158'
+        id: 'HOMES-1158',
+        title: 'Section Heading',
+        tagsDetails: [
+            { displayName: 'Test' }
+        ]
     },
     isSideMenuOpen: false,
-    tags: ['Test']
 };
 
 // ----------------------------------------------------------------------------- tests
@@ -102,8 +105,8 @@ describe(`Section`, () => {
             expect(recommendations.props.nodeId).to.equal('HOMES-1158');
         });
 
-        it(`should pass down the tags prop to the Heading component as ${navigationTags}`, () => {
-            expect(header.props.tags).to.deep.equal(navigationTags);
+        it(`should pass down the title prop to the Heading component`, () => {
+            expect(header.props.title).to.deep.equal(defaultProps.content.title);
         });
 
         // Hero

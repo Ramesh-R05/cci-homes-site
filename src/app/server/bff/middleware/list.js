@@ -6,7 +6,7 @@ export default async function list(req, res, next) {
     try {
         const pageNo = parseInt(req.query.pageNo, 10);
         const {filterProperty, filterValue, listName} = req.query;
-        const skip =  ((pageNo-1) * listCount) + 3; // the initial page data has 3 more items than load more
+        const skip =  ((pageNo-1) * listCount) + 2; // the initial page data has 2 more items than load more
         const listResp = await getLatestTeasers(listCount, skip, filterValue, filterProperty);
 
         const basePath = listName ? `/${listName}` : `/`;

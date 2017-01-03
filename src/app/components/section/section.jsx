@@ -11,7 +11,6 @@ import Repeatable from '../repeatable';
 import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
-import {getTagName} from '@bxm/tags/lib/utils';
 
 export default class Section extends Component {
 
@@ -26,7 +25,6 @@ export default class Section extends Component {
         content: PropTypes.object.isRequired,
         inlineGalleries: PropTypes.element,
         isSideMenuOpen: PropTypes.bool,
-        tags: PropTypes.array.isRequired,
         list: PropTypes.object.isRequired,
         listNextParams: PropTypes.object.isRequired
     };
@@ -34,8 +32,7 @@ export default class Section extends Component {
     static defaultProps = {
         articles: [],
         isSideMenuOpen: false,
-        list: {},
-        tags: []
+        list: {}
     };
 
     render() {
@@ -48,13 +45,16 @@ export default class Section extends Component {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
-        const kingtag = getTagName(this.props.tags[0]);
+        let kingtag = content.title;
+        if (content.tagsDetails && content.tagsDetails.length > 0) {
+            kingtag = content.tagsDetails[0].displayName;
+        }
 
         return (
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="row">
-                        <Header tags={this.props.tags} sponsorName={content.sponsor || 'homes_sponsor'}>
+                        <Header title={content.title} sponsorName={content.sponsor || 'homes_sponsor'}>
                             <Ad
                                 className="ad--section-top-leaderboard"
                                 sizes={{

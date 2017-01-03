@@ -13,14 +13,14 @@ const Header = proxyquire('../../../app/components/section/header', {
 
 describe('SectionHeader', () => {
 
-    const singleWordHeading = ['homes:Homes navigation:Section'];
+    const singleWordHeading = 'Section';
     describe(`with the heading prop equal to ${singleWordHeading}`, () => {
         let reactModule;
         let sponsorHeader;
         let heading;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header tags={singleWordHeading} />);
+            reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} />);
             sponsorHeader = TestUtils.findRenderedComponentWithType(reactModule, SponsorHeaderStub);
             heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
         });
@@ -41,12 +41,12 @@ describe('SectionHeader', () => {
         });
     });
 
-    const twoWordsHeading = ['homes:Homes navigation:Section Tag'];
+    const twoWordsHeading = 'Section Tag';
     describe(`with the heading prop equal to ${twoWordsHeading}`, () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header tags={twoWordsHeading} />);
+            reactModule = TestUtils.renderIntoDocument(<Header title={twoWordsHeading} />);
         });
 
         const expectedHeading = 'Section Tag';
@@ -62,12 +62,12 @@ describe('SectionHeader', () => {
         });
     });
 
-    const threeWordsHeading = ['homes:Homes navigation:Section Tag Landing'];
+    const threeWordsHeading = 'Section Tag Landing';
     describe(`with the heading prop equal to ${threeWordsHeading}`, () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header tags={threeWordsHeading} />);
+            reactModule = TestUtils.renderIntoDocument(<Header title={threeWordsHeading} />);
         });
 
         const expectedHeading = 'Section Tag Landing';
@@ -83,12 +83,12 @@ describe('SectionHeader', () => {
         });
     });
 
-    const fourWordsHeading = ['homes:Homes navigation:Section Tag Landing Page'];
+    const fourWordsHeading = 'Section Tag Landing Page';
     describe(`with the heading prop equal to ${fourWordsHeading}`, () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header tags={fourWordsHeading} />);
+            reactModule = TestUtils.renderIntoDocument(<Header title={fourWordsHeading} />);
         });
 
         const expectedHeading = 'Section Tag Landing Page';
@@ -117,7 +117,7 @@ describe('SectionHeader', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Header tags={['homes:Homes navigation:Section']}>
+                <Header title="homes:Homes navigation:Section">
                     <ChildrenComponentStub />
                 </Header>
             );
@@ -134,18 +134,6 @@ describe('SectionHeader', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Header />);
-        });
-
-        it('should not be rendered', () => {
-            expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
-        });
-    });
-
-    describe('with the heading prop as a string', () => {
-        let reactModule;
-
-        before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header tags={'Heading'} />);
         });
 
         it('should not be rendered', () => {

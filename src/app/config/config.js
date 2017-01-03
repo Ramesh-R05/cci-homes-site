@@ -66,6 +66,7 @@ export default {
     },
 
     gtm: {
+        masthead: 'HOMES',
         id: 'GTM-KG7F8H'
     },
 
@@ -143,7 +144,7 @@ export default {
             listings: 'http://dev.listings.services.bauer-media.internal/v1/homes',
             module: 'http://dev.modules.services.bauer-media.internal/v1/homes',
             sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/homes',
-            tag: 'http://dev.tags.services.bauer-media.internal/v1/homes'
+            tag: 'http://dev.tags.services.bauer-media.internal/v1'
         },
         endpoints: {
             page: '/api/getPageContent',

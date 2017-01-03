@@ -42,6 +42,11 @@ export default function headerMeta(req, res, next) {
             hrefLang: entity.pageHrefLang || ''
         };
 
+        const currentPageUrl = get(res.body, 'list.current.url');
+        if (currentPageUrl) {
+            headerMetaData.canonicalUrl = currentPageUrl;
+        }
+
         res.body = {
             ...res.body,
             headerMetaData

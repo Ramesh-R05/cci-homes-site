@@ -26,9 +26,6 @@ const Section = proxyquire('../../../../app/components/section/navigationTag/sec
 
 // ----------------------------------------------------------------------------- Mocked data/stores
 
-const tags = [{ name: 'homes:Homes navigation:Section' }];
-const pagination = {nbFirstPageItems: 20, nbLoadMoreItems: 18};
-
 ComponentContext.addStore('AppStore', {
     getContent: () => entity,
     getModuleItems: () => gogMock,
@@ -51,12 +48,7 @@ describe(`NavigationTagSection`, () => {
     let genericSection;
 
     before(() => {
-        const contextConfigStub = {
-            key: 'config',
-            type: React.PropTypes.object,
-            value: {pagination: pagination}
-        };
-        reactModule = ComponentContext.mountComponent(Section, {}, [contextConfigStub]);
+        reactModule = ComponentContext.mountComponent(Section, {});
         genericSection = TestUtils.findRenderedComponentWithType(reactModule, GenericSectionStub);
     });
 
@@ -70,10 +62,6 @@ describe(`NavigationTagSection`, () => {
 
     it(`should pass down the isSideMenuOpen prop to the GenericSection component`, () => {
         expect(genericSection.props.isSideMenuOpen).to.be.false;
-    });
-
-    it(`should pass down the tags prop to the GenericSection component`, () => {
-        expect(genericSection.props.tags).to.deep.equal(tags);
     });
 
     it(`should pass down the inlineGalleries component to the GenericSection component with the galleries data`, () => {

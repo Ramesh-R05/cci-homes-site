@@ -1,6 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import * as TagUtils from '@bxm/tags/lib/utils';
-import isUndefined from 'lodash/lang/isUndefined';
 import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
 
 export default class Header extends Component {
@@ -9,25 +7,20 @@ export default class Header extends Component {
 
     static propTypes = {
         children: PropTypes.any,
-        tags: PropTypes.array.isRequired
-    };
-
-    static defaultProps = {
-        tags: []
+        title: PropTypes.string.isRequired
     };
 
     render() {
-        let tags = this.props.tags;
-        if (isUndefined(tags) || !Array.isArray(tags) || tags.length === 0) {
+        const {title} = this.props;
+        if (!title) {
             return null;
         }
 
         let htmlHeading;
-        const heading = TagUtils.getTagName(tags[0]);
-        const words = heading.match(/\S+/g);
+        const words = title.match(/\S+/g);
 
         if (words.length === 1) {
-            htmlHeading = <h1><b>{heading}</b></h1>;
+            htmlHeading = <h1><b>{title}</b></h1>;
         } else {
             htmlHeading = (
                 <h1>
@@ -47,7 +40,7 @@ export default class Header extends Component {
                 {this.props.children}
                 <SponsorHeader
                     id={this.props.sponsorName}
-                    title={<b>{heading}</b>}>
+                    title={<b>{title}</b>}>
                         {htmlHeading}
                 </SponsorHeader>
             </div>

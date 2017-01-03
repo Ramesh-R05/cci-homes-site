@@ -36,7 +36,6 @@ class Section extends Component {
                 {...this.props}
                 isLoading={false}
                 nbLoadMoreClicks={0}
-                tags={[this.props.content.title]}
             />
         );
     }

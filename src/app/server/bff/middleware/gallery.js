@@ -6,9 +6,9 @@ export default async function gallery(req, res, next) {
 
     try {
 
-        const {nodeType} = res.body.entity;
+        const {entity} = res.body;
 
-        if (nodeType !== 'Gallery') {
+        if (!entity || entity.nodeType !== 'Gallery') {
             next();
             return;
         }

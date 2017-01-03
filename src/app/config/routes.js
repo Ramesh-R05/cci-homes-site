@@ -10,10 +10,10 @@ export default {
         action: loadPageContent
     },
     tags: {
-        path: ':all(/tags/.+)',
+        path: '/tags/:tag*',
         method: 'get',
         handler: defaultTemplate,
-        action: loadContent
+        action: loadPageContent
     },
     preview: {
         path: '/:preview(preview)/:page(.*\-):id([0-9]+)',
