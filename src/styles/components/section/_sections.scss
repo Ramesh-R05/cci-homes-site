@@ -3,9 +3,7 @@
 $section-minor-bp-1: 1590px;
 
 .section-landing {
-    @media #{$medium-up} {
-        padding-top: 97px;
-    }
+    padding-top: 0px;
 }
 
 .section-heading {
@@ -72,7 +70,7 @@ $section-minor-bp-1: 1590px;
         // Show second hero on large screen only
         &:nth-of-type(2) {
             display: none;
-            
+
             @media #{$large-only} {
                 display: block;
             }

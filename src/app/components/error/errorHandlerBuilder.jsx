@@ -29,8 +29,8 @@ export default (code) => class ErrorHandler extends Component {
         return (
             <section className="error-page container">
                 <h1 className="error-page__title">{title}</h1>
-                {content.map(item => (
-                    <p className="error-page__body-item">{item}</p>
+                {content.map((item, i) => (
+                    <p key={i} className="error-page__body-item">{item}</p>
                 ))}
                 <p className="error-page__footer">
                     <a href="/" className="error-page__homepage-link">

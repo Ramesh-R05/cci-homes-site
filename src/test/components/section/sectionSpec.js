@@ -42,16 +42,22 @@ const defaultProps = {
         id: 'HOMES-1158',
         title: 'Section Heading',
         tagsDetails: [
-            { displayName: 'Test' }
+            { displayName: 'Section Heading with Tags Details' }
         ]
     },
     isSideMenuOpen: false,
 };
 
+let customProps;
+function resetProps() {
+    customProps = cloneDeep(defaultProps);
+}
+
 // ----------------------------------------------------------------------------- tests
 
 describe(`Section`, () => {
     let reactModule;
+    let header;
 
     afterEach(Context.cleanup);
 
@@ -72,7 +78,6 @@ describe(`Section`, () => {
         const sectionClassName = 'section-landing';
         const contextConfigStubEnabled = {key: 'config', type: '', value: {isFeatureEnabled: () => true}};
         let section;
-        let header;
         let inFocus;
         let groups;
         let groupRepeatable;
@@ -103,10 +108,6 @@ describe(`Section`, () => {
         it(`should pass down the correct props to the Recommendations component`, () => {
             expect(recommendations.props.nodeType).to.equal('Homepage');
             expect(recommendations.props.nodeId).to.equal('HOMES-1158');
-        });
-
-        it(`should pass down the title prop to the Heading component`, () => {
-            expect(header.props.title).to.deep.equal(defaultProps.content.title);
         });
 
         // Hero
@@ -262,7 +263,7 @@ describe(`Section`, () => {
                 expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            const targets = {position: 2, kingtag: 'Test'};
+            const targets = {position: 2, title: 'Section Heading with Tags Details'};
             it(`should have the targets props equal to ${targets}`, () => {
                 expect(ads[3].props.targets).to.deep.equal(targets);
             });
@@ -283,12 +284,31 @@ describe(`Section`, () => {
                 expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            const targets = {position: 3, kingtag: 'Test'};
+            const targets = {position: 3, title: 'Section Heading with Tags Details'};
             it(`should have the targets props equal to ${targets}`, () => {
                 expect(ads[4].props.targets).to.deep.equal(targets);
             });
         });
 
+    });
+
+    describe(`with Tags Details`, () => {
+        beforeEach( () => {
+            resetProps();
+        });
+
+        it(`when defined should use tagsDetails displayName instead of title prop in the Heading component`, () => {
+            reactModule = Context.mountComponent(Section, customProps, [contextConfigStub]);
+            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
+            expect(header.props.title).to.deep.equal(customProps.content.tagsDetails[0].displayName);
+        });
+
+        it(`when undefined should pass down the title prop to the Heading component`, () => {
+            customProps.content.tagsDetails = undefined;
+            reactModule = Context.mountComponent(Section, customProps, [contextConfigStub]);
+            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
+            expect(header.props.title).to.deep.equal(customProps.content.title);
+        });
     });
 
     describe(`with the side menu closed`, () => {
@@ -310,11 +330,9 @@ describe(`Section`, () => {
     });
 
     describe(`with the side menu opened`, () => {
-        const customProps = cloneDeep(defaultProps);
-        customProps.isSideMenuOpen = true;
-
         before(() => {
-            reactModule = Context.mountComponent(Section, customProps, [contextConfigStub]);
+            defaultProps.isSideMenuOpen = true;
+            reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
         });
 
         const expectedOpenClassName = "side-menu-slider--side-menu-open";

@@ -1,10 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import Navigation from '../header/navigation';
-import MagShop from '../magshop/magshop';
+import SideMenuLogo from './sideMenuLogo';
 import * as MenuActions from '../../actions/menuActions';
 import clone from 'lodash/lang/clone';
-import { SponsorsLinks } from '../header/sponsorsLinks';
 
 export default class SideMenu extends Component {
     static propTypes = {
@@ -18,6 +17,7 @@ export default class SideMenu extends Component {
     };
 
     static contextTypes = {
+        config: PropTypes.object,
         executeAction: PropTypes.func
     };
 
@@ -44,6 +44,21 @@ export default class SideMenu extends Component {
         const items = clone(navItems);
         items.unshift({ name: 'Home', url: '/' });
 
+        let { hamburgerBrands } = this.context.config;
+        const sideMenuListClassName = "side-menu-list";
+        const sideMenuListLogosGTMClassNamePrefix = "gtm-hamburger-";
+
+        const sideMenuLogos = hamburgerBrands.map(
+            (item, i) =>
+                <SideMenuLogo
+                    key={i}
+                    logoItem={item}
+                    openInNewTab={true}
+                    sideMenuListClassName={sideMenuListClassName}
+                    sideMenuListLogosGTMClassNamePrefix={sideMenuListLogosGTMClassNamePrefix}
+                />
+        );
+
         return (
             <div className={className}>
                 <div className="side-menu__bar">
@@ -64,12 +79,9 @@ export default class SideMenu extends Component {
                             showGroupLabel={false}
                         />
                         <div className="side-menu__separator"></div>
-                        <SponsorsLinks
-                            by="powered by"
-                            displayTextOnly={true}
-                            classNameModify="--text-vertical-only" />
-                        <div className="side-menu__separator"></div>
-                        <MagShop inSideNav={true} content={magShopData} />
+                        <ul className={sideMenuListClassName}>
+                            {sideMenuLogos}
+                        </ul>
                     </div>
                 </div>
                 <button className="side-menu__overlay" onClick={this.activateSideMenu}></button>

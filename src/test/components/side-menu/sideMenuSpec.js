@@ -10,11 +10,11 @@ const {React, ReactDOM, TestUtils} = Context;
 
 const activateSideMenu = () => {};
 const NavigationStub = Context.createStubComponent();
-const MagshopStub = Context.createStubComponent();
+const SideMenuLogoStub = Context.createStubComponent();
 const SideMenu = proxyquire('../../../app/components/side-menu/sideMenu', {
     'react': React,
     '../header/navigation': NavigationStub,
-    '../magshop/magshop': MagshopStub,
+    './sideMenuLogo': SideMenuLogoStub,
     '../../actions/menuActions': { activateSideMenu }
 });
 
@@ -32,11 +32,35 @@ describe(`SideMenu Component`, () => {
     let closeButton;
     let nav;
     let overlay;
-    let magshop;
     let separators;
+    let sideMenuLogoComponent;
+
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: {
+            hamburgerBrands: [{
+                "imageUrl": "/assets/images/menulogos/now-logo-white.svg",
+                "url": "http://nowtolove.com.au/",
+                "title": "Now To Love",
+                "id": "now"
+            }]
+        }
+    };
+
 
     describe('render and class names', () => {
-        before(renderDefault);
+
+        before ( () => {
+            reactModule = Context.mountComponent(SideMenu, {navItems: navItems, data: localeData}, [contextConfigStub]);
+            bar = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__bar');
+            container = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__container');
+            closeButton = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__close');
+            nav = TestUtils.findRenderedComponentWithType(reactModule, NavigationStub);
+            overlay = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__overlay');
+            separators = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__separator');
+            sideMenuLogoComponent = TestUtils.findRenderedComponentWithType(reactModule, SideMenuLogoStub);
+        });
 
         it('renders the reactModule', () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.exist;
@@ -70,13 +94,19 @@ describe(`SideMenu Component`, () => {
             expect(ReactDOM.findDOMNode(overlay)).to.exist;
         });
 
-        it('renders the Magshop subscription section', () => {
-            expect(ReactDOM.findDOMNode(magshop)).to.exist;
-        });
-
-        const separatorLength = 2;
+        const separatorLength = 1;
         it(`renders ${separatorLength} separators`, () => {
             expect(separators.length).to.equal(separatorLength);
+        });
+
+        it('renders the logos', () => {
+            const SideMenuLogoComponent = TestUtils.scryRenderedComponentsWithType(reactModule, SideMenuLogoStub);
+            expect(SideMenuLogoComponent.length).to.equal(1);
+        });
+
+        const expectedGTMClassName = 'gtm-hamburger-';
+        it(`passing expected GTM className of ${expectedGTMClassName} to side menu links as props`, () => {
+            expect(sideMenuLogoComponent.props.sideMenuListLogosGTMClassNamePrefix).to.eql(expectedGTMClassName);
         });
     });
 
@@ -91,7 +121,9 @@ describe(`SideMenu Component`, () => {
     });
 
     describe('navigation', () => {
-        before(renderDefault);
+        before ( () => {
+            reactModule = Context.mountComponent(SideMenu, {navItems: navItems, data: localeData}, [contextConfigStub]);
+        });
 
         it('passes the proper nav items to the navigation component', () => {
             expect(nav.props.items).to.eql([
@@ -108,7 +140,7 @@ describe(`SideMenu Component`, () => {
         let activateSideMenuAction;
 
         before(() => {
-            reactModule = Context.mountComponent(SideMenu, { open: true, navItems, data: localeData });
+            reactModule = Context.mountComponent(SideMenu, { open: true, navItems, data: localeData }, [contextConfigStub]);
             closeButton = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__close')[0];
             overlay = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__overlay')[0];
         });
@@ -136,19 +168,4 @@ describe(`SideMenu Component`, () => {
             expect(activateSideMenuAction).to.exist;
         });
     });
-
-    function renderDefault() {
-        reactModule = TestUtils.renderIntoDocument(
-            <SideMenu navItems={navItems} data={localeData}>
-                <div className="some-content">foo</div>
-            </SideMenu>
-        );
-        bar = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__bar');
-        container = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__container');
-        closeButton = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__close');
-        nav = TestUtils.findRenderedComponentWithType(reactModule, NavigationStub);
-        magshop = TestUtils.findRenderedComponentWithType(reactModule, MagshopStub);
-        overlay = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__overlay');
-        separators = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__separator');
-    }
 });

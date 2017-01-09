@@ -16,13 +16,13 @@ describe('Brand Header', () => {
     let logo;
     let logoImage;
     let ads;
-    const brand = 'Belle';
+    const title = 'Belle';
     const logoUrl = 'http://image.com';
 
     describe('with all prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Header brand={brand} logo={logoUrl} />
+                <Header title={title} logo={logoUrl} />
             );
             logo = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'brand__logo');
             logoImage = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'img');
@@ -42,7 +42,7 @@ describe('Brand Header', () => {
         });
 
         it(`should render the logo using the brand as the alt attribute`, () => {
-            expect(logoImage[0].props.alt).to.equal(brand);
+            expect(logoImage[0].props.alt).to.equal(title);
         });
 
         const expectedNumAds = 1;

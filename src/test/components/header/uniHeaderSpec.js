@@ -1,7 +1,11 @@
 import {betterMockComponentContext} from '@bxm/flux';
+import proxyquire, {noCallThru} from 'proxyquire';
+noCallThru();
 const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
-import UniHeader from '../../../app/components/header/uniheader'
+const Uniheader = proxyquire('../../../app/components/header/uniheader', {
+    'react': React
+});
 
 describe('Brand Header', () => {
     let reactModule;
@@ -9,19 +13,19 @@ describe('Brand Header', () => {
         "imageUrl": "/assets/images/logos/AWW-logo.svg",
         "url": "http://aww.com.au/",
         "title": "Australian Women's Weekly",
-        "gtmClass": "aww"
+        "id": "aww"
     },
         {
             "imageUrl": "/assets/images/logos/WD-logo.svg",
             "url": "http://aww.com.au/",
             "title": "Woman's Day",
-            "gtmClass": "wd"
+            "id": "wd"
         },
         {
             "imageUrl": "/assets/images/logos/GH-logo.svg",
             "url": "http://www.homestolove.com.au/",
             "title": "Good Health",
-            "gtmClass": "gh"
+            "id": "gh"
         }];
 
     const contextConfigStub = {
@@ -32,9 +36,9 @@ describe('Brand Header', () => {
         }
     };
 
-    describe('Rendering the UniHeader', () => {
+    describe('Rendering the Uniheader', () => {
         before(()=> {
-            reactModule = Context.mountComponent(UniHeader, {}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Uniheader, {}, [contextConfigStub]);
         });
 
         it('should render the component', () => {
@@ -55,9 +59,8 @@ describe('Brand Header', () => {
         it('should apply the correct gtm class to anchor', () => {
             const anchor = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
             const anchorClass = anchor[0].props.className;
-            const correctClass = 'gtm-uniheader-' + brandDataStub[0].gtmClass;
+            const correctClass = 'gtm-uniheader-' + brandDataStub[0].id;
             expect(anchorClass).to.equal(correctClass);
         });
     });
-
 });

@@ -7,7 +7,7 @@ Feature: Brand Listing page
     Scenario: Verify a brand listing page on mobile
         When I switch to "mobile" view
         Given I am currently viewing "australian-house-and-garden"
-        * I should see "Australian House and Garden" brand logo
+        * I should see the brand title logo on the brand landing page
         * I should see 13 teasers on the brand listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
@@ -19,7 +19,7 @@ Feature: Brand Listing page
     Scenario: Verify a brand listing page on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "australian-house-and-garden"
-        * I should see "Australian House and Garden" brand logo
+        * I should see the brand title logo on the brand landing page
         * I should see 13 teasers on the brand listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
@@ -31,7 +31,7 @@ Feature: Brand Listing page
     Scenario: Verify a brand listing page on desktop
         When I switch to "desktop" view
         Given I am currently viewing "australian-house-and-garden"
-        * I should see "Australian House and Garden" brand logo
+        * I should see the brand title logo on the brand landing page
         * I should see 13 teasers on the brand listing page
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page

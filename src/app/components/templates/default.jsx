@@ -22,16 +22,16 @@ class DefaultTemplate extends Component {
 
     static propTypes = {
         content: PropTypes.object,
+        contentErrorStatus: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        headerNavItems: PropTypes.array,
-        contentErrorStatus: PropTypes.object
+        headerNavItems: PropTypes.array
     };
 
     static defaultProps = {
         content: null,
+        contentErrorStatus: null,
         isSideMenuOpen: false,
-        headerNavItems: [],
-        contentErrorStatus: null
+        headerNavItems: []
     };
 
     static contextTypes = {
@@ -50,18 +50,14 @@ class DefaultTemplate extends Component {
 
     render() {
         const {content} = this.props;
-        const {Handler, hideFooter, hideHeader, isExpanded} = this.getPageMetadata();
+        const {Handler, hideFooter, hideHeader} = this.getPageMetadata();
         const localeData = config.get('localeData');
-        const menuSliderClassName = cx('side-menu-slider', {
-            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
-        });
 
         return (
             <div className="default-template">
                 {content && content.url === '/' ? <Uniheader /> : null }
                 {hideHeader ? null :
                     <Header
-                        isExpanded={isExpanded}
                         isSideMenuOpen={this.props.isSideMenuOpen}
                         navItems={this.props.headerNavItems}
                     />
@@ -91,8 +87,7 @@ class DefaultTemplate extends Component {
         switch (this.props.content.nodeType) {
             case 'Homepage':
                 return {
-                    Handler: HomePageHandler,
-                    isExpanded: true
+                    Handler: HomePageHandler
                 };
             case 'HomesArticle':
                 return {

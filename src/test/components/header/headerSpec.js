@@ -23,6 +23,7 @@ describe(`Header Component`, () => {
         { name: 'Outdoor', url: '/outdoor' },
         { name: 'Renovate', url: '/renovate' }
     ];
+    const UNIHEADER_HEIGHT = 49;
 
     let reactModule;
     let header;
@@ -33,21 +34,12 @@ describe(`Header Component`, () => {
             expect(pinStub).to.have.been.calledOnce;
         });
 
-        it('specifies the expanded pin points for all screen sizes', () => {
-            expect(pinStub.lastCall.args[1]({ isExpanded: true })).to.eql({
-                small: { pinPoint: 40 },
-                medium: { pinPoint: 241 },
-                large: { pinPoint: 241 },
-                xlarge: { pinPoint: 241 }
-            });
-        });
-
-        it('specifies the expanded pin points for all screen sizes', () => {
-            expect(pinStub.lastCall.args[1]({ isExpanded: false })).to.eql({
-                small: { pinPoint: 40 },
-                medium: { pinPoint: 51 },
-                large: { pinPoint: 51 },
-                xlarge: { pinPoint: 51 }
+        it('specifies the pin points for non-small screen sizes to the height of the uniheader', () => {
+            expect(pinStub.lastCall.args[1]()).to.eql({
+                small: { pinPoint: 0 },
+                medium: { pinPoint: UNIHEADER_HEIGHT },
+                large: { pinPoint: UNIHEADER_HEIGHT },
+                xlarge: { pinPoint: UNIHEADER_HEIGHT }
             });
         });
     });
@@ -62,23 +54,16 @@ describe(`Header Component`, () => {
             expect(headerClass).to.contain('header--pinned');
         });
 
+        it('does not set the "header--fade-out" class name when not scrolling', () => {
+            expect(headerClass).not.to.contain('header--fade-out');
+        });
+
         it('sets the "header--side-menu-open" class name when pinned', () => {
             expect(headerClass).to.contain('header--side-menu-open');
         });
 
-        it('does not set the "header--expanded" class name by default', () => {
+        it('does not set the "header--expanded" class name', () => {
             expect(headerClass).not.to.contain('header--expanded');
-        });
-    });
-
-    describe('expanded class name', () => {
-        before(() => {
-            renderWithProps({ pinned: true, isExpanded: true, isSideMenuOpen: true, navItems });
-            headerClass = ReactDOM.findDOMNode(header).getAttribute('class');
-        });
-
-        it('sets the "header--expanded" class name', () => {
-            expect(headerClass).to.contain('header--expanded');
         });
     });
 
@@ -124,25 +109,15 @@ describe(`Header Component`, () => {
         let headerBanner;
         let menuButton;
         let logo;
+        let logoLinkImage;
         let navigation;
 
         before(() => {
             renderWithProps({ isSideMenuOpen: false, navItems });
-            headerBanner = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'header-banner')[0];
             menuButton = TestUtils.scryRenderedComponentsWithType(reactModule, MenuButtonStub)[0];
             logo = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'header-logo')[0];
+            logoLinkImage = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'header-logo__link-image')[0];
             navigation = TestUtils.scryRenderedComponentsWithType(reactModule, NavigationStub)[0];
-        });
-
-        describe('Header banner', () => {
-            it('renders', () => {
-                expect(ReactDOM.findDOMNode(headerBanner)).to.exist;
-            });
-
-            it('links to the home page', () => {
-                const headerBannerLink = ReactDOM.findDOMNode(headerBanner).getElementsByTagName('a')[0];
-                expect(headerBannerLink.getAttribute('href')).to.eq('/');
-            });
         });
 
         describe('MenuButton', () => {
@@ -156,6 +131,10 @@ describe(`Header Component`, () => {
                 expect(ReactDOM.findDOMNode(logo)).to.exist;
             });
 
+            const expectedGTMClassName = 'gtm-navbar-homes';
+            it(`contains a link that is set with the correct GTM className of ${expectedGTMClassName}`, () => {
+                expect(logoLinkImage.props.className).to.contain(expectedGTMClassName);
+            });
         });
 
         describe('Navigation', () => {

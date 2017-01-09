@@ -3,15 +3,11 @@ var wait = require('../utils/wait');
 
 module.exports = function() {
 
-    this.When(/^I should see "([^"]*)" brand logo$/, function (brand) {
+    this.When(/^I should see the brand title logo on the brand landing page$/, function () {
         //verify the brand logo image
         var brandLogoSrc = browser.getAttribute(brand_listing.brandLogo, 'src');
         expect(brandLogoSrc).not.toBeUndefined();
         console.log(brandLogoSrc);
-
-        //verify the brand name
-        var brandLogoAlt = browser.getAttribute(brand_listing.brandLogo, 'alt');
-        expect(brandLogoAlt).toMatch(brand);
     });
 
     this.When(/^I should see (\d+) teasers on the brand listing page$/, function (number) {

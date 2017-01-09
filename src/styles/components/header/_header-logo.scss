@@ -1,51 +1,43 @@
-$header-logo-width-desktop: 287px;
-$logo-container-width-desktop: $header-logo-width-desktop + $column-gutter + 23px;
+$header-logo-width-desktop: 100%;
 
 .header-logo {
     display: inline-block;
     overflow: hidden;
     text-align: center;
     vertical-align: top;
-    width: calc(100% - 2 * #{$header-menu-width + $column-gutter});
+    width: 263px;
+    padding-left: 0px;
 
     @media #{$medium-up} {
         text-align: left;
-        width: $logo-container-width-desktop;
     }
 
-    @media #{$xlarge-up} {
-        transition: width $transition-duration;
+    @media #{$large-up} {
+        padding-left: 15px;
+    }
+
+    @media #{$medium-only} {
+        width: 240px;
     }
 
     &__link-image {
-        background-image: url('/assets/logo/homes-header-logo.svg');
-        background-size: 115px 35px;
+        background-image: url('/assets/logo/homes-logo.svg');
+        background-repeat: no-repeat;
         display: inline-block;
-        font-size: 0;
-        height: 35px;
+        height: 28px;
         vertical-align: middle;
-        width: 115px;
+        font-size: 0;
+        width: 100%;
+        margin: 14px 0;
 
         @media #{$medium-up} {
-            background-image: url('/assets/logo/homes-header-logo-desktop.svg');
-            background-size: $header-logo-width-desktop 23px;
-            height: 23px;
-            margin-left: 11px;
-            width: $header-logo-width-desktop;
+            background-image: url('/assets/logo/homes-logo.svg');
+            height: 28px;
+            background-repeat: no-repeat;
         }
-    }
-}
 
-.header {
-    &.header--expanded .header-logo {
-        @media #{$medium-up} {
-            width: 0;
-        }
-    }
-
-    &.header--expanded.header--pinned .header-logo {
-        @media #{$medium-up} {
-            width: $logo-container-width-desktop;
+        @media #{$medium-only} {
+            height: 26px;
         }
     }
 }

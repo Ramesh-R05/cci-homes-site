@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import * as MenuActions from '../../actions/menuActions';
 
-class MenuButton extends Component {
+export default class MenuButton extends Component {
     static contextTypes = {
         executeAction: PropTypes.func
     };
@@ -30,5 +30,3 @@ class MenuButton extends Component {
         );
     }
 }
-
-export default MenuButton;

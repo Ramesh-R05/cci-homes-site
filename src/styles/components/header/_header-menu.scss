@@ -3,26 +3,31 @@ $header-menu-width: 20px;
 .header-menu {
     display: inline-block;
     vertical-align: top;
+    margin-top: 15px;
+    float: left;
+    text-align: left;
+
+    @media #{$small-up} {
+        display: inline-block;
+    }
 
     &__button-menu {
         @include flat-button;
-
-        line-height: $header-height;
         padding: 0 $column-gutter/2;
 
         svg {
-            fill: $color-header-menu-button;
+            fill: $color-white;
             vertical-align: middle;
         }
 
         &:hover path,
         &:active path,
         &:focus path {
-            fill: $color-primary;
+            fill: $color-grey-darker;
         }
 
         @media #{$medium-up} {
-            padding: 0 $column-gutter;
+            padding: 0 $column-gutter/2;
         }
     }
 }

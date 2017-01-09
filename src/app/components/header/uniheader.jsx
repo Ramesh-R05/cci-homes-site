@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import cx from 'classnames';
 
 export default class Uniheader extends Component {
 
@@ -11,25 +12,29 @@ export default class Uniheader extends Component {
     };
 
     render() {
+        let uniheaderBrands = this.context.config.brands;
+        const uniheaderClassName = "uniheader";
+        const uniheaderOuterClasses = cx(uniheaderClassName, "show-for-medium-up");
+        const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, "container");
+        const uniheaderLogos = uniheaderBrands.map(
+            (item, i) => {
+                let { id, title, url, imageUrl } = item;
+                return (
+                    <li key={i}>
+                        <a href={url} title={title} className={`gtm-uniheader-${id}`}>
+                            <img src={imageUrl} alt={title} className={`uniheader__logo--${id}`} />
+                        </a>
+                    </li>
+                );
+            }
+        );
+
         return (
-            <header className="uniheader show-for-medium-up">
-                <nav className="uniheader__nav container">
-                    {
-                        this.context.config.brands.map((item, i) => {
-                            return (
-                                <li>
-                                    <a key={i} href={item.url} title={item.title} className={`gtm-uniheader-${item.gtmClass}`}>
-                                        <img
-                                            src={item.imageUrl} alt={item.title}
-                                            className={`uniheader__logo--${item.title.replace(/ /g, '-').toLowerCase()}`}
-                                        />
-                                    </a>
-                                </li>
-                            );
-                        })
-                    }
+            <header className={uniheaderOuterClasses}>
+                <nav className={uniheaderContainerClasses}>
+                    {uniheaderLogos}
                 </nav>
             </header>
-       )
+        )
     }
 }

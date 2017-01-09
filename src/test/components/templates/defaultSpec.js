@@ -221,35 +221,30 @@ describe('Default Component template', () => {
             'Homepage': {
                 component: HomepageStub,
                 hideHeader: false,
-                isExpanded: true,
                 hideFooter: false
             },
             'HomesArticle': {
                 component: HomesArticleStub,
                 hideHeader: false,
-                isExpanded: false,
                 hideFooter: true
             },
             'NavigationSection': {
                 component: NavigationTagSectionStub,
                 hideHeader: false,
-                isExpanded: false,
                 hideFooter: false
             },
             'TagSection': {
                 component: TagSectionStub,
                 hideHeader: false,
-                isExpanded: false,
                 hideFooter: false
             },
             'Gallery': {
                 component: GalleryStub,
                 hideHeader: true,
-                isExpanded: false,
                 hideFooter: true
             }
         }, (metadata, nodeType) => {
-            const {component, hideFooter, hideHeader, isExpanded} = metadata;
+            const {component, hideFooter, hideHeader} = metadata;
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
@@ -271,16 +266,6 @@ describe('Default Component template', () => {
                         expect(ReactDOM.findDOMNode(footer)).to.exist;
                     }
                 });
-
-                if (!hideHeader) {
-                    it(`shows ${isExpanded ? 'an expanded' : 'a regular'} header`, () => {
-                        if (isExpanded) {
-                            expect(header.props.isExpanded).to.be.true;
-                        } else {
-                            expect(header.props.isExpanded).not.to.be.true;
-                        }
-                    });
-                }
             });
         });
     });

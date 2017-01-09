@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import SubNavigationItemAndMenu from './subNavigationItemAndMenu';
+import {canUseDOM} from 'exenv';
 
 export default class NavigationItem extends Component {
     static propTypes = {
@@ -12,14 +13,20 @@ export default class NavigationItem extends Component {
 
     constructor(...args) {
         super(...args);
+        this.state = {viewportSize: 0};
     }
 
-    hasSubMenuItemsToShow() {
-        return (this.props.tagsDetails && this.props.tagsDetails.length > 1);
+    componentDidMount() {
+        if (canUseDOM) {
+            this.setState({viewportSize: window.innerWidth});
+        }
     }
+
+    hasSubMenuItemsToShow = () => {
+        return (this.props.tagsDetails && this.props.tagsDetails.length > 1);
+    };
 
     render() {
-
         if (!this.props.name || !this.props.url) return null;
 
         if (!this.hasSubMenuItemsToShow()) {
@@ -34,6 +41,7 @@ export default class NavigationItem extends Component {
                     name={this.props.name}
                     linkClassName={this.props.linkClassName}
                     showGroupLabel={this.props.showGroupLabel}
+                    viewportSize={this.state.viewportSize}
                 />
             );
         }

@@ -1,5 +1,6 @@
 import breakpoints from '../breakpoints';
-import brands from './brands'
+import brands from './brands';
+import hamburgerBrands from './hamburgerBrands';
 
 var accountId = '761709621001';
 var playerId = 'VkuyApojl';
@@ -66,7 +67,6 @@ export default {
     },
 
     gtm: {
-        masthead: 'HOMES',
         id: 'GTM-KG7F8H'
     },
 
@@ -82,6 +82,8 @@ export default {
     },
 
     brands,
+
+    hamburgerBrands,
 
     features: {
         galleryOfGalleries: {

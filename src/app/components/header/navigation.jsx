@@ -1,8 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import NavigationItem from './navigationItem';
 
-const isArray = Array.isArray;
-
 export default class Navigation extends Component {
     static propTypes = {
         items: PropTypes.array.isRequired,
@@ -21,7 +19,7 @@ export default class Navigation extends Component {
     }
 
     render() {
-        if (!isArray(this.props.items) || this.props.items.length === 0) return null;
+        if (!Array.isArray(this.props.items) || this.props.items.length === 0) return null;
 
         return (
             <div className={this.props.className}>

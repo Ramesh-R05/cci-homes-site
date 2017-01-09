@@ -19,13 +19,3 @@
         visibility: hidden;
     }
 }
-
-.feed.feed--left-aligned {
-    .feed__container {
-        margin-top: 186px;
-    }
-
-    &.feed--pinned .feed__container {
-        margin-top: 135px;
-    }
-}

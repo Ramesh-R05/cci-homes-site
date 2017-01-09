@@ -45,16 +45,16 @@ export default class Section extends Component {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
-        let kingtag = content.title;
+        let title = content.title;
         if (content.tagsDetails && content.tagsDetails.length > 0) {
-            kingtag = content.tagsDetails[0].displayName;
+            title = content.tagsDetails[0].displayName;
         }
 
         return (
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="row">
-                        <Header title={content.title} sponsorName={content.sponsor || 'homes_sponsor'}>
+                        <Header title={title} sponsorName={content.sponsor || 'homes_sponsor'}>
                             <Ad
                                 className="ad--section-top-leaderboard"
                                 sizes={{
@@ -62,7 +62,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 1, kingtag}}
+                                targets={{position: 1, title}}
                             />
                         </Header>
                     </div>
@@ -77,7 +77,7 @@ export default class Section extends Component {
                                     className="ad--section-mrec"
                                     displayFor={['small', 'medium', 'large']}
                                     sizes="mrec"
-                                    targets={{position: 1, kingtag}}
+                                    targets={{position: 1, title}}
                                 />
                             </InFocus>
                         </div>
@@ -95,7 +95,7 @@ export default class Section extends Component {
                                 className="ad--section-mrec"
                                 displayFor={['xlarge']}
                                 sizes={['double-mrec', 'mrec']}
-                                targets={{position: 1, kingtag}}
+                                targets={{position: 1, title}}
                             />
                         </Group>
                     </div>
@@ -126,7 +126,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 2, kingtag}}
+                                targets={{position: 2, title}}
                             />
                         </div>
                     </div>
@@ -142,7 +142,7 @@ export default class Section extends Component {
                         dataSource={this.props.list}
                         nextParams={this.props.listNextParams}
                         className="news-feed bottom-news-feed"
-                        adTargets={{ position: 3, kingtag }}
+                        adTargets={{ position: 3, title }}
                     />
 
                     {/* Recommendations */}
@@ -161,7 +161,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 3, kingtag}}
+                                targets={{position: 3, title}}
                             />
                         </div>
                     </div>
