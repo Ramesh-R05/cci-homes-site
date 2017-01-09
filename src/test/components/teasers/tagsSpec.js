@@ -15,13 +15,21 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags including one from the topic category in the first position', () => {
-        const tags = [
-            'homes:Topic:Gardening',
-            'homes:Renovating:Materials:Bamboo'
-        ];
+        const tagsDetails = [{
+            name: 'homes:Topic:Gardening',
+            urlName: 'gardening',
+            fullName: 'food_Topic_Gardening',
+            displayName: 'Gardening'
+        },
+        {
+            name: 'homes:Renovating:Materials:Bamboo',
+            urlName: 'renovating',
+            fullName: 'food_Topic_Renovating',
+            displayName: 'Renovating'
+        }];
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+            reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
         });
 
         const expectedPrimaryTag = 'Gardening';
@@ -30,7 +38,7 @@ describe('TeaserTags', () => {
             expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedPrimaryTag);
         });
 
-        const expectedSecondaryTag = 'Bamboo';
+        const expectedSecondaryTag = 'Renovating';
         it(`should have the secondary tag output equal to ${expectedSecondaryTag}`, () => {
             const tag = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'tag-secondary');
             expect(ReactDOM.findDOMNode(tag).textContent).to.equal(expectedSecondaryTag);
@@ -44,14 +52,27 @@ describe('TeaserTags', () => {
     });
 
     describe('with three tags', () => {
-        const tags = [
-            'homes:Homes navigation:Outdoor',
-            'homes:Renovating:Materials:Wood',
-            'homes:Topic:Gardening'
-        ];
+        const tagsDetails = [{
+                name: 'homes:Topic:Gardening',
+                urlName: 'gardening',
+                fullName: 'food_Topic_Gardening',
+                displayName: 'Gardening'
+            },
+            {
+                name: 'food:Homes navigation:Real Homes',
+                urlName: 'renovating',
+                fullName: 'food_Topic_Renovating',
+                displayName: 'Real Homes'
+            },
+            {
+                name: 'homes:Renovating:Materials:Bamboo',
+                urlName: 'something-else',
+                fullName: 'food_Topic_Renovating',
+                displayName: 'Wood'
+            }];
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+            reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
         });
 
         const expectedPrimaryTag = 'Gardening';
@@ -68,15 +89,21 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags from the Topic category', () => {
-        const tags = [
-            'homes:Homes navigation:Outdoor',
-            'homes:Renovating:Materials:Timber',
-            'homes:Topic:DIY',
-            'homes:Topic:Gardening'
-        ];
+        const tagsDetails = [{
+                name: 'homes:Topic:Gardening',
+                urlName: 'gardening',
+                fullName: 'food_Topic_Gardening',
+                displayName: 'DIY'
+            },
+            {
+                name: 'homes:Renovating:Materials:Bamboo',
+                urlName: 'something-else',
+                fullName: 'food_Topic_Renovating',
+                displayName: 'Timber'
+            }];
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+            reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
         });
 
         const expectedPrimaryTag = 'DIY';
@@ -93,13 +120,21 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags including one from the topic category and one from the Homes navigation category', () => {
-        const tags = [
-            'homes:Topic:Gardening',
-            'homes:Homes navigation:Outdoor'
-        ];
+        const tagsDetails = [{
+                name: 'homes:Topic:Gardening',
+                urlName: 'gardening',
+                fullName: 'food_Topic_Gardening',
+                displayName: 'Gardening'
+            },
+            {
+                name: 'food:Homes navigation:Real Homes',
+                urlName: 'renovating',
+                fullName: 'food_Topic_Renovating',
+                displayName: 'Real Homes'
+            }];
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+            reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
         });
 
         const expectedPrimaryTag = 'Gardening';
@@ -109,20 +144,20 @@ describe('TeaserTags', () => {
         });
 
         it(`should have ignored the navigation tag`, () => {
-            console.log(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'tag-secondary'));
             expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'tag-secondary').length).to.equal(0);
         });
     });
 
     describe('with two tags without one from the topic category', () => {
 
-        const tags = [
-            'homes:DIY and craft:DIY and craft tools:Tape measure',
-            'homes:Renovating:Materials:Bamboo'
-        ];
+        const tagsDetails =  [
+            {name:'homes:DIY and craft:DIY and craft tools:Tape measure',},
+            {name:'homes:Renovating:Materials:Bamboo'}
+        ]
+
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+            reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
         });
 
         it('should not be rendered', () => {
@@ -132,12 +167,15 @@ describe('TeaserTags', () => {
 
     describe('with the topic tag only', () => {
 
-        const tags = [
-            'homes:Topic:Gardening'
-        ];
+        const tagsDetails = [{
+            name: 'homes:Topic:Gardening',
+            urlName: 'gardening',
+            fullName: 'food_Topic_Gardening',
+            displayName: 'Gardening'
+        }];
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);
+            reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
         });
 
         const expectedPrimaryTag = 'Gardening';

@@ -126,10 +126,30 @@ export default {
                 "food:Homes navigation:Interiors"
             ],
             "tagsDetails": [
-                { name: "food:Renovating:Trims and fittings:Flooring:Carpet and floor tiles" },
-                { name: "food:Homes navigation:Renovate" },
-                { name: "food:Topic:Tips and advice" },
-                { name: "food:Renovating:Materials:Carpet" }
+                {
+                    name: "food:Renovating:Trims and fittings:Flooring:Carpet and floor tiles",
+                    urlName: 'renovating',
+                    fullName: 'blah',
+                    displayName: 'Renovating'
+                },
+                {
+                    name: "food:Homes navigation:Renovate",
+                    urlName: '',
+                    fullName: '',
+                    displayName: 'Renovate'
+                },
+                {
+                    name: "food:Topic:Tips and advice",
+                    urlName: '',
+                    fullName: '',
+                    displayName: 'Tips and advice'
+                },
+                {
+                    name: "food:Renovating:Materials:Carpet",
+                    urlName: '',
+                    fullName: '',
+                    displayName: 'Renovating'
+                }
             ],
             "id": "HOMES-1665",
             "parentId": "HOMES-1394",

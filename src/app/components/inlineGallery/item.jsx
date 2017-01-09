@@ -1,10 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
-import getFirstTagNameForCategory from '@bxm/tags/lib/utils/getFirstTagNameForCategory';
 
 class Item extends Component {
     static propTypes = {
-        tags: PropTypes.arrayOf(PropTypes.string),
+        tagsDetails: PropTypes.arrayOf(PropTypes.object),
         imageAltText: PropTypes.string,
         imageUrl: PropTypes.string.isRequired,
         source: PropTypes.string,
@@ -17,11 +16,18 @@ class Item extends Component {
     }
 
     render() {
-        const {tags, imageAltText, imageUrl, source, title, url} = this.props;
+        const {tagsDetails, imageAltText, imageUrl, source, title, url} = this.props;
 
         if (!imageUrl || !url) return null;
 
-        const topic = getFirstTagNameForCategory(tags, 'Topic');
+        let topic;
+
+        tagsDetails && tagsDetails.forEach( (item) => {
+        if (item.name.includes('Topic')) {
+           topic = item.displayName;
+        }
+        });
+
         const sourceClass = source ? `gallery-item--${source.replace(/[^a-z]/gi, '_' ).toLowerCase()}` : '';
         const itemClass = classnames('gallery-item', sourceClass);
         const metaClass = classnames('gallery-item__meta', {'hide': !title});

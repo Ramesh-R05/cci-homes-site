@@ -1,6 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import {items as gogMock} from '../../mock/galleryOfGalleries';
-import imageResize from '@bxm/ui/lib/common/ImageResize';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
@@ -20,12 +19,13 @@ describe('InlineGalleryItem', () => {
 
     const item = gogMock[0];
     const tags = item.tags;
+    const tagsDetails = item.tagsDetails;
     const imageAltText = item.imageAltText;
     const imageUrl = item.imageUrl;
     const source = item.source;
     const title = item.title;
     const url = item.url;
-    const props = {tags, imageAltText, imageUrl, source, title, url};
+    const props = {tags, tagsDetails, imageAltText, imageUrl, source, title, url};
 
     let topic;
     let heading;
@@ -115,12 +115,12 @@ describe('InlineGalleryItem', () => {
         });
     });
 
-    describe(`without tags prop`, () => {
+    describe(`without tagsDetails prop`, () => {
         let topic;
 
         before(() => {
             let missingProps = {...props};
-            delete missingProps.tags;
+            delete missingProps.tagsDetails;
             reactModule = TestUtils.renderIntoDocument(<InlineGalleryItem {...missingProps}/>);
             topic = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'gallery-item__topic');
         });

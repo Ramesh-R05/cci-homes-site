@@ -127,9 +127,9 @@ describe('Teaser', () => {
             expect(Source.props.source).to.equal(props.source);
         });
 
-        //Tags
-        it(`should set the Tags tags prop to ${props.tags}`, () => {
-            expect(Tags.props.tags).to.deep.equal(props.tags);
+        //TagsDetails
+        it(`should set the TagsDetails tags prop to ${props.tagsDetails}`, () => {
+            expect(Tags.props.TagsDetails).to.deep.equal(props.TagsDetails);
         });
     });
 

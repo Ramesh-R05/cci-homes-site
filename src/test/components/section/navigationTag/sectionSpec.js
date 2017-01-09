@@ -2,7 +2,6 @@ import {Component, PropTypes} from 'react';
 import {betterMockComponentContext} from '@bxm/flux';
 import {entity, articles as articlesMock} from '../../../mock/articles';
 import {items as gogMock} from '../../../mock/galleryOfGalleries';
-import merge from 'lodash/object/merge';
 
 const ComponentContext = betterMockComponentContext();
 const React = ComponentContext.React;
@@ -18,10 +17,7 @@ const Section = proxyquire('../../../../app/components/section/navigationTag/sec
     'react': React,
     '../../actions/facetedModule': {getPage: () => {}},
     '../section': GenericSectionStub,
-    '../../inlineGallery/customInlineGallery': InlineGalleryStub,
-    '@bxm/tags/lib/utils': {
-        getTagName: () => 'interiors'
-    }
+    '../../inlineGallery/customInlineGallery': InlineGalleryStub
 });
 
 // ----------------------------------------------------------------------------- Mocked data/stores

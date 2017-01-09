@@ -25,6 +25,7 @@ class Teaser extends Component {
         source: PropTypes.string,
         summary: PropTypes.string,
         tags: PropTypes.array,
+        tagsDetails: PropTypes.array,
         title: PropTypes.string.isRequired,
         className: PropTypes.string,
         imageSizes: PropTypes.object,
@@ -142,7 +143,7 @@ class Teaser extends Component {
                     <Icon {...this.props} />
                 </Image>
                 <div className="teaser__content">
-                    <Tags tags={this.props.tags} />
+                    <Tags tagsDetails={this.props.tagsDetails} />
                     <Title
                         gtmClass={gtmClass}
                         title={this.props.title}
