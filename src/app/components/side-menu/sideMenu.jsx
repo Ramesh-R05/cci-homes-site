@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 import Navigation from '../header/navigation';
 import SideMenuLogo from './sideMenuLogo';
 import * as MenuActions from '../../actions/menuActions';
@@ -34,19 +34,17 @@ export default class SideMenu extends Component {
 
         if (!navItems) return null;
 
-        const magShopData = data.magShop;
-
-        const className = classNames({
-            'side-menu': true,
-            'side-menu--open': open
-        });
-
         const items = clone(navItems);
         items.unshift({ name: 'Home', url: '/' });
 
         let { hamburgerBrands } = this.context.config;
-        const sideMenuListClassName = "side-menu-list";
-        const sideMenuListLogosGTMClassNamePrefix = "gtm-hamburger-";
+
+        const wrapperClassName = cx({
+            'side-menu': true,
+            'side-menu--open': open
+        });
+        const logoClassName = "side-menu-list";
+        const logoClassNameGTMPrefix = "gtm-hamburger-";
 
         const sideMenuLogos = hamburgerBrands.map(
             (item, i) =>
@@ -54,13 +52,13 @@ export default class SideMenu extends Component {
                     key={i}
                     logoItem={item}
                     openInNewTab={true}
-                    sideMenuListClassName={sideMenuListClassName}
-                    sideMenuListLogosGTMClassNamePrefix={sideMenuListLogosGTMClassNamePrefix}
+                    logoClassName={logoClassName}
+                    logoClassNameGTMPrefix={logoClassNameGTMPrefix}
                 />
         );
 
         return (
-            <div className={className}>
+            <div className={wrapperClassName}>
                 <div className="side-menu__bar">
                     <div className="side-menu__container">
                         <button
@@ -79,7 +77,7 @@ export default class SideMenu extends Component {
                             showGroupLabel={false}
                         />
                         <div className="side-menu__separator"></div>
-                        <ul className={sideMenuListClassName}>
+                        <ul className={logoClassName}>
                             {sideMenuLogos}
                         </ul>
                     </div>

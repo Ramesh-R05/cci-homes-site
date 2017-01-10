@@ -14,7 +14,6 @@ import CampaignSectionHandler from '../section/sponsorTag/section';
 import GalleryHandler from '@bxm/gallery/lib/components/page/gallery';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import Uniheader from '../header/uniheader';
-import cx from 'classnames';
 import {load} from '@bxm/config';
 const config = load();
 

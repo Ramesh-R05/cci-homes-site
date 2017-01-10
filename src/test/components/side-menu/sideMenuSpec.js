@@ -106,7 +106,7 @@ describe(`SideMenu Component`, () => {
 
         const expectedGTMClassName = 'gtm-hamburger-';
         it(`passing expected GTM className of ${expectedGTMClassName} to side menu links as props`, () => {
-            expect(sideMenuLogoComponent.props.sideMenuListLogosGTMClassNamePrefix).to.eql(expectedGTMClassName);
+            expect(sideMenuLogoComponent.props.logoClassNameGTMPrefix).to.eql(expectedGTMClassName);
         });
     });
 
