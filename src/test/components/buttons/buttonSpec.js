@@ -4,7 +4,6 @@ const {React, ReactDOM, TestUtils} = Context;
 import Button from '../../../app/components/buttons/button';
 import {buttonMock1, buttonMock2} from '../../mock/button';
 
-
 describe('Button', () => {
     let reactModule;
     const defaultClass = 'button';

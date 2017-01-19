@@ -20,7 +20,12 @@ var ads_widget = {
     galleryAdBottomLeaderBoard: '.ad.gallery__footer-ad.ad--top-label #gpt-slot-1',
     galleryAdTopLeaderBoard: '.ad.gallery__mobile-ad.ad--bottom-label',
     adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label #gpt-slot-2',
-    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label #gpt-slot-3'
+    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label #gpt-slot-3',
+
+    adWallpaperBrandPage: '.ad--wallpaper #gpt-slot-10', //brand
+    adLeftSideBrandPage: '.ad--sidepanel-left #gpt-slot-8', //brand
+    adRightSideBrandPage: '.ad--sidepanel-right #gpt-slot-9', //brand
+    adOutOfPageBrandPage: '.ad--out-of-page #gpt-slot-7', //brand
 
 };
 module.exports = ads_widget;

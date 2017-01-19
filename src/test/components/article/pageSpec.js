@@ -18,8 +18,6 @@ const ArticlePage = proxyquire('../../../app/components/article/page', {
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
-
-
 describe('ArticlePage', () => {
     const testProps = {
         random: 'test',

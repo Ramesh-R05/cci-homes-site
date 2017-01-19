@@ -6,14 +6,48 @@ const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SponsorHeaderStub = Context.createStubComponentWithChildren();
+const AdStub = Context.createStubComponent();
+
 const Header = proxyquire('../../../app/components/section/header', {
     'react': React,
-    '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub
+    '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub,
+    '@bxm/ad/lib/google/components/ad': AdStub
 });
 
 describe('SectionHeader', () => {
 
+    afterEach(Context.cleanup);
+
     const singleWordHeading = 'Section';
+    describe(`with Top banner/leaderboard/billboard ad and heading prop`, () => {
+        let reactModule;
+        let ad;
+
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} />);
+            ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+        });
+
+        it(`should render the Ad component with correct position and sizes`, () => {
+            expect(ad).to.exist;
+            expect(ad.props.targets).to.deep.equal({
+                position: 1,
+                kingtag: "Section"
+            });
+            const expectedSizes = {
+                small: 'banner',
+                medium: 'leaderboard',
+                large: ['billboard', 'leaderboard']
+            };
+            expect(ad.props.sizes).to.deep.equal(expectedSizes);
+        });
+
+        const expectedClassname = 'ad--section-top-leaderboard';
+        it(`should have the classname prop equal to ${expectedClassname}`, () => {
+            expect(ad.props.className).to.equal(expectedClassname);
+        });
+    });
+
     describe(`with the heading prop equal to ${singleWordHeading}`, () => {
         let reactModule;
         let sponsorHeader;
@@ -107,25 +141,6 @@ describe('SectionHeader', () => {
         it(`should have the fourth word '${expectedSecondBoldWord}' bold`, () => {
             const boldWord = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'b')[1];
             expect(ReactDOM.findDOMNode(boldWord).textContent.trim()).to.equal(expectedSecondBoldWord);
-        });
-    });
-
-    describe('with children', () => {
-        let reactModule;
-        let childComponent;
-        const ChildrenComponentStub = Context.createStubComponentWithChildren();
-
-        before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <Header title="homes:Homes navigation:Section">
-                    <ChildrenComponentStub />
-                </Header>
-            );
-            childComponent = TestUtils.findRenderedComponentWithType(reactModule, ChildrenComponentStub);
-        });
-
-        it('should render the child component', () => {
-            expect(ReactDOM.findDOMNode(childComponent)).to.exist;
         });
     });
 

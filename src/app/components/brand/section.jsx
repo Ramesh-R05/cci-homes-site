@@ -2,15 +2,15 @@ import React, {Component, PropTypes} from 'react';
 import {canUseDOM} from 'exenv';
 import slice from 'lodash/array/slice';
 import {connectToStores} from '@bxm/flux';
-import Header from './header';
+import cx from 'classnames';
 import Featured from './featured';
 import Group from './articleGroup';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import cx from 'classnames';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 
 class Section extends Component {
     static propTypes = {
+        brandConfig: PropTypes.object.isRequired,
         articles: PropTypes.array.isRequired,
         content: PropTypes.object.isRequired,
         isSideMenuOpen: PropTypes.bool,
@@ -18,66 +18,11 @@ class Section extends Component {
     };
 
     static defaultProps = {
+        brandConfig: {},
         articles: [],
         content: {},
         moduleConfig: {},
         isSideMenuOpen: false
-    };
-
-    static contextTypes = {
-        getStore: PropTypes.func,
-        executeAction: PropTypes.func
-    };
-
-    static brands = {
-        belle: {
-            subscribe: {
-                image: '/assets/images/brand-pages/subscribe/belle.jpg',
-                link: 'https://www.magshop.com.au/store/homestolove'
-            },
-            logo: '/assets/svgs/belle.svg',
-            social: {
-                facebook: 'https://www.facebook.com/BelleMagazineAu',
-                twitter: 'https://twitter.com/BelleMagazineAu',
-                instagram: 'https://instagram.com/bellemagazineau/?hl=en'
-            }
-        },
-        realliving: {
-            subscribe: {
-                image: '/assets/images/brand-pages/subscribe/real-living.jpg',
-                link: 'https://www.magshop.com.au/store/homestolove'
-            },
-            logo: '/assets/svgs/realliving_black.svg',
-            social: {
-                facebook: 'https://www.facebook.com/reallivingmagazine',
-                twitter: 'https://twitter.com/reallivingmag',
-                instagram: 'https://instagram.com/reallivingmag/'
-            }
-        },
-        homesplus: {
-            subscribe: {
-                image: '/assets/images/brand-pages/subscribe/homes.jpg',
-                link: 'https://www.magshop.com.au/store/homestolove'
-            },
-            logo: '/assets/svgs/homesplus.svg',
-            social: {
-                facebook: 'https://www.facebook.com/Homesplusmag',
-                twitter: 'https://twitter.com/homesplusmag',
-                instagram: 'https://instagram.com/homesplusmag/'
-            }
-        },
-        australianhouseandgarden: {
-            subscribe: {
-                image: '/assets/images/brand-pages/subscribe/house-and-garden.jpg',
-                link: 'https://www.magshop.com.au/store/homestolove'
-            },
-            logo: '/assets/svgs/housegarden.svg',
-            social: {
-                facebook: 'https://www.facebook.com/australianhouseandgarden',
-                instagram: 'https://instagram.com/houseandgarden/?hl=en',
-                pinterest: 'https://www.pinterest.com/HOUSEnGARDEN/'
-            }
-        }
     };
 
     constructor(...args) {
@@ -110,26 +55,18 @@ class Section extends Component {
         return group;
     }
 
-    getBrandAlias(brand) {
-        return brand.toLowerCase().replace(/\-/g, '');
-    }
-
     render() {
-        const {articles, content} = this.props;
+        const {brandConfig, articles, content} = this.props;
         const {urlName} = content;
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
-
-        const alias = this.getBrandAlias(urlName);
-        const brandConfig = Section.brands[alias] || {};
         const groupedArticles = this.getGroupedArticles(articles);
 
         return (
             <div className={menuSliderClassName}>
                 <div className="brand__body container">
                     <div className="row">
-                        <Header brand={content.title} logo={brandConfig.logo} />
 
                         <Featured
                             articles={slice(articles, 0, 7)}
@@ -159,7 +96,7 @@ class Section extends Component {
                             breakpoints={['large', 'xlarge']}
                             containerClasses="columns show-for-large-up large-4 xlarge-4"
                             containerMarginBottom={10}
-                            carriageYPosition={147}>
+                            carriageYPosition={95}>
                             <Ad
                                 className="ad--section-mrec"
                                 displayFor={["large","xlarge"]}

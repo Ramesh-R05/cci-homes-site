@@ -42,6 +42,7 @@ Feature: Ad
         |device|
         |desktop|
         |tablet landscape|
+
     @BXMS-12
     Scenario Outline: Ads on brand landing page in the <desktop> view
         Given I switch to "<device>" view
@@ -52,6 +53,58 @@ Feature: Ad
         |device|
         |mobile|
         |tablet portrait|
+
+    @BXMA-107
+    Scenario Outline: Wallpaper ad should appear on "<page>" page in the desktop view
+        Given I switch to "desktop" view
+        When I am currently viewing "<url>"
+        * I should "see" the wallpaper ad slot on "<page>"
+        Examples:
+            |page       |url            |
+            |brand      |homes-plus/    |
+
+    @BXMA-107
+    Scenario Outline: Wallpaper ad should not appear on "<page>" page in the "<device>" view
+        Given I switch to "<device>" view
+        When I am currently viewing "<url>"
+        * I should "not see" the wallpaper ad slot on "<page>"
+        Examples:
+            |device             |page       |url            |
+            |tablet portrait    |brand      |homes-plus/    |
+            |tablet portrait    |brand      |homes-plus/    |
+            |mobile             |brand      |homes-plus/    |
+
+    @BXMA-107
+    Scenario Outline: Side panel ad should appear on "<page>" page in the desktop view
+        Given I switch to "desktop" view
+        When I am currently viewing "<url>"
+        * I should "see" the left and right side ad slot on "<page>"
+        Examples:
+            |page       |url    |
+            |brand      |belle/ |
+
+    @BXMA-107
+    Scenario Outline: Side panel ad should not appear on "<page>" page in the "<device>" view
+        Given I switch to "<device>" view
+        When I am currently viewing "<url>"
+        * I should "not see" the left and right side ad slot on "<page>"
+        Examples:
+            |device             |page       |url    |
+            |tablet portrait    |brand      |belle/ |
+            |tablet portrait    |brand      |belle/ |
+            |mobile             |brand      |belle/ |
+
+    @BXMA-107
+    Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
+        Given I switch to "<device>" view
+        When I am currently viewing "<url>"
+        * I should "see" the out of page ad slot on "<page>"
+        Examples:
+            |device             |page       |url            |
+            |desktop            |brand      |real-living/   |
+            |tablet landscape   |brand      |real-living/   |
+            |tablet portrait    |brand      |real-living/   |
+
 
 
 

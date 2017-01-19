@@ -32,7 +32,6 @@ describe(`NavigationItem Component`, () => {
               }
     ];
 
-
     let reactModule;
     let a;
 	let subNavMenuComponent;

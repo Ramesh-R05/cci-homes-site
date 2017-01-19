@@ -7,8 +7,6 @@ const ComponentContext = betterMockComponentContext();
 const React = ComponentContext.React;
 const TestUtils = ComponentContext.TestUtils;
 
-// ----------------------------------------------------------------------------- Stubbed components
-
 const proxyquire = require('proxyquire').noCallThru();
 const GenericSectionStub = ComponentContext.createStubComponentWithChildren();
 
@@ -17,8 +15,6 @@ const Section = proxyquire('../../../../app/components/section/tag/section', {
     '../../actions/facetedModule': {getPage: () => {}},
     '../section': GenericSectionStub
 });
-
-// ----------------------------------------------------------------------------- Mocked data/stores
 
 const tags = ['luxury-home'];
 const mockEntity = {
@@ -40,9 +36,6 @@ ComponentContext.addStore('AppStore', {
 ComponentContext.addStore('RequestStore', {
     getTagLeaf: () => tags
 });
-
-
-// ----------------------------------------------------------------------------- tests
 
 describe(`TagSection`, () => {
     let reactModule;

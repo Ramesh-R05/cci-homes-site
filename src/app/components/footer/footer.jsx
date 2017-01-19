@@ -30,7 +30,7 @@ export default class FooterSection extends Component {
         if (modifier) classNames += ` footer--${modifier}`;
 
         return (
-            <div>
+            <div className="footer-wrapper">
                 <footer className={classNames}>
                     <FooterSocialLinks />
                     <div className="row">

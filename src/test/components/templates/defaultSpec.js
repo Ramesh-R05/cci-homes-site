@@ -2,6 +2,8 @@ import {betterMockComponentContext} from '@bxm/flux';
 import forOwn from 'lodash/object/forOwn';
 import cloneDeep from 'lodash/lang/cloneDeep';
 import {localeData} from '../../mock/config';
+import {entity} from '../../mock/articles';
+import clone from 'lodash/lang/clone';
 import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 
@@ -11,41 +13,99 @@ const config = {
     get: () => {}
 };
 
-// ----------------------------------------------------------------------------- Stub components
-
-const HeaderStub = Context.createStubComponent();
 const UniHeaderStub = Context.createStubComponent();
-const HomepageStub = Context.createStubComponent();
-const HomesArticleStub = Context.createStubComponent();
-const TagSectionStub = Context.createStubComponent();
-const NavigationTagSectionStub = Context.createStubComponent();
-const GalleryStub = Context.createStubComponent();
+const SiteHeaderStub = Context.createStubComponent();
+const SiteFooterStub = Context.createStubComponentWithChildren();
 const SideMenuStub = Context.createStubComponent();
-const FooterStub = Context.createStubComponentWithChildren();
 
+const HomeHeader = Context.createStubComponent();
+const BrandHeader = Context.createStubComponent();
+const NavSectionHeader = Context.createStubComponent();
 
-// ----------------------------------------------------------------------------- Store config
+const AdsWrapper = Context.createStubComponentWithChildren();
 
-const headerItems = [
-    { name: 'Real Homes', url: '/real-homes' },
-    { name: 'Bedroom', url: '/bedroom' },
-    { name: 'Kitchen', url: '/kitchen' },
-    { name: 'DIY', url: '/diy' }];
+const HomePageStub = Context.createStubComponent();
+const ArticleStub = Context.createStubComponent();
+const BrandStub = Context.createStubComponent();
+const NavSectionStub = Context.createStubComponent();
+const TagStub = Context.createStubComponent();
+const CampaignStub = Context.createStubComponent();
+const GalleryStub = Context.createStubComponent();
+
+const Error404Stub = Context.createStubComponent();
+const Error500Stub = Context.createStubComponent();
+
+function mockErrorHandlerBuilder(code) {
+    switch (code) {
+        case 404: return Error404Stub;
+        case 500: return Error500Stub;
+    }
+}
+
+const Default = proxyquire('../../../app/components/templates/default', {
+    'react': React,
+    '../header/header': SiteHeaderStub,
+    '../side-menu/sideMenu': SideMenuStub,
+    '../home/home': HomePageStub,
+    '../article/page': ArticleStub,
+    '../section/tag/section': TagStub,
+    '../header/uniheader' : UniHeaderStub,
+    '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}}, // TODO - deprecated??
+    '../section/navigationTag/section': NavSectionStub,
+    '../brand/section': BrandStub,
+    '../section/sponsorTag/section': CampaignStub,
+    '@bxm/gallery/lib/components/page/gallery': GalleryStub,
+    '../footer/footer': SiteFooterStub,
+    '../brand/header': BrandHeader,
+    '../home/header': HomeHeader,
+    '../section/header': NavSectionHeader,
+    '@bxm/ad/lib/google/components/standardPageAdsWrapper': AdsWrapper,
+    '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
+    '@bxm/config': { load: () => { return config } },
+    'picturefill': {}
+});
 
 const defaultStoreData = {
     MenuStore: {
         sideMenuOpen: false
     },
     AppStore: {
-        headerItems
+        navigationTags: navigationTags,
+        headerNavigation: {
+            items: getHeaderNavItems()
+        }
     },
     PageStore: {
-        content: { some: 'content' },
-        error: undefined
+        content: getDefaultContent(),
+        contentErrorStatus: undefined
     }
 };
 
-let storeData;
+let storeData = defaultStoreData;
+
+const navigationTags = [
+    'homes:Homes navigation:Section Tag Landing'
+];
+
+const headerNavItems = [
+    { name: 'Real Homes', url: '/real-homes' },
+    { name: 'Bedroom', url: '/bedroom' },
+    { name: 'Kitchen', url: '/kitchen' },
+    { name: 'DIY', url: '/diy' }
+];
+
+function getHeaderNavItems() {
+    return headerNavItems;
+}
+
+function getDefaultContent() {
+    let content = clone(entity);
+    content.urlName = 'belle';
+    content.title = 'Belle';
+    content.tagsDetails = undefined;
+    return content;
+}
+
 function resetStoreData() {
     storeData = cloneDeep(defaultStoreData);
 }
@@ -55,7 +115,7 @@ Context.addStore('PageStore', {
         return storeData.PageStore.content;
     },
     getErrorStatus() {
-        return storeData.PageStore.error;
+        return storeData.PageStore.contentErrorStatus;
     }
 });
 
@@ -66,48 +126,47 @@ Context.addStore('MenuStore', {
 });
 
 Context.addStore('AppStore', {
+    getNavigationTags() {
+        return storeData.AppStore.navigationTags;
+    },
     getHeaderItems() {
-        return headerItems;
+        return storeData.AppStore.headerNavigation.items;
     }
 });
-
-// ----------------------------------------------------------------------------- Load with mocks
-
-const Error404Stub = Context.createStubComponent();
-const Error500Stub = Context.createStubComponent();
-function mockErrorHandlerBuilder(code) {
-    switch (code) {
-        case 404: return Error404Stub;
-        case 500: return Error500Stub;
-    }
-}
-
-const Default = proxyquire('../../../app/components/templates/default', {
-    'react': React,
-    '../header/header': HeaderStub,
-    '../side-menu/sideMenu': SideMenuStub,
-    '../home/home': HomepageStub,
-    '../article/page': HomesArticleStub,
-    '../section/tag/section': TagSectionStub,
-    '../header/uniheader' : UniHeaderStub,
-    '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}},
-    '../section/navigationTag/section': NavigationTagSectionStub,
-    '@bxm/gallery/lib/components/page/gallery': GalleryStub,
-    '../footer/footer': FooterStub,
-    '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
-    '@bxm/config': { load: () => { return config } },
-    'picturefill': {}
-});
-
-// ----------------------------------------------------------------------------- tests
 
 describe('Default Component template', () => {
     let reactModule;
+    let renderedDOM;
+    let wrapper;
     let template;
+    let uniheader;
     let header;
     let sideMenu;
     let footer;
     let data;
+
+    const sectionBrandsDataStub = {
+        "belle": {
+            "subscribe": {
+                "image": "/assets/images/brand-pages/subscribe/belle.jpg",
+                "link": "https://www.magshop.com.au/store/homestolove"
+            },
+            "logo": "/assets/svgs/belle.svg",
+            "social": {
+                "facebook": "https://www.facebook.com/BelleMagazineAu",
+                "twitter": "https://twitter.com/BelleMagazineAu",
+                "instagram": "https://instagram.com/bellemagazineau/?hl=en"
+            }
+        }
+    };
+
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: {
+            sectionBrands: sectionBrandsDataStub
+        }
+    };
 
     before( () => {
         data = sinon.stub(config, 'get').returns(localeData);
@@ -121,56 +180,60 @@ describe('Default Component template', () => {
         data.restore();
     });
 
+    afterEach( () => {
+        Context.cleanup;
+    });
+
     describe('Error Handling', () => {
-        it('shows 500 error if nodeType is unknown', () => {
-            storeData.PageStore.content = { nodeType: 'RickRoll' };
-            reactModule = Context.mountComponent(Default);
-            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
-        });
 
         it('shows 500 error if content is not specified', () => {
             storeData.PageStore.content = null;
-            reactModule = Context.mountComponent(Default);
-            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
+        });
+
+        it('shows 500 error if content is not known', () => {
+            storeData.PageStore.content = {nodeType: 'UnknownHomepage'};
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
 
         it('shows 404 error when error status code is 404', () => {
             storeData.PageStore.content = null;
-            storeData.PageStore.error = { status: 404 };
-            reactModule = Context.mountComponent(Default);
-            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error404Stub)[0]).to.exist;
+            storeData.PageStore.contentErrorStatus = { status: 404 };
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            expect(TestUtils.findRenderedComponentWithType(reactModule, Error404Stub)).to.exist;
         });
 
         it('shows 500 error when error status code is 500', () => {
-            storeData.PageStore.error = { status: 500 };
-            reactModule = Context.mountComponent(Default);
-            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+            storeData.PageStore.contentErrorStatus = { status: 500 };
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
 
         it('shows 500 error when error status code is unknown', () => {
-            storeData.PageStore.error = { status: -1 };
-            reactModule = Context.mountComponent(Default);
-            expect(TestUtils.scryRenderedComponentsWithType(reactModule, Error500Stub)[0]).to.exist;
+            storeData.PageStore.contentErrorStatus = { status: -1 };
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
     });
 
     describe('Home Page', () => {
         beforeEach(() => {
+            storeData.AppStore.headerNavigation.items = headerNavItems;
             storeData.PageStore.content = { nodeType: 'Homepage' };
             reactModule = Context.mountComponent(Default);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
-            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
-            footer = TestUtils.findRenderedComponentWithType(reactModule, FooterStub);
+            header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
+            footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
         });
-
 
         it(`sets Header 'isSideMenuOpen' prop to 'false'`, () => {
             expect(header.props.isSideMenuOpen).to.be.false;
         });
 
-
         it(`sets Header 'navItems' prop correctly to array`, () => {
-            expect(header.props.navItems).to.eql(headerItems);
+            expect(header.props.navItems).to.eql(headerNavItems);
         });
 
         it(`sets SideMenu 'open' prop to 'false'`, () => {
@@ -178,7 +241,7 @@ describe('Default Component template', () => {
         });
 
         it(`sets SideMenu 'items' prop to array`, () => {
-            expect(sideMenu.props.navItems).to.eql(headerItems);
+            expect(sideMenu.props.navItems).to.eql(headerNavItems);
         });
 
         it(`sets SideMenu 'data' prop properly`, () => {
@@ -191,27 +254,29 @@ describe('Default Component template', () => {
     });
 
     describe('Uniheader', () => {
+        const totalDOMChildrenAtHomePage = 6;
+
         describe('when on home page', () => {
             before( () => {
                 resetStoreData();
                 storeData.PageStore.content = { nodeType: 'Homepage', url: '/' };
-                reactModule = Context.mountComponent(Default);
+                reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                renderedDOM = ReactDOM.findDOMNode(reactModule);
             });
             it('should render the uniheader', () => {
-                TestUtils.findRenderedComponentWithType(reactModule, UniHeaderStub);
+                expect(renderedDOM.children.length).to.eq(totalDOMChildrenAtHomePage);
             });
         });
 
         describe('when not on home page', () => {
-            let UniHeader;
             before( () => {
                 resetStoreData();
-                storeData.PageStore.content = { nodeType: 'Homepage', url: '/real-living/' };
-                reactModule = Context.mountComponent(Default);
-                UniHeader = TestUtils.scryRenderedComponentsWithType(reactModule, UniHeaderStub)[0];
+                storeData.PageStore.content = { nodeType: 'NavigationSection', url: '/real-living/' };
+                reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                renderedDOM = ReactDOM.findDOMNode(reactModule);
             });
             it('should not render the uniheader', () => {
-                expect(ReactDOM.findDOMNode(UniHeader)).not.to.exist;
+                expect(renderedDOM.children.length).to.eq(totalDOMChildrenAtHomePage - 1);
             });
         });
     });
@@ -219,54 +284,108 @@ describe('Default Component template', () => {
     describe('header and footer visibility', () => {
         forOwn({
             'Homepage': {
-                component: HomepageStub,
+                ContentHeaderHandler: HomeHeader,
+                ContentHandler: HomePageStub,
                 hideHeader: false,
                 hideFooter: false
             },
             'HomesArticle': {
-                component: HomesArticleStub,
+                ContentHeaderHandler: HomeHeader,
+                ContentHandler: ArticleStub,
                 hideHeader: false,
                 hideFooter: true
             },
             'NavigationSection': {
-                component: NavigationTagSectionStub,
+                ContentHeaderHandler: NavSectionHeader,
+                ContentHandler: NavSectionStub,
                 hideHeader: false,
                 hideFooter: false
             },
             'TagSection': {
-                component: TagSectionStub,
+                ContentHeaderHandler: NavSectionHeader,
+                ContentHandler: TagStub,
+                hideHeader: false,
+                hideFooter: false
+            },
+            'BrandSection': {
+                ContentHeaderHandler: BrandHeader,
+                ContentHandler: BrandStub,
+                hideHeader: false,
+                hideFooter: false
+            },
+            'Campaign': {
+                ContentHandler: CampaignStub,
                 hideHeader: false,
                 hideFooter: false
             },
             'Gallery': {
-                component: GalleryStub,
+                ContentHandler: GalleryStub,
                 hideHeader: true,
                 hideFooter: true
             }
         }, (metadata, nodeType) => {
-            const {component, hideFooter, hideHeader} = metadata;
+            const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = metadata;
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
-                    storeData.PageStore.content = {nodeType};
-                    reactModule = Context.mountComponent(Default);
-                    header = TestUtils.scryRenderedComponentsWithType(reactModule, HeaderStub)[0];
-                    footer = TestUtils.scryRenderedComponentsWithType(reactModule, FooterStub)[0];
+                    storeData.PageStore.content.nodeType = nodeType;
+                    reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                    if (!hideHeader) {
+                        header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
+                    }
+                    if (!hideFooter) {
+                        footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
+                    }
                 });
 
                 it('returns the correct handler', () => {
-                    template = TestUtils.scryRenderedComponentsWithType(reactModule, component);
-                    expect(template).to.have.length(1);
-                });
-
-                it(`${hideFooter ? 'hides' : 'shows'} the footer`, () => {
-                    if (hideFooter) {
-                        expect(ReactDOM.findDOMNode(footer)).not.to.exist;
+                    if (nodeType === 'Homepage' || nodeType === 'BrandSection') {
+                        wrapper = TestUtils.findRenderedComponentWithType(reactModule, AdsWrapper);
+                        template = TestUtils.findRenderedComponentWithType(wrapper, ContentHandler);
                     } else {
-                        expect(ReactDOM.findDOMNode(footer)).to.exist;
+                        template = TestUtils.findRenderedComponentWithType(reactModule, ContentHandler);
                     }
                 });
+
+                if (!hideFooter) {
+                    it(`${hideFooter ? 'hides' : 'shows'} the footer`, () => {
+                        if (hideFooter) {
+                            expect(ReactDOM.findDOMNode(footer)).not.to.exist;
+                        } else {
+                            expect(ReactDOM.findDOMNode(footer)).to.exist;
+                        }
+                    });
+                }
             });
+        });
+    });
+
+    describe(`with NavSectionHeader and Tag Details`, () => {
+        let reactModule;
+        let navSectionHeader;
+
+        beforeEach(() => {
+            resetStoreData();
+        });
+
+        afterEach(Context.cleanup);
+
+        it(`when defined tagsDetails should use tagsDetails displayName instead of title prop in the ContentHeadingHandler component`, () => {
+            storeData.PageStore.content.nodeType = 'NavigationSection';
+            storeData.PageStore.content.tagsDetails = [
+                { displayName: 'My Display Name' }
+            ];
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            navSectionHeader = TestUtils.findRenderedComponentWithType(reactModule, NavSectionHeader);
+            expect(navSectionHeader.props.title).to.deep.equal(storeData.PageStore.content.tagsDetails[0].displayName);
+        });
+
+        it(`when undefined tagsDetails should pass down the title prop to the ContentHeadingHandler component`, () => {
+            storeData.PageStore.content.nodeType = 'NavigationSection';
+            storeData.PageStore.content.tagDetails = undefined;
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+            navSectionHeader = TestUtils.findRenderedComponentWithType(reactModule, NavSectionHeader);
+            expect(navSectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
         });
     });
 });

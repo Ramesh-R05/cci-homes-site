@@ -6,17 +6,15 @@ import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
-const HeaderStub = Context.createStubComponent();
-const GroupStub = Context.createStubComponent();
 const FeaturedStub = Context.createStubComponent();
+const GroupStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
 
 const Section = proxyquire('../../../app/components/brand/section', {
     'react': React,
-    './header': HeaderStub,
-    './articleGroup': GroupStub,
     './featured': FeaturedStub,
+    './articleGroup': GroupStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
 });
@@ -38,21 +36,38 @@ Context.addStore('AppStore', {
 describe(`Brand Section`, () => {
     let reactModule;
 
+    const sectionBrandsConfigStub = {
+        belle: {
+            subscribe: {
+                "image": "/assets/images/brand-pages/subscribe/belle.jpg",
+                "link": "https://www.magshop.com.au/store/homestolove"
+            },
+            logo: "/assets/svgs/belle.svg",
+            social: {
+                "facebook": "https://www.facebook.com/BelleMagazineAu",
+                "twitter": "https://twitter.com/BelleMagazineAu",
+                "instagram": "https://instagram.com/bellemagazineau/?hl=en"
+            }
+        }
+    };
+
+    const defaultPropsStub = {
+        brandConfig: sectionBrandsConfigStub
+    };
+
     afterEach(Context.cleanup);
 
     describe(`Without sideMenu prop and 12 articles`, () => {
         const sectionClassName = 'container';
         let section;
-        let header;
         let group;
         let featured;
         let ads;
 
         before(() => {
             brandArticlesStore = articlesMock.slice(0, 13);
-            reactModule = Context.mountComponent(Section, {});
+            reactModule = Context.mountComponent(Section, defaultPropsStub);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
-            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             featured = TestUtils.findRenderedComponentWithType(reactModule, FeaturedStub);
             group = TestUtils.findRenderedComponentWithType(reactModule, GroupStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -62,23 +77,14 @@ describe(`Brand Section`, () => {
             expect(ReactDOM.findDOMNode(section)).to.exist;
         });
 
-        // Header
-        it(`should pass down the brand to the Heading component as Belle`, () => {
-            expect(header.props.brand).to.equal('Belle');
-        });
-
-        it(`should pass down the brand logo to the Heading component as ${Section.brands.belle.logo}`, () => {
-            expect(header.props.logo).to.equal(Section.brands.belle.logo);
-        });
-
         // Featured articles
         it(`should pass down the featured articles to the featured component`, () => {
             expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 7));
         });
 
-        it(`should pass down the brand and brandConfig`, () => {
+        it(`should pass down the brand and section brandConfig`, () => {
             expect(featured.props.brand).to.equal('Belle');
-            expect(featured.props.brandConfig).to.deep.equal(Section.brands.belle);
+            expect(featured.props.brandConfig).to.deep.equal(sectionBrandsConfigStub);
         });
 
         // Group Articles

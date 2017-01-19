@@ -3,7 +3,6 @@ import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import cx from 'classnames';
 import loadList from '../../actions/loadList';
-import Header from './header';
 import Group from './group';
 import InFocus from '../inFocus/inFocus';
 import RepeatableGroup from './repeatableGroup';
@@ -54,20 +53,6 @@ export default class Section extends Component {
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="row">
-                        <Header title={title} sponsorName={content.sponsor || 'homes_sponsor'}>
-                            <Ad
-                                className="ad--section-top-leaderboard"
-                                sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
-                                }}
-                                targets={{position: 1, title}}
-                            />
-                        </Header>
-                    </div>
-
-                    <div className="row">
                         {/*Heroes*/}
                         <Hero firstHero={first(articles)} secondHero={articles[4] || {}} />
                         {/* In Focus articles */}
@@ -77,7 +62,7 @@ export default class Section extends Component {
                                     className="ad--section-mrec"
                                     displayFor={['small', 'medium', 'large']}
                                     sizes="mrec"
-                                    targets={{position: 1, title}}
+                                    targets={{position: 1, kingtag: title}}
                                 />
                             </InFocus>
                         </div>
@@ -95,7 +80,7 @@ export default class Section extends Component {
                                 className="ad--section-mrec"
                                 displayFor={['xlarge']}
                                 sizes={['double-mrec', 'mrec']}
-                                targets={{position: 1, title}}
+                                targets={{position: 1, kingtag: title}}
                             />
                         </Group>
                     </div>
@@ -126,7 +111,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 2, title}}
+                                targets={{position: 2, kingtag: title}}
                             />
                         </div>
                     </div>
@@ -142,7 +127,7 @@ export default class Section extends Component {
                         dataSource={this.props.list}
                         nextParams={this.props.listNextParams}
                         className="news-feed bottom-news-feed"
-                        adTargets={{ position: 3, title }}
+                        adTargets={{ position: 3, kingtag: title }}
                     />
 
                     {/* Recommendations */}
@@ -161,7 +146,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 3, title}}
+                                targets={{position: 3, kingtag: title}}
                             />
                         </div>
                     </div>

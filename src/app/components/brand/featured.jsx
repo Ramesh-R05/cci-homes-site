@@ -61,7 +61,7 @@ export default class Featured extends Component {
                             breakpoints={['large', 'xlarge']}
                             containerClasses="columns show-for-large-up large-4 xlarge-4"
                             containerMarginBottom={60}
-                            carriageYPosition={147}>
+                            carriageYPosition={95}>
                             <Ad
                                 className="ad--section-mrec"
                                 displayFor={['large', 'xlarge']}
@@ -71,6 +71,6 @@ export default class Featured extends Component {
                         </StickyBlock>
                 </div>
             </section>
-            );
+        );
     }
 }

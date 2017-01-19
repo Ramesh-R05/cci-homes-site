@@ -23,7 +23,7 @@ export default class Header extends Component {
                         large: ['billboard', 'leaderboard']
                     }}
                     targets={{position: 1}}
-                    />
+                />
                 <div className="brand__logo">
                     <img src={logo} alt={title} />
                 </div>

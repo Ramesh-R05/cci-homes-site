@@ -7,8 +7,6 @@ const ComponentContext = betterMockComponentContext();
 const React = ComponentContext.React;
 const TestUtils = ComponentContext.TestUtils;
 
-// ----------------------------------------------------------------------------- Stubbed components
-
 const proxyquire = require('proxyquire').noCallThru();
 const GenericSectionStub = ComponentContext.createStubComponentWithChildren();
 const InlineGalleryStub = ComponentContext.createStubComponent();
@@ -20,8 +18,6 @@ const Section = proxyquire('../../../../app/components/section/navigationTag/sec
     '../../inlineGallery/customInlineGallery': InlineGalleryStub
 });
 
-// ----------------------------------------------------------------------------- Mocked data/stores
-
 ComponentContext.addStore('AppStore', {
     getContent: () => entity,
     getModuleItems: () => gogMock,
@@ -30,9 +26,6 @@ ComponentContext.addStore('AppStore', {
     getList: () => articlesMock,
     getListNextParams: () => articlesMock
 });
-
-
-// ----------------------------------------------------------------------------- tests
 
 describe(`NavigationTagSection`, () => {
     let reactModule;

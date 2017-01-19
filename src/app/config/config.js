@@ -1,5 +1,6 @@
 import breakpoints from '../breakpoints';
 import brands from './brands';
+import sectionBrands from './sectionBrands';
 import hamburgerBrands from './hamburgerBrands';
 
 var accountId = '761709621001';
@@ -84,6 +85,8 @@ export default {
     brands,
 
     hamburgerBrands,
+
+    sectionBrands,
 
     features: {
         galleryOfGalleries: {

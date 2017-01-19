@@ -25,6 +25,7 @@
 // Helpers - Mixins
 @import '../node_modules/@bxm/article/styles/helpers/mixins/article';
 @import 'helpers/mixins/side-menu-slider';
+@import 'helpers/mixins/adswrapper';
 
 // Page
 @import 'page/page';
@@ -71,6 +72,7 @@
 @import 'components/footer/back-to-top';
 @import 'components/newsletter/newsletter';
 @import 'components/error/error-page';
+@import 'components/adswrapper';
 
 // @bxm
 @import '../node_modules/@bxm/ui/lib/to-love/common';

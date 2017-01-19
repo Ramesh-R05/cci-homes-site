@@ -1,4 +1,3 @@
-// TODO - move array of uniheader objects under key 'uniheader' after update to @bxm/articles v19
 export default [
     {
         "imageUrl": "/assets/svgs/belle.svg",

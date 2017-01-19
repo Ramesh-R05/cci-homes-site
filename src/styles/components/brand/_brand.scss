@@ -1,4 +1,6 @@
 .brand__logo {
+    position: relative;
+    z-index: $z-index-1;
     margin-bottom: 20px;
     text-align: center;
     img {
@@ -25,17 +27,6 @@
             margin-bottom: 20px;
             @include grid-column(12);
         }
-    }
-
-    @media #{$medium-up} {
-        padding-top: 97px;
-        .recommendations {
-            margin-bottom: 33px;
-        }
-    }
-
-    .ad--section-top-leaderboard {
-        margin-bottom: 20px;
     }
 }
 

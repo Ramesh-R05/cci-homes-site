@@ -98,6 +98,20 @@ describe(`Footer`, () => {
         });
     });
 
+    describe('with footer wrapper element', () => {
+        let footer;
+
+        before(() => {
+            reactModule = Context.mountComponent(Footer);
+            footer = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'footer');
+        });
+
+        const expectedFooterWrapperClassName = 'footer-wrapper';
+        it(`should render footer wrapper with the ${expectedFooterWrapperClassName} class`, () => {
+            expect(ReactDOM.findDOMNode(footer).parentNode.getAttribute('class')).to.contain(expectedFooterWrapperClassName);
+        });
+    });
+
     describe('with an iframeKey prop', () => {
         const iframeKey = 'article';
 

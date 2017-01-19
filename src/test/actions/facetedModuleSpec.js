@@ -19,7 +19,6 @@ const FacetedModuleActions = proxyquire('../../app/actions/facetedModule', {
     '../services/facetedModule': FacetedModuleServiceMock
 });
 
-
 describe('FacetedModuleActions', () => {
 
     describe('#getPage', () => {

@@ -1,0 +1,15 @@
+@mixin homepage-gap-from-nav-to-top-mrec {
+    @media #{$large-up} {
+        margin-top: -16px;
+        padding-top: 16px;
+        background-color: $color-white;
+    }
+}
+
+@mixin brand-gap-from-nav-to-top-mrec {
+    @media #{$large-up} {
+        margin-top: -32px;
+        padding-top: 32px;
+        background-color: $color-white;
+    }
+}

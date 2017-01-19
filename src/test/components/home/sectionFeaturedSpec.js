@@ -92,30 +92,14 @@ describe('SectionFeatured', () => {
             expect(sticky).to.exist;
         });
 
-        describe(`Top banner/leaderboard/billboard ad`, () => {
-            it(`should display either a leaderboard or a billboard ad`, () => {
-                const expectedSizes = {
-                    small: 'banner',
-                    leaderboard: 'leaderboard',
-                    billboard: ['billboard', 'leaderboard']
-                };
-                expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
-                expect(ads[0].props.targets).to.deep.equal({position: 1});
-            });
-
-            it(`should be displayed on medium viewport and up`, () => {
-                expect(ads[0].props.displayFor).to.deep.equal(['small', 'medium', 'large', 'xlarge']);
-            });
-        });
-
         describe(`Top MREC ad`, () => {
             it(`should display either a double mrec or a double-mrec at position 1`, () => {
                 const expectedSizes = {
                     small: 'mrec',
                     large: ['double-mrec', 'mrec']
                 };
-                expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
-                expect(ads[1].props.targets).to.deep.equal({position: 1});
+                expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[0].props.targets).to.deep.equal({position: 1});
             });
         });
 
@@ -124,12 +108,12 @@ describe('SectionFeatured', () => {
                 const expectedSizes = {
                     small: 'mrec'
                 };
-                expect(ads[2].props.sizes).to.deep.equal(expectedSizes);
-                expect(ads[2].props.targets).to.deep.equal({position: 2});
+                expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[1].props.targets).to.deep.equal({position: 2});
             });
 
             it(`should be displayed on small viewport only`, () => {
-                expect(ads[2].props.displayFor).to.deep.equal(['small']);
+                expect(ads[1].props.displayFor).to.deep.equal(['small']);
             });
         });
 
@@ -140,40 +124,40 @@ describe('SectionFeatured', () => {
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
-                expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[2].props.sizes).to.deep.equal(expectedSizes);
             });
 
             it(`should be targeted with position 2`, () => {
-                expect(ads[3].props.targets).to.deep.equal({position: 2});
+                expect(ads[2].props.targets).to.deep.equal({position: 2});
             });
         });
 
         describe(`Bottom MREC ad for small and medium viewports`, () => {
             it(`should only display an mrec`, () => {
-                expect(ads[4].props.sizes).to.deep.equal('mrec');
+                expect(ads[3].props.sizes).to.deep.equal('mrec');
             });
 
             const pos = 3;
             it(`should be targeted with position ${pos}`, () => {
-                expect(ads[4].props.targets).to.deep.equal({position: pos});
+                expect(ads[3].props.targets).to.deep.equal({position: pos});
             });
 
             it(`should be displayed on small and medium viewports only`, () => {
-                expect(ads[4].props.displayFor).to.deep.equal(['small', 'medium']);
+                expect(ads[3].props.displayFor).to.deep.equal(['small', 'medium']);
             });
         });
 
         describe(`Bottom MREC ad for large and xlarge viewports`, () => {
             it(`should only display a double-mrec or an mrec`, () => {
-                expect(ads[5].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
+                expect(ads[4].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
             });
 
             it(`should be targeted with position 2`, () => {
-                expect(ads[5].props.targets).to.deep.equal({position: 2});
+                expect(ads[4].props.targets).to.deep.equal({position: 2});
             });
 
             it(`should be displayed on large and xlarge viewports only`, () => {
-                expect(ads[5].props.displayFor).to.deep.equal(['large', 'xlarge']);
+                expect(ads[4].props.displayFor).to.deep.equal(['large', 'xlarge']);
             });
         });
 

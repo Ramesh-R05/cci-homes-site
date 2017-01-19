@@ -1,0 +1,44 @@
+.site-wrapper {
+    max-width: $large-range-min;
+    margin: 0 auto;
+    z-index: $z-index-0;
+
+    .homepage {
+        @include homepage-gap-from-nav-to-top-mrec;
+    }
+
+    .brand {
+        @include brand-gap-from-nav-to-top-mrec;
+    }
+}
+
+.uniheader {
+    position: relative;
+    z-index: $z-index-1;
+}
+
+.header__sections {
+    position: initial;
+    z-index: $z-index-1;
+}
+
+.ad--section-top-leaderboard {
+    @media #{$large-up} {
+        position: relative;
+        z-index: $z-index-1;
+        max-width: $large-range-min;
+        margin: 15px auto;
+    }
+}
+
+.ad--wallpaper-wrapper {
+    position: fixed;
+    top: $header-height-medium-up;
+    left: calc((100% - 1920px) / 2);
+    width: 100%;
+    z-index: $z-index-minus-1;
+
+    @media (min-width: 1940px) {
+        left: 0;
+    }
+}

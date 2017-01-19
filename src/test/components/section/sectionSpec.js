@@ -6,10 +6,7 @@ import cloneDeep from 'lodash/lang/cloneDeep';
 const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
 
-// ----------------------------------------------------------------------------- Stubbed components
-
 const proxyquire = require('proxyquire').noCallThru();
-const HeaderStub = Context.createStubComponentWithChildren();
 const GroupStub = Context.createStubComponentWithChildren();
 const InFocusStub = Context.createStubComponentWithChildren();
 const GroupRepeatableStub = Context.createStubComponentWithChildren();
@@ -20,7 +17,6 @@ const RecommendationsStub = Context.createStubComponent();
 
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
-    './header': HeaderStub,
     './group': GroupStub,
     '../inFocus/inFocus': InFocusStub,
     './groupRepeatable': GroupRepeatableStub,
@@ -29,8 +25,6 @@ const Section = proxyquire('../../../app/components/section/section', {
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/recommendations/lib/components/recommendations': RecommendationsStub
 });
-
-// ----------------------------------------------------------------------------- Mocked data, context and props
 
 const featuredArticles = articlesMock.slice(1, 4);
 const navigationTags = ['Test'];
@@ -52,8 +46,6 @@ let customProps;
 function resetProps() {
     customProps = cloneDeep(defaultProps);
 }
-
-// ----------------------------------------------------------------------------- tests
 
 describe(`Section`, () => {
     let reactModule;
@@ -80,16 +72,13 @@ describe(`Section`, () => {
         let section;
         let inFocus;
         let groups;
-        let groupRepeatable;
         let hero;
         let ads;
-        let loadMore;
         let recommendations;
 
         before(() => {
             reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStubEnabled]);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
-            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             hero = TestUtils.findRenderedComponentWithType(reactModule, HeroStub);
             inFocus = TestUtils.findRenderedComponentWithType(reactModule, InFocusStub);
             groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
@@ -192,64 +181,69 @@ describe(`Section`, () => {
         });
 
         describe(`Number of AdStubs`, () => {
-            const numberOfAds = 5;
+            const numberOfAds = 4;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
-            });
-        });
-
-        describe(`Top banner/leaderboard/billboard ad`, () => {
-            const expectedClassname = 'ad--section-top-leaderboard';
-            it(`should have the classname prop equal to ${expectedClassname}`, () => {
-                expect(ads[0].props.className).to.equal(expectedClassname);
-            });
-
-            it(`should have the correct sizes prop`, () => {
-                const expectedSizes = {
-                    small: 'banner',
-                    leaderboard: 'leaderboard',
-                    billboard: ['billboard', 'leaderboard']
-                };
-                expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
             });
         });
 
         describe(`Top mrec ad (hidden on xlarge viewport)`, () => {
             const expectedClassname = 'ad--section-mrec';
             it(`should have the classname prop equal to ${expectedClassname}`, () => {
-                expect(ads[1].props.className).to.equal(expectedClassname);
+                expect(ads[0].props.className).to.equal(expectedClassname);
             });
 
             const expectedSizes = 'mrec';
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
-                expect(ads[1].props.sizes).to.equal(expectedSizes);
+                expect(ads[0].props.sizes).to.equal(expectedSizes);
             });
 
             const expectedDisplayFor = ['small', 'medium', 'large'];
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
-                expect(ads[1].props.displayFor).to.deep.equal(expectedDisplayFor);
+                expect(ads[0].props.displayFor).to.deep.equal(expectedDisplayFor);
             });
         });
 
         describe(`Top mrec ad (visible only on xlarge viewport)`, () => {
             const expectedClassname = 'ad--section-mrec';
             it(`should have the classname prop equal to ${expectedClassname}`, () => {
-                expect(ads[2].props.className).to.equal(expectedClassname);
+                expect(ads[1].props.className).to.equal(expectedClassname);
             });
 
             const expectedSizes = ['double-mrec', 'mrec'];
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
-                expect(ads[2].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
             });
 
             const expectedDisplayFor = ['xlarge'];
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
-                expect(ads[2].props.displayFor).to.deep.equal(expectedDisplayFor);
+                expect(ads[1].props.displayFor).to.deep.equal(expectedDisplayFor);
             });
         });
 
         describe(`Middle banner/leaderboard/billboard ad before the Inline Gallery`, () => {
             const expectedClassname = 'ad--section-middle-leaderboard';
+            it(`should have the classname prop equal to ${expectedClassname}`, () => {
+                expect(ads[2].props.className).to.equal(expectedClassname);
+            });
+
+            const expectedSizes = {
+                small: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            };
+            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
+                expect(ads[2].props.sizes).to.deep.equal(expectedSizes);
+            });
+
+            const targets = {position: 2, kingtag: 'Section Heading with Tags Details'};
+            it(`should have the targets props equal to ${targets}`, () => {
+                expect(ads[2].props.targets).to.deep.equal(targets);
+            });
+        });
+
+        describe(`Bottom banner/leaderboard/billboard ad before the Network section`, () => {
+            const expectedClassname = 'ad--section-bottom-leaderboard';
             it(`should have the classname prop equal to ${expectedClassname}`, () => {
                 expect(ads[3].props.className).to.equal(expectedClassname);
             });
@@ -263,52 +257,12 @@ describe(`Section`, () => {
                 expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            const targets = {position: 2, title: 'Section Heading with Tags Details'};
+            const targets = {position: 3, kingtag: 'Section Heading with Tags Details'};
             it(`should have the targets props equal to ${targets}`, () => {
                 expect(ads[3].props.targets).to.deep.equal(targets);
             });
         });
 
-        describe(`Bottom banner/leaderboard/billboard ad before the Network section`, () => {
-            const expectedClassname = 'ad--section-bottom-leaderboard';
-            it(`should have the classname prop equal to ${expectedClassname}`, () => {
-                expect(ads[4].props.className).to.equal(expectedClassname);
-            });
-
-            const expectedSizes = {
-                small: 'banner',
-                leaderboard: 'leaderboard',
-                billboard: ['billboard', 'leaderboard']
-            };
-            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
-                expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
-            });
-
-            const targets = {position: 3, title: 'Section Heading with Tags Details'};
-            it(`should have the targets props equal to ${targets}`, () => {
-                expect(ads[4].props.targets).to.deep.equal(targets);
-            });
-        });
-
-    });
-
-    describe(`with Tags Details`, () => {
-        beforeEach( () => {
-            resetProps();
-        });
-
-        it(`when defined should use tagsDetails displayName instead of title prop in the Heading component`, () => {
-            reactModule = Context.mountComponent(Section, customProps, [contextConfigStub]);
-            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
-            expect(header.props.title).to.deep.equal(customProps.content.tagsDetails[0].displayName);
-        });
-
-        it(`when undefined should pass down the title prop to the Heading component`, () => {
-            customProps.content.tagsDetails = undefined;
-            reactModule = Context.mountComponent(Section, customProps, [contextConfigStub]);
-            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
-            expect(header.props.title).to.deep.equal(customProps.content.title);
-        });
     });
 
     describe(`with the side menu closed`, () => {

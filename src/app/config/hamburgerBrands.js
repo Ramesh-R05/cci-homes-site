@@ -1,4 +1,3 @@
-// TODO - move into brands.js under key 'hamburgers' after update to @bxm/articles v19
 export default [
     {
         "imageUrl": "/assets/images/menulogos/now-logo-white.svg",

@@ -4,7 +4,6 @@ const {React, ReactDOM, TestUtils} = Context;
 import Input from '../../../app/components/form/input';
 import {radio1 as inputRadioMock} from '../../mock/input';
 
-
 describe('Input', () => {
     let reactModule;
     const labelText = 'Small';

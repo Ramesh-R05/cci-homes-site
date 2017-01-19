@@ -40,26 +40,10 @@ export default class SectionFeatured extends Component {
             <div className={this.props.className}>
                 <div className="container">
                     <div className="row">
-                        {/* Top ad */}
-                        <div className="columns small-12">
-                            <Ad
-                                className="ad--section-top-leaderboard"
-                                displayFor={['small', 'medium', 'large', 'xlarge']}
-                                sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
-                                }}
-                                targets={{position: 1}}
-                            />
-                        </div>
-
-                        {/* First 10 articles */}
                         <section className="section-featured section-featured--top">
 
                             {/* Hero article displayed in first position from sm to lg viewports */}
                             <Teaser {...hero} key={hero.id} lazyload={false} modifier="hero" sizes="home-hero" />
-
 
                             {/* First MREC */}
                             <Ad

@@ -9,12 +9,13 @@ const Uniheader = proxyquire('../../../app/components/header/uniheader', {
 
 describe('Brand Header', () => {
     let reactModule;
-    const brandDataStub = [{
-        "imageUrl": "/assets/images/logos/AWW-logo.svg",
-        "url": "http://aww.com.au/",
-        "title": "Australian Women's Weekly",
-        "id": "aww"
-    },
+    const brandDataStub = [
+        {
+            "imageUrl": "/assets/images/logos/AWW-logo.svg",
+            "url": "http://aww.com.au/",
+            "title": "Australian Women's Weekly",
+            "id": "aww"
+        },
         {
             "imageUrl": "/assets/images/logos/WD-logo.svg",
             "url": "http://aww.com.au/",
@@ -26,7 +27,8 @@ describe('Brand Header', () => {
             "url": "http://www.homestolove.com.au/",
             "title": "Good Health",
             "id": "gh"
-        }];
+        }
+    ];
 
     const contextConfigStub = {
         key: 'config',

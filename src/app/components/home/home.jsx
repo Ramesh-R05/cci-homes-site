@@ -69,7 +69,6 @@ class Home extends Component {
     }
 }
 
-
 export default connectToStores(Home, ['AppStore', GalleryOfGalleriesStore], (context) => {
     return {
         content: context.getStore('AppStore').getContent(),

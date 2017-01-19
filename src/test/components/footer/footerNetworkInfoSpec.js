@@ -4,7 +4,6 @@ import FooterNetworkInfo from '../../../app/components/footer/footerNetworkInfo'
 const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
 
-
 describe(`FooterNetworkInfo`, () => {
     let reactModule;
     let links;

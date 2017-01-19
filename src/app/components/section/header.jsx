@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
+import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class Header extends Component {
 
@@ -37,7 +38,15 @@ export default class Header extends Component {
 
         return (
             <div className="section-heading">
-                {this.props.children}
+                <Ad
+                    className="ad--section-top-leaderboard"
+                    sizes={{
+                        small: 'banner',
+                        medium: 'leaderboard',
+                        large: ['billboard', 'leaderboard']
+                    }}
+                    targets={{position: 1, kingtag: title}}
+                />
                 <SponsorHeader
                     id={this.props.sponsorName}
                     title={<b>{title}</b>}>
