@@ -1,3 +1,8 @@
+.brand__wrapper {
+    max-width: 1024px;
+    margin: 0px auto;
+}
+
 .brand__logo {
     position: relative;
     z-index: $z-index-1;
@@ -8,10 +13,16 @@
         max-height: 100px;
         width: 60%;
     }
+
     @media #{$medium-up} {
-        margin: 0 0 40px;
+        margin: 0px 0 40px;
+        background-color: $color-white;
     }
 
+    @media #{$large-up} {
+        padding-top: 10px;
+        margin: 0px 0 30px;
+    }
 }
 
 .brand__body {

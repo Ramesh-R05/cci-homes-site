@@ -101,15 +101,11 @@ class DefaultTemplate extends Component {
                 />
 
                 {   ContentHeaderHandler
-                    ?   <div className="row">
-                            <div className="columns small-12">
-                                <ContentHeaderHandler
-                                    title={contentHeaderTitle}
-                                    logo={brandConfig.logo}
-                                    sponsorName={content.sponsor || 'homes_sponsor'}
-                                />
-                            </div>
-                        </div>
+                    ?   <ContentHeaderHandler
+                            title={contentHeaderTitle}
+                            logo={brandConfig.logo}
+                            sponsorName={content.sponsor || 'homes_sponsor'}
+                        />
                     :   null
                 }
 
@@ -118,7 +114,8 @@ class DefaultTemplate extends Component {
                             <ContentHandler
                                 brandConfig={brandConfig}
                                 content={content}
-                                isSideMenuOpen={isSideMenuOpen}/>
+                                isSideMenuOpen={isSideMenuOpen}
+                            />
                         </AdsWrapper>
                     :   <ContentHandler
                             brandConfig={brandConfig}

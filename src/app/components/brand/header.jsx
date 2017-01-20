@@ -14,7 +14,7 @@ export default class Header extends Component {
         if (!logo) return null;
 
         return (
-            <div className="columns small-12">
+            <div>
                 <Ad
                     className="ad--section-top-leaderboard"
                     sizes={{
@@ -24,8 +24,10 @@ export default class Header extends Component {
                     }}
                     targets={{position: 1}}
                 />
-                <div className="brand__logo">
-                    <img src={logo} alt={title} />
+                <div className="brand__wrapper">
+                    <div className="brand__logo">
+                        <img src={logo} alt={title} />
+                    </div>
                 </div>
             </div>
         );
