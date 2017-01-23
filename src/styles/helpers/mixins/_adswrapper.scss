@@ -8,8 +8,7 @@
 
 @mixin brand-gap-from-nav-to-top-mrec {
     @media #{$large-up} {
-        margin-top: -32px;
-        padding-top: 32px;
+        margin-top: -30px;
         background-color: $color-white;
     }
 }
