@@ -20,7 +20,7 @@ const SideMenuStub = Context.createStubComponent();
 
 const HomeHeader = Context.createStubComponent();
 const BrandHeader = Context.createStubComponent();
-const NavSectionHeader = Context.createStubComponent();
+const SectionHeader = Context.createStubComponent();
 
 const AdsWrapper = Context.createStubComponentWithChildren();
 
@@ -58,7 +58,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../footer/footer': SiteFooterStub,
     '../brand/header': BrandHeader,
     '../home/header': HomeHeader,
-    '../section/header': NavSectionHeader,
+    '../section/header': SectionHeader,
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': AdsWrapper,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
     '@bxm/config': { load: () => { return config } },
@@ -141,6 +141,7 @@ describe('Default Component template', () => {
     let template;
     let uniheader;
     let header;
+    let sectionHeader;
     let sideMenu;
     let footer;
     let data;
@@ -296,13 +297,13 @@ describe('Default Component template', () => {
                 hideFooter: true
             },
             'NavigationSection': {
-                ContentHeaderHandler: NavSectionHeader,
+                ContentHeaderHandler: SectionHeader,
                 ContentHandler: NavSectionStub,
                 hideHeader: false,
                 hideFooter: false
             },
             'TagSection': {
-                ContentHeaderHandler: NavSectionHeader,
+                ContentHeaderHandler: SectionHeader,
                 ContentHandler: TagStub,
                 hideHeader: false,
                 hideFooter: false
@@ -314,6 +315,7 @@ describe('Default Component template', () => {
                 hideFooter: false
             },
             'Campaign': {
+                ContentHeaderHandler: SectionHeader,
                 ContentHandler: CampaignStub,
                 hideHeader: false,
                 hideFooter: false
@@ -335,6 +337,16 @@ describe('Default Component template', () => {
                     }
                     if (!hideFooter) {
                         footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
+                    }
+                });
+
+                it('returns the correct Header Handler title for Navigation, Tag, and Campaign Section node types', () => {
+                    storeData.PageStore.content.nodeType = nodeType;
+                    storeData.PageStore.content.title = "My Section Header";
+                    reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                    if (nodeType === 'NavigationSection' || nodeType === 'TagSection' || nodeType === 'Campaign') {
+                        sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
+                        expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
                     }
                 });
 
@@ -362,7 +374,7 @@ describe('Default Component template', () => {
 
     describe(`with NavSectionHeader and Tag Details`, () => {
         let reactModule;
-        let navSectionHeader;
+        let sectionHeader;
 
         beforeEach(() => {
             resetStoreData();
@@ -376,16 +388,16 @@ describe('Default Component template', () => {
                 { displayName: 'My Display Name' }
             ];
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-            navSectionHeader = TestUtils.findRenderedComponentWithType(reactModule, NavSectionHeader);
-            expect(navSectionHeader.props.title).to.deep.equal(storeData.PageStore.content.tagsDetails[0].displayName);
+            sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
+            expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.tagsDetails[0].displayName);
         });
 
         it(`when undefined tagsDetails should pass down the title prop to the ContentHeadingHandler component`, () => {
             storeData.PageStore.content.nodeType = 'NavigationSection';
             storeData.PageStore.content.tagDetails = undefined;
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-            navSectionHeader = TestUtils.findRenderedComponentWithType(reactModule, NavSectionHeader);
-            expect(navSectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
+            sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
+            expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
         });
     });
 });

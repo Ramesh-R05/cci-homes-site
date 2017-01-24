@@ -10,7 +10,7 @@ import SideMenu from '../side-menu/sideMenu';
 
 import HomeHeader from '../home/header';
 import BrandHeader from '../brand/header';
-import NavSectionHeader from '../section/header';
+import SectionHeader from '../section/header';
 
 import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import HomePage from '../home/home';
@@ -149,12 +149,12 @@ class DefaultTemplate extends Component {
                 };
             case 'NavigationSection':
                 return {
-                    ContentHeaderHandler: NavSectionHeader,
+                    ContentHeaderHandler: SectionHeader,
                     ContentHandler: NavSection
                 };
             case 'TagSection':
                 return {
-                    ContentHeaderHandler: NavSectionHeader,
+                    ContentHeaderHandler: SectionHeader,
                     ContentHandler: Tag
                 };
             case 'BrandSection':
@@ -164,6 +164,7 @@ class DefaultTemplate extends Component {
                 };
             case 'Campaign':
                 return {
+                    ContentHeaderHandler: SectionHeader,
                     ContentHandler: Campaign
                 };
             case 'Gallery':
