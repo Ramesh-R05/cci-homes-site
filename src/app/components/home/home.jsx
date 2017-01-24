@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import GalleryOfGalleriesStore from '../../stores/facetedStores/galleryOfGalleries';
 import SectionFeatured from './sectionFeatured';
 import InFocus from '../inFocus/inFocus';
 import Ad from '@bxm/ad/lib/google/components/ad';
@@ -69,11 +68,13 @@ class Home extends Component {
     }
 }
 
-export default connectToStores(Home, ['AppStore', GalleryOfGalleriesStore], (context) => {
+export default connectToStores(Home, ['PageStore'], (context) => {
+    const pageStore = context.getStore('PageStore');
+
     return {
-        content: context.getStore('AppStore').getContent(),
-        articles: context.getStore('AppStore').getItems(),
-        galleries: context.getStore(GalleryOfGalleriesStore).getItems(),
-        inFocusArticles: context.getStore('AppStore').getModuleItems('inFocusArticles')
+        content: pageStore.getContent(),
+        articles: pageStore.getItems(),
+        galleries: pageStore.getModuleItems('galleries'),
+        inFocusArticles: pageStore.getModuleItems('inFocusArticles')
     };
 });

@@ -4,8 +4,8 @@ import {parseModules} from '../helper/parseModule';
 
 export default async function home(req, res, next) {
     try {
-        const {brand, navSection, tag, page} = req.query;
-        if (brand || navSection || tag || page) {
+        const {brand, navSection, tag, page, campaign} = req.query;
+        if (brand || navSection || tag || page || campaign) {
             next();
             return;
         }

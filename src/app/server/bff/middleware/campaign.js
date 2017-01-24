@@ -1,38 +1,31 @@
 import makeRequest from '../../makeRequest';
 import {parseEntity, parseEntities} from '../helper/parseEntity';
-import {getLatestTeasers} from '../api/listing';
 
-export default async function navSection(req, res, next) {
+export default async function campaign(req, res, next) {
     try {
         const itemsCount = 11;
         const listCount = 9;
-        const {navSection} = req.query;
+        let {campaign} = req.query;
 
-        if (!navSection) {
+        if (!campaign) {
             next();
             return;
         }
 
         let pageNo = parseInt(req.query.pageNo || 1, 10);
-
         const skip =  (pageNo-1) * (itemsCount + listCount);
-        const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${navSection}`);
 
-        const sectionTag = entityResponse.navigationTags[0];
+        const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/?nodeTypeAlias=Campaign&urlName=${campaign}`);
 
-        const filter = `tags eq '${sectionTag}'`;
-        const [latestTeasersResp, galleryListingResponse] = await Promise.all([
-            getLatestTeasers(itemsCount + listCount, skip, filter),
-            makeRequest(`${req.app.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and tags eq '${sectionTag}'&$orderby=pageDateCreated desc&$top=5`)
-        ]);
-
+        const filter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityResponse.sponsorName}'`;
+        const latestTeasersResp = await makeRequest(`${req.app.config.services.remote.listings}/teasers?$select=*&$filter=${filter}&$orderby=pageDateCreated desc&$top=${itemsCount + listCount}&$skip=${skip}`)
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
 
         let previousPage = null;
         if (pageNo > 1) {
-            let path = `/${navSection}?pageNo=${pageNo - 1}`;
+            let path = `/campaign/${campaign}?pageNo=${pageNo - 1}`;
             if (pageNo === 2) {
-                path = `/${navSection}`;
+                path = `/campaign/${campaign}`;
             }
             previousPage = {
                 path,
@@ -42,21 +35,21 @@ export default async function navSection(req, res, next) {
 
         let nextPage = null;
         if (skip + latestTeasers.length < latestTeasersResp.totalCount) {
-            const path = `/${navSection}?pageNo=${pageNo + 1}`;
+            const path = `/campaign/${campaign}?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,
                 url: `${req.app.config.site.host}${path}`
             };
         }
 
-        const path = pageNo > 1 ? `/${navSection}?pageNo=${pageNo}` : `/${navSection}`;
+        const path = pageNo > 1 ? `/campaign/${campaign}?pageNo=${pageNo}` : `/campaign/${campaign}`;
         const currentPage = {
             path,
             url: `${req.app.config.site.host}${path}`
         };
 
         const list = {
-            listName: navSection,
+            listName: campaign,
             params: {
                 pageNo,
                 filter: filter
@@ -73,8 +66,7 @@ export default async function navSection(req, res, next) {
             ...res.body,
             entity: parseEntity(entityResponse),
             items: parseEntities(latestTeasers.slice(0, itemsCount)),
-            list,
-            galleries: parseEntities(galleryListingResponse.data)
+            list
         };
 
         next();

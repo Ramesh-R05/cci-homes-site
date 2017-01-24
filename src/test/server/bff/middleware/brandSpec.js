@@ -80,7 +80,7 @@ describe('brand middleware', () => {
                     const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.brand}`;
 
                     expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
-                    expect(getLatestTeasersSpy.firstCall.calledWith(13, 0, entityStubData.articleSource, 'source')).to.be.true;
+                    expect(getLatestTeasersSpy.firstCall.calledWith(13, 0, `source eq '${entityStubData.articleSource}'`)).to.be.true;
 
                     done();
                 }).catch(done);

@@ -130,9 +130,11 @@ class Section extends Component {
 }
 
 
-export default connectToStores(Section, ['AppStore'], (context) => {
+export default connectToStores(Section, ['PageStore'], (context) => {
+    const pageStore = context.getStore('PageStore');
+
     return {
-        articles: context.getStore('AppStore').getItems(),
-        content: context.getStore('AppStore').getContent()
+        articles: pageStore.getItems(),
+        content: pageStore.getContent()
     };
 });

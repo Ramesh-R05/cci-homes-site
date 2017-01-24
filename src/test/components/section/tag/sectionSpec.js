@@ -12,7 +12,6 @@ const GenericSectionStub = ComponentContext.createStubComponentWithChildren();
 
 const Section = proxyquire('../../../../app/components/section/tag/section', {
     'react': React,
-    '../../actions/facetedModule': {getPage: () => {}},
     '../section': GenericSectionStub
 });
 
@@ -25,16 +24,12 @@ const mockEntity = {
     pageMetaDescription: "Luxury home"
 };
 
-ComponentContext.addStore('AppStore', {
+ComponentContext.addStore('PageStore', {
     getContent: () => mockEntity,
     getItems: () => articlesMock,
     getNavigationTags: () => tags,
     getList: () => articlesMock,
     getListNextParams: () => articlesMock
-});
-
-ComponentContext.addStore('RequestStore', {
-    getTagLeaf: () => tags
 });
 
 describe(`TagSection`, () => {

@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import PageStore from '../../stores/page';
 import MenuStore from '../../stores/menu';
 
 import Uniheader from '../header/uniheader';
@@ -192,12 +191,11 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, ['AppStore', PageStore, MenuStore], (context) => {
+export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], (context) => {
     return {
-        content: context.getStore(PageStore).getContent(),
-        contentErrorStatus: context.getStore(PageStore).getErrorStatus(),
+        content: context.getStore('PageStore').getContent(),
+        contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
         isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-        headerNavItems: context.getStore('AppStore').getHeaderItems(),
-        tags: context.getStore('AppStore').getNavigationTags()
+        headerNavItems: context.getStore('PageStore').getHeaderItems()
     };
 });

@@ -69,23 +69,15 @@ const defaultStoreData = {
     MenuStore: {
         sideMenuOpen: false
     },
-    AppStore: {
-        navigationTags: navigationTags,
-        headerNavigation: {
-            items: getHeaderNavItems()
-        }
-    },
+
     PageStore: {
+        headerNavItems,
         content: getDefaultContent(),
-        contentErrorStatus: undefined
+        error: undefined
     }
 };
 
 let storeData = defaultStoreData;
-
-const navigationTags = [
-    'homes:Homes navigation:Section Tag Landing'
-];
 
 const headerNavItems = [
     { name: 'Real Homes', url: '/real-homes' },
@@ -93,10 +85,6 @@ const headerNavItems = [
     { name: 'Kitchen', url: '/kitchen' },
     { name: 'DIY', url: '/diy' }
 ];
-
-function getHeaderNavItems() {
-    return headerNavItems;
-}
 
 function getDefaultContent() {
     let content = clone(entity);
@@ -115,22 +103,16 @@ Context.addStore('PageStore', {
         return storeData.PageStore.content;
     },
     getErrorStatus() {
-        return storeData.PageStore.contentErrorStatus;
+        return storeData.PageStore.error;
+    },
+    getHeaderItems() {
+        return headerNavItems;
     }
 });
 
 Context.addStore('MenuStore', {
     isSideMenuOpen() {
         return storeData.MenuStore.sideMenuOpen;
-    }
-});
-
-Context.addStore('AppStore', {
-    getNavigationTags() {
-        return storeData.AppStore.navigationTags;
-    },
-    getHeaderItems() {
-        return storeData.AppStore.headerNavigation.items;
     }
 });
 
@@ -201,19 +183,19 @@ describe('Default Component template', () => {
 
         it('shows 404 error when error status code is 404', () => {
             storeData.PageStore.content = null;
-            storeData.PageStore.contentErrorStatus = { status: 404 };
+            storeData.PageStore.error = { status: 404 };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             expect(TestUtils.findRenderedComponentWithType(reactModule, Error404Stub)).to.exist;
         });
 
         it('shows 500 error when error status code is 500', () => {
-            storeData.PageStore.contentErrorStatus = { status: 500 };
+            storeData.PageStore.error = { status: 500 };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
 
         it('shows 500 error when error status code is unknown', () => {
-            storeData.PageStore.contentErrorStatus = { status: -1 };
+            storeData.PageStore.error = { status: -1 };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
@@ -221,7 +203,6 @@ describe('Default Component template', () => {
 
     describe('Home Page', () => {
         beforeEach(() => {
-            storeData.AppStore.headerNavigation.items = headerNavItems;
             storeData.PageStore.content = { nodeType: 'Homepage' };
             reactModule = Context.mountComponent(Default);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);

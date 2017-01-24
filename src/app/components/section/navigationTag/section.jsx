@@ -36,12 +36,14 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, ['AppStore'], (context) => {
+export default connectToStores(Section, ['PageStore'], (context) => {
+    const pageStore = context.getStore('PageStore');
+
     return {
-        content: context.getStore('AppStore').getContent(),
-        articles: context.getStore('AppStore').getItems(),
-        galleries: context.getStore('AppStore').getModuleItems('galleries'),
-        list: context.getStore('AppStore').getList(),
-        listNextParams: context.getStore('AppStore').getListNextParams()
+        content: pageStore.getContent(),
+        articles: pageStore.getItems(),
+        galleries: pageStore.getModuleItems('galleries'),
+        list: pageStore.getList(),
+        listNextParams: pageStore.getListNextParams()
     };
 });

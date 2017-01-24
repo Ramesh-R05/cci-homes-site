@@ -13,12 +13,11 @@ const InlineGalleryStub = ComponentContext.createStubComponent();
 
 const Section = proxyquire('../../../../app/components/section/navigationTag/section', {
     'react': React,
-    '../../actions/facetedModule': {getPage: () => {}},
     '../section': GenericSectionStub,
     '../../inlineGallery/customInlineGallery': InlineGalleryStub
 });
 
-ComponentContext.addStore('AppStore', {
+ComponentContext.addStore('PageStore', {
     getContent: () => entity,
     getModuleItems: () => gogMock,
     getItems: () => articlesMock,

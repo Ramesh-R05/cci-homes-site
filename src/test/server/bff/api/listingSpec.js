@@ -48,11 +48,11 @@ describe('ListingAPI', () => {
         describe('when the getLatestTeasers method is called', () => {
             describe('and the query contains both a top value and section id', () => {
                 beforeEach(() => {
-                    query = `?$select=*&$filter=path eq %27${sectionId}%27&$orderby=pageDateCreated desc&$top=${top}&$skip=0`;
+                    query = `?$select=*&$filter=path eq '${sectionId}'&$orderby=pageDateCreated desc&$top=${top}&$skip=0`;
                 });
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, sectionId).then(() => {
+                    SectionApi.getLatestTeasers(top, undefined, `path eq '${sectionId}'`).then(() => {
                         expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
                         done();
                     }).catch(done);
@@ -80,26 +80,19 @@ describe('ListingAPI', () => {
                 });
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers().then(() => {
-                        expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
+                    SectionApi.getLatestTeasers().then((value) => {
+                        expect(makeRequestStub).to.not.be.called;
+                        expect(value).to.deep.eq([]);
                         done();
                     }).catch(done);
                 });
             });
 
-            describe('and the section is set to all', () => {
-                beforeEach(() => {
-                    sectionId = 'all';
-                    query = `?$select=*&$orderby=pageDateCreated desc&$top=${top}&$skip=0`;
-                });
-
-                afterEach(() => {
-                    sectionId = "DOLLY-3638";
-                });
-
-                it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, sectionId).then(() => {
-                        expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
+            describe('and filter is not passed', () => {
+                it(`should not call makeRequest`, (done) => {
+                    SectionApi.getLatestTeasers(top, undefined).then((value) => {
+                        expect(makeRequestStub.called).to.be.false;
+                        expect(value).to.deep.eq([]);
                         done();
                     }).catch(done);
                 });
@@ -114,15 +107,15 @@ describe('ListingAPI', () => {
                 });
             });
 
-            describe('and the filter is being passed', () => {
-                const filter = 'contentTags';
+            describe('and filter is passed', () => {
+                const filter = `contentTags eq '${sectionId}'`;
 
                 beforeEach(() => {
-                    query = `?$select=*&$filter=${filter} eq %27${sectionId}%27&$orderby=pageDateCreated desc&$top=${top}&$skip=0`;
+                    query = `?$select=*&$filter=${filter}&$orderby=pageDateCreated desc&$top=${top}&$skip=0`;
                 });
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, sectionId, filter).then((value) => {
+                    SectionApi.getLatestTeasers(top, undefined, filter).then((value) => {
                         expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
                         done();
                     }).catch(done);

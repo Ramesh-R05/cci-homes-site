@@ -1,5 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import {entity, request, articles as articlesMock} from '../../mock/articles';
+import {entity, articles as articlesMock} from '../../mock/articles';
 import exposeProps from '../../test-util/exposeProps';
 import clone from 'lodash/lang/clone';
 import proxyquire, {noCallThru} from 'proxyquire';
@@ -21,7 +21,7 @@ const Section = proxyquire('../../../app/components/brand/section', {
 
 let brandArticlesStore = articlesMock;
 
-Context.addStore('AppStore', {
+Context.addStore('PageStore', {
     getContent() {
         let content = clone(entity);
         content.urlName = 'belle';

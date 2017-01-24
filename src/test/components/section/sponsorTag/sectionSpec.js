@@ -27,17 +27,11 @@ Context.addStore('PageStore', {
         return {
             title: tags
         }
-    }
-});
+    },
 
-Context.addStore('TaggedArticlesStore', {
-    getConfiguration: () => null
-});
-
-Context.addStore('SponsorsArticles', {
-    getItems() {
-        return sponsorsMock;
-    }
+    getItems: () => sponsorsMock,
+    getList: () => sponsorsMock,
+    getListNextParams: () => sponsorsMock
 });
 
 describe('SponsorTagSection', () => {
@@ -59,9 +53,5 @@ describe('SponsorTagSection', () => {
 
     it(`should pass down the isSideMenuOpen prop to the GenericSection component`, () => {
         expect(genericSection.props.isSideMenuOpen).to.be.false;
-    });
-
-    it(`should pass down the moduleConfig prop to the GenericSection component`, () => {
-        expect(genericSection.props.moduleConfig).to.be.null;
     });
 });

@@ -1,6 +1,6 @@
 import defaultTemplate from '../components/templates/default';
-import loadContent from '../actions/loadContent';
 import loadPageContent from '../actions/loadPageContent';
+import pageNotFound from '../actions/pageNotFound';
 
 export default {
     home: {
@@ -11,6 +11,12 @@ export default {
     },
     tags: {
         path: '/tags/:tag*',
+        method: 'get',
+        handler: defaultTemplate,
+        action: loadPageContent
+    },
+    campaigns: {
+        path: '/campaigns/:campaign',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
@@ -39,10 +45,10 @@ export default {
         handler: defaultTemplate,
         action: loadPageContent
     },
-    section: {
+    all: {
         path: '/:all*',
         method: 'get',
         handler: defaultTemplate,
-        action: loadContent
+        action: pageNotFound
     }
 };

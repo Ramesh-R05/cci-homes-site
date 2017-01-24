@@ -16,9 +16,6 @@ const RecommendationsStub = Context.createStubComponent();
 
 const Home = proxyquire('../../../app/components/home/home', {
     'react': React,
-    '../../actions/facetedModule': {
-        getPage: () => {}
-    },
     './sectionFeatured': SectionFeatured,
     '../inFocus/inFocus': InFocusStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
@@ -27,13 +24,7 @@ const Home = proxyquire('../../../app/components/home/home', {
 
 const inFocusArticlesMock = homeArticlesMock.slice(0, 5);
 
-Context.addStore('GalleryOfGalleriesStore', {
-    getItems() {
-        return gogMock;
-    }
-});
-
-Context.addStore('AppStore', {
+Context.addStore('PageStore', {
     getContent() {
         return entity;
     },
@@ -42,8 +33,12 @@ Context.addStore('AppStore', {
         return homeArticlesMock;
     },
 
-    getModuleItems() {
-        return inFocusArticlesMock;
+    getModuleItems(moduleName) {
+        if (moduleName === 'inFocusArticles') {
+            return inFocusArticlesMock;
+        } else if (moduleName === 'galleries') {
+            return gogMock;
+        }
     }
 });
 

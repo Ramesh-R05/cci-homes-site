@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {navigateAction} from 'fluxible-router';
-import facetedModule from './middlewares/facetedModule';
-import sitemap from './middlewares/sitemap';
 import servicesStubs from './servicesStubs';
 import Server from '@bxm/server';
 import env from '@bxm/server/lib/env';
@@ -21,8 +19,6 @@ const server = new Server({
     additionalHeadComponents: [GoogleFont, AdScript],
     siteMiddlewares: (siteServer) => {
         bff(siteServer);
-        siteServer.use('/api/facetedModule', facetedModule);
-        siteServer.use(/\/sitemap(\?|$|\/).*/, sitemap);
 
         if (env.stubbed || env.automation) {
             //Network Header Stub

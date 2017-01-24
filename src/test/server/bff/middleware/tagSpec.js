@@ -26,8 +26,7 @@ const expectedList = {
     listName: tagSection,
     params: {
         pageNo: 1,
-        filterValue: tagSection,
-        filterProperty: 'tagsDetails/urlName'
+        filter: `tagsDetails/urlName eq '${tagSection}'`
     },
     items: [
         listingsStubData.data.slice(11)
@@ -126,8 +125,7 @@ describe('tag section middleware', () => {
 
                     expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(20);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(tagSection);
-                    expect(getLatestTeasersSpyFirstCall.args[3]).to.equal('tagsDetails/urlName');
+                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(`tagsDetails/urlName eq '${tagSection}'`);
 
                     done();
                 }).catch(done);

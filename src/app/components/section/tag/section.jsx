@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connectToStores} from '@bxm/flux';
-import RequestStore from '../../../stores/request';
 import GenericSection from '../section';
 
 class Section extends Component {
@@ -17,7 +16,6 @@ class Section extends Component {
     static defaultProps = {
         articles: [],
         isSideMenuOpen: false,
-        moduleConfig: {},
         navigationTags: []
     };
 
@@ -34,11 +32,13 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, ['AppStore'], (context) => {
+export default connectToStores(Section, ['PageStore'], (context) => {
+    const pageStore = context.getStore('PageStore');
+
     return {
-        content: context.getStore('AppStore').getContent(),
-        articles: context.getStore('AppStore').getItems(),
-        list: context.getStore('AppStore').getList(),
-        listNextParams: context.getStore('AppStore').getListNextParams()
+        content: pageStore.getContent(),
+        articles: pageStore.getItems(),
+        list: pageStore.getList(),
+        listNextParams: pageStore.getListNextParams()
     };
 });

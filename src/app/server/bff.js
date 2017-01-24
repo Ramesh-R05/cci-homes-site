@@ -9,9 +9,14 @@ import article from './bff/middleware/article';
 import gallery from './bff/middleware/gallery';
 import navSection from './bff/middleware/navSection';
 import tag from './bff/middleware/tag';
+import campaign from './bff/middleware/campaign';
 import list from './bff/middleware/list';
+import sitemap from './bff/middleware/sitemap';
+import seo from './bff/middleware/seo';
 
 export default function bff(server) {
+    server.get('/sitemap/:section?', sitemap, error);
+
     server.get(
         server.config.services.endpoints.list,
         list,
@@ -29,6 +34,8 @@ export default function bff(server) {
         tag,
         article,
         gallery,
+        campaign,
+        seo,
         headerMeta,
         render,
         error

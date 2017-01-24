@@ -43,7 +43,8 @@ export default async function tag(req, res, next) {
             })
             .catch(() => {});
 
-        const latestTeasersResp = await getLatestTeasers(itemsCount + listCount, skip, tag, 'tagsDetails/urlName');
+        const filter = `tagsDetails/urlName eq '${tag}'`;
+        const latestTeasersResp = await getLatestTeasers(itemsCount + listCount, skip, filter);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
 
@@ -78,8 +79,7 @@ export default async function tag(req, res, next) {
             listName: tag,
             params: {
                 pageNo,
-                filterValue: tag,
-                filterProperty: 'tagsDetails/urlName'
+                filter: filter
             },
             items: [
                 parseEntities(latestTeasers.slice(itemsCount))

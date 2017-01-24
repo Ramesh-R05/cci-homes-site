@@ -9,16 +9,6 @@ export default {
             module: 'http://automation.homes-site.bauer-media.net.au/stub/module-service',
             sitemap: 'http://automation.homes-site.bauer-media.net.au/stub/sitemap-service',
             tag: 'http://automation.homes-site.bauer-media.net.au/stub/tag-service'
-        },
-        content: {
-            remote: 'http://localhost:3001',
-            local: 'http://localhost',
-            path: '/stub'
-        },
-        facetedModule: {
-            remote: 'http://localhost:3001',
-            local: 'http://localhost',
-            path: '/stub'
         }
     },
     site: {

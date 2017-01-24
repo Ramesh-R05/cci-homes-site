@@ -29,8 +29,7 @@ const expectedList = {
     listName: navSection,
     params: {
         pageNo: 1,
-        filterValue: entityStubData.navigationTags[0],
-        filterProperty: 'tags'
+        filter: `tags eq '${entityStubData.navigationTags[0]}'`
     },
     items: [
         listingsStubData.data.slice(11)
@@ -44,7 +43,7 @@ const expectedList = {
         path: nextPath,
         url: `${siteMockHost}${nextPath}`
     }
-}
+};
 
 const expectedBody = {
     entity: entityStubData,
@@ -128,8 +127,7 @@ describe('navigation section middleware', () => {
 
                     expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(20);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(entityStubData.navigationTags[0]);
-                    expect(getLatestTeasersSpyFirstCall.args[3]).to.equal('tags');
+                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(`tags eq '${entityStubData.navigationTags[0]}'`);
 
                     done();
                 }).catch(done);

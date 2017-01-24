@@ -65,7 +65,7 @@ describe('gallery middleware', () => {
             it('should call getLatestTeasers', (done) => {
                 articleMiddleware(req, res, next).then(() => {
 
-                    expect(getLatestTeasersSpy.firstCall.calledWith(10, 0, 'Gallery', 'nodeTypeAlias')).to.be.true;
+                    expect(getLatestTeasersSpy.firstCall.calledWith(10, 0, `nodeTypeAlias eq 'Gallery'`)).to.be.true;
 
                     done();
                 }).catch(done);
@@ -74,7 +74,7 @@ describe('gallery middleware', () => {
             it('should return all modules in the desired structure', (done) => {
                 articleMiddleware(req, res, next).then(() => {
 
-                    expect(getLatestTeasersSpy.firstCall.calledWith(10, 0, 'Gallery', 'nodeTypeAlias')).to.be.true;
+                    expect(getLatestTeasersSpy.firstCall.calledWith(10, 0, `nodeTypeAlias eq 'Gallery'`)).to.be.true;
                     expect(res.body).to.deep.equal(expectedBody);
                     done();
                 }).catch(done);

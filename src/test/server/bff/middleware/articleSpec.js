@@ -80,7 +80,7 @@ describe('article middleware', () => {
 
                     let queryTags = 'food:Homes navigation:DIY';
 
-                    expect(getLatestTeasersSpy.firstCall.calledWith(14, 0, queryTags, 'tags')).to.be.true;
+                    expect(getLatestTeasersSpy.firstCall.calledWith(14, 0, `tags eq '${queryTags}'`)).to.be.true;
 
                     done();
                 }).catch(done);
@@ -91,7 +91,7 @@ describe('article middleware', () => {
 
                     let queryTags = 'food:Homes navigation:DIY';
 
-                    expect(getLatestTeasersSpy.firstCall.calledWith(14, 0, queryTags, 'tags')).to.be.true;
+                    expect(getLatestTeasersSpy.firstCall.calledWith(14, 0, `tags eq '${queryTags}'`)).to.be.true;
                     expect(res.body).to.deep.equal(expectedBody);
                     done();
                 }).catch(done);

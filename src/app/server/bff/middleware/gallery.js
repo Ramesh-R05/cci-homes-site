@@ -13,7 +13,7 @@ export default async function gallery(req, res, next) {
             return;
         }
 
-        const galleryItems = await getLatestTeasers(10, 0, 'Gallery', 'nodeTypeAlias');
+        const galleryItems = await getLatestTeasers(10, 0, `nodeTypeAlias eq 'Gallery'`);
         res.body.moreGalleries = parseEntities(galleryItems.data);
 
         next();

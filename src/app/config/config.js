@@ -149,23 +149,14 @@ export default {
             listings: 'http://dev.listings.services.bauer-media.internal/v1/homes',
             module: 'http://dev.modules.services.bauer-media.internal/v1/homes',
             sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/homes',
-            tag: 'http://dev.tags.services.bauer-media.internal/v1'
+            tag: 'http://dev.tags.services.bauer-media.internal/v1',
+            keywords: 'http://dev.seo-batman.services.bauer-media.internal/v1/keywords'
         },
         endpoints: {
             page: '/api/getPageContent',
             list: '/api/list'
         },
 
-        content: {
-            remote: 'http://dev.homes-api.wn.bauer-media.net.au',
-            local: 'http://127.0.0.1',
-            path: '/api/content'
-        },
-        facetedModule: {
-            remote: 'http://dev.homes-api.wn.bauer-media.net.au',
-            local: 'http://127.0.0.1',
-            path: '/api/facetedModule'
-        },
         header: {
             url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
         },

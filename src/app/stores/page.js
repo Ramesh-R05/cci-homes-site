@@ -1,67 +1,101 @@
-import {BaseStore} from '@bxm/flux';
+import {createReducerStore} from 'fluxible-reducer-store';
 
-export default class PageStore extends BaseStore {
+const PageStore = createReducerStore({
+    storeName: 'PageStore',
+    initialState: {
+        error: null,
+        content: null
+    },
+    reducers: {
+        LOAD_CONTENT: (state, payload) => {
+            let {
+                entity,
+                items,
+                headerNavigation,
+                inFocusArticles,
+                galleries,
+                list = []
+            } = payload.body;
 
-    static storeName = 'PageStore';
+            if (!entity) return;
 
-    static handlers = {
-        LOAD_CONTENT: 'onLoadContent',
-        LOAD_CONTENT_FAILED: 'onLoadContentFailed'
-    };
+            return {
+                title: entity.title,
+                content: entity,
+                items,
+                headerNavigation,
+                navigationTags: entity.navigationTags,
+                inFocusArticles,
+                galleries,
+                list
+            };
+        },
+        LOAD_CONTENT_FAILED: (state, payload) => {
+            return {
+                error: payload.response.error,
+                items: [],
+                inFocusArticles: [],
+                galleries: [],
+                list: [],
+                content: null
+            };
+        },
+        LOAD_LIST:  (state, payload) => {
+            return {
+                ...state,
+                list: {
+                    ...payload.body.list,
+                    items: [
+                        ...state.list.items,
+                        ...payload.body.list.items
+                    ]
+                }
+            };
+        }
+    },
+    getters: {
+        getContent: (state) => {
+            return state.content;
+        },
 
-    constructor(dispatcher) {
-        super(dispatcher);
-        this.state = {};
-        this.state.title = '';
-        this.state.content = {};
-        this.state.navigationTags = [];
+        getNodeType(state) {
+            return state.content ? state.content.nodeType : '';
+        },
+
+        getItems: (state) => {
+            return state.items;
+        },
+
+        getNavigationTags: (state) => {
+            return state.navigationTags;
+        },
+
+        getList: (state) => {
+            return state.list;
+        },
+
+        getListNextParams: (state) => {
+            return {
+                ...state.list.params,
+                listName: state.list.listName,
+                pageNo: (state.list.params.pageNo + 1)
+            };
+        },
+
+        getModuleItems: (state, module) => {
+            if (!module) return [];
+            return state[module] || [];
+        },
+
+        getHeaderItems(state) {
+            if (!state.headerNavigation) return [];
+            return state.headerNavigation.items || [];
+        },
+
+        getErrorStatus(state) {
+            return state.error;
+        }
     }
+});
 
-    onLoadContent(payload) {
-        let entity = payload.body.entity;
-        if (!entity) return;
-
-        this.state.error = null;
-        this.state.title = entity.title;
-        this.state.content = entity;
-        this.state.navigationTags = entity.navigationTags;
-
-        this.emitChange();
-    }
-
-    onLoadContentFailed(payload) {
-        this.state.error = payload.response.error;
-        this.state.content = null;
-
-        this.emitChange();
-    }
-
-    getTitle() {
-        return this.state.title;
-    }
-
-    getContent() {
-        return this.state.content;
-    }
-
-    getErrorStatus() {
-        return this.state.error;
-    }
-
-    getNodeType() {
-        return this.state.content ? this.state.content.nodeType : '';
-    }
-
-    getNavigationTags() {
-        return this.state.navigationTags;
-    }
-
-    dehydrate() {
-        return this.state;
-    }
-
-    rehydrate(state) {
-        this.state = state;
-    }
-
-}
+export default PageStore;

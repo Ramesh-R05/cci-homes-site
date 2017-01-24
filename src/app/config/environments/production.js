@@ -33,13 +33,8 @@ export default {
             listings: 'http://live.listings.services.bauer-media.internal/v1/homes',
             module: 'http://live.modules.services.bauer-media.internal/v1/homes',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/homes',
-            tag: 'http://live.tags.services.bauer-media.internal/v1'
-        },
-        content: {
-            remote: 'http://live.homes-api.wn.bauer-media.net.au'
-        },
-        facetedModule: {
-            remote: 'http://live.homes-api.wn.bauer-media.net.au'
+            tag: 'http://live.tags.services.bauer-media.internal/v1',
+            keywords: 'http://live.seo-batman.services.bauer-media.internal/v1/keywords'
         },
         redirect: {
             url: 'http://live.redirect.services.bauer-media.internal/v1/homes/301'

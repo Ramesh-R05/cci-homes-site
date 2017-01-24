@@ -4,34 +4,24 @@ if (canUseDOM) require('console-shim');
 import {Flux, servicesPlugin} from '@bxm/flux';
 import batchedUpdatePlugin from 'fluxible-addons-react/batchedUpdatePlugin';
 import AppComponent from './components/app';
-import contentService from './services/content';
 import pageService from './services/page';
 import listService from './services/list';
 import adConfig from './config/ads';
-import facetedModuleService from './services/facetedModule';
 import networkHeaderService from '@bxm/header/lib/header/headerService';
 
 // Keep store imports in alphabetical order to make diffs easier
 import AdStore from '@bxm/ad/lib/google/stores/ad';
-import AppStore from './stores/store'
 import PageStore from './stores/page';
-import FeedStore from './stores/facetedStores/feed';
 import GalleryPageStore from '@bxm/gallery/lib/stores/galleryPage';
-import GalleryOfGalleriesStore from './stores/facetedStores/galleryOfGalleries';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import HtmlStore from '@bxm/server/lib/stores/html';
 import NetworkHeaderStore from '@bxm/header/lib/header/headerStore';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
 import MenuStore from './stores/menu';
-import RequestStore from './stores/request';
 import SocialStore from '@bxm/social/lib/stores/social';
-import TaggedArticlesStore from './stores/facetedStores/taggedArticles';
-import TagSectionStore from './stores/facetedStores/tagSection';
 import TrackingStore from './stores/tracking';
-import SponsorsStore from './stores/sponsor';
 import articleStore from '@bxm/article/lib/stores/articleStore';
-import articleFeedService from '@bxm/article/lib/services/articleFeedService';
 import {load, configPlugin} from '@bxm/config';
 const config = load();
 
@@ -42,35 +32,25 @@ let app = new Flux({
     stores: [
         // Keep in alphabetical order to make diffs easier
         AdStore,
-        AppStore,
-        FeedStore,
         GalleryPageStore,
         GalleryStore,
-        GalleryOfGalleriesStore,
         HtmlStore,
         NetworkHeaderStore,
         PolarAdStore,
         RouteStore,
         MenuStore,
         PageStore,
-        RequestStore,
         SocialStore,
-        TaggedArticlesStore,
-        TagSectionStore,
         TrackingStore,
-        articleStore,
-        SponsorsStore
+        articleStore
     ]
 });
 
 let configsPlugin = configPlugin(config);
 let servicePlugin = servicesPlugin(config);
-servicePlugin.registerService(contentService);
 servicePlugin.registerService(pageService);
 servicePlugin.registerService(listService);
-servicePlugin.registerService(facetedModuleService);
 servicePlugin.registerService(networkHeaderService);
-servicePlugin.registerService(articleFeedService);
 
 app.plug(servicePlugin);
 app.plug(configsPlugin);
