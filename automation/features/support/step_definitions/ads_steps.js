@@ -34,7 +34,7 @@ module.exports = function() {
         browser.scroll(0,2700);
         browser.scroll(0,3000);
         expect(browser.isVisible(wn_ads.bottomFeedMrec)).toBe(true);
-        expect(browser.getAttribute(wn_ads.mrecBottomFeedSticky, 'style')).toContain("fixed");
+        expect(browser.isVisible(wn_ads.mrecBottomFeedSticky)).toBe(true);
     });
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.mrec, 5000);
@@ -48,19 +48,34 @@ module.exports = function() {
         var adSlots = browser.elements(wn_ads.middleMrec, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
-    this.Then(/^I should see (\d+) top leaderboard ad slots$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.articleTopLeaderBoard, 5000);
+    this.Then(/^I should see (\d+) mrec ad slot beneath short teaser$/, function (slot_count) {
+        var adSlots = browser.elements(wn_ads.articleAdBeneathShortTeaser, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
-    this.Then(/^I should see (\d+) bottom leaderboard ad slots$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.articleBottomLeaderBoard, 5000);
+    this.Then(/^I should see (\d+) mrec ad slot at the end of the body content$/, function (slot_count) {
+        var adSlots = browser.elements(wn_ads.articleAdAfterBodyContent, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+    //this.Then(/^I should see (\d+) top leaderboard ad slots$/, function (slot_count) {
+    //    var adSlots = browser.elements(wn_ads.articleTopLeaderBoard, 5000);
+    //    expect((adSlots.value.length.toString())).toEqual(slot_count);
+    //});
+    //this.Then(/^I should see (\d+) bottom leaderboard ad slots$/, function (slot_count) {
+    //    var adSlots = browser.elements(wn_ads.articleBottomLeaderBoard, 5000);
+    //    expect((adSlots.value.length.toString())).toEqual(slot_count);
+    //});
+
+    //combine leadearboard check due to changes in layout and div class names
+    this.Then(/^I should see (\d+) leaderboard ad slots$/, function (slot_count) {
+        var adSlots = browser.elements(wn_ads.articleLeaderBoard, 5000);
+        expect((adSlots.value.length.toString())).toEqual(slot_count);
+    });
+
     this.Then(/^I should see (\d+) mrec ad slots in LHS feed$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.articleLHSMrec, 6000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
-    this.Then(/^I should see (\d+) mrec ad slots above recommendation$/, function (slot_count) {
+    this.Then(/^I should see (\d+) mrec ad slots(" |above recommendation")$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.articleBottomMrec, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
@@ -72,10 +87,7 @@ module.exports = function() {
         var adSlots = browser.elements(wn_ads.homesTopMobileBanner, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
-    this.Then(/^I should see (\d+) bottom leaderboard ad slots above recommendation$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.homesBottomMobileBanner, 5000);
-        expect((adSlots.value.length.toString())).toEqual(slot_count);
-    });
+
     this.Then(/^I should see the top leaderboard ad above the gallery slide$/, function () {
         expect(browser.isVisible(wn_ads.galleryAdTopLeaderBoard)).toBe(true);
     });

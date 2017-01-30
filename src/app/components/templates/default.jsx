@@ -108,7 +108,7 @@ class DefaultTemplate extends Component {
                     :   null
                 }
 
-                {   content && (content.nodeType === 'Homepage' || content.nodeType === 'BrandSection')
+                {   content && (content.nodeType === 'Homepage' || content.nodeType === 'BrandSection' || content.nodeType === 'HomesArticle')
                     ?   <AdsWrapper>
                             <ContentHandler
                                 brandConfig={brandConfig}
@@ -143,6 +143,7 @@ class DefaultTemplate extends Component {
                 };
             case 'HomesArticle':
                 return {
+                    ContentHeaderHandler: HomeHeader,
                     ContentHandler: Article,
                     hideFooter: true
                 };

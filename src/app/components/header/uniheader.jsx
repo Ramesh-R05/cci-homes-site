@@ -12,7 +12,7 @@ export default class Uniheader extends Component {
     };
 
     render() {
-        let uniheaderBrands = this.context.config.brands;
+        let uniheaderBrands = this.context.config.brands.uniheader;
         const uniheaderClassName = "uniheader";
         const uniheaderOuterClasses = cx(uniheaderClassName, "show-for-medium-up");
         const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, "container");

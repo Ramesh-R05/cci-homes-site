@@ -3,19 +3,24 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "once": "bash -c \"./node_modules/.bin/chimp chimp.js --jsonOutput=reports/regression.json && npm run html_report\"",
+    "once": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --jsonOutput=reports/regression.json && npm run html_report\"",
+    "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@high --jsonOutput=reports/regression.json && npm run html_report\"",
+    "test:med": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@med --jsonOutput=reports/regression.json && npm run html_report\"",
+    "test:low": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@low --jsonOutput=reports/regression.json && npm run html_report\"",
     "html_report": "bash -c \"node generate_html.js\"",
     "seo": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@seo --jsonOutput=reports/regression.json && npm run html_report\"",
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
     "features": "bash -c \"node runner.js --pMode=features\"",
     "browsers": "bash -c \"node runner.js\"",
-    "homes:automation": "bash -c \"export WN=true export URL= && export APP_KEY=homes-site && export APP_ENV=automation && node runner.js --pMode=features\"",
-    "share:live": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@livesharerepo --jsonOutput=reports/regression.json && npm run html_report\"",
+    "homes:automation": "bash -c \"export WN=false export URL= && export APP_KEY=homes-site && export APP_ENV=automation && npm run once\"",
+    "homes:stubbed": "bash -c \"export WN=false export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=automation && npm run once\"",
+    "smoketest": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@smoketest --jsonOutput=reports/regression.json && npm run html_report\"",
+    "homes:smoketest": "bash -c \"export URL=http://origin.prelive.homes-site.bauer-media.net.au/ && npm run smoketest\"",
     "general:live": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@live --jsonOutput=reports/regression.json && npm run html_report\""
   },
   "dependencies": {
-    "@bxm/automation": "^0.0.15",
+    "@bxm/automation": "^1.0.0",
     "cucumber-html-report": "^0.2.8"
   }
 }

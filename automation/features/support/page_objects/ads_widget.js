@@ -4,6 +4,8 @@ var ads_widget = {
     midLeaderBoard: '.ad--section-middle-leaderboard',
     bottomLeaderBoard: '.ad--section-bottom-leaderboard',
     mrec: '.ad--section-mrec',
+    articleAdBeneathShortTeaser: '.ad.ad--beneath-short-teaser.ad--bottom-label.hide-for-print',
+    articleAdAfterBodyContent: '.ad.ad--article-before-recommendations.ad--bottom-label.hide-for-print',
     topFeedMrec: '.brand-section--top .ad--section-mrec',
     bottomFeedMrec: '.brand__body--bottom .ad--section-mrec',
     mrecTopFeedSticky: '.brand-section--top>div .fixed-column--sticky>div',
@@ -12,7 +14,8 @@ var ads_widget = {
     middleMrec: '.ad--teaser-list',
     articleTopLeaderBoard: '.ad--article-top',
     articleBottomLeaderBoard: '.ad--article-beneath-recommendations',
-    articleLHSMrec: '.article-feed-container .ad--bottom-label',//verifying MRECS in RHS, using article feed container to uniquely identify
+    articleLeaderBoard: 'div.ad.ad--section-top-leaderboard.ad--bottom-label.hide-for-print',
+    articleLHSMrec: '.feed-ad',//verifying MRECS in RHS, using article feed container to uniquely identify
     articleBottomMrec: '.ad--article-before-recommendations',
     topMobileBanner: '.ad--beneath-hero',
     homesTopMobileBanner: '.ad--beneath-short-teaser',

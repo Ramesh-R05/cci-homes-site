@@ -1,6 +1,7 @@
 @import './gallery-link';
 
 .content-body {
+
     @include content-body-lists;
     margin: {
         left: -($column-gutter/2);

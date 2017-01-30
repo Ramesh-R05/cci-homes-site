@@ -95,7 +95,10 @@ module.exports = function() {
         var shortTeaser = browser.getText(wn_article.shortTeaser);
         expect(shortTeaser).toContain(articleShortTeaser);
     });
-
+    this.Given(/^I can not see the short teaser "([^"]*)"$/, function (articleShortTeaser) {
+        var shortTeaser = browser.getCssProperty(wn_article.shortTeaser, 'display');
+        expect(shortTeaser.value).toContain('none');
+    });
     this.Given(/^I can see the body paragraph "([^"]*)"$/, function (articleBodyPara) {
         var bodyPara = browser.getText(wn_article.bodyParagraph);
         expect(bodyPara[0]).toContain(articleBodyPara);
@@ -108,27 +111,11 @@ module.exports = function() {
     });
 
     this.Given(/^I can see the body related content$/, function () {
-        // use the site domain to select different class element for aww,wd,food and dolly,cosmo,homes
-            switch(site_domain) {
-                case 'wd-site':
-                case 'aww-site':
-                case 'food-site':
-                    browser.scroll(wn_article.relatedContentHeading_aww_wd);
-                    var arrRcHeading = browser.getText(wn_article.relatedContentHeading_aww_wd);
-                    console.log(arrRcHeading); // Sometimes it shows 'RELATED' and another array. Currently it shows only 'RELATED'. I have added this to check and investigate once it's failed.
-                    var rcHeading = arrRcHeading;
-                    var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage_aww_wd, 'src');
-                    var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle_aww_wd);
-                    break;
-                case 'dolly-site':
-                case 'cosmo-site':
-                case 'homes-site':
-                    browser.scroll(wn_article.relatedContentHeading);
-                    var rcHeading = browser.getText(wn_article.relatedContentHeading);
-                    var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage, 'data-srcset');
-                    var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
-                    break;
-            }
+
+            browser.scroll(wn_article.relatedContentHeading);
+            var rcHeading = browser.getText(wn_article.relatedContentHeading);
+            var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage, 'data-srcset');
+            var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
 
         //Validate the heading of Related
             console.log(rcHeading);

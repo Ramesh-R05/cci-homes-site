@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import BrandLink from '../brand/link';
-import has from 'lodash/object/has';
 
 const LOGO_PATH = '/assets/images/source';
 

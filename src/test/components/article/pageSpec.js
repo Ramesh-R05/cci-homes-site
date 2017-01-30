@@ -23,9 +23,19 @@ describe('ArticlePage', () => {
         random: 'test',
         props: 'hello',
         content: {
-            source: 'test'
+            source: 'test',
+            tagsDetails: [
+                {
+                    displayName : "Interiors",
+                    fullName : "food_Homes_navigation_Interiors",
+                    name : "food:Homes navigation:Interiors",
+                    urlName : "interiors"
+                }
+            ]
         }
+
     };
+
     let reactModule;
     let articleComponent;
 

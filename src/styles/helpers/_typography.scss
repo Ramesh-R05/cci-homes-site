@@ -77,7 +77,7 @@ a {
     }
 
     @media #{$xlarge-up} {
-        font-size: 62px;
+        font-size: 32px;
         letter-spacing: -.01em;
     }
 }
@@ -87,7 +87,7 @@ a {
 }
 
 @mixin type-article-summary {
-    color: $color-grey-darker;
+    color: $color-grey;
     font: 400 16px/1.875 $font-family-serif-primary;
     letter-spacing: .01em;
 
@@ -102,7 +102,7 @@ a {
 }
 
 @mixin type-article-body {
-    color: $color-grey-dark;
+    color: $color-grey;
     font: 400 16px/1.875 $font-family-serif-primary;
     letter-spacing: .01em;
 }
@@ -112,7 +112,7 @@ a {
 }
 
 @mixin type-article-heading {
-    color: $color-grey-darker;
+    color: $color-grey;
     font: 500 20px/1.5 $font-family-sans-serif-primary;
     letter-spacing: .04em;
     text-transform: uppercase;

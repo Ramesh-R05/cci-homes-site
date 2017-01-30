@@ -14,8 +14,15 @@
 }
 
 .feed-item__body {
+
+    span:nth-of-type(2) {
+        display: none;
+        visibility: hidden;
+    }
+
     .article__date-created {
         display: none;
         visibility: hidden;
     }
+
 }

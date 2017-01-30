@@ -224,6 +224,11 @@ export default
         "urlName": "Profile",
         "fullName": "food_Topic_Profile",
         "displayName": "Profile"
+    },{
+        "name": "food:Building:Type:Villa",
+        "urlName": "villa",
+        "fullName": "food_Building_Type_Villa",
+        "displayName": "Villa"
     }],
     "contentMonth": 11,
     "contentTitle": "Article Long Title - How to get black and white decorating right Long Title Long Title EOM",
@@ -237,6 +242,98 @@ export default
     "contentCampaign": [],
     "contentHasVideo": false,
     "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
+    "contentProfiles": [
+        {
+            "id": "HOMES-4371",
+            "url": "/contributors/julia-mincarelli-sisters-agency",
+            "name": "Julia Mincarelli / Sisters Agency",
+            "level": 3,
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1314",
+                "HOMES-4371"
+            ],
+            "siteUrl": "http://www.homestolove.com.au",
+            "urlName": "julia-mincarelli-sisters-agency",
+            "nodeType": "HomesProfile",
+            "parentId": "HOMES-1314",
+            "redirect": {
+                "mode": 2
+            },
+            "siteCode": "56421E16-B4AB-417C-9645-A6A89644D4B4",
+            "siteName": "homes",
+            "typeName": "HomesProfileTeaserDto",
+            "sortOrder": 479,
+            "dateIndexed": "2016-12-14T14:15:07",
+            "profileType": "writer",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ]
+        },
+        {
+            "id": "HOMES-1510",
+            "url": "/contributors/diana-prichard",
+            "name": "Diana Prichard",
+            "level": 3,
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1314",
+                "HOMES-1510"
+            ],
+            "siteUrl": "http://www.homestolove.com.au",
+            "urlName": "diana-prichard",
+            "nodeType": "HomesProfile",
+            "parentId": "HOMES-1314",
+            "redirect": {
+                "mode": 2
+            },
+            "siteCode": "56421E16-B4AB-417C-9645-A6A89644D4B4",
+            "siteName": "homes",
+            "typeName": "HomesProfileTeaserDto",
+            "sortOrder": 40,
+            "dateIndexed": "2016-12-14T14:08:21",
+            "profileType": "writer",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ]
+        },
+        {
+            "id": "HOMES-4436",
+            "url": "/contributors/brigitta-wolfgang-drejer-sisters-agency",
+            "name": "Brigitta Wolfgang Drejer / Sisters Agency",
+            "level": 3,
+            "pathIds": [
+                "HOMES--1",
+                "HOMES-1158",
+                "HOMES-1314",
+                "HOMES-4436"
+            ],
+            "siteUrl": "http://www.homestolove.com.au",
+            "urlName": "brigitta-wolfgang-drejer-sisters-agency",
+            "nodeType": "HomesProfile",
+            "parentId": "HOMES-1314",
+            "redirect": {
+                "mode": 2
+            },
+            "siteCode": "56421E16-B4AB-417C-9645-A6A89644D4B4",
+            "siteName": "homes",
+            "typeName": "HomesProfileTeaserDto",
+            "sortOrder": 487,
+            "dateIndexed": "2016-12-14T14:15:17",
+            "profileType": "photographer",
+            "nodeTypeAliasPath": [
+                "Page",
+                "Profiles",
+                "HomesProfile"
+            ]
+        }
+    ],
     "nodeDateIndexed": "2016-11-09T04:08:57.81Z",
     "pageDateCreated": "2016-11-09T00:46:55.00Z",
     "nodeTypeAliasPath": ["Page", "Editorial", "Articles", "HomesArticle"],

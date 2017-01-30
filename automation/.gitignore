@@ -3,6 +3,7 @@
 reports/*.json
 reports/*.html
 screenshots/*.jpg
+screenshots/*.png
 cucumber.json
 
 #Include

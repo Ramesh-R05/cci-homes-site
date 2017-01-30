@@ -9,7 +9,7 @@ Feature: Gallery
         * I can see the logo on the gallery header
         * I can click the logo to go to homepage
         * I can see an image appearing on the gallery
-        * I can see the tag name of the gallery "LUXURY HOME"
+#        * I can see the tag name of the gallery "LUXURY HOME"
         * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
         * I can see the right arrow on the gallery
         * I should not see the left arrow on the gallery
@@ -43,7 +43,7 @@ Feature: Gallery
         * I can see the logo on the gallery header
         * I can click the logo to go to homepage
         * I can see an image appearing on the gallery
-        * I can see the tag name of the gallery "LUXURY HOME"
+#        * I can see the tag name of the gallery "LUXURY HOME"
         * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
         * I can see the right arrow on the gallery
         * I should not see the left arrow on the gallery

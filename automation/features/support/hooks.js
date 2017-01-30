@@ -41,10 +41,6 @@ var hooks = function () {
         browser.url(world.Urls.home_page);
         browser.deleteCookie();
     });
-
-    this.registerHandler('AfterFeatures', function (event, callback) {
-        browser.endAll();
-    });
 };
 
 module.exports = hooks;
