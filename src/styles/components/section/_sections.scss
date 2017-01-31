@@ -100,12 +100,10 @@ $section-minor-bp-1: 1590px;
         @media #{$medium-up} {
             @include grid-column(4);
             @include teaser-tag-over-img;
-            @include teaser-icon-centered-small;
         }
 
         @media #{$large-up} {
             @include grid-column(3);
-            @include teaser-icon-centered;
         }
     }
 
@@ -279,7 +277,6 @@ $section-minor-bp-1: 1590px;
         // Last six items
         .teaser:nth-last-child(-n+6) {
             @include teaser-tag-over-img;
-            @include teaser-icon-centered-small;
         }
 
         .teaser__title {
@@ -315,7 +312,6 @@ $section-minor-bp-1: 1590px;
         // Middle 4 items
         .teaser:nth-child(n+3):nth-of-type(-n+6) {
             @include grid-column(3);
-            @include teaser-icon-centered-small;
         }
 
         // Last three items
@@ -341,11 +337,6 @@ $section-minor-bp-1: 1590px;
 
         .teaser:nth-child(6) {
             clear: both;
-        }
-
-        // Middle 4 items
-        .teaser:nth-child(n+3):nth-of-type(-n+7) {
-            @include teaser-icon-centered;
         }
 
         .teaser:nth-child(-n+9) {

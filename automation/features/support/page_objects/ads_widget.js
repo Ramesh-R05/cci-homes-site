@@ -8,6 +8,12 @@ var ads_widget = {
     articleAdAfterBodyContent: '.ad.ad--article-before-recommendations.ad--bottom-label.hide-for-print',
     topFeedMrec: '.brand-section--top .ad--section-mrec',
     bottomFeedMrec: '.brand__body--bottom .ad--section-mrec',
+
+    homepagetopFeedMrec: '.home-section--top .ad--section-mrec',
+    homepageBottomFeedMrec: '.home-section--bottom .ad--section-mrec',
+    homepageMrecTopFeedSticky: '.home-section--top>div .fixed-column--sticky>div',
+    homepageMrecBottomFeedSticky: '.home-section--bottom>div .fixed-column--sticky>div',
+
     mrecTopFeedSticky: '.brand-section--top>div .fixed-column--sticky>div',
     mrecBottomFeedSticky: '.brand__body--bottom>div .fixed-column--sticky>div',
     middleLeaderBoard: '.ad--section-leaderboard',

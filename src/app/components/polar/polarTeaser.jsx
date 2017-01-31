@@ -17,7 +17,8 @@ class PolarTeaser extends Component {
         modifier: PropTypes.string,
         // provided by @polarAd
         nativeAd: PropTypes.object,
-        trackClick: PropTypes.func
+        trackClick: PropTypes.func,
+        className: PropTypes.string
     };
 
     static defaultProps = {
@@ -39,7 +40,8 @@ class PolarTeaser extends Component {
                 nativeAd={this.props.nativeAd.response.model}
                 modifier={this.props.modifier}
                 trackClick={this.props.trackClick}
-                />
+                className={this.props.className}
+            />
 
         );
     }

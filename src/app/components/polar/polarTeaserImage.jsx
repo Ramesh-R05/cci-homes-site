@@ -3,6 +3,7 @@ import Title from '@bxm/article/lib/components/teaser/title';
 import Summary from '@bxm/article/lib/components/teaser/summary';
 import Icon from '../teaser/icon';
 import Sponsor from './sponsor';
+import cx from 'classnames';
 
 export default class PolarTeaserImage extends Component {
 
@@ -11,7 +12,8 @@ export default class PolarTeaserImage extends Component {
         caption: PropTypes.string,
         modifier: PropTypes.string,
         nativeAd: PropTypes.object,
-        trackClick: PropTypes.func
+        trackClick: PropTypes.func,
+        className: PropTypes.string
     };
 
     static defaultProps = {
@@ -24,12 +26,12 @@ export default class PolarTeaserImage extends Component {
     render() {
         const ad = this.props.nativeAd;
         const gtmClass = this.props.id ? `gtm-native-${this.props.id}` : '';
-        const className = `teaser teaser--${this.props.modifier} teaser--native`;
+        const classNames = cx('teaser', `teaser--${this.props.modifier}`, 'teaser--native', this.props.className);
 
         ad.image.href = ad.image.href.replace(/\&w=\d+/, '&w=360').replace(/\&h=\d+/, '&h=300');
 
         return (
-            <article className={className} onClick={this.props.trackClick}>
+            <article className={classNames} onClick={this.props.trackClick}>
                 <a href={ad.link} className={`teaser__image ${gtmClass}`}>
                     <img src={ad.image.href} alt={ad.image.caption} />
                     <Icon icon={ad.custom.icon} />

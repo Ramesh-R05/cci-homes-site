@@ -198,5 +198,28 @@ module.exports = function() {
         //Validate
         expect(browser.isVisible(adOutOfPage)).toBe(valueVisible);
     });
+    this.Given(/^I should see sticky MREC ad next to the top news feed on the homepage$/, function () {
+        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
+        browser.scroll(0,500);
+        //Verify the ad is appearing
+        expect(browser.isVisible(wn_ads.homepagetopFeedMrec)).toBe(true);
+        //Verify the ad is a sticky ad after scrolling down
+        browser.scroll(0,900);
+        browser.scroll(0,1500);
+        expect(browser.isVisible(wn_ads.homepagetopFeedMrec)).toBe(true);
+        expect(browser.getAttribute(wn_ads.homepageMrecTopFeedSticky, 'style')).toContain("fixed");
+    });
+    this.Given(/^I should see sticky MREC ad next to the bottom news feed on the homepage$/, function () {
+        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
+        browser.scroll(0,2200);
+        //Verify the ad is appearing
+        expect(browser.isVisible(wn_ads.homepagetopFeedMrec)).toBe(true);
+        //Verify the ad is a sticky ad after scrolling down
+        wait(3000);
+        browser.scroll(0,2700);
+        browser.scroll(0,3000);
+        expect(browser.isVisible(wn_ads.homepageBottomFeedMrec)).toBe(true);
+        expect(browser.isVisible(wn_ads.homepageMrecBottomFeedSticky)).toBe(true);
+    });
 
 };

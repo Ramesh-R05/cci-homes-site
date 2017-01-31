@@ -1,6 +1,6 @@
 export default function loadList(context, payload) {
     return context.getService('list').read(payload).then(
-        (content) => {            
+        (content) => {
             context.dispatch('LOAD_LIST', content);
         },
         (error) => {

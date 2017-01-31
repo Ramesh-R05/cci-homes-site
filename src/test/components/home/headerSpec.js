@@ -38,4 +38,8 @@ describe('Home Header with Top banner/leaderboard/billboard ad', () => {
     it(`should have the classname prop equal to ${expectedClassname}`, () => {
         expect(ad.props.className).to.equal(expectedClassname);
     });
+
+    it(`should be displayed on all viewports`, () => {
+        expect(ad.props.displayFor).to.deep.equal(['small', 'medium', 'large', 'xlarge']);
+    });
 });

@@ -176,29 +176,66 @@ describe('Teaser', () => {
 
     });
 
-    describe('with the sizes prop', () => {
+    describe('with sizes prop', () => {
         let reactModule;
         let image;
-        const props = extend({}, articlesMock.basic, { sizes: 'narrow' });
+        let props;
 
-        before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
-            image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
-        });
-
-        after(() => {
+        afterEach(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
                 let domElement = ReactDOM.findDOMNode(reactModule);
                 if (domElement) React.unmountComponentAtNode(domElement.parentElement);
             }
         });
 
-        it(`should set the Image sizes prop to`, () => {
-            expect(image.props.imageSizes).to.deep.eq({
-                s: {w: 640, h: 341},
-                m: {w: 640, h: 341},
-                l: {w: 400, h: 213},
-                xl: {w: 300, h: 160}
+        describe('of value narrow', () => {
+            before(() => {
+                props = extend({}, articlesMock.basic, { sizes: 'narrow' });
+                reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+                image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
+            });
+
+            it(`should set the Image sizes prop to`, () => {
+                expect(image.props.imageSizes).to.deep.eq({
+                    s: {w: 640, h: 341},
+                    m: {w: 640, h: 341},
+                    l: {w: 400, h: 213},
+                    xl: {w: 300, h: 160}
+                });
+            });
+        });
+
+        describe('of value home-hero (for Hero image with label ontop)', () => {
+            before(() => {
+                props = extend({}, articlesMock.basic, { sizes: 'home-hero' });
+                reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+                image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
+            });
+
+            it(`should set the Image sizes prop to`, () => {
+                expect(image.props.imageSizes).to.deep.eq({
+                    s: {w: 690, h: 575},
+                    m: {w: 963, h: 809},
+                    l: {w: 633, h: 527},
+                    xl: {w: 633, h: 527}
+                });
+            });
+        });
+
+        describe('of value img-top (for Teaser image with label below)', () => {
+            before(() => {
+                props = extend({}, articlesMock.basic, { sizes: 'img-top' });
+                reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+                image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
+            });
+
+            it(`should set the Image sizes prop to`, () => {
+                expect(image.props.imageSizes).to.deep.eq({
+                    s: {w: 690, h: 569},
+                    m: {w: 467, h: 385},
+                    l: {w: 301, h: 250},
+                    xl: {w: 301, h: 250}
+                });
             });
         });
     });

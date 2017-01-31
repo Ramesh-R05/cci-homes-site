@@ -51,7 +51,7 @@ describe('SectionFeatured', () => {
         let ads;
         let teasers;
         let polarTeasers;
-        let sticky;
+        let stickies;
 
         before(() => {
             reactModule = Context.mountComponent(SectionFeatured, {
@@ -63,7 +63,7 @@ describe('SectionFeatured', () => {
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             polarTeasers =  TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
-            sticky = TestUtils.findRenderedComponentWithType(reactModule, StickyAdStub);
+            stickies = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         });
 
         it('should NOT render In Focus items', () => {
@@ -74,7 +74,7 @@ describe('SectionFeatured', () => {
             expect(domElements.querySelector('.recommendations')).to.not.exist;
         });
 
-        const expectedNumTeasers = 24; // hero is used to be  duplicated but now removed due to BXMS-40
+        const expectedNumTeasers = 12;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
@@ -88,32 +88,46 @@ describe('SectionFeatured', () => {
             expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
         });
 
-        it('should render Sticky Ad section', () => {
-            expect(sticky).to.exist;
-        });
-
-        describe(`Top MREC ad`, () => {
-            it(`should display either a double mrec or a double-mrec at position 1`, () => {
-                const expectedSizes = {
-                    small: 'mrec',
-                    large: ['double-mrec', 'mrec']
-                };
-                expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
-                expect(ads[0].props.targets).to.deep.equal({position: 1});
+        describe(`Sticky ads`, () => {
+            const expectedNumStickyAds = 2;
+            it(`should render ${expectedNumStickyAds} Sticky Ad sections`, () => {
+                expect(stickies.length).to.equal(expectedNumStickyAds);
             });
         });
 
-        describe(`Middle MREC ad for small viewport only`, () => {
-            it(`should display an mrec at position 2`, () => {
-                const expectedSizes = {
-                    small: 'mrec'
-                };
-                expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
-                expect(ads[1].props.targets).to.deep.equal({position: 2});
+        describe(`Top section`, () => {
+
+            describe(`Top MREC ad`, () => {
+                it(`should display only single mrec in small and medium sizes at position 1`, () => {
+                    const expectedSizes = {
+                        small: 'mrec',
+                        medium: 'mrec'
+                    };
+                    expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
+                    expect(ads[0].props.targets).to.deep.equal({position: 1});
+                });
             });
 
-            it(`should be displayed on small viewport only`, () => {
-                expect(ads[1].props.displayFor).to.deep.equal(['small']);
+            describe(`Middle MREC ad`, () => {
+                it(`should display only single mrec in medium size at position 2`, () => {
+                    const expectedSizes = {
+                        medium: 'mrec'
+                    };
+                    expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
+                    expect(ads[1].props.targets).to.deep.equal({position: 2});
+                });
+
+                it(`should be displayed on small viewport only`, () => {
+                    expect(ads[1].props.displayFor).to.deep.equal(['medium']);
+                });
+            });
+
+            describe(`Sticky MREC ad`, () => {
+                it(`should display for both large and xlarge breakpoints with double mrec and mrec sizes`, () => {
+                    expect(ads[2].props.displayFor).to.deep.equal(['large', 'xlarge']);
+                    expect(ads[2].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
+                    expect(ads[2].props.targets).to.deep.equal({position: 1});
+                });
             });
         });
 
@@ -124,58 +138,96 @@ describe('SectionFeatured', () => {
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
-                expect(ads[2].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
             it(`should be targeted with position 2`, () => {
-                expect(ads[2].props.targets).to.deep.equal({position: 2});
+                expect(ads[3].props.targets).to.deep.equal({position: 2});
             });
         });
 
-        describe(`Bottom MREC ad for small and medium viewports`, () => {
-            it(`should only display an mrec`, () => {
-                expect(ads[3].props.sizes).to.deep.equal('mrec');
+        describe(`Bottom section`, () => {
+
+            describe(`First Bottom MREC ad for small and medium viewports`, () => {
+                it(`should only display an mrec`, () => {
+                    const expectedSizes = {
+                        small: 'mrec',
+                        medium: 'mrec'
+                    };
+                    expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
+                });
+
+                const pos = 3;
+                it(`should be targeted with position ${pos}`, () => {
+                    expect(ads[4].props.targets).to.deep.equal({position: pos});
+                });
+
+                it(`should be displayed on small and medium viewports only`, () => {
+                    expect(ads[4].props.displayFor).to.deep.equal(['small', 'medium']);
+                });
             });
 
-            const pos = 3;
-            it(`should be targeted with position ${pos}`, () => {
-                expect(ads[3].props.targets).to.deep.equal({position: pos});
+            describe(`Second Bottom MREC ad for medium viewports`, () => {
+                it(`should only display an mrec`, () => {
+                    const expectedSizes = {
+                        medium: 'mrec'
+                    };
+                    expect(ads[5].props.sizes).to.deep.equal(expectedSizes);
+                });
+
+                const pos = 4;
+                it(`should be targeted with position ${pos}`, () => {
+                    expect(ads[5].props.targets).to.deep.equal({position: 4});
+                });
+
+                it(`should be displayed on medium viewports only`, () => {
+                    expect(ads[5].props.displayFor).to.deep.equal(['medium']);
+                });
             });
 
-            it(`should be displayed on small and medium viewports only`, () => {
-                expect(ads[3].props.displayFor).to.deep.equal(['small', 'medium']);
+            describe(`Sticky MREC ad`, () => {
+                it(`should display for both large and xlarge breakpoints with double mrec and mrec sizes`, () => {
+                    expect(ads[6].props.displayFor).to.deep.equal(['large', 'xlarge']);
+                    expect(ads[6].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
+                    expect(ads[6].props.targets).to.deep.equal({position: 3});
+                });
             });
         });
 
-        describe(`Bottom MREC ad for large and xlarge viewports`, () => {
-            it(`should only display a double-mrec or an mrec`, () => {
-                expect(ads[4].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
+        describe(`Bottom banner/leaderboard/billboard ad`, () => {
+            it(`should display either a banner, leaderboard or a billboard ad at position 3`, () => {
+                const expectedSizes = {
+                    small: 'banner',
+                    leaderboard: 'leaderboard',
+                    billboard: ['billboard', 'leaderboard']
+                };
+                expect(ads[7].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            it(`should be targeted with position 2`, () => {
-                expect(ads[4].props.targets).to.deep.equal({position: 2});
-            });
-
-            it(`should be displayed on large and xlarge viewports only`, () => {
-                expect(ads[4].props.displayFor).to.deep.equal(['large', 'xlarge']);
+            it(`should be targeted with position 3`, () => {
+                expect(ads[7].props.targets).to.deep.equal({position: 3});
             });
         });
 
-
-        describe(`Hero for sm/md/lg viewports`, () => {
+        describe(`Hero for sm/md viewports`, () => {
             it(`should have the first article data`, () => {
                 expect(teasers[0].props.id).to.equal(articlesMock[0].id);
             });
 
-            const expectedModifier = 'hero';
+            const expectedModifier = 'hero-img-top';
             it(`should have the modifier prop equal to ${expectedModifier}`, () => {
                 expect(teasers[0].props.modifier).to.equal(expectedModifier);
+            });
+
+            const nonExpectedModifier = 'hero';
+            it(`should not have the modifier prop equal to ${nonExpectedModifier}`, () => {
+                expect(teasers[0].props.modifier).to.not.equal(nonExpectedModifier);
             });
         });
 
         describe(`First Polar native ad teaser`, () => {
-            it(`should have the 4th article data`, () => {
-                expect(polarTeasers[0].props.id).to.equal(articlesMock[4].id);
+            it(`should have the 2th article data`, () => {
+                expect(polarTeasers[0].props.id).to.equal(articlesMock[2].id);
             });
 
             it(`should have the ad prop with the correct label`, () => {
@@ -184,8 +236,8 @@ describe('SectionFeatured', () => {
         });
 
         describe(`Second Polar native ad teaser`, () => {
-            it(`should have the 16th article data`, () => {
-                expect(polarTeasers[1].props.id).to.equal(articlesMock[16].id);
+            it(`should have the 12th article data`, () => {
+                expect(polarTeasers[1].props.id).to.equal(articlesMock[12].id);
             });
 
             it(`should have the ad prop with the correct label`, () => {

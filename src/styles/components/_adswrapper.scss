@@ -23,11 +23,13 @@
 }
 
 .ad--section-top-leaderboard {
-    @media #{$large-up} {
+    @media #{$medium-up} {
         position: relative;
         z-index: $z-index-1;
+    }
+
+    @media #{$large-up} {
         max-width: $large-range-min;
-        margin: 15px auto;
     }
 }
 

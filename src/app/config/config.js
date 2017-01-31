@@ -130,7 +130,7 @@ export default {
     },
 
     site: {
-        host: 'http://dev.homes-site.wn.bauer-media.net.au',
+        host: 'http://dev.homes-site.bauer-media.net.au',
         name: 'HOMES',
         shortName: 'Homes To Love',
         prefix: 'HOMES',

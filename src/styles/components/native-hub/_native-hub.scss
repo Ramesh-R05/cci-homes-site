@@ -129,7 +129,6 @@ $native-hub-color: $color-grey-darker;
 
         @media #{$medium-up} {
             @include teaser-tag-over-img;
-            @include teaser-icon-centered-small;
 
             .teaser__summary {
                 display: block;
@@ -138,7 +137,6 @@ $native-hub-color: $color-grey-darker;
 
         @media #{$large-up} {
             @include grid-column(3);
-            @include teaser-icon-centered;
             &:nth-child(3) {
                 clear: none;
             }

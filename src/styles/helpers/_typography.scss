@@ -218,7 +218,7 @@ a {
 // Default teaser (e.g homepage teasers below hero)
 @mixin type-teaser-title {
     color: $color-black;
-    font: 400 18px/1.556 $font-family-serif-primary;
+    font: 400 18px/1.700 $font-family-serif-primary;
 }
 
 .type-teaser-title {
@@ -228,7 +228,7 @@ a {
 // Small teaser (e.g. homepage next to hero)
 @mixin type-small-teaser-title {
     color: $color-grey-darker;
-    font: 400 18px/1.556 $font-family-serif-primary;
+    font: 400 18px/1.700 $font-family-serif-primary;
 }
 
 .type-small-teaser-title {

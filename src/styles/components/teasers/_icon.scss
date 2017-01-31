@@ -1,51 +1,5 @@
 $teaser-icon-circle-diameter-default: 76px;
 
-
-@mixin teaser-icon-centered($circle-size: 66px, $icon-svg-size: 24px) {
-
-    .teaser__icon {
-        height: $circle-size;
-        left: 50%;
-        margin-left: -$circle-size/2;
-        margin-top: -$circle-size/2;
-        top: 50%;
-        width: $circle-size;
-
-        &:before {
-            border-radius: $circle-size/2;
-            height: $circle-size;
-            left: 0;
-            top: 0;
-            width: $circle-size;
-        }
-
-        svg {
-            height: $icon-svg-size;
-            left: 50%;
-            margin-left: -$icon-svg-size/2;
-            margin-top: -$icon-svg-size/2;
-            max-height: none;
-            max-width: none;
-            top: 50%;
-            width: $icon-svg-size;
-        }
-    }
-}
-
-@mixin teaser-icon-centered-small {
-    @include teaser-icon-centered(56px, 20px);
-}
-
-@mixin teaser-icon-centered-big {
-    @include teaser-icon-centered(83px, 30px);
-}
-
-
-@mixin teaser-icon-centered-hero {
-    @include teaser-icon-centered-big;
-}
-
-
 .teaser__icon {
     $icon-size: 22px;
     $icon-padding: 3px;
@@ -72,13 +26,13 @@ $teaser-icon-circle-diameter-default: 76px;
     svg {
         bottom: 0;
         fill: $color-primary;
-        left: 0;
+        left: 2px;
         position: absolute;
         width: 20px;
     }
 
     .icon-video {
         bottom: 2px;
-        left: -2px;
+        left: 0px;
     }
 }

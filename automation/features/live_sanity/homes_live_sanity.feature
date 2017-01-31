@@ -23,3 +23,19 @@ Feature: I have an automated smoke test for my live environments
         *  I should see 1 mrec ad slot beneath short teaser
         *  I should see 1 mrec ad slot at the end of the body content
 
+    Scenario: Verify Home to Love homepage has a hero content on mobile
+        Given I switch to "mobile portrait" view
+        And I am currently viewing the homepage
+        Then I should see the homepage mobile hero element
+        * The homepage mobile hero image should be clickable to open its page
+        * The homepage mobile hero title should be clickable to open its page
+        * I should see the homepage mobile hero containing its tag and clickable to open its page
+        * I should not see the homepage hero source
+
+    Scenario: Verify Home page has top featured content on dektop
+        Given I switch to "desktop" view
+        And I am currently viewing the homepage
+        Then I should see 6 top teasers on the homepage page
+        And I should see each top teaser containing its image and is clickable to open its page
+        And I should see each top teaser containing its title and is clickable to open its page
+        And I should see each top teaser containing its tag and is clickable to open its page

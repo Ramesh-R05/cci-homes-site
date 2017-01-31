@@ -57,18 +57,18 @@ export default class Featured extends Component {
                             }}
                             targets={{position: 2}}/>
                     </div>
-                        <StickyBlock
-                            breakpoints={['large', 'xlarge']}
-                            containerClasses="columns show-for-large-up large-4 xlarge-4"
-                            containerMarginBottom={60}
-                            carriageYPosition={95}>
-                            <Ad
-                                className="ad--section-mrec"
-                                displayFor={['large', 'xlarge']}
-                                sizes={['double-mrec', 'mrec']}
-                                targets={{position: 1}}
-                            />
-                        </StickyBlock>
+                    <StickyBlock
+                        breakpoints={['large', 'xlarge']}
+                        containerClasses="columns show-for-large-up large-4 xlarge-4"
+                        containerMarginBottom={60}
+                        carriageYPosition={95}>
+                        <Ad
+                            className="ad--section-mrec"
+                            displayFor={['large', 'xlarge']}
+                            sizes={['double-mrec', 'mrec']}
+                            targets={{position: 1}}
+                        />
+                    </StickyBlock>
                 </div>
             </section>
         );

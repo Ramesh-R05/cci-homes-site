@@ -78,6 +78,12 @@ class Teaser extends Component {
             l: {w: 410, h: 340},
             xl: {w: 750, h: 625}
         },
+        'img-top': {
+            s: {w: 690, h: 569},
+            m: {w: 467, h: 385},
+            l: {w: 301, h: 250},
+            xl: {w: 301, h: 250}
+        },
         'img-left-to-hero': {
             s: {w: 320, h: 264},
             m: {w: 940, h: 790},
@@ -91,10 +97,10 @@ class Teaser extends Component {
             xl: {w: 300, h: 160}
         },
         'home-hero': {
-            s: {w: 667, h: 556},
-            m: {w: 940, h: 790},
-            l: {w: 750, h: 625},
-            xl: {w: 750, h: 625}
+            s: {w: 690, h: 575},
+            m: {w: 963, h: 809},
+            l: {w: 633, h: 527},
+            xl: {w: 633, h: 527}
         },
         'brand-list' : {
             s: {w: 322, h: 256},

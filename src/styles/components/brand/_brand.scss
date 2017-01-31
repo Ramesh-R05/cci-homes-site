@@ -265,7 +265,6 @@
 
             @media #{$medium-up} {
                 @include teaser-tag-over-img;
-                @include teaser-icon-centered-small;
             }
 
             @media #{$large-only} {
@@ -380,12 +379,9 @@
 
         @media #{$medium-up} {
             @include teaser-tag-over-img;
-            @include teaser-icon-centered-small;
         }
 
         @media #{$large-up} {
-            @include teaser-icon-centered;
-
             &:nth-of-type(n+7) {
                 @include grid-column(6);
             }

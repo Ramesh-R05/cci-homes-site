@@ -91,7 +91,18 @@
     }
 
     // Section
-    &--section-top-leaderboard,
+    &--section-top-leaderboard {
+        margin-bottom: $column-gutter;
+
+        @media #{$medium-up} {
+            margin: 20px auto 20px;
+        }
+
+        @media #{$small-only} {
+            @include grey-mobile-banner();
+        }
+    }
+
     &--section-middle-leaderboard,
     &--section-bottom-leaderboard {
         margin-bottom: $column-gutter;

@@ -4,7 +4,7 @@ var world = require('../world');
 module.exports = function(){
 
     this.When(/^I should see the homepage hero element$/, function () {
-    expect(browser.isVisible(home.heroImg)).toBe(true);
+        expect(browser.isVisible(home.heroElmt)).toBe(true);
     });
     this.When(/^I should see the homepage hero image$/, function () {
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'src');
@@ -33,13 +33,6 @@ module.exports = function(){
         expect(herShortTeaser).not.toBeUndefined();
         console.log(herShortTeaser);
     });
-    this.When(/^I should see the homepage hero source and it should be clickable$/, function () {
-        var heroSource = browser.getText(home.heroSource);
-        expect(heroSource).not.toBeUndefined();
-        console.log(heroSource);
-        var heroSourceLink = browser.getAttribute(home.heroSourceLink, 'href');
-        expect(heroSourceLink).not.toEqual('');
-        });
 
     this.When(/^I should see the homepage hero containing its tag and clickable to open its page$/, function () {
         var heroTags = browser.getText(home.heroTag);
@@ -48,10 +41,10 @@ module.exports = function(){
         });
     this.When(/^I should see (\d+) top teasers on the homepage page$/, function (number) {
         var topTeasers = browser.getAttribute(home.topTeasers,'data-reactid');
-        console.log("top 10 teser Ids: "+'\n'+topTeasers);
+        console.log("top "+number+" teser Ids: "+'\n'+topTeasers);
         expect(topTeasers.length).toEqual(parseInt(number),10);
     });
-    this.When(/^I should see each top teaser containing its image and clickable to open its page$/, function () {
+    this.When(/^I should see each top teaser containing its image and is clickable to open its page$/, function () {
         var topTeaserImgsCount = browser.elements(home.topTeaserImgs).value.length;
         console.log("Teaser images count: "+topTeaserImgsCount);
         var topTeaserImgsUrl = browser.getAttribute(home.topTeaserImgs, 'data-srcset');
@@ -60,7 +53,7 @@ module.exports = function(){
             console.log("top 10 teaser urls are: "+'\n'+topTeaserImgsUrl[i]);
         }
     });
-    this.When(/^I should see each top teaser containing its title and clickable to open its page$/, function () {
+    this.When(/^I should see each top teaser containing its title and is clickable to open its page$/, function () {
         var topTeaserTitleCount = browser.elements(home.topTeaserTitles).value.length;
         console.log("Teaser Titles count: "+topTeaserTitleCount);
         var topTeaserTitles = browser.elements(home.topTeaserTitles).getText();
@@ -70,7 +63,7 @@ module.exports = function(){
             expect(topTeaserTitleUrl[i]).not.toBeUndefined();
            }
     });
-    this.When(/^I should see each top teaser containing its tag and clickable to open its page$/, function () {
+    this.When(/^I should see each top teaser containing its tag and is clickable to open its page$/, function () {
         var topTeaserTags = browser.elements(home.topTeaserTags).getText();
         console.log("Teaser Tags are: "+topTeaserTags);
         var topTeaserTagsUrl = browser.getAttribute(home.topTeaserTagLinks, 'href');
@@ -79,4 +72,107 @@ module.exports = function(){
             console.log(topTeaserTagsUrl[i]);
             }
     });
+    this.When(/^I should see each bottom teaser containing its image and is clickable to open its page$/, function () {
+        var topTeaserImgsCount = browser.elements(home.bottomTeaserImgs).value.length;
+        console.log("Teaser images count: "+topTeaserImgsCount);
+        var topTeaserImgsUrl = browser.getAttribute(home.bottomTeaserImgs, 'data-srcset');
+        for(var i=0; i<topTeaserImgsUrl.length; i++){
+            expect(topTeaserImgsUrl[i]).not.toBeUndefined();
+            console.log("top teaser urls are: "+'\n'+topTeaserImgsUrl[i]);
+        }
+    });
+    this.When(/^I should see each bottom teaser containing its title and is clickable to open its page$/, function () {
+        var topTeaserTitleCount = browser.elements(home.bottomTeaserTitles).value.length;
+        console.log("Teaser Titles count: "+topTeaserTitleCount);
+        var topTeaserTitles = browser.elements(home.bottomTeaserTitles).getText();
+        console.log(topTeaserTitles);
+        var topTeaserTitleUrl = browser.getAttribute(home.bottomTeaserImgs, 'data-srcset');
+        for(var i=0; i<topTeaserTitleUrl.length; i++){
+            expect(topTeaserTitleUrl[i]).not.toBeUndefined();
+        }
+    });
+    this.When(/^I should see each bottom teaser containing its tag and is clickable to open its page$/, function () {
+        var topTeaserTags = browser.elements(home.bottomTeaserTags).getText();
+        console.log("Teaser Tags are: "+topTeaserTags);
+        var topTeaserTagsUrl = browser.getAttribute(home.bottomTeaserTagLinks, 'href');
+        for(var i=0; i<topTeaserTagsUrl.length; i++){
+            expect(topTeaserTagsUrl[i]).not.toBeUndefined();
+            console.log(topTeaserTagsUrl[i]);
+        }
+    });
+    this.Then(/^I should not see the homepage hero source$/, function () {
+        var heroSource = browser.isVisible(home.heroSource);
+        expect(heroSource).toBe(false);
+        console.log("homepage hero source has been removed");
+    });
+
+
+    //-------------------
+
+    this.When(/^I should see the homepage mobile hero element$/, function () {
+        expect(browser.isVisible(home.mobHeroElmt)).toBe(true);
+    });
+    this.When(/^I should see the homepage mobile hero image$/, function () {
+        var heroImgUrl = browser.getAttribute(home.mobHeroImgUrl, 'src');
+        expect(heroImgUrl).not.toBeUndefined();
+        console.log(heroImgUrl);
+    });
+    this.When(/^The homepage mobile hero image should be clickable to open its page$/, function () {
+        var heroImgLink = browser.getAttribute(home.mobHeroImgLink, 'href');
+        expect(heroImgLink).not.toBeUndefined();
+        console.log(heroImgLink);
+    });
+    this.When(/^I should see the homepage mobile hero title$/, function () {
+        var heroImgTitle = browser.getText(home.mobHeroTitle);
+        expect(heroImgTitle).not.toBeUndefined();
+        console.log(heroImgTitle);
+    });
+    this.When(/^The homepage mobile hero title should be clickable to open its page$/, function () {
+        var heroTitleLink = browser.getAttribute(home.mobHeroTitleLink, 'href');
+        expect(heroTitleLink).not.toBeUndefined();
+        var heroImgLink = browser.getAttribute(home.mobHeroImgLink, 'href');
+        expect(heroTitleLink).toEqual(heroImgLink);
+        console.log(heroTitleLink);
+    });
+    this.When(/^I should see the homepage mobile hero short teaser$/, function () {
+        var herShortTeaser = browser.getText(home.mobHeroShortTeaser);
+        expect(herShortTeaser).not.toBeUndefined();
+        console.log(herShortTeaser);
+    });
+
+    this.When(/^I should see the homepage mobile hero containing its tag and clickable to open its page$/, function () {
+        var heroTags = browser.getText(home.mobHeroTag);
+        console.log("Hero image tags are "+heroTags.length + ": " + heroTags);
+        expect(heroTags).not.toEqual('');
+    });
+
+    this.Then(/^I should see hero content primary tag "([^"]*)"$/, function (tagTxt) {
+        var pTagText = browser.getText(home.primaryHeroTag);
+        expect(pTagText).toEqual(tagTxt)
+    });
+
+    this.Then(/^I should see hero content secondary tag "([^"]*)"$/, function (tagTxt) {
+        var sTagText = browser.getText(home.secondaryHeroTag);
+        expect(sTagText).toEqual(tagTxt)
+    });
+
+    this.Then(/^I should see mobile hero content primary tag "([^"]*)"$/, function (tagTxt) {
+        var pTagText = browser.getText(home.mobPrimaryHeroTag);
+        expect(pTagText).toEqual(tagTxt)
+    });
+
+    this.Then(/^I should see mobile hero content secondary tag "([^"]*)"$/, function (tagTxt) {
+        var sTagText = browser.getText(home.mobSecondaryHeroTag);
+        expect(sTagText).toEqual(tagTxt)
+    });
+
+    // --- below has been removed from the new style
+    //this.When(/^I should see the homepage hero source and it should be clickable$/, function () {
+    //    var heroSource = browser.getText(home.heroSource);
+    //    expect(heroSource).not.toBeUndefined();
+    //    console.log(heroSource);
+    //    var heroSourceLink = browser.getAttribute(home.heroSourceLink, 'href');
+    //    expect(heroSourceLink).not.toEqual('');
+    //    });
+
 };

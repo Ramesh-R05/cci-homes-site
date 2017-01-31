@@ -1,5 +1,5 @@
 @ad @homes
-Feature: Ad
+Feature: Ads
     As a user
     I should be able to see the relevant Ads on the site
 
@@ -123,5 +123,34 @@ Feature: Ad
             | tablet landscape   | brand      | real-living/   |
             | tablet portrait    | brand      | real-living/   |
 
+    @BXMS-108
+    Scenario Outline: Ads on homepage in the <device> view
+        Given I switch to "<device>" view
+        And I am currently viewing the homepage
+        * I should see leaderboard ad slots at top middle and bottom
+        * I should see sticky MREC ad next to the top news feed on the homepage
+        * I should see sticky MREC ad next to the bottom news feed on the homepage
+    @high
+        Examples:
+            | device  |
+            | desktop |
+    @med
+        Examples:
+            | device            |
+            | tablet landscape  |
 
-
+    @BXMS-108
+    Scenario Outline: Ads on brand landing page in the <desktop> view
+        Given I switch to "<device>" view
+        And I am currently viewing the homepage
+        And I should see leaderboard ad slots at top middle and bottom
+        And I should see <number> mrec ad slots
+    @high
+        Examples:
+            | device            | number |
+            | mobile portrait   | 2      |
+    @med
+        Examples:
+            | device            | number |
+            | mobile            | 2      |
+            | tablet portrait   | 4      |
