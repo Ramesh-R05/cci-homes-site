@@ -109,7 +109,7 @@ describe('campaign middleware', () => {
             it('should use the required config values for content service urls for the request', (done)=> {
                 campaignMiddleware(req, res, next).then(() => {
                     const entityServiceUrl = `${entityServiceMockUrl}/?nodeTypeAlias=Campaign&urlName=${req.query.campaign}`;
-                    const listingsServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityStubData.sponsorName}'&$orderby=pageDateCreated desc&$top=20&$skip=0`;
+                    const listingsServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityStubData.sponsorName}'&$orderby=pageDateCreated desc&$top=12&$skip=0`;
 
                     const makeRequestStubFirstCall = makeRequestStub.getCall(0);
                     const makeRequestStubSecondCall = makeRequestStub.getCall(1);

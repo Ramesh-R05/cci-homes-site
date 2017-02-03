@@ -4,8 +4,8 @@ import {getLatestTeasers} from '../api/listing';
 
 export default async function navSection(req, res, next) {
     try {
-        const itemsCount = 11;
-        const listCount = 9;
+        const itemsCount = 6;
+        const listCount = 6;
         const {navSection} = req.query;
 
         if (!navSection) {
@@ -17,7 +17,6 @@ export default async function navSection(req, res, next) {
 
         const skip =  (pageNo-1) * (itemsCount + listCount);
         const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${navSection}`);
-
         const sectionTag = entityResponse.navigationTags[0];
 
         const filter = `tags eq '${sectionTag}'`;

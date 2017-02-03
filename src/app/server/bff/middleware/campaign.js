@@ -3,8 +3,8 @@ import {parseEntity, parseEntities} from '../helper/parseEntity';
 
 export default async function campaign(req, res, next) {
     try {
-        const itemsCount = 11;
-        const listCount = 9;
+        const itemsCount = 6;
+        const listCount = 6;
         let {campaign} = req.query;
 
         if (!campaign) {

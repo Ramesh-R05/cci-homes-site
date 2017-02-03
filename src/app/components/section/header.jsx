@@ -37,21 +37,28 @@ export default class Header extends Component {
         }
 
         return (
-            <div className="section-heading">
-                <Ad
-                    className="ad--section-top-leaderboard"
-                    sizes={{
-                        small: 'banner',
-                        medium: 'leaderboard',
-                        large: ['billboard', 'leaderboard']
-                    }}
-                    targets={{position: 1, kingtag: title}}
-                />
-                <SponsorHeader
-                    id={this.props.sponsorName}
-                    title={<b>{title}</b>}>
+            <div className="section__heading">
+
+                <div className="section__heading__ad">
+                    <Ad
+                        className="ad--section-top-leaderboard"
+                        sizes={{
+                            small: 'banner',
+                            medium: 'leaderboard',
+                            large: ['billboard', 'leaderboard']
+                        }}
+                        targets={{position: 1, kingtag: title}}
+                    />
+                </div>
+
+                <div className="section__heading__title">
+                    <SponsorHeader
+                        id={this.props.sponsorName}
+                        title={<b>{title}</b>}>
                         {htmlHeading}
-                </SponsorHeader>
+                    </SponsorHeader>
+                </div>
+
             </div>
         );
     }

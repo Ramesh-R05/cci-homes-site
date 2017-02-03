@@ -8,21 +8,13 @@
     .load-more {
         @include grid-column(12);
         text-align: center;
+        margin-bottom: 40px;
 
         .button {
+            background: $color-primary;
+            color: $color-white;
             position: relative;
-            padding-right: 46px;
-
-            &:after {
-                content: '';
-                position: absolute;
-                background: url('/assets/svgs/down-arrow.svg') no-repeat;
-                color: $color-primary;
-                width: 12px;
-                height: 8px;
-                top: 21px;
-                right: 22px;
-            }
+            border: none;
         }
     }
 

@@ -79,6 +79,14 @@ class DefaultTemplate extends Component {
         }
         const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = this.getPageMetadata();
         const localeData = config.get('localeData');
+        const newAdUnitNodetypes = [
+            'Homepage',
+            'BrandSection',
+            'HomesArticle',
+            'NavigationSection',
+            'TagSection',
+            'Campaign'
+        ];
 
         return (
             <div className="default-template">
@@ -108,7 +116,7 @@ class DefaultTemplate extends Component {
                     :   null
                 }
 
-                {   content && (content.nodeType === 'Homepage' || content.nodeType === 'BrandSection' || content.nodeType === 'HomesArticle')
+                {   content && (newAdUnitNodetypes.indexOf(content.nodeType) > -1)
                     ?   <AdsWrapper>
                             <ContentHandler
                                 brandConfig={brandConfig}
@@ -135,39 +143,39 @@ class DefaultTemplate extends Component {
         if (contentErrorStatus) { return this.handleContentError(contentErrorStatus); }
         if (!content) { return this.handleNoContent(); }
 
-        switch (content.nodeType) {
-            case 'Homepage':
+        switch (content.nodeType.toLowerCase()) {
+            case 'homepage':
                 return {
                     ContentHeaderHandler: HomeHeader,
                     ContentHandler: HomePage
                 };
-            case 'HomesArticle':
+            case 'homesarticle':
                 return {
                     ContentHeaderHandler: HomeHeader,
                     ContentHandler: Article,
                     hideFooter: true
                 };
-            case 'NavigationSection':
+            case 'navigationsection':
                 return {
                     ContentHeaderHandler: SectionHeader,
                     ContentHandler: NavSection
                 };
-            case 'TagSection':
+            case 'tagsection':
                 return {
                     ContentHeaderHandler: SectionHeader,
                     ContentHandler: Tag
                 };
-            case 'BrandSection':
+            case 'brandsection':
                 return {
                     ContentHeaderHandler: BrandHeader,
                     ContentHandler: Brand
                 };
-            case 'Campaign':
+            case 'campaign':
                 return {
                     ContentHeaderHandler: SectionHeader,
                     ContentHandler: Campaign
                 };
-            case 'Gallery':
+            case 'gallery':
                 return {
                     ContentHandler: Gallery,
                     hideHeader: true,

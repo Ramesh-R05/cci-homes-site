@@ -9,10 +9,15 @@ var ads_widget = {
     topFeedMrec: '.brand-section--top .ad--section-mrec',
     bottomFeedMrec: '.brand__body--bottom .ad--section-mrec',
 
+    //homes page
     homepagetopFeedMrec: '.home-section--top .ad--section-mrec',
     homepageBottomFeedMrec: '.home-section--bottom .ad--section-mrec',
     homepageMrecTopFeedSticky: '.home-section--top>div .fixed-column--sticky>div',
     homepageMrecBottomFeedSticky: '.home-section--bottom>div .fixed-column--sticky>div',
+
+    //section page
+    sectionpagetopFeedMrec: 'div.section__landing.side-menu-slider > div > div:nth-child(3) > div > div.section__row > div > div > div',
+    sectionpageBottomFeedMrec: '.repeatable-component .ad--section-mrec',
 
     mrecTopFeedSticky: '.brand-section--top>div .fixed-column--sticky>div',
     mrecBottomFeedSticky: '.brand__body--bottom>div .fixed-column--sticky>div',

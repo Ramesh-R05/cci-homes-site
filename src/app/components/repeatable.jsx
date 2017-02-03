@@ -70,7 +70,7 @@ export default class Repeatable extends Component {
             loadMore = (
                 <div className="load-more">
                     <button className="button" onClick={this.onLoadMore}>
-                        {this.state.isLoading?'Loading...':'Load More'}
+                        {this.state.isLoading ? 'Loading...' : 'Load More'}
                     </button>
                 </div>
             );

@@ -1,15 +1,11 @@
 import React, {Component, PropTypes} from 'react';
-import first from 'lodash/array/first';
-import slice from 'lodash/array/slice';
 import cx from 'classnames';
 import loadList from '../../actions/loadList';
-import Group from './group';
-import InFocus from '../inFocus/inFocus';
-import RepeatableGroup from './repeatableGroup';
 import Repeatable from '../repeatable';
-import Hero from './hero';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import Recommendations from '@bxm/recommendations/lib/components/recommendations';
+import Featured from './featured';
+import Rail from './rail';
+import List from './list';
 
 export default class Section extends Component {
 
@@ -35,13 +31,13 @@ export default class Section extends Component {
     };
 
     render() {
-        const {articles, list, content} = this.props;
+        const {articles, list, content, listNextParams, isSideMenuOpen} = this.props;
 
         if (!articles.length) return null;
         if (!list && !list.items && !list.items.length) return null;
 
-        const sectionClassName = cx('section-landing', 'side-menu-slider', {
-            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+        const sectionClassName = cx('section__landing', 'side-menu-slider', {
+            'side-menu-slider--side-menu-open': isSideMenuOpen
         });
 
         let title = content.title;
@@ -52,95 +48,41 @@ export default class Section extends Component {
         return (
             <div className={sectionClassName}>
                 <div className="container">
-                    <div className="row">
-                        {/*Heroes*/}
-                        <Hero firstHero={first(articles)} secondHero={articles[4] || {}} />
-                        {/* In Focus articles */}
-                        <div className="fixed-column fixed-column--in-focus">
-                            <InFocus articles={slice(articles, 1, 4)} modifier="right">
-                                <Ad
-                                    className="ad--section-mrec"
-                                    displayFor={['small', 'medium', 'large']}
-                                    sizes="mrec"
-                                    targets={{position: 1, kingtag: title}}
-                                />
-                            </InFocus>
-                        </div>
-                    </div>
-                    {/* Three teasers with ad - xlarge bp only*/}
-                    <div className="row hidden-for-large-only">
-                        <Group
-                            articles={slice(articles, 4, 7)}
-                            modifier="3-items"
-                            polarAd={{
-                                label: 'section_teaser_1',
-                                index: 1
-                            }}>
-                            <Ad
-                                className="ad--section-mrec"
-                                displayFor={['xlarge']}
-                                sizes={['double-mrec', 'mrec']}
-                                targets={{position: 1, kingtag: title}}
-                            />
-                        </Group>
-                    </div>
-                    <div className="row">
-                        {/* Four teasers with ad - hidden large bp only*/}
-                        <Group
-                            articles={slice(articles, 7, 11)}
-                            className="hidden-for-large-only"
-                            modifier="6-or-4-items"
-                            teaserModifier="img-top"
+                    <div className="section__row">
+                       <Featured articles={articles} />
+                        <Rail
+                            adPosition={1}
+                            marginBottom={60}
+                            yPosition={95}
                         />
-                        {/* 6 teasers with ad - visible for large bp only*/}
-                        <Group
-                            articles={slice(articles, 5, 11)}
-                            className="visible-for-large-only"
-                            modifier="6-or-4-items"
-                            polarAd={{
-                                label: 'section_teaser_1',
-                                index: 0
+                    </div>
+
+                    <div className="section__row section__middle">
+                        <Ad
+                            className="ad--section-middle-leaderboard section__ad"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
                             }}
-                            teaserModifier="img-top"
+                            targets={{position: 2, kingtag: title}}
                         />
-                        <div className="columns small-12">
-                            <Ad
-                                className="ad--section-middle-leaderboard"
-                                sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
-                                }}
-                                targets={{position: 2, kingtag: title}}
-                            />
-                        </div>
                     </div>
-                </div>
+                    <div className="section__row">
+                        <Repeatable
+                            component={List}
+                            action={loadList}
+                            dataSource={list}
+                            nextParams={listNextParams}
+                            className="news-feed bottom-news-feed"
+                            adTargets={{ position: 3, kingtag: title }}
+                        />
 
-                {this.props.inlineGalleries}
+                    </div>
 
-                <div className="container">
-                    {/* Group repeated when paginating */}
-                    <Repeatable
-                        component={RepeatableGroup}
-                        action={loadList}
-                        dataSource={this.props.list}
-                        nextParams={this.props.listNextParams}
-                        className="news-feed bottom-news-feed"
-                        adTargets={{ position: 3, kingtag: title }}
-                    />
-
-                    {/* Recommendations */}
-                    <Recommendations
-                        nodeType={content.nodeType}
-                        nodeId={content.id}
-                    />
-
-                    {/* Bottom ad */}
-                    <div className="row">
-                        <div className="columns small-12">
+                    <div className="section__row section__bottom">
                             <Ad
-                                className="ad--section-bottom-leaderboard"
+                                className="ad--section-bottom-leaderboard section__ad"
                                 sizes={{
                                     small: 'banner',
                                     leaderboard: 'leaderboard',
@@ -148,7 +90,6 @@ export default class Section extends Component {
                                 }}
                                 targets={{position: 3, kingtag: title}}
                             />
-                        </div>
                     </div>
                 </div>
             </div>

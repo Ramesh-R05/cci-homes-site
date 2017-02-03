@@ -1,392 +1,200 @@
-// Sections/groups of teasers.
+.section {
 
-$section-minor-bp-1: 1590px;
-
-.section-landing {
-    padding-top: 0px;
-}
-
-.section-heading {
-    @include grid-column($columns: 12, $collapse: true);
-
-    @media #{$large-up} {
-        padding: {
-            left: $column-gutter/2;
-            right: $column-gutter/2;
-        };
+    &__landing {
+        background: $color-white;
+        padding-top: 0;
+        max-width: 1024px;
+        margin: 0 auto;
     }
 
-    h1 {
-        @include type-section-heading;
-        margin-bottom: 40px;
+    &__heading {
+        max-width: 1024px;
+        margin: 0 auto;
 
-        @media #{$medium-up} {
-            margin-bottom: 60px;
+        &__title {
+            position: relative;
+            z-index: $z-index-1;
+            background: $color-white;
+
+            @media #{$large-up} {
+                padding: {
+                    top: 10px;
+                    left: $column-gutter/2;
+                    bottom: 55px;
+                    right: $column-gutter/2;
+                };
+            }
+
+            h1 {
+                @include type-section-heading;
+                margin-bottom: 22px;
+
+                @media #{$medium-only} {
+                    max-width: 1024px;
+                    margin: 0 auto 25px;
+                }
+            }
         }
     }
-}
 
-// Hero group
-.section--heroes {
-    @include column-full-width;
-
-    @media #{$large-up} {
-        @include grid-column(8);
+    &__row {
+        @include grid-row();
+        background: $color-white;
+        position: relative;
     }
 
-    @media #{$xlarge-up} {
-        @include grid-column(9);
-    }
+    &__featured {
+        background: $color-white;
+        border-right: 1px solid $color-section-separator;
 
-    .teaser {
-        @media #{$large-only} {
-            @include teaser-small-hero;
-            margin-bottom: 50px;
-
-            .teaser__title {
-                @include type-small-teaser-title;
-            }
-
-            .teaser__summary {
-                display: none;
-            }
+        @media #{$medium} {
+            padding: 0 $column-gutter/2;
         }
 
-        @media only screen and (min-width: $xlarge-range-min) and (max-width: $section-minor-bp-1) {
-            .teaser__content {
-                bottom: auto;
-                margin-top: -140px;
-                padding-bottom: $column-gutter / 2;
-                position: relative;
-            }
+        @media #{$large-up} {
+            @include grid-column(8);
         }
 
-        @media only screen and (min-width: $section-minor-bp-1) {
-            .teaser__icon {
-                top: 40%;
+        .teaser {
+
+            @media #{$medium-up} {
+                @include grid-column(6);
             }
-        }
 
-        // Show second hero on large screen only
-        &:nth-of-type(2) {
-            display: none;
+            @media #{$medium-only} {
 
-            @media #{$large-only} {
+                &:nth-child(1) {
+                    padding-left: 0px;
+                }
+
+                &:nth-child(n+3):nth-child(even):nth-child(-n+9) {
+                    padding-left: 0px;
+                }
+
+                &:nth-child(2) {
+                    padding-right: 0px;
+                }
+
+                &:nth-child(n+2):nth-child(odd):nth-child(-n+9) {
+                    padding-right: 0px;
+                }
+            }
+
+            @media #{$large-up} {
+
+                &:nth-child(2) {
+                    padding-left: 0px;
+                }
+
+                &:nth-child(n+3):nth-child(odd):nth-child(-n+9) {
+                    padding-left: 0px;
+                    clear: both;
+                }
+
+                &:nth-child(4) {
+                    padding-right: 0px;
+                }
+
+                &:nth-child(n+5):nth-child(even):nth-child(-n+9) {
+                    padding-right: 0px;
+                }
+
+            }
+
+            &__source {
                 display: block;
             }
         }
     }
-}
 
-.section--3-items {
-    @include column-extra-side-gutter;
-    clear: both;
-    margin-bottom: 20px;
-    overflow: hidden;
+    &__middle {
+        background: #f7f7f7;
 
-    @media #{$medium-up} {
-        margin-bottom: 0;
-        margin-top: 30px;
+        @media #{$large-up} {
+            padding: 13px 0 0;
+            margin: 40px 0;
+        }
+
+        .ad {
+            margin-bottom: 0;
+        }
+
     }
 
-    @media #{$large-up} {
-        @include teaser-show-summary-source;
-        margin-top: 0;
+    &__bottom {
+
+        .ad {
+            margin-bottom: 35px;
+        }
+
     }
 
-    .teaser {
-        @include grid-column(12);
+    &__list {
+        border-right: 1px solid $color-section-separator;
 
-        @media #{$medium-up} {
-            @include grid-column(4);
-            @include teaser-tag-over-img;
+        @media #{$medium} {
+            padding: 0 $column-gutter/2;
         }
 
         @media #{$large-up} {
-            @include grid-column(3);
+            @include grid-column(8);
+        }
+
+        .teaser {
+            @include teaser-img-top;
+
+            .teaser {
+                &__source {
+                    display: block;
+                }
+            }
+
+            @media #{$medium-only} {
+                @include grid-column(6);
+            }
+
+            @media #{$large-up} {
+                @include teaser-img-left;
+
+                .teaser {
+                    &__content {
+                        text-align: left;
+                        padding-top: 0;
+                        margin-top: -3px;
+                    }
+
+                    &__summary {
+                        display: block;
+                    }
+
+                    &__source {
+                        display: block;
+                    }
+                }
+            }
+
+            &:nth-child(odd) {
+                @media #{$medium-only} {
+                    clear: both;
+                }
+            }
+
+            &:nth-child(even) {
+                @media #{$large-up} {
+                    clear: both;
+                }
+            }
+
         }
     }
 
-    .teaser__title {
-        @media #{$medium-up} {
-            @include type-small-teaser-title;
-        }
-
-        @media #{$xlarge-up} {
-            @include type-teaser-title;
-        }
-    }
-
-    .tag-separator,
-    .tag-secondary {
-        @media #{$xlarge-up} {
-            display: inline;
-        }
-    }
-
-    .section__children {
-        @include grid-column(3);
+    &__rail {
+        background: $color-white;
         display: none;
 
-        @media #{$xlarge-up} {
-            display: inline-block;
-        }
-    }
-
-    .ad {
-        float: right;
-        width: 300px;
-    }
-}
-
-.section--horizontal-ad {
-    @include column-extra-side-gutter;
-    clear: both;
-}
-
-.section--6-or-4-items {
-    @include column-extra-side-gutter;
-    clear: both;
-    padding-top: 20px;
-
-    &:before {
-        border-bottom: 2px solid $color-section-separator;
-        content: '';
-        display: block;
-        margin-left: $column-gutter / 2;
-        margin-right: $column-gutter / 2;
-        position: relative;
-        top: -$column-gutter;
-
         @media #{$large-up} {
-            display: none;
-        }
-    }
-
-    @media #{$medium-up} {
-        @include teaser-show-summary-source;
-    }
-
-    @media #{$large-up} {
-        padding-top: 0;
-    }
-
-    .teaser {
-        @include columns-half-gutter;
-
-        @media #{$medium-only} {
-            &:nth-of-type(3) {
-                clear: both;
-            }
-        }
-
-        @media #{$medium-up} {
-            @include grid-column(6);
-            @include teaser-tag-over-img;
-        }
-
-        @media #{$large-only} {
-            &:nth-child(4) {
-                clear: both;
-            }
-        }
-
-        @media #{$large-up} {
+            display: block;
             @include grid-column(4);
-        }
-
-        @media #{$xlarge-up} {
-            @include grid-column(3);
-        }
-    }
-
-    .teaser__title {
-        @media #{$medium-up} {
-            @include type-small-teaser-title;
-        }
-        @media #{$xlarge-up} {
-            @include type-teaser-title;
-        }
-    }
-
-    .tag-separator,
-    .tag-secondary {
-        @media #{$xlarge-up} {
-            display: inline;
-        }
-    }
-
-    .section__children {
-        @include grid-column(12);
-
-        @media #{$medium-only} {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-}
-
-.section--9-items {
-    @include column-extra-side-gutter;
-    clear: both;
-
-    .teaser--img-left {
-        @include grid-column(12);
-
-        @media #{$medium-up} {
-            @include grid-column(6);
-        }
-    }
-
-    .teaser--img-top {
-        @include columns-half-gutter(even);
-
-        @media #{$medium-up} {
-            @include grid-column(4);
-        }
-    }
-
-    @media #{$medium-only} {
-        .teaser {
-            &:nth-child(4) {
-                @include teaser-tag-over-img;
-                clear: both;
-            }
-
-            &:nth-of-type(7) {
-                clear: both;
-            }
-        }
-    }
-
-    @media #{$medium-up} {
-        .teaser:nth-child(6) {
-            clear: both;
-        }
-
-        // First two items
-        .teaser:nth-child(-n+2) {
-            @include teaser-tag-over-img;
-        }
-
-        // First three items
-        .teaser:nth-child(-n+4) {
-            @include teaser-show-summary-source;
-        }
-
-        // Last six items
-        .teaser:nth-last-child(-n+6) {
-            @include teaser-tag-over-img;
-        }
-
-        .teaser__title {
-            @include type-small-teaser-title;
-        }
-    }
-
-    @media #{$large-only} {
-        .teaser {
-            &:nth-of-type(7) {
-                clear: both;
-            }
-        }
-    }
-
-
-    @media #{$large-up} {
-        .teaser:nth-child(4) {
-            @include teaser-tag-over-img;
-            @include teaser-hide-details;
-            clear: both;
-        }
-
-        .teaser:nth-child(6) {
-            clear: none;
-        }
-
-        // First two items
-        .teaser:nth-child(-n+2) {
-            @include grid-column(4);
-        }
-
-        // Middle 4 items
-        .teaser:nth-child(n+3):nth-of-type(-n+6) {
-            @include grid-column(3);
-        }
-
-        // Last three items
-        .teaser:nth-last-child(-n+3) {
-            @include grid-column(4);
-            @include teaser-tag-over-img;
-            @include teaser-show-summary-source;
-        }
-    }
-
-    @media #{$xlarge-up} {
-        @include teaser-show-summary-source;
-
-        .teaser:nth-child(4) {
-            @include teaser-show-summary-source;
-            clear: none;
-
-            .tag-separator,
-            .tag-secondary {
-                display: inline;
-            }
-        }
-
-        .teaser:nth-child(6) {
-            clear: both;
-        }
-
-        .teaser:nth-child(-n+9) {
-            @include grid-column(3);
-            @include teaser-tag-over-img;
-        }
-
-        .teaser:nth-child(10) {
-            clear: both;
-        }
-
-        // Last two items
-        .teaser:nth-child(n+10) {
-            @include grid-column(6);
-            @include teaser-small-hero;
-            @include teaser-hide-summary-source;
-
-            margin-bottom: 60px;
-
-            .teaser__title {
-                margin-bottom: 20px;
-            }
-
-            .teaser__content {
-                position: absolute;
-            }
-        }
-
-        .tag-separator,
-        .tag-secondary {
-            display: inline;
-        }
-
-        .teaser__title {
-            @include type-teaser-title;
-        }
-    }
-
-    .ad--section-mrec {
-        padding-top: 15px;
-
-        @media #{$medium-up} {
-            @include grid-column(6);
-            padding-top: 0;
-        }
-        @media #{$large-up} {
-            @include grid-column(4);
-        }
-        @media #{$xlarge-up} {
-            @include grid-column(3, $collapse: true);
         }
     }
 }

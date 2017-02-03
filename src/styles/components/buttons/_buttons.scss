@@ -97,6 +97,7 @@ $button-color-border: #e5e5e5;
     &--load-more {
         display: block;
         margin: 0 auto 30px;
+
         @media #{$medium-up} {
             margin-bottom: 60px;
         }

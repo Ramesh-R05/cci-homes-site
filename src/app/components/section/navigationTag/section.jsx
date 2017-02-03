@@ -25,12 +25,10 @@ class Section extends Component {
     }
 
     render() {
-        const inlineGalleries = <CustomInlineGallery galleries={this.props.galleries}/>;
-
         return (
             <GenericSection
                 {...this.props}
-                inlineGalleries={inlineGalleries}
+
             />
         );
     }

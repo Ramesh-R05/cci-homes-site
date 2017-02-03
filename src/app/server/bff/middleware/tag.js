@@ -4,8 +4,8 @@ import {getLatestTeasers} from '../api/listing';
 
 export default async function tag(req, res, next) {
     try {
-        const itemsCount = 11;
-        const listCount = 9;
+        const itemsCount = 6;
+        const listCount = 6;
         let {tag} = req.query;
 
         if (!tag) {

@@ -51,9 +51,5 @@ describe(`NavigationTagSection`, () => {
     it(`should pass down the isSideMenuOpen prop to the GenericSection component`, () => {
         expect(genericSection.props.isSideMenuOpen).to.be.false;
     });
-
-    it(`should pass down the inlineGalleries component to the GenericSection component with the galleries data`, () => {
-        expect(genericSection.props.inlineGalleries.props.galleries).to.deep.equal(gogMock);
-    });
 });
 

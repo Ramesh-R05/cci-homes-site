@@ -22,7 +22,6 @@ const listingsServiceMockUrl = 'http://listingsUrl.com';
 const siteMockHost = 'http://siteHost.com';
 
 const navSection = 'interiors';
-
 const currentPath = `/${navSection}`;
 const nextPath = `/${navSection}?pageNo=2`;
 const expectedList = {
@@ -125,7 +124,7 @@ describe('navigation section middleware', () => {
                     expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
                     expect(makeRequestSpySecondCall.args[0]).to.equal(galleryServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(20);
+                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(12);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
                     expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(`tags eq '${entityStubData.navigationTags[0]}'`);
 
@@ -134,7 +133,6 @@ describe('navigation section middleware', () => {
             });
 
             it('should return all modules in the desired structure', (done)=> {
-
                 navSectionMiddleware(req, res, next).then(() => {
                     expect(res.body).to.deep.equal(expectedBody);
                     done();

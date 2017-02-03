@@ -1,16 +1,17 @@
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
-const listCount = 18;
+const listCount = 12;
 
 export default async function list(req, res, next) {
     try {
         const pageNo = parseInt(req.query.pageNo, 10);
-        const {filter, listName} = req.query;
-        const skip =  ((pageNo-1) * listCount) + 2; // the initial page data has 2 more items than load more
-        const listResp = await getLatestTeasers(listCount, skip, filter);
+        const {filter, listName } = req.query;
+        const skip = ((pageNo-1) * listCount);
 
+        const listResp = await getLatestTeasers(listCount, skip, filter);
         const basePath = listName ? `/${listName}` : `/`;
         let previousPage = null;
+
         if (pageNo > 1) {
             let path = `${basePath}?pageNo=${pageNo - 1}`;
             if (pageNo === 2) {

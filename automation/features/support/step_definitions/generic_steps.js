@@ -1,5 +1,7 @@
 var world = require('../world');
 var window_handler = require('../utils/window_handler');
+var wait = require('../utils/wait');
+var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function() {
 
@@ -17,17 +19,24 @@ module.exports = function() {
     });
 
     this.Given(/^I am currently viewing "([^"]*)"$/, function (pagename) {
-        browser.url(world.Urls.home_page+pagename)
+        browser.url(world.Urls.home_page+pagename);
         browser.waitUntil(function () {
             return browser.getUrl() === world.Urls.home_page+pagename;
         }, 20000, 1000);
     });
 
     this.When(/^I scroll the page down$/, function () {
-        browser.scroll(0,250)
+        browser.scroll(0,250);
     });
 
     this.When(/^I scroll the page up$/, function () {
-        browser.scroll(250,0)
+        browser.scroll(250,0);
+    });
+
+    this.When(/^I click on the Load More button$/, function () {
+        //static wait due to elements loading move the laod more button and creates error in the script
+        wait(5000);
+        browser.click(loadMore.loadMoreButton);
+        wait(5000);
     });
 };

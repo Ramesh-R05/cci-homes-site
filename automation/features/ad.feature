@@ -140,7 +140,7 @@ Feature: Ads
             | tablet landscape  |
 
     @BXMS-108
-    Scenario Outline: Ads on brand landing page in the <desktop> view
+    Scenario Outline: Ads on homepage in the <desktop> view
         Given I switch to "<device>" view
         And I am currently viewing the homepage
         And I should see leaderboard ad slots at top middle and bottom
@@ -154,3 +154,41 @@ Feature: Ads
             | device            | number |
             | mobile            | 2      |
             | tablet portrait   | 4      |
+
+    @BXMS-129
+    Scenario Outline: Ads on section landing page in the <desktop> view
+        Given I switch to "<device>" view
+        When I am currently viewing "real-homes"
+        And I should see leaderboard ad slots at top middle and bottom
+        And I should see <number> mrec ad slots
+        When I click on the Load More button
+        And I should see <second count> mrec ad slots
+
+    @high
+        Examples:
+            | device            | number | second count |
+            | mobile portrait   | 2      | 3            |
+    @med
+        Examples:
+            | device            | number | second count |
+            | mobile            | 2      | 3            |
+            | tablet portrait   | 4      | 6            |
+
+    @BXMS-129 @watch
+    Scenario Outline: Ads on section landing page in the <desktop> view
+        Given I switch to "<device>" view
+        When I am currently viewing "real-homes"
+        * I should see leaderboard ad slots at top middle and bottom
+        * I should see sticky MREC ad next to the top news feed of the section Page
+        * I should see sticky MREC ad next to the bottom news feed of the section Page
+        When I click on the Load More button
+        Then I should see <second count> mrec ad slots
+
+    @high
+        Examples:
+            | device  | second count |
+            | desktop | 3            |
+    @med
+        Examples:
+            | device            | second count |
+            | tablet landscape  | 3            |

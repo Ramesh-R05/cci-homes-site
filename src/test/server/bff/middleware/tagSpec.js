@@ -123,7 +123,7 @@ describe('tag section middleware', () => {
 
                     expect(makeRequestSpyFirstCall.args[0]).to.equal(tagServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(20);
+                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(12);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
                     expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(`tagsDetails/urlName eq '${tagSection}'`);
 

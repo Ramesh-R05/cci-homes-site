@@ -14,7 +14,7 @@ var hooks = function () {
             browser.url(world.Urls.home_page);
             console.log('running WN stubb');
         } else {
-            console.log('Automation modegit check');
+            console.log('Automation mode');
         }
     });
 
