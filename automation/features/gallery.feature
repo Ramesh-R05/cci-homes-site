@@ -3,6 +3,7 @@ Feature: Gallery
     As a user
     I should be able to see the gallery page
 
+    @high
     Scenario: Verify a gallery page in mobile style on mobile view
         When I switch to "mobile" view
         Given I am currently viewing "automation-test-gallery-3201"
@@ -37,6 +38,7 @@ Feature: Gallery
         * I should not see the left arrow on the gallery
         * I should not see the gallery description on mobile for next image
 
+    @high
     Scenario: Verify a gallery page in desktop style on desktop view
         When I switch to "desktop" view
         Given I am currently viewing "automation-test-gallery-3201"
@@ -71,19 +73,20 @@ Feature: Gallery
         * I can see the right arrow on the next gallery slide
         * I should not see the left arrow on the gallery
 
+    @med
     Scenario: Verify a gallery page in mobile style on tablet portrait view
         When I switch to "tablet portrait" view
         Given I am currently viewing "automation-test-gallery-3201"
         * I can click the right arrow on the gallery to check the next image
         * I should not see the gallery description on mobile for next image
-
+    @med
     Scenario: Verify a gallery page in desktop style on tablet landscape view
         When I switch to "tablet landscape" view
         Given I am currently viewing "automation-test-gallery-3201"
         * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
         * I can click the right arrow on the gallery to check the next image
 
-    @DAV-80 @DAV-81
+    @DAV-80 @DAV-81 @high
     Scenario: Verify the slide of MREC ad on mobile view
         When I switch to "mobile" view
         Given I am currently viewing "automation-test-gallery-3201"
@@ -91,7 +94,7 @@ Feature: Gallery
         * I cannot go to the next slide when the ad is not loaded
         * I can go to the next slide when the ad is loaded
 
-    @DAV-80 @DAV-81
+    @DAV-80 @DAV-81 @high
     Scenario: Verify the slide of MREC ad on desktop view
         When I switch to "desktop" view
         Given I am currently viewing "automation-test-gallery-3201"

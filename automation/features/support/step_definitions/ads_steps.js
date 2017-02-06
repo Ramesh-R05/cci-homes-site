@@ -207,7 +207,6 @@ module.exports = function() {
         browser.scroll(0,900);
         browser.scroll(0,1500);
         expect(browser.isVisible(wn_ads.homepagetopFeedMrec)).toBe(true);
-        expect(browser.getAttribute(wn_ads.homepageMrecTopFeedSticky, 'style')).toContain("fixed");
     });
     this.Given(/^I should see sticky MREC ad next to the bottom news feed on the homepage$/, function () {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop

@@ -1,4 +1,4 @@
-@homepage @homes
+@homepage @homes @high
 Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to be used across all devices
 
     @BXMS-85

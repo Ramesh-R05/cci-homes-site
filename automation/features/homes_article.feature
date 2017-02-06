@@ -28,7 +28,7 @@ Feature: Article
         * I can see the related tags "VILLA"
 
 
-    @DAW-1125
+    @DAW-1125 @med
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "automation-test-article-with-hero-video-3194"
@@ -48,7 +48,7 @@ Feature: Article
         * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
 
-
+    @high
     Scenario: Verify an article page which contains a hero image on desktop
         When I switch to "desktop" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
@@ -73,7 +73,7 @@ Feature: Article
         * I can see the related tags "VILLA"
 
 
-@DDO-160 @DDO-48
+@DDO-160 @DDO-48 @med
 Scenario: Verify an hero image caption and LHR on different screen sizes
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
     When I switch to "desktop" view
@@ -96,7 +96,7 @@ Scenario: Verify an hero image caption and LHR on different screen sizes
     * I should not see the hero image caption
     * I should not see the LHR
 
-@DDO-48
+@DDO-48 @high
 Scenario: Verify the LHR on an article page
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
     When I switch to "desktop" view
