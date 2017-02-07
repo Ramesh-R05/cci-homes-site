@@ -52,8 +52,8 @@ describe('ArticlePage', () => {
         expect(articleComponent.props.footerMetaClass).to.eq(SourceStub);
     });
 
-    it('should pass the Footer Class to the Article', () => {
-        expect(articleComponent.props.footerComponentClass).to.eq(FooterStub);
+    it('should not pass the Footer Class to the Article', () => {
+        expect(articleComponent.props.footerComponentClass).to.eq(null);
     });
 
     it('should pass all other props through', () => {

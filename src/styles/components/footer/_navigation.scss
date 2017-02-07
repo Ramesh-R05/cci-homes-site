@@ -3,12 +3,9 @@
         text-align: center;
 
         ul {
-            margin-top: 45px;
+            margin-top: $footer-gap/2;
             padding: 0;
-
-            @media #{$medium-up} {
-                margin-top: 10px;
-            }
+            margin-bottom: 0;
         }
 
         li {
@@ -18,9 +15,9 @@
             margin: 0;
 
             a {
-                color: $color-grey-light;
-                font-family: $font-family-sans-serif-primary;
-                font-size: 14px;
+                color: #999;
+                font-family: $small-text-font;
+                font-size: 12px;
                 font-weight: 500;
                 letter-spacing: .6px;
                 margin-left: 1px;
@@ -28,17 +25,17 @@
                 transition: linear .175s;
 
                 &:hover {
-                    color: $color-white;
+                    text-decoration: underline;
                 }
             }
 
             &:after {
-                color: $color-grey-light;
+                color: #999;
                 content: '|';
-                font-size: 15px;
+                font-size: 14px;
                 margin: 0 10px;
                 position: relative;
-                top: -3px;
+                top: -1px;
             }
 
             @media #{$medium-up} {

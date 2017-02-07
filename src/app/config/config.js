@@ -82,7 +82,10 @@ export default {
         apiKey: '3_ghsdy4V7gVQHU_8eFfPgTAKIw-3ct5dXWtLoc86lIcHaPQOswMYyMkMKCe377vah'
     },
 
-    brands,
+    brands: {
+        uniheader: brands,
+        footer: brands
+    },
 
     hamburgerBrands,
 

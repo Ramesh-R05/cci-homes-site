@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('/assets/fonts/ProximaNova-Regular.eot');
+    src: url('/assets/fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/ProximaNova-Regular.woff') format('woff'),
+    url('/assets/fonts/ProximaNova-Regular.ttf') format('truetype'),
+    url('/assets/fonts/ProximaNova-Regular.svg#amsipronarw-thinuploaded_file') format('svg');
+    font-style: normal;
+}
+
 // ---------------------------------------------------- font families
 // Typekit Font Stack (Kit ID: mmp8xzm)
 // https://typekit.com/account/kits?search=homes+to+love
@@ -5,6 +15,10 @@
 $font-family-sans-serif-primary: 'brandon-grotesque', sans-serif;
 $font-family-sans-serif-secondary: 'open-sans', sans-serif;
 $font-family-serif-secondary: 'bree-serif', serif;
+
+$small-text-font: 'Proxima Nova', sans-serif;
+$small-text-light-font: 'Proxima Nova light', sans-serif;
+
 //Google font
 $font-family-serif-primary: 'Libre Baskerville', serif;
 $to-love-font-family-sans-serif: $font-family-sans-serif-secondary;
@@ -416,20 +430,6 @@ a {
 .type-magshop-content {
     @include type-magshop-content;
 }
-
-@mixin type-social-link-label() {
-    color: $color-grey-light;
-    font-family: $font-family-sans-serif-secondary;
-    font-size: 14px;
-    font-style: italic;
-    letter-spacing: .021em;
-}
-
-.type-social-link-label {
-    @include type-social-link-label;
-}
-
-
 
 // Error page
 @mixin type-error-page {

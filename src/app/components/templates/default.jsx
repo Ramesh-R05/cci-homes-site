@@ -131,7 +131,7 @@ class DefaultTemplate extends Component {
                         />
                 }
 
-                {hideFooter ? null : <SiteFooter config={localeData} />}
+                {   hideFooter ? null : <SiteFooter config={localeData} /> }
 
             </div>
         );
@@ -152,8 +152,7 @@ class DefaultTemplate extends Component {
             case 'homesarticle':
                 return {
                     ContentHeaderHandler: HomeHeader,
-                    ContentHandler: Article,
-                    hideFooter: true
+                    ContentHandler: Article
                 };
             case 'navigationsection':
                 return {

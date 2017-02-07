@@ -36,8 +36,10 @@ $color-header-menu-button: #555;
 $color-footer-grey: #555;
 
 // Social
-$facebook-color : #3b5998;
-$facebook-footer-color: #5978ba;
-$twitter-color: #00aced;
-$twitter-footer-color: #69c4f0;
-$instagram-footer-color: #b6956a;
+$facebook-color : #3B5998;
+$twitter-color: #00ACED;
+
+$facebook-footer-color: $facebook-color;
+$twitter-footer-color: #03B3EE;
+$instagram-footer-color: #FFA800;
+$pinterest-footer-color: #C92228;

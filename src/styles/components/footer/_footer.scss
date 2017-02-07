@@ -1,49 +1,66 @@
-.footer-wrapper {
-    position: relative;
-}
-
 .footer {
-    background-image: url('/assets/images/footer-bg.png');
-    background-repeat: repeat;
-    margin-top: -33px;
-    padding: 30px 0;
+    &__wrapper {
+        max-width: 1024px;
+        margin: 0 auto;
 
-    @media #{$medium-up} {
-        margin-top: 30px;
-        padding: 50px 0;
-    }
+        .footer {
+            position: relative;
+            background: #fff;
+            padding: $footer-gap 0;
 
-    @media #{$large-up} {
-        padding: 50px 0 56px;
-    }
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
 
-    &--article {
-        .get-social {
-            display: none;
-            visibility: hidden;
-        }
+            @media #{$medium-up} {
+                padding: 50px 0;
+            }
 
-        .magshop {
-            display: none;
-            visibility: hidden;
-        }
+            @media #{$large-up} {
+                width: 1024px;
+                padding: 50px 0 50px;
+            }
 
-        .newsletter {
-            width: 100%;
-        }
-    }
+            .home-page {
+                &__social-logo {
+                    background: url(/assets/logo/follow-homes-to-love-logo.svg) no-repeat;
+                    background-size: contain;
+                    height: 0;
+                    padding-bottom: 6%;
+                    width: 100%;
+                    max-width: 370px;
+                    min-width: 250px;
+                    display: inline-block;
+                    margin-bottom: 0px;
+                    background-position: center;
 
+                    @media #{$medium-up} {
+                        padding-bottom: 4%;
+                    }
+                }
 
-    &__copyright {
-        line-height: 15px;
-        padding-top: 4px;
-        text-align: center;
+                &__get-social-container {
+                    text-align: center;
+                    margin-bottom: 35px;
+                }
+            }
 
-        span {
-            color: $color-grey-dark;
-            font-family: $font-family-sans-serif-primary;
-            font-size: 13px;
-            text-transform: uppercase;
+            &__copyright {
+                line-height: 15px;
+                padding-top: 4px;
+                text-align: center;
+
+                span {
+                    color: #999;
+                    font-family: $small-text-font;
+                    font-size: 12px;
+                    letter-spacing: .020em;
+                    text-transform: uppercase;
+                }
+            }
         }
     }
 }

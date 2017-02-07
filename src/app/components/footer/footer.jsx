@@ -1,48 +1,45 @@
 import React, {Component, PropTypes} from 'react';
-import FooterSocialLinks from './footerSocialLinks';
-import FooterNetworkInfo from './footerNetworkInfo';
+import SocialContainer from '../social/socialContainer';
+import FooterBrandLinks from './footerBrandLinks';
 import FooterNavigation from './footerNavigation';
-import MagShop from '../magshop/magshop';
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
-import Newsletter from '@bxm/newsletter/lib/components/newsletter';
 
 export default class FooterSection extends Component {
+
+    static propTypes = {
+        modifier: PropTypes.string
+    };
+
+    static contextTypes = {
+        config: PropTypes.object
+    };
 
     constructor(...args) {
         super(...args);
     }
 
-    static propTypes = {
-        config: PropTypes.object.isRequired,
-        iframeKey: PropTypes.string,
-        modifier: PropTypes.string
-    };
-
-    static defaultProps = {
-        config: {},
-        iframeKey: 'wnfooter'
-    };
-
     render() {
-        const {iframeKey, config, modifier} = this.props;
+        const {modifier} = this.props;
+        const footerBrands = this.context.config.brands.footer;
         let classNames = 'footer';
-
         if (modifier) classNames += ` footer--${modifier}`;
 
         return (
-            <div className="footer-wrapper">
+            <div className="footer__wrapper">
                 <footer className={classNames}>
-                    <FooterSocialLinks />
-                    <div className="row">
-                        <Newsletter url={`${config.newsletterIframeUrl}!${iframeKey}`} />
-                        <MagShop content={config.magShop} />
+                    <div className="home-page__get-social-container">
+                        <span className="home-page__social-logo"></span>
+                        <SocialContainer />
                     </div>
-                    <div className="row">
-                        <FooterNetworkInfo />
+                    <div className="footer__logos">
+                        <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br/>
+                        <nav className="footer__logos-nav">
+                            <FooterBrandLinks className="footer__logos-list" footerBrands={footerBrands}/>
+                        </nav>
                     </div>
                     <FooterNavigation />
                     <div className="footer__copyright">
-                        <span>&copy; copyright bauer media pty limited all rights reserved</span>
+                        <span>&copy; COPYRIGHT BAUER MEDIA PTY LTD ALL RIGHTS RESERVED</span>
                     </div>
                 </footer>
                 <BackToTop className="button" />

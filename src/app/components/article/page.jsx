@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Article from './section';
 import FeedItem from './feedItem';
-import Footer from './footer';
 import Source from './source';
 
 export default class Page extends Component {
@@ -68,7 +67,7 @@ export default class Page extends Component {
                     showAdBeforeRecommendations={true}
                     adSpacing={6}
                     footerMetaClass={Source}
-                    footerComponentClass={Footer}
+                    footerComponentClass={null}
                     />
             </div>
         );
