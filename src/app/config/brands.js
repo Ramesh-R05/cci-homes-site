@@ -7,12 +7,12 @@ export default [
     }, {
         "imageUrl": "/assets/svgs/realliving_black.svg",
         "url": "/real-living/",
-        "title": "Real Living",
+        "title": "real living",
         "id" : "realliving"
     }, {
         "imageUrl": "/assets/svgs/homesplus.svg",
         "url": "/homes-plus/",
-        "title": "Homes+",
+        "title": "homes+",
         "id" : "homesplus"
     }, {
         "imageUrl": "/assets/svgs/housegarden.svg",
