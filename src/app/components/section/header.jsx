@@ -47,7 +47,7 @@ export default class Header extends Component {
                             medium: 'leaderboard',
                             large: ['billboard', 'leaderboard']
                         }}
-                        targets={{position: 1, kingtag: title}}
+                        targets={{position: 1}}
                     />
                 </div>
 

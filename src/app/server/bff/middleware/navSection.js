@@ -17,12 +17,17 @@ export default async function navSection(req, res, next) {
 
         const skip =  (pageNo-1) * (itemsCount + listCount);
         const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${navSection}`);
-        const sectionTag = entityResponse.navigationTags[0];
 
-        const filter = `tags eq '${sectionTag}'`;
+        const navigationTag = (entityResponse.tagsDetails || []).find((tag) => {
+            return tag.name.includes('Homes navigation')
+        });
+
+        entityResponse.kingtag = (navigationTag && navigationTag.urlName) || '';
+
+        const filter = `tagsDetails/fullName eq '${navigationTag.fullName}'`;
         const [latestTeasersResp, galleryListingResponse] = await Promise.all([
             getLatestTeasers(itemsCount + listCount, skip, filter),
-            makeRequest(`${req.app.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and tags eq '${sectionTag}'&$orderby=pageDateCreated desc&$top=5`)
+            makeRequest(`${req.app.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`)
         ]);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];

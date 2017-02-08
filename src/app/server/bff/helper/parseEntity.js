@@ -19,6 +19,7 @@ const entityPropertyMap = {
     contentCustomLabel: 'customLabel',
     source: 'source',
     articleSource: 'source',
+    brand: 'brand',
     tags: 'tags',
     navigationTags: 'navigationTags',
     contentTags: 'tags',
@@ -33,7 +34,8 @@ const entityPropertyMap = {
     pageMetaDescription: 'pageMetaDescription',
     tagsDetails: 'tagsDetails',
     articleTags: 'tags',
-    navigationTagsDetails: 'navigationTagsDetails'
+    navigationTagsDetails: 'navigationTagsDetails',
+    kingtag: 'kingtag'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {

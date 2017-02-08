@@ -17,6 +17,8 @@ export default async function campaign(req, res, next) {
 
         const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/?nodeTypeAlias=Campaign&urlName=${campaign}`);
 
+        entityResponse.kingtag = entityResponse.urlName;
+
         const filter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityResponse.sponsorName}'`;
         const latestTeasersResp = await makeRequest(`${req.app.config.services.remote.listings}/teasers?$select=*&$filter=${filter}&$orderby=pageDateCreated desc&$top=${itemsCount + listCount}&$skip=${skip}`)
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];

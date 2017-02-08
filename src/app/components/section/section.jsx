@@ -65,7 +65,7 @@ export default class Section extends Component {
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}
-                            targets={{position: 2, kingtag: title}}
+                            targets={{position: 2}}
                         />
                     </div>
                     <div className="section__row">
@@ -75,7 +75,7 @@ export default class Section extends Component {
                             dataSource={list}
                             nextParams={listNextParams}
                             className="news-feed bottom-news-feed"
-                            adTargets={{ position: 3, kingtag: title }}
+                            adTargets={{ position: 3 }}
                         />
 
                     </div>
@@ -88,7 +88,7 @@ export default class Section extends Component {
                                     leaderboard: 'leaderboard',
                                     billboard: ['billboard', 'leaderboard']
                                 }}
-                                targets={{position: 3, kingtag: title}}
+                                targets={{position: 3}}
                             />
                     </div>
                 </div>

@@ -46,7 +46,8 @@ const expectedTagData = {
     title: tagStubData.data[0].displayName,
     urlName: tagStubData.data[0].urlName,
     nodeType: "TagSection",
-    dateCreated: tagStubData.data[0].createdAt //"2016-02-16T23:15:11.480Z"
+    dateCreated: tagStubData.data[0].createdAt, //"2016-02-16T23:15:11.480Z"
+    kingtag: tagStubData.data[0].urlName
 };
 
 const expectedBody = {

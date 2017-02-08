@@ -31,8 +31,7 @@ describe('SectionHeader', () => {
         it(`should render the Ad component with correct position and sizes`, () => {
             expect(ad).to.exist;
             expect(ad.props.targets).to.deep.equal({
-                position: 1,
-                kingtag: "Section"
+                position: 1
             });
             const expectedSizes = {
                 small: 'banner',

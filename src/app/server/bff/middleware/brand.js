@@ -14,6 +14,12 @@ export default async function brand(req, res, next) {
         const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${brand}`);
         const listingResponse = await getLatestTeasers(13, 0, `source eq '${entityResponse.articleSource}'`);
 
+        const brandConfig = req.app.config.brands.uniheader.find((brand) => {
+            return brand.title === entityResponse.articleSource;
+        });
+
+        entityResponse.brand = (brandConfig && brandConfig.id) || '';
+
         res.body = {
             ...res.body,
             entity: parseEntity(entityResponse),

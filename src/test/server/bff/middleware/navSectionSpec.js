@@ -4,10 +4,15 @@ import entityStubData from '../../../../stubs/entity-interiors';
 import listingsStubData from '../../../../stubs/listings-food-Homes-navigation-Interiors';
 import galleryStubData from '../../../../stubs/listings-gallery';
 
-const makeRequestStub = () => ({navigationTags: entityStubData.navigationTags});
+const makeRequestStub = () => ({tagsDetails: entityStubData.tagsDetails});
 const getLatestTeasersStub = () => listingsStubData;
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
+
+const navigationTag = (entityStubData.tagsDetails || []).find((tag) => {
+    return tag.name.includes('Homes navigation')
+});
+entityStubData.kingtag = (navigationTag && navigationTag.urlName) || '';
 
 parseEntityStub.returns(entityStubData);
 parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(11));
@@ -24,11 +29,12 @@ const siteMockHost = 'http://siteHost.com';
 const navSection = 'interiors';
 const currentPath = `/${navSection}`;
 const nextPath = `/${navSection}?pageNo=2`;
+const expectedFilter = `tagsDetails/fullName eq '${navigationTag.fullName}'`;
 const expectedList = {
     listName: navSection,
     params: {
         pageNo: 1,
-        filter: `tags eq '${entityStubData.navigationTags[0]}'`
+        filter: expectedFilter
     },
     items: [
         listingsStubData.data.slice(11)
@@ -115,7 +121,7 @@ describe('navigation section middleware', () => {
             it('should use the required config values for content service urls for the request', (done)=> {
                 navSectionMiddleware(req, res, next).then(() => {
                     const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.navSection}`;
-                    const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and tags eq '${entityStubData.navigationTags[0]}'&$orderby=pageDateCreated desc&$top=5`;
+                    const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${expectedFilter}&$orderby=pageDateCreated desc&$top=5`;
 
                     const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
                     const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
@@ -126,7 +132,7 @@ describe('navigation section middleware', () => {
 
                     expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(12);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(`tags eq '${entityStubData.navigationTags[0]}'`);
+                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(expectedFilter);
 
                     done();
                 }).catch(done);

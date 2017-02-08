@@ -8,7 +8,9 @@ export default {
             breakpoints: breakpoints,
             pageTypes: {
                 NavigationSection: 'index',
-                HomesArticle: 'article'
+                BrandSection: 'index',
+                HomesArticle: 'article',
+                Campaign: 'index'
             },
             siteId: 'HomesToLove',
             tagsObject: 'tags',

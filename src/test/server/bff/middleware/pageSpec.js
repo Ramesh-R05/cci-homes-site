@@ -1,12 +1,9 @@
 import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-3193';
+import brands from '../../../../app/config/brands';
 
-const makeRequestStub = () => {
-    return {
-        data :{}
-    }
-};
+const makeRequestStub = () => ({articleSource: entityStubData.articleSource});
 
 const parseEntityStub = sinon.stub();
 
@@ -16,8 +13,12 @@ const makeRequestSpy = sinon.spy(makeRequestStub);
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 
+const expectedBrand = brands.find((brand)=>{
+    return brand.title == entityStubData.articleSource;
+});
+
 const expectedBody = {
-    entity: entityStubData,
+    entity: entityStubData
 };
 
 const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/page', {
@@ -36,6 +37,9 @@ describe('page middleware', () => {
         },
         app: {
             config: {
+                brands: {
+                    uniheader: brands
+                },
                 services: {
                     remote: {
                         entity: entityServiceMockUrl
@@ -80,6 +84,8 @@ describe('page middleware', () => {
                     const saved = `?saved=${!!preview}`;
                     const entityServiceUrl = `${entityServiceMockUrl}/HOMES-${req.query.id}${saved}`;
                     expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
+
+                    expect(parseEntityStub.calledWith(sinon.match.has('brand', expectedBrand.id))).to.be.true;
 
                     done();
                 }).catch(done);

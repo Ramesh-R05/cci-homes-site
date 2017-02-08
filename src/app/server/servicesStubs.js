@@ -39,7 +39,7 @@ servicesStubs.get('/entity-service/:page', function(req, res) {
 servicesStubs.get('/listings-service/teasers', function(req, res) {
     const {$filter, $top} = req.query;
     const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
-    const tagMatch = $filter.match(/^(tags|tagsDetails\/urlName) eq '([^']+)'$/i);
+    const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
     const campaignMatch = $filter.match(/^\(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'\) and sponsorName eq '([^']+)'$/i)
 
@@ -55,7 +55,7 @@ servicesStubs.get('/listings-service/teasers', function(req, res) {
     }
 
     if (tagMatch) {
-        const tag = tagMatch[2].replace(/ |:/g, '-');
+        const tag = tagMatch[3].replace(/ |:|_/g, '-');
         const teaserData = require(cwd + `/stubs/listings-${tag}`);
         if ($top) teaserData.data.splice($top);
         teaserResponse = teaserData;

@@ -38,7 +38,8 @@ export default async function tag(req, res, next) {
                 return {
                     title,
                     urlName,
-                    dateCreated
+                    dateCreated,
+                    kingtag: urlName
                 };
             })
             .catch(() => {});

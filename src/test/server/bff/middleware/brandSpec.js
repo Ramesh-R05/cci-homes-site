@@ -2,6 +2,7 @@ import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-belle';
 import itemsStubData from '../../../../stubs/listings-belle';
+import brands from '../../../../app/config/brands';
 
 const makeRequestStub = () => ({articleSource: entityStubData.articleSource});
 const getLatestTeasersStub = () => ({data: {}});
@@ -15,6 +16,10 @@ const makeRequestSpy = sinon.spy(makeRequestStub);
 const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
+
+const expectedBrand = brands.find((brand)=>{
+    return brand.title == entityStubData.articleSource;
+});
 
 const expectedBody = {
     entity: entityStubData,
@@ -39,6 +44,9 @@ describe('brand middleware', () => {
         },
         app: {
             config: {
+                brands: {
+                    uniheader: brands
+                },
                 services: {
                     remote: {
                         entity: entityServiceMockUrl
@@ -81,6 +89,8 @@ describe('brand middleware', () => {
 
                     expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
                     expect(getLatestTeasersSpy.firstCall.calledWith(13, 0, `source eq '${entityStubData.articleSource}'`)).to.be.true;
+
+                    expect(parseEntityStub.calledWith(sinon.match.has('brand', expectedBrand.id))).to.be.true;
 
                     done();
                 }).catch(done);
