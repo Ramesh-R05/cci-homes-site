@@ -8,7 +8,6 @@
     "test:med": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@med --jsonOutput=reports/regression.json && npm run html_report\"",
     "test:low": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@low --jsonOutput=reports/regression.json && npm run html_report\"",
     "html_report": "bash -c \"node generate_html.js\"",
-    "seo": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@seo --jsonOutput=reports/regression.json && npm run html_report\"",
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
     "features": "bash -c \"node runner.js --pMode=features\"",

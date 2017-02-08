@@ -17,8 +17,8 @@ Feature: Footer
         * I can navigate to all sites in the footer
             |title                          |url                            |gtm                |
             |Belle                          |/belle                         |gtm-footer-brand   |
-            |Real Living                    |/real-living                   |gtm-footer-brand   |
-            |Homes+                         |/homes-plus                    |gtm-footer-brand   |
+            |real living                    |/real-living                   |gtm-footer-brand   |
+            |homes+                         |/homes-plus                    |gtm-footer-brand   |
             |Australian House and Garden    |/australian-house-and-garden   |gtm-footer-brand   |
         * I can navigate to all standard pages in the footer
             |page           |url                                                            |
