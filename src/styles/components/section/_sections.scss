@@ -1,10 +1,16 @@
 .section {
 
     &__landing {
+        @include teaser-hide-secondary-tag;
+
         background: $color-white;
         padding-top: 0;
         max-width: 1024px;
         margin: 0 auto;
+
+        @media #{$large-up} {
+            @include teaser-show-secondary-tag;
+        }
     }
 
     &__heading {
@@ -104,7 +110,7 @@
 
             }
 
-            
+
             &__source {
                 display: block;
             }

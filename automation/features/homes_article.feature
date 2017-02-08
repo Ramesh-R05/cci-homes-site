@@ -25,7 +25,7 @@ Feature: Article
         * I can see the body Playbuzz embed "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
         * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
-        * I can see the related tags "VILLA"
+        * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
     @DAW-1125 @med
@@ -70,7 +70,7 @@ Feature: Article
         * I can see the body Playbuzz embed "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
         * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
-        * I can see the related tags "VILLA"
+        * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
 @DDO-160 @DDO-48 @med

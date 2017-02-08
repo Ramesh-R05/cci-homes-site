@@ -9,6 +9,13 @@
     }
 }
 
+@mixin teaser-hide-secondary-tag {
+    .tag-separator,
+    .tag-secondary {
+        display: none;
+    }
+}
+
 @mixin teaser-show-secondary-tag {
     .tag-separator,
     .tag-secondary {

@@ -31,23 +31,6 @@ export default {
             }
         },
         siteBrand: 'homes to love',
-        tagFilters: [
-            { category: 'Audience' },
-            { category: 'Building', subCategory: 'Building style' },
-            { category: 'Building', subCategory: 'Type' },
-            { category: 'Decorating', subCategory: 'Style' },
-            { category: 'DIY and craft', subCategory: 'DIY projects' },
-            { category: 'Difficulty' },
-            { category: 'Duration' },
-            { category: 'Garden/Outdoor', subCategory: 'Garden style' },
-            { category: 'Garden/Outdoor', subCategory: 'Landscaping' },
-            { category: 'Location and setting' },
-            { category: 'Occasion' },
-            { category: 'Renovating', subCategory: 'Renovation type'},
-            { category: 'Renovating', subCategory: 'Materials'},
-            { category: 'Room' },
-            { category: 'Topic', tag: 'How to' }
-        ],
         videoIconSVG: `
             <svg class="icon-video" viewBox="0 0 30 30">
             <path id="path-1" d="M7.7,2.8l20.5,12.7L7.7,28.3L7.7,2.8 M7.7,1C7.4,1,7.1,1.1,6.8,1.2C6.3,1.5,5.9,2.2,5.9,2.8l0,25.5

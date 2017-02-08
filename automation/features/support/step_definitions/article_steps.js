@@ -212,7 +212,7 @@ module.exports = function() {
     });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag) {
     var relatedTags = browser.getText(wn_article.relatedTags, 'href');
-        expect(relatedTags).toEqual(rTag);
+        expect(relatedTags).toEqual(rTag.split("|"));
         });
     this.Given(/^I can see the author "([^"]*)"$/, function (authorName) {
       var author = browser.getText(wn_article.authorText);

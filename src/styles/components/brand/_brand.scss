@@ -27,6 +27,12 @@
 }
 
 .brand__body {
+    @include teaser-hide-secondary-tag;
+
+    @media #{$large-up} {
+        @include teaser-show-secondary-tag;
+    }
+
     margin: 0 auto;
     max-width: 1024px;
 
@@ -84,14 +90,6 @@
 
         @media #{$xlarge-up} {
             @include type-teaser-title;
-        }
-    }
-
-    .tag-separator,
-    .tag-secondary {
-        display: none;
-        @media #{$xlarge-up} {
-            display: inline;
         }
     }
 
@@ -241,11 +239,6 @@
                         @include type-hero-title;
                     }
 
-                    .tag-separator,
-                    .tag-secondary {
-                        display: inline;
-                    }
-
                     .teaser__source {
                         display: none;
                     }
@@ -357,11 +350,6 @@
             &--hero {
                 margin-left: -$column-gutter / 2;
                 margin-right: -$column-gutter / 2;
-
-                .tag-separator,
-                .tag-secondary {
-                    display: inline;
-                }
 
                 .teaser__title {
                     @include type-hero-title;
