@@ -1,5 +1,6 @@
 var brand_listing_widget = {
     brandLogo: ".brand__logo img",
+    brandHeroTeaser: 'article.teaser--hero',
     brandArticle: "article.theme-australian_house_and_garden",
     brandArticleImg: "article.theme-australian_house_and_garden img",
     brandArticleImgLink: "article.theme-australian_house_and_garden a.teaser__image",

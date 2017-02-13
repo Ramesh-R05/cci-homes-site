@@ -174,7 +174,7 @@ Feature: Ads
             | mobile            | 2      | 3            |
             | tablet portrait   | 4      | 6            |
 
-    @BXMS-129 @watch
+    @BXMS-129
     Scenario Outline: Ads on section landing page in the <desktop> view
         Given I switch to "<device>" view
         When I am currently viewing "real-homes"

@@ -1,4 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
+import heroMock from '../../mock/article';
 import {entity, articles as articlesMock} from '../../mock/articles';
 import exposeProps from '../../test-util/exposeProps';
 import clone from 'lodash/lang/clone';
@@ -19,6 +20,7 @@ const Section = proxyquire('../../../app/components/brand/section', {
     '@bxm/behaviour/lib/components/sticky': StickyStub,
 });
 
+let brandHeroStore = heroMock;
 let brandArticlesStore = articlesMock;
 
 Context.addStore('PageStore', {
@@ -27,6 +29,9 @@ Context.addStore('PageStore', {
         content.urlName = 'belle';
         content.title = 'Belle';
         return content;
+    },
+    getHeroItem() {
+        return brandHeroStore;
     },
     getItems() {
         return brandArticlesStore;
@@ -65,7 +70,7 @@ describe(`Brand Section`, () => {
         let ads;
 
         before(() => {
-            brandArticlesStore = articlesMock.slice(0, 13);
+            brandArticlesStore = articlesMock.slice(0, 12);
             reactModule = Context.mountComponent(Section, defaultPropsStub);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             featured = TestUtils.findRenderedComponentWithType(reactModule, FeaturedStub);
@@ -78,8 +83,13 @@ describe(`Brand Section`, () => {
         });
 
         // Featured articles
+        it(`should pass down the hero article to the featured component`, () => {
+            expect(featured.props.hero).to.deep.equal(heroMock);
+        });
+
+        // Featured articles
         it(`should pass down the featured articles to the featured component`, () => {
-            expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 7));
+            expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 6));
         });
 
         it(`should pass down the brand and section brandConfig`, () => {
@@ -89,7 +99,7 @@ describe(`Brand Section`, () => {
 
         // Group Articles
         it(`should pass down the other articles to the group component`, () => {
-            expect(group.props.articles).to.deep.equal(articlesMock.slice(7, 13));
+            expect(group.props.articles).to.deep.equal(articlesMock.slice(6, 12));
         });
 
         // Ads
@@ -134,11 +144,11 @@ describe(`Brand Section`, () => {
 
     });
 
-    describe(`Without sideMenu prop and 13 articles`, () => {
+    describe(`Without sideMenu prop and 12 articles`, () => {
         let groups;
 
         before(() => {
-            brandArticlesStore = articlesMock.slice(0, 13);
+            brandArticlesStore = articlesMock.slice(0, 12);
             reactModule = Context.mountComponent(Section, {});
             groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
         });
@@ -149,7 +159,7 @@ describe(`Brand Section`, () => {
         });
 
         it(`should pass down the other articles to the group component`, () => {
-            expect(groups[0].props.articles).to.deep.equal(articlesMock.slice(7, 13));
+            expect(groups[0].props.articles).to.deep.equal(articlesMock.slice(6, 12));
         });
     });
 

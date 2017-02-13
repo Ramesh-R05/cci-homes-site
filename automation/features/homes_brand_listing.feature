@@ -9,12 +9,10 @@ Feature: Brand Listing page
         Given I am currently viewing "australian-house-and-garden"
         * I should see the brand title logo on the brand landing page
         * I should see 13 teasers on the brand listing page
+        And the top teaser is a hero article or gallery curated from the CMS
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
-    #    * I should see the brand subscribe teaser "under" the main hero and clickable to open its page
-    #    * I should see "Australian House and Garden" brand social
-    #    * I should see recommendations on brand listing page
 
     @med
     Scenario: Verify a brand listing page on tablet portrait
@@ -22,12 +20,10 @@ Feature: Brand Listing page
         Given I am currently viewing "australian-house-and-garden"
         * I should see the brand title logo on the brand landing page
         * I should see 13 teasers on the brand listing page
+        And the top teaser is a hero article or gallery curated from the CMS
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
-    #   * I should see the brand subscribe teaser "under" the main hero and clickable to open its page
-    #    * I should see "Australian House and Garden" brand social
-    #    * I should see recommendations on brand listing page
 
     @high
     Scenario: Verify a brand listing page on desktop
@@ -35,9 +31,7 @@ Feature: Brand Listing page
         Given I am currently viewing "australian-house-and-garden"
         * I should see the brand title logo on the brand landing page
         * I should see 13 teasers on the brand listing page
+        And the top teaser is a hero article or gallery curated from the CMS
         * I should see each teaser containing its image and clickable to open its page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
-    #    * I should see the brand subscribe teaser "in front of" the main hero and clickable to open its page
-    #    * I should see "Australian House and Garden" brand social
-    #    * I should see recommendations on brand listing page

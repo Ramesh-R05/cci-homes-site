@@ -8,6 +8,7 @@ import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 export default class Featured extends Component {
 
     static propTypes = {
+        hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
         brand: PropTypes.string.isRequired,
         brandConfig: PropTypes.object.isRequired
@@ -19,8 +20,7 @@ export default class Featured extends Component {
     };
 
     render() {
-        const {articles, brand, brandConfig} = this.props;
-        const hero = first(articles);
+        const {hero, articles, brandConfig} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -36,26 +36,38 @@ export default class Featured extends Component {
             <section className="brand-section brand-section--top columns small-12">
                 <div className="row">
                     <div className="brand-section--top-teasers columns small-12 medium-12 large-8 xlarge-8">
-                        <Teaser
-                            {...hero}
-                            key={`${hero.id}-xl`}
-                            modifier="hero"
-                            sizes="home-hero" />
-                        <Ad
-                            className="ad--section-mrec teaser"
-                            displayFor={['small', 'medium']}
-                            sizes={['double-mrec', 'mrec']}
-                            targets={{position: 1}}
-                        />
-                        {slice(articles, 1, 7).map(item => <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top"  />)}
-                        <Ad
-                            className="ad--section-mrec teaser"
-                            displayFor={["small","medium"]}
-                            sizes={{
-                                small: ['mrec', 'double-mrec'],
-                                medium: 'mrec'
-                            }}
-                            targets={{position: 2}}/>
+                        {
+                            hero
+                            ?   <Teaser
+                                    {...hero}
+                                    key={`${hero.id}-xl`}
+                                    modifier="hero"
+                                    sizes="home-hero"
+                                />
+                            :   null
+                        }
+                        <ul className="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+                            <li className="ad--section-mrec-top-1">
+                                <Ad
+                                    className="ad--section-mrec teaser"
+                                    displayFor={['small', 'medium']}
+                                    sizes={['double-mrec', 'mrec']}
+                                    targets={{position: 1}}
+                                />
+                            </li>
+                            {slice(articles, 0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top"  /></li>)}
+                            <li className="ad--section-mrec-top-2">
+                                <Ad
+                                    className="ad--section-mrec teaser"
+                                    displayFor={["small","medium"]}
+                                    sizes={{
+                                        small: ['mrec', 'double-mrec'],
+                                        medium: 'mrec'
+                                    }}
+                                    targets={{position: 2}}
+                                />
+                            </li>
+                        </ul>
                     </div>
                     <StickyBlock
                         breakpoints={['large', 'xlarge']}

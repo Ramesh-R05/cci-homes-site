@@ -11,6 +11,7 @@ import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 class Section extends Component {
     static propTypes = {
         brandConfig: PropTypes.object.isRequired,
+        hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
         content: PropTypes.object.isRequired,
         isSideMenuOpen: PropTypes.bool,
@@ -30,7 +31,7 @@ class Section extends Component {
     }
 
     getGroupedArticles(articles) {
-        const initIndex = 7;
+        const initIndex = 6;
         const incrementVal = 6;
         let moreArticles = articles[initIndex] ? true : false;
         let group = [];
@@ -56,7 +57,7 @@ class Section extends Component {
     }
 
     render() {
-        const {brandConfig, articles, content} = this.props;
+        const {brandConfig, hero, articles, content} = this.props;
         const {urlName} = content;
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
@@ -69,7 +70,8 @@ class Section extends Component {
                     <div className="row">
 
                         <Featured
-                            articles={slice(articles, 0, 7)}
+                            hero={hero}
+                            articles={slice(articles, 0, 6)}
                             brand={content.title}
                             brandConfig={brandConfig} />
                     </div>
@@ -134,6 +136,7 @@ export default connectToStores(Section, ['PageStore'], (context) => {
     const pageStore = context.getStore('PageStore');
 
     return {
+        hero: pageStore.getHeroItem(),
         articles: pageStore.getItems(),
         content: pageStore.getContent()
     };

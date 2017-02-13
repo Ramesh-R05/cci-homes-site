@@ -69,3 +69,11 @@ $gallery-color-primary: $color-primary;
 // Footer
 $back-to-top-background-color: $color-primary;
 $footer-gap: 40px;
+
+// Block Grid Advanced Settings
+$block-grid-elements: 12;
+$block-grid-default-spacing: rem-calc(30);
+// Removes column gutter so edges of block grid align with grid
+$align-block-grid-to-grid: false;
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true;

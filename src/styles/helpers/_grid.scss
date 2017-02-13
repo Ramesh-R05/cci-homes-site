@@ -59,6 +59,20 @@ $grid-narrow-row-padding-right-xl: $fixed-column-width + $column-gutter * 3;
     }
 }
 
+@mixin clear-left-with-outer-padding($outer-padding, $indexes: odd) {
+    $alternate-indexes: if($indexes == odd, even, odd);
+
+    &:nth-of-type(#{$indexes}) {
+        clear: left;
+        padding-left: $outer-padding;
+    }
+
+    &:nth-of-type(#{$alternate-indexes}) {
+        clear: none;
+        padding-right: $outer-padding;
+    }
+}
+
 .fixed-column {
     @media #{$xlarge-up} {
         @include grid-column(3);

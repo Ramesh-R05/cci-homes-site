@@ -59,8 +59,14 @@
     }
 }
 
+@mixin teaser-show-summary {
+    .teaser__summary {
+        display: inline;
+    }
+}
+
 @mixin teaser-hide-summary {
-    .teaser__summary-wrap {
+    .teaser__summary {
         display: none;
     }
 }

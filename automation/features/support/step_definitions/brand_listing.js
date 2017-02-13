@@ -125,4 +125,8 @@ module.exports = function() {
         expect(recommendationsHeading).not.toEqual('');
     });
 
+    this.Then(/^the top teaser is a hero article or gallery curated from the CMS$/, function () {
+        expect(browser.waitForVisible(brand_listing.brandHeroTeaser,2000));
+    });
+
 };

@@ -10,6 +10,7 @@ const PageStore = createReducerStore({
         LOAD_CONTENT: (state, payload) => {
             let {
                 entity,
+                hero,
                 items,
                 headerNavigation,
                 inFocusArticles,
@@ -22,6 +23,7 @@ const PageStore = createReducerStore({
             return {
                 title: entity.title,
                 content: entity,
+                hero: hero,
                 items,
                 headerNavigation,
                 navigationTags: entity.navigationTags,
@@ -33,6 +35,7 @@ const PageStore = createReducerStore({
         LOAD_CONTENT_FAILED: (state, payload) => {
             return {
                 error: payload.response.error,
+                hero: {},
                 items: [],
                 inFocusArticles: [],
                 galleries: [],
@@ -60,6 +63,10 @@ const PageStore = createReducerStore({
 
         getNodeType(state) {
             return state.content ? state.content.nodeType : '';
+        },
+
+        getHeroItem: (state) => {
+            return state.hero;
         },
 
         getItems: (state) => {
