@@ -27,7 +27,7 @@ export default async function brand(req, res, next) {
         res.body = {
             ...res.body,
             entity: parseEntity(entityResponse),
-            hero: parseEntity(heroModule.moduleManualContent.data[0] || {}),
+            hero: parseEntity(heroModule && heroModule.moduleManualContent && heroModule.moduleManualContent.data[0] || {}),
             items: parseEntities(listingResponse.data)
         };
 
