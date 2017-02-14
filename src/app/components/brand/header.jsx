@@ -25,9 +25,9 @@ export default class Header extends Component {
                     targets={{position: 1}}
                 />
                 <div className="brand__wrapper">
-                    <div className="brand__logo">
+                    <h1 className="brand__logo">
                         <img src={logo} alt={title} />
-                    </div>
+                    </h1>
                 </div>
             </div>
         );
