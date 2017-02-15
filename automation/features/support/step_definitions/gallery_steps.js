@@ -21,6 +21,7 @@ module.exports = function() {
             wait(500);
             browser.waitForEnabled(gallery.galleryNextButton, 2000);
             browser.click(gallery.galleryNextButton);
+            wait(500);
             //To handle ad between slides q
             if (browser.isExisting(gallery.currentImgNum) == true) {
                 var current_slide = browser.getText(gallery.currentImgNum);
@@ -37,7 +38,8 @@ module.exports = function() {
             case 'mobile':
             case 'mobile portrait':
             case 'tablet portrait':
-                browser.waitForVisible(gallery.mobileNextGallery, 2000);
+                browser.waitForVisible(gallery.mobileNextGallery, 3000);
+                wait(2000);
                 var nextGallery = browser.getText(gallery.mobileNextGallery);
                 expect(nextGallery).toEqual("UPNEXT");
                 break;

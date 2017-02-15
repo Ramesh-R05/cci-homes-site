@@ -63,8 +63,6 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Given I switch to "mobile portrait" view
         When I am currently viewing "automation-test-gallery-3201"
         Then I should see the site header logo clickable to open homepage and contain "gtm-navbar-homes" class name
-        And I should see the site "main" navigation links and "gtm-navigation-section" class name in "header"
-        And I should see the site "sub" navigation links and "gtm-navigation-section" class name in "header"
         And I should see the site "main" navigation links and "gtm-hamburger-section" class name in "hamburger"
         And I should see the site "sub" navigation links and "gtm-hamburger-section" class name in "hamburger"
 

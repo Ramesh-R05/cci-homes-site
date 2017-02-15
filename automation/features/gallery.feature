@@ -85,7 +85,6 @@ Feature: Gallery
                 | tablet landscape  |
                 | tablet portrait   |
 
-    @watch
      Scenario Outline: User should be able to see gallery description text
          Given I switch to "<Device>" view
          And I am currently viewing "automation-test-gallery-3201"

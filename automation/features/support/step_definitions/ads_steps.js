@@ -99,17 +99,18 @@ module.exports = function() {
         expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(false);
     });
     this.Then(/^I should see the MREC ad at the bottom right of the gallery$/, function () {
-        expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.adMrecBottomRightGallery, 3000)).toBe(true);
     });
 
     this.Then(/^I should see the MREC ad after the (\d+) slide$/, function (slide) {
         //Go to the MREC slide
         for (var i=0; i<slide; i++){
             browser.click(gallery.galleryNextButton);
+            wait(500);
         }
         //Validate
         browser.waitForVisible(wn_ads.adMrecInSlideGallery,3000);
-        expect(browser.isVisible(wn_ads.adMrecInSlideGallery)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.adMrecInSlideGallery, 3000)).toBe(true);
     });
 
     //BELOW ARE THE STEPS TO TEST WALLPAPER, SIDE PANEL, OUT OF PAGE ADs

@@ -31,15 +31,15 @@ var ads_widget = {
     topMobileBanner: '.ad--beneath-hero',
     homesTopMobileBanner: '.ad--beneath-short-teaser',
     homesBottomMobileBanner: '.ad--article-beneath-recommendations',
-    galleryAdBottomLeaderBoard: '.ad.gallery__footer-ad.ad--top-label #gpt-slot-1',
+    galleryAdBottomLeaderBoard: '.ad.gallery__footer-ad.ad--top-label [id^=gpt-slot-]',
     galleryAdTopLeaderBoard: '.ad.gallery__mobile-ad.ad--bottom-label',
-    adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label #gpt-slot-2',
-    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label #gpt-slot-3',
+    adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label [id^=gpt-slot-]',
+    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label [id^=gpt-slot-]',
 
-    adWallpaperBrandPage: '.ad--wallpaper #gpt-slot-10', //brand
-    adLeftSideBrandPage: '.ad--sidepanel-left #gpt-slot-8', //brand
-    adRightSideBrandPage: '.ad--sidepanel-right #gpt-slot-9', //brand
-    adOutOfPageBrandPage: '.ad--out-of-page #gpt-slot-7', //brand
+    adWallpaperBrandPage: '.ad--wallpaper [id^=gpt-slot-]', //brand
+    adLeftSideBrandPage: '.ad--sidepanel-left [id^=gpt-slot-]', //brand
+    adRightSideBrandPage: '.ad--sidepanel-right [id^=gpt-slot-]', //brand
+    adOutOfPageBrandPage: '.ad--out-of-page [id^=gpt-slot-]' //brand
 
 };
 module.exports = ads_widget;
