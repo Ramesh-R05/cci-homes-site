@@ -125,7 +125,7 @@ class GallerySection extends Component {
                     <meta itemProp="datePublished" content={gallery.dateCreated} />
                     <meta itemProp="publisher" content={config.site.name} />
 
-                    <div className="columns small-12">
+                    <div>
                         <Ad
                             className="gallery__mobile-ad row"
                             label={{active: false}}
