@@ -36,9 +36,7 @@ var hooks = function () {
             console.log("Nothing to record - Test Passed")
         } else {
             console.log("if is not Passed is FAILED");
-            browser.url("http://dev.historical-report.bauer-media.net.au/historical_report/reports/insert.php?id="+randomId+"&name="+scenario.getName()+"&status=1&tags="+tags);
         }
-        browser.url(world.Urls.home_page);
         browser.deleteCookie();
     });
 };

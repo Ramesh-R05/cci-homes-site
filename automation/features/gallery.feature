@@ -3,101 +3,102 @@ Feature: Gallery
     As a user
     I should be able to see the gallery page
 
-    @high
-    Scenario: Verify a gallery page in mobile style on mobile view
-        When I switch to "mobile" view
-        Given I am currently viewing "automation-test-gallery-3201"
-        * I can see the logo on the gallery header
-        * I can click the logo to go to homepage
-        * I can see an image appearing on the gallery
-#        * I can see the tag name of the gallery "LUXURY HOME"
-        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
-        * I can see the right arrow on the gallery
-        * I should not see the left arrow on the gallery
-        * I can see the image number "1" of total "8" on the mobile gallery
-        * I can see the image caption on the gallery containing "The pavilion-style renovation "
-        * I can click MORE to see the full image caption on the gallery
-        * I can click LESS to see the short image caption on the gallery
-        * I can click the right arrow on the gallery to check the next image
-        When I see the image no "2" on the gallery
-        * I can see the left arrow on the gallery
-        * I can see an image appearing on the gallery
-        * I should not see the gallery description on mobile for next image
-        * I can see the image caption on the gallery containing "Painting by Matthew Johnson"
-        * I can click the left arrow to go back to a previous image on the gallery
-        When I see the video ID "3976804555001" on the gallery
-        * I can see the play button and click on it
-        * I can see the left arrow on the gallery
-        * I can see the right arrow on the gallery
-        When I see the last image on the gallery
-        * I can see an image appearing on the gallery
-        * I can click the right arrow on the gallery on the last slide
-        When I see the next gallery slide on the gallery on mobile
-        * I can see the logo on the gallery header
-        * I can see the right arrow on the next gallery slide
-        * I should not see the left arrow on the gallery
-        * I should not see the gallery description on mobile for next image
+    Scenario Outline: User navigates through the gallery
+        Given I switch to "<Device>" view
+        And I am currently viewing "automation-test-gallery-3201"
+        When I navigate to all of the images
+        Then I am able to see next gallery on "<Device>"
+        @high
+        Examples:
+            | Device            |
+            | mobile            |
+            | mobile portrait   |
+            | desktop           |
+        @med
+        Examples:
+            | Device            |
+            | tablet portrait   |
+            | tablet landscape  |
 
-    @high
-    Scenario: Verify a gallery page in desktop style on desktop view
-        When I switch to "desktop" view
-        Given I am currently viewing "automation-test-gallery-3201"
-        * I can see the logo on the gallery header
-        * I can click the logo to go to homepage
-        * I can see an image appearing on the gallery
-#        * I can see the tag name of the gallery "LUXURY HOME"
-        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
-        * I can see the right arrow on the gallery
-        * I should not see the left arrow on the gallery
-        * I can see the image number "1" of total "8" on the gallery
-        * I can see the image caption on the gallery containing "The pavilion-style renovation "
-        * I can click MORE to see the full image caption on the gallery
-        * I can click LESS to see the short image caption on the gallery
-        * I can click the right arrow on the gallery to check the next image
-        When I see the image no "2" on the gallery
-        * I can see the left arrow on the gallery
-        * I can see an image appearing on the gallery
-        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
-        * I can see the image caption on the gallery containing "Painting by Matthew Johnson"
-        * I can click the left arrow to go back to a previous image on the gallery
-        When I see the video ID "3976804555001" on the gallery
-        * I can see the play button and click on it
-        * I can see the left arrow on the gallery
-        * I can see the right arrow on the gallery
-        When I see the last image on the gallery
-        * I can see an image appearing on the gallery
-        * I can click the right arrow on the gallery on the last slide
-        When I see the next gallery slide on the gallery as "NEXT GALLERY"
-        * I can see the logo on the gallery header
-        * I should not see the long title on the gallery header on the next gallery slide
-        * I can see the right arrow on the next gallery slide
-        * I should not see the left arrow on the gallery
 
-    @med
-    Scenario: Verify a gallery page in mobile style on tablet portrait view
-        When I switch to "tablet portrait" view
-        Given I am currently viewing "automation-test-gallery-3201"
-        * I can click the right arrow on the gallery to check the next image
-        * I should not see the gallery description on mobile for next image
-    @med
-    Scenario: Verify a gallery page in desktop style on tablet landscape view
-        When I switch to "tablet landscape" view
-        Given I am currently viewing "automation-test-gallery-3201"
-        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds "
-        * I can click the right arrow on the gallery to check the next image
+    Scenario Outline: User can see the headline in the gallery
+        Given I switch to "<Device>" view
+        And I am currently viewing "automation-test-gallery-3201"
+        Then I can see the headline "A luxurious bushland retreat" across all images
+        @high
+        Examples:
+            | Device            |
+            | desktop           |
+        @med
+        Examples:
+            | Device            |
+            | tablet landscape  |
 
-    @DAV-80 @DAV-81 @high
-    Scenario: Verify the slide of MREC ad on mobile view
-        When I switch to "mobile" view
-        Given I am currently viewing "automation-test-gallery-3201"
-        * I can slide to the first MREC ad
-        * I cannot go to the next slide when the ad is not loaded
-        * I can go to the next slide when the ad is loaded
 
-    @DAV-80 @DAV-81 @high
-    Scenario: Verify the slide of MREC ad on desktop view
-        When I switch to "desktop" view
-        Given I am currently viewing "automation-test-gallery-3201"
-        * I can slide to the first MREC ad
-        * I cannot go to the next slide when the ad is not loaded
-        * I can go to the next slide when the ad is loaded
+    Scenario Outline: User can see the headline in the gallery
+        Given I switch to "<Device>" view
+        And I am currently viewing "automation-test-gallery-3201"
+        Then I can see the headline "A luxurious bushland retreat" only on the first image
+        @high
+        Examples:
+            | Device            |
+            | mobile            |
+            | mobile portrait   |
+        @med
+        Examples:
+            | Device            |
+            | tablet portrait   |
+
+
+    Scenario Outline: User can see image number and the image caption
+        Given I switch to "<Device>" view
+        And I am currently viewing "automation-test-gallery-3201"
+        Then I can see the Image counter and caption truncated to two lines
+        And I can toggle between Less and More
+        @high
+        Examples:
+            | Device            |
+            | desktop           |
+            | mobile            |
+            | mobile portrait   |
+        @med
+        Examples:
+            | Device            |
+            | tablet landscape  |
+            | tablet portrait   |
+
+
+    Scenario Outline: User can share through social media buttons
+            Given I switch to "<Device>" view
+            And I am currently viewing "automation-test-gallery-3201"
+            Then I should be able to share through facebook
+            And I should be able to share through Pinterest
+        @high
+            Examples:
+                | Device            |
+                | desktop           |
+                | mobile            |
+                | mobile portrait   |
+        @med
+            Examples:
+                | Device            |
+                | tablet landscape  |
+                | tablet portrait   |
+
+    @watch
+     Scenario Outline: User should be able to see gallery description text
+         Given I switch to "<Device>" view
+         And I am currently viewing "automation-test-gallery-3201"
+         Then I should be able to see the gallery description text
+         And I should be able to see the brand logo
+        @high
+            Examples:
+                | Device            |
+                | desktop           |
+                | mobile            |
+                | mobile portrait   |
+        @med
+            Examples:
+                | Device            |
+                | tablet landscape  |
+                | tablet portrait   |

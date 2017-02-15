@@ -54,7 +54,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../section/navigationTag/section': NavSectionStub,
     '../brand/section': BrandStub,
     '../section/sponsorTag/section': CampaignStub,
-    '@bxm/gallery/lib/components/page/gallery': GalleryStub,
+    '../gallery/gallery': GalleryStub,
     '../footer/footer': SiteFooterStub,
     '../brand/header': BrandHeader,
     '../home/header': HomeHeader,
@@ -303,8 +303,8 @@ describe('Default Component template', () => {
             },
             'Gallery': {
                 ContentHandler: GalleryStub,
-                hideHeader: true,
-                hideFooter: true
+                hideHeader: false,
+                hideFooter: false
             }
         }, (metadata, nodeType) => {
             const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = metadata;

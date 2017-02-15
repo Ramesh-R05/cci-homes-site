@@ -59,11 +59,14 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
 #        And I can see the link "FASHION" is highlighted on the navigation links
 #        And I can see the link "Fashion" is highlighted on the hamburger navigation links
 
-#    Scenario: I can see the navigation widget on the gallery page
-#        Given I switch to "mobile portrait" view
-#        When I am currently viewing "automation-test-gallery-3201"
-#        Then I should not see the site navigation links
-#        And I should see the hamburger menu
+    Scenario: I can see the navigation widget on the gallery page
+        Given I switch to "mobile portrait" view
+        When I am currently viewing "automation-test-gallery-3201"
+        Then I should see the site header logo clickable to open homepage and contain "gtm-navbar-homes" class name
+        And I should see the site "main" navigation links and "gtm-navigation-section" class name in "header"
+        And I should see the site "sub" navigation links and "gtm-navigation-section" class name in "header"
+        And I should see the site "main" navigation links and "gtm-hamburger-section" class name in "hamburger"
+        And I should see the site "sub" navigation links and "gtm-hamburger-section" class name in "hamburger"
 
     @BXMS-85
     Scenario: I can see the brand logos in the hamburger menu

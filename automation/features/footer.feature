@@ -48,5 +48,4 @@ Feature: Footer
             |section landing    | real-homes                                       |
             |article            | automation-test-article-with-hero-image-3193     |
             |404                | 404                                              |
-# Gallery has not been implemented yet
-#           |gallery            |automation-test-gallery-3201                      |
+            |gallery            | automation-test-gallery-3201                     |

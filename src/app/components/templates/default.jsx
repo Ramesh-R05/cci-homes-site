@@ -18,7 +18,7 @@ import Brand from '../brand/section';
 import NavSection from '../section/navigationTag/section';
 import Tag from '../section/tag/section';
 import Campaign from '../section/sponsorTag/section';
-import Gallery from '@bxm/gallery/lib/components/page/gallery';
+import Gallery from '../gallery/gallery';
 
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 
@@ -79,14 +79,6 @@ class DefaultTemplate extends Component {
         }
         const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = this.getPageMetadata();
         const localeData = config.get('localeData');
-        const newAdUnitNodetypes = [
-            'Homepage',
-            'BrandSection',
-            'HomesArticle',
-            'NavigationSection',
-            'TagSection',
-            'Campaign'
-        ];
 
         return (
             <div className="default-template">
@@ -109,6 +101,7 @@ class DefaultTemplate extends Component {
 
                 {   ContentHeaderHandler
                     ?   <ContentHeaderHandler
+                            {...this.props}
                             title={contentHeaderTitle}
                             logo={brandConfig.logo}
                             sponsorName={content.sponsor || 'homes_sponsor'}
@@ -116,20 +109,27 @@ class DefaultTemplate extends Component {
                     :   null
                 }
 
-                {   content && (newAdUnitNodetypes.indexOf(content.nodeType) > -1)
-                    ?   <AdsWrapper>
-                            <ContentHandler
-                                brandConfig={brandConfig}
-                                content={content}
-                                isSideMenuOpen={isSideMenuOpen}
-                            />
-                        </AdsWrapper>
-                    :   <ContentHandler
+                { content && content.nodeType === 'Gallery' ?
+
+                    <ContentHandler
+                        brandConfig={brandConfig}
+                        content={content}
+                        isSideMenuOpen={isSideMenuOpen}
+                    />
+
+                    :
+
+                    <AdsWrapper>
+                        <ContentHandler
                             brandConfig={brandConfig}
                             content={content}
                             isSideMenuOpen={isSideMenuOpen}
                         />
+                    </AdsWrapper>
+
                 }
+
+
 
                 {   hideFooter ? null : <SiteFooter config={localeData} /> }
 
@@ -176,9 +176,7 @@ class DefaultTemplate extends Component {
                 };
             case 'gallery':
                 return {
-                    ContentHandler: Gallery,
-                    hideHeader: true,
-                    hideFooter: true
+                    ContentHandler: Gallery
                 };
             default:
                 console.error({message: `Unsupported nodeType (${content.nodeType})`});

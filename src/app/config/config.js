@@ -121,7 +121,8 @@ export default {
         shortName: 'Homes To Love',
         prefix: 'HOMES',
         network: 'wn',
-        prodDomain: 'www.homestolove.com.au'
+        prodDomain: 'www.homestolove.com.au',
+        dateTimeFormat: 'MMM DD, YYYY h:mma'
     },
 
     server: {

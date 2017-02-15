@@ -11,6 +11,18 @@ function window_handler() {
         browser.setViewportSize({ width: resolutions[device][0], height: resolutions[device][1] })
     };
 
+    this.swapWindow = function (currentWindow){
+        var socialWindow;
+        var windows = browser.windowHandles().value;
+        for (var i = 0; i < windows.length; ++i) {
+            if (windows[i] !== currentWindow) {
+                socialWindow = windows[i];
+                break;
+            }
+        }
+        browser.switchTab(socialWindow);
+    };
+
     return this;
 
 }

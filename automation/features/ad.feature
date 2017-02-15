@@ -12,7 +12,7 @@ Feature: Ads
     Scenario Outline: Ads on gallery page in the <device> view
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-gallery-3201"
-        * I should see the bottom leaderboard ad under the gallery slide
+        * I should see the top leaderboard ad above the gallery slide
         * I should see the MREC ad at the bottom right of the gallery
         * I should see the MREC ad after the 3 slide
         @high

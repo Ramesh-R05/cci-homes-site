@@ -3,6 +3,7 @@ export default {
         propertyId: 'NA-HOMETOLOVE-AUTOMATION'
     },
     services: {
+        faceBookAppID: '852557544824192',
         remote: {
             entity: 'http://automation.homes-site.bauer-media.net.au/stub/entity-service',
             listings: 'http://automation.homes-site.bauer-media.net.au/stub/listings-service',
