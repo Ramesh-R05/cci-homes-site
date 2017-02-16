@@ -5,7 +5,6 @@ import {getLatestTeasers} from '../api/listing';
 export default async function tag(req, res, next) {
     try {
         const itemsCount = 6;
-        const listCount = 6;
         let {tag} = req.query;
 
         if (!tag) {
@@ -24,9 +23,6 @@ export default async function tag(req, res, next) {
             .replace(/\s*&\s*/g, '-and-')
             .replace(/\s+/g, '-');
 
-        let pageNo = parseInt(req.query.pageNo || 1, 10);
-
-        const skip =  (pageNo-1) * (itemsCount + listCount);
         const tagData = await makeRequest(`${req.app.config.services.remote.tag}/tags/?urlName=${tag}`)
             .then(({ data }) => {
                 if (!data.length) return {};
@@ -44,50 +40,24 @@ export default async function tag(req, res, next) {
             })
             .catch(() => {});
 
+        const pageSize = 12;
+        const pageNo = parseInt(req.query.pageNo || 1, 10);
+        const skip =  (pageNo-1) * pageSize;
+
         const filter = `tagsDetails/urlName eq '${tag}'`;
-        const latestTeasersResp = await getLatestTeasers(itemsCount + listCount, skip, filter);
+        const latestTeasersResp = await getLatestTeasers(itemsCount, skip, filter);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
 
-        let previousPage = null;
-        if (pageNo > 1) {
-            let path = `/tags/${tag}?pageNo=${pageNo - 1}`;
-            if (pageNo === 2) {
-                path = `/tags/${tag}`;
-            }
-            previousPage = {
-                path,
-                url: `${req.app.config.site.host}${path}`
-            }
-        }
-
-        let nextPage = null;
-        if (skip + latestTeasers.length < latestTeasersResp.totalCount) {
-            const path = `/tags/${tag}?pageNo=${pageNo + 1}`;
-            nextPage = {
-                path,
-                url: `${req.app.config.site.host}${path}`
-            };
-        }
-
-        const path = pageNo > 1 ? `/tags/${tag}?pageNo=${pageNo}` : `/tags/${tag}`;
-        const currentPage = {
-            path,
-            url: `${req.app.config.site.host}${path}`
-        };
-
         const list = {
-            listName: tag,
             params: {
+                listName: tag,
+                basePath: `/tags/${tag}`,
+                offset: itemsCount,
                 pageNo,
-                filter: filter
-            },
-            items: [
-                parseEntities(latestTeasers.slice(itemsCount))
-            ],
-            previous: previousPage,
-            current: currentPage,
-            next: nextPage
+                pageSize,
+                filter
+            }
         };
 
         res.body = {
@@ -96,7 +66,7 @@ export default async function tag(req, res, next) {
                 ...tagData,
                 nodeType: 'TagSection'
             },
-            items: parseEntities(latestTeasers.slice(0, itemsCount)),
+            items: parseEntities(latestTeasers),
             list
         };
 

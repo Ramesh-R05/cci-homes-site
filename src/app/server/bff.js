@@ -13,6 +13,7 @@ import campaign from './bff/middleware/campaign';
 import list from './bff/middleware/list';
 import sitemap from './bff/middleware/sitemap';
 import seo from './bff/middleware/seo';
+import listing from './bff/middleware/listing';
 
 export default function bff(server) {
     server.get('/sitemap/:section?', sitemap, error);
@@ -20,6 +21,7 @@ export default function bff(server) {
     server.get(
         server.config.services.endpoints.list,
         list,
+        listing,
         render,
         error
     );
@@ -35,6 +37,7 @@ export default function bff(server) {
         article,
         gallery,
         campaign,
+        listing,
         seo,
         headerMeta,
         render,

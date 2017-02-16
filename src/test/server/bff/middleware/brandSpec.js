@@ -37,10 +37,23 @@ let makeRequestStub = (requestUrl) => {
 
 const makeRequestSpy = sinon.spy(makeRequestStub);
 
+const brand = 'belle';
+const brandFilter = `source eq '${entityStubData.articleSource}'`;
+
 const expectedBody = {
     entity: entityStubData,
     hero: heroStubData,
-    items: itemsStubData
+    items: itemsStubData,
+    list: {
+        params: {
+            listName: brand,
+            basePath: `/${brand}`,
+            offset: 6,
+            pageNo: 1,
+            pageSize: 12,
+            filter: brandFilter
+        }
+    }
 };
 
 const brandMiddleware = proxyquire('../../../../app/server/bff/middleware/brand', {
@@ -131,9 +144,9 @@ describe('brand middleware', () => {
 
                     expect(makeRequestSpyFirstCall.args[0]).to.equal(expectedEntityServiceUrl);
                     expect(makeRequestSpySecondCall.args[0]).to.equal(expectedModuleServiceUrl);
-                    expect(getLatestTeasersStubFirstCall.args[0]).to.equal(12);
+                    expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
                     expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersStubFirstCall.args[2]).to.equal(`source eq '${entityStubData.articleSource}'`);
+                    expect(getLatestTeasersStubFirstCall.args[2]).to.equal(brandFilter);
 
                     sinon.assert.calledWith(parseEntityStub, sinon.match.has('brand', expectedBrand.id));
 

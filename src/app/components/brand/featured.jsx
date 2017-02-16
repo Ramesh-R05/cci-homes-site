@@ -59,11 +59,8 @@ export default class Featured extends Component {
                             <li className="ad--section-mrec-top-2">
                                 <Ad
                                     className="ad--section-mrec teaser"
-                                    displayFor={["small","medium"]}
-                                    sizes={{
-                                        small: ['mrec', 'double-mrec'],
-                                        medium: 'mrec'
-                                    }}
+                                    displayFor="medium"
+                                    sizes="mrec"
                                     targets={{position: 2}}
                                 />
                             </li>

@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "once": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --jsonOutput=reports/regression.json && npm run html_report\"",
-    "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@high --jsonOutput=reports/regression.json && npm run html_report\"",
+    "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --format=rerun:@rerun.txt --tags=@homes --tags=@high --jsonOutput=reports/regression.json && npm run html_report\"",
     "test:med": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@med --jsonOutput=reports/regression.json && npm run html_report\"",
     "test:low": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=@low --jsonOutput=reports/regression.json && npm run html_report\"",
+    "test:rerun": "bash -c \"./node_modules/.bin/chimp chimp.js @rerun.txt --jsonOutput=reports/regression.json && npm run html_report\"",
     "html_report": "bash -c \"node generate_html.js\"",
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",

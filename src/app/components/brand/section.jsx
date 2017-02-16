@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
-import {canUseDOM} from 'exenv';
 import slice from 'lodash/array/slice';
 import {connectToStores} from '@bxm/flux';
 import cx from 'classnames';
 import Featured from './featured';
-import Group from './articleGroup';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+import loadList from '../../actions/loadList';
+import Repeatable from '../repeatable';
+import List from '../section/list';
 
 class Section extends Component {
     static propTypes = {
@@ -30,39 +30,12 @@ class Section extends Component {
         super(...args);
     }
 
-    getGroupedArticles(articles) {
-        const initIndex = 6;
-        const incrementVal = 6;
-        let moreArticles = articles[initIndex] ? true : false;
-        let group = [];
-        let startIndex = initIndex;
-        let endIndex = initIndex + incrementVal;
-
-        while (moreArticles) {
-            group.push(
-                <div className="row">
-                    <Group articles={slice(articles, startIndex, endIndex)} />
-                </div>
-            );
-
-            if (articles[endIndex]) {
-                startIndex = endIndex;
-                endIndex += incrementVal;
-            } else {
-                moreArticles = false;
-            }
-        }
-
-        return group;
-    }
-
     render() {
-        const {brandConfig, hero, articles, content} = this.props;
+        const {brandConfig, hero, articles, content, list, listNextParams} = this.props;
         const {urlName} = content;
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
-        const groupedArticles = this.getGroupedArticles(articles);
 
         return (
             <div className={menuSliderClassName}>
@@ -89,26 +62,14 @@ class Section extends Component {
                 </div>
 
                 <div className="brand__body brand__body--bottom">
-                    <div className="row">
-                        <div className="brand-section--bottom-teasers columns small-12 large-8">
-                            {groupedArticles}
-                        </div>
-
-                        <StickyBlock
-                            breakpoints={['large', 'xlarge']}
-                            containerClasses="columns show-for-large-up large-4 xlarge-4"
-                            containerMarginBottom={10}
-                            carriageYPosition={95}>
-                            <Ad
-                                className="ad--section-mrec"
-                                displayFor={["large","xlarge"]}
-                                sizes={{
-                                    large: ['mrec', 'double-mrec']
-                                }}
-                                targets={{position: 2}}/>
-                        </StickyBlock>
-
-                    </div>
+                    <Repeatable
+                        component={List}
+                        action={loadList}
+                        dataSource={list}
+                        nextParams={listNextParams}
+                        className="news-feed bottom-news-feed"
+                        adTargets={{ position: 2 }}
+                    />
                 </div>
 
                 <div className="row">
@@ -138,6 +99,8 @@ export default connectToStores(Section, ['PageStore'], (context) => {
     return {
         hero: pageStore.getHeroItem(),
         articles: pageStore.getItems(),
-        content: pageStore.getContent()
+        content: pageStore.getContent(),
+        list: pageStore.getList(),
+        listNextParams: pageStore.getListNextParams()
     };
 });

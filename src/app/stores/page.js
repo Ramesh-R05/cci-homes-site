@@ -81,7 +81,6 @@ const PageStore = createReducerStore({
         getListNextParams: (state) => {
             return {
                 ...state.list.params,
-                listName: state.list.listName,
                 pageNo: (state.list.params.pageNo + 1)
             };
         },

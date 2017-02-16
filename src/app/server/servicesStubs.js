@@ -1,9 +1,14 @@
+import Module from 'module';
 import express from 'express';
-import isUndefined from 'lodash/lang/isUndefined';
 import get from 'lodash/object/get';
 
 const servicesStubs = express.Router();
 const cwd = process.cwd();
+
+function requireWithNoCache(path) {
+    delete require.cache[Module._resolveFilename(path, module)];
+    return module.require(path);
+}
 
 servicesStubs.get('/entity-service/', function(req, res) {
     const {query} = req;
@@ -50,26 +55,27 @@ servicesStubs.get('/listings-service/teasers', function(req, res) {
 
     if (sourceMatch) {
         const source = sourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
-        teaserResponse.data = require(cwd + `/stubs/listings-${source.toLowerCase()}`);
-        teaserResponse.totalCount = teaserResponse.data.length;
+        const teaserData = requireWithNoCache(cwd + `/stubs/listings-${source.toLowerCase()}`);
+        if ($top) teaserData.data.splice($top);
+        teaserResponse = teaserData;
     }
 
     if (tagMatch) {
         const tag = tagMatch[3].replace(/ |:|_/g, '-');
-        const teaserData = require(cwd + `/stubs/listings-${tag}`);
+        const teaserData = requireWithNoCache(cwd + `/stubs/listings-${tag}`);
         if ($top) teaserData.data.splice($top);
         teaserResponse = teaserData;
     }
 
     if (galleryMatch) {
-        const galleryResponse = require(cwd + '/stubs/listings-gallery');
+        const galleryResponse = requireWithNoCache(cwd + '/stubs/listings-gallery');
         res.json(galleryResponse);
         return;
     }
 
     if (campaignMatch) {
         const sponsor = campaignMatch[1].toLowerCase().replace(/\W/g, '-');
-        const sponsorResponse = require(cwd + `/stubs/listings-campaign-${sponsor}`);
+        const sponsorResponse = requireWithNoCache(cwd + `/stubs/listings-campaign-${sponsor}`);
         res.json(sponsorResponse);
         return;
     }

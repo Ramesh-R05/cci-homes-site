@@ -129,4 +129,15 @@ module.exports = function() {
         expect(browser.waitForVisible(brand_listing.brandHeroTeaser,2000));
     });
 
+    this.Then(/^I should be able to see title logo$/, function () {
+        var brandLogoSrc = browser.getAttribute(brand_listing.brandLogo, 'src');
+        expect(brandLogoSrc).not.toBeUndefined();
+        console.log(brandLogoSrc);
+    });
+
+
+
+
+
+
 };

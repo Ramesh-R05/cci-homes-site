@@ -42,4 +42,5 @@ var ads_widget = {
     adOutOfPageBrandPage: '.ad--out-of-page [id^=gpt-slot-]' //brand
 
 };
+
 module.exports = ads_widget;

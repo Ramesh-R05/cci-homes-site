@@ -4,48 +4,38 @@ import entityStubData from '../../../../stubs/entity-nodetypealias-campaign-urln
 import listingsStubData from '../../../../stubs/listings-campaign-myer-eat-live';
 
 const makeRequestStub = sinon.stub();
+const getLatestTeasersStub = () => listingsStubData;
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
 makeRequestStub.onFirstCall().returns({sponsorName: entityStubData.sponsorName});
 makeRequestStub.onSecondCall().returns(listingsStubData);
 
+const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
+
 parseEntityStub.returns(entityStubData);
-parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(11));
-parseEntitiesStub.onSecondCall().returns(listingsStubData.data.slice(0, 11));
+parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(0, 11));
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 const listingsServiceMockUrl = 'http://listingsUrl.com';
 const siteMockHost = 'http://siteHost.com';
 
 const campaign = 'myer-eat-live';
-
-const currentPath = `/campaign/${campaign}`;
-const nextPath = `/campaign/${campaign}?pageNo=2`;
-const expectedList = {
-    listName: campaign,
-    params: {
-        pageNo: 1,
-        filter: `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityStubData.sponsorName}'`
-    },
-    items: [
-        listingsStubData.data.slice(11)
-    ],
-    previous: null,
-    current: {
-        path: currentPath,
-        url: `${siteMockHost}${currentPath}`
-    },
-    next: {
-        path: nextPath,
-        url: `${siteMockHost}${nextPath}`
-    }
-};
+const campaignFilter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityStubData.sponsorName}'`;
 
 const expectedBody = {
     entity: entityStubData,
     items: listingsStubData.data.slice(0, 11),
-    list: expectedList
+    list: {
+        params: {
+            listName: campaign,
+            basePath: `/campaign/${campaign}`,
+            offset: 6,
+            pageNo: 1,
+            pageSize: 12,
+            filter: campaignFilter
+        }
+    }
 };
 
 const campaignMiddleware = proxyquire('../../../../app/server/bff/middleware/campaign', {
@@ -53,6 +43,9 @@ const campaignMiddleware = proxyquire('../../../../app/server/bff/middleware/cam
     '../helper/parseEntity': {
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
+    },
+    '../api/listing': {
+        getLatestTeasers: getLatestTeasersSpy
     }
 });
 
@@ -109,13 +102,15 @@ describe('campaign middleware', () => {
             it('should use the required config values for content service urls for the request', (done)=> {
                 campaignMiddleware(req, res, next).then(() => {
                     const entityServiceUrl = `${entityServiceMockUrl}/?nodeTypeAlias=Campaign&urlName=${req.query.campaign}`;
-                    const listingsServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityStubData.sponsorName}'&$orderby=pageDateCreated desc&$top=12&$skip=0`;
 
                     const makeRequestStubFirstCall = makeRequestStub.getCall(0);
-                    const makeRequestStubSecondCall = makeRequestStub.getCall(1);
+                    const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
 
                     expect(makeRequestStubFirstCall.args[0]).to.equal(entityServiceUrl);
-                    expect(makeRequestStubSecondCall.args[0]).to.equal(listingsServiceUrl);
+
+                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
+                    expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
+                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(campaignFilter);
 
                     done();
                 }).catch(done);

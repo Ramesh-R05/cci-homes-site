@@ -8,8 +8,7 @@ makeRequestStub.resolves(tagStubData);
 const getLatestTeasersStub = () => listingsStubData;
 const parseEntitiesStub = sinon.stub();
 
-parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(11));
-parseEntitiesStub.onSecondCall().returns(listingsStubData.data.slice(0, 11));
+parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(0, 11));
 
 const makeRequestSpy = sinon.spy(makeRequestStub);
 const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
@@ -19,28 +18,7 @@ const tagServiceMockUrl = 'http://tagUrl.com';
 const siteMockHost = 'http://siteHost.com';
 
 const tagSection = 'luxury-home';
-
-const currentPath = `/tags/${tagSection}`;
-const nextPath = `/tags/${tagSection}?pageNo=2`;
-const expectedList = {
-    listName: tagSection,
-    params: {
-        pageNo: 1,
-        filter: `tagsDetails/urlName eq '${tagSection}'`
-    },
-    items: [
-        listingsStubData.data.slice(11)
-    ],
-    previous: null,
-    current: {
-        path: currentPath,
-        url: `${siteMockHost}${currentPath}`
-    },
-    next: {
-        path: nextPath,
-        url: `${siteMockHost}${nextPath}`
-    }
-};
+const tagFilter = `tagsDetails/urlName eq '${tagSection}'`;
 
 const expectedTagData = {
     title: tagStubData.data[0].displayName,
@@ -53,7 +31,16 @@ const expectedTagData = {
 const expectedBody = {
     entity: expectedTagData,
     items: listingsStubData.data.slice(0, 11),
-    list: expectedList
+    list: {
+        params: {
+            listName: tagSection,
+            basePath: `/tags/${tagSection}`,
+            offset: 6,
+            pageNo: 1,
+            pageSize: 12,
+            filter: tagFilter
+        }
+    }
 };
 
 const tagSectionMiddleware = proxyquire('../../../../app/server/bff/middleware/tag', {
@@ -124,9 +111,9 @@ describe('tag section middleware', () => {
 
                     expect(makeRequestSpyFirstCall.args[0]).to.equal(tagServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(12);
+                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(`tagsDetails/urlName eq '${tagSection}'`);
+                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(tagFilter);
 
                     done();
                 }).catch(done);

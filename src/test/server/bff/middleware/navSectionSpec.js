@@ -15,9 +15,8 @@ const navigationTag = (entityStubData.tagsDetails || []).find((tag) => {
 entityStubData.kingtag = (navigationTag && navigationTag.urlName) || '';
 
 parseEntityStub.returns(entityStubData);
-parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(11));
-parseEntitiesStub.onSecondCall().returns(listingsStubData.data.slice(0, 11));
-parseEntitiesStub.onThirdCall().returns(galleryStubData.data);
+parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(0, 11));
+parseEntitiesStub.onSecondCall().returns(galleryStubData.data);
 
 const makeRequestSpy = sinon.spy(makeRequestStub);
 const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
@@ -27,33 +26,21 @@ const listingsServiceMockUrl = 'http://listingsUrl.com';
 const siteMockHost = 'http://siteHost.com';
 
 const navSection = 'interiors';
-const currentPath = `/${navSection}`;
-const nextPath = `/${navSection}?pageNo=2`;
-const expectedFilter = `tagsDetails/fullName eq '${navigationTag.fullName}'`;
-const expectedList = {
-    listName: navSection,
-    params: {
-        pageNo: 1,
-        filter: expectedFilter
-    },
-    items: [
-        listingsStubData.data.slice(11)
-    ],
-    previous: null,
-    current: {
-        path: currentPath,
-        url: `${siteMockHost}${currentPath}`
-    },
-    next: {
-        path: nextPath,
-        url: `${siteMockHost}${nextPath}`
-    }
-};
+const navSectionFilter = `tagsDetails/fullName eq '${navigationTag.fullName}'`;
 
 const expectedBody = {
     entity: entityStubData,
     items: listingsStubData.data.slice(0, 11),
-    list: expectedList,
+    list: {
+        params: {
+            listName: navSection,
+            basePath: `/${navSection}`,
+            offset: 6,
+            pageNo: 1,
+            pageSize: 12,
+            filter: navSectionFilter
+        }
+    },
     galleries: galleryStubData.data
 };
 
@@ -121,7 +108,7 @@ describe('navigation section middleware', () => {
             it('should use the required config values for content service urls for the request', (done)=> {
                 navSectionMiddleware(req, res, next).then(() => {
                     const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.navSection}`;
-                    const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${expectedFilter}&$orderby=pageDateCreated desc&$top=5`;
+                    const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${navSectionFilter}&$orderby=pageDateCreated desc&$top=5`;
 
                     const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
                     const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
@@ -130,9 +117,9 @@ describe('navigation section middleware', () => {
                     expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
                     expect(makeRequestSpySecondCall.args[0]).to.equal(galleryServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(12);
+                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(expectedFilter);
+                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(navSectionFilter);
 
                     done();
                 }).catch(done);

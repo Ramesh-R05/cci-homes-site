@@ -8,14 +8,16 @@ noCallThru();
 const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
 const FeaturedStub = Context.createStubComponent();
-const GroupStub = Context.createStubComponent();
+const repeatableStub = Context.createStubComponent();
+const listStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
 
 const Section = proxyquire('../../../app/components/brand/section', {
     'react': React,
     './featured': FeaturedStub,
-    './articleGroup': GroupStub,
+    '../repeatable': repeatableStub,
+    '../section/list': listStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
 });
@@ -35,7 +37,9 @@ Context.addStore('PageStore', {
     },
     getItems() {
         return brandArticlesStore;
-    }
+    },
+    getList: () => articlesMock,
+    getListNextParams: () => {}
 });
 
 describe(`Brand Section`, () => {
@@ -65,7 +69,6 @@ describe(`Brand Section`, () => {
     describe(`Without sideMenu prop and 12 articles`, () => {
         const sectionClassName = 'container';
         let section;
-        let group;
         let featured;
         let ads;
 
@@ -74,7 +77,6 @@ describe(`Brand Section`, () => {
             reactModule = Context.mountComponent(Section, defaultPropsStub);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             featured = TestUtils.findRenderedComponentWithType(reactModule, FeaturedStub);
-            group = TestUtils.findRenderedComponentWithType(reactModule, GroupStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         });
 
@@ -97,14 +99,9 @@ describe(`Brand Section`, () => {
             expect(featured.props.brandConfig).to.deep.equal(sectionBrandsConfigStub);
         });
 
-        // Group Articles
-        it(`should pass down the other articles to the group component`, () => {
-            expect(group.props.articles).to.deep.equal(articlesMock.slice(6, 12));
-        });
-
         // Ads
         describe(`Ads`, () => {
-            const numberOfAds = 3;
+            const numberOfAds = 2;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
             });
@@ -121,46 +118,18 @@ describe(`Brand Section`, () => {
             });
 
             it(`should have the relevant props for the 2nd ad`, () => {
-                const sizes = {
-                    large: ['mrec', 'double-mrec']
-                };
-                const targets = { position: 2 };
-                expect(ads[1].props.sizes).to.deep.equal(sizes);
-                expect(ads[1].props.targets).to.deep.equal(targets);
-            });
-
-            it(`should have the relevant props for the 3rd ad`, () => {
                 const sizes={
                     small: 'banner',
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
                 const targets = { position: 4 };
-                expect(ads[2].props.sizes).to.deep.equal(sizes);
-                expect(ads[2].props.targets).to.deep.equal(targets);
+                expect(ads[1].props.sizes).to.deep.equal(sizes);
+                expect(ads[1].props.targets).to.deep.equal(targets);
             });
 
         });
 
-    });
-
-    describe(`Without sideMenu prop and 12 articles`, () => {
-        let groups;
-
-        before(() => {
-            brandArticlesStore = articlesMock.slice(0, 12);
-            reactModule = Context.mountComponent(Section, {});
-            groups = TestUtils.scryRenderedComponentsWithType(reactModule, GroupStub);
-        });
-
-        // Group Articles
-        it(`should render 1 group components`, () => {
-            expect(groups.length).to.equal(1);
-        });
-
-        it(`should pass down the other articles to the group component`, () => {
-            expect(groups[0].props.articles).to.deep.equal(articlesMock.slice(6, 12));
-        });
     });
 
     describe(`side menu behavior`, () => {

@@ -4,6 +4,7 @@ import {getLatestTeasers} from '../api/listing';
 
 export default async function brand(req, res, next) {
     try {
+        const itemsCount = 6;
         const {brand} = req.query;
 
         if (!brand) {
@@ -11,8 +12,14 @@ export default async function brand(req, res, next) {
             return;
         }
 
+        const pageSize = 12;
+        const pageNo = parseInt(req.query.pageNo || 1, 10);
+        const skip =  (pageNo-1) * pageSize;
+
         const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${brand}`);
-        const listingResponse = await getLatestTeasers(12, 0, `source eq '${entityResponse.articleSource}'`);
+
+        const filter = `source eq '${entityResponse.articleSource}'`;
+        const listingResponse = await getLatestTeasers(itemsCount, skip, filter);
 
         const brandConfig = req.app.config.brands.uniheader.find((brand) => {
             return brand.title === entityResponse.articleSource;
@@ -24,11 +31,23 @@ export default async function brand(req, res, next) {
         const heroResp = await makeRequest(`${req.app.config.services.remote.module}/${heroModuleName}`);
         const heroModule = (heroResp && heroResp.data && heroResp.data[0]) || {};
 
+        const list = {
+            params: {
+                listName: brand,
+                basePath: `/${brand}`,
+                offset: itemsCount,
+                pageNo,
+                pageSize,
+                filter
+            }
+        };
+
         res.body = {
             ...res.body,
             entity: parseEntity(entityResponse),
             hero: parseEntity(heroModule && heroModule.moduleManualContent && heroModule.moduleManualContent.data[0] || {}),
-            items: parseEntities(listingResponse.data)
+            items: parseEntities(listingResponse.data),
+            list
         };
 
         next();
