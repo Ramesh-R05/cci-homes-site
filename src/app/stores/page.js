@@ -13,7 +13,6 @@ const PageStore = createReducerStore({
                 hero,
                 items,
                 headerNavigation,
-                inFocusArticles,
                 galleries,
                 list = []
             } = payload.body;
@@ -27,7 +26,6 @@ const PageStore = createReducerStore({
                 items,
                 headerNavigation,
                 navigationTags: entity.navigationTags,
-                inFocusArticles,
                 galleries,
                 list
             };
@@ -37,7 +35,6 @@ const PageStore = createReducerStore({
                 error: payload.response.error,
                 hero: {},
                 items: [],
-                inFocusArticles: [],
                 galleries: [],
                 list: [],
                 content: null

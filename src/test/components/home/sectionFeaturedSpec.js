@@ -1,4 +1,5 @@
 import {betterMockComponentContext} from '@bxm/flux';
+import heroMock from '../../mock/article';
 import {home as articlesMock} from '../../mock/articles';
 import {items as gogMock} from '../../mock/galleryOfGalleries';
 import proxyquire, {noCallThru} from 'proxyquire';
@@ -34,7 +35,8 @@ describe('SectionFeatured', () => {
 
         before(() => {
             reactModule = Context.mountComponent(SectionFeatured, {
-                articles: articlesMock, galleries: gogMock
+                articles: articlesMock,
+                galleries: gogMock
             });
             inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
         });
@@ -55,6 +57,7 @@ describe('SectionFeatured', () => {
 
         before(() => {
             reactModule = Context.mountComponent(SectionFeatured, {
+                hero: heroMock,
                 articles: articlesMock
             });
 
@@ -211,7 +214,7 @@ describe('SectionFeatured', () => {
 
         describe(`Hero for sm/md viewports`, () => {
             it(`should have the first article data`, () => {
-                expect(teasers[0].props.id).to.equal(articlesMock[0].id);
+                expect(teasers[0].props.id).to.equal(heroMock.id);
             });
 
             const expectedModifier = 'hero-img-top';
@@ -227,7 +230,7 @@ describe('SectionFeatured', () => {
 
         describe(`First Polar native ad teaser`, () => {
             it(`should have the 2th article data`, () => {
-                expect(polarTeasers[0].props.id).to.equal(articlesMock[2].id);
+                expect(polarTeasers[0].props.id).to.equal(articlesMock[1].id);
             });
 
             it(`should have the ad prop with the correct label`, () => {
@@ -236,8 +239,8 @@ describe('SectionFeatured', () => {
         });
 
         describe(`Second Polar native ad teaser`, () => {
-            it(`should have the 12th article data`, () => {
-                expect(polarTeasers[1].props.id).to.equal(articlesMock[12].id);
+            it(`should have the 12th element from articles data`, () => {
+                expect(polarTeasers[1].props.id).to.equal(articlesMock[11].id);
             });
 
             it(`should have the ad prop with the correct label`, () => {

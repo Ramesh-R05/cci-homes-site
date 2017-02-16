@@ -6,6 +6,7 @@ import cx from 'classnames';
 class Home extends Component {
     static propTypes = {
         content: PropTypes.object,
+        hero: PropTypes.object,
         articles: PropTypes.array,
         isSideMenuOpen: PropTypes.bool
     };
@@ -25,15 +26,17 @@ class Home extends Component {
     }
 
     render() {
+
+
         const menuSliderClassName = cx('homepage side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
-        const {content, articles} = this.props;
+        const {content, hero, articles} = this.props;
 
         return (
             <div className={menuSliderClassName}>
-                <SectionFeatured articles={articles} className="home__body" />
+                <SectionFeatured hero={hero} articles={articles} className="home__body" />
             </div>
         );
     }
@@ -43,7 +46,8 @@ export default connectToStores(Home, ['PageStore'], (context) => {
     const pageStore = context.getStore('PageStore');
 
     return {
-        content: pageStore.getContent(),
-        articles: pageStore.getItems()
+        hero: pageStore.getHeroItem(),
+        articles: pageStore.getItems(),
+        content: pageStore.getContent()
     };
 });

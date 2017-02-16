@@ -10,19 +10,24 @@ export default async function home(req, res, next) {
             return;
         }
 
-        const [pageData, modulesResp] = await Promise.all([
+        const [pageData, heroModuleResp, modulesResp] = await Promise.all([
             makeRequest(`${req.app.config.services.remote.entity}/homepage`),
-            makeRequest(`${req.app.config.services.remote.module}/featuredarticles,infocusarticles`)
+            makeRequest(`${req.app.config.services.remote.module}/homepagehero`),
+            makeRequest(`${req.app.config.services.remote.module}/featuredarticles`)
         ]);
 
         const modules = parseModules(modulesResp);
+        const heroModule = (heroModuleResp.data && heroModuleResp.data[0]) || {};
+        const hero = heroModule.moduleManualContent && heroModule.moduleManualContent.data[0] || {};
 
         res.body = {
             ...res.body,
             entity: parseEntity(pageData),
-            items: modules.featuredarticles.items,
-            inFocusArticles: modules.infocusarticles.items
+            hero: parseEntity(hero),
+            items: modules.featuredarticles.items
         };
+
+
 
         next();
     } catch(error) {

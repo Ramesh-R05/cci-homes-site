@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import first from 'lodash/array/first';
 import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import PolarTeaser from '../polar/polarTeaser';
@@ -11,6 +10,7 @@ export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
 
     static propTypes = {
+        hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
         children: PropTypes.any,
         className: PropTypes.string
@@ -27,8 +27,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {articles, children} = this.props;
-        const hero = first(articles);
+        const {hero, articles} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -68,7 +67,7 @@ export default class SectionFeatured extends Component {
                                         targets={{position: 1}}
                                     />
 
-                                    {slice(articles, 1, 2).map(item =>
+                                    {slice(articles, 0, 1).map(item =>
                                         <Teaser {...item}
                                             key={item.id}
                                             modifier="img-top"
@@ -76,13 +75,13 @@ export default class SectionFeatured extends Component {
                                     )}
 
                                     <PolarTeaser
-                                        {...articles[2]}
+                                        {...articles[1]}
                                         ad={{label: 'home_teaser_1'}}
                                         modifier="img-top"
                                         className="home-section-top-polar"
                                     />
 
-                                    {slice(articles, 3, 7).map(item =>
+                                    {slice(articles, 2, 6).map(item =>
                                         <Teaser {...item} key={item.id}
                                             modifier="img-top"
                                         />
@@ -145,7 +144,7 @@ export default class SectionFeatured extends Component {
                                         targets={{position: 3}}
                                     />
 
-                                    {slice(articles, 7, 12).map(item =>
+                                    {slice(articles, 6, 11).map(item =>
                                         <Teaser {...item}
                                             key={item.id}
                                             modifier="img-top"
@@ -153,7 +152,7 @@ export default class SectionFeatured extends Component {
                                     )}
 
                                     <PolarTeaser
-                                        {...articles[12]}
+                                        {...articles[11]}
                                         ad={{label: 'home_teaser_2'}}
                                         modifier="img-top"
                                         className="home-section-bottom-polar"

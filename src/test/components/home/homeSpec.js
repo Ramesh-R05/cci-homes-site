@@ -1,5 +1,6 @@
 import {betterMockComponentContext} from '@bxm/flux';
 import exposeProps from '../../test-util/exposeProps';
+import heroMock from '../../mock/article';
 import {entity, articles as homeArticlesMock} from '../../mock/articles';
 import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
@@ -22,6 +23,10 @@ Context.addStore('PageStore', {
         return entity;
     },
 
+    getHeroItem() {
+        return heroMock;
+    },
+
     getItems() {
         return homeArticlesMock;
     }
@@ -36,6 +41,10 @@ describe('Home', () => {
     before(() => {
         reactModule = Context.mountComponent(Home);
         sectionFeatured = TestUtils.findRenderedComponentWithType(reactModule, SectionFeatured);
+    });
+
+    it(`should pass down the hero teaser to the SectionFeatured component`, () => {
+        expect(sectionFeatured.props.hero).to.deep.equal(heroMock);
     });
 
     it(`should pass down the articles to the SectionFeatured component`, () => {
