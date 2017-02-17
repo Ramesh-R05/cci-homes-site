@@ -57,7 +57,7 @@ Feature: Ads
             | tablet landscape  |
 
     @BXMS-12
-    Scenario Outline: Ads on brand landing page in the <desktop> view
+    Scenario Outline: Ads on brand landing page in the <device> view
         Given I switch to "<device>" view
         When I am currently viewing "australian-house-and-garden"
         And I should see leaderboard ad slots at top middle and bottom
@@ -70,7 +70,13 @@ Feature: Ads
         Examples:
             | device            |
             | mobile            |
-            | tablet portrait   |
+
+    @med
+    Scenario: Ads on brand landing page in the tablet portrait view
+        Given I switch to "tablet portrait" view
+        When I am currently viewing "australian-house-and-garden"
+        And I should see leaderboard ad slots at top middle and bottom
+        And I should see 4 mrec ad slots
 
     @BXMA-107 @high
     Scenario: Wallpaper ad should appear on "brand" page in the desktop view

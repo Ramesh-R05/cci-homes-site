@@ -23,7 +23,7 @@ Feature: SectionLanding page
     @high
         Examples:
             | device |
-            | mobile portrait |
+            | mobile |
             | desktop         |
     @low
         Examples:

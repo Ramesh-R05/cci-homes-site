@@ -35,8 +35,16 @@ module.exports = function() {
 
     this.When(/^I click on the Load More button$/, function () {
         //static wait due to elements loading move the laod more button and creates error in the script
-        wait(5000);
+        wait(3000);
+
+        //scroll to element and a few pixels up to center the button on the screen
+        browser.moveToObject(loadMore.loadMoreButton);
+        browser.scroll(250,100);
+        browser.moveToObject(loadMore.loadMoreButton);
+        wait(500);
         browser.click(loadMore.loadMoreButton);
+
+        //static wait due to elements loading move the laod more button and creates error in the script
         wait(5000);
     });
 };
