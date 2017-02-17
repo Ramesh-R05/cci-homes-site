@@ -1,10 +1,12 @@
 import React, {Component, PropTypes} from 'react';
-import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import PolarTeaser from '../polar/polarTeaser';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import PolarNativeHub from '../polar/polarNativeHub';
+import loadList from '../../actions/loadList';
+import Repeatable from '../repeatable';
+import List from '../section/list';
 
 export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
@@ -27,7 +29,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {hero, articles} = this.props;
+        const {hero, articles, list, listNextParams} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -67,7 +69,7 @@ export default class SectionFeatured extends Component {
                                         targets={{position: 1}}
                                     />
 
-                                    {slice(articles, 0, 1).map(item =>
+                                    {articles.slice(0, 1).map(item =>
                                         <Teaser {...item}
                                             key={item.id}
                                             modifier="img-top"
@@ -81,7 +83,7 @@ export default class SectionFeatured extends Component {
                                         className="home-section-top-polar"
                                     />
 
-                                    {slice(articles, 2, 6).map(item =>
+                                    {articles.slice(2, 6).map(item =>
                                         <Teaser {...item} key={item.id}
                                             modifier="img-top"
                                         />
@@ -132,54 +134,16 @@ export default class SectionFeatured extends Component {
                     <div className="row">
                         <div className="home-section--bottom columns small-12">
                             <div className="row">
-                                <section className="bottom-teasers columns large-8">
 
-                                    <Ad
-                                        className="ad--section-mrec"
-                                        displayFor={['small', 'medium']}
-                                        sizes={{
-                                            small: 'mrec',
-                                            medium: 'mrec'
-                                        }}
-                                        targets={{position: 3}}
-                                    />
+                                <Repeatable
+                                    component={List}
+                                    action={loadList}
+                                    dataSource={list}
+                                    nextParams={listNextParams}
+                                    className="news-feed bottom-news-feed"
+                                    adTargets={{ position: 2 }}
+                                />
 
-                                    {slice(articles, 6, 11).map(item =>
-                                        <Teaser {...item}
-                                            key={item.id}
-                                            modifier="img-top"
-                                        />
-                                    )}
-
-                                    <PolarTeaser
-                                        {...articles[11]}
-                                        ad={{label: 'home_teaser_2'}}
-                                        modifier="img-top"
-                                        className="home-section-bottom-polar"
-                                    />
-
-                                    <Ad
-                                        className="ad--section-mrec"
-                                        displayFor={['medium']}
-                                        sizes={{
-                                            medium: 'mrec'
-                                        }}
-                                        targets={{position: 4}}
-                                    />
-
-                                </section>
-
-                                <StickyBlock
-                                    breakpoints={['large', 'xlarge']}
-                                    containerMarginBottom={60}
-                                    containerClasses="show-for-large-up large-4 columns">
-                                    <Ad
-                                        className="ad--section-mrec"
-                                        displayFor={['large', 'xlarge']}
-                                        sizes={['double-mrec', 'mrec']}
-                                        targets={{position: 3}}
-                                    />
-                                </StickyBlock>
                             </div>
                         </div>
 

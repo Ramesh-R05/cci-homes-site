@@ -1,28 +1,32 @@
 import proxyquire, {noCallThru} from 'proxyquire';
 import heroStubData from '../../../../stubs/module-homepagehero';
+import itemsStubData from '../../../../stubs/listings-homepage';
 noCallThru();
 
 const parseEntityStub = sinon.stub();
-const parseModulesStub = sinon.stub();
+const parseEntitiesStub = sinon.stub();
+const getLatestTeasersStub = sinon.stub();
 
 const entityStubData = {
     id: 'HOMES-123'
 };
 
-const moduleStubData = {
-    featuredarticles: {
-        items: [
-            {
-                id: 'HOMES-123'
-            }
-        ]
-    }
-};
+const homeFilter = `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`;
 
 const expectedBody = {
     entity: entityStubData,
     hero: heroStubData,
-    items: moduleStubData.featuredarticles.items
+    items: itemsStubData,
+    list: {
+        params: {
+            listName: 'home',
+            basePath: `/`,
+            offset: 6,
+            pageNo: 1,
+            pageSize: 12,
+            filter: homeFilter
+        }
+    }
 };
 
 let heroStubDataWrapper = {
@@ -36,7 +40,8 @@ const entityServiceMockUrl = 'http://entitiesUrl.com';
 const moduleServiceMockUrl = 'http://modulesUrl.com';
 const entityServiceMockUrlForHomepage = `${entityServiceMockUrl}/homepage`;
 const moduleServiceMockUrlForHomepageHero = `${moduleServiceMockUrl}/homepagehero`;
-const moduleServiceMockUrlForFeatureArticle = `${moduleServiceMockUrl}/featuredarticles`;
+
+getLatestTeasersStub.returns({data: {}});
 
 let makeRequestStub = (requestUrl) => {
 
@@ -44,8 +49,6 @@ let makeRequestStub = (requestUrl) => {
         return entityStubData;
     } else if (requestUrl.includes(moduleServiceMockUrlForHomepageHero)) {
         return heroStubDataWrapper;
-    } else if (requestUrl.includes(moduleServiceMockUrlForFeatureArticle)) {
-        return moduleStubData;
     }
 };
 
@@ -53,19 +56,18 @@ const makeRequestSpy = sinon.spy(makeRequestStub);
 
 parseEntityStub.onFirstCall().returns(entityStubData);
 parseEntityStub.onSecondCall().returns(heroStubData);
-parseModulesStub.returns(moduleStubData);
+parseEntitiesStub.returns(itemsStubData);
 
 const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', {
     '../../makeRequest': makeRequestSpy,
     '../helper/parseEntity': {
         parseEntity: () => {
             return parseEntityStub()
-        }
+        },
+        parseEntities: parseEntitiesStub
     },
-    '../helper/parseModule': {
-        parseModules: () => {
-            return parseModulesStub()
-        }
+    '../api/listing': {
+        getLatestTeasers: getLatestTeasersStub
     }
 });
 
@@ -114,7 +116,7 @@ describe('home middleware', () => {
                 nextSpy.reset();
                 makeRequestSpy.reset();
                 parseEntityStub.reset();
-                parseModulesStub.reset();
+                getLatestTeasersStub.reset();
             });
 
             it('should use the required config values for content service urls for the request', (done)=> {
@@ -131,11 +133,17 @@ describe('home middleware', () => {
                 homeMiddleware(req, res, next).then(() => {
                     const entityServiceUrl = `${entityServiceMockUrl}/homepage`;
                     const heroModuleServiceUrl = `${moduleServiceMockUrl}/homepagehero`;
-                    const modulesServiceUrl = `${moduleServiceMockUrl}/featuredarticles`;
 
-                    expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
-                    expect(makeRequestSpy.secondCall.calledWith(heroModuleServiceUrl)).to.be.true;
-                    expect(makeRequestSpy.thirdCall.calledWith(modulesServiceUrl)).to.be.true;
+                    const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
+                    const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
+                    const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
+
+                    expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
+                    expect(makeRequestSpySecondCall.args[0]).to.equal(heroModuleServiceUrl);
+
+                    expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
+                    expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
+                    expect(getLatestTeasersStubFirstCall.args[2]).to.equal(homeFilter);
 
                     done();
                 }).catch(done);

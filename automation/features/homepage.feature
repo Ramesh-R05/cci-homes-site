@@ -13,6 +13,8 @@ Feature: Homepage
         And I should see hero content primary tag "READERS' HOME"
         And I should see hero content secondary tag "SUSTAINABLE MATERIALS"
         * I should not see the homepage hero source
+        When I click on the Load More button
+        Then I should see extra 12 top teasers on the loaded feed section page
     @high
     Examples:
         | device |
@@ -32,6 +34,8 @@ Feature: Homepage
         And I should see mobile hero content primary tag "READERS' HOME"
         And I should see mobile hero content secondary tag "SUSTAINABLE MATERIALS"
         * I should not see the homepage hero source
+        When I click on the Load More button
+        Then I should see extra 12 top teasers on the loaded feed section page
     @high
     Examples:
         | device |

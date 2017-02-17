@@ -14,6 +14,7 @@ var ads_widget = {
     homepageBottomFeedMrec: '.home-section--bottom .ad--section-mrec',
     homepageMrecTopFeedSticky: '.home-section--top>div .fixed-column--sticky>div',
     homepageMrecBottomFeedSticky: '.home-section--bottom>div .fixed-column--sticky>div',
+    homepageLoadMoreStickyMrec: 'div.repeatable-component>div:nth-child(2) .ad--section-mrec [id^=gpt-slot-]',
 
     //section page
     sectionpagetopFeedMrec: 'div.section__landing.side-menu-slider > div > div:nth-child(3) > div > div.section__row > div > div > div',

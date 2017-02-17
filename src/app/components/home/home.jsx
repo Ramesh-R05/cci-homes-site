@@ -16,27 +16,18 @@ class Home extends Component {
         isSideMenuOpen: false
     };
 
-    static contextTypes = {
-        getStore: PropTypes.func,
-        executeAction: PropTypes.func
-    };
-
     constructor(...args) {
         super(...args);
     }
 
     render() {
-
-
         const menuSliderClassName = cx('homepage side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
-        const {content, hero, articles} = this.props;
-
         return (
             <div className={menuSliderClassName}>
-                <SectionFeatured hero={hero} articles={articles} className="home__body" />
+                <SectionFeatured {...this.props} className="home__body" />
             </div>
         );
     }
@@ -48,6 +39,8 @@ export default connectToStores(Home, ['PageStore'], (context) => {
     return {
         hero: pageStore.getHeroItem(),
         articles: pageStore.getItems(),
-        content: pageStore.getContent()
+        content: pageStore.getContent(),
+        list: pageStore.getList(),
+        listNextParams: pageStore.getListNextParams()
     };
 });

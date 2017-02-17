@@ -18,6 +18,10 @@ export default async function listing(req, res, next) {
         let skip = (pageNo-1) * pageSize;
         let top = pageSize;
         if (offset && res.body.items) {
+            if (res.body.items.length === 0) {
+                throw {status: 404, message: 'No content!'};
+            }
+
             skip += offset;
             top = pageSize - offset;
         }

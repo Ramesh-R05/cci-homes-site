@@ -136,6 +136,9 @@ Feature: Ads
         * I should see leaderboard ad slots at top middle and bottom
         * I should see sticky MREC ad next to the top news feed on the homepage
         * I should see sticky MREC ad next to the bottom news feed on the homepage
+        And I click on the Load More button
+        Then I should see sticky MREC on the new feed
+
     @high
         Examples:
             | device  |
@@ -151,15 +154,19 @@ Feature: Ads
         And I am currently viewing the homepage
         And I should see leaderboard ad slots at top middle and bottom
         And I should see <number> mrec ad slots
+        And I click on the Load More button
+        And I should see <2ndCount> mrec ad slots
+
     @high
         Examples:
-            | device            | number |
-            | mobile portrait   | 2      |
+            | device            | number | 2ndCount |
+            | mobile portrait   | 2      | 3        |
+
     @med
         Examples:
-            | device            | number |
-            | mobile            | 2      |
-            | tablet portrait   | 4      |
+            | device            | number | 2ndCount |
+            | mobile            | 2      | 3        |
+            | tablet portrait   | 4      | 6        |
 
     @BXMS-129
     Scenario Outline: Ads on section landing page in the <desktop> view

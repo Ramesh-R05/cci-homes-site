@@ -243,4 +243,10 @@ module.exports = function() {
         browser.scroll(0,3000);
         expect(browser.waitForVisible(wn_ads.sectionpageBottomFeedMrec,5000)).toBe(true);
     });
+
+    this.Then(/^I should see sticky MREC on the new feed$/, function () {
+        browser.moveToObject(wn_ads.homepageLoadMoreStickyMrec);
+        expect(browser.waitForVisible(wn_ads.homepageLoadMoreStickyMrec,5000)).toBe(true);
+    });
+
 };

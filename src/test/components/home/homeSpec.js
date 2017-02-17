@@ -1,5 +1,4 @@
 import {betterMockComponentContext} from '@bxm/flux';
-import exposeProps from '../../test-util/exposeProps';
 import heroMock from '../../mock/article';
 import {entity, articles as homeArticlesMock} from '../../mock/articles';
 import proxyquire, {noCallThru} from 'proxyquire';
@@ -9,7 +8,6 @@ const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
-const FooterStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
 
 const Home = proxyquire('../../../app/components/home/home', {
@@ -29,7 +27,10 @@ Context.addStore('PageStore', {
 
     getItems() {
         return homeArticlesMock;
-    }
+    },
+
+    getList: () => homeArticlesMock,
+    getListNextParams: () => {}
 });
 
 describe('Home', () => {

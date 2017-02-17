@@ -43,6 +43,7 @@ servicesStubs.get('/entity-service/:page', function(req, res) {
 
 servicesStubs.get('/listings-service/teasers', function(req, res) {
     const {$filter, $top} = req.query;
+    const homepageMatch = ($filter ==  `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`);
     const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
     const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
@@ -52,6 +53,12 @@ servicesStubs.get('/listings-service/teasers', function(req, res) {
         totalCount: 0,
         data: []
     };
+
+    if (homepageMatch) {
+        const teaserData = requireWithNoCache(cwd + `/stubs/listings-homepage`);
+        if ($top) teaserData.data.splice($top);
+        teaserResponse = teaserData;
+    }
 
     if (sourceMatch) {
         const source = sourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');

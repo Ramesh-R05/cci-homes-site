@@ -14,14 +14,17 @@ const AdStub = Context.createStubComponentWithChildren();
 const PolarTeaserStub = Context.createStubComponentWithChildren();
 const StickyAdStub = Context.createStubComponentWithChildren();
 const polarNativeHub = Context.createStubComponentWithChildren();
+const repeatableStub = Context.createStubComponent();
+const listStub = Context.createStubComponent();
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '../polar/polarTeaser': PolarTeaserStub,
     '@bxm/behaviour/lib/components/sticky': StickyAdStub,
-    '../inlineGallery/customInlineGallery': InlineGalleryStub,
-    '../polar/polarNativeHub': polarNativeHub
+    '../polar/polarNativeHub': polarNativeHub,
+    '../repeatable': repeatableStub,
+    '../section/list': listStub
 });
 
 describe('SectionFeatured', () => {
@@ -77,7 +80,7 @@ describe('SectionFeatured', () => {
             expect(domElements.querySelector('.recommendations')).to.not.exist;
         });
 
-        const expectedNumTeasers = 12;
+        const expectedNumTeasers = 7;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
@@ -86,13 +89,13 @@ describe('SectionFeatured', () => {
             expect(teasers[0].props.lazyload).to.eq(false);
         });
 
-        const expectedNumPolarTeasers = 2;
+        const expectedNumPolarTeasers = 1;
         it(`should render ${expectedNumPolarTeasers} Polar native teasers`, () => {
             expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
         });
 
         describe(`Sticky ads`, () => {
-            const expectedNumStickyAds = 2;
+            const expectedNumStickyAds = 1;
             it(`should render ${expectedNumStickyAds} Sticky Ad sections`, () => {
                 expect(stickies.length).to.equal(expectedNumStickyAds);
             });
@@ -149,54 +152,6 @@ describe('SectionFeatured', () => {
             });
         });
 
-        describe(`Bottom section`, () => {
-
-            describe(`First Bottom MREC ad for small and medium viewports`, () => {
-                it(`should only display an mrec`, () => {
-                    const expectedSizes = {
-                        small: 'mrec',
-                        medium: 'mrec'
-                    };
-                    expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
-                });
-
-                const pos = 3;
-                it(`should be targeted with position ${pos}`, () => {
-                    expect(ads[4].props.targets).to.deep.equal({position: pos});
-                });
-
-                it(`should be displayed on small and medium viewports only`, () => {
-                    expect(ads[4].props.displayFor).to.deep.equal(['small', 'medium']);
-                });
-            });
-
-            describe(`Second Bottom MREC ad for medium viewports`, () => {
-                it(`should only display an mrec`, () => {
-                    const expectedSizes = {
-                        medium: 'mrec'
-                    };
-                    expect(ads[5].props.sizes).to.deep.equal(expectedSizes);
-                });
-
-                const pos = 4;
-                it(`should be targeted with position ${pos}`, () => {
-                    expect(ads[5].props.targets).to.deep.equal({position: 4});
-                });
-
-                it(`should be displayed on medium viewports only`, () => {
-                    expect(ads[5].props.displayFor).to.deep.equal(['medium']);
-                });
-            });
-
-            describe(`Sticky MREC ad`, () => {
-                it(`should display for both large and xlarge breakpoints with double mrec and mrec sizes`, () => {
-                    expect(ads[6].props.displayFor).to.deep.equal(['large', 'xlarge']);
-                    expect(ads[6].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
-                    expect(ads[6].props.targets).to.deep.equal({position: 3});
-                });
-            });
-        });
-
         describe(`Bottom banner/leaderboard/billboard ad`, () => {
             it(`should display either a banner, leaderboard or a billboard ad at position 3`, () => {
                 const expectedSizes = {
@@ -204,11 +159,11 @@ describe('SectionFeatured', () => {
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
-                expect(ads[7].props.sizes).to.deep.equal(expectedSizes);
+                expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
             });
 
             it(`should be targeted with position 3`, () => {
-                expect(ads[7].props.targets).to.deep.equal({position: 3});
+                expect(ads[4].props.targets).to.deep.equal({position: 3});
             });
         });
 
@@ -235,16 +190,6 @@ describe('SectionFeatured', () => {
 
             it(`should have the ad prop with the correct label`, () => {
                 expect(polarTeasers[0].props.ad).to.deep.equal({label: 'home_teaser_1'});
-            });
-        });
-
-        describe(`Second Polar native ad teaser`, () => {
-            it(`should have the 12th element from articles data`, () => {
-                expect(polarTeasers[1].props.id).to.equal(articlesMock[11].id);
-            });
-
-            it(`should have the ad prop with the correct label`, () => {
-                expect(polarTeasers[1].props.ad).to.deep.equal({label: 'home_teaser_2'});
             });
         });
     });
