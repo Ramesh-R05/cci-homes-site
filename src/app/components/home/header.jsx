@@ -7,11 +7,10 @@ export default class HomeHeader extends Component {
             <div className="columns small-12">
                 <Ad
                     className="ad--section-top-leaderboard"
-                    displayFor={['small', 'medium', 'large', 'xlarge']}
                     sizes={{
                         small: 'banner',
-                        medium: 'leaderboard',
-                        large: ['billboard', 'leaderboard']
+                        leaderboard: 'leaderboard',
+                        billboard: ['billboard', 'leaderboard']
                     }}
                     targets={{position: 1}}
                 />

@@ -123,7 +123,7 @@ describe(`Brand Section`, () => {
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
-                const targets = { position: 4 };
+                const targets = { position: 3 };
                 expect(ads[1].props.sizes).to.deep.equal(sizes);
                 expect(ads[1].props.targets).to.deep.equal(targets);
             });

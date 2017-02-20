@@ -44,8 +44,8 @@ export default class Header extends Component {
                         className="ad--section-top-leaderboard"
                         sizes={{
                             small: 'banner',
-                            medium: 'leaderboard',
-                            large: ['billboard', 'leaderboard']
+                            leaderboard: 'leaderboard',
+                            billboard: ['billboard', 'leaderboard']
                         }}
                         targets={{position: 1}}
                     />

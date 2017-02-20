@@ -145,11 +145,10 @@ describe('GallerySection', () => {
                 reloadOnResourceChange: 0,
                 className: "gallery__mobile-ad row",
                 label: {active: false},
-                displayFor: ['small', 'medium', 'large', 'xlarge'],
                 sizes: {
-                    large: 'leaderboard',
-                    medium: 'leaderboard',
-                    small: 'banner'
+                    small: 'banner',
+                    leaderboard: 'leaderboard',
+                    billboard: ['leaderboard', 'billboard']
                 },
                 targets: {
                     keyword: expectedKeywords,

@@ -35,8 +35,8 @@ describe('SectionHeader', () => {
             });
             const expectedSizes = {
                 small: 'banner',
-                medium: 'leaderboard',
-                large: ['billboard', 'leaderboard']
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
             };
             expect(ad.props.sizes).to.deep.equal(expectedSizes);
         });

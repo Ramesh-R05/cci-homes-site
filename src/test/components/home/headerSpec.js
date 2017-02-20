@@ -28,8 +28,8 @@ describe('Home Header with Top banner/leaderboard/billboard ad', () => {
         expect(ad.props.targets).to.deep.equal({position: 1});
         const expectedSizes = {
             small: 'banner',
-            medium: 'leaderboard',
-            large: ['billboard', 'leaderboard']
+            leaderboard: 'leaderboard',
+            billboard: ['billboard', 'leaderboard']
         };
         expect(ad.props.sizes).to.deep.equal(expectedSizes);
     });
@@ -37,9 +37,5 @@ describe('Home Header with Top banner/leaderboard/billboard ad', () => {
     const expectedClassname = 'ad--section-top-leaderboard';
     it(`should have the classname prop equal to ${expectedClassname}`, () => {
         expect(ad.props.className).to.equal(expectedClassname);
-    });
-
-    it(`should be displayed on all viewports`, () => {
-        expect(ad.props.displayFor).to.deep.equal(['small', 'medium', 'large', 'xlarge']);
     });
 });

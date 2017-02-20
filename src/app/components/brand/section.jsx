@@ -81,7 +81,7 @@ class Section extends Component {
                                 leaderboard: 'leaderboard',
                                 billboard: ['billboard', 'leaderboard']
                             }}
-                            targets={{position: 4}}
+                            targets={{position: 3}}
                         />
 
                     </div>

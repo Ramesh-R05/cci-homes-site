@@ -130,11 +130,10 @@ class GallerySection extends Component {
                             className="gallery__mobile-ad row"
                             label={{active: false}}
                             reloadOnResourceChange={this.props.activeGalleryItemIndex || 0}
-                            displayFor={['small', 'medium', 'large', 'xlarge']}
                             sizes={{
-                                large: 'leaderboard',
-                                medium: 'leaderboard',
-                                small: 'banner'
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['leaderboard', 'billboard']
                             }}
                             targets={targets}
                         />
