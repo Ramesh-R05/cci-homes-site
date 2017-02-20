@@ -12,7 +12,7 @@ const AdStub = Context.createStubComponent();
 const ArticlePage = proxyquire('../../../app/components/article/page', {
     'react': React,
     './section': ArticleStub,
-    './feedItem': FeedItemStub,
+    '../polar/polarFeed': FeedItemStub,
     './footer': FooterStub,
     './source': SourceStub,
     '@bxm/ad/lib/google/components/ad': AdStub

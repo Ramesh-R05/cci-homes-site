@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Article from './section';
-import FeedItem from './feedItem';
 import Source from './source';
+import PolarFeedItem from '../polar/polarFeed';
 
 export default class Page extends Component {
     static displayName = 'ArticlePage';
@@ -62,7 +62,7 @@ export default class Page extends Component {
                     articleHeaderOrder={[ 'Hero',  'Source', 'Title', 'Summary', Ad ]}
                     contentBodyConfig={Page.articleContentBodyConfig}
                     authorTranslationMap={Page.translationMap}
-                    feedItemClass={FeedItem}
+                    feedItemClass={PolarFeedItem}
                     showFeedOnRight={true}
                     showAdBeforeRecommendations={true}
                     adSpacing={6}

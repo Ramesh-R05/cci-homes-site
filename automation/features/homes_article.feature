@@ -73,8 +73,8 @@ Feature: Article
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
-@DDO-160 @DDO-48 @med
-Scenario: Verify an hero image caption and LHR on different screen sizes
+    @DDO-160 @DDO-48 @med
+    Scenario: Verify an hero image caption and LHR on different screen sizes
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
     When I switch to "desktop" view
     * I can see the hero image
@@ -96,13 +96,40 @@ Scenario: Verify an hero image caption and LHR on different screen sizes
     * I should not see the hero image caption
     * I should not see the LHR
 
-@DDO-48 @high
-Scenario: Verify the LHR on an article page
+    @DDO-48 @high
+    Scenario Outline: Verify the RHR on an article page
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
-    When I switch to "desktop" view
-    * I can see 20 items in the list of items in LHR
-    * I can see the 19 images of each item in LHR
-    * Image in LHR is clickable to open its page
-    * I can see the long title of each item in LHR
-    * Long title in LHR is clickable to open its page
-    #* I can see the items in LHR sorted by created date #This has been done in manual testing. I will find out the way to apply to automation when the date appears on the main article page.
+    When I switch to "<Device>" view
+    * I can see 20 items in the list of items in RHR
+    And the below position are replaced with Polar ads
+    | pos |
+    | 2   |
+    | 5   |
+    | 9   |
+    | 14  |
+    @high
+        Examples:
+        | Device            |
+        | desktop           |
+
+    @med
+        Examples:
+        | Device            |
+        | tablet landscape  |
+
+    Scenario Outline: I can see a polar placement on the first teaser in a Related Content module
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        When I switch to "<Device>" view
+        Then I can see a polar placement on the first teaser in a Related Content module
+    @high
+        Examples:
+            | Device            |
+            | desktop           |
+            | mobile            |
+            | mobile portrait   |
+    @med
+        Examples:
+            | Device            |
+            | tablet landscape  |
+            | tablet portrait   |
+

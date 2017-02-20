@@ -23,6 +23,64 @@
             &__body-source {
              margin-top: -5px;
             }
+
+            &.polar {
+
+                &-horizontal,
+                &-verticle {
+
+                    img {
+                        position: absolute;
+                        max-height: none;
+                        max-width: none;
+                    }
+                }
+
+                &-horizontal {
+                    img {
+                        position: absolute;
+                        height: 100%;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        width: initial;
+                    }
+                }
+
+            }
+
+        }
+
+        .polar-feed-item {
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-top-color: #ddd;
+            list-style: none;
+            padding: 20px 0 20px 0;
+            width: 325px;
+
+            .teaser__image {
+                overflow: hidden;
+            }
+
+            .feed-item {
+
+                &__body {
+                    margin-top: -12px;
+
+                    &-source {
+                        color: $color-grey-light;
+                            display: inline-block;
+                            font-size: 10px;
+                            line-height: 12px;
+                            text-transform: uppercase;
+                            font-family: 'brandon-grotesque', sans-serif;
+                    }
+
+                }
+            }
+
         }
     }
 
@@ -244,6 +302,20 @@
                     }
                 }
 
+                .polar-feed-item {
+                    a.teaser__image {
+                        height: 0 !important;
+                        padding-bottom: 56.5%;
+                        overflow: hidden;
+                        width: initial;
+                    }
+
+                    img {
+                        top: 0;
+                        right: 0;
+                    }
+                }
+
                 .feed-item {
                     @include grid-column(6);
                     background-color: transparent;
@@ -268,6 +340,7 @@
                     &__body-source {
                         margin-top: 16px;
                         text-align: center;
+                        display: none;
                     }
 
                     &__source {
@@ -275,7 +348,7 @@
                     }
 
                     &__body {
-                        padding-left: 0;
+                        padding: 0 15px;
                     }
 
                 }

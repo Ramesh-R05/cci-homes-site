@@ -55,6 +55,7 @@ var article_widget = {
     wd_lhrFeedSubsection: '.article__listing .feed__subSection',
     wd_lhrFeedSubsectionLink: '.article__listing .feed__subSection a',
     wd_lhrFeedDate: '.article__listing .feed__item-date',
+    relatedPolarFeed: '.related-content-items > .polar-feed-item'
 };
 
 module.exports = article_widget;

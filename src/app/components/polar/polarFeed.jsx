@@ -2,12 +2,12 @@ import React, {Component, PropTypes} from 'react';
 import has from 'lodash/object/has';
 import polarAd from '@bxm/ad/lib/polar/decorators/polarAd';
 import polarConfig from '@bxm/ad/lib/polar/decorators/polarConfig';
-import Teaser from '../teaser/teaser';
+import FeedItem from '../article/feedItem';
 import PolarTeaserImage from './polarTeaserImage';
 
 @polarConfig
 @polarAd
-class PolarTeaser extends Component {
+class PolarFeedItem extends Component {
 
     static propTypes = {
         id: PropTypes.string,
@@ -29,7 +29,7 @@ class PolarTeaser extends Component {
 
     render() {
         if (!has(this.props.ad, 'label') || !has(this.props.nativeAd, 'response')) {
-            return <Teaser {...this.props} />;
+            return <FeedItem {...this.props} />;
         }
 
         return (
@@ -46,4 +46,4 @@ class PolarTeaser extends Component {
     }
 }
 
-export default PolarTeaser;
+export default PolarFeedItem;

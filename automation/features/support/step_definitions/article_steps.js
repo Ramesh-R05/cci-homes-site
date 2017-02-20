@@ -6,38 +6,27 @@ var site_domain = nconf.get('APP_KEY');
 
 module.exports = function() {
 
-    this.When(/^I can see (\d+) items in the list of items in LHR$/, function (count) {
+    this.When(/^I can see (\d+) items in the list of items in RHR$/, function (count) {
+        wait(5000);
+        // Verifying 20 images, clickable and long title available and clickable
         var feedList = browser.elements(wn_article.lhrFeedItems);
         expect((feedList.value.length).toString()).toEqual(count);
-    });
-    this.When(/^I can see the (\d+) images of each item in LHR$/, function (count) {
         var feedImages = browser.elements(wn_article.lhrFeedImgs);
         expect((feedImages.value.length).toString()).toEqual(count);
-    });
-    this.When(/^Image in LHR is clickable to open its page$/, function () {
         var feedImagesUrls = browser.getAttribute(wn_article.lhrFeedImgs, 'href');
-        for (var i = 0; i < feedImagesUrls.length; ++i) {
+        for (var i = 0; i <=count; ++i) {
             var indFeedImgUrl = feedImagesUrls[i];
-            console.log('image url is :'+indFeedImgUrl);
-            expect(indFeedImgUrl === '').toBe(false);
-        }
-    });
-    this.When(/^I can see the long title of each item in LHR$/, function () {
-        var feedTitles = browser.getText(wn_article.lhrFeedTitles);
-        for (var i = 0; i < feedTitles.length; ++i) {
+            var feedTitles = browser.getText(wn_article.lhrFeedTitles);
             var title = feedTitles[i];
-            console.log('teaser title is :'+title);
-            expect(title === '').toBe(false);
-        }
-    });
-    this.When(/^Long title in LHR is clickable to open its page$/, function () {
-        var feedTitlesUrls = browser.getAttribute(wn_article.lhrFeedTitles, 'href');
-        for (var i = 0; i < feedTitlesUrls.length; ++i) {
+            var feedTitlesUrls = browser.getAttribute(wn_article.lhrFeedTitles, 'href');
             var titleUrl = feedTitlesUrls[i];
-            console.log('teaser title url is :'+titleUrl);
+            console.log('teaser url is :'+indFeedImgUrl);
+            expect(indFeedImgUrl === '').toBe(false);
+            expect(title === '').toBe(false);
             expect(titleUrl === '').toBe(false);
-            expect(titleUrl === null).toBe(false);
-        }    });
+            expect(titleUrl === null).toBe(false);}
+    });
+
 
     this.When(/^I can see the hero image$/, function () {
         browser.scroll(wn_article.heroImg);
@@ -415,5 +404,24 @@ module.exports = function() {
         }
         });
 
-    };
+    this.Then(/^the below position are replaced with Polar ads$/, function (table) {
+        var listOfItems = browser.getAttribute(wn_article.lhrFeedItems, 'class');
+        var rows = table.hashes();
+        for (var i = 0; i < rows.length; ++i) {
+            var row = rows[i];
+            // Validates position of standard page base on Index including their url
+            console.log(row['pos']);
+            console.log(listOfItems[row['pos']-1]);
+            expect(listOfItems[row['pos']-1]).toContain('polar-feed');
+        }
+
+    });
+
+    this.Then(/^I can see a polar placement on the first teaser in a Related Content module$/, function () {
+        browser.waitForExist(wn_article.relatedPolarFeed, 2000);
+    });
+
+
+
+};
 
