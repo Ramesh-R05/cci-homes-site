@@ -13,8 +13,8 @@
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
     "features": "bash -c \"node runner.js --pMode=features\"",
     "browsers": "bash -c \"node runner.js\"",
-    "homes:automation": "bash -c \"export WN=false export URL= && export APP_KEY=homes-site && export APP_ENV=automation && npm run once\"",
-    "homes:stubbed": "bash -c \"export WN=false export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=automation && npm run once\"",
+    "homes:automation": "bash -c \"export URL= && export APP_KEY=homes-site && export APP_ENV=automation && npm run test:high\"",
+    "homes:stubbed": "bash -c \"export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=automation && npm run once\"",
     "smoketest": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@smoketest --jsonOutput=reports/regression.json && npm run html_report\"",
     "homes:smoketest": "bash -c \"export URL=http://origin.prelive.homes-site.bauer-media.net.au/ && npm run smoketest\"",
     "general:live": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@live --jsonOutput=reports/regression.json && npm run html_report\""

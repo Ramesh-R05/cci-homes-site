@@ -9,6 +9,30 @@ Feature: Ads
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         Then I can see the sticky ad when the top banner disappears from view
 
+    @high
+    Scenario: check all ad slots are visible on the article page
+        When I switch to "desktop" view
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        *  I should see 2 leaderboard ad slots
+        *  I should see 4 mrec ad slots in LHS feed
+
+        When I switch to "tablet landscape" view
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        *  I should see 2 leaderboard ad slots
+        *  I should see 4 mrec ad slots in LHS feed
+
+        When I switch to "tablet portrait" view
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        *  I should see 2 leaderboard ad slots
+        *  I should see 1 mrec ad slot at the end of the body content
+
+        When I switch to "mobile" view
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        *  I should see 2 leaderboard ad slots
+        *  I should see 1 mrec ad slot beneath short teaser
+        *  I should see 1 mrec ad slot at the end of the body content
+
+
     Scenario Outline: Ads on gallery page in the <device> view
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-gallery-3201"

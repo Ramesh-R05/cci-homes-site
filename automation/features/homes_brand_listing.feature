@@ -19,12 +19,13 @@ Feature: Brand Listing page
         Examples:
             | Device            |
             | desktop           |
-            | mobile            |
             | mobile portrait   |
     @med
         Examples:
             | Device            |
             | tablet landscape  |
             | tablet portrait   |
+            | mobile            |
+
 
 

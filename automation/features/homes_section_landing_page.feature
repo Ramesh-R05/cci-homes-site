@@ -22,12 +22,12 @@ Feature: SectionLanding page
         Then I should see extra 12 top teasers on the loaded feed section page
     @high
         Examples:
-            | device |
-            | mobile |
-            | desktop         |
+            | device    |
+            | mobile    |
+            | desktop   |
     @low
         Examples:
-            | device |
+            | device           |
             | tablet portrait  |
             | tablet landscape |
 

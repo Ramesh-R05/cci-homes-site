@@ -13,6 +13,7 @@ module.exports = function() {
         expect((bottomAdSlot.value.length)).toEqual(1);
 
     });
+
     this.Given(/^I should see sticky MREC ad next to the top news feed$/, function () {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
        browser.scroll(0,500);
@@ -24,6 +25,7 @@ module.exports = function() {
         expect(browser.isVisible(wn_ads.topFeedMrec)).toBe(true);
         expect(browser.getAttribute(wn_ads.mrecTopFeedSticky, 'style')).toContain("fixed");
     });
+
     this.Given(/^I should see sticky MREC ad next to the bottom news feed$/, function () {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,2200);
@@ -36,34 +38,31 @@ module.exports = function() {
         expect(browser.isVisible(wn_ads.bottomFeedMrec)).toBe(true);
         expect(browser.isVisible(wn_ads.mrecBottomFeedSticky)).toBe(true);
     });
+
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.mrec, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) middle leaderboard ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.middleLeaderBoard, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) middle mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.middleMrec, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) mrec ad slot beneath short teaser$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.articleAdBeneathShortTeaser, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) mrec ad slot at the end of the body content$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.articleAdAfterBodyContent, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
-    //this.Then(/^I should see (\d+) top leaderboard ad slots$/, function (slot_count) {
-    //    var adSlots = browser.elements(wn_ads.articleTopLeaderBoard, 5000);
-    //    expect((adSlots.value.length.toString())).toEqual(slot_count);
-    //});
-    //this.Then(/^I should see (\d+) bottom leaderboard ad slots$/, function (slot_count) {
-    //    var adSlots = browser.elements(wn_ads.articleBottomLeaderBoard, 5000);
-    //    expect((adSlots.value.length.toString())).toEqual(slot_count);
-    //});
 
     //combine leadearboard check due to changes in layout and div class names
     this.Then(/^I should see (\d+) leaderboard ad slots$/, function (slot_count) {
@@ -75,14 +74,17 @@ module.exports = function() {
         var adSlots = browser.elements(wn_ads.articleLHSMrec, 6000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) mrec ad slots(" |above recommendation")$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.articleBottomMrec, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) top mobile banner ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.topMobileBanner, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
+
     this.Then(/^I should see (\d+) top mobile banner ad slots under short teaser$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.homesTopMobileBanner, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
@@ -95,9 +97,11 @@ module.exports = function() {
     this.Then(/^I should see the bottom leaderboard ad under the gallery slide$/, function () {
         expect(browser.isVisible(wn_ads.galleryAdBottomLeaderBoard)).toBe(true);
     });
+
     this.Then(/^I should not see the MREC ad at the bottom right of the gallery$/, function () {
         expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(false);
     });
+
     this.Then(/^I should see the MREC ad at the bottom right of the gallery$/, function () {
         expect(browser.waitForVisible(wn_ads.adMrecBottomRightGallery, 3000)).toBe(true);
     });
@@ -130,12 +134,6 @@ module.exports = function() {
             case 'brand':
                 var adWallpaper = wn_ads.adWallpaperBrandPage;
                 break;
-            //case 'article':
-            //    var adWallpaper = wn_ads.adWallpaperBrandPage
-            //    break;
-            //case 'gallery':
-            //    var adWallpaper = wn_ads.adWallpaperBrandPage
-            //    break;
         }
 
         //Validate
@@ -159,14 +157,6 @@ module.exports = function() {
                 var adLeftSide = wn_ads.adLeftSideBrandPage;
                 var adRightSide = wn_ads.adRightSideBrandPage;
                 break;
-            //case 'article':
-            //    var adLeftSide = wn_ads.adLeftSideArticle
-            //    var adRightSide = wn_ads.adRightSideArticle
-            //    break;
-            //case 'gallery':
-            //    var adLeftSide = wn_ads.adLeftSideGallery
-            //    var adRightSide = wn_ads.adRightSideGallery
-            //    break;
         }
 
         //Validate
@@ -188,17 +178,12 @@ module.exports = function() {
             case 'brand':
                 var adOutOfPage = wn_ads.adOutOfPageBrandPage
                 break;
-            //case 'article':
-            //    var adOutOfPage = wn_ads.adOutOfPageArticle
-            //    break;
-            //case 'gallery':
-            //    var adOutOfPage = wn_ads.adOutOfPageGallery
-            //    break;
         }
 
         //Validate
         expect(browser.isVisible(adOutOfPage)).toBe(valueVisible);
     });
+
     this.Given(/^I should see sticky MREC ad next to the top news feed on the homepage$/, function () {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,500);
@@ -209,6 +194,7 @@ module.exports = function() {
         browser.scroll(0,1500);
         expect(browser.isVisible(wn_ads.homepagetopFeedMrec)).toBe(true);
     });
+
     this.Given(/^I should see sticky MREC ad next to the bottom news feed on the homepage$/, function () {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,2200);
@@ -221,6 +207,7 @@ module.exports = function() {
         expect(browser.isVisible(wn_ads.homepageBottomFeedMrec)).toBe(true);
         expect(browser.isVisible(wn_ads.homepageMrecBottomFeedSticky)).toBe(true);
     });
+
     this.Then(/^I should see sticky MREC ad next to the top news feed of the section Page$/, function () {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,500);

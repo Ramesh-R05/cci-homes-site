@@ -2,33 +2,33 @@ Node chimp framework
 ==========================
 
 # Requirement:
-- git bash if using windows
+- git bash if using windows or add git bash path to `PATH` environment variable
 
 # Setup:
 - cd automation
 - npm install
 
 # Run locally:
-(MAC)
+(NO PROXY)
 - cd automation
     - `export URL=` (or populate with local host)
     - `export APP_KEY=homes-site`
-    - `export APP_ENV=environment` (automation, dev, prelive, live)
-    - `export WN=true` (true will use url for WN sites `.APP_KEY-site.wn`, false will use share repo sites `dolly and cosmo`)
-    - `npm run once` (run once)
+    - `export APP_ENV=environment` (automation, dev, origin.prelive, origin)
+    - `npm run once` (runs all test cases once)
     or
-    - `npm run watch` (watching file changes, run features when any file is saved)
-(WIDNOWS)
+    - `npm run watch` (runs any scenarios with @watch)
+
+(BEHIND PROXY)
 open git-bash
 - cd automation
     - `export URL=` (or populate with local host)
     - `export APP_KEY=homes-site`
-    - `export APP_ENV=environment` (automation, dev, prelive, live)
-    - `export WN=true` (true will use url for WN sites `.APP_KEY-site.wn`, false will use share repo sites `dolly and cosmo`)
+    - `export APP_ENV=environment` (automation, dev, origin.prelive, origin)
     - `export HTTP_PROXY=` <= this will enable the selenium-standalone package to interact with selenium
-    - `npm run once` (run once)
+    - `export HTTPS_PROXY=http://username:password@sydproxy.acp.net:8080` <= this will enable to download chrome selenium header
+    - `npm run once` (runs all test cases once)
     or
-    - `npm run watch` (watching file changes, run features when any file is saved)
+    - `npm run watch` (runs any scenarios with @watch)
   
 # Run browserstack: - WIP -
 Ensure you update the browser or device the test will run on in the chimp.bs.js file config
@@ -37,13 +37,22 @@ Ensure you update the browser or device the test will run on in the chimp.bs.js 
 
 # Configuration
 - configs are environment variable based
-- URL is configured base on `APP_KEY`, `APP_ENV` and `WN`
+- URL is configured base on `APP_KEY`, `APP_ENV`
 - you can run on stubb by using `export URL=http://localhost:3001/` environment variable
-- runner config can be found in ./automation/config/APP_KEY.js
 
 # Other modes:
 - `npm run debug` (run in debug mode)
-Below are set in the ./runner.js file 
+- `npm run test:high` (run all test marked as @high)
+- `npm run test:med` (run all test marked as @med)
+- `npm run test:low` (run all test marked as @low)
+- `npm run test:rerun` (run all test from file @rerun generated from fail test in `test:high`)
+- `npm run html_report` (generates html report from file `./reports/regression.json`)
+- `npm run homes:automation` (run `test:high` with all the automation environment variables set)
+- `npm run homes:stubbed` (run `test:once` with all the stubbed environment variables set, using http://localhost:3001)
+- `npm run homes:smoketest` (run `smoketest` in prelive environment)
+- `npm run general:live` (run and environment live)
+
+Below are work in progress 
 - `npm run features` (run multiple features concurrently)
 - `npm run browsers` (run multiple browsers concurrently)
 

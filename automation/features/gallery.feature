@@ -11,12 +11,12 @@ Feature: Gallery
         @high
         Examples:
             | Device            |
-            | mobile            |
             | mobile portrait   |
             | desktop           |
         @med
         Examples:
             | Device            |
+            | mobile            |
             | tablet portrait   |
             | tablet landscape  |
 
@@ -42,11 +42,11 @@ Feature: Gallery
         @high
         Examples:
             | Device            |
-            | mobile            |
             | mobile portrait   |
         @med
         Examples:
             | Device            |
+            | mobile            |
             | tablet portrait   |
 
 
@@ -59,14 +59,13 @@ Feature: Gallery
         Examples:
             | Device            |
             | desktop           |
-            | mobile            |
             | mobile portrait   |
         @med
         Examples:
             | Device            |
             | tablet landscape  |
             | tablet portrait   |
-
+            | mobile            |
 
     Scenario Outline: User can share through social media buttons
             Given I switch to "<Device>" view
@@ -77,15 +76,15 @@ Feature: Gallery
             Examples:
                 | Device            |
                 | desktop           |
-                | mobile            |
                 | mobile portrait   |
         @med
             Examples:
                 | Device            |
                 | tablet landscape  |
                 | tablet portrait   |
+                | mobile            |
 
-     Scenario Outline: User should be able to see gallery description text
+    Scenario Outline: User should be able to see gallery description text
          Given I switch to "<Device>" view
          And I am currently viewing "automation-test-gallery-3201"
          Then I should be able to see the gallery description text
@@ -94,10 +93,10 @@ Feature: Gallery
             Examples:
                 | Device            |
                 | desktop           |
-                | mobile            |
                 | mobile portrait   |
         @med
             Examples:
                 | Device            |
                 | tablet landscape  |
                 | tablet portrait   |
+                | mobile            |

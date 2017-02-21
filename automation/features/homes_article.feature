@@ -48,7 +48,7 @@ Feature: Article
         * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
 
-    @high
+    @med
     Scenario: Verify an article page which contains a hero image on desktop
         When I switch to "desktop" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
@@ -96,7 +96,7 @@ Feature: Article
     * I should not see the hero image caption
     * I should not see the LHR
 
-    @DDO-48 @high
+    @DDO-48
     Scenario Outline: Verify the RHR on an article page
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
     When I switch to "<Device>" view
@@ -125,11 +125,11 @@ Feature: Article
         Examples:
             | Device            |
             | desktop           |
-            | mobile            |
             | mobile portrait   |
     @med
         Examples:
             | Device            |
             | tablet landscape  |
             | tablet portrait   |
+            | mobile            |
 

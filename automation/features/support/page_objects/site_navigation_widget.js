@@ -1,7 +1,8 @@
 var site_navigation_widget = {
+    menuHeader: ".header.header--pinned",
     siteHamburger: "button.header-menu__button-menu",
     siteNavLogos: ".side-menu-list a",
-    siteNavSection: "nav.header-nav__nav",
+    siteNavSection: ".header__sections.container",
     siteNavSectionDetail: "nav.header-nav__nav > a",
     siteNavSectionDetailSubHeader: "nav.header-nav__nav .header-sub-nav",
     siteNavSectionDetailSub: "nav.header-nav__nav .sub-nav-list__dropdown a",

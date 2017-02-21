@@ -56,7 +56,7 @@ module.exports = function(){
     this.When(/^I should see each top teaser containing its title and is clickable to open its page$/, function () {
         var topTeaserTitleCount = browser.elements(home.topTeaserTitles).value.length;
         console.log("Teaser Titles count: "+topTeaserTitleCount);
-        var topTeaserTitles = browser.elements(home.topTeaserTitles).getText();
+        var topTeaserTitles = browser.getText(home.topTeaserTitles);
         console.log(topTeaserTitles);
         var topTeaserTitleUrl = browser.getAttribute(home.topTeaserImgs, 'data-srcset');
         for(var i=0; i<topTeaserTitleUrl.length; i++){
@@ -64,7 +64,7 @@ module.exports = function(){
            }
     });
     this.When(/^I should see each top teaser containing its tag and is clickable to open its page$/, function () {
-        var topTeaserTags = browser.elements(home.topTeaserTags).getText();
+        var topTeaserTags = browser.getText(home.topTeaserTags);
         console.log("Teaser Tags are: "+topTeaserTags);
         var topTeaserTagsUrl = browser.getAttribute(home.topTeaserTagLinks, 'href');
         for(var i=0; i<topTeaserTagsUrl.length; i++){
@@ -84,7 +84,7 @@ module.exports = function(){
     this.When(/^I should see each bottom teaser containing its title and is clickable to open its page$/, function () {
         var topTeaserTitleCount = browser.elements(home.bottomTeaserTitles).value.length;
         console.log("Teaser Titles count: "+topTeaserTitleCount);
-        var topTeaserTitles = browser.elements(home.bottomTeaserTitles).getText();
+        var topTeaserTitles = browser.getText(home.bottomTeaserTitles);
         console.log(topTeaserTitles);
         var topTeaserTitleUrl = browser.getAttribute(home.bottomTeaserImgs, 'data-srcset');
         for(var i=0; i<topTeaserTitleUrl.length; i++){
@@ -92,7 +92,7 @@ module.exports = function(){
         }
     });
     this.When(/^I should see each bottom teaser containing its tag and is clickable to open its page$/, function () {
-        var topTeaserTags = browser.elements(home.bottomTeaserTags).getText();
+        var topTeaserTags = browser.getText(home.bottomTeaserTags);
         console.log("Teaser Tags are: "+topTeaserTags);
         var topTeaserTagsUrl = browser.getAttribute(home.bottomTeaserTagLinks, 'href');
         for(var i=0; i<topTeaserTagsUrl.length; i++){
@@ -165,14 +165,4 @@ module.exports = function(){
         var sTagText = browser.getText(home.mobSecondaryHeroTag);
         expect(sTagText).toEqual(tagTxt)
     });
-
-    // --- below has been removed from the new style
-    //this.When(/^I should see the homepage hero source and it should be clickable$/, function () {
-    //    var heroSource = browser.getText(home.heroSource);
-    //    expect(heroSource).not.toBeUndefined();
-    //    console.log(heroSource);
-    //    var heroSourceLink = browser.getAttribute(home.heroSourceLink, 'href');
-    //    expect(heroSourceLink).not.toEqual('');
-    //    });
-
 };
