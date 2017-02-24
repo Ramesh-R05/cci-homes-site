@@ -29,7 +29,8 @@ class Teaser extends Component {
         title: PropTypes.string.isRequired,
         className: PropTypes.string,
         imageSizes: PropTypes.object,
-        lazyload: PropTypes.bool
+        lazyload: PropTypes.bool,
+        gtmClass: PropTypes.string
     };
 
     static defaultProps = {
@@ -129,7 +130,7 @@ class Teaser extends Component {
         if (isUndefined(this.props.id)) return null;
 
         const {url, modifier, sizes, className, lazyload} = this.props;
-        const gtmClass = `gtm-${this.props.id}`;
+        const gtmClass = this.props.gtmClass ? this.props.gtmClass : 'gtm-' + this.props.id;
         const classNames = classnames('teaser', `teaser--${modifier}`, className);
         const imgSizes = this.getImgSizes(sizes, modifier);
 
@@ -145,6 +146,7 @@ class Teaser extends Component {
                     responsiveConfig={Teaser.imageConfig}
                     quality={Teaser.imageQuality}
                     lazyload={lazyload}
+                    className={gtmClass}
                 >
                     <Icon {...this.props} />
                 </Image>

@@ -25,7 +25,7 @@ describe('Brand Featured', () => {
     describe('with all props', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock} brand={brand} brandConfig={brandConfig} />
+                <Featured hero={heroMock} articles={articlesMock} brand={brand} brandConfig={brandConfig} heroGtmClass={`gtm-hero-realliving`} />
             );
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             hero = teasers.shift();
@@ -45,6 +45,7 @@ describe('Brand Featured', () => {
         it(`should render the hero as the 1st hero teaser`, () => {
             const componentData = heroMock;
             componentData.modifier = 'hero';
+            componentData.gtmClass = 'gtm-hero-brand';
             componentData.sizes = 'home-hero';
             expect(hero.props).to.deep.equal(componentData);
         });
@@ -53,6 +54,7 @@ describe('Brand Featured', () => {
             const componentData = articlesMock[0];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.gtmClass = 'gtm-topteaserlist-brand';
             expect(teasers[0].props).to.deep.equal(componentData);
         });
 
@@ -60,6 +62,7 @@ describe('Brand Featured', () => {
             const componentData = articlesMock[1];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.gtmClass = 'gtm-topteaserlist-brand';
             expect(teasers[1].props).to.deep.equal(componentData);
         });
 
@@ -67,6 +70,7 @@ describe('Brand Featured', () => {
             const componentData = articlesMock[2];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.gtmClass = 'gtm-topteaserlist-brand';
             expect(teasers[2].props).to.deep.equal(componentData);
         });
 
@@ -74,6 +78,7 @@ describe('Brand Featured', () => {
             const componentData = articlesMock[3];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.gtmClass = 'gtm-topteaserlist-brand';
             expect(teasers[3].props).to.deep.equal(componentData);
         });
 
@@ -81,6 +86,7 @@ describe('Brand Featured', () => {
             const componentData = articlesMock[4];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.gtmClass = 'gtm-topteaserlist-brand';
             expect(teasers[4].props).to.deep.equal(componentData);
         });
 
@@ -88,6 +94,7 @@ describe('Brand Featured', () => {
             const componentData = articlesMock[5];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.gtmClass = 'gtm-topteaserlist-brand';
             expect(teasers[5].props).to.deep.equal(componentData);
         });
 

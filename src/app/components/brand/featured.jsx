@@ -4,6 +4,7 @@ import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+import getBrand from './utilities/getBrand'
 
 export default class Featured extends Component {
 
@@ -11,7 +12,9 @@ export default class Featured extends Component {
         hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
         brand: PropTypes.string.isRequired,
-        brandConfig: PropTypes.object.isRequired
+        brandConfig: PropTypes.object.isRequired,
+        nodeType: PropTypes.string.isRequired,
+        heroGtmClass: PropTypes.string
     };
 
     static defaultProps = {
@@ -19,8 +22,12 @@ export default class Featured extends Component {
         brandConfig: {}
     };
 
+    static contextTypes = {
+        config: PropTypes.object.isRequired
+    };
+
     render() {
-        const {hero, articles, brandConfig} = this.props;
+        const {hero, articles, brandConfig, brand, heroGtmClass} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -40,6 +47,7 @@ export default class Featured extends Component {
                             hero
                             ?   <Teaser
                                     {...hero}
+                                    gtmClass="gtm-hero-brand"
                                     key={`${hero.id}-xl`}
                                     modifier="hero"
                                     sizes="home-hero"
@@ -55,7 +63,7 @@ export default class Featured extends Component {
                                     targets={{position: 1}}
                                 />
                             </li>
-                            {slice(articles, 0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top"  /></li>)}
+                            {slice(articles, 0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>)}
                             <li className="ad--section-mrec-top-2">
                                 <Ad
                                     className="ad--section-mrec teaser"

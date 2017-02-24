@@ -46,7 +46,8 @@ class Section extends Component {
                             hero={hero}
                             articles={slice(articles, 0, 6)}
                             brand={content.title}
-                            brandConfig={brandConfig} />
+                            brandConfig={brandConfig}
+                        />
                     </div>
                 </div>
 
@@ -69,6 +70,7 @@ class Section extends Component {
                         nextParams={listNextParams}
                         className="news-feed bottom-news-feed"
                         adTargets={{ position: 2 }}
+                        content={content}
                     />
                 </div>
 

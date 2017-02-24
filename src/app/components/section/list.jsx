@@ -7,7 +7,8 @@ export default class List extends Component {
 
     static propTypes = {
         items: PropTypes.array,
-        index: PropTypes.number
+        index: PropTypes.number,
+        content: PropTypes.object.isRequired
     };
 
     static defaultProps = {
@@ -15,7 +16,7 @@ export default class List extends Component {
     };
 
     render() {
-        const {items, index} = this.props;
+        const {items, index, content} = this.props;
         let adPosition = (index + 1) * 2 + 1;
 
         if (items.length === 0) return null;
@@ -32,7 +33,26 @@ export default class List extends Component {
                         }}
                         targets={{position: adPosition}}
                     />
-                    {items.map(item => <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-left"  />)}
+                    {items.map(item => {
+
+                        const sections = ['navigationsection', 'campaign', 'tagsection'];
+                        const lc = content.nodeType.toLowerCase();
+
+                        let section = null;
+
+                        switch(lc){
+                            case 'brandsection':
+                                section = 'brand';
+                                break;
+                            case 'homepage':
+                                section = lc;
+                                break;
+                             default:
+                                section = sections.indexOf(lc) > -1 ? 'index' : null;
+                        }
+
+                        return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />
+                    })}
                     <Ad
                         className="ad--section-mrec teaser"
                         displayFor="medium"

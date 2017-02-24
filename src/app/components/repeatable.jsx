@@ -7,7 +7,8 @@ export default class Repeatable extends Component {
         component: PropTypes.instanceOf(Component).isRequired,
         action: PropTypes.func.isRequired,
         dataSource: PropTypes.object.isRequired,
-        nextParams: PropTypes.object.isRequired
+        nextParams: PropTypes.object.isRequired,
+        gtmClass: PropTypes.string
     };
 
     static contextTypes = {
@@ -69,7 +70,7 @@ export default class Repeatable extends Component {
         if (nextUrl) {
             loadMore = (
                 <div className="load-more">
-                    <button className="button" onClick={this.onLoadMore}>
+                    <button className="button gtm-loadmore-button" onClick={this.onLoadMore}>
                         {this.state.isLoading ? 'Loading...' : 'Load More'}
                     </button>
                 </div>

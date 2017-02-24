@@ -99,6 +99,18 @@ function trackGalleryChanged(action) {
     trackFollowOnClick('Next gallery');
 }
 
+function trackLoadList(payload) {
+    const {list} = payload.body;
+
+    const data = {
+        event: 'expandListing',
+        eventInfo: {
+            listingName: list.params.listName
+        }
+    };
+    dataLayerPush(data);
+}
+
 // ---------------------------------------------------------------------------- store
 
 module.exports = createStore({
@@ -112,7 +124,8 @@ module.exports = createStore({
         GALLERY_NEXT_ITEM: 'onGalleryNextItem',
         GALLERY_PREVIOUS_ITEM: 'onGalleryPreviousItem',
         GALLERY_COMPLETED: 'onGalleryCompleted',
-        GALLERY_NEXT_GALLERY: 'onNextGallery'
+        GALLERY_NEXT_GALLERY: 'onNextGallery',
+        LOAD_LIST: 'onLoadList'
     },
 
     onGalleryOpened: (payload) => {
@@ -133,5 +146,9 @@ module.exports = createStore({
 
     onNextGallery: (payload) => {
         trackGalleryChanged(payload);
+    },
+
+    onLoadList: (payload) => {
+        trackLoadList(payload);
     }
 });

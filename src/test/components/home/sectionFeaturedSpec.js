@@ -59,9 +59,11 @@ describe('SectionFeatured', () => {
         let stickies;
 
         before(() => {
+
             reactModule = Context.mountComponent(SectionFeatured, {
                 hero: heroMock,
-                articles: articlesMock
+                articles: articlesMock,
+                content: {nodeType: 'homePage'}
             });
 
             domElements = ReactDOM.findDOMNode(reactModule);

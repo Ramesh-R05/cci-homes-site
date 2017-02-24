@@ -76,6 +76,7 @@ export default class Section extends Component {
                             nextParams={listNextParams}
                             className="news-feed bottom-news-feed"
                             adTargets={{ position: 3 }}
+                            content={content}
                         />
 
                     </div>

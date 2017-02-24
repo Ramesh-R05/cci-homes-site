@@ -29,7 +29,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {hero, articles, list, listNextParams} = this.props;
+        const {hero, articles, list, listNextParams, content} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -47,6 +47,7 @@ export default class SectionFeatured extends Component {
                                             lazyload={false}
                                             modifier="hero-img-top"
                                             sizes="home-hero"
+                                            gtmClass="gtm-hero-homepage"
                                         />
                                     </div>
 
@@ -56,6 +57,7 @@ export default class SectionFeatured extends Component {
                                             lazyload={false}
                                             modifier="hero"
                                             sizes="home-hero"
+                                            gtmClass="gtm-hero-homepage"
                                         />
                                     </div>
 
@@ -73,6 +75,7 @@ export default class SectionFeatured extends Component {
                                         <Teaser {...item}
                                             key={item.id}
                                             modifier="img-top"
+                                            gtmClass="gtm-topteaserlist-homepage"
                                         />
                                     )}
 
@@ -86,6 +89,7 @@ export default class SectionFeatured extends Component {
                                     {articles.slice(2, 6).map(item =>
                                         <Teaser {...item} key={item.id}
                                             modifier="img-top"
+                                            gtmClass="gtm-topteaserlist-homepage"
                                         />
                                     )}
 
@@ -142,6 +146,7 @@ export default class SectionFeatured extends Component {
                                     nextParams={listNextParams}
                                     className="news-feed bottom-news-feed"
                                     adTargets={{ position: 2 }}
+                                    content={ content }
                                 />
 
                             </div>

@@ -13,6 +13,10 @@ const listStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
 
+const getBrandStub = () => {
+    return {id: 'realliving'};
+};
+
 const Section = proxyquire('../../../app/components/brand/section', {
     'react': React,
     './featured': FeaturedStub,
@@ -20,6 +24,7 @@ const Section = proxyquire('../../../app/components/brand/section', {
     '../section/list': listStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
+    './utilities/getBrand': getBrandStub
 });
 
 let brandHeroStore = heroMock;
