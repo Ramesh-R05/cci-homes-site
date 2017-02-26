@@ -16,6 +16,7 @@ const StickyAdStub = Context.createStubComponentWithChildren();
 const polarNativeHub = Context.createStubComponentWithChildren();
 const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
+const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
@@ -24,7 +25,8 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     '@bxm/behaviour/lib/components/sticky': StickyAdStub,
     '../polar/polarNativeHub': polarNativeHub,
     '../repeatable': repeatableStub,
-    '../section/list': listStub
+    '../section/list': listStub,
+    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
 });
 
 describe('SectionFeatured', () => {

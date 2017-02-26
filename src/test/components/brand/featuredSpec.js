@@ -9,11 +9,13 @@ const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
+const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const Featured = proxyquire('../../../app/components/brand/featured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
 });
 
 describe('Brand Featured', () => {

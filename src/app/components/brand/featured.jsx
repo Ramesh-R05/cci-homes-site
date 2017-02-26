@@ -1,16 +1,16 @@
 import React, {Component, PropTypes} from 'react';
-import first from 'lodash/array/first';
-import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import getBrand from './utilities/getBrand'
+import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
 
 export default class Featured extends Component {
 
     static propTypes = {
         hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
+        content: PropTypes.object.isRequired,
         brand: PropTypes.string.isRequired,
         brandConfig: PropTypes.object.isRequired,
         nodeType: PropTypes.string.isRequired,
@@ -27,7 +27,7 @@ export default class Featured extends Component {
     };
 
     render() {
-        const {hero, articles, brandConfig, brand, heroGtmClass} = this.props;
+        const {hero, articles, content, brandConfig, brand, heroGtmClass} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -54,6 +54,9 @@ export default class Featured extends Component {
                                 />
                             :   null
                         }
+                        <div className="hide-for-large-up">
+                            <SocialAndSubscribeLinks content={content} />
+                        </div>
                         <ul className="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
                             <li className="ad--section-mrec-top-1">
                                 <Ad
@@ -63,7 +66,7 @@ export default class Featured extends Component {
                                     targets={{position: 1}}
                                 />
                             </li>
-                            {slice(articles, 0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>)}
+                            {articles.slice(0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>)}
                             <li className="ad--section-mrec-top-2">
                                 <Ad
                                     className="ad--section-mrec teaser"
@@ -85,6 +88,7 @@ export default class Featured extends Component {
                             sizes={['double-mrec', 'mrec']}
                             targets={{position: 1}}
                         />
+                        <SocialAndSubscribeLinks content={content} />
                     </StickyBlock>
                 </div>
             </section>

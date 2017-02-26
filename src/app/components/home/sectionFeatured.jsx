@@ -7,6 +7,7 @@ import PolarNativeHub from '../polar/polarNativeHub';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
+import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
 
 export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
@@ -14,6 +15,7 @@ export default class SectionFeatured extends Component {
     static propTypes = {
         hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
+        content: PropTypes.object.isRequired,
         children: PropTypes.any,
         className: PropTypes.string
     };
@@ -29,7 +31,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {hero, articles, list, listNextParams, content} = this.props;
+        const {hero, articles, content, list, listNextParams} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -41,24 +43,30 @@ export default class SectionFeatured extends Component {
                             <div className="row">
                                 <section className="top-teasers columns large-8">
 
-                                    <div className="small-12 medium-12">
-                                        <Teaser {...hero}
-                                            key={hero.id}
-                                            lazyload={false}
-                                            modifier="hero-img-top"
-                                            sizes="home-hero"
-                                            gtmClass="gtm-hero-homepage"
-                                        />
+                                    <div className="row">
+                                        <div className="column small-12">
+                                            <Teaser {...hero}
+                                                key={hero.id}
+                                                lazyload={false}
+                                                modifier="hero-img-top"
+                                                sizes="home-hero"
+                                                gtmClass="gtm-hero-homepage"
+                                            />
+                                        </div>
+
+                                        <div className="column large-12">
+                                            <Teaser {...hero}
+                                                key={hero.id}
+                                                lazyload={false}
+                                                modifier="hero"
+                                                sizes="home-hero"
+                                                gtmClass="gtm-hero-homepage"
+                                            />
+                                        </div>
                                     </div>
 
-                                    <div className="large-12">
-                                        <Teaser {...hero}
-                                            key={hero.id}
-                                            lazyload={false}
-                                            modifier="hero"
-                                            sizes="home-hero"
-                                            gtmClass="gtm-hero-homepage"
-                                        />
+                                    <div className="row hide-for-large-up">
+                                        <SocialAndSubscribeLinks content={content} />
                                     </div>
 
                                     <Ad
@@ -114,6 +122,7 @@ export default class SectionFeatured extends Component {
                                         sizes={['double-mrec', 'mrec']}
                                         targets={{position: 1}}
                                     />
+                                    <SocialAndSubscribeLinks content={content} />
                                 </StickyBlock>
                             </div>
                         </section>

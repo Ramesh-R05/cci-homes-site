@@ -1,3 +1,29 @@
+.brand {
+    &--belle {
+        .button {
+            background: $color-belle;
+        }
+    }
+
+    &--real-living {
+        .button {
+            background: $color-real-living;
+        }
+    }
+
+    &--homes-plus {
+        .button {
+            background: $color-homes-plus;
+        }
+    }
+
+    &--australian-house-and-garden {
+        .button {
+            background: $color-house-and-garden;
+        }
+    }
+}
+
 .brand__wrapper {
     max-width: 1024px;
     margin: 0px auto;

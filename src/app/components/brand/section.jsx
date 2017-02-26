@@ -45,6 +45,7 @@ class Section extends Component {
                         <Featured
                             hero={hero}
                             articles={slice(articles, 0, 6)}
+                            content={content}
                             brand={content.title}
                             brandConfig={brandConfig}
                         />
