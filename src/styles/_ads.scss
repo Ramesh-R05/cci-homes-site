@@ -67,7 +67,6 @@
     // Article
 
     @mixin grey-mobile-banner() {
-        background-color: $color-grey-lighter;
         margin: {
             bottom: 21px;
             left: -($column-gutter/2);
@@ -95,7 +94,7 @@
         margin-bottom: $column-gutter;
 
         @media #{$medium-up} {
-            margin: 20px auto 20px;
+            margin: 0 auto 20px;
         }
 
         @media #{$small-only} {
@@ -105,19 +104,15 @@
 
     &--section-middle-leaderboard,
     &--section-bottom-leaderboard {
-        margin-bottom: $column-gutter;
-
         @media #{$small-only} {
             @include grey-mobile-banner();
+            margin-bottom: 0;
         }
     }
 
     &--section-middle-leaderboard {
         @media #{$small-only} {
             margin-top: 10px;
-        }
-        @media #{$xlarge-up} {
-            margin-bottom: $column-gutter * 2;
         }
     }
 
@@ -154,4 +149,9 @@
             display: block;
         }
     }
+}
+
+// Overriding ALL ad labels.
+.ad__label {
+    display: none!important;
 }

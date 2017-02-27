@@ -25,6 +25,7 @@ export default class Rail extends Component {
                         displayFor={['large', 'xlarge']}
                         sizes={['double-mrec', 'mrec']}
                         targets={{position: adPosition}}
+                        label={{active: false}}
                     />
                 </StickyBlock>
         )

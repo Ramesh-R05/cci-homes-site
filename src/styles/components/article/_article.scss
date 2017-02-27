@@ -472,10 +472,14 @@
         }
 
         &--in-view {
-            background: #F9F8F6;
             bottom: 0;
             position: static;
             padding-bottom: 20px;
         }
     }
-};
+}
+
+// Overriding the padding here for ALL ads.
+.feed-ad {
+    padding-bottom: 20px;
+}

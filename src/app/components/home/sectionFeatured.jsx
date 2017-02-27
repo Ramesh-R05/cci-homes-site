@@ -77,6 +77,7 @@ export default class SectionFeatured extends Component {
                                             medium: 'mrec'
                                         }}
                                         targets={{position: 1}}
+                                        label={{active: false}}
                                     />
 
                                     {articles.slice(0, 1).map(item =>
@@ -108,6 +109,7 @@ export default class SectionFeatured extends Component {
                                             medium: 'mrec'
                                         }}
                                         targets={{position: 2}}
+                                        label={{active: false}}
                                     />
 
                                 </section>
@@ -121,6 +123,7 @@ export default class SectionFeatured extends Component {
                                         displayFor={['large', 'xlarge']}
                                         sizes={['double-mrec', 'mrec']}
                                         targets={{position: 1}}
+                                        label={{active: false}}
                                     />
                                     <SocialAndSubscribeLinks content={content} />
                                 </StickyBlock>
@@ -140,6 +143,7 @@ export default class SectionFeatured extends Component {
                                     billboard: ['billboard', 'leaderboard']
                                 }}
                                 targets={{ position: 2 }}
+                                label={{active: false}}
                             />
                         </div>
                     </div>
@@ -170,6 +174,7 @@ export default class SectionFeatured extends Component {
                                     billboard: ['billboard', 'leaderboard']
                                 }}
                                 targets={{position: 3}}
+                                label={{active: false}}
                             />
                         </div>
                     </div>

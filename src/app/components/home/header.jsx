@@ -13,6 +13,7 @@ export default class HomeHeader extends Component {
                         billboard: ['billboard', 'leaderboard']
                     }}
                     targets={{position: 1}}
+                    label={{active: false}}
                 />
             </div>
         )

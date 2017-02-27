@@ -64,6 +64,7 @@ export default class Featured extends Component {
                                     displayFor={['small', 'medium']}
                                     sizes={['double-mrec', 'mrec']}
                                     targets={{position: 1}}
+                                    label={{active: false}}
                                 />
                             </li>
                             {articles.slice(0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>)}
@@ -73,6 +74,7 @@ export default class Featured extends Component {
                                     displayFor="medium"
                                     sizes="mrec"
                                     targets={{position: 2}}
+                                    label={{active: false}}
                                 />
                             </li>
                         </ul>
@@ -87,6 +89,7 @@ export default class Featured extends Component {
                             displayFor={['large', 'xlarge']}
                             sizes={['double-mrec', 'mrec']}
                             targets={{position: 1}}
+                            label={{active: false}}
                         />
                         <SocialAndSubscribeLinks content={content} />
                     </StickyBlock>

@@ -32,6 +32,7 @@ export default class List extends Component {
                             medium: 'mrec'
                         }}
                         targets={{position: adPosition}}
+                        label={{active: false}}
                     />
                     {items.map(item => {
 
@@ -60,6 +61,7 @@ export default class List extends Component {
                             medium: 'mrec'
                         }}
                         targets={{position: adPosition + 1}}
+                        label={{active: false}}
                     />
                 </section>
 

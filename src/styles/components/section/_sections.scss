@@ -110,7 +110,6 @@
 
             }
 
-            
             &__source {
                 display: block;
             }
@@ -118,25 +117,9 @@
     }
 
     &__middle {
-        background: #f7f7f7;
-
         @media #{$large-up} {
             padding: 13px 0 0;
-            margin: 40px 0;
         }
-
-        .ad {
-            margin-bottom: 0;
-        }
-
-    }
-
-    &__bottom {
-
-        .ad {
-            margin-bottom: 35px;
-        }
-
     }
 
     &__list {

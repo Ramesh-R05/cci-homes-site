@@ -27,6 +27,7 @@ export default class Featured extends Component {
                             displayFor='medium'
                             sizes={['double-mrec', 'mrec']}
                             targets={{position: 1}}
+                            label={{active: false}}
                         />
                         <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
                         <Ad
@@ -34,6 +35,7 @@ export default class Featured extends Component {
                             displayFor='small'
                             sizes={['double-mrec', 'mrec']}
                             targets={{position: 1}}
+                            label={{active: false}}
                         />
                         {slice(articles, 1, 6).map(item => <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />)}
                         <Ad
@@ -43,6 +45,7 @@ export default class Featured extends Component {
                                 medium: 'mrec'
                             }}
                             targets={{position: 2}}
+                            label={{active: false}}
                         />
             </section>
         );

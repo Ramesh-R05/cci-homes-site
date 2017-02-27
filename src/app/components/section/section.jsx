@@ -66,6 +66,7 @@ export default class Section extends Component {
                                 billboard: ['billboard', 'leaderboard']
                             }}
                             targets={{position: 2}}
+                            label={{active: false}}
                         />
                     </div>
                     <div className="section__row">
@@ -90,6 +91,7 @@ export default class Section extends Component {
                                     billboard: ['billboard', 'leaderboard']
                                 }}
                                 targets={{position: 3}}
+                                label={{active: false}}
                             />
                     </div>
                 </div>

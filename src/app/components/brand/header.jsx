@@ -23,6 +23,7 @@ export default class Header extends Component {
                         billboard: ['billboard', 'leaderboard']
                     }}
                     targets={{position: 1}}
+                    label={{active: false}}
                 />
                 <div className="brand__wrapper">
                     <h1 className="brand__logo">

@@ -7,28 +7,21 @@
         .ad {
             &--section-middle-leaderboard {
                 margin-top: $standard-spacer-height;
-                margin-bottom: $standard-spacer-height;
 
                 @media #{$medium-up} {
                     margin-top: 1.5 * $standard-spacer-height;
-                    margin-bottom: 1.5 * $standard-spacer-height;
                 }
 
                 @media #{$large-up} {
                     margin-top: 2 * $standard-spacer-height;
-                    margin-bottom: 2 * $standard-spacer-height;
                 }
             }
 
             &--section-bottom-leaderboard {
-                margin-top: $standard-spacer-height;
-                margin-bottom: $standard-spacer-height;
                 padding-bottom: $standard-spacer-height;
 
                 @media #{$medium-up} {
-                    margin-top: 1.5 * $standard-spacer-height;
-                    margin-bottom: 2 * $standard-spacer-height;
-                    padding-bottom: 0px;
+                    padding-bottom: 0;
                 }
             }
         }

@@ -48,6 +48,7 @@ export default class Header extends Component {
                             billboard: ['billboard', 'leaderboard']
                         }}
                         targets={{position: 1}}
+                        label={{active: false}}
                     />
                 </div>
 
