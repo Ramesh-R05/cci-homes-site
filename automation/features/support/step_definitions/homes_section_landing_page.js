@@ -17,7 +17,6 @@ module.exports = function(){
         var topTeaserImgsUrl = browser.getAttribute(sectionPage.sectionTopFeedTeaserImg, 'href');
         for(var i=0; i<topTeaserImgsUrl.length; i++) {
             expect(topTeaserImgsUrl[i]).not.toBeUndefined();
-            expect(topTeaserImgsUrl[i]).toContain(world.Urls.home_page);
             console.log("top teaser urls are: " + '\n' + topTeaserImgsUrl[i]);
         }
     });
@@ -28,7 +27,6 @@ module.exports = function(){
         var topTeaserTitlesUrls = browser.getAttribute(sectionPage.sectionTopFeedTeaserTitle+' a', 'href');
         for(var i=0; i<topTeaserTitlesUrls.length; i++) {
             expect(topTeaserTitlesUrls[i]).not.toBeUndefined();
-            expect(topTeaserTitlesUrls[i]).toContain(world.Urls.home_page);
             console.log("top teaser urls are: " + '\n' + topTeaserTitlesUrls[i]);
         }
     });
@@ -62,7 +60,6 @@ module.exports = function(){
         var topTeaserImgsUrl = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserImg, 'href');
         for(var i=0; i<topTeaserImgsUrl.length; i++) {
             expect(topTeaserImgsUrl[i]).not.toBeUndefined();
-            expect(topTeaserImgsUrl[i]).toContain(world.Urls.home_page);
             console.log("bottom teaser urls are: " + '\n' + topTeaserImgsUrl[i]);
         }
     });
@@ -73,7 +70,6 @@ module.exports = function(){
         var topTeaserTitlesUrls = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserTitle+' a', 'href');
         for(var i=0; i<topTeaserTitlesUrls.length; i++) {
             expect(topTeaserTitlesUrls[i]).not.toBeUndefined();
-            expect(topTeaserTitlesUrls[i]).toContain(world.Urls.home_page);
             console.log("top teaser urls are: " + '\n' + topTeaserTitlesUrls[i]);
         }
     });
