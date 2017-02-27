@@ -1,21 +1,22 @@
 import React, {Component, PropTypes} from 'react';
-import slice from 'lodash/array/slice';
 import Teaser from '../teaser/teaser';
+import PolarTeaser from '../polar/polarTeaser'
 import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class Featured extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
-        nodeType: PropTypes.string.isRequired
+        polarTargets: PropTypes.array
     };
 
     static defaultProps = {
-        articles: []
+        articles: [],
+        polarTargets: []
     };
 
     render() {
-        const {articles, nodeType} = this.props;
+        const {articles, polarTargets} = this.props;
 
         if (articles.length === 0) return null;
         const item = articles[0];
@@ -29,7 +30,7 @@ export default class Featured extends Component {
                             targets={{position: 1}}
                             label={{active: false}}
                         />
-                        <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
+                        <PolarTeaser {...item} key={item.id} ad={polarTargets[0]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
                         <Ad
                             className="ad--section-mrec"
                             displayFor='small'
@@ -37,7 +38,13 @@ export default class Featured extends Component {
                             targets={{position: 1}}
                             label={{active: false}}
                         />
-                        {slice(articles, 1, 6).map(item => <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />)}
+                        {articles.slice(1, 6).map( (item, i ) => {
+
+                            if (i === 4) {
+                                return <PolarTeaser {...item} key={item.id} ad={polarTargets[1]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
+                            }
+                                return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index"  />
+                        })}
                         <Ad
                             className="ad--section-mrec teaser"
                             displayFor="medium"

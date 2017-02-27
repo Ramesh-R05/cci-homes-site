@@ -9,6 +9,30 @@ const {React, ReactDOM, TestUtils} = Context;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        polar : {
+            details: {
+                sectionTopFeed: [
+                    {
+                        index: 0,
+                        label: 'section_top_feed_1',
+                        targets: {kw:'section_top_feed_1'}
+                    }
+                ],
+                sectionBottomFeed: [
+                    {
+                        index: 1,
+                        label: 'section_bottom_feed_1',
+                        targets: {kw:'section_bottom_feed_1'}
+                    }
+                ]
+            }
+        }
+    }
+};
 
 const Home = proxyquire('../../../app/components/home/home', {
     'react': React,
@@ -40,7 +64,7 @@ describe('Home', () => {
     afterEach(Context.cleanup);
 
     before(() => {
-        reactModule = Context.mountComponent(Home);
+        reactModule = Context.mountComponent(Home, {}, [contextConfigStub]);
         sectionFeatured = TestUtils.findRenderedComponentWithType(reactModule, SectionFeatured);
     });
 
@@ -56,7 +80,7 @@ describe('Home', () => {
         let domNode;
 
         before(() => {
-            reactModule = Context.mountComponent(Home);
+            reactModule = Context.mountComponent(Home, {}, [contextConfigStub]);
             domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
         });
 
@@ -69,7 +93,7 @@ describe('Home', () => {
         });
 
         it(`should open when isSideMenuOpen is true`, () => {
-            reactModule = Context.mountComponent(Home, {isSideMenuOpen: true});
+            reactModule = Context.mountComponent(Home, {isSideMenuOpen: true}, [contextConfigStub]);
             domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
             // reactModule.setProps({ isSideMenuOpen: true });
             expect(domNode).to.contain('side-menu-slider--side-menu-open');

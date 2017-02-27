@@ -32,6 +32,7 @@ export default class Section extends Component {
 
     render() {
         const {articles, list, content, listNextParams, isSideMenuOpen} = this.props;
+        const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
         if (!articles.length) return null;
         if (!list && !list.items && !list.items.length) return null;
@@ -49,7 +50,7 @@ export default class Section extends Component {
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="section__row">
-                       <Featured articles={articles} />
+                       <Featured articles={articles} polarTargets={sectionTopFeed} />
                         <Rail
                             adPosition={1}
                             marginBottom={60}
@@ -78,6 +79,7 @@ export default class Section extends Component {
                             className="news-feed bottom-news-feed"
                             adTargets={{ position: 3 }}
                             content={content}
+                            polarTargets={sectionBottomFeed}
                         />
 
                     </div>

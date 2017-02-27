@@ -27,5 +27,59 @@ Feature: Brand Listing page
             | tablet portrait   |
             | mobile            |
 
+    Scenario Outline: Users can the top teasers and polar ads on brand page
+        Given I switch to "<device>" view
+        And I am currently viewing "australian-house-and-garden"
+        And the below position top teasers are replaced with polar ads
+            |pos|
+            | 1 |
+            | 6 |
+    @high
+        Examples:
+            | device |
+            | mobile portrait |
+            | desktop         |
+    @low
+        Examples:
+            | device |
+            | tablet portrait  |
+            | tablet landscape |
 
+    Scenario Outline: User can see the bottom teasers and polar ads
+        Given I switch to "<device>" view
+        And I am currently viewing "australian-house-and-garden"
+        And the below position bottom teasers are replaced with polar ads
+            |pos|
+            | 2 |
+            | 6 |
+    @high
+        Examples:
+            | device |
+            | mobile portrait |
+            | desktop         |
+    @low
+        Examples:
+            | device |
+            | tablet portrait  |
+            | tablet landscape |
+
+
+    Scenario Outline: User can Load More the content and see thee polar ads
+        Given I switch to "<device>" view
+        And I am currently viewing the homepage
+        When I am currently viewing "australian-house-and-garden"
+        Then the below position teasers are replaced with polar ads
+            |pos|
+            | 2 |
+            | 6 |
+    @high
+        Examples:
+            | device |
+            | mobile portrait |
+            | desktop         |
+    @low
+        Examples:
+            | device |
+            | tablet portrait  |
+            | tablet landscape |
 

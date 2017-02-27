@@ -13,8 +13,29 @@ const listStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
 
-const getBrandStub = () => {
-    return {id: 'realliving'};
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        polar : {
+            details: {
+                sectionTopFeed: [
+                    {
+                        index: 0,
+                        label: 'section_top_feed_1',
+                        targets: {kw:'section_top_feed_1'}
+                    }
+                ],
+                sectionBottomFeed: [
+                    {
+                        index: 1,
+                        label: 'section_bottom_feed_1',
+                        targets: {kw:'section_bottom_feed_1'}
+                    }
+                ]
+            }
+        }
+    }
 };
 
 const Section = proxyquire('../../../app/components/brand/section', {
@@ -24,7 +45,6 @@ const Section = proxyquire('../../../app/components/brand/section', {
     '../section/list': listStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
-    './utilities/getBrand': getBrandStub
 });
 
 let brandHeroStore = heroMock;
@@ -79,7 +99,7 @@ describe(`Brand Section`, () => {
 
         before(() => {
             brandArticlesStore = articlesMock.slice(0, 12);
-            reactModule = Context.mountComponent(Section, defaultPropsStub);
+            reactModule = Context.mountComponent(Section, defaultPropsStub, [contextConfigStub]);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             featured = TestUtils.findRenderedComponentWithType(reactModule, FeaturedStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -141,12 +161,11 @@ describe(`Brand Section`, () => {
         let domNode;
 
         before(() => {
-            reactModule = Context.mountComponent(exposeProps(Section), {});
+            reactModule = Context.mountComponent(exposeProps(Section), {}, [contextConfigStub]);
             domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
         });
 
         it(`should have class name "side-menu-slider"`, () => {
-
             expect(domNode).to.contain('side-menu-slider');
         });
 

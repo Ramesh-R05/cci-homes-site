@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
+import PolarTeaser from '../polar/polarTeaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
-import getBrand from './utilities/getBrand'
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
 
 export default class Featured extends Component {
@@ -13,13 +13,17 @@ export default class Featured extends Component {
         content: PropTypes.object.isRequired,
         brand: PropTypes.string.isRequired,
         brandConfig: PropTypes.object.isRequired,
-        nodeType: PropTypes.string.isRequired,
-        heroGtmClass: PropTypes.string
+        polarTargets: PropTypes.array
     };
 
     static defaultProps = {
         articles: [],
-        brandConfig: {}
+        brandConfig: {},
+        polarTargets: []
+    };
+
+    static contextTypes = {
+        config: PropTypes.object.isRequired
     };
 
     static contextTypes = {
@@ -27,7 +31,7 @@ export default class Featured extends Component {
     };
 
     render() {
-        const {hero, articles, content, brandConfig, brand, heroGtmClass} = this.props;
+        const {hero, articles, content, brandConfig, brand, polarTargets} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -67,7 +71,18 @@ export default class Featured extends Component {
                                     label={{active: false}}
                                 />
                             </li>
-                            {articles.slice(0, 6).map(item => <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>)}
+
+                            {articles.slice(0, 6).map( (item, i) => {
+                                const polarDetails = polarTargets.find(slot => slot.index === i);
+
+                                if (polarDetails) {
+                                    return <li><PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>
+                                } else {
+                                    return <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>
+                                }
+
+                            })}
+
                             <li className="ad--section-mrec-top-2">
                                 <Ad
                                     className="ad--section-mrec teaser"

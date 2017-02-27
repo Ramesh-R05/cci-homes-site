@@ -114,6 +114,54 @@ export default {
         adSize: '2x2',
         server: 'dfp',
         details: {
+            homeTopFeed: [
+                {
+                    index: 0,
+                    label: 'home_top_feed_1',
+                    targets: {kw:'home_top_feed_1'}
+                },
+                {
+                    index: 5,
+                    label: 'home_top_feed_2',
+                    targets: {kw:'home_top_feed_2'}
+                }
+            ],
+            homeBottomFeed: [
+                {
+                    index: 1,
+                    label: 'home_bottom_feed_1',
+                    targets: {kw:'home_bottom_feed_1'}
+                },
+                {
+                    index: 5,
+                    label: 'home_bottom_feed_2',
+                    targets: {kw:'home_bottom_feed_2'}
+                }
+            ],
+            sectionTopFeed: [
+                {
+                    index: 0,
+                    label: 'section_top_feed_1',
+                    targets: {kw:'section_top_feed_1'}
+                },
+                {
+                    index: 5,
+                    label: 'section_top_feed_2',
+                    targets: {kw:'section_top_feed_2'}
+                }
+            ],
+            sectionBottomFeed: [
+                {
+                    index: 1,
+                    label: 'section_bottom_feed_1',
+                    targets: {kw:'section_bottom_feed_1'}
+                },
+                {
+                    index: 5,
+                    label: 'section_bottom_feed_2',
+                    targets: {kw:'section_bottom_feed_2'}
+                }
+            ],
             articleRightFeed: [
                 {
                     index: 1,

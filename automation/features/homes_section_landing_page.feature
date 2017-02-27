@@ -31,3 +31,58 @@ Feature: SectionLanding page
             | tablet portrait  |
             | tablet landscape |
 
+    Scenario Outline: Top teasers are showing polar ads
+        Given I switch to "<device>" view
+        And I am currently viewing "real-homes"
+        And the below position top teasers are replaced with polar ads in section page
+            |pos|
+            | 1 |
+            | 6 |
+    @high
+        Examples:
+            | device |
+            | mobile portrait |
+            | desktop         |
+    @low
+        Examples:
+            | device |
+            | tablet portrait  |
+            | tablet landscape |
+
+    Scenario Outline: Bottom teasers are showing polar ads
+        Given I switch to "<device>" view
+        And I am currently viewing "real-homes"
+        And the below position bottom teasers are replaced with polar ads in section page
+            |pos|
+            | 2 |
+            | 6 |
+    @high
+        Examples:
+            | device |
+            | mobile portrait |
+            | desktop         |
+    @low
+        Examples:
+            | device |
+            | tablet portrait  |
+            | tablet landscape |
+
+
+    Scenario Outline: Load More teasers are showing polar ads
+        Given I switch to "<device>" view
+        And I am currently viewing "real-homes"
+        When I click on the Load More button
+        Then the below position added more teasers are replaced with polar ads in section page
+            |pos|
+            | 2 |
+            | 6 |
+    @high
+        Examples:
+            | device |
+            | mobile portrait |
+            | desktop         |
+    @low
+        Examples:
+            | device |
+            | tablet portrait  |
+            | tablet landscape |

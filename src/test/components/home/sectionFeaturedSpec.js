@@ -11,9 +11,8 @@ const {React, ReactDOM, TestUtils} = Context;
 const InlineGalleryStub = Context.createStubComponent();
 const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
-const PolarTeaserStub = Context.createStubComponentWithChildren();
+const PolarTeaserStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponentWithChildren();
-const polarNativeHub = Context.createStubComponentWithChildren();
 const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
 const SocialAndSubscribeLinksStub = Context.createStubComponent();
@@ -23,11 +22,19 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     '@bxm/ad/lib/google/components/ad': AdStub,
     '../polar/polarTeaser': PolarTeaserStub,
     '@bxm/behaviour/lib/components/sticky': StickyAdStub,
-    '../polar/polarNativeHub': polarNativeHub,
     '../repeatable': repeatableStub,
     '../section/list': listStub,
     '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
 });
+
+const polarTargetsStub = [
+    [{index: 0},{index:5}],
+    [{
+        index: 5,
+        label: 'section_bottom_feed_1',
+        targets: {kw:'section_bottom_feed_1'}
+    }]
+];
 
 describe('SectionFeatured', () => {
 
@@ -41,7 +48,8 @@ describe('SectionFeatured', () => {
         before(() => {
             reactModule = Context.mountComponent(SectionFeatured, {
                 articles: articlesMock,
-                galleries: gogMock
+                galleries: gogMock,
+                polarTargets: polarTargetsStub
             });
             inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
         });
@@ -65,6 +73,7 @@ describe('SectionFeatured', () => {
             reactModule = Context.mountComponent(SectionFeatured, {
                 hero: heroMock,
                 articles: articlesMock,
+                polarTargets: polarTargetsStub,
                 content: {nodeType: 'homePage'}
             });
 
@@ -76,15 +85,7 @@ describe('SectionFeatured', () => {
             stickies = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         });
 
-        it('should NOT render In Focus items', () => {
-            expect(domElements.querySelector('.section-in-focus')).to.not.exist;
-        });
-
-        it('should NOT render Recommendations items', () => {
-            expect(domElements.querySelector('.recommendations')).to.not.exist;
-        });
-
-        const expectedNumTeasers = 7;
+        const expectedNumTeasers = 6;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
@@ -93,7 +94,7 @@ describe('SectionFeatured', () => {
             expect(teasers[0].props.lazyload).to.eq(false);
         });
 
-        const expectedNumPolarTeasers = 1;
+        const expectedNumPolarTeasers = 2;
         it(`should render ${expectedNumPolarTeasers} Polar native teasers`, () => {
             expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
         });
@@ -187,15 +188,6 @@ describe('SectionFeatured', () => {
             });
         });
 
-        describe(`First Polar native ad teaser`, () => {
-            it(`should have the 2th article data`, () => {
-                expect(polarTeasers[0].props.id).to.equal(articlesMock[1].id);
-            });
-
-            it(`should have the ad prop with the correct label`, () => {
-                expect(polarTeasers[0].props.ad).to.deep.equal({label: 'home_teaser_1'});
-            });
-        });
     });
 
     describe(`without articles`, () => {

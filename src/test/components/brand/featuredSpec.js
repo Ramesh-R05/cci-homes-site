@@ -9,27 +9,41 @@ const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
+const PolarTeaserStub = Context.createStubComponent();
 const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const Featured = proxyquire('../../../app/components/brand/featured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
+    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
+    '../polar/polarTeaser': PolarTeaserStub
 });
 
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        get() {
+            return localData;
+        }
+    }
+};
+
 describe('Brand Featured', () => {
-    let reactModule, hero, teasers, ads;
+    let reactModule, hero, teasers, polarTeasers, ads;
     const sectionClass = `brand-section`;
     const brand = 'Real Living';
     const brandConfig = {social: {}};
+    const polarTargetsStub = [{index: 0},{index: 5}];
 
     describe('with all props', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock} brand={brand} brandConfig={brandConfig} heroGtmClass={`gtm-hero-realliving`} />
+                <Featured hero={heroMock} articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
+            polarTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
             hero = teasers.shift();
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         });
@@ -39,9 +53,14 @@ describe('Brand Featured', () => {
             expect(ReactDOM.findDOMNode(reactModule).className).to.contain(sectionClass);
         });
 
-        const expectedNumTeasers = 6;
+        const expectedNumTeasers = 4;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
+        });
+
+        const expectedPolarTeasers = 2;
+        it(`should render ${expectedPolarTeasers} polar teasers`, () => {
+            expect(polarTeasers.length).to.equal(expectedPolarTeasers);
         });
 
         it(`should render the hero as the 1st hero teaser`, () => {
@@ -52,12 +71,14 @@ describe('Brand Featured', () => {
             expect(hero.props).to.deep.equal(componentData);
         });
 
-        it(`should render the 1st article as the 1st teaser`, () => {
+        it(`should render the 1st article as the 1st polar Teaser`, () => {
             const componentData = articlesMock[0];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
+            componentData.ad = polarTargetsStub[0];
             componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[0].props).to.deep.equal(componentData);
+            componentData.ad = polarTargetsStub[0];
+            expect(polarTeasers[0].props).to.deep.equal(componentData);
         });
 
         it(`should render the 2nd article as the 2nd teaser`, () => {
@@ -65,7 +86,7 @@ describe('Brand Featured', () => {
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
             componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[1].props).to.deep.equal(componentData);
+            expect(teasers[0].props).to.deep.equal(componentData);
         });
 
         it(`should render the 3rd article as the 3rd teaser`, () => {
@@ -73,7 +94,7 @@ describe('Brand Featured', () => {
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
             componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[2].props).to.deep.equal(componentData);
+            expect(teasers[1].props).to.deep.equal(componentData);
         });
 
         it(`should render the 4th article as the 4th teaser`, () => {
@@ -81,7 +102,7 @@ describe('Brand Featured', () => {
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
             componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[3].props).to.deep.equal(componentData);
+            expect(teasers[2].props).to.deep.equal(componentData);
         });
 
         it(`should render the 5th article as the 5th teaser`, () => {
@@ -89,15 +110,16 @@ describe('Brand Featured', () => {
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
             componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[4].props).to.deep.equal(componentData);
+            expect(teasers[3].props).to.deep.equal(componentData);
         });
 
-        it(`should render the 6th article as the 6th teaser`, () => {
+        it(`should render the 6th article as the 2nd polar Teaser`, () => {
             const componentData = articlesMock[5];
             componentData.modifier = 'img-top';
             componentData.sizes = 'brand-list';
             componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[5].props).to.deep.equal(componentData);
+            componentData.ad = polarTargetsStub[1];
+            expect(polarTeasers[1].props).to.deep.equal(componentData);
         });
 
         const expectedNumAds = 3;
@@ -108,7 +130,7 @@ describe('Brand Featured', () => {
 
     describe('without the hero prop as an undefined', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured hero={undefined} articles={articlesMock} brand={brand} brandConfig={brandConfig} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={undefined} articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />);
         });
 
         it('should still be rendered', () => {
@@ -118,7 +140,7 @@ describe('Brand Featured', () => {
 
     describe('without the hero prop as an empty object', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured hero={{}} articles={articlesMock} brand={brand} brandConfig={brandConfig} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={{}} articles={articlesMock} brand={brand} brandConfig={brandConfig}  polarTargets={polarTargetsStub}/>);
         });
 
         it('should still be rendered', () => {
@@ -128,7 +150,7 @@ describe('Brand Featured', () => {
 
     describe('without the hero prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured articles={articlesMock} brand={brand} brandConfig={brandConfig} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />);
         });
 
         it('should still be rendered', () => {
@@ -138,7 +160,7 @@ describe('Brand Featured', () => {
 
     describe('without the articles prop as an empty array', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={[]} brand={brand} brandConfig={brandConfig} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={[]} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />);
         });
 
         it('should not be rendered', () => {
@@ -148,7 +170,7 @@ describe('Brand Featured', () => {
 
     describe('without the articles prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured brand={brand} brandConfig={brandConfig} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />);
         });
 
         it('should not be rendered', () => {
@@ -158,7 +180,7 @@ describe('Brand Featured', () => {
 
     describe('without brand prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brandConfig={brandConfig} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brandConfig={brandConfig} polarTargets={polarTargetsStub}  />);
         });
 
         it(`should render the component`, () => {
@@ -168,11 +190,29 @@ describe('Brand Featured', () => {
 
     describe('without brandConfig prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brand={brand} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brand={brand} polarTargets={polarTargetsStub} />);
         });
 
         it(`should render the component`, () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.exist;
+        });
+    });
+
+    describe('without polarTargets prop', () => {
+        before(() => {
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brand={brand} />);
+            teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
+            polarTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
+        });
+
+        const expectedNumTeasers = 7;
+        it(`should render ${expectedNumTeasers} teasers`, () => {
+            expect(teasers.length).to.equal(expectedNumTeasers);
+        });
+
+        const expectedPolarTeasers = 0;
+        it(`should render ${expectedPolarTeasers} polar teasers`, () => {
+            expect(polarTeasers.length).to.equal(expectedPolarTeasers);
         });
     });
 

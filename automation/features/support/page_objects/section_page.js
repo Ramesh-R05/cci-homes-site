@@ -7,12 +7,18 @@ var section_page = {
     sectionTopFeedTeaserImg: '.section__featured article.teaser a.teaser__image',
     sectionTopFeedTeaserTitle: '.section__featured article.teaser .teaser__title',
     sectionTopFeedTeaserSource: '.section__featured article.teaser .teaser__source',
+    sectionTopTeasers: '.section__featured .teaser--img-top',
 
     //Repeatable Bottom Component
     sectionRepeatableSectionTeaser: '.repeatable-component article.teaser',
     sectionRepeatableSectionTeaserImg: '.repeatable-component article.teaser a.teaser__image',
     sectionRepeatableSectionTeaserTitle: '.repeatable-component article.teaser .teaser__title',
-    sectionRepeatableSectionTeaserSource: '.repeatable-component article.teaser .teaser__source'
+    sectionRepeatableSectionTeaserSource: '.repeatable-component article.teaser .teaser__source',
+    sectionBottomTeasers: '.repeatable-component .section__row:nth-child(1) .teaser--img-left',
+
+    //LoadMore Feed
+
+    sectionLoadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left'
 
 };
 module.exports = section_page;

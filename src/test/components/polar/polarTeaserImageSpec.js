@@ -42,7 +42,8 @@ describe('polarTeaserImage', () => {
                 summary: 'summary',
                 title: 'title'
             },
-            trackClick: trackClickSpy
+            trackClick: trackClickSpy,
+            source: 'Real Living'
         };
         const model = props.nativeAd;
 
@@ -91,11 +92,6 @@ describe('polarTeaserImage', () => {
 
         it('should pass down the summary prop to the Summary component', () => {
             expect(summary.props.summary).to.equal(model.summary);
-        });
-
-        it('should width and height be resized', () => {
-            expect(image.getAttribute('src')).to.contain('&w=360');
-            expect(image.getAttribute('src')).to.contain('&h=300');
         });
 
         it('should call the trackClick method when clicking on the teaser', () => {

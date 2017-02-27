@@ -57,6 +57,36 @@
 
                     .teaser {
 
+                        &--polar {
+
+                            img {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                max-width: none;
+                            }
+
+                            a {
+                                height: 0;
+                                padding-bottom: 83%;
+                                overflow: hidden;
+                            }
+
+                            &.polar--horizontal {
+
+                                img {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    height: 100%;
+                                    width: initial;
+                                    max-height: none;
+                                }
+                            }
+
+                        }
+
                         &--hero {
                             display: none;
                         }

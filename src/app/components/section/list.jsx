@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Teaser from '../teaser/teaser';
+import PolarTeaser from '../polar/polarTeaser';
 import Rail from './rail';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
@@ -8,15 +9,17 @@ export default class List extends Component {
     static propTypes = {
         items: PropTypes.array,
         index: PropTypes.number,
-        content: PropTypes.object.isRequired
+        content: PropTypes.object.isRequired,
+        polarTargets: PropTypes.array
     };
 
     static defaultProps = {
-        items: []
+        items: [],
+        polarTargets: []
     };
 
     render() {
-        const {items, index, content} = this.props;
+        const {items, index, content, polarTargets} = this.props;
         let adPosition = (index + 1) * 2 + 1;
 
         if (items.length === 0) return null;
@@ -34,7 +37,9 @@ export default class List extends Component {
                         targets={{position: adPosition}}
                         label={{active: false}}
                     />
-                    {items.map(item => {
+                    {items.map( (item, i) => {
+
+                        const polarDetails = polarTargets.find(slot => slot.index === i);
 
                         const sections = ['navigationsection', 'campaign', 'tagsection'];
                         const lc = content.nodeType.toLowerCase();
@@ -48,12 +53,19 @@ export default class List extends Component {
                             case 'homepage':
                                 section = lc;
                                 break;
-                             default:
+                            default:
                                 section = sections.indexOf(lc) > -1 ? 'index' : null;
                         }
 
-                        return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />
+
+                        if (polarDetails) {
+                            return <PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />;
+                        } else {
+                            return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />;
+                        }
+
                     })}
+
                     <Ad
                         className="ad--section-mrec teaser"
                         displayFor="medium"

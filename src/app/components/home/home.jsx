@@ -16,18 +16,23 @@ class Home extends Component {
         isSideMenuOpen: false
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     constructor(...args) {
         super(...args);
     }
 
     render() {
+        const { homeTopFeed, homeBottomFeed } = this.context.config.polar.details;
         const menuSliderClassName = cx('homepage side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
 
         return (
             <div className={menuSliderClassName}>
-                <SectionFeatured {...this.props} className="home__body" />
+                <SectionFeatured {...this.props} className="home__body" polarTargets={[homeTopFeed, homeBottomFeed]} />
             </div>
         );
     }

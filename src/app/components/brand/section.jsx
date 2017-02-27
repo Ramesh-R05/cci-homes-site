@@ -26,12 +26,18 @@ class Section extends Component {
         isSideMenuOpen: false
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     constructor(...args) {
         super(...args);
     }
 
     render() {
         const {brandConfig, hero, articles, content, list, listNextParams} = this.props;
+        const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
+
         const {urlName} = content;
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
@@ -48,7 +54,7 @@ class Section extends Component {
                             content={content}
                             brand={content.title}
                             brandConfig={brandConfig}
-                        />
+                            polarTargets={sectionTopFeed} />
                     </div>
                 </div>
 
@@ -74,6 +80,7 @@ class Section extends Component {
                         className="news-feed bottom-news-feed"
                         adTargets={{ position: 2 }}
                         content={content}
+                        polarTargets={sectionBottomFeed}
                     />
                 </div>
 

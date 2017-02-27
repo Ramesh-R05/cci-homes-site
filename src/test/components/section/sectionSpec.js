@@ -25,7 +25,33 @@ const Section = proxyquire('../../../app/components/section/section', {
 
 const featuredArticles = articlesMock.slice(1, 4);
 const navigationTags = ['Test'];
-const contextConfigStub = {key: 'config', type: '', value: {isFeatureEnabled: () => false}};
+
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        isFeatureEnabled: () => false,
+        polar: {
+            details: {
+                sectionTopFeed: [
+                    {
+                        index: 0,
+                        label: 'section_top_feed_1',
+                        targets: {kw:'section_top_feed_1'}
+                    }
+                ],
+                sectionBottomFeed: [
+                    {
+                        index: 1,
+                        label: 'section_bottom_feed_1',
+                        targets: {kw:'section_bottom_feed_1'}
+                    }
+                ]
+            }
+        }
+    }
+};
+
 const defaultProps = {
     articles: articlesMock,
     content: {
@@ -50,7 +76,31 @@ describe(`Section`, () => {
 
     describe(``, () => {
         const sectionClassName = 'section__landing';
-        const contextConfigStubEnabled = {key: 'config', type: '', value: {isFeatureEnabled: () => true}};
+        const contextConfigStubEnabled = {
+            key: 'config',
+            type: '',
+            value: {
+                isFeatureEnabled: () => true,
+                polar: {
+                    details: {
+                        sectionTopFeed: [
+                            {
+                                index: 0,
+                                label: 'section_top_feed_1',
+                                targets: {kw:'section_top_feed_1'}
+                            }
+                        ],
+                        sectionBottomFeed: [
+                            {
+                                index: 1,
+                                label: 'section_bottom_feed_1',
+                                targets: {kw:'section_bottom_feed_1'}
+                            }
+                        ]
+                    }
+                }
+            },
+        };
         let section;
         let ads;
 

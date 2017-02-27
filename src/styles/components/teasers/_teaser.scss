@@ -346,13 +346,6 @@
     &__source {
         @include type-tags;
         line-height: 2;
-
-        .icon-source {
-            fill: $color-primary;
-            margin-right: 10px;
-            position: relative;
-            top: 2px;
-        }
     }
 
 
@@ -396,4 +389,5 @@
             color: $color-grey-dark;
         }
     }
+
 }

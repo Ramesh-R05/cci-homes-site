@@ -1,5 +1,6 @@
 var home = require('../page_objects/homepage_widget');
 var world = require('../world');
+var wait = require('../utils/wait');
 
 module.exports = function(){
 
@@ -165,4 +166,47 @@ module.exports = function(){
         var sTagText = browser.getText(home.mobSecondaryHeroTag);
         expect(sTagText).toEqual(tagTxt)
     });
+
+    this.Given(/^the below position top teasers are replaced with polar ads$/, function (table) {
+        browser.waitForExist('.teaser--polar', 3000);
+        var listOfItems = browser.getAttribute(home.topTeasers, 'class');
+        var rows = table.hashes();
+        for (var i = 0; i < rows.length; ++i) {
+            var row = rows[i];
+            // Validates position of standard page base on Index including their url
+            console.log(row['pos']);
+            console.log(listOfItems[row['pos']-1]);
+            expect(listOfItems[row['pos']-1]).toContain('polar');}
+    });
+
+    this.Given(/^the below position bottom teasers are replaced with polar ads$/, function (table) {
+        browser.waitForExist('.teaser--polar', 3000);
+        var listOfItems = browser.getAttribute(home.bottomTeasers, 'class');
+        console.log(listOfItems.length);
+        var rows = table.hashes();
+        for (var i = 0; i < rows.length; ++i) {
+            var row = rows[i];
+            // Validates position of standard page base on Index including their url
+            console.log(row['pos']);
+            console.log(listOfItems[row['pos']-1]);
+
+            expect(listOfItems[row['pos']-1]).toContain('polar');}
+    });
+
+    this.Given(/^the below position added more teasers are replaced with polar ads$/, function (table) {
+        browser.waitForExist('.teaser--polar', 3000);
+        var listOfItems = browser.getAttribute(home.loadMoreFeed, 'class');
+        console.log(listOfItems.length);
+        var rows = table.hashes();
+        for (var i = 0; i < rows.length; ++i) {
+            var row = rows[i];
+            // Validates position of standard page base on Index including their url
+            console.log(row['pos']);
+            console.log(listOfItems[row['pos']-1]);
+
+            expect(listOfItems[row['pos']-1]).toContain('polar');}
+    });
+
+
+
 };

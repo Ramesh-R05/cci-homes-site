@@ -31,11 +31,16 @@ var homepage_widget = {
     topTeaserTags: ".home-section--top .teaser__tags [class^='tag-']",
     topTeaserTagLinks: ".home-section--top .teaser__tags [class^='tag-'] a",
 
+
     //Bottom feed
+    bottomTeasers: '.repeatable-component .section__row:nth-child(1) .teaser--img-left',
     bottomTeaserImgs: '.home-section--bottom .teaser img',
     bottomTeaserTitles: '.home-section--bottom .teaser__title',
     bottomTeaserTags: ".home-section--bottom .teaser__tags [class^='tag-']",
-    bottomTeaserTagLinks: ".home-section--bottom .teaser__tags [class^='tag-'] a"
+    bottomTeaserTagLinks: ".home-section--bottom .teaser__tags [class^='tag-'] a",
+
+    //LoadMore Feed
+    loadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left'
 
 
     // ----------- Currently the below are not use, this can be decommision if is no required

@@ -26,9 +26,8 @@ export default class PolarTeaserImage extends Component {
     render() {
         const ad = this.props.nativeAd;
         const gtmClass = this.props.id ? `gtm-native-${this.props.id}` : '';
-        const classNames = cx('teaser', `teaser--${this.props.modifier}`, 'teaser--native', this.props.className);
-
-        ad.image.href = ad.image.href.replace(/\&w=\d+/, '&w=360').replace(/\&h=\d+/, '&h=300');
+        const themeClass = (`theme-${this.props.source.replace(/[^a-z]/gi, '_' ).toLowerCase()}`);
+        const classNames = cx('teaser', `teaser--${this.props.modifier}`, 'teaser--native', this.props.className, themeClass);
 
         return (
             <article className={classNames} onClick={this.props.trackClick}>

@@ -3,7 +3,6 @@ import Teaser from '../teaser/teaser';
 import PolarTeaser from '../polar/polarTeaser';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import PolarNativeHub from '../polar/polarNativeHub';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
@@ -17,13 +16,15 @@ export default class SectionFeatured extends Component {
         articles: PropTypes.array.isRequired,
         content: PropTypes.object.isRequired,
         children: PropTypes.any,
-        className: PropTypes.string
+        className: PropTypes.string,
+        polarTargets: PropTypes.array
     };
 
     static defaultProps = {
         articles: [],
         className: '',
-        children: []
+        children: [],
+        polarTargets: [ [], []]
     };
 
     constructor(props, context) {
@@ -31,7 +32,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {hero, articles, content, list, listNextParams} = this.props;
+        const {hero, articles, list, listNextParams, content, polarTargets} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -80,26 +81,15 @@ export default class SectionFeatured extends Component {
                                         label={{active: false}}
                                     />
 
-                                    {articles.slice(0, 1).map(item =>
-                                        <Teaser {...item}
-                                            key={item.id}
-                                            modifier="img-top"
-                                            gtmClass="gtm-topteaserlist-homepage"
-                                        />
-                                    )}
+                                    {articles.slice(0, 6).map( (item, i) => {
+                                        const polarDetails = polarTargets[0].find(slot => slot.index === i);
 
-                                    <PolarTeaser
-                                        {...articles[1]}
-                                        ad={{label: 'home_teaser_1'}}
-                                        modifier="img-top"
-                                        className="home-section-top-polar"
-                                    />
-
-                                    {articles.slice(2, 6).map(item =>
-                                        <Teaser {...item} key={item.id}
-                                            modifier="img-top"
-                                            gtmClass="gtm-topteaserlist-homepage"
-                                        />
+                                            if (polarDetails) {
+                                                return <PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-homepage" />;
+                                            } else {
+                                                return <Teaser {...item} key={item.id} modifier="img-top" gtmClass="gtm-topteaserlist-homepage"/>;
+                                            }
+                                    }
                                     )}
 
                                     <Ad
@@ -131,8 +121,6 @@ export default class SectionFeatured extends Component {
                         </section>
                     </div>
 
-                    <PolarNativeHub/>
-
                     <div className="row">
                         <div className="columns small-12">
                             <Ad
@@ -160,6 +148,7 @@ export default class SectionFeatured extends Component {
                                     className="news-feed bottom-news-feed"
                                     adTargets={{ position: 2 }}
                                     content={ content }
+                                    polarTargets={polarTargets[1]}
                                 />
 
                             </div>
