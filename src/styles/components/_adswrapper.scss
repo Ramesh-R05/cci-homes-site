@@ -5,6 +5,9 @@
 
     .homepage {
         @include homepage-gap-from-nav-to-top-mrec;
+        @media #{$large-up}{
+            margin-top: 0;
+        }
     }
 
     .brand {

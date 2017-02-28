@@ -93,12 +93,13 @@
     &--section-top-leaderboard {
         margin-bottom: $column-gutter;
 
-        @media #{$medium-up} {
-            margin: 0 auto 20px;
+        @media #{$medium-only}{
+            margin: 20px auto;
         }
 
         @media #{$small-only} {
             @include grey-mobile-banner();
+            margin-bottom: 10px;
         }
     }
 

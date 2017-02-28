@@ -4,18 +4,21 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 export default class HomeHeader extends Component {
     render() {
         return (
-            <div className="columns small-12">
-                <Ad
-                    className="ad--section-top-leaderboard"
-                    sizes={{
+            <div className="section__heading">
+                <div className="section__heading__ad">
+                    <Ad
+                        className="ad--section-top-leaderboard"
+                        sizes={{
                         small: 'banner',
                         leaderboard: 'leaderboard',
                         billboard: ['billboard', 'leaderboard']
                     }}
-                    targets={{position: 1}}
-                    label={{active: false}}
-                />
+                        targets={{position: 1}}
+                        label={{active: false}}
+                    />
+                </div>
             </div>
+
         )
     }
 }
