@@ -1,6 +1,13 @@
 .social-subscribe-links {
     text-align: center;
     margin: 30px 0;
+    padding: 0 20px;
+
+    .homepage & {
+        @media #{$small-only} {
+            margin-top: 0;
+        }
+    }
 
     &:after {
         content: '';
@@ -21,26 +28,63 @@
 
     &__button {
         margin-top: 20px;
-
-        .button {
-            height: 42px;
-            line-height: 42px;
-            min-height: initial;
-        }
     }
 }
 
 .newsletter-subscribe {
-    height: 100px;
+    @media #{$small-only} {
+        border-top: 1px solid $color-section-separator;
+        margin-top: 30px;
+        padding-top: 30px;
+    }
 
     .homepage & {
+        @media #{$small-only} {
+            margin-top: 0;
+        }
+
         @media #{$medium-only} {
             float: left;
             width: 50%;
+            border-right: 1px solid $color-section-separator;
         }
+    }
+
+    .brand & {
+        @media #{$medium-only} {
+            float: left;
+            width: 50%;
+            padding-top: 30px;
+        }
+
+        @media #{$large-up} {
+            border-top: 1px solid $color-section-separator;
+            margin-top: 30px;
+            padding-top: 30px;
+        }
+    }
+
+    &__title {
+        @include type-header;
+        color: $color-grey-dark;
+        font-size: 20px;
+        line-height: 1.25;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        @include type-teaser-summary;
+        margin-bottom: 15px;
     }
 }
 
 .social-links {
     height: 100px;
+
+    .brand & {
+        @media #{$medium-only} {
+            float: left;
+            width: 50%;
+        }
+    }
 }

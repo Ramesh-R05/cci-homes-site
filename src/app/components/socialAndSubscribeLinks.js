@@ -9,7 +9,7 @@ export default class SocialAndSubscribeLinks extends Component {
         return (
             <div className="social-subscribe-links">
                 {content.nodeType === 'BrandSection' && <Magazine {...this.props} />}
-                <Newsletter />
+                <Newsletter content={content} />
                 <Social />
             </div>
         )

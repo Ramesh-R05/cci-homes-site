@@ -66,7 +66,7 @@ export default class SectionFeatured extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="row hide-for-large-up">
+                                    <div className="hide-for-large-up">
                                         <SocialAndSubscribeLinks content={content} />
                                     </div>
 

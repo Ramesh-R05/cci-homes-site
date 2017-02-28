@@ -15,7 +15,8 @@ describe('Get Brand Method', () => {
             "imageUrl": "/assets/svgs/realliving_black.svg",
             "url": "/real-living/",
             "title": "real living",
-            "id" : "realliving"
+            "id" : "realliving",
+            "newsletterUrl": "https://pages.s7.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=real_living"
         };
         result = getBrand(config, brandTitle);
 
