@@ -40,8 +40,8 @@ var homepage_widget = {
     bottomTeaserTagLinks: ".home-section--bottom .teaser__tags [class^='tag-'] a",
 
     //LoadMore Feed
-    loadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left'
-
+    loadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left',
+    stickyMobileBanner: '.home-section .sticky-block.sticky-block--at-bottom.sticky-block--out-of-view'
 
     // ----------- Currently the below are not use, this can be decommision if is no required
     //heroStyle: '.content-wrapper .stripe-bg',

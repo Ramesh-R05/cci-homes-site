@@ -18,7 +18,10 @@ var section_page = {
 
     //LoadMore Feed
 
-    sectionLoadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left'
+    sectionLoadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left',
+
+    //Sticky Mobile banner
+    sectionStickyMobileBanner: '.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view'
 
 };
 module.exports = section_page;

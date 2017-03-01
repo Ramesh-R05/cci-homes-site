@@ -17,7 +17,8 @@ var brand_listing_widget = {
     brandSubscribeFrontImgLink: ".brand-subscribe.show-for-xlarge-up a.teaser__image",
     brandSubscribeFrontTitle: ".brand-subscribe.show-for-xlarge-up .teaser__title a",
     brandSocial: ".brand-social",
-    recommendationsHeading: ".dacrm-recommendations__heading"
+    recommendationsHeading: ".dacrm-recommendations__heading",
+    brandStickyMobileBanner: '.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view'
 };
 
 module.exports = brand_listing_widget;

@@ -13,6 +13,7 @@ const AdStub = Context.createStubComponent();
 const NavigationTagFeaturedStub = Context.createStubComponent();
 const NavigationTagRailStub = Context.createStubComponent();
 const NavigationTagListStub = Context.createStubComponent();
+const StickyMobileAdStub = Context.createStubComponent();
 
 const Section = proxyquire('../../../app/components/section/section', {
     'react': React,
@@ -20,7 +21,8 @@ const Section = proxyquire('../../../app/components/section/section', {
 	'./featured': NavigationTagFeaturedStub,
 	'./rail': NavigationTagRailStub,
 	'./list': NavigationTagListStub,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
 });
 
 const featuredArticles = articlesMock.slice(1, 4);
@@ -116,7 +118,7 @@ describe(`Section`, () => {
 
 
         describe(`Number of AdStubs`, () => {
-            const numberOfAds = 2;
+            const numberOfAds = 1;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
             });
@@ -135,22 +137,6 @@ describe(`Section`, () => {
 			};
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
                 expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
-            });
-        });
-
-        describe(`bottom leaderboard`, () => {
-            const expectedClassname = 'ad--section-bottom-leaderboard';
-            it(`should contain the classname prop ${expectedClassname}`, () => {
-                expect(ads[1].props.className).to.contain(expectedClassname);
-            });
-
-            const expectedSizes = {
-				small: 'banner',
-				leaderboard: 'leaderboard',
-				billboard: ['billboard', 'leaderboard']
-			};
-            it(`should have the sizes prop equal to ${expectedSizes}`, () => {
-                expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
             });
         });
 

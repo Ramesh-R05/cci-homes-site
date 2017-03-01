@@ -16,6 +16,8 @@ const StickyAdStub = Context.createStubComponentWithChildren();
 const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
 const SocialAndSubscribeLinksStub = Context.createStubComponent();
+const StickyMobileAdStub = Context.createStubComponent();
+
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
@@ -24,7 +26,8 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     '@bxm/behaviour/lib/components/sticky': StickyAdStub,
     '../repeatable': repeatableStub,
     '../section/list': listStub,
-    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
+    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
+    '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
 });
 
 const polarTargetsStub = [
@@ -67,6 +70,7 @@ describe('SectionFeatured', () => {
         let teasers;
         let polarTeasers;
         let stickies;
+        let stickyMobile;
 
         before(() => {
 
@@ -83,6 +87,7 @@ describe('SectionFeatured', () => {
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             polarTeasers =  TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
             stickies = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
+            stickyMobile = TestUtils.scryRenderedComponentsWithType(reactModule, StickyMobileAdStub)
         });
 
         const expectedNumTeasers = 6;
@@ -154,21 +159,6 @@ describe('SectionFeatured', () => {
 
             it(`should be targeted with position 2`, () => {
                 expect(ads[3].props.targets).to.deep.equal({position: 2});
-            });
-        });
-
-        describe(`Bottom banner/leaderboard/billboard ad`, () => {
-            it(`should display either a banner, leaderboard or a billboard ad at position 3`, () => {
-                const expectedSizes = {
-                    small: 'banner',
-                    leaderboard: 'leaderboard',
-                    billboard: ['billboard', 'leaderboard']
-                };
-                expect(ads[4].props.sizes).to.deep.equal(expectedSizes);
-            });
-
-            it(`should be targeted with position 3`, () => {
-                expect(ads[4].props.targets).to.deep.equal({position: 3});
             });
         });
 

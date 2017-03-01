@@ -7,6 +7,7 @@ import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
@@ -35,6 +36,19 @@ export default class SectionFeatured extends Component {
         const {hero, articles, list, listNextParams, content, polarTargets} = this.props;
 
         if (articles.length === 0) return null;
+
+        const stickyAdProps = {
+            className: 'ad--section-bottom-leaderboard',
+            displayFor: ['small', 'medium', 'large', 'xlarge'],
+            sizes: {
+                banner: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            },
+            targets: {
+                position: 3
+            }
+        };
 
         return (
             <div className={this.props.className}>
@@ -77,6 +91,7 @@ export default class SectionFeatured extends Component {
                                             small: 'mrec',
                                             medium: 'mrec'
                                         }}
+                                        updatePageOffset={true}
                                         targets={{position: 1}}
                                         label={{active: false}}
                                     />
@@ -152,21 +167,14 @@ export default class SectionFeatured extends Component {
                                 />
 
                             </div>
-                        </div>
 
-                        <div className="columns small-12">
-                            <Ad
-                                className="ad--section-bottom-leaderboard"
-                                sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
-                                }}
-                                targets={{position: 3}}
-                                label={{active: false}}
-                            />
                         </div>
                     </div>
+
+                    <StickyAd
+                        adProps={stickyAdProps}
+                        minHeight={450} />
+
                 </div>
             </div>
         );

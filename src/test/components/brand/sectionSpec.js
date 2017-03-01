@@ -12,6 +12,7 @@ const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
+const StickyMobileAdStub = Context.createStubComponent();
 
 const contextConfigStub = {
     key: 'config',
@@ -45,6 +46,7 @@ const Section = proxyquire('../../../app/components/brand/section', {
     '../section/list': listStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
+    '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
 });
 
 let brandHeroStore = heroMock;
@@ -126,7 +128,7 @@ describe(`Brand Section`, () => {
 
         // Ads
         describe(`Ads`, () => {
-            const numberOfAds = 2;
+            const numberOfAds = 1;
             it(`should have ${numberOfAds} AdStubs`, () => {
                 expect(ads.length).to.eq(numberOfAds);
             });
@@ -140,17 +142,6 @@ describe(`Brand Section`, () => {
                 const targets = { position: 2 };
                 expect(ads[0].props.sizes).to.deep.equal(size);
                 expect(ads[0].props.targets).to.deep.equal(targets);
-            });
-
-            it(`should have the relevant props for the 2nd ad`, () => {
-                const sizes={
-                    small: 'banner',
-                    leaderboard: 'leaderboard',
-                    billboard: ['billboard', 'leaderboard']
-                };
-                const targets = { position: 3 };
-                expect(ads[1].props.sizes).to.deep.equal(sizes);
-                expect(ads[1].props.targets).to.deep.equal(targets);
             });
 
         });

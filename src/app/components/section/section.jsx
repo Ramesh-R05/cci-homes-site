@@ -6,6 +6,7 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import Featured from './featured';
 import Rail from './rail';
 import List from './list';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 export default class Section extends Component {
 
@@ -46,6 +47,19 @@ export default class Section extends Component {
             title = content.tagsDetails[0].displayName;
         }
 
+        const stickyAdProps = {
+            className: 'ad--section-bottom-leaderboard',
+            displayFor: ['small', 'medium', 'large', 'xlarge'],
+            sizes: {
+                banner: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            },
+            targets: {
+                position: 3
+            }
+        };
+
         return (
             <div className={sectionClassName}>
                 <div className="container">
@@ -84,18 +98,10 @@ export default class Section extends Component {
 
                     </div>
 
-                    <div className="section__row section__bottom">
-                            <Ad
-                                className="ad--section-bottom-leaderboard section__ad"
-                                sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
-                                }}
-                                targets={{position: 3}}
-                                label={{active: false}}
-                            />
-                    </div>
+                    <StickyAd
+                        adProps={stickyAdProps}
+                        minHeight={450} />
+
                 </div>
             </div>
         );

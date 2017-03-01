@@ -38,10 +38,10 @@ module.exports = function() {
         wait(3000);
 
         //scroll to element and a few pixels up to center the button on the screen
-        browser.moveToObject(loadMore.loadMoreButton);
-        browser.scroll(250,100);
-        browser.moveToObject(loadMore.loadMoreButton);
-        wait(500);
+        var x = browser.getLocation(loadMore.loadMoreButton, 'x');
+        var y = browser.getLocation(loadMore.loadMoreButton, 'y');
+        browser.scroll(x-50,y-50);
+        browser.waitForVisible(loadMore.loadMoreButton,3000);
         browser.click(loadMore.loadMoreButton);
 
         //static wait due to elements loading move the laod more button and creates error in the script

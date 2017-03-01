@@ -6,8 +6,29 @@ Feature: Ads
     @DAW-1070 @high
     Scenario: Add sticky mobile banner to bottom of the article
         Given I switch to "mobile portrait" view
-        When I am currently viewing "automation-test-article-with-hero-image-3193"
+        And I am currently viewing "automation-test-article-with-hero-image-3193"
         Then I can see the sticky ad when the top banner disappears from view
+    @high
+    Scenario: Add sticky mobile banner to bottom of the article
+        Given I switch to "mobile portrait" view
+        When I am currently viewing the homepage
+        Then I can see the sticky ad when the top banner disappears from view in homepage
+        When I click on the Load More button
+        Then I can see the sticky ad on the homepage page
+    @med
+    Scenario: Add sticky mobile banner to bottom of the article
+        Given I switch to "mobile portrait" view
+        When I am currently viewing "australian-house-and-garden"
+        Then I can see the sticky ad when the top banner disappears from view in brand page
+        When I click on the Load More button
+        Then I can see the sticky ad on the brand page
+    @low
+    Scenario: Add sticky mobile banner to bottom of the article
+        Given I switch to "mobile portrait" view
+        When I am currently viewing "real-homes"
+        Then I can see the sticky ad when the top banner disappears from view in section page
+        When I click on the Load More button
+        Then I can see the sticky ad on the section page
 
     @high
     Scenario: check all ad slots are visible on the article page
@@ -229,3 +250,4 @@ Feature: Ads
         Examples:
             | device            | second count |
             | tablet landscape  | 3            |
+

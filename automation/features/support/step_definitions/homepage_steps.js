@@ -1,6 +1,7 @@
 var home = require('../page_objects/homepage_widget');
 var world = require('../world');
 var wait = require('../utils/wait');
+var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function(){
 
@@ -207,6 +208,19 @@ module.exports = function(){
             expect(listOfItems[row['pos']-1]).toContain('polar');}
     });
 
+    this.Then(/^I can see the sticky ad when the top banner disappears from view in homepage$/, function () {
+        //Scroll through the page to confirm is sticky
+        expect(browser.isVisible(home.stickyMobileBanner)).toBe(false);
+        browser.scroll(0, 1500);
+        expect(browser.waitForVisible(home.stickyMobileBanner, 2000)).toBe(true);
+        browser.scroll(1500, 2500);
+        expect(browser.waitForVisible(home.stickyMobileBanner, 2000)).toBe(true);
 
+    });
+
+    this.Then(/^I can see the sticky ad on the homepage page$/, function () {
+        browser.moveToObject(loadMore.loadMoreButton);
+        browser.waitForVisible(home.stickyMobileBanner,3000);
+    });
 
 };

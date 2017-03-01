@@ -7,6 +7,7 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 class Section extends Component {
     static propTypes = {
@@ -42,6 +43,19 @@ class Section extends Component {
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
+
+        const stickyAdProps = {
+            className: 'ad--section-bottom-leaderboard',
+            displayFor: ['small', 'medium', 'large', 'xlarge'],
+            sizes: {
+                banner: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            },
+            targets: {
+                position: 3
+            }
+        };
 
         return (
             <div className={menuSliderClassName}>
@@ -84,21 +98,9 @@ class Section extends Component {
                     />
                 </div>
 
-                <div className="row">
-                    <div className="columns small-12">
-                        <Ad
-                            className="ad--section-bottom-leaderboard"
-                            sizes={{
-                                small: 'banner',
-                                leaderboard: 'leaderboard',
-                                billboard: ['billboard', 'leaderboard']
-                            }}
-                            targets={{position: 3}}
-                            label={{active: false}}
-                        />
-
-                    </div>
-                </div>
+                <StickyAd
+                    adProps={stickyAdProps}
+                    minHeight={450} />
 
             </div>
         );

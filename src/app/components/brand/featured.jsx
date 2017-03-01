@@ -67,6 +67,7 @@ export default class Featured extends Component {
                                     className="ad--section-mrec teaser"
                                     displayFor={['small', 'medium']}
                                     sizes={['double-mrec', 'mrec']}
+                                    updatePageOffset={true}
                                     targets={{position: 1}}
                                     label={{active: false}}
                                 />

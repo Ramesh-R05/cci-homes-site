@@ -235,5 +235,5 @@ module.exports = function() {
         browser.moveToObject(wn_ads.homepageLoadMoreStickyMrec);
         expect(browser.waitForVisible(wn_ads.homepageLoadMoreStickyMrec,5000)).toBe(true);
     });
-
+    
 };

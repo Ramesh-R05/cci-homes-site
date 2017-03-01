@@ -42,6 +42,7 @@ var ads_widget = {
     adRightSideBrandPage: '.ad--sidepanel-right [id^=gpt-slot-]', //brand
     adOutOfPageBrandPage: '.ad--out-of-page [id^=gpt-slot-]' //brand
 
+
 };
 
 module.exports = ads_widget;
