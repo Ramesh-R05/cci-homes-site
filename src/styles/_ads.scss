@@ -93,7 +93,7 @@
     &--section-top-leaderboard {
         margin-bottom: $column-gutter;
 
-        @media #{$medium-only}{
+        @media #{$medium-only} {
             margin: 20px auto;
         }
 
