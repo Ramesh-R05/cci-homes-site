@@ -12,6 +12,7 @@
     "clean": "rimraf dist/ coverage/ .build/ && mkdirp dist/scripts dist/styles .build/",
     "start": "node ./start.js",
     "test": "babel-node ./node_modules/babel-istanbul/lib/cli cover --root ./ --include-all-sources --report teamcity --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",
+    "test:ci": "npm run test -- --reporter=xunit-file",
     "test:tdd": "mocha --require babel-polyfill --require babel-register --recursive --check-leaks --watch",
     "build": "npm run clean && npm run build:css && npm run build:js",
     "build:css": "node-sass --output-style compressed styles/main.scss > .build/_main.css && postcss --use autoprefixer --autoprefixer.browsers \"last 2 versions, ie >= 10, ios >= 7, Android >= 4\" --output dist/styles/main.css .build/_main.css",
@@ -116,6 +117,7 @@
     "sinon": "^1.17.3",
     "sinon-as-promised": "^4.0.0",
     "sinon-chai": "^2.8.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "xunit-file": "^1.0.0"
   }
 }
