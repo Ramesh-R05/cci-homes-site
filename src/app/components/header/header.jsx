@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import MenuButton from './menuButton';
 import Navigation from './navigation';
 import pin from '@bxm/behaviour/lib/components/pin';
+import throttle from 'lodash/function/throttle';
 
 class Header extends Component {
     static propTypes = {
@@ -37,7 +38,7 @@ class Header extends Component {
         window.removeEventListener('scroll', this.hideNavBar);
     }
 
-    hideNavBar = () => {
+    hideNavBar = throttle(() => {
         const { BREAKPOINT_SMALL_MAX, SCROLL_TOP_BOUNCE_ALLOWANCE } = Header.constants;
         const { scrollY, outerWidth } = window;
         if (outerWidth < BREAKPOINT_SMALL_MAX && scrollY > SCROLL_TOP_BOUNCE_ALLOWANCE && scrollY > this.prevScrollY) {
@@ -46,7 +47,7 @@ class Header extends Component {
             this.setState({isNavBarHidden: false});
         }
         this.prevScrollY = scrollY;
-    };
+    }, 50);
 
     render() {
         const {pinned, isSideMenuOpen, pinOffset, navItems} = this.props;
