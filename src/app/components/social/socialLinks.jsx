@@ -4,7 +4,9 @@ import SocialIcons from './socialIcons';
 export default class SocialLinks extends Component {
 
     static propTypes = {
-        links: PropTypes.array.isRequired
+        links: PropTypes.array.isRequired,
+        nodeType: PropTypes.string.isRequired,
+        title: PropTypes.string,
     };
 
     static defaultProps = {
@@ -12,12 +14,13 @@ export default class SocialLinks extends Component {
     };
 
     render() {
-        const { links } = this.props;
+        const { links, nodeType, title } = this.props;
 
         return (
             <section className="get-social">
                 <div className="get-social__links">
-                    { links.map((link, i) => <SocialIcons key={i} { ...link } />) }
+                    { !nodeType && (nodeType != "Homepage" && nodeType != 'BrandSection') ? null :  <p className="social-links__text">{`Follow ${title}`}</p> }
+                    { links.map((link, i) => <SocialIcons key={i} { ...link } {...this.props}/>) }
                 </div>
             </section>
         );

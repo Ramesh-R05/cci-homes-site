@@ -29,7 +29,7 @@ export default class FooterSection extends Component {
                 <footer className={classNames}>
                     <div className="home-page__get-social-container">
                         <span className="home-page__social-logo"></span>
-                        <SocialContainer />
+                        <SocialContainer gtmClass="gtm-footer-social" />
                     </div>
                     <div className="footer__logos">
                         <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br/>
@@ -39,7 +39,7 @@ export default class FooterSection extends Component {
                     </div>
                     <FooterNavigation />
                     <div className="footer__copyright">
-                        <span>&copy; COPYRIGHT BAUER MEDIA PTY LTD ALL RIGHTS RESERVED</span>
+                        <span>&copy; copyright bauer media pty ltd all rights reserved</span>
                     </div>
                 </footer>
                 <BackToTop className="button" />

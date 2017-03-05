@@ -67,12 +67,11 @@ export default {
 
     brands: {
         uniheader: brands,
+        section: brands,
         footer: brands
     },
 
     hamburgerBrands,
-
-    sectionBrands,
 
     features: {
         galleryOfGalleries: {

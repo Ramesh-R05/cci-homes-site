@@ -147,7 +147,9 @@ describe('Default Component template', () => {
         key: 'config',
         type: '',
         value: {
-            sectionBrands: sectionBrandsDataStub
+            brands: {
+                section: sectionBrandsDataStub
+            }
         }
     };
 

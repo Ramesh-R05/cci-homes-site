@@ -46,8 +46,8 @@ class DefaultTemplate extends Component {
         config: React.PropTypes.object
     };
 
-    getConfigFromBrandSectionForUrlName = (urlName) => {
-        return urlName ? (this.context.config.sectionBrands[urlName] || {}) : {};
+    getBrandConfig = (urlName) => {
+        return urlName ? (this.context.config.brands.section[urlName] || {}) : {};
     };
 
     getContentHeaderTitle = (contentHeaderTitle, content) => {
@@ -74,7 +74,7 @@ class DefaultTemplate extends Component {
         let contentHeaderTitle = '';
         if (content) {
             const {urlName, nodeType} = content;
-            brandConfig = this.getConfigFromBrandSectionForUrlName(urlName);
+            brandConfig = this.getBrandConfig(urlName);
             contentHeaderTitle = this.getContentHeaderTitle(contentHeaderTitle, content);
         }
         const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = this.getPageMetadata();

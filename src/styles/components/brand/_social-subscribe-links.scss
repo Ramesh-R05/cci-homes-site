@@ -14,6 +14,35 @@
         display: block;
         clear: both;
     }
+
+    .get-social__links {
+        height: 100px;
+
+        @media #{$large-up} {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        span {
+            fill: #9b9b9b;
+        }
+
+        .social-links__text {
+            @include type-teaser-summary;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            padding-top: 15px;
+        }
+
+        .brand & {
+            @media #{$medium-only} {
+                float: left;
+                width: 50%;
+            }
+        }
+    }
+
 }
 
 .magazine-subscribe {
@@ -75,16 +104,5 @@
     &__text {
         @include type-teaser-summary;
         margin-bottom: 15px;
-    }
-}
-
-.social-links {
-    height: 100px;
-
-    .brand & {
-        @media #{$medium-only} {
-            float: left;
-            width: 50%;
-        }
     }
 }

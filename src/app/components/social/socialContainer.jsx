@@ -6,7 +6,10 @@ export default class SocialContainer extends Component {
     static displayName = 'Social';
 
     static PropTypes = {
-        socialUrls: PropTypes.object
+        socialUrls: PropTypes.object,
+        title : PropTypes.string,
+        gtmClass: PropTypes.string,
+        nodeType: PropTypes.string
     };
 
     static defaultProps = {
@@ -15,11 +18,14 @@ export default class SocialContainer extends Component {
             twitter: 'https://twitter.com/homestoloveau',
             instagram: 'https://www.instagram.com/homestoloveau',
             pinterest: 'https://www.pinterest.com/homestoloveau'
-        }
+        },
+        title: 'Homes To Love',
+        gtmClass: 'gtm-follow-homepage',
     };
 
     render() {
-        const { facebook, twitter, instagram, pinterest } = this.props.socialUrls;
+
+        const { facebook, twitter, instagram, pinterest, nodeType, title } = this.props.socialUrls;
         const links = [
             {
                 name: 'facebook',
@@ -39,6 +45,6 @@ export default class SocialContainer extends Component {
             }
         ];
 
-        return (<SocialLinks links={links} />);
+        return (<SocialLinks links={links} nodeType={nodeType} title={title} {...this.props} />);
     }
 }
