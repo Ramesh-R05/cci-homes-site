@@ -25,7 +25,9 @@ export default {
 
     polar: {
         propertyId: 'NA-HOMETOLOVE-11237320',
-        targets: ''
+        targets: {
+            env: ''
+        }
     },
     services: {
         remote: {
