@@ -33,7 +33,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {hero, articles, list, listNextParams, content, polarTargets} = this.props;
+        const {hero, articles, latestRealHomes, list, listNextParams, content, polarTargets} = this.props;
 
         if (articles.length === 0) return null;
 
@@ -50,9 +50,43 @@ export default class SectionFeatured extends Component {
             }
         };
 
+        let latestRealHomesComponent = null;
+        if (latestRealHomes && latestRealHomes.length > 0) {
+            latestRealHomesComponent = (
+                <div className="row show-for-xlarge-only">
+                    <div className="latest-real-homes">
+                        <div className="latest-real-homes__title-container">
+                            <span className="latest-real-homes__title">Latest Real Homes</span>
+                        </div>
+                        <div>
+                            {latestRealHomes.map((item, i)=>{
+                                const teaser = {
+                                    id: item.id,
+                                    title: item.title,
+                                    url: item.url,
+                                    imageUrl: item.imageUrl,
+                                    imageAltText: item.imageAltText
+                                };
+                                return (
+                                    <Teaser
+                                        {...teaser}
+                                        key={item.id}
+                                        lazyload={false}
+                                        modifier="latest-real-homes"
+                                        gtmClass={`gtm-realhomes${i+1}-homepage`}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className={this.props.className}>
                 <div className="home-section">
+                    {latestRealHomesComponent}
                     <div className="row">
                         <section className="home-section--top columns small-12">
                             <div className="row">

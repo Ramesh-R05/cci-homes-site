@@ -137,6 +137,12 @@ Feature: Homepage
             | device |
             | tablet portrait  |
             | tablet landscape |
+    @high
+    Scenario: Users can see the latest real homes on homepage
+        Given I switch to "desktop" view
+        And I am currently viewing the homepage
+        Then User will be provided with 4 "LATEST REAL HOMES"
+        And each image will display text and be opaque when hover
 
 
 #   MRECS and Ads are tested on --> ad.feature

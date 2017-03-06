@@ -1,7 +1,6 @@
 var home = require('../page_objects/homepage_widget');
 var world = require('../world');
 var wait = require('../utils/wait');
-var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function(){
 
@@ -208,19 +207,31 @@ module.exports = function(){
             expect(listOfItems[row['pos']-1]).toContain('polar');}
     });
 
-    this.Then(/^I can see the sticky ad when the top banner disappears from view in homepage$/, function () {
-        //Scroll through the page to confirm is sticky
-        expect(browser.isVisible(home.stickyMobileBanner)).toBe(false);
-        browser.scroll(0, 1500);
-        expect(browser.waitForVisible(home.stickyMobileBanner, 2000)).toBe(true);
-        browser.scroll(1500, 2500);
-        expect(browser.waitForVisible(home.stickyMobileBanner, 2000)).toBe(true);
+    this.Then(/^User will be provided with (\d+) "([^"]*)"$/, function (imageCount, sectionTitle) {
+        //Validate the title is correct
+        expect(browser.getText(home.latestHomeTitle)).toEqual(sectionTitle);
+
+        //Validate that 4 latest real home teasers
+        var latestHomeTeasers = browser.getAttribute(home.latestHomeTeasers,'class');
+        console.log("latesthome "+imageCount+" teser Ids: "+'\n'+latestHomeTeasers);
+        expect(latestHomeTeasers.length).toEqual(parseInt(imageCount),10);
 
     });
 
-    this.Then(/^I can see the sticky ad on the homepage page$/, function () {
-        browser.moveToObject(loadMore.loadMoreButton);
-        browser.waitForVisible(home.stickyMobileBanner,3000);
-    });
+    this.Then(/^each image will display text and be opaque when hover$/, function () {
+        var latestHomeTeasers = browser.elements(home.latestHomeTeasers).value;
+        for (var i = 0; i < latestHomeTeasers.length; ++i) {
+            // simulating hover on the latest home teaser
+            browser.moveToObject(home.latestHomeTeasers+':nth-child('+(i+1)+') img');
+            wait(1000);
+            // validating the opacity of the teaser
+            var opacityProperty = browser.getCssProperty(home.latestHomeTeasers+':nth-child('+(i+1)+') h3','opacity');
+            expect(opacityProperty.value).toEqual(0.9);
+            // validating the text after the hover is correct and not empty
+            var elmTitle = browser.getText(home.latestHomeTeasers+':nth-child('+(i+1)+') h3');
+            console.log(elmTitle);
+            expect(elmTitle).not.toEqual('');
+        }
 
+    });
 };

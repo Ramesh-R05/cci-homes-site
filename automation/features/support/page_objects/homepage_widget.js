@@ -13,6 +13,10 @@ var homepage_widget = {
     primaryHeroTag: ".teaser--hero .tag-primary",
     secondaryHeroTag: ".teaser--hero .tag-secondary",
 
+    //latest real home
+    latestHomeTitle: '.latest-real-homes .latest-real-homes__title',
+    latestHomeTeasers: '.latest-real-homes .teaser.teaser--latest-real-homes',
+
     //mobile Hero Element
     mobHeroElmt: '.home-section--top .teaser--hero-img-top',
     mobHeroImgUrl: '.home-section--top .teaser--hero-img-top img',

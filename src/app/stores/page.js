@@ -14,6 +14,7 @@ const PageStore = createReducerStore({
                 items,
                 headerNavigation,
                 galleries,
+                latestRealHomes,
                 list = []
             } = payload.body;
 
@@ -27,6 +28,7 @@ const PageStore = createReducerStore({
                 headerNavigation,
                 navigationTags: entity.navigationTags,
                 galleries,
+                latestRealHomes,
                 list
             };
         },
@@ -36,6 +38,7 @@ const PageStore = createReducerStore({
                 hero: {},
                 items: [],
                 galleries: [],
+                latestRealHomes: [],
                 list: [],
                 content: null
             };
@@ -88,6 +91,10 @@ const PageStore = createReducerStore({
         getModuleItems: (state, module) => {
             if (!module) return [];
             return state[module] || [];
+        },
+
+        getLatestRealHomes(state) {
+            return state.latestRealHomes || [];
         },
 
         getHeaderItems(state) {

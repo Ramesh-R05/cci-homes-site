@@ -53,6 +53,10 @@ Context.addStore('PageStore', {
         return homeArticlesMock;
     },
 
+    getModuleItems() {
+        return [];
+    },
+
     getList: () => homeArticlesMock,
     getListNextParams: () => {}
 });
@@ -95,7 +99,6 @@ describe('Home', () => {
         it(`should open when isSideMenuOpen is true`, () => {
             reactModule = Context.mountComponent(Home, {isSideMenuOpen: true}, [contextConfigStub]);
             domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
-            // reactModule.setProps({ isSideMenuOpen: true });
             expect(domNode).to.contain('side-menu-slider--side-menu-open');
         });
     });

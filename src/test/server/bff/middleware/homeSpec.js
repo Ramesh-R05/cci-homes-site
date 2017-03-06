@@ -1,6 +1,7 @@
 import proxyquire, {noCallThru} from 'proxyquire';
 import heroStubData from '../../../../stubs/module-homepagehero';
 import itemsStubData from '../../../../stubs/listings-homepage';
+import realHomesStubData from '../../../../stubs/listings-food-Homes-navigation-Real-Homes';
 noCallThru();
 
 const parseEntityStub = sinon.stub();
@@ -11,12 +12,17 @@ const entityStubData = {
     id: 'HOMES-123'
 };
 
+const latestRealHomesStubData = {...realHomesStubData};
+latestRealHomesStubData.data.splice(4);
+
 const homeFilter = `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`;
+const latestRealHomesFilter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'`;
 
 const expectedBody = {
     entity: entityStubData,
     hero: heroStubData,
     items: itemsStubData,
+    latestRealHomes: latestRealHomesStubData,
     list: {
         params: {
             listName: 'home',
@@ -56,7 +62,8 @@ const makeRequestSpy = sinon.spy(makeRequestStub);
 
 parseEntityStub.onFirstCall().returns(entityStubData);
 parseEntityStub.onSecondCall().returns(heroStubData);
-parseEntitiesStub.returns(itemsStubData);
+parseEntitiesStub.onFirstCall().returns(itemsStubData);
+parseEntitiesStub.onSecondCall().returns(latestRealHomesStubData);
 
 const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', {
     '../../makeRequest': makeRequestSpy,
@@ -116,6 +123,7 @@ describe('home middleware', () => {
                 nextSpy.reset();
                 makeRequestSpy.reset();
                 parseEntityStub.reset();
+                parseEntitiesStub.reset();
                 getLatestTeasersStub.reset();
             });
 
@@ -137,6 +145,7 @@ describe('home middleware', () => {
                     const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
                     const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
                     const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
+                    const getLatestTeasersStubSecondCall = getLatestTeasersStub.getCall(1);
 
                     expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
                     expect(makeRequestSpySecondCall.args[0]).to.equal(heroModuleServiceUrl);
@@ -144,6 +153,10 @@ describe('home middleware', () => {
                     expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
                     expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
                     expect(getLatestTeasersStubFirstCall.args[2]).to.equal(homeFilter);
+
+                    expect(getLatestTeasersStubSecondCall.args[0]).to.equal(4);
+                    expect(getLatestTeasersStubSecondCall.args[1]).to.equal(0);
+                    expect(getLatestTeasersStubSecondCall.args[2]).to.equal(latestRealHomesFilter);
 
                     done();
                 }).catch(done);

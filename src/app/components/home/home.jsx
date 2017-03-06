@@ -45,6 +45,7 @@ export default connectToStores(Home, ['PageStore'], (context) => {
         hero: pageStore.getHeroItem(),
         articles: pageStore.getItems(),
         content: pageStore.getContent(),
+        latestRealHomes: pageStore.getModuleItems('latestRealHomes'),
         list: pageStore.getList(),
         listNextParams: pageStore.getListNextParams()
     };

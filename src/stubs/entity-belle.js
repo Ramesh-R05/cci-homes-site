@@ -23,6 +23,7 @@ export default
     "nodeTypeAlias": "BrandSection",
     "moduleParentId": "HOMES-2114",
     "contentHasVideo": false,
+    "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/22/2114/0018210_belle.jpeg",
     "nodeDateIndexed": "2016-11-03T00:08:01.98Z",
     "pageDateCreated": "2015-09-15T02:14:32.00Z",
     "nodeTypeAliasPath": ["Page", "Sections", "Section", "BrandSection"],

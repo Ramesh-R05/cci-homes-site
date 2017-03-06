@@ -23,6 +23,7 @@ export default {
     "nodeTypeAlias": "BrandSection",
     "moduleParentId": "HOMES-2115",
     "contentHasVideo": false,
+    "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/23/2115/0018667_australian-house-and-garden.jpeg",
     "nodeDateIndexed": "2016-11-03T00:08:03.96Z",
     "pageDateCreated": "2015-09-15T02:15:17.00Z",
     "nodeTypeAliasPath": ["Page", "Sections", "Section", "BrandSection"],

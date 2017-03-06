@@ -48,6 +48,7 @@ servicesStubs.get('/listings-service/teasers', function(req, res) {
     const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
     const campaignMatch = $filter.match(/^\(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'\) and sponsorName eq '([^']+)'$/i)
+    const latestRealHomesMatch = ($filter === `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'`);
 
     let teaserResponse = {
         totalCount: 0,
@@ -84,6 +85,13 @@ servicesStubs.get('/listings-service/teasers', function(req, res) {
         const sponsor = campaignMatch[1].toLowerCase().replace(/\W/g, '-');
         const sponsorResponse = requireWithNoCache(cwd + `/stubs/listings-campaign-${sponsor}`);
         res.json(sponsorResponse);
+        return;
+    }
+
+    if (latestRealHomesMatch) {
+        const latestRealHomes = requireWithNoCache(cwd + `/stubs/listings-food-Homes-navigation-Real-Homes`);
+        latestRealHomes.data.splice(4);
+        res.json(latestRealHomes);
         return;
     }
 
