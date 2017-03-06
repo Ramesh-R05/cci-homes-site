@@ -53,7 +53,7 @@ export default class SectionFeatured extends Component {
         let latestRealHomesComponent = null;
         if (latestRealHomes && latestRealHomes.length > 0) {
             latestRealHomesComponent = (
-                <div className="row show-for-xlarge-only">
+                <div className="row show-for-large-up">
                     <div className="latest-real-homes">
                         <div className="latest-real-homes__title-container">
                             <span className="latest-real-homes__title">Latest Real Homes</span>

@@ -116,7 +116,8 @@ class Teaser extends Component {
             xl: {w: 273, h: 238}
         },
         'latest-real-homes': {
-            xl: {w: 219, h: 182}
+            l: {w: 218, h: 182},
+            xl: {w: 218, h: 182}
         }
     };
 
