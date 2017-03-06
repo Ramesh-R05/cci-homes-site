@@ -26,7 +26,8 @@ describe('Get Brand Method', () => {
             "social" :{
                 "facebook": "https://www.facebook.com/reallivingmagazine",
                 "twitter": "https://twitter.com/reallivingmag",
-                "instagram": "https://instagram.com/reallivingmag/"
+                "instagram": "https://instagram.com/reallivingmag/",
+                "pinterest": "https://au.pinterest.com/reallivingmag/"
             }
         };
         result = getBrand(config, brandTitle);

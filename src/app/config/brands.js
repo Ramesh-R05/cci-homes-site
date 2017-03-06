@@ -14,7 +14,8 @@ export default [
         "social" :{
             "facebook": "https://www.facebook.com/BelleMagazineAu",
             "twitter": "https://twitter.com/BelleMagazineAu",
-            "instagram": "https://instagram.com/bellemagazineau/?hl=en"
+            "instagram": "https://instagram.com/bellemagazineau/",
+            "pinterest": "https://au.pinterest.com/bellemagazineau/"
         }
     },
     {
@@ -32,7 +33,8 @@ export default [
         "social" :{
             "facebook": "https://www.facebook.com/reallivingmagazine",
             "twitter": "https://twitter.com/reallivingmag",
-            "instagram": "https://instagram.com/reallivingmag/"
+            "instagram": "https://instagram.com/reallivingmag/",
+            "pinterest": "https://au.pinterest.com/reallivingmag/"
         }
     },
     {
@@ -50,7 +52,8 @@ export default [
         "social" :{
             "facebook": "https://www.facebook.com/Homesplusmag",
             "twitter": "https://twitter.com/homesplusmag",
-            "instagram": "https://instagram.com/homesplusmag/"
+            "instagram": "https://instagram.com/homesplusmag/",
+            "pinterest" : "https://au.pinterest.com/Homesplusmag/"
         }
     },
     {
@@ -67,7 +70,8 @@ export default [
         },
         "social" :{
             "facebook": "https://www.facebook.com/australianhouseandgarden",
-            "instagram" : "https://instagram.com/houseandgarden/?hl=en",
+            "twitter" : "https://twitter.com/homestoloveau/",
+            "instagram" : "https://instagram.com/houseandgarden/",
             "pinterest": "https://www.pinterest.com/HOUSEnGARDEN/"
         }
     }
