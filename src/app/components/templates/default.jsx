@@ -21,6 +21,7 @@ import Campaign from '../section/sponsorTag/section';
 import Gallery from '../gallery/gallery';
 
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
+import getBrand from '../brand/utilities/getBrand';
 
 import {load} from '@bxm/config';
 const config = load();
@@ -46,10 +47,6 @@ class DefaultTemplate extends Component {
         config: React.PropTypes.object
     };
 
-    getBrandConfig = (urlName) => {
-        return urlName ? (this.context.config.brands.section[urlName] || {}) : {};
-    };
-
     getContentHeaderTitle = (contentHeaderTitle, content) => {
         contentHeaderTitle = content.title;
         if (content.tagsDetails && content.tagsDetails.length > 0) {
@@ -73,9 +70,9 @@ class DefaultTemplate extends Component {
         let brandConfig = {};
         let contentHeaderTitle = '';
         if (content) {
-            const {urlName, nodeType} = content;
-            brandConfig = this.getBrandConfig(urlName);
+            const {source, nodeType} = content;
             contentHeaderTitle = this.getContentHeaderTitle(contentHeaderTitle, content);
+            brandConfig = getBrand(this.context.config, source);
         }
         const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = this.getPageMetadata();
         const localeData = config.get('localeData');

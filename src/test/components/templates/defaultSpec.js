@@ -42,6 +42,10 @@ function mockErrorHandlerBuilder(code) {
     }
 }
 
+const getBrandStub = () => {
+ return {"logo": "/assets/svgs/belle.svg"}
+};
+
 const Default = proxyquire('../../../app/components/templates/default', {
     'react': React,
     '../header/header': SiteHeaderStub,
@@ -61,6 +65,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../section/header': SectionHeader,
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': AdsWrapper,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
+    '../brand/utilities/getBrand': getBrandStub,
     '@bxm/config': { load: () => { return config } },
     'picturefill': {}
 });
