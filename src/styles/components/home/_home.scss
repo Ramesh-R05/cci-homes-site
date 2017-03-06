@@ -231,6 +231,13 @@
 
                 @include adjust-side-margins;
 
+                &.columns {
+                    @media #{$small-only} {
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+                }
+
                 .bottom-teasers {
 
                     @include spacer-right-hand-rail;
