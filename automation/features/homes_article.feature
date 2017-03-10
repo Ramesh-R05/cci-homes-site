@@ -18,13 +18,6 @@ Feature: Article
         * I can see the body gallery
         * I can see the body video
         * I can see the body tips "body tips body tips EOM"
-        * I can see the body Twitter embed "697199025729048577"
-        * I can see the body Instagram embed with caption "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/"
-        * I can see the body Instagram embed without caption "https://www.instagram.com/p/BA4NkZeSr_r/embed/"
-        * I can see the body Facebook embed "https://www.facebook.com/Foodtoloveau/posts/823515874446034"
-        * I can see the body Playbuzz embed "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
-        * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
-        * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
@@ -41,12 +34,7 @@ Feature: Article
         * I can see the body image caption "This is inline image caption"
         * I can see the body gallery
         * I can see the body video
-        * I can see the body Twitter embed "697199025729048577"
-        * I can see the body Instagram embed without caption "https://www.instagram.com/p/BA4NkZeSr_r/embed/"
-        * I can see the body Facebook embed "https://www.facebook.com/Foodtoloveau/posts/823515874446034"
-        * I can see the body Playbuzz embed "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
-        * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
-        * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
+
 
     @med
     Scenario: Verify an article page which contains a hero image on desktop
@@ -63,13 +51,6 @@ Feature: Article
         * I can see the body gallery
         * I can see the body video
         * I can see the body tips "body tips body tips EOM"
-        * I can see the body Twitter embed "697199025729048577"
-        * I can see the body Instagram embed with caption "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/"
-        * I can see the body Instagram embed without caption "https://www.instagram.com/p/BA4NkZeSr_r/embed/"
-        * I can see the body Facebook embed "https://www.facebook.com/Foodtoloveau/posts/823515874446034"
-        * I can see the body Playbuzz embed "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
-        * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
-        * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
@@ -133,3 +114,23 @@ Feature: Article
             | tablet portrait   |
             | mobile            |
 
+    Scenario Outline: Editorial team can add social feeds to the article body
+        Given I switch to "<device>" view
+        When I am currently viewing "automation-test-article-with-hero-image-3193"
+        Then I can see the body Twitter embed "697199025729048577"
+        * I can see the body Instagram embed with caption "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/"
+        * I can see the body Instagram embed without caption "https://www.instagram.com/p/BA4NkZeSr_r/embed/"
+        * I can see the body Facebook embed "https://www.facebook.com/Foodtoloveau/posts/823515874446034"
+        * I can see the body Playbuzz embed "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
+        * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
+        * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
+    @high
+        Examples:
+            | device            |
+            | mobile            |
+            | desktop           |
+    @med
+        Examples:
+            | device            |
+            | tablet portrait   |
+            | tablet landscape  |
