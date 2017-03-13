@@ -8,7 +8,7 @@ env:
     - APP_ENV=stubbed
     - APP_KEY=homes-site
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site
-    - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results 
+    - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'
 
 build:
@@ -27,12 +27,12 @@ build:
     - npm run test:ci
     - cd ..
     - if [ "$BRANCH" == "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-master.env; fi
-    - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-branch.env; fi        
+    - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-branch.env; fi
   post_ci:
     - ./src/node_modules/.bin/babel-istanbul report cobertura --dir  ./shippable/codecoverage/
     - docker --version
     - docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME --label build-number=$BUILD_NUMBER .
-    - docker tag -f $IMAGE:$BRANCH_NAME $IMAGE:latest
+    - docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest
   push:
     - docker push $IMAGE:$BRANCH_NAME
     - docker push $IMAGE:latest
