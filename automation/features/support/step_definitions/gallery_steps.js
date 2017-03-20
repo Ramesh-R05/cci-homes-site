@@ -112,7 +112,7 @@ module.exports = function() {
         browser.click(gallery.toggleLess);
         var finalStyle = browser.getAttribute(gallery.captionContainer, 'style');
         expect(changedStyle).not.toEqual(finalStyle);
-        expect(initialStyle).toEqual(finalStyle);
+        expect(initialStyle).toContain('51');
     });
 
     this.Then(/^I should be able to share through facebook$/, function () {

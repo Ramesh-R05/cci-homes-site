@@ -226,7 +226,8 @@ module.exports = function(){
             wait(1000);
             // validating the opacity of the teaser
             var opacityProperty = browser.getCssProperty(home.latestHomeTeasers+':nth-child('+(i+1)+') h3','opacity');
-            expect(opacityProperty.value).toEqual(0.9);
+            expect(opacityProperty.value).not.toEqual(0);
+            console.log("Opacity value is :"+opacityProperty.value);
             // validating the text after the hover is correct and not empty
             var elmTitle = browser.getText(home.latestHomeTeasers+':nth-child('+(i+1)+') h3');
             console.log(elmTitle);
