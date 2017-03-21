@@ -199,8 +199,20 @@ module.exports = function() {
         console.log(videoEmbArry[1]); //The stubbed data of Vimeo is in the second iframe of video container.
         expect(videoEmbArry[1]).toEqual(vimeoUrl);
     });
+    this.Given(/^I can see the body Whooshka embed "([^"]*)"$/, function (whooshkaUrl) {
+        browser.waitForVisible(wn_article.whooshkaEmb, 3000);
+        var whooshkaEmb = browser.getAttribute(wn_article.whooshkaEmb, 'src');
+        console.log(whooshkaEmb);
+        expect(whooshkaEmb).toEqual(whooshkaUrl);
+    });
+    this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
+        browser.waitForVisible(wn_article.wirewaxEmb, 3000);
+        var wirewaxEmb = browser.getAttribute(wn_article.wirewaxEmb, 'src');
+        console.log(wirewaxEmb);
+        expect(wirewaxEmb).toEqual(wirewaxUrl);
+    });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag) {
-    var relatedTags = browser.getText(wn_article.relatedTags, 'href');
+        var relatedTags = browser.getText(wn_article.relatedTags, 'href');
         expect(relatedTags).toEqual(rTag.split("|"));
         });
     this.Given(/^I can see the author "([^"]*)"$/, function (authorName) {

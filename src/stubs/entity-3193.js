@@ -174,38 +174,65 @@ export default
             }
         },
         {
-        "type": "twitter",
-        "label": "Twitter",
-        "content": {"url": "https://twitter.com/dollymag/status/697199025729048577"}
-    }, {
-        "type": "instagram",
-        "label": "Instagram",
-        "content": {
-            "url": "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/",
-            "includeCaption": true
+            "type": "twitter",
+            "label": "Twitter",
+            "content": {"url": "https://twitter.com/dollymag/status/697199025729048577"}
+        },
+        {
+            "type": "instagram",
+            "label": "Instagram",
+            "content": {
+                "url": "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/",
+                "includeCaption": true
+            }
+        },
+        {
+            "type": "instagram",
+            "label": "Instagram",
+            "content": {
+                "url": "https://www.instagram.com/p/BA4NkZeSr_r/embed/",
+                "includeCaption": false
+            }
+        },
+        {
+            "type": "facebook",
+            "label": "Facebook",
+            "content": {"url": "https://www.facebook.com/Foodtoloveau/posts/823515874446034"}
+        },
+        {
+            "type": "playbuzz",
+            "label": "Playbuzz",
+            "content": {"game": "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"}
+        },
+        {
+            "type": "youtube",
+            "label": "Youtube",
+            "content": {
+                "url": "https://www.youtube.com/embed/4GpnNxjy6m0"
+            }
+        },
+        {
+            "type": "vimeo",
+            "label": "Vimeo",
+            "content": {
+                "url": "https://player.vimeo.com/video/181027959"
+            }
+        },
+        {
+            "type": "whooshka",
+            "label": "Whooshka",
+            "content": {
+                "url": "https://www.whooshkaa.com/player/episode/id/90704?visual=true"
+            }
+        },
+        {
+            "type": "wirewax",
+            "label": "Wirewax",
+            "content": {
+                "url": "http://embed.wirewax.com/8037657/ff0044/"
+            }
         }
-
-    }, {
-        "type": "instagram",
-        "label": "Instagram",
-        "content": {
-            "url": "https://www.instagram.com/p/BA4NkZeSr_r/embed/",
-            "includeCaption": false
-        }
-
-    }, {
-        "type": "facebook",
-        "label": "Facebook",
-        "content": {"url": "https://www.facebook.com/Foodtoloveau/posts/823515874446034"}
-    }, {
-        "type": "playbuzz",
-        "label": "Playbuzz",
-        "content": {"game": "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"}
-    }, {
-        "type": "youtube",
-        "label": "Youtube",
-        "content": {"url": "https://www.youtube.com/embed/4GpnNxjy6m0"}
-    }, {"type": "vimeo", "label": "Vimeo", "content": {"url": "https://player.vimeo.com/video/181027959"}}],
+    ],
     "contentYear": 2016,
     "navIsHidden": 0,
     "navRedirect": {"Url": null, "Mode": 2, "Title": "", "NodeId": null, "NewWindow": false},
