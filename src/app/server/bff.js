@@ -25,7 +25,6 @@ export default function bff(server) {
         render,
         error
     );
-
     server.get(
         server.config.services.endpoints.page,// Config set inside @bxm/server
         pageModules,

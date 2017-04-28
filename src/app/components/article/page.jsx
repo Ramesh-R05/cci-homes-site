@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 import Article from './section';
 import Source from './source';
 import PolarFeedItem from '../polar/polarFeed';
+import VerticalGallery from '@bxm/article/lib/gallery';
 
-export default class Page extends Component {
-    static displayName = 'ArticlePage';
+import {connectToStores} from '@bxm/flux';
+
+class Page extends Component {
+    static displayName = 'ContentPage';
 
     static translationMap = {
         writer: { s: 'Writer', p: 'Writers' },
@@ -40,7 +43,7 @@ export default class Page extends Component {
     };
 
     render() {
-        const { content } = this.props;
+        const { content, isVerticalGallery, query } = this.props;
         const targets = { brand: content.source };
         const kingtag =  this.getKingTag(content.tagsDetails).displayName;
 
@@ -53,6 +56,26 @@ export default class Page extends Component {
                 targets
             }
         };
+
+        if (query.g === "v") {
+            return (
+            <div className={"content-wrapper"}>
+                <VerticalGallery
+                    {...this.props}
+                    enableTeads
+                    articleHeaderOrder={[ 'Hero',  'Source', 'Title', 'Summary', Ad ]}
+                    contentBodyConfig={Page.articleContentBodyConfig}
+                    authorTranslationMap={Page.translationMap}
+                    feedItemClass={PolarFeedItem}
+                    showFeedOnRight
+                    showAdBeforeRecommendations
+                    adSpacing={6}
+                    footerMetaClass={Source}
+                    footerComponentClass={null}
+                />
+            </div>
+            );
+        }
 
         return (
             <div>
@@ -73,3 +96,9 @@ export default class Page extends Component {
         );
     }
 }
+
+export default connectToStores(Page, ['PageStore'], (context) => {
+    return {
+        query: context.getStore('PageStore').getQuery()
+    };
+});

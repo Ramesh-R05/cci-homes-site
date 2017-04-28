@@ -23,6 +23,8 @@ import SocialStore from '@bxm/social/lib/stores/social';
 import TrackingStore from './stores/tracking';
 import articleStore from '@bxm/article/lib/stores/articleStore';
 import {load, configPlugin} from '@bxm/config';
+import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
+
 const config = load();
 
 adConfig.init();
@@ -35,6 +37,7 @@ let app = new Flux({
         GalleryPageStore,
         GalleryStore,
         HtmlStore,
+        VerticalGalleryStore,
         NetworkHeaderStore,
         PolarAdStore,
         RouteStore,

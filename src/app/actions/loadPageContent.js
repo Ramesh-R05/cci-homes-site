@@ -3,7 +3,7 @@ export default function(context, payload) {
     params.pageNo = payload.query.pageNo;
     return context.getService('page').read(params).then(
         (content) => {
-            context.dispatch('LOAD_CONTENT', content);
+            context.dispatch('LOAD_CONTENT', { ...content, request: { payload } });
         },
         (error) => {
             console.error(`[action][load page content][failed] ${error.response.error.status}`);

@@ -85,6 +85,9 @@ export default {
         },
         recommendations: {
             enabled: true
+        },
+        useDefaultPolar: {
+            enabled: true
         }
     },
 

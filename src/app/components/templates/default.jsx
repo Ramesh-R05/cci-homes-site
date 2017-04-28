@@ -32,7 +32,8 @@ class DefaultTemplate extends Component {
         content: PropTypes.object,
         contentErrorStatus: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        headerNavItems: PropTypes.array
+        headerNavItems: PropTypes.array,
+        query: PropTypes.object
     };
 
     static defaultProps = {
@@ -105,27 +106,14 @@ class DefaultTemplate extends Component {
                         />
                     :   null
                 }
-
-                { content && content.nodeType === 'Gallery' ?
-
+                
+                <AdsWrapper>
                     <ContentHandler
                         brandConfig={brandConfig}
                         content={content}
                         isSideMenuOpen={isSideMenuOpen}
                     />
-
-                    :
-
-                    <AdsWrapper>
-                        <ContentHandler
-                            brandConfig={brandConfig}
-                            content={content}
-                            isSideMenuOpen={isSideMenuOpen}
-                        />
-                    </AdsWrapper>
-
-                }
-
+                </AdsWrapper>
 
 
                 {   hideFooter ? null : <SiteFooter config={localeData} /> }
@@ -172,6 +160,12 @@ class DefaultTemplate extends Component {
                     ContentHandler: Campaign
                 };
             case 'gallery':
+                if (this.props.query.g === "v") {
+                    return {
+                        ContentHeaderHandler: HomeHeader,
+                        ContentHandler: Article
+                    };
+                }
                 return {
                     ContentHandler: Gallery
                 };
@@ -199,6 +193,7 @@ export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], (conte
         content: context.getStore('PageStore').getContent(),
         contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
         isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-        headerNavItems: context.getStore('PageStore').getHeaderItems()
+        headerNavItems: context.getStore('PageStore').getHeaderItems(),
+        query: context.getStore('PageStore').getQuery()
     };
 });

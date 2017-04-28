@@ -78,7 +78,8 @@ const defaultStoreData = {
     PageStore: {
         headerNavItems,
         content: getDefaultContent(),
-        error: undefined
+        error: undefined,
+        query: {}
     }
 };
 
@@ -112,6 +113,9 @@ Context.addStore('PageStore', {
     },
     getHeaderItems() {
         return headerNavItems;
+    },
+    getQuery() {
+        return storeData.PageStore.query
     }
 });
 

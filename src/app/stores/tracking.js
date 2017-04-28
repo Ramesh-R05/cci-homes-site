@@ -52,6 +52,8 @@ function trackGalleryItemChanged(action) {
     const items = action.items;
     const numAds = getNumAds(items);
     const newItem = newItemIndex !== null ? items[newItemIndex] : '';
+    const isAd = newItem.ad ? true : false;
+    const slideNumber = isAd ? null : newItem.index;
 
     const data = {
         event: 'galleryImageChange',
@@ -59,7 +61,7 @@ function trackGalleryItemChanged(action) {
             galleryName: action.galleryTitle,
             prevImage: action.activeItem.url,
             currImage: newItem.url,
-            currImageNo: newItem.index,
+            currImageNo: slideNumber,
             totalImages: totalItems - numAds,
             numAds: numAds,
             isAd: !!newItem.ad
@@ -80,6 +82,39 @@ function trackGalleryComplete(action) {
             totalImages: action.totalItems - numAds,
             numAds: numAds,
             isAd: false
+        }
+    };
+    dataLayerPush(data);
+}
+
+function trackVerticalGalleryItemChanged(action) {
+    const activeItem = action.activeItem;
+    const totalGalleryItems = action.totalGalleryItems;
+    // don't trigger galleryImageChange if the item index is 0
+    if (activeItem === 0 || (!action.isAd && activeItem === null)) {
+        return;
+    }
+
+    const data = {
+        event: 'galleryImageChange',
+        eventInfo: {
+            galleryName: action.galleryTitle,
+            currImageNo: activeItem,
+            totalImages: totalGalleryItems,
+            numAds: action.numAds,
+            isAd: action.isAd
+        }
+    };
+    dataLayerPush(data);
+}
+
+function trackVerticalGalleryComplete(action) {
+     const data = {
+        event: 'galleryComplete',
+        eventInfo: {
+            galleryName: action.galleryTitle,
+            totalImages: action.totalGalleryItems,
+            numAds: action.numAds
         }
     };
     dataLayerPush(data);
@@ -124,6 +159,9 @@ module.exports = createStore({
         GALLERY_NEXT_ITEM: 'onGalleryNextItem',
         GALLERY_PREVIOUS_ITEM: 'onGalleryPreviousItem',
         GALLERY_COMPLETED: 'onGalleryCompleted',
+        VERTICAL_GALLERY_NEXT_ITEM: 'onVerticalGalleryNextItemTrack',
+        VERTICAL_GALLERY_PREVIOUS_ITEM: 'onVerticalGalleryPreviousItemTrack',
+        VERTICAL_GALLERY_COMPLETED: 'onVerticalGalleryCompleted',
         GALLERY_NEXT_GALLERY: 'onNextGallery',
         LOAD_LIST: 'onLoadList'
     },
@@ -146,6 +184,18 @@ module.exports = createStore({
 
     onNextGallery: (payload) => {
         trackGalleryChanged(payload);
+    },
+
+    onVerticalGalleryNextItemTrack: (payload) => {
+        trackVerticalGalleryItemChanged(payload);
+    },
+
+    onVerticalGalleryPreviousItemTrack: (payload) => {
+        trackVerticalGalleryItemChanged(payload);
+    },
+    
+    onVerticalGalleryCompleted: (payload) => {
+        trackVerticalGalleryComplete(payload);
     },
 
     onLoadList: (payload) => {

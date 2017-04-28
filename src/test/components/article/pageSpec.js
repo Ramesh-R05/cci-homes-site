@@ -18,6 +18,27 @@ const ArticlePage = proxyquire('../../../app/components/article/page', {
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
+Context.addStore('GalleryPageStore', {
+    getGalleryItems() {
+        return [];
+    },
+    getNumAds() {
+        return 2;
+    }
+});
+
+Context.addStore('articleStore', {
+    getContent() {
+        return [];
+    }
+});
+
+Context.addStore('PageStore', {
+    getQuery() {
+        return {};
+    }
+});
+
 describe('ArticlePage', () => {
     const testProps = {
         random: 'test',

@@ -3,7 +3,7 @@ export default
     "id": "HOMES-3201",
     "url": "/test-stub-gallery-3201",
     "path": ["HOMES--1", "HOMES-1158", "HOMES-1579", "HOMES-2783", "HOMES-3196", "HOMES-3201"],
-    "tags": ["food:Location and setting:Australia:Victoria:Mornington Peninsula", "food:Homes navigation:Home Tours", "food:Topic:Luxury home", "food:Decorating:Style:Coastal/beach"],
+    "tags": ["food:Location and setting:Australia:Victoria:Mornington Peninsula", "food:Homes navigation:Real Homes", "food:Topic:Luxury home", "food:Decorating:Style:Coastal/beach"],
     "level": 5,
     "nodeId": "HOMES-3201",
     "source": "Australian House and Garden",
@@ -20,7 +20,7 @@ export default
         "label": "Paragraph",
         "content": "The breathtaking natural surrounds of the Mornington Peninsula is what made this location supremely appealing to interior designer, Ljiljana Gazevic and her architect partner, Axel Baumann, when they were looking for a property to renovate. Their objective was to create a home with longevity and simplicity – for them the very essence of luxury. \n\n‘Quiet, calming and restorative’ were key words that directed the renovation, creating a home that is “serene and tranquil, allowing us to revive and recharge”, says Ljiljana. These qualities were approached spatially, through the modulation of light and shadow, and through furnishings and finishes. \n\nA new [pavilion-style](http://www.homestolove.com.au/gallery-level-best-2638|target=\"_blank\") extension alongside a reworking of the old floorplan has created a contemporary home. Ceiling heights were raised to allow the insertion of larger windows to maximise natural light, softening the interior and connecting with the landscape. \n\nSimplicity is the hallmark of the interior as well, integrating Japanese influences and Nordic design sensibilities. A minimalist aesthetic is created through a limited palette of materials, taking inspiration from the landscape. Muted tones of grey, white and black, combined with warm and textured limed oak timber, reflect the natural beauty outside, linking interior with exterior.\n \nIn this home away from home, recharging is the necessity. And in this state of relaxation, inspiration comes easily, helped along by the carefully curated art, furniture and object collection that is always evolving.\n\n*Belle*\nPhotos: Nicole England\nStory: Nicky Lobo"
     }],
-    "contentTags": ["food:Location and setting:Australia:Victoria:Mornington Peninsula", "food:Homes navigation:Home Tours", "food:Topic:Luxury home", "food:Decorating:Style:Coastal/beach"],
+    "contentTags": ["food:Location and setting:Australia:Victoria:Mornington Peninsula", "food:Homes navigation:Real Homes", "food:Topic:Luxury home", "food:Decorating:Style:Coastal/beach"],
     "contentYear": 2016,
     "navIsHidden": 0,
     "navRedirect": {"Url": null, "Mode": 2, "Title": "", "NodeId": null, "NewWindow": false},
@@ -35,10 +35,10 @@ export default
         "fullName": "food_Decorating_Style_Coastalbeach",
         "displayName": "Coastal/beach"
     }, {
-        "name": "food:Homes navigation:Home Tours",
-        "urlName": "home-tours",
-        "fullName": "food_Homes_navigation_Home_Tours",
-        "displayName": "Home Tours"
+        "name": "food:Homes navigation:Real Homes",
+        "urlName": "real-homes",
+        "fullName": "food_Homes_navigation_Real_Homes",
+        "displayName": "Real Homes"
     }, {
         "name": "food:Location and setting:Australia:Victoria:Mornington Peninsula",
         "urlName": "mornington-peninsula",

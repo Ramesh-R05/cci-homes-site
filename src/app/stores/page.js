@@ -29,7 +29,8 @@ const PageStore = createReducerStore({
                 navigationTags: entity.navigationTags,
                 galleries,
                 latestRealHomes,
-                list
+                list,
+                query: payload.request.payload.query
             };
         },
         LOAD_CONTENT_FAILED: (state, payload) => {
@@ -40,7 +41,8 @@ const PageStore = createReducerStore({
                 galleries: [],
                 latestRealHomes: [],
                 list: [],
-                content: null
+                content: null,
+                query: {}
             };
         },
         LOAD_LIST:  (state, payload) => {
@@ -104,6 +106,10 @@ const PageStore = createReducerStore({
 
         getErrorStatus(state) {
             return state.error;
+        },
+
+        getQuery(state) {
+            return state.query;
         }
     }
 });
