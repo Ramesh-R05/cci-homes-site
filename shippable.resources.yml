@@ -1,0 +1,143 @@
+resources:
+
+#
+# Common setup that should be moved into a common shippable repo
+#
+  - name: slack-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#au-shippable"
+
+# Docker Image for the homes-site
+  - name: homes-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+    seed:
+      versionName: latest
+
+# Docker Image for the homes-site
+  - name: homes-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+    seed:
+      versionName: latest
+
+# Github repo
+  - name: homes-site-repo
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/homes-site
+      branch: master
+
+# Release version
+  - name: homes-site-version
+    type: version
+    seed:
+      versionName: "1.0.0"
+
+#
+# SIT environment configuration
+#
+  - name: homes-env-sit-ecs
+    type: cluster
+    integration: AWS-digital-nonprod
+    pointer:
+      sourceName : "app_ecs"
+      region: "ap-southeast-2"
+
+  - name: homes-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/now-site-sit-now-au/e972f0d5ce478be2"
+      method: application
+
+  - name: homes-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-now-site-sit-au/a5522dba93f4b773"
+      method: application
+
+  - name: homes-site-alb-test
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/now-site-test/3640de7200782c72"
+      method: application
+
+# TO BE UPDATED
+  - name: homes-site-params-sit
+    type: params
+    version:
+      params:
+        NODE_ENV: "dev"  #change this to dev when we are ready
+
+  - name: homes-site-params-test
+    type: params
+    version:
+      params:
+        NODE_ENV: "automation"
+
+# Docker Image Options
+  - name: homes-site-opts-sit
+    type: dockerOptions
+    version:
+      memory: 512
+      memoryReservation: 256
+      cpuShares: 64
+      portMappings:
+        - 0:3001
+      publishAllPorts : true
+      logConfig:
+        type: awslogs
+        options:
+          awslogs-group: "app_ecs"
+          awslogs-region: "ap-southeast-2"
+          awslogs-stream-prefix: "app-homes-site"
+
+  - name: homes-site-replicas-non-prod
+    type: replicas
+    version:
+      count: 2
+
+# # PRODUCTION environment configuration (TO BE DONE)
+# #
+# #
+# # PROD environment configuration
+# #
+#   - name: env-prod-ecs
+#     type: cluster
+#     integration: AWS-digital-prod #pending to be created
+#     pointer:
+#       sourceName : "app_ecs"
+#       region: "ap-southeast-2"
+
+#   - name: now-site-alb-prod
+#     type: loadBalancer
+#     pointer:
+#       sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/now-site-prod-now-au/763f0b126f52508d"
+#       method: application
+
+#   - name: nz-now-site-alb-prod
+#     type: loadBalancer
+#     pointer:
+#       sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/nznow-site-prod-nz/452a0a41643ae426"
+#       method: application
+
+# # ENV parameters
+#   - name: now-site-params-prod
+#     type: params
+#     version:
+#       params:
+#         NODE_ENV: "production"
+#         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+
+#   - name: now-site-replicas-production
+#     type: replicas
+#     version:
+#       count: 3
