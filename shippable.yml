@@ -26,16 +26,17 @@ build:
     - npm run build
     - npm run test:ci
     - cd ..
-    - if [ "$BRANCH" == "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-master.env; fi
+    - if [ "$BRANCH" == "master" ] && [ $IS_PULL_REQUEST == false ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-master.env; fi
     - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-branch.env; fi
   post_ci:
     - ./src/node_modules/.bin/babel-istanbul report cobertura --dir  ./shippable/codecoverage/
     - docker --version
-    - docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME --label build-number=$BUILD_NUMBER .
-    - docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest
+    - if [ $IS_PULL_REQUEST == false ]; then docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME .; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest; fi
   push:
-    - docker push $IMAGE:$BRANCH_NAME
-    - docker push $IMAGE:latest
+    - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:$BRANCH_NAME; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:latest; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE; fi # Clear all docker images after completion
 
 branches:
   only:
