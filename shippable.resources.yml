@@ -3,12 +3,12 @@ resources:
 #
 # Common setup that should be moved into a common shippable repo
 #
-  - name: slack-notifications
-    type: notification                          #required
-    integration: slack-bauerxcelmedia
-    pointer:
-      recipients:
-        - "#au-shippable"
+  # - name: slack-notifications
+  #   type: notification                          #required
+  #   integration: slack-bauerxcelmedia
+  #   pointer:
+  #     recipients:
+  #       - "#au-shippable"
 
 # Docker Image for the homes-site
   - name: homes-site-img-master
