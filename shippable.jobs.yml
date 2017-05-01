@@ -78,68 +78,49 @@ jobs:
         deployMethod: upgrade
 
 
-  # - name: now-site-automation-test # Test Stub site
-  #   type: runSh
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #    - IN: now-site-test-deploy-master
-  #    - IN: now-site-repo
-  #      switch: off
-  #    - TASK:
-  #       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-  #       - script: source ~/.nvm/nvm.sh
-  #       - script: nvm install "6.1.0"
-  #       - script: nvm use "6.1.0"
-  #       - script: cd ./IN/now-site-repo/gitRepo/automation
-  #       - script: npm set registry http://npm.digital.bauer-media.net.au
-  #       - script: npm install
-  #       - script: export URL=http://now.test.bxm.net.au/
-  #       - script: npm run test:high || true
-  #       - script: actualsize=$(wc -c <"@rerun.txt")
-  #       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+  - name: homes-site-automation-test # Test Stub site
+    type: runSh
+    always:
+      - NOTIFY: homes-slack-notifications
+    steps:
+     - IN: homes-site-test-deploy-master
+     - IN: homes-site-repo
+       switch: off
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/homes-site-repo/gitRepo/automation
+        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: export URL=http://homes.test.bxm.net.au/
+        - script: npm run test:high || true
+        - script: actualsize=$(wc -c <"@rerun.txt")
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
 
 
-  # - name: now-site-mobile-automation-test # Test Stub site on Browser Stack
-  #   type: runSh
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #    - IN: now-site-test-deploy-master
-  #    - IN: now-site-repo
-  #      switch: off
-  #    - TASK:
-  #       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-  #       - script: source ~/.nvm/nvm.sh
-  #       - script: nvm install "6.1.0"
-  #       - script: nvm use "6.1.0"
-  #       - script: cd ./IN/now-site-repo/gitRepo/automation
-  #       - script: npm set registry http://npm.digital.bauer-media.net.au
-  #       - script: npm install
-  #       - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
-  #       - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
-  #       - script: export URL=http://now.test.bxm.net.au/
-  #       - script: npm run test:mobile
-
-  # - name: nz-now-site-smoke-test # Test Dev Site with NZ config
-  #   type: runSh
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #    - IN: nz-now-site-sit-deploy-master
-  #    - IN: now-site-repo
-  #      switch: off
-  #    - TASK:
-  #       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-  #       - script: source ~/.nvm/nvm.sh
-  #       - script: nvm install "6.1.0"
-  #       - script: nvm use "6.1.0"
-  #       - script: cd ./IN/now-site-repo/gitRepo/automation
-  #       - script: npm set registry http://npm.digital.bauer-media.net.au
-  #       - script: npm install
-  #       - script: export URL=http://nznow.sit.bxm.net.au/
-  #       - script: npm run test:nzlow
+  - name: homes-site-mobile-automation-test # Test Stub site on Browser Stack
+    type: runSh
+    always:
+      - NOTIFY: homes-slack-notifications
+    steps:
+     - IN: homes-site-test-deploy-master
+     - IN: homes-site-repo
+       switch: off
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/homes-site-repo/gitRepo/automation
+        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
+        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
+        - script: export URL=http://homes.test.bxm.net.au/
+        - script: npm run test:mobile
 
   # - name: now-site-e2e-test # Test e2e test for NOW au dev
   #   type: runSh
@@ -192,12 +173,10 @@ jobs:
     steps:
       - IN: homes-site-man-master
         switch: off
-      # - IN: homes-site-automation-test
-      #   switch: off
-      # - IN: homes-site-mobile-automation-test
-      #   switch: off
-      # - IN: nz-homes-site-smoke-test
-      #   switch: off
+      - IN: homes-site-automation-test
+        switch: off
+      - IN: homes-site-mobile-automation-test
+        switch: off
       - IN: homes-site-version
       - TASK: managed
 
