@@ -28,7 +28,7 @@ jobs:
   - name: homes-site-sit-deploy-branch # DEV deployment for FEATURE BRANCH
     type: deploy
     always:
-      - NOTIFY: slack-notifications
+      - NOTIFY: homes-slack-notifications
     steps:
       - IN: homes-site-replicas-non-prod #number of running tasks
       - IN: homes-site-man-branch # for non-master, don't auto deploy.
@@ -46,7 +46,7 @@ jobs:
   - name: homes-site-sit-deploy-master # DEV deployment for MASTER
     type: deploy
     always:
-      - NOTIFY: slack-notifications
+      - NOTIFY: homes-slack-notifications
     steps:
       - IN: homes-site-replicas-non-prod #number of running tasks
       - IN: homes-site-man-master # for master - auto deploy to SIT
@@ -81,7 +81,7 @@ jobs:
   # - name: now-site-automation-test # Test Stub site
   #   type: runSh
   #   always:
-  #     - NOTIFY: slack-notifications
+  #     - NOTIFY: homes-slack-notifications
   #   steps:
   #    - IN: now-site-test-deploy-master
   #    - IN: now-site-repo
@@ -104,7 +104,7 @@ jobs:
   # - name: now-site-mobile-automation-test # Test Stub site on Browser Stack
   #   type: runSh
   #   always:
-  #     - NOTIFY: slack-notifications
+  #     - NOTIFY: homes-slack-notifications
   #   steps:
   #    - IN: now-site-test-deploy-master
   #    - IN: now-site-repo
@@ -125,7 +125,7 @@ jobs:
   # - name: nz-now-site-smoke-test # Test Dev Site with NZ config
   #   type: runSh
   #   always:
-  #     - NOTIFY: slack-notifications
+  #     - NOTIFY: homes-slack-notifications
   #   steps:
   #    - IN: nz-now-site-sit-deploy-master
   #    - IN: now-site-repo
@@ -144,7 +144,7 @@ jobs:
   # - name: now-site-e2e-test # Test e2e test for NOW au dev
   #   type: runSh
   #   always:
-  #     - NOTIFY: slack-notifications
+  #     - NOTIFY: homes-slack-notifications
   #   steps:
   #    - IN: morning-trigger
   #    - IN: now-site-repo
@@ -167,7 +167,7 @@ jobs:
   # - name: FULL-now-site-regression-test # Test Site full regression
   #   type: runSh
   #   always:
-  #     - NOTIFY: slack-notifications
+  #     - NOTIFY: homes-slack-notifications
   #   steps:
   #    - IN: now-site-repo
   #      switch: off
@@ -205,7 +205,7 @@ jobs:
   # - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
   #   type: deploy
   #   always:
-  #     - NOTIFY: slack-notifications
+  #     - NOTIFY: homes-slack-notifications
   #   steps:
   #     - IN: now-site-replicas-production #number of running tasks
   #     - IN: now-site-release-master
@@ -230,7 +230,7 @@ jobs:
 #   - name: DEBUG-now-site-regression-test # Test on DEBUG mode
 #     type: runSh
 #     always:
-#       - NOTIFY: slack-notifications
+#       - NOTIFY: homes-slack-notifications
 #     steps:
 #      - IN: now-site-repo
 #        switch: off
