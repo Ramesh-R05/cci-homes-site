@@ -181,22 +181,22 @@ jobs:
       - TASK: managed
 
 
-  # - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
-  #   type: deploy
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #     - IN: now-site-replicas-production #number of running tasks
-  #     - IN: now-site-release-master
-  #     - IN: env-prod-ecs
-  #     - IN: now-site-params-prod
-  #     - IN: now-site-alb-prod
-  #       applyTo:
-  #         - manifest: now-site-man-master
-  #           image: now-site-img-master
-  #           port: 3001
-  #     - TASK: managed
-  #       deployMethod: upgrade
+  - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
+    type: deploy
+    always:
+      - NOTIFY: homes-slack-notifications
+    steps:
+      - IN: homes-site-replicas-production #number of running tasks
+      - IN: homes-site-release-master
+      - IN: env-prod-ecs
+      - IN: homes-site-params-prod
+      - IN: homes-site-alb-prod
+        applyTo:
+          - manifest: homes-site-man-master
+            image: homes-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
 
 # ###### DEBUG MODE ###
 # #Tags use for DEBUG
