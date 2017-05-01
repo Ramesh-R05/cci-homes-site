@@ -55,19 +55,19 @@ resources:
   - name: homes-site-alb-sit
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/now-site-sit-now-au/e972f0d5ce478be2"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-sit-homes-au/5a2cdbbe7a7ded24"
       method: application
 
   - name: homes-site-alb-sit-branch
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-now-site-sit-au/a5522dba93f4b773"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-homes-site-sit-au/318e3c41ae0ed30f"
       method: application
 
   - name: homes-site-alb-test
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/now-site-test/3640de7200782c72"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-test/24afa8bb9878bdb9"
       method: application
 
 # TO BE UPDATED
