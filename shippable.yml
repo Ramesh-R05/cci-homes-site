@@ -5,7 +5,6 @@ node_js: "6.1.0"
 
 env:
   global:
-    - APP_ENV=stubbed
     - APP_KEY=homes-site
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site
     - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results
@@ -26,18 +25,16 @@ build:
     - npm run build
     - npm run test:ci
     - cd ..
-  #  if [ "$BRANCH" == "master" ] && [ $IS_PULL_REQUEST == false ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-master.env; fi
-  #  if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-branch.env; fi
-  post_ci:
     - ./src/node_modules/.bin/babel-istanbul report cobertura --dir  ./shippable/codecoverage/
-    - docker --version
     - if [ $IS_PULL_REQUEST == false ]; then docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME .; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest; fi
+    - if [ "$BRANCH" == "master" ] && [ $IS_PULL_REQUEST == false ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-master.env; fi
+    - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-branch.env; fi
   push:
     - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:$BRANCH_NAME; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:latest; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE; fi # Clear all docker images after completion
- 
+
 branches:
   only:
     - master
