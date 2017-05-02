@@ -1,7 +1,8 @@
-
 var wn_ads = require('../page_objects/ads_widget');
 var gallery = require('../page_objects/gallery_widget');
 var wait = require('../utils/wait');
+var visibilityFunctions = require('../utils/visibilityFunctions');
+
 module.exports = function() {
 
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
@@ -119,69 +120,16 @@ module.exports = function() {
 
     //BELOW ARE THE STEPS TO TEST WALLPAPER, SIDE PANEL, OUT OF PAGE ADs
     this.Then(/^I should "([^"]*)" the wallpaper ad slot on "([^"]*)"$/, function (visibility, page) {
-        //Identify the element
-        switch(visibility) {
-            case 'see':
-                var valueVisible = true;
-                break;
-            case 'not see':
-                var valueVisible = false;
-                break;
-        }
-        switch(page) {
-            case 'homepage':
-            case 'section':
-            case 'brand':
-                var adWallpaper = wn_ads.adWallpaperBrandPage;
-                break;
-        }
-
-        //Validate
-        expect(browser.isVisible(adWallpaper)).toBe(valueVisible);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.adWallpaperBrandPage);
     });
 
     this.Then(/^I should "([^"]*)" the left and right side ad slot on "([^"]*)"$/, function (visibility, page) {
-        //Identify the element
-        switch(visibility) {
-            case 'see':
-                var valueVisible = true
-                break;
-            case 'not see':
-                var valueVisible = false
-                break;
-        }
-        switch(page) {
-            case 'homepage':
-            case 'section':
-            case 'brand':
-                var adLeftSide = wn_ads.adLeftSideBrandPage;
-                var adRightSide = wn_ads.adRightSideBrandPage;
-                break;
-        }
-
-        //Validate
-        expect(browser.isVisible(adLeftSide)).toBe(valueVisible);
-        expect(browser.isVisible(adRightSide)).toBe(valueVisible);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.adLeftSideBrandPage);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.adRightSideBrandPage);
     });
 
     this.Then(/^I should "([^"]*)" the out of page ad slot on "([^"]*)"$/, function (visibility, page) {
-        //Identify the element
-        switch(visibility) {
-            case 'see':
-                var valueVisible = true
-                break;
-            case 'not see':
-                var valueVisible = false
-                break;
-        }
-        switch(page) {
-            case 'brand':
-                var adOutOfPage = wn_ads.adOutOfPageBrandPage
-                break;
-        }
-
-        //Validate
-        expect(browser.isVisible(adOutOfPage)).toBe(valueVisible);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.adOutOfPageBrandPage);
     });
 
     this.Given(/^I should see sticky MREC ad next to the top news feed on the homepage$/, function () {
@@ -235,5 +183,5 @@ module.exports = function() {
         browser.moveToObject(wn_ads.homepageLoadMoreStickyMrec);
         expect(browser.waitForVisible(wn_ads.homepageLoadMoreStickyMrec,5000)).toBe(true);
     });
-    
+
 };

@@ -1,9 +1,10 @@
 {
-    "maxWorkers": 4,
+    "maxWorkers": 2,
     "featurePath": "./features",
     "reportPath": "./reports",
     "chimpPath": "./node_modules/.bin/chimp",
-    "chimpConfig": "chimp.bs.js",
+    "chimpConfig": "chimp.js",
     "browsers": "firefox, chrome",
-    "offline": false
+    "offline": false,
+    "tags": "@high"
 }

@@ -8,22 +8,25 @@ Feature: Ads
         Given I switch to "mobile portrait" view
         And I am currently viewing "automation-test-article-with-hero-image-3193"
         Then I can see the sticky ad when the top banner disappears from view
+
     @high
-    Scenario: Add sticky mobile banner to bottom of the article
+    Scenario: Add sticky mobile banner to bottom of the HomePage
         Given I switch to "mobile portrait" view
         When I am currently viewing the homepage
         Then I can see the sticky ad when the top banner disappears from view in homepage
         When I click on the Load More button
         Then I can see the sticky ad on the homepage page
+
     @med
-    Scenario: Add sticky mobile banner to bottom of the article
+    Scenario: Add sticky mobile banner to bottom of the Brand Papge
         Given I switch to "mobile portrait" view
         When I am currently viewing "australian-house-and-garden"
         Then I can see the sticky ad when the top banner disappears from view in brand page
         When I click on the Load More button
         Then I can see the sticky ad on the brand page
+
     @low
-    Scenario: Add sticky mobile banner to bottom of the article
+    Scenario: Add sticky mobile banner to bottom of the Section PAge
         Given I switch to "mobile portrait" view
         When I am currently viewing "real-homes"
         Then I can see the sticky ad when the top banner disappears from view in section page
@@ -159,16 +162,16 @@ Feature: Ads
             | mobile portrait    | brand      | belle/ |
             | mobile             | brand      | belle/ |
 
-    @BXMA-107
+    @BXMA-107 @manual @chrome
     Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "<url>"
         * I should "see" the out of page ad slot on "<page>"
-        @high
+
         Examples:
             | device             | page       | url            |
             | desktop            | brand      | real-living/   |
-        @med
+
         Examples:
             | device             | page       | url            |
             | tablet landscape   | brand      | real-living/   |

@@ -6,6 +6,10 @@ module.exports = {
     screenshotsPath: 'screenshots',
     saveScreenshotsToDisk: true,
     webdriverio: {
-        desiredCapabilities: {}
+        desiredCapabilities: {
+            chromeOptions: {
+                args: ["--enable-automation"]
+            }
+        }
     }
 };

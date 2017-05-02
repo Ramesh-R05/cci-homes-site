@@ -40,7 +40,7 @@ var ads_widget = {
     adWallpaperBrandPage: '.ad--wallpaper [id^=gpt-slot-]', //brand
     adLeftSideBrandPage: '.ad--sidepanel-left [id^=gpt-slot-]', //brand
     adRightSideBrandPage: '.ad--sidepanel-right [id^=gpt-slot-]', //brand
-    adOutOfPageBrandPage: '.ad--out-of-page [id^=gpt-slot-]' //brand
+    adOutOfPageBrandPage: '#inskinanchor' //brand
 
 
 };
