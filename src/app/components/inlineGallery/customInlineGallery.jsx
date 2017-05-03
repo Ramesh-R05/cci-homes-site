@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import breakpoints from '../../breakpoints';
 import isUndefined from 'lodash/lang/isUndefined';
 import InlineGallery from '@bxm/gallery/lib/components/inlineGallery';
@@ -15,10 +15,10 @@ export default class CustomInlineGallery extends Component {
     };
 
     static imageSizes = {
-        s: {w: 750, h: 625},
-        m: {w: 940, h: 790},
-        l: {w: 1482, h: 833},
-        xl: {w: 1270, h: 715}
+        s: { w: 750, h: 625 },
+        m: { w: 940, h: 790 },
+        l: { w: 1482, h: 833 },
+        xl: { w: 1270, h: 715 }
     };
 
     static contextTypes = {
@@ -36,7 +36,7 @@ export default class CustomInlineGallery extends Component {
     }
 
     render() {
-        const {galleries} = this.props;
+        const { galleries } = this.props;
 
         if (!this.context.config.isFeatureEnabled('galleryOfGalleries')
             || isUndefined(galleries)
@@ -45,10 +45,11 @@ export default class CustomInlineGallery extends Component {
 
         return (
             <InlineGallery
-                breakpoints={breakpoints}
-                galleries={galleries}
-                imageSizes={CustomInlineGallery.imageSizes}
-                renderSlide={this.renderSlide} />
+              breakpoints={breakpoints}
+              galleries={galleries}
+              imageSizes={CustomInlineGallery.imageSizes}
+              renderSlide={this.renderSlide}
+            />
         );
     }
 }

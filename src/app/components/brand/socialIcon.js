@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class SocialIcon extends Component {
     static propTypes = {
@@ -57,7 +57,7 @@ export default class SocialIcon extends Component {
     }
 
     render() {
-        const {name, url} = this.props;
+        const { name, url } = this.props;
 
         if (!name || !url || !SocialIcon.icons[name]) return null;
 

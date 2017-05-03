@@ -44,9 +44,7 @@ const campaignMiddleware = proxyquire('../../../../app/server/bff/middleware/cam
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersSpy
-    }
+    '../api/listing': getLatestTeasersSpy
 });
 
 describe('campaign middleware', () => {
@@ -55,14 +53,16 @@ describe('campaign middleware', () => {
             campaign: campaign
         },
         app: {
-            config: {
-                site: {
-                    host: siteMockHost
-                },
-                services: {
-                    remote: {
-                        entity: entityServiceMockUrl,
-                        listings: listingsServiceMockUrl
+            locals: {
+                config: {
+                    site: {
+                        host: siteMockHost
+                    },
+                    services: {
+                        remote: {
+                            entity: entityServiceMockUrl,
+                            listings: listingsServiceMockUrl
+                        }
                     }
                 }
             }

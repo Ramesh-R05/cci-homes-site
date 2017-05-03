@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import TagLink from '@bxm/tags/lib/components/link';
 
 export default class Tags extends Component {
@@ -9,24 +9,15 @@ export default class Tags extends Component {
         tagsDetails: PropTypes.array
     };
 
-    getPrimaryTag(tagsDetails) {
-        return tagsDetails.find((tag)=>{
-            return tag.name.includes('Topic');
-        });
-    }
-
-    getSecondaryTag(tagsDetails) {
-        return tagsDetails.find((tag)=>{
-            return !tag.name.includes('Topic') && !tag.name.includes('Homes navigation');
-        });
-    }
+    static defaultProps = {
+        tagsDetails: []
+    };
 
     render() {
-
         const { tagsDetails = [] } = this.props;
 
-        const primaryTag = this.getPrimaryTag(tagsDetails);
-        const secondaryTag = this.getSecondaryTag(tagsDetails);
+        const primaryTag = tagsDetails.find(tag => tag.name.includes('Topic'));
+        const secondaryTag = tagsDetails.find(tag => !tag.name.includes('Topic') && !tag.name.includes('Homes navigation'));
 
         if (!primaryTag || !primaryTag.displayName) return null;
 

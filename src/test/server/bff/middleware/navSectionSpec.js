@@ -50,9 +50,7 @@ const navSectionMiddleware = proxyquire('../../../../app/server/bff/middleware/n
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersSpy
-    }
+    '../api/listing': getLatestTeasersSpy
 });
 
 describe('navigation section middleware', () => {
@@ -61,14 +59,16 @@ describe('navigation section middleware', () => {
             navSection: navSection
         },
         app: {
-            config: {
-                site: {
-                    host: siteMockHost
-                },
-                services: {
-                    remote: {
-                        entity: entityServiceMockUrl,
-                        listings: listingsServiceMockUrl
+            locals: {
+                config: {
+                    site: {
+                        host: siteMockHost
+                    },
+                    services: {
+                        remote: {
+                            entity: entityServiceMockUrl,
+                            listings: listingsServiceMockUrl
+                        }
                     }
                 }
             }

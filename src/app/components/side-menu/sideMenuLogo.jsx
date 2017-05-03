@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
 class SideMenuLogo extends Component {
 
@@ -11,15 +11,17 @@ class SideMenuLogo extends Component {
     };
 
     render() {
-        let { key, logoClassName, logoClassNameGTMPrefix } = this.props;
-        let { id, title, url, imageUrl } = this.props.logoItem;
+        const { key, logoClassName, logoClassNameGTMPrefix } = this.props;
+        const { id, title, url, imageUrl } = this.props.logoItem;
 
         return (
             <li key={key}>
-                <a href={url}
-                   target={this.props.openInNewTab ? '_blank' : '_self'}
-                   title={title}
-                   className={`${logoClassNameGTMPrefix}${id}`}>
+                <a
+                  href={url}
+                  target={this.props.openInNewTab ? '_blank' : '_self'}
+                  title={title}
+                  className={`${logoClassNameGTMPrefix}${id}`}
+                >
                     <img src={imageUrl} alt={title} className={`${logoClassName}__logo--${id}`} />
                 </a>
             </li>

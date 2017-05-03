@@ -1,36 +1,13 @@
-export function init(body, seoData) {
-    let { keywords, primaryUrl }  = seoData;
-
-    return body.map((section) => {
-        if (section.type !== 'paragraph' || !keywords || !keywords.length) return section;
-
-        return keywords.reduce((section, keywordObj, currentIndex) => {
-            if (keywordLinkExist(section.content, keywordObj)) {
-                delete keywords[currentIndex];
-                return section;
-            }
-
-            const { updateContent, replaced } = searchKeyword(section.content, keywordObj, primaryUrl);
-
-            if (replaced) {
-                delete keywords[currentIndex];
-            }
-            section.content = updateContent;
-            return section;
-        }, section);
-    });
-}
-
 export function keywordLinkExist(content, keywordObj) {
     return content.includes(`[${keywordObj.keyword}]`);
 }
 
 export function getLinksRange(content) {
-    const linksPattern = /\[.*?\]\((https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/g;
+    const linksPattern = /\[.*?\]\((https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/g;
     const linksRange = [];
     let match;
 
-    while (match = linksPattern.exec(content)) {
+    while (match = linksPattern.exec(content)) { // eslint-disable-line no-cond-assign
         const { index } = match;
         linksRange.push([index, index + match[0].length]);
     }
@@ -52,26 +29,26 @@ export function replaceContent(params) {
 
 export function searchKeyword(content, keywordObj, primaryUrl) {
     const { keyword } = keywordObj;
-    const reg = `[^a-zA-Z0-9\-]{1}${keyword}[^a-zA-Z0-9\-]{1}`;
+    const reg = `[^a-zA-Z0-9-]{1}${keyword}[^a-zA-Z0-9-]{1}`;
     const keywordPattern = new RegExp(reg, 'gi');
     const linksRange = getLinksRange(content);
     let match;
 
     // check if it's in the begin of the sentence
-    if (content.startsWith(keyword)){
+    if (content.startsWith(keyword)) {
         return {
-            updateContent: replaceContent({content, matchIndex: 0, keyword, primaryUrl}),
+            updateContent: replaceContent({ content, matchIndex: 0, keyword, primaryUrl }),
             replaced: true
         };
     }
 
-    while (match = keywordPattern.exec(content)) {
+    while (match = keywordPattern.exec(content)) { // eslint-disable-line no-cond-assign
         const { index: matchIndex } = match;
-        const foundLinks = linksRange.filter((range) => (matchIndex >= range[0] && matchIndex < range[1]));
+        const foundLinks = linksRange.filter(range => (matchIndex >= range[0] && matchIndex < range[1]));
 
         if (!foundLinks.length) {
             return {
-                updateContent: replaceContent({content, matchIndex, keyword, primaryUrl}),
+                updateContent: replaceContent({ content, matchIndex, keyword, primaryUrl }),
                 replaced: true
             };
         }
@@ -80,4 +57,27 @@ export function searchKeyword(content, keywordObj, primaryUrl) {
     return {
         updateContent: content
     };
+}
+
+export function init(body, seoData) {
+    const { keywords, primaryUrl } = seoData;
+
+    return body.map((section) => {
+        if (section.type !== 'paragraph' || !keywords || !keywords.length) return section;
+
+        return keywords.reduce((s /* section */, keywordObj, currentIndex) => {
+            if (keywordLinkExist(s.content, keywordObj)) {
+                delete keywords[currentIndex];
+                return s;
+            }
+
+            const { updateContent, replaced } = searchKeyword(s.content, keywordObj, primaryUrl);
+
+            if (replaced) {
+                delete keywords[currentIndex];
+            }
+            s.content = updateContent; // eslint-disable-line no-param-reassign
+            return s;
+        }, section);
+    });
 }

@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import SocialContainer from '../social/socialContainer';
 import FooterBrandLinks from './footerBrandLinks';
 import FooterNavigation from './footerNavigation';
@@ -19,7 +19,7 @@ export default class FooterSection extends Component {
     }
 
     render() {
-        const {modifier} = this.props;
+        const { modifier } = this.props;
         const footerBrands = this.context.config.brands.footer;
         let classNames = 'footer';
         if (modifier) classNames += ` footer--${modifier}`;
@@ -28,13 +28,13 @@ export default class FooterSection extends Component {
             <div className="footer__wrapper">
                 <footer className={classNames}>
                     <div className="home-page__get-social-container">
-                        <span className="home-page__social-logo"></span>
+                        <span className="home-page__social-logo" />
                         <SocialContainer gtmClass="gtm-footer-social" />
                     </div>
                     <div className="footer__logos">
-                        <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br/>
+                        <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br />
                         <nav className="footer__logos-nav">
-                            <FooterBrandLinks className="footer__logos-list" footerBrands={footerBrands}/>
+                            <FooterBrandLinks className="footer__logos-list" footerBrands={footerBrands} />
                         </nav>
                     </div>
                     <FooterNavigation />

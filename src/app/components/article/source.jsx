@@ -1,9 +1,11 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import BrandLink from '../brand/link';
 
 const LOGO_PATH = '/assets/images/source';
 
-export default class Credits extends Component {
+export default class ArticleSource extends Component {
+
+    static displayName = 'ArticleSource';
 
     static propTypes = {
         source: PropTypes.string.isRequired
@@ -13,14 +15,9 @@ export default class Credits extends Component {
         config: PropTypes.object
     };
 
-
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
-        const {source} = this.props;
-        const sourceLogo = source ? this.context.config.get(['article', 'sources', source.toLowerCase(), 'logo']) : '';
+        const { source } = this.props;
+        const sourceLogo = source ? this.context.config.get(`article.sources.${source.toLowerCase()}.logo`) : '';
 
         if (!source || !sourceLogo) {
             return null;
@@ -30,7 +27,7 @@ export default class Credits extends Component {
             <div className="article__source">
                 <span>Article By</span>
                 <BrandLink source={source}>
-                    <img src={imageUrl} alt={source}/>
+                    <img src={imageUrl} alt={source} />
                 </BrandLink>
             </div>
         );

@@ -62,9 +62,7 @@ const brandMiddleware = proxyquire('../../../../app/server/bff/middleware/brand'
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersStub
-    }
+    '../api/listing': getLatestTeasersStub
 });
 
 describe('brand middleware', () => {
@@ -73,14 +71,16 @@ describe('brand middleware', () => {
             brand: 'belle'
         },
         app: {
-            config: {
-                brands: {
-                    uniheader: brands
-                },
-                services: {
-                    remote: {
-                        entity: entityServiceMockUrl,
-                        module: moduleServiceMockUrl
+            locals: {
+                config: {
+                    brands: {
+                        uniheader: brands
+                    },
+                    services: {
+                        remote: {
+                            entity: entityServiceMockUrl,
+                            module: moduleServiceMockUrl
+                        }
                     }
                 }
             }

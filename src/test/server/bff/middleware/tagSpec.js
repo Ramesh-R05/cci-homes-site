@@ -48,9 +48,7 @@ const tagSectionMiddleware = proxyquire('../../../../app/server/bff/middleware/t
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersSpy
-    }
+    '../api/listing': getLatestTeasersSpy
 });
 
 describe('tag section middleware', () => {
@@ -59,14 +57,16 @@ describe('tag section middleware', () => {
             tag: tagSection
         },
         app: {
-            config: {
-                site: {
-                    host: siteMockHost
-                },
-                services: {
-                    remote: {
-                        listings: listingsServiceMockUrl,
-                        tag: tagServiceMockUrl
+            locals: {
+                config: {
+                    site: {
+                        host: siteMockHost
+                    },
+                    services: {
+                        remote: {
+                            listings: listingsServiceMockUrl,
+                            tag: tagServiceMockUrl
+                        }
                     }
                 }
             }

@@ -2,7 +2,7 @@
  * Base input component used for checkbox and radio only.
  */
 
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import noop from 'lodash/utility/noop';
 
 export default class Input extends Component {
@@ -32,22 +32,22 @@ export default class Input extends Component {
     }
 
     render() {
-        const {checked, id, name, value} = this.props;
+        const { checked, id, name, value } = this.props;
 
         if (!id || !name || !value) return null;
 
         return (
             <span>
                 <input
-                    className="custom-input"
-                    defaultChecked={checked}
-                    id={id}
-                    key={id}
-                    name={name}
-                    onChange={this.onChange.bind(this)}
-                    type={this.props.type}
-                    value={value}
-                    />
+                  className="custom-input"
+                  defaultChecked={checked}
+                  id={id}
+                  key={id}
+                  name={name}
+                  onChange={this.onChange.bind(this)}
+                  type={this.props.type}
+                  value={value}
+                />
                 <label htmlFor={this.props.id}>
                     {this.props.children}
                 </label>

@@ -1,6 +1,6 @@
 import isUndefined from 'lodash/lang/isUndefined';
-import {canUseDOM} from 'exenv';
-import {createStore} from '@bxm/flux';
+import { canUseDOM } from 'exenv';
+import { createStore } from '@bxm/flux';
 
 const dataLayer = canUseDOM && !isUndefined(window.dataLayer) ? window.dataLayer : [];
 
@@ -10,9 +10,7 @@ function dataLayerPush(data) {
 }
 
 function getNumAds(items) {
-    const adItems = items.filter((item) => {
-        return !isUndefined(item.ad);
-    });
+    const adItems = items.filter(item => !isUndefined(item.ad));
 
     return adItems.length;
 }
@@ -31,7 +29,7 @@ function trackGalleryOpen(action) {
             currImage: activeItem.url,
             currImageNo: activeItem.index,
             totalImages: action.totalItems - numAds,
-            numAds: numAds,
+            numAds,
             isAd: !!activeItem.ad
         }
     };
@@ -52,7 +50,7 @@ function trackGalleryItemChanged(action) {
     const items = action.items;
     const numAds = getNumAds(items);
     const newItem = newItemIndex !== null ? items[newItemIndex] : '';
-    const isAd = newItem.ad ? true : false;
+    const isAd = !!newItem.ad;
     const slideNumber = isAd ? null : newItem.index;
 
     const data = {
@@ -63,7 +61,7 @@ function trackGalleryItemChanged(action) {
             currImage: newItem.url,
             currImageNo: slideNumber,
             totalImages: totalItems - numAds,
-            numAds: numAds,
+            numAds,
             isAd: !!newItem.ad
         }
     };
@@ -80,7 +78,7 @@ function trackGalleryComplete(action) {
             galleryName: action.galleryTitle,
             prevImage: action.activeItem.url,
             totalImages: action.totalItems - numAds,
-            numAds: numAds,
+            numAds,
             isAd: false
         }
     };
@@ -109,7 +107,7 @@ function trackVerticalGalleryItemChanged(action) {
 }
 
 function trackVerticalGalleryComplete(action) {
-     const data = {
+    const data = {
         event: 'galleryComplete',
         eventInfo: {
             galleryName: action.galleryTitle,
@@ -130,12 +128,12 @@ function trackFollowOnClick(source) {
     dataLayerPush(data);
 }
 
-function trackGalleryChanged(action) {
+function trackGalleryChanged() {
     trackFollowOnClick('Next gallery');
 }
 
 function trackLoadList(payload) {
-    const {list} = payload.body;
+    const { list } = payload.body;
 
     const data = {
         event: 'expandListing',
@@ -193,7 +191,7 @@ module.exports = createStore({
     onVerticalGalleryPreviousItemTrack: (payload) => {
         trackVerticalGalleryItemChanged(payload);
     },
-    
+
     onVerticalGalleryCompleted: (payload) => {
         trackVerticalGalleryComplete(payload);
     },

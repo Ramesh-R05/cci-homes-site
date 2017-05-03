@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import SocialIcon from './socialIcon';
 
 export default class Social extends Component {
@@ -16,7 +16,7 @@ export default class Social extends Component {
     }
 
     getSocialIcons(social) {
-        let icons = [];
+        const icons = [];
         let key;
 
         for (key in social) {
@@ -30,7 +30,7 @@ export default class Social extends Component {
     }
 
     render() {
-        const {brand, social} = this.props;
+        const { brand, social } = this.props;
 
         if (!brand) return null;
 

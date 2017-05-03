@@ -30,7 +30,7 @@ export default (Component, sourcePropName) => class Theme extends React.Componen
         if (isUndefined(source) || !isString(source)) {
             this.themeClass = null;
         } else {
-            this.themeClass = (`theme-${source.replace(/[^a-z]/gi, '_' ).toLowerCase()}`);
+            this.themeClass = (`theme-${source.replace(/[^a-z]/gi, '_').toLowerCase()}`);
         }
     }
 

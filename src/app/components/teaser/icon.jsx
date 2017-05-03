@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class Icon extends Component {
 
@@ -35,7 +35,7 @@ export default class Icon extends Component {
     }
 
     render() {
-        const {icon, nodeType, video} = this.props;
+        const { icon, nodeType, video } = this.props;
         let iconHtml;
 
         if (video || icon === 'video') {
@@ -47,9 +47,10 @@ export default class Icon extends Component {
         }
 
         return (
-            <div className="teaser__icon"
-                 dangerouslySetInnerHTML={{__html: iconHtml}}>
-            </div>
+            <div
+              className="teaser__icon"
+              dangerouslySetInnerHTML={{ __html: iconHtml }}
+            />
         );
     }
 }

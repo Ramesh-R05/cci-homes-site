@@ -26,9 +26,7 @@ const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/arti
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersSpy
-    }
+    '../api/listing': getLatestTeasersSpy
 });
 
 describe('article middleware', () => {

@@ -1,4 +1,4 @@
-import {createReducerStore} from 'fluxible-reducer-store';
+import { createReducerStore } from 'fluxible-reducer-store';
 
 const PageStore = createReducerStore({
     storeName: 'PageStore',
@@ -8,7 +8,7 @@ const PageStore = createReducerStore({
     },
     reducers: {
         LOAD_CONTENT: (state, payload) => {
-            let {
+            const {
                 entity,
                 hero,
                 items,
@@ -18,77 +18,62 @@ const PageStore = createReducerStore({
                 list = []
             } = payload.body;
 
-            if (!entity) return;
+            if (entity) {
+                return {
+                    title: entity.title,
+                    content: entity,
+                    hero,
+                    items,
+                    headerNavigation,
+                    navigationTags: entity.navigationTags,
+                    galleries,
+                    latestRealHomes,
+                    list,
+                    query: payload.request.payload.query };
+            } return {};
+        },
+        LOAD_CONTENT_FAILED: (state, payload) => ({
 
-            return {
-                title: entity.title,
-                content: entity,
-                hero: hero,
-                items,
-                headerNavigation,
-                navigationTags: entity.navigationTags,
-                galleries,
-                latestRealHomes,
-                list,
-                query: payload.request.payload.query
-            };
-        },
-        LOAD_CONTENT_FAILED: (state, payload) => {
-            return {
-                error: payload.response.error,
-                hero: {},
-                items: [],
-                galleries: [],
-                latestRealHomes: [],
-                list: [],
-                content: null,
-                query: {}
-            };
-        },
-        LOAD_LIST:  (state, payload) => {
-            return {
-                ...state,
-                list: {
-                    ...payload.body.list,
-                    items: [
-                        ...state.list.items,
-                        ...payload.body.list.items
-                    ]
-                }
-            };
-        }
+            error: payload.response.error,
+            hero: {},
+            items: [],
+            galleries: [],
+            latestRealHomes: [],
+            list: [],
+            content: null,
+            query: {} }),
+
+        LOAD_LIST: (state, payload) => ({
+
+            ...state,
+            list: {
+                ...payload.body.list,
+                items: [
+                    ...state.list.items,
+                    ...payload.body.list.items
+                ]
+            }
+        })
     },
     getters: {
-        getContent: (state) => {
-            return state.content;
-        },
+        getContent: state => state.content,
 
         getNodeType(state) {
             return state.content ? state.content.nodeType : '';
         },
 
-        getHeroItem: (state) => {
-            return state.hero;
-        },
+        getHeroItem: state => state.hero,
 
-        getItems: (state) => {
-            return state.items;
-        },
+        getItems: state => state.items,
 
-        getNavigationTags: (state) => {
-            return state.navigationTags;
-        },
+        getNavigationTags: state => state.navigationTags,
 
-        getList: (state) => {
-            return state.list;
-        },
+        getList: state => state.list,
 
-        getListNextParams: (state) => {
-            return {
-                ...state.list.params,
-                pageNo: (state.list.params.pageNo + 1)
-            };
-        },
+        getListNextParams: state => ({
+            ...state.list.params,
+            pageNo: (state.list.params.pageNo + 1)
+        }),
 
         getModuleItems: (state, module) => {
             if (!module) return [];

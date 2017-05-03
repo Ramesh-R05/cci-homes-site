@@ -5,7 +5,7 @@ import adConfig from '@bxm/ad/lib/google/config';
 export default {
     init() {
         merge(adConfig, {
-            breakpoints: breakpoints,
+            breakpoints,
             pageTypes: {
                 NavigationSection: 'index',
                 BrandSection: 'index',

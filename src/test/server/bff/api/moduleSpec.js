@@ -6,14 +6,12 @@ let makeRequestStub = (args) => {};
 
 const remoteModuleUrl = 'http://remoteModuleUrl.com/api';
 const configStub = {
-    load() {
-        return { services: { remote: { module: remoteModuleUrl } } }
-    }
+    services: { remote: { module: remoteModuleUrl } }
 };
 
-const moduleApi = proxyquire('../../../../app/server/bff/api/module', {
+const getModules = proxyquire('../../../../app/server/bff/api/module', {
     '../../makeRequest': (args) => { return makeRequestStub(args) },
-    '@bxm/config': configStub
+    '../../../config': configStub
 });
 
 describe(`Module API`, () => {
@@ -23,7 +21,7 @@ describe(`Module API`, () => {
 
         describe(`when passing no arguments`, () => {
             it(`should return an empty object`, (done) => {
-                moduleApi.getModules().then((modules) => {
+                getModules().then((modules) => {
                     expect(modules).to.deep.eq({});
                     done()
                 }).catch(done);
@@ -42,7 +40,7 @@ describe(`Module API`, () => {
                 });
 
                 it(`should return an empty array`, (done) => {
-                    moduleApi.getModules('headernavigation').then((modules) => {
+                    getModules('headernavigation').then((modules) => {
                         expect(makeRequestStub).to.have.been.calledWith(`${remoteModuleUrl}/headernavigation`);
                         expect(modules).to.deep.eq(headerNavigationModuleData);
                         done();
@@ -58,7 +56,7 @@ describe(`Module API`, () => {
                     });
 
                     it(`should return an empty array`, (done) => {
-                        moduleApi.getModules('headernavigation').then((modules) => {
+                        getModules('headernavigation').then((modules) => {
                             expect(modules).to.deep.eq(headerNavigationModuleData);
                             done();
                         }).catch(done);
@@ -73,7 +71,7 @@ describe(`Module API`, () => {
                         });
 
                         it(`should return an empty array`, (done) => {
-                            moduleApi.getModules('headernavigation').then((modules) => {
+                            getModules('headernavigation').then((modules) => {
                                 expect(modules).to.deep.eq(headerNavigationModuleData);
                                 done();
                             }).catch(done);
@@ -89,7 +87,7 @@ describe(`Module API`, () => {
                         });
 
                         it(`should return the footer data`, (done) => {
-                            moduleApi.getModules('footer').then((modules) => {
+                            getModules('footer').then((modules) => {
                                 expect(modules).to.deep.eq({footer: footerModuleData});
                                 done();
                             }).catch(done);
@@ -105,7 +103,7 @@ describe(`Module API`, () => {
                 });
 
                 it(`should return an empty object`, (done) => {
-                    moduleApi.getModules('footer').then((modules) => {
+                    getModules('footer').then((modules) => {
                         expect(modules).to.deep.eq({});
                         done();
                     }).catch(done);
@@ -127,7 +125,7 @@ describe(`Module API`, () => {
                 });
 
                 it(`should return an object which contains a footer and headernavigation property with an empty array`, (done) => {
-                    moduleApi.getModules('footer', 'headernavigation').then((modules) => {
+                    getModules('footer', 'headernavigation').then((modules) => {
                         expect(makeRequestStub).to.have.been.calledWith(`${remoteModuleUrl}/footer,headernavigation`);
                         expect(modules).to.deep.eq({footer: footerModuleData, headernavigation: headerNavigationModuleData});
                         done();
@@ -146,7 +144,7 @@ describe(`Module API`, () => {
                     });
 
                     it(`should return an object which contains a footer property with an empty array and the headernavigation with data`, (done) => {
-                        moduleApi.getModules('footer', 'headernavigation').then((modules) => {
+                        getModules('footer', 'headernavigation').then((modules) => {
                             expect(modules).to.deep.eq({footer: footerModuleData, headernavigation: headerNavigationModuleData});
                             done();
                         }).catch(done);
@@ -167,7 +165,7 @@ describe(`Module API`, () => {
                         });
 
                         it(`should return an object which contains the data for both footer and headernavigation`, (done) => {
-                            moduleApi.getModules('footer', 'headernavigation').then((modules) => {
+                            getModules('footer', 'headernavigation').then((modules) => {
                                 expect(modules).to.deep.eq({footer: footerModuleData, headernavigation: headerNavigationModuleData});
                                 done();
                             }).catch(done);

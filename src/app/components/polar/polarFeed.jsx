@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import has from 'lodash/object/has';
 import polarAd from '@bxm/ad/lib/polar/decorators/polarAd';
 import polarConfig from '@bxm/ad/lib/polar/decorators/polarConfig';
@@ -34,12 +34,12 @@ class PolarFeedItem extends Component {
 
         return (
             <PolarTeaserImage
-                caption="Powered By"
-                id={this.props.id}
-                nativeAd={this.props.nativeAd.response.model}
-                modifier={this.props.modifier}
-                trackClick={this.props.trackClick}
-                className={this.props.className}
+              caption="Powered By"
+              id={this.props.id}
+              nativeAd={this.props.nativeAd.response.model}
+              modifier={this.props.modifier}
+              trackClick={this.props.trackClick}
+              className={this.props.className}
             />
 
         );

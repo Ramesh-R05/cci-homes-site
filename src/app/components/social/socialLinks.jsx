@@ -6,7 +6,7 @@ export default class SocialLinks extends Component {
     static propTypes = {
         links: PropTypes.array.isRequired,
         nodeType: PropTypes.string.isRequired,
-        title: PropTypes.string,
+        title: PropTypes.string
     };
 
     static defaultProps = {
@@ -19,8 +19,8 @@ export default class SocialLinks extends Component {
         return (
             <section className="get-social">
                 <div className="get-social__links">
-                    { !nodeType && (nodeType != "Homepage" && nodeType != 'BrandSection') ? null :  <p className="social-links__text">{`Follow ${title}`}</p> }
-                    { links.map((link, i) => <SocialIcons key={i} { ...link } {...this.props}/>) }
+                    { !nodeType && (nodeType !== 'Homepage' && nodeType !== 'BrandSection') ? null : <p className="social-links__text">{`Follow ${title}`}</p> }
+                    { links.map((link, i) => <SocialIcons key={i} {...link} {...this.props} />) }
                 </div>
             </section>
         );

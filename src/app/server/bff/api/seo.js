@@ -1,18 +1,15 @@
 import makeRequest from '../../makeRequest';
-import {load} from '@bxm/config';
-import {backendLogger as logger} from '@bxm/winston-logger';
-const config = load();
+import config from '../../../config';
+import { backendLogger as logger } from '@bxm/winston-logger';
 
-export function getKeywords(url) {
+export default function getKeywords(url) {
     if (!url) return Promise.resolve({});
 
-    const query = `?urlName=` + url;
+    const query = `?urlName=${url}`;
 
     return makeRequest(`${config.services.remote.keywords}${query}`)
-        .then((res) => {
-            return res;
-        }).catch((err) => {
-            logger.log('error', err);
+        .then(res => res).catch((err) => {
+            logger.error(err);
             return {};
         });
 }

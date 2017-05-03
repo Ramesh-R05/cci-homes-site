@@ -6,15 +6,13 @@ let makeRequestStub = (args) => {};
 
 const remoteListingUrl = 'http://remoteListingUrl.com/api';
 const configStub = {
-    load() {
-        return { services: { remote: { listings: remoteListingUrl } } }
-    }
+    services: { remote: { listings: remoteListingUrl } }
 };
 
-const SectionApi = proxyquire('../../../../app/server/bff/api/listing', {
+const getLatestTeasers = proxyquire('../../../../app/server/bff/api/listing', {
     '../../makeRequest': (args) => { return makeRequestStub(args) },
-    '@bxm/config': configStub,
-    '@bxm/winston-logger': { backendLogger: { log(){} } }
+    '../../../config': configStub,
+    '@bxm/winston-logger': { backendLogger: { error(){} } }
 });
 
 describe('ListingAPI', () => {
@@ -52,7 +50,7 @@ describe('ListingAPI', () => {
                 });
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, `path eq '${sectionId}'`).then(() => {
+                    getLatestTeasers(top, undefined, `path eq '${sectionId}'`).then(() => {
                         expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
                         done();
                     }).catch(done);
@@ -61,7 +59,7 @@ describe('ListingAPI', () => {
 
             describe('and the section is null', () => {
                 it(`should not call makeRequest and return an empty array`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, null).then((value) => {
+                    getLatestTeasers(top, undefined, null).then((value) => {
                         expect(makeRequestStub).to.not.be.called;
                         expect(value).to.deep.eq([]);
                         done();
@@ -80,7 +78,7 @@ describe('ListingAPI', () => {
                 });
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers().then((value) => {
+                    getLatestTeasers().then((value) => {
                         expect(makeRequestStub).to.not.be.called;
                         expect(value).to.deep.eq([]);
                         done();
@@ -90,7 +88,7 @@ describe('ListingAPI', () => {
 
             describe('and filter is not passed', () => {
                 it(`should not call makeRequest`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined).then((value) => {
+                    getLatestTeasers(top, undefined).then((value) => {
                         expect(makeRequestStub.called).to.be.false;
                         expect(value).to.deep.eq([]);
                         done();
@@ -100,7 +98,7 @@ describe('ListingAPI', () => {
 
             describe('and the listings remote returns a list in the response', () => {
                 it(`should return the listing data`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, sectionId).then((value) => {
+                    getLatestTeasers(top, undefined, sectionId).then((value) => {
                         expect(value).to.deep.eq(listingData);
                         done();
                     }).catch(done);
@@ -115,7 +113,7 @@ describe('ListingAPI', () => {
                 });
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, filter).then((value) => {
+                    getLatestTeasers(top, undefined, filter).then((value) => {
                         expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
                         done();
                     }).catch(done);
@@ -133,7 +131,7 @@ describe('ListingAPI', () => {
                 });
 
                 it('should return an empty array object', (done) => {
-                    SectionApi.getLatestTeasers(top, undefined, sectionId).then((value) => {
+                    getLatestTeasers(top, undefined, sectionId).then((value) => {
                         expect(value).to.deep.eq([]);
                         done();
                     }).catch(done);

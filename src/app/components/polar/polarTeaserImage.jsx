@@ -26,7 +26,7 @@ export default class PolarTeaserImage extends Component {
     render() {
         const ad = this.props.nativeAd;
         const gtmClass = this.props.id ? `gtm-native-${this.props.id}` : '';
-        const themeClass = (`theme-${this.props.source.replace(/[^a-z]/gi, '_' ).toLowerCase()}`);
+        const themeClass = (`theme-${this.props.source.replace(/[^a-z]/gi, '_').toLowerCase()}`);
         const classNames = cx('teaser', `teaser--${this.props.modifier}`, 'teaser--native', this.props.className, themeClass);
 
         return (
@@ -36,7 +36,7 @@ export default class PolarTeaserImage extends Component {
                     <Icon icon={ad.custom.icon} />
                 </a>
                 <div className="teaser__content">
-                    <Sponsor name={ad.sponsor.name} caption={this.props.caption}/>
+                    <Sponsor name={ad.sponsor.name} caption={this.props.caption} />
                     <Title title={ad.title} url={ad.link} gtmClass={gtmClass} />
                     <Summary summary={ad.summary} />
                 </div>

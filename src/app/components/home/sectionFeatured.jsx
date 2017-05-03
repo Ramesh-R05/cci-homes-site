@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
 import PolarTeaser from '../polar/polarTeaser';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
@@ -25,7 +25,7 @@ export default class SectionFeatured extends Component {
         articles: [],
         className: '',
         children: [],
-        polarTargets: [ [], []]
+        polarTargets: [[], []]
     };
 
     constructor(props, context) {
@@ -33,7 +33,7 @@ export default class SectionFeatured extends Component {
     }
 
     render() {
-        const {hero, articles, latestRealHomes, list, listNextParams, content, polarTargets} = this.props;
+        const { hero, articles, latestRealHomes, list, listNextParams, content, polarTargets } = this.props;
 
         if (articles.length === 0) return null;
 
@@ -59,7 +59,7 @@ export default class SectionFeatured extends Component {
                             <span className="latest-real-homes__title">Latest Real Homes</span>
                         </div>
                         <div>
-                            {latestRealHomes.map((item, i)=>{
+                            {latestRealHomes.map((item, i) => {
                                 const teaser = {
                                     id: item.id,
                                     title: item.title,
@@ -69,11 +69,11 @@ export default class SectionFeatured extends Component {
                                 };
                                 return (
                                     <Teaser
-                                        {...teaser}
-                                        key={item.id}
-                                        lazyload={false}
-                                        modifier="latest-real-homes"
-                                        gtmClass={`gtm-realhomes${i+1}-homepage`}
+                                      {...teaser}
+                                      key={item.id}
+                                      lazyload={false}
+                                      modifier="latest-real-homes"
+                                      gtmClass={`gtm-realhomes${i + 1}-homepage`}
                                     />
                                 );
                             })}
@@ -94,22 +94,24 @@ export default class SectionFeatured extends Component {
 
                                     <div className="row">
                                         <div className="column small-12">
-                                            <Teaser {...hero}
-                                                key={hero.id}
-                                                lazyload={false}
-                                                modifier="hero-img-top"
-                                                sizes="home-hero"
-                                                gtmClass="gtm-hero-homepage"
+                                            <Teaser
+                                              {...hero}
+                                              key={hero.id}
+                                              lazyload={false}
+                                              modifier="hero-img-top"
+                                              sizes="home-hero"
+                                              gtmClass="gtm-hero-homepage"
                                             />
                                         </div>
 
                                         <div className="column large-12">
-                                            <Teaser {...hero}
-                                                key={hero.id}
-                                                lazyload={false}
-                                                modifier="hero"
-                                                sizes="home-hero"
-                                                gtmClass="gtm-hero-homepage"
+                                            <Teaser
+                                              {...hero}
+                                              key={hero.id}
+                                              lazyload={false}
+                                              modifier="hero"
+                                              sizes="home-hero"
+                                              gtmClass="gtm-hero-homepage"
                                             />
                                         </div>
                                     </div>
@@ -119,50 +121,50 @@ export default class SectionFeatured extends Component {
                                     </div>
 
                                     <Ad
-                                        className="ad--section-mrec home-section-top-mrec-1"
-                                        displayFor={['small','medium']}
-                                        sizes={{
-                                            small: 'mrec',
-                                            medium: 'mrec'
-                                        }}
-                                        updatePageOffset={true}
-                                        targets={{position: 1}}
-                                        label={{active: false}}
+                                      className="ad--section-mrec home-section-top-mrec-1"
+                                      displayFor={['small', 'medium']}
+                                      sizes={{
+                                          small: 'mrec',
+                                          medium: 'mrec'
+                                      }}
+                                      updatePageOffset
+                                      targets={{ position: 1 }}
+                                      label={{ active: false }}
                                     />
 
-                                    {articles.slice(0, 6).map( (item, i) => {
+                                    {articles.slice(0, 6).map((item, i) => {
                                         const polarDetails = polarTargets[0].find(slot => slot.index === i);
 
-                                            if (polarDetails) {
-                                                return <PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-homepage" />;
-                                            } else {
-                                                return <Teaser {...item} key={item.id} modifier="img-top" gtmClass="gtm-topteaserlist-homepage"/>;
-                                            }
+                                        if (polarDetails) {
+                                            return <PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-homepage" />;
+                                        }
+                                        return <Teaser {...item} key={item.id} modifier="img-top" gtmClass="gtm-topteaserlist-homepage" />;
                                     }
                                     )}
 
                                     <Ad
-                                        className="ad--section-mrec home-section-top-mrec-2"
-                                        displayFor={['medium']}
-                                        sizes={{
-                                            medium: 'mrec'
-                                        }}
-                                        targets={{position: 2}}
-                                        label={{active: false}}
+                                      className="ad--section-mrec home-section-top-mrec-2"
+                                      displayFor={['medium']}
+                                      sizes={{
+                                          medium: 'mrec'
+                                      }}
+                                      targets={{ position: 2 }}
+                                      label={{ active: false }}
                                     />
 
                                 </section>
 
                                 <StickyBlock
-                                    breakpoints={['large', 'xlarge']}
-                                    containerMarginBottom={120}
-                                    containerClasses="show-for-large-up large-4 columns">
+                                  breakpoints={['large', 'xlarge']}
+                                  containerMarginBottom={120}
+                                  containerClasses="show-for-large-up large-4 columns"
+                                >
                                     <Ad
-                                        className="ad--section-mrec"
-                                        displayFor={['large', 'xlarge']}
-                                        sizes={['double-mrec', 'mrec']}
-                                        targets={{position: 1}}
-                                        label={{active: false}}
+                                      className="ad--section-mrec"
+                                      displayFor={['large', 'xlarge']}
+                                      sizes={['double-mrec', 'mrec']}
+                                      targets={{ position: 1 }}
+                                      label={{ active: false }}
                                     />
                                     <SocialAndSubscribeLinks content={content} />
                                 </StickyBlock>
@@ -173,14 +175,14 @@ export default class SectionFeatured extends Component {
                     <div className="row">
                         <div className="columns small-12">
                             <Ad
-                                className="ad--section-middle-leaderboard"
-                                sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
-                                }}
-                                targets={{ position: 2 }}
-                                label={{active: false}}
+                              className="ad--section-middle-leaderboard"
+                              sizes={{
+                                  small: 'banner',
+                                  leaderboard: 'leaderboard',
+                                  billboard: ['billboard', 'leaderboard']
+                              }}
+                              targets={{ position: 2 }}
+                              label={{ active: false }}
                             />
                         </div>
                     </div>
@@ -190,14 +192,14 @@ export default class SectionFeatured extends Component {
                             <div className="row">
 
                                 <Repeatable
-                                    component={List}
-                                    action={loadList}
-                                    dataSource={list}
-                                    nextParams={listNextParams}
-                                    className="news-feed bottom-news-feed"
-                                    adTargets={{ position: 2 }}
-                                    content={ content }
-                                    polarTargets={polarTargets[1]}
+                                  component={List}
+                                  action={loadList}
+                                  dataSource={list}
+                                  nextParams={listNextParams}
+                                  className="news-feed bottom-news-feed"
+                                  adTargets={{ position: 2 }}
+                                  content={content}
+                                  polarTargets={polarTargets[1]}
                                 />
 
                             </div>
@@ -206,8 +208,9 @@ export default class SectionFeatured extends Component {
                     </div>
 
                     <StickyAd
-                        adProps={stickyAdProps}
-                        minHeight={450} />
+                      adProps={stickyAdProps}
+                      minHeight={450}
+                    />
 
                 </div>
             </div>

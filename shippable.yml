@@ -6,6 +6,7 @@ node_js: "6.1.0"
 env:
   global:
     - APP_KEY=homes-site
+    - APP_STUBBED=true
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site
     - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'

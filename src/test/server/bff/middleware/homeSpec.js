@@ -73,20 +73,20 @@ const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', 
         },
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersStub
-    }
+    '../api/listing': getLatestTeasersStub
 });
 
 describe('home middleware', () => {
     const req = {
         query: {},
         app: {
-            config: {
-                services: {
-                    remote: {
-                        entity: entityServiceMockUrl,
-                        module: moduleServiceMockUrl
+            locals: {
+                config: {
+                    services: {
+                        remote: {
+                            entity: entityServiceMockUrl,
+                            module: moduleServiceMockUrl
+                        }
                     }
                 }
             }

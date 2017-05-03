@@ -1,12 +1,10 @@
-import {getLatestTeasers} from '../api/listing'
-import {parseEntities} from '../helper/parseEntity';
+import getLatestTeasers from '../api/listing';
+import { parseEntities } from '../helper/parseEntity';
 
 
-export default async function article(req, res, next) {
-
+export default async function articleMiddleware(req, res, next) {
     try {
-
-        const {entity} = res.body;
+        const { entity } = res.body;
 
         if (!entity || entity.nodeType !== 'HomesArticle') {
             next();
@@ -14,19 +12,16 @@ export default async function article(req, res, next) {
         }
 
         if (entity.tags) {
-            const navTags = entity.tags.find((tag) => tag.includes('navigation'));
+            const navTags = entity.tags.find(tag => tag.includes('navigation'));
             if (navTags) {
                 const relatedArticles = await getLatestTeasers(20, 0, `tags eq '${navTags}'`);
-                res.body.leftHandSide = { items: parseEntities(relatedArticles.data) }
+                res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };
             }
         }
 
         next();
-
-    } catch(error) {
+    } catch (error) {
         next(error);
     }
 }
-
-
 

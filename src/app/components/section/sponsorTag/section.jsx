@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {connectToStores} from '@bxm/flux';
+import React, { Component, PropTypes } from 'react';
+import { connectToStores } from '@bxm/flux';
 import GenericSection from '../section';
 
 class Section extends Component {
@@ -28,8 +28,8 @@ class Section extends Component {
 
     render() {
         return (<GenericSection
-                {...this.props}
-            />
+          {...this.props}
+        />
         );
     }
 }

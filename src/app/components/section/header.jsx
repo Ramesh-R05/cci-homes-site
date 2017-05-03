@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
@@ -12,7 +12,7 @@ export default class Header extends Component {
     };
 
     render() {
-        const {title} = this.props;
+        const { title } = this.props;
         if (!title) {
             return null;
         }
@@ -41,21 +41,22 @@ export default class Header extends Component {
 
                 <div className="section__heading__ad">
                     <Ad
-                        className="ad--section-top-leaderboard"
-                        sizes={{
-                            small: 'banner',
-                            leaderboard: 'leaderboard',
-                            billboard: ['billboard', 'leaderboard']
-                        }}
-                        targets={{position: 1}}
-                        label={{active: false}}
+                      className="ad--section-top-leaderboard"
+                      sizes={{
+                          small: 'banner',
+                          leaderboard: 'leaderboard',
+                          billboard: ['billboard', 'leaderboard']
+                      }}
+                      targets={{ position: 1 }}
+                      label={{ active: false }}
                     />
                 </div>
 
                 <div className="section__heading__title">
                     <SponsorHeader
-                        id={this.props.sponsorName}
-                        title={<b>{title}</b>}>
+                      id={this.props.sponsorName}
+                      title={<b>{title}</b>}
+                    >
                         {htmlHeading}
                     </SponsorHeader>
                 </div>

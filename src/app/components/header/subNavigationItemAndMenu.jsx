@@ -1,6 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 import ReactDOM from 'react-dom';
-import {canUseDOM} from 'exenv';
+import { canUseDOM } from 'exenv';
 
 const isArray = Array.isArray;
 
@@ -33,40 +33,40 @@ export default class NavigationItem extends Component {
 
     componentWillMount() {
         if (canUseDOM) {
-            this.setState({viewportSize: this.props.viewportSize});
+            this.setState({ viewportSize: this.props.viewportSize });
         }
     }
 
     componentDidMount() {
         if (canUseDOM) {
-            this.setState({viewportSize: window.innerWidth});
+            this.setState({ viewportSize: window.innerWidth });
             window.addEventListener('resize', this.processResizeEvent, false);
             this.determineNavLabelWidth();
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener('resize', this.processResizeEvent);
     }
 
     processResizeEvent = () => {
         if (this.checkViewportSizeOnResize()) {
-            this.setState({viewportSize: window.innerWidth});
+            this.setState({ viewportSize: window.innerWidth });
             this.determineNavLabelWidth();
         }
     };
 
     checkViewportSizeOnResize = () => {
-        let { viewportSize } = this.state;
-        let { innerWidth } = window;
-        let { BREAKPOINT_LARGE_MIN } = NavigationItem.constants;
-        return  viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN ||
+        const { viewportSize } = this.state;
+        const { innerWidth } = window;
+        const { BREAKPOINT_LARGE_MIN } = NavigationItem.constants;
+        return viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN ||
             viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN;
     };
 
     determineNavLabelWidth = () => {
         if (ReactDOM.findDOMNode(this.refs.subnav)) {
-            let navLabelWidth = ReactDOM.findDOMNode(this.refs.subnav).getBoundingClientRect().width;
+            const navLabelWidth = ReactDOM.findDOMNode(this.refs.subnav).getBoundingClientRect().width;
 
             this.setState({
                 subNavStyles: {
@@ -79,18 +79,18 @@ export default class NavigationItem extends Component {
     getSubNavMenu = () => {
         const items = this.props.items;
 
-        let subNavItems = items.map((item, i) =>
-            <li key={i}><a className={this.props.linkClassName} href={'/'+item.urlName}>{item.displayName}</a></li>
+        const subNavItems = items.map((item, i) =>
+            <li key={i}><a className={this.props.linkClassName} href={`/${item.urlName}`}>{item.displayName}</a></li>
         );
 
         return subNavItems;
     };
 
     calculateLeftOffsetForNavLabel = () => {
-        let { width } = this.state.subNavStyles;
-        let { SUB_NAV_WIDTH } = NavigationItem.constants;
-        let maxNavLabelWidthForOffset = 150;
-        return width > maxNavLabelWidthForOffset || width == 0 ? 0 : -((SUB_NAV_WIDTH - width)/2);
+        const { width } = this.state.subNavStyles;
+        const { SUB_NAV_WIDTH } = NavigationItem.constants;
+        const maxNavLabelWidthForOffset = 150;
+        return width > maxNavLabelWidthForOffset || width == 0 ? 0 : -((SUB_NAV_WIDTH - width) / 2);
     };
 
     handleClick() {
@@ -100,7 +100,7 @@ export default class NavigationItem extends Component {
     render() {
         const { items, linkClassName, name, showGroupLabel } = this.props;
 
-        let subNavStyles = {
+        const subNavStyles = {
             left: this.calculateLeftOffsetForNavLabel()
         };
 
@@ -108,15 +108,15 @@ export default class NavigationItem extends Component {
 
         const groupLabel = (
             <a className={linkClassName} onClick={this.handleClick}>{name}
-                <i className="tl-icon-drop-menu"></i>
+                <i className="tl-icon-drop-menu" />
             </a>
         );
 
         return (
-            <div ref='subnav' className='header-sub-nav'>
+            <div ref="subnav" className="header-sub-nav">
                 {showGroupLabel ? groupLabel : null}
-                <ul className='sub-nav-list__dropdown' style={subNavStyles}>{this.getSubNavMenu()}</ul>
+                <ul className="sub-nav-list__dropdown" style={subNavStyles}>{this.getSubNavMenu()}</ul>
             </div>
-        )
+        );
     }
 }

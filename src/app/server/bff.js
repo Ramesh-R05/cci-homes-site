@@ -14,19 +14,26 @@ import list from './bff/middleware/list';
 import sitemap from './bff/middleware/sitemap';
 import seo from './bff/middleware/seo';
 import listing from './bff/middleware/listing';
+import servicesStubs from './servicesStubs';
 
 export default function bff(server) {
+    if (process.env.APP_STUBBED === 'true' ||
+        process.env.APP_ENV === 'test' ||
+        process.env.NODE_ENV === 'stubbed' ||
+        process.env.NODE_ENV === 'automation'
+    ) {
+        server.use('/stub', servicesStubs);
+    }
     server.get('/sitemap/:section?', sitemap, error);
-
     server.get(
-        server.config.services.endpoints.list,
+        server.locals.config.services.endpoints.list,
         list,
         listing,
         render,
         error
     );
     server.get(
-        server.config.services.endpoints.page,// Config set inside @bxm/server
+        server.locals.config.services.endpoints.page, // Config set inside @bxm/server
         pageModules,
         home,
         brand,

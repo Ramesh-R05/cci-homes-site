@@ -99,11 +99,6 @@ describe('Teaser', () => {
             expect(Image.props.breakpoints).to.deep.equal(require('../../../app/breakpoints'));
         });
 
-        const expectedImgQuality = 80;
-        it(`should set the Image quality prop to ${expectedImgQuality}`, () => {
-            expect(Image.props.quality).to.equal(expectedImgQuality);
-        });
-
         // Title
         it(`should set the Title url prop to ${props.url}`, () => {
             expect(Title.props.url).to.equal(props.url);

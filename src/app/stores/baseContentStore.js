@@ -1,4 +1,4 @@
-import {BaseStore} from '@bxm/flux';
+import { BaseStore } from '@bxm/flux';
 import uniq from 'lodash/array/uniq';
 import has from 'lodash/object/has';
 
@@ -18,17 +18,11 @@ export default class BaseContentStore extends BaseStore {
     }
 
     onLoadContent(payload) {
-        if (!has(payload.body.stores, this.name)) {
-            console.log(`[BaseContentStore] ${this.name} key not found in payload.body.stores`);
-            return;
-        }
+        if (!has(payload.body.stores, this.name)) return;
 
         const store = payload.body.stores[this.name];
 
-        if (!has(store, 'items')) {
-            console.log(`[BaseContentStore] items key not found in payload.body.stores.${this.name}`);
-            return;
-        }
+        if (!has(store, 'items')) return;
 
         store.items.forEach(item => this.items.push(item));
         this.items = uniq(this.items, 'id');

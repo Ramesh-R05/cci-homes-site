@@ -14,9 +14,7 @@ const pageModulesMiddleware = proxyquire('../../../../app/server/bff/middleware/
             return parseEntitiesStub(...args)
         }
     },
-	'../api/module': {
-        getModules: () => { return getModulesStub() }
-    }
+	'../api/module': () => { return getModulesStub() }
 });
 
 describe('PageModules middleware', () => {

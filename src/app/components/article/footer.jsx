@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import MainFooter from '../footer/footer';
 
 export default class Footer extends Component {
@@ -11,9 +11,10 @@ export default class Footer extends Component {
     render() {
         return (
             <MainFooter
-                config={this.context.config.get('localeData')}
-                iframeKey="articlefooter"
-                modifier="article" />
+              config={this.context.config.get('localeData')}
+              iframeKey="articlefooter"
+              modifier="article"
+            />
         );
     }
-};
+}

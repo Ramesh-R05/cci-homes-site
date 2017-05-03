@@ -1,8 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import {canUseDOM} from 'exenv';
-import {provideContext} from '@bxm/flux';
-import {handleHistory} from 'fluxible-router';
-import platform from '@bxm/ui/lib/common/platform';
+import React, { Component, PropTypes } from 'react';
+import { canUseDOM } from 'exenv';
+import { provideContext } from '@bxm/flux';
+import { handleHistory } from 'fluxible-router';
 
 class Application extends Component {
 
@@ -15,16 +14,8 @@ class Application extends Component {
         executeAction: React.PropTypes.func
     };
 
-    constructor(props, context) {
-        super(props, context);
-
-        if (canUseDOM) {
-            platform.set(navigator.userAgent);
-        }
-    }
-
     componentDidUpdate(prevProps) {
-        let newProps = this.props;
+        const newProps = this.props;
         if (newProps.pageTitle === prevProps.pageTitle) {
             return;
         }
@@ -36,7 +27,7 @@ class Application extends Component {
         const className = canUseDOM ? '' : 'no-js';
         return (
             <div className={className}>
-                <Handler/>
+                <Handler />
             </div>
         );
     }

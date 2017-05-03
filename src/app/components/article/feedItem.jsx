@@ -5,19 +5,17 @@ import theme from '../helpers/theme';
 
 class HomesFeedItems extends FeedItem {
 
-    getTagName(tagObject) {
-       const tag = tagObject.find( (tag) => {
-            return tag.name.includes('Topic');
-        });
+    static getTagName(tagObject) {
+        const tag = tagObject.find(t => t.name.includes('Topic'));
         return tag || {};
-    };
+    }
 
     renderTaxonomy() {
         const { item } = this.props;
         let tagName = '';
 
         if (item && item.tagsDetails) {
-            tagName = this.getTagName(item.tagsDetails).displayName;
+            tagName = HomesFeedItems.getTagName(item.tagsDetails).displayName;
         }
 
 

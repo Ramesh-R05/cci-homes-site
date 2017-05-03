@@ -22,16 +22,16 @@ export default {
         action: loadPageContent
     },
     preview: {
-        path: '/:preview(preview)/:page(.*\-):id([0-9]+)',
+        path: '/:preview(preview)/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
     },
     page: {
-      path: '/:page(.*\-):id([0-9]+)',
-      method: 'get',
-      handler: defaultTemplate,
-      action: loadPageContent
+        path: '/:page(.*-):id([0-9]+)',
+        method: 'get',
+        handler: defaultTemplate,
+        action: loadPageContent
     },
     brand: {
         path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden)',

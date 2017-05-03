@@ -5,22 +5,10 @@ noCallThru();
 let makeRequestStub = (args) => {};
 
 const remoteListingUrl = 'http://dev.seo-batman.services.bauer-media.internal/v1/keywords';
-const configStub = {
-    load() {
-        return {
-            services: {
-                remote: {
-                    keywords: remoteListingUrl
-                }
-            }
-        }
-    }
-};
 
-const SeoApi = proxyquire('../../../../app/server/bff/api/seo', {
+const getKeywords = proxyquire('../../../../app/server/bff/api/seo', {
     '../../makeRequest': (args) => { return makeRequestStub(args) },
-    '@bxm/config': configStub,
-    '@bxm/winston-logger': { backendLogger: { log(){} } }
+    '@bxm/winston-logger': { backendLogger: { error(){} } }
 });
 
 describe('SeoAPI', () => {
@@ -49,7 +37,7 @@ describe('SeoAPI', () => {
                 });
 
                 it(`should call makeRequest`, (done) => {
-                    SeoApi.getKeywords(articleUrl).then(() => {
+                    getKeywords(articleUrl).then(() => {
                         expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}${query}`);
                         done();
                     }).catch(done);
@@ -64,7 +52,7 @@ describe('SeoAPI', () => {
 				});
 
 				it('should return an empty object', (done) => {
-					SeoApi.getKeywords(articleUrl).then((value) => {
+					getKeywords(articleUrl).then((value) => {
 						expect(value).to.deep.eq({ });
 						done();
 					}).catch(done);

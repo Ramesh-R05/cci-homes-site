@@ -36,13 +36,15 @@ describe('page middleware', () => {
             id: 2234
         },
         app: {
-            config: {
-                brands: {
-                    uniheader: brands
-                },
-                services: {
-                    remote: {
-                        entity: entityServiceMockUrl
+            locals: {
+                config: {
+                    brands: {
+                        uniheader: brands
+                    },
+                    services: {
+                        remote: {
+                            entity: entityServiceMockUrl
+                        }
                     }
                 }
             }

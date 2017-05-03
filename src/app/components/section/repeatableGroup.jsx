@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import PolarTeaser from '../polar/polarTeaser';
 import Teaser from '../teaser/teaser';
@@ -20,7 +20,7 @@ export default class RepeatableGroup extends Component {
     };
 
     render() {
-        const {items, adTargets} = this.props;
+        const { items, adTargets } = this.props;
         if (!items.length) return null;
 
         const groups = chunk(items, 9);
@@ -35,14 +35,14 @@ export default class RepeatableGroup extends Component {
                         topAd = (
                             <div className="section-heading">
                                 <Ad
-                                    className="ad--section-middle-leaderboard"
-                                    sizes={{
-                                        small: 'banner',
-                                        leaderboard: 'leaderboard',
-                                        billboard: ['billboard', 'leaderboard']
-                                    }}
-                                    targets={adTargets}
-                                    />
+                                  className="ad--section-middle-leaderboard"
+                                  sizes={{
+                                      small: 'banner',
+                                      leaderboard: 'leaderboard',
+                                      billboard: ['billboard', 'leaderboard']
+                                  }}
+                                  targets={adTargets}
+                                />
                             </div>
                         );
                     }
@@ -55,32 +55,32 @@ export default class RepeatableGroup extends Component {
                                 <Teaser {...groupArticles[0]} key={groupArticles[0].id} />
 
                                 <PolarTeaser
-                                    {...groupArticles[1]}
-                                    ad={{
-                                        label: polarAdLabel,
-                                        targets: {
-                                            kw: polarAdLabel
-                                        }
-                                    }}
+                                  {...groupArticles[1]}
+                                  ad={{
+                                      label: polarAdLabel,
+                                      targets: {
+                                          kw: polarAdLabel
+                                      }
+                                  }}
                                 />
 
                                 <Ad
-                                    className="ad--section-mrec"
-                                    displayFor="large"
-                                    sizes="mrec"
-                                    targets={adTargets}
+                                  className="ad--section-mrec"
+                                  displayFor="large"
+                                  sizes="mrec"
+                                  targets={adTargets}
                                 />
 
                                 {groupArticles.slice(2, 3).map(item => <Teaser {...item} key={item.id} />)}
 
                                 <Ad
-                                    className="ad--section-mrec"
-                                    displayFor={['small', 'medium', 'xlarge']}
-                                    sizes={{
-                                        small: 'mrec',
-                                        xlarge: ['double-mrec', 'mrec']
-                                    }}
-                                    targets={adTargets}
+                                  className="ad--section-mrec"
+                                  displayFor={['small', 'medium', 'xlarge']}
+                                  sizes={{
+                                      small: 'mrec',
+                                      xlarge: ['double-mrec', 'mrec']
+                                  }}
+                                  targets={adTargets}
                                 />
 
                                 {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
