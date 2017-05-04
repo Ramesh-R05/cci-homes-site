@@ -89,7 +89,7 @@ resources:
     version:
       memory: 1536
       memoryReservation: 256
-      cpuShares: 128
+      cpuShares: 512
       portMappings:
         - 0:3001
       publishAllPorts : true
