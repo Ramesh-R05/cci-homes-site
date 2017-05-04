@@ -87,9 +87,9 @@ resources:
   - name: homes-site-opts-sit
     type: dockerOptions
     version:
-      memory: 1536
+      memory: 512
       memoryReservation: 256
-      cpuShares: 256
+      cpuShares: 64
       portMappings:
         - 0:3001
       publishAllPorts : true
@@ -103,7 +103,7 @@ resources:
   - name: homes-site-replicas-non-prod
     type: replicas
     version:
-      count: 3
+      count: 2
 
 # PRODUCTION environment configuration (TO BE DONE)
 #
