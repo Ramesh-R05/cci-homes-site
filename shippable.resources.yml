@@ -70,7 +70,7 @@ resources:
       sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-test/24afa8bb9878bdb9"
       method: application
 
-# TO BE UPDATED
+# non Prod ENv
   - name: homes-site-params-sit
     type: params
     version:
@@ -82,6 +82,14 @@ resources:
     version:
       params:
         NODE_ENV: "automation"
+
+  - name: approved-homes-image
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+    seed:
+      versionName: latest
 
 # Docker Image Options
   - name: homes-site-opts-sit

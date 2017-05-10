@@ -33,7 +33,7 @@ jobs:
       - IN: homes-site-replicas-non-prod #number of running tasks
       - IN: homes-site-man-branch # for non-master, don't auto deploy.
         switch: off
-      - IN: env-sit-ecs
+      - IN: homes-env-sit-ecs
       - IN: homes-site-params-sit
       - IN: homes-site-alb-sit-branch
         applyTo:
@@ -51,7 +51,7 @@ jobs:
       - IN: homes-site-replicas-non-prod #number of running tasks
       - IN: homes-site-man-master # for master - auto deploy to SIT
         switch: on
-      - IN: env-sit-ecs
+      - IN: homes-env-sit-ecs
       - IN: homes-site-params-sit
       - IN: homes-site-alb-sit
         applyTo:
@@ -67,7 +67,7 @@ jobs:
       - IN: homes-site-replicas-non-prod #number of running tasks
       - IN: homes-site-man-master # for master - auto deploy to SIT
         switch: on
-      - IN: env-sit-ecs
+      - IN: homes-env-sit-ecs
       - IN: homes-site-params-test
       - IN: homes-site-alb-test
         applyTo:
@@ -86,6 +86,7 @@ jobs:
      - IN: homes-site-test-deploy-master
      - IN: homes-site-repo
        switch: off
+     - OUT: approved-homes-image
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
@@ -122,64 +123,13 @@ jobs:
         - script: export URL=http://homes.test.bxm.net.au/
         - script: npm run test:mobile
 
-  # - name: now-site-e2e-test # Test e2e test for NOW au dev
-  #   type: runSh
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #    - IN: morning-trigger
-  #    - IN: now-site-repo
-  #      switch: off
-  #    - TASK:
-  #       - script: curl dev.publishing-broker.services.bauer-media.internal
-  #       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-  #       - script: source ~/.nvm/nvm.sh
-  #       - script: nvm install "6.1.0"
-  #       - script: nvm use "6.1.0"
-  #       - script: cd ./IN/now-site-repo/gitRepo/automation
-  #       - script: npm set registry http://npm.digital.bauer-media.net.au
-  #       - script: npm install
-  #       - script: export URL=http://now.sit.bxm.net.au/
-  #       - script: APP_KEY=now-site npm run sit:au
-  #   flags:
-  #     - now-site
-
-
-  # - name: FULL-now-site-regression-test # Test Site full regression
-  #   type: runSh
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #    - IN: now-site-repo
-  #      switch: off
-  #    - IN: morning-trigger
-  #    - TASK:
-  #       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-  #       - script: source ~/.nvm/nvm.sh
-  #       - script: nvm install "6.1.0"
-  #       - script: nvm use "6.1.0"
-  #       - script: cd ./IN/now-site-repo/gitRepo/automation
-  #       - script: npm set registry http://npm.digital.bauer-media.net.au
-  #       - script: npm install
-  #       - script: export URL=http://now.test.bxm.net.au/
-  #       - script: APP_KEY=now-site npm run all:test || true
-  #       - script: actualsize=$(wc -c <"@rerun.txt")
-  #       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-  #   flags:
-  #     - now-site
-
   - name: homes-site-release-master # Package release for production release
     type: release
     steps:
-      - IN: homes-site-man-master
-        switch: off
-      - IN: homes-site-automation-test
-        switch: off
-      - IN: homes-site-mobile-automation-test
-        switch: off
+      - IN: approved-homes-image
       - IN: homes-site-version
       - TASK: managed
-
+        bump: major
 
   - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
     type: deploy
@@ -188,6 +138,7 @@ jobs:
     steps:
       - IN: homes-site-replicas-production #number of running tasks
       - IN: homes-site-release-master
+        switch: off
       - IN: env-prod-ecs
       - IN: homes-site-params-prod
       - IN: homes-site-alb-prod
@@ -197,32 +148,3 @@ jobs:
             port: 3001
       - TASK: managed
         deployMethod: upgrade
-
-# ###### DEBUG MODE ###
-# #Tags use for DEBUG
-# #Use --tags <EXPRESSION> to run specific features or scenarios.
-
-# #--tags @dev: tagged with @dev
-# #--tags ~@dev: NOT tagged with @dev
-# #--tags @foo,@bar: tagged with @foo OR bar
-# #--tags @foo --tags @bar: tagged with @foo AND bar
-#   - name: DEBUG-now-site-regression-test # Test on DEBUG mode
-#     type: runSh
-#     always:
-#       - NOTIFY: homes-slack-notifications
-#     steps:
-#      - IN: now-site-repo
-#        switch: off
-#      - TASK:
-#         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-#         - script: source ~/.nvm/nvm.sh
-#         - script: nvm install "6.1.0"
-#         - script: nvm use "6.1.0"
-#         - script: cd ./IN/now-site-repo/gitRepo/automation
-#         - script: npm set registry http://npm.digital.bauer-media.net.au
-#         - script: npm install
-#         - script: export URL=http://now.test.bxm.net.au/
-#         - script: export APP_KEY=now-site
-#         - script: ./node_modules/.bin/chimp chimp.js --browser=phantomjs --debug --tags=@ad --tags=@now --tags=@gallery --tags=@BXMA-132 --tags=@high
-#     flags:
-#       - now-site
