@@ -86,7 +86,6 @@ jobs:
      - IN: homes-site-test-deploy-master
      - IN: homes-site-repo
        switch: off
-     - OUT: approved-homes-image
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
@@ -99,8 +98,6 @@ jobs:
         - script: npm run test:high || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-
-
 
   - name: homes-site-mobile-automation-test # Test Stub site on Browser Stack
     type: runSh
@@ -126,7 +123,11 @@ jobs:
   - name: homes-site-release-master # Package release for production release
     type: release
     steps:
-      - IN: approved-homes-image
+      - IN: homes-site-test-deploy-master
+        switch: off
+      - IN: homes-site-sit-deploy-master
+        switch: off
+      - IN: homes-site-automation-test
       - IN: homes-site-version
       - TASK: managed
         bump: major

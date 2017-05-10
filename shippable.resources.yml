@@ -83,14 +83,6 @@ resources:
       params:
         NODE_ENV: "automation"
 
-  - name: approved-homes-image
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
-    seed:
-      versionName: latest
-
 # Docker Image Options
   - name: homes-site-opts-sit
     type: dockerOptions
