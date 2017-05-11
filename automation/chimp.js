@@ -5,6 +5,9 @@ module.exports = {
     saveScreenshotsToReport: false,
     screenshotsPath: 'screenshots',
     saveScreenshotsToDisk: true,
+
+    featurePath: './features/mobile',
+
     webdriverio: {
         desiredCapabilities: {
             chromeOptions: {

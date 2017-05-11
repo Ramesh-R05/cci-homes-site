@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "once": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=~@manual --browser=phantomjs --format=rerun:@rerun.txt\"",
+    "test:mobile": "bash -c \"APP_KEY=homes-mobile npm run mobile\"",
+    "mobile": "bash -c \"node runner.js --pMode=mobile\"",
     "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@high\"",
     "test:rerun": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs @rerun.txt \"",
     "html_report": "bash -c \"node generate_html.js\"",
@@ -19,7 +21,7 @@
     "general:live": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --tags=@live \""
   },
   "dependencies": {
-    "@bxm/automation": "1.0.0",
+    "@bxm/automation": "^1.0.2",
     "cucumber-html-report": "^0.2.8"
   }
 }
