@@ -6,6 +6,7 @@ Feature: I have an automated smoke test for my live environments
         Given I am currently viewing "do-you-know-your-aussie-architectural-styles-4610"
         *  I should see 2 leaderboard ad slots
         *  I should see 4 mrec ad slots in LHS feed
+        *  I can see the outbrain frame with "Homestolove" template
 
         When I switch to "tablet landscape" view
         Given I am currently viewing "how-to-design-a-house-that-cools-itself-4604"

@@ -211,6 +211,10 @@ module.exports = function() {
         console.log(wirewaxEmb);
         expect(wirewaxEmb).toEqual(wirewaxUrl);
     });
+    this.Given(/^I can see the outbrain frame with "([^"]*)" template$/, function (templateName) {
+        var outbrainTemplate = browser.getAttribute(wn_article.outbrain, 'data-ob-template');
+        expect(outbrainTemplate).toEqual(templateName);
+    });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
         expect(relatedTags).toEqual(rTag.split("|"));

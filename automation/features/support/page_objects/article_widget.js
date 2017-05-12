@@ -46,6 +46,7 @@ var article_widget = {
     videoEmbArry: '.content-body__embed-video-container iframe',
     whooshkaEmb: '.content-body__embed-whooshka iframe',
     wirewaxEmb: '.content-body__embed-wirewax iframe',
+    outbrain: '.article .OUTBRAIN',
     stickyAdSection: 'div.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
     reactionText: ".reactions-leader",
     smileBtn: ".reaction-button--smile",

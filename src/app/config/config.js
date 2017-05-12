@@ -88,6 +88,9 @@ export default {
         },
         useDefaultPolar: {
             enabled: true
+        },
+        outbrain: {
+            enabled: true
         }
     },
 
@@ -107,6 +110,12 @@ export default {
 
     ads: {
         targets: {env: 'test'}
+    },
+
+    outbrain: {
+        templateId: 'Homestolove',
+        widgetId: 'AR_1',
+        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
     },
 
     polar: {
