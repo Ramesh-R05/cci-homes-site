@@ -101,7 +101,7 @@ a {
 }
 
 @mixin type-article-summary {
-    color: $color-grey;
+    color: $color-black;
     font: 400 16px/1.875 $font-family-serif-primary;
     letter-spacing: .01em;
 
@@ -116,7 +116,7 @@ a {
 }
 
 @mixin type-article-body {
-    color: $color-grey;
+    color: $color-black;
     font: 400 16px/1.875 $font-family-serif-primary;
     letter-spacing: .01em;
 }
