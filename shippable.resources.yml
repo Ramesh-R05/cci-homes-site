@@ -75,13 +75,17 @@ resources:
     type: params
     version:
       params:
-        NODE_ENV: "dev"  #change this to dev when we are ready
+        NODE_ENV: "dev"
+        APP_ENV: "sit"
+        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
 
   - name: homes-site-params-test
     type: params
     version:
       params:
-        NODE_ENV: "stubbed"
+        NODE_ENV: "automation"
+        APP_ENV: "test"
+
 
 # Docker Image Options
   - name: homes-site-opts-sit
@@ -122,6 +126,7 @@ resources:
     version:
       params:
         NODE_ENV: "production"
+        APP_ENV: "production"
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
 
   - name: homes-site-replicas-production

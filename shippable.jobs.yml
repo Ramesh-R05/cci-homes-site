@@ -123,14 +123,12 @@ jobs:
   - name: homes-site-release-master # Package release for production release
     type: release
     steps:
-      - IN: homes-site-test-deploy-master
-        switch: off
-      - IN: homes-site-sit-deploy-master
+      - IN: homes-site-man-master
         switch: off
       - IN: homes-site-automation-test
       - IN: homes-site-version
       - TASK: managed
-        bump: major
+        bump: minor
 
   - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
     type: deploy
