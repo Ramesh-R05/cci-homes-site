@@ -81,7 +81,7 @@ resources:
     type: params
     version:
       params:
-        NODE_ENV: "automation"
+        NODE_ENV: "stubbed"
 
 # Docker Image Options
   - name: homes-site-opts-sit
