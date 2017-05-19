@@ -83,8 +83,9 @@ resources:
     type: params
     version:
       params:
-        APP_ENV: "stubbed"
-
+        NODE_ENV: "production"
+        APP_ENV: "automation"
+        APP_STUBBED: true
 
 # Docker Image Options
   - name: homes-site-opts-sit
