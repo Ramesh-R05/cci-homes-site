@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
 export default class Uniheader extends Component {
@@ -12,13 +12,13 @@ export default class Uniheader extends Component {
     };
 
     render() {
-        let uniheaderBrands = this.context.config.brands.uniheader;
-        const uniheaderClassName = "uniheader";
-        const uniheaderOuterClasses = cx(uniheaderClassName, "show-for-medium-up");
-        const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, "container");
+        const uniheaderBrands = this.context.config.brands.uniheader;
+        const uniheaderClassName = 'uniheader';
+        const uniheaderOuterClasses = cx(uniheaderClassName, 'show-for-medium-up');
+        const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, 'container');
         const uniheaderLogos = uniheaderBrands.map(
             (item, i) => {
-                let { id, title, url, imageUrl } = item;
+                const { id, title, url, imageUrl } = item;
                 return (
                     <li key={i}>
                         <a href={url} title={title} className={`gtm-uniheader-${id}`}>
@@ -35,6 +35,6 @@ export default class Uniheader extends Component {
                     {uniheaderLogos}
                 </nav>
             </header>
-        )
+        );
     }
 }

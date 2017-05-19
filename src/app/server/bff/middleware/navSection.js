@@ -1,18 +1,18 @@
 import makeRequest from '../../makeRequest';
-import {parseEntity, parseEntities} from '../helper/parseEntity';
-import {getLatestTeasers} from '../api/listing';
+import { parseEntity, parseEntities } from '../helper/parseEntity';
+import getLatestTeasers from '../api/listing';
 
-export default async function navSection(req, res, next) {
+export default async function navSectionMiddleware(req, res, next) {
     try {
         const itemsCount = 6;
-        const {navSection} = req.query;
+        const { navSection } = req.query;
 
         if (!navSection) {
             next();
             return;
         }
 
-        const entityResponse = await makeRequest(`${req.app.config.services.remote.entity}/section/${navSection}`);
+        const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${navSection}`);
 
         const sectionTag = entityResponse.tagsDetails[0];
 
@@ -20,12 +20,13 @@ export default async function navSection(req, res, next) {
 
         const pageSize = 12;
         const pageNo = parseInt(req.query.pageNo || 1, 10);
-        const skip =  (pageNo-1) * pageSize;
+        const skip = (pageNo - 1) * pageSize;
 
         const filter = `tagsDetails/fullName eq '${sectionTag.fullName}'`;
         const [latestTeasersResp, galleryListingResponse] = await Promise.all([
             getLatestTeasers(itemsCount, skip, filter),
-            makeRequest(`${req.app.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`)
+            // eslint-disable-next-line max-len
+            makeRequest(`${req.app.locals.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`)
         ]);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
@@ -50,7 +51,7 @@ export default async function navSection(req, res, next) {
         };
 
         next();
-    } catch(error) {
+    } catch (error) {
         next(error);
     }
 }

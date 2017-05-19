@@ -1,4 +1,4 @@
-import {BaseStore} from '@bxm/flux';
+import { BaseStore } from '@bxm/flux';
 
 export default class MenuStore extends BaseStore {
     static storeName = 'MenuStore';

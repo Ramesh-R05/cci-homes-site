@@ -1,6 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import slice from 'lodash/array/slice';
-import {connectToStores} from '@bxm/flux';
+import { connectToStores } from '@bxm/flux';
 import cx from 'classnames';
 import Featured from './featured';
 import Ad from '@bxm/ad/lib/google/components/ad';
@@ -36,10 +36,10 @@ class Section extends Component {
     }
 
     render() {
-        const {brandConfig, hero, articles, content, list, listNextParams} = this.props;
+        const { brandConfig, hero, articles, content, list, listNextParams } = this.props;
         const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
-        const {urlName} = content;
+        const { urlName } = content;
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
             'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
         });
@@ -63,44 +63,46 @@ class Section extends Component {
                     <div className="row">
 
                         <Featured
-                            hero={hero}
-                            articles={slice(articles, 0, 6)}
-                            content={content}
-                            brand={content.title}
-                            brandConfig={brandConfig}
-                            polarTargets={sectionTopFeed} />
+                          hero={hero}
+                          articles={slice(articles, 0, 6)}
+                          content={content}
+                          brand={content.title}
+                          brandConfig={brandConfig}
+                          polarTargets={sectionTopFeed}
+                        />
                     </div>
                 </div>
 
                 <div className="row-fullwidth brand__body--fullwidth-ad">
-                        <Ad
-                            className="ad--section-middle-leaderboard"
-                            sizes={{
-                                small: 'banner',
-                                leaderboard: 'leaderboard',
-                                billboard: ['billboard', 'leaderboard']
-                            }}
-                            targets={{ position: 2 }}
-                            label={{active: false}}
-                        />
+                    <Ad
+                      className="ad--section-middle-leaderboard"
+                      sizes={{
+                          small: 'banner',
+                          leaderboard: 'leaderboard',
+                          billboard: ['billboard', 'leaderboard']
+                      }}
+                      targets={{ position: 2 }}
+                      label={{ active: false }}
+                    />
                 </div>
 
                 <div className="brand__body brand__body--bottom">
                     <Repeatable
-                        component={List}
-                        action={loadList}
-                        dataSource={list}
-                        nextParams={listNextParams}
-                        className="news-feed bottom-news-feed"
-                        adTargets={{ position: 2 }}
-                        content={content}
-                        polarTargets={sectionBottomFeed}
+                      component={List}
+                      action={loadList}
+                      dataSource={list}
+                      nextParams={listNextParams}
+                      className="news-feed bottom-news-feed"
+                      adTargets={{ position: 2 }}
+                      content={content}
+                      polarTargets={sectionBottomFeed}
                     />
                 </div>
 
                 <StickyAd
-                    adProps={stickyAdProps}
-                    minHeight={450} />
+                  adProps={stickyAdProps}
+                  minHeight={450}
+                />
 
             </div>
         );

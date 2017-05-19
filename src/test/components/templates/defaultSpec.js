@@ -66,7 +66,6 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': AdsWrapper,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
     '../brand/utilities/getBrand': getBrandStub,
-    '@bxm/config': { load: () => { return config } },
     'picturefill': {}
 });
 
@@ -152,18 +151,21 @@ describe('Default Component template', () => {
         }
     };
 
-    const contextConfigStub = {
-        key: 'config',
-        type: '',
-        value: {
-            brands: {
-                section: sectionBrandsDataStub
-            }
+    const configToStub = {
+        get: function(){ return localeData; },
+        brands: {
+            section: sectionBrandsDataStub
         }
     };
 
+    const contextConfigStub = {
+        key: 'config',
+        type: '',
+        value: configToStub
+    };
+
     before( () => {
-        data = sinon.stub(config, 'get').returns(localeData);
+        // data = sinon.stub(config, 'get').returns(localeData);
     });
 
     beforeEach( () => {
@@ -171,7 +173,7 @@ describe('Default Component template', () => {
     });
 
     after( () => {
-        data.restore();
+        // data.restore();
     });
 
     afterEach( () => {
@@ -215,7 +217,7 @@ describe('Default Component template', () => {
     describe('Home Page', () => {
         beforeEach(() => {
             storeData.PageStore.content = { nodeType: 'Homepage' };
-            reactModule = Context.mountComponent(Default);
+            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
             header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
             footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);

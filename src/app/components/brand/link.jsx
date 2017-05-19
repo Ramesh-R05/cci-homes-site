@@ -1,6 +1,6 @@
-import React, {Children, Component, PropTypes} from 'react';
+import React, { Children, Component, PropTypes } from 'react';
 
-export default class Link extends Component {
+export default class BrandLink extends Component {
 
     static displayName = 'BrandLink';
 
@@ -15,7 +15,7 @@ export default class Link extends Component {
     };
 
     static sources = {
-        'belle': '/belle',
+        belle: '/belle',
         'real living': '/real-living',
         'australian house and garden': '/australian-house-and-garden',
         'homes+': '/homes-plus',
@@ -25,15 +25,15 @@ export default class Link extends Component {
     static siteBrand = 'homes to love';
 
     render() {
-        const {children, linkSiteBrand, source} = this.props;
+        const { children, linkSiteBrand, source } = this.props;
 
         if (!Children.count(children)) return null;
 
-        if (!source || !Link.sources[source.toLowerCase()] || (!linkSiteBrand && source.toLowerCase() === Link.siteBrand)) {
+        if (!source || !BrandLink.sources[source.toLowerCase()] || (!linkSiteBrand && source.toLowerCase() === BrandLink.siteBrand)) {
             return <span>{children}</span>;
         }
 
-        const url = Link.sources[source.toLowerCase()];
+        const url = BrandLink.sources[source.toLowerCase()];
 
         return <a href={url}>{children}</a>;
     }

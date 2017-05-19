@@ -7,7 +7,7 @@ export default class SocialContainer extends Component {
 
     static PropTypes = {
         socialUrls: PropTypes.object,
-        title : PropTypes.string,
+        title: PropTypes.string,
         gtmClass: PropTypes.string,
         nodeType: PropTypes.string
     };
@@ -20,11 +20,10 @@ export default class SocialContainer extends Component {
             pinterest: 'https://www.pinterest.com/homestoloveau'
         },
         title: 'Homes To Love',
-        gtmClass: 'gtm-follow-homepage',
+        gtmClass: 'gtm-follow-homepage'
     };
 
     render() {
-
         const { facebook, twitter, instagram, pinterest, nodeType, title } = this.props.socialUrls;
         const links = [
             {

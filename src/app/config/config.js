@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
+
 import breakpoints from '../breakpoints';
 import brands from './brands';
-import sectionBrands from './sectionBrands';
 import hamburgerBrands from './hamburgerBrands';
 
-var accountId = '761709621001';
-var playerId = 'VkuyApojl';
+const accountId = '761709621001';
+const playerId = 'VkuyApojl';
 
 export default {
     article: {
@@ -55,8 +56,8 @@ export default {
     },
 
     brightcove: {
-        accountId: accountId,
-        playerId: playerId,
+        accountId,
+        playerId,
         playlistId: '5086182656001',
         script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
     },
@@ -109,7 +110,7 @@ export default {
     },
 
     ads: {
-        targets: {env: 'test'}
+        targets: { env: 'test' }
     },
 
     outbrain: {
@@ -129,48 +130,48 @@ export default {
                 {
                     index: 0,
                     label: 'home_top_feed_1',
-                    targets: {kw:'home_top_feed_1'}
+                    targets: { kw: 'home_top_feed_1' }
                 },
                 {
                     index: 5,
                     label: 'home_top_feed_2',
-                    targets: {kw:'home_top_feed_2'}
+                    targets: { kw: 'home_top_feed_2' }
                 }
             ],
             homeBottomFeed: [
                 {
                     index: 1,
                     label: 'home_bottom_feed_1',
-                    targets: {kw:'home_bottom_feed_1'}
+                    targets: { kw: 'home_bottom_feed_1' }
                 },
                 {
                     index: 5,
                     label: 'home_bottom_feed_2',
-                    targets: {kw:'home_bottom_feed_2'}
+                    targets: { kw: 'home_bottom_feed_2' }
                 }
             ],
             sectionTopFeed: [
                 {
                     index: 0,
                     label: 'section_top_feed_1',
-                    targets: {kw:'section_top_feed_1'}
+                    targets: { kw: 'section_top_feed_1' }
                 },
                 {
                     index: 5,
                     label: 'section_top_feed_2',
-                    targets: {kw:'section_top_feed_2'}
+                    targets: { kw: 'section_top_feed_2' }
                 }
             ],
             sectionBottomFeed: [
                 {
                     index: 1,
                     label: 'section_bottom_feed_1',
-                    targets: {kw:'section_bottom_feed_1'}
+                    targets: { kw: 'section_bottom_feed_1' }
                 },
                 {
                     index: 5,
                     label: 'section_bottom_feed_2',
-                    targets: {kw:'section_bottom_feed_2'}
+                    targets: { kw: 'section_bottom_feed_2' }
                 }
             ],
             articleRightFeed: [
@@ -199,7 +200,7 @@ export default {
                     index: 13,
                     label: 'article_right_feed_4',
                     targets: {
-                        kw: 'article_right_feed_4',
+                        kw: 'article_right_feed_4'
                     }
                 }
             ],
@@ -274,4 +275,5 @@ export default {
         BrandSection: 3600,
         TagSection: 7200
     }
+
 };

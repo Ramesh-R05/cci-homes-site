@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import polarAd from '@bxm/ad/lib/polar/decorators/polarAd';
 import polarConfig from '@bxm/ad/lib/polar/decorators/polarConfig';
 import Teaser from '../teaser/teaser';
@@ -27,44 +27,41 @@ class PolarTeaser extends Component {
     };
 
     shouldComponentUpdate(nextProps) {
-
         if (!nextProps.loadAgain || !this.props.loadAgain) {
             return true;
         } else if (!nextProps.loadAgain) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     render() {
-
         if (!this.props.ad.label || !this.props.nativeAd.response) {
             return <Teaser {...this.props} />;
         }
 
         const { nativeAd } = this.props;
 
-        let model = nativeAd.response.model;
+        const model = nativeAd.response.model;
         const imgWidth = model.image.sourceWidth;
         const imgHeight = model.image.sourceHeight;
 
         const teaserClassObj = {
             'teaser--polar': true,
-            'polar--horizontal': ( imgHeight * 1.4 < imgWidth ),
-            'polar--vertical': ( imgWidth * 1.4 < imgHeight )
+            'polar--horizontal': (imgHeight * 1.4 < imgWidth),
+            'polar--vertical': (imgWidth * 1.4 < imgHeight)
         };
 
         return (
             <PolarTeaserImage
-                source={this.props.source}
-                caption="Powered By"
-                id={this.props.id}
-                nativeAd={this.props.nativeAd.response.model}
-                modifier={this.props.modifier}
-                trackClick={this.props.trackClick}
-                className={classNames(teaserClassObj)}
-                index={this.props.index}
+              source={this.props.source}
+              caption="Powered By"
+              id={this.props.id}
+              nativeAd={this.props.nativeAd.response.model}
+              modifier={this.props.modifier}
+              trackClick={this.props.trackClick}
+              className={classNames(teaserClassObj)}
+              index={this.props.index}
             />
 
         );

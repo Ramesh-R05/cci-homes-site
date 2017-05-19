@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
@@ -32,7 +32,7 @@ export default class Section extends Component {
     };
 
     render() {
-        const {articles, list, content, listNextParams, isSideMenuOpen} = this.props;
+        const { articles, list, content, listNextParams, isSideMenuOpen } = this.props;
         const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
         if (!articles.length) return null;
@@ -64,43 +64,44 @@ export default class Section extends Component {
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="section__row">
-                       <Featured articles={articles} polarTargets={sectionTopFeed} />
+                        <Featured articles={articles} polarTargets={sectionTopFeed} />
                         <Rail
-                            adPosition={1}
-                            marginBottom={60}
-                            yPosition={95}
+                          adPosition={1}
+                          marginBottom={60}
+                          yPosition={95}
                         />
                     </div>
 
                     <div className="section__row section__middle">
                         <Ad
-                            className="ad--section-middle-leaderboard section__ad"
-                            sizes={{
-                                small: 'banner',
-                                leaderboard: 'leaderboard',
-                                billboard: ['billboard', 'leaderboard']
-                            }}
-                            targets={{position: 2}}
-                            label={{active: false}}
+                          className="ad--section-middle-leaderboard section__ad"
+                          sizes={{
+                              small: 'banner',
+                              leaderboard: 'leaderboard',
+                              billboard: ['billboard', 'leaderboard']
+                          }}
+                          targets={{ position: 2 }}
+                          label={{ active: false }}
                         />
                     </div>
                     <div className="section__row">
                         <Repeatable
-                            component={List}
-                            action={loadList}
-                            dataSource={list}
-                            nextParams={listNextParams}
-                            className="news-feed bottom-news-feed"
-                            adTargets={{ position: 3 }}
-                            content={content}
-                            polarTargets={sectionBottomFeed}
+                          component={List}
+                          action={loadList}
+                          dataSource={list}
+                          nextParams={listNextParams}
+                          className="news-feed bottom-news-feed"
+                          adTargets={{ position: 3 }}
+                          content={content}
+                          polarTargets={sectionBottomFeed}
                         />
 
                     </div>
 
                     <StickyAd
-                        adProps={stickyAdProps}
-                        minHeight={450} />
+                      adProps={stickyAdProps}
+                      minHeight={450}
+                    />
 
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class MagShop extends Component {
     static propTypes = {
@@ -15,11 +15,11 @@ export default class MagShop extends Component {
     }
 
     fireEvent = () => {
-        window.dataLayer.push({event: 'subscribe.click'});
+        window.dataLayer.push({ event: 'subscribe.click' });
     }
 
     render() {
-        const {inSideNav, content} = this.props;
+        const { inSideNav, content } = this.props;
         const magshopHeading = content.magshopHeading;
         const magshopText = content.magshopText;
         const magshopUrl = content.magshopUrl;
@@ -28,11 +28,11 @@ export default class MagShop extends Component {
 
         /* eslint-disable quotes */
         const magshop = (!inSideNav) ?
-            <div className="xlarge-6 columns show-for-xlarge">
+            (<div className="xlarge-6 columns show-for-xlarge">
                 <a href={magshopUrl} target="_blank" onClick={this.fireEvent}>
-                    <img src={"/assets/images/" + magshopCoverImage} alt={magshopCoverAltText} />
+                    <img src={`/assets/images/${magshopCoverImage}`} alt={magshopCoverAltText} />
                 </a>
-            </div> : null;
+            </div>) : null;
         /* eslint-enable quotes */
 
         const xLargeGridClass = (!inSideNav) ? 'xlarge-6' : '';

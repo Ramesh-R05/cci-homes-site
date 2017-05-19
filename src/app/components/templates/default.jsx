@@ -1,16 +1,13 @@
-import React, {Component, PropTypes} from 'react';
-import {connectToStores} from '@bxm/flux';
+import React, { Component, PropTypes } from 'react';
+import { connectToStores } from '@bxm/flux';
 import MenuStore from '../../stores/menu';
-
 import Uniheader from '../header/uniheader';
 import SiteHeader from '../header/header';
 import SiteFooter from '../footer/footer';
 import SideMenu from '../side-menu/sideMenu';
-
 import HomeHeader from '../home/header';
 import BrandHeader from '../brand/header';
 import SectionHeader from '../section/header';
-
 import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import HomePage from '../home/home';
 import Article from '../article/page';
@@ -19,181 +16,165 @@ import NavSection from '../section/navigationTag/section';
 import Tag from '../section/tag/section';
 import Campaign from '../section/sponsorTag/section';
 import Gallery from '../gallery/gallery';
-
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import getBrand from '../brand/utilities/getBrand';
-
-import {load} from '@bxm/config';
-const config = load();
+import defaultRenderFailed from '../../actions/defaultRenderFailed';
+import get from 'lodash.get';
 
 class DefaultTemplate extends Component {
 
     static propTypes = {
-        content: PropTypes.object,
+        content: PropTypes.shape({
+            tagsDetails: PropTypes.arrayOf(PropTypes.shape({ displayName: PropTypes.string }))
+        }),
         contentErrorStatus: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
         headerNavItems: PropTypes.array,
-        query: PropTypes.object
+        query: PropTypes.shape({
+            g: PropTypes.oneOf(['v'])
+        })
     };
 
     static defaultProps = {
         content: null,
         contentErrorStatus: null,
         isSideMenuOpen: false,
-        headerNavItems: []
+        headerNavItems: [],
+        query: {
+            g: null
+        }
     };
 
     static contextTypes = {
-        executeAction: React.PropTypes.func.isRequired,
-        config: React.PropTypes.object
+        executeAction: PropTypes.func.isRequired,
+        config: PropTypes.object
     };
-
-    getContentHeaderTitle = (contentHeaderTitle, content) => {
-        contentHeaderTitle = content.title;
-        if (content.tagsDetails && content.tagsDetails.length > 0) {
-            contentHeaderTitle = content.tagsDetails[0].displayName;
-        }
-        return contentHeaderTitle;
-    };
-
-    constructor(...args) {
-        super(...args);
-    }
-
-    componentDidMount() {
-        // Temp added here due to unforseen update of versions when updating react.
-        // This loads <picture> element in older browsers and IE
-        require('picturefill');
-    }
 
     render() {
-        const {content, contentErrorStatus, isSideMenuOpen, headerNavItems} = this.props;
+        const { content, isSideMenuOpen, headerNavItems } = this.props;
         let brandConfig = {};
         let contentHeaderTitle = '';
         if (content) {
-            const {source, nodeType} = content;
-            contentHeaderTitle = this.getContentHeaderTitle(contentHeaderTitle, content);
-            brandConfig = getBrand(this.context.config, source);
+            contentHeaderTitle = get(content, 'tagsDetails[0].displayName', content.title);
+            brandConfig = getBrand(this.context.config, content.source);
         }
-        const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = this.getPageMetadata();
-        const localeData = config.get('localeData');
+        const { ContentHeaderHandler, ContentHandler, hideFooter, hideHeader } = this.getPageMetadata();
+        const localeData = this.context.config.get('localeData');
 
         return (
             <div className="default-template">
 
-                {   content && content.url === '/' ? <Uniheader /> : null }
+                { content && content.url === '/' ? <Uniheader /> : null }
 
-                {   hideHeader
-                    ?   null
-                    :   <SiteHeader
-                            isSideMenuOpen={isSideMenuOpen}
-                            navItems={headerNavItems}
-                        />
+                { hideHeader
+                    ? null
+                    : <SiteHeader
+                      isSideMenuOpen={isSideMenuOpen}
+                      navItems={headerNavItems}
+                    />
                 }
 
                 <SideMenu
-                    open={isSideMenuOpen}
-                    navItems={headerNavItems}
-                    data={localeData}
+                  open={isSideMenuOpen}
+                  navItems={headerNavItems}
+                  data={localeData}
                 />
 
-                {   ContentHeaderHandler
-                    ?   <ContentHeaderHandler
-                            {...this.props}
-                            title={contentHeaderTitle}
-                            logo={brandConfig.logo}
-                            sponsorName={content.sponsor || 'homes_sponsor'}
-                        />
-                    :   null
+                { ContentHeaderHandler
+                    ? <ContentHeaderHandler
+                      {...this.props}
+                      title={contentHeaderTitle}
+                      logo={brandConfig.logo}
+                      sponsorName={content.sponsor || 'homes_sponsor'}
+                    />
+                    : null
                 }
-                
+
+
                 <AdsWrapper>
                     <ContentHandler
-                        brandConfig={brandConfig}
-                        content={content}
-                        isSideMenuOpen={isSideMenuOpen}
+                      brandConfig={brandConfig}
+                      content={content}
+                      isSideMenuOpen={isSideMenuOpen}
                     />
                 </AdsWrapper>
 
 
-                {   hideFooter ? null : <SiteFooter config={localeData} /> }
+                { hideFooter ? null : <SiteFooter config={localeData} /> }
 
             </div>
         );
     }
 
     getPageMetadata() {
-        const {content, contentErrorStatus} = this.props;
+        const { content, contentErrorStatus } = this.props;
 
-        if (contentErrorStatus) { return this.handleContentError(contentErrorStatus); }
-        if (!content) { return this.handleNoContent(); }
+        if (contentErrorStatus) {
+            return {
+                ContentHandler: ErrorHandlerBuilder(contentErrorStatus.status) || ErrorHandlerBuilder(500)
+            };
+        }
+        if (!content) {
+            return {
+                ContentHandler: ErrorHandlerBuilder(500)
+            };
+        }
 
         switch (content.nodeType.toLowerCase()) {
-            case 'homepage':
-                return {
-                    ContentHeaderHandler: HomeHeader,
-                    ContentHandler: HomePage
-                };
-            case 'homesarticle':
+        case 'homepage':
+            return {
+                ContentHeaderHandler: HomeHeader,
+                ContentHandler: HomePage
+            };
+        case 'homesarticle':
+            return {
+                ContentHeaderHandler: HomeHeader,
+                ContentHandler: Article
+            };
+        case 'navigationsection':
+            return {
+                ContentHeaderHandler: SectionHeader,
+                ContentHandler: NavSection
+            };
+        case 'tagsection':
+            return {
+                ContentHeaderHandler: SectionHeader,
+                ContentHandler: Tag
+            };
+        case 'brandsection':
+            return {
+                ContentHeaderHandler: BrandHeader,
+                ContentHandler: Brand
+            };
+        case 'campaign':
+            return {
+                ContentHeaderHandler: SectionHeader,
+                ContentHandler: Campaign
+            };
+        case 'gallery':
+            if (this.props.query.g === 'v') {
                 return {
                     ContentHeaderHandler: HomeHeader,
                     ContentHandler: Article
                 };
-            case 'navigationsection':
-                return {
-                    ContentHeaderHandler: SectionHeader,
-                    ContentHandler: NavSection
-                };
-            case 'tagsection':
-                return {
-                    ContentHeaderHandler: SectionHeader,
-                    ContentHandler: Tag
-                };
-            case 'brandsection':
-                return {
-                    ContentHeaderHandler: BrandHeader,
-                    ContentHandler: Brand
-                };
-            case 'campaign':
-                return {
-                    ContentHeaderHandler: SectionHeader,
-                    ContentHandler: Campaign
-                };
-            case 'gallery':
-                if (this.props.query.g === "v") {
-                    return {
-                        ContentHeaderHandler: HomeHeader,
-                        ContentHandler: Article
-                    };
-                }
-                return {
-                    ContentHandler: Gallery
-                };
-            default:
-                console.error({message: `Unsupported nodeType (${content.nodeType})`});
-                return this.handleNoContent();
+            } return {
+                ContentHandler: Gallery
+            };
+        default:
+            this.context.executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
+            return {
+                ContentHandler: ErrorHandlerBuilder(500)
+            };
         }
-    }
-
-    handleNoContent() {
-        return {
-            ContentHandler: ErrorHandlerBuilder(500)
-        };
-    }
-
-    handleContentError(errorStatus) {
-        return {
-            ContentHandler: ErrorHandlerBuilder(errorStatus.status) || ErrorHandlerBuilder(500)
-        };
     }
 }
 
-export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], (context) => {
-    return {
-        content: context.getStore('PageStore').getContent(),
-        contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
-        isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-        headerNavItems: context.getStore('PageStore').getHeaderItems(),
-        query: context.getStore('PageStore').getQuery()
-    };
-});
+export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], context => ({
+
+    content: context.getStore('PageStore').getContent(),
+    contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
+    isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
+    headerNavItems: context.getStore('PageStore').getHeaderItems(),
+    query: context.getStore('PageStore').getQuery()
+
+}));

@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import MenuButton from './menuButton';
 import Navigation from './navigation';
@@ -24,17 +24,17 @@ class Header extends Component {
         SCROLL_TOP_BOUNCE_ALLOWANCE: 10
     };
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = { isNavBarHidden: false };
         this.prevScrollY = 0;
     }
 
-    componentDidMount(){
+    componentDidMount() {
         window.addEventListener('scroll', this.hideNavBar, false);
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.hideNavBar);
     }
 
@@ -42,21 +42,21 @@ class Header extends Component {
         const { BREAKPOINT_SMALL_MAX, SCROLL_TOP_BOUNCE_ALLOWANCE } = Header.constants;
         const { scrollY, outerWidth } = window;
         if (outerWidth < BREAKPOINT_SMALL_MAX && scrollY > SCROLL_TOP_BOUNCE_ALLOWANCE && scrollY > this.prevScrollY) {
-            this.setState({isNavBarHidden: true});
+            this.setState({ isNavBarHidden: true });
         } else {
-            this.setState({isNavBarHidden: false});
+            this.setState({ isNavBarHidden: false });
         }
         this.prevScrollY = scrollY;
     }, 50);
 
     render() {
-        const {pinned, isSideMenuOpen, pinOffset, navItems} = this.props;
-        const {isNavBarHidden} = this.state;
+        const { pinned, isSideMenuOpen, pinOffset, navItems } = this.props;
+        const { isNavBarHidden } = this.state;
 
         if (!navItems) return null;
 
         const className = classnames({
-            'header': true,
+            header: true,
             'header--pinned': pinned,
             'header--side-menu-open': isSideMenuOpen,
             'header--fade-out': isNavBarHidden
@@ -67,22 +67,23 @@ class Header extends Component {
         return (
             <div className="header-wrapper">
                 <header
-                    ref="header"
-                    className={className}
-                    role="banner"
-                    style={{top: pinned ? `${pinOffset}px` : 'auto'}}>
+                  ref="header"
+                  className={className}
+                  role="banner"
+                  style={{ top: pinned ? `${pinOffset}px` : 'auto' }}
+                >
                     <div>
                         <div className="header__sections container">
-                            <MenuButton/>
+                            <MenuButton />
 
                             <div className="header-logo">
                                 <a href="/" className={logoClassNames}>Homes to Love</a>
                             </div>
 
                             <Navigation
-                                className="header-nav"
-                                items={navItems}
-                                linkClassName="gtm-navigation-section"
+                              className="header-nav"
+                              items={navItems}
+                              linkClassName="gtm-navigation-section"
                             />
                         </div>
                     </div>
@@ -92,12 +93,12 @@ class Header extends Component {
     }
 }
 
-export default pin(Header, props => {
+export default pin(Header, (props) => {
     const { UNIHEADER_HEIGHT } = Header.constants;
     return {
-        small: {pinPoint: 0},
-        medium: {pinPoint: UNIHEADER_HEIGHT},
-        large: {pinPoint: UNIHEADER_HEIGHT},
-        xlarge: {pinPoint: UNIHEADER_HEIGHT}
-    }
+        small: { pinPoint: 0 },
+        medium: { pinPoint: UNIHEADER_HEIGHT },
+        large: { pinPoint: UNIHEADER_HEIGHT },
+        xlarge: { pinPoint: UNIHEADER_HEIGHT }
+    };
 });

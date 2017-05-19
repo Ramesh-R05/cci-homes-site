@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Input from './input';
 
 export default class RadioButton extends Component {

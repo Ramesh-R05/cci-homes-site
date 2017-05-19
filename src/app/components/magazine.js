@@ -1,9 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 
 export default class Magazine extends Component {
     render() {
-        const {content} = this.props;
+        const { content } = this.props;
         const imageSrc = imageResize.url({
             url: content.imageUrl,
             width: 172,
@@ -22,6 +22,6 @@ export default class Magazine extends Component {
                     </a>
                 </div>
             </div>
-        )
+        );
     }
 }

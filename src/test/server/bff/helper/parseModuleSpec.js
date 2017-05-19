@@ -1,5 +1,5 @@
-import {parseModules} from '../../../../app/server/bff/helper/parseModule';
-import {parseEntities} from '../../../../app/server/bff/helper/parseEntity';
+import parseModules from '../../../../app/server/bff/helper/parseModule';
+import { parseEntities } from '../../../../app/server/bff/helper/parseEntity';
 
 const module1 = {
     id: 'MODULE-123',

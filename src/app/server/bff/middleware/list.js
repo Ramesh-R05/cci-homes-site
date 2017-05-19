@@ -1,6 +1,6 @@
-export default async function list(req, res, next) {
+export default async function listMiddleware(req, res, next) {
     try {
-        const {listName } = req.query;
+        const { listName } = req.query;
 
         res.body = {
             list: {
@@ -12,7 +12,7 @@ export default async function list(req, res, next) {
         };
 
         next();
-    } catch(error) {
+    } catch (error) {
         next(error);
     }
 }

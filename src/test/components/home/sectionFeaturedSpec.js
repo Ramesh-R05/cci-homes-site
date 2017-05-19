@@ -44,24 +44,24 @@ describe('SectionFeatured', () => {
     afterEach(Context.cleanup);
 
     // BXMS-40: hide gog in homepage temporarily
-    describe.skip(`with galleries`, () => {
-        let reactModule;
-        let inlineGallery;
-
-        before(() => {
-            reactModule = Context.mountComponent(SectionFeatured, {
-                articles: articlesMock,
-                galleries: gogMock,
-                polarTargets: polarTargetsStub
-            });
-            inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
-        });
-
-        it(`should render the CustomInlineGallery component and pass through galleries`, () => {
-            expect(inlineGallery).to.exist;
-            expect(inlineGallery.props.galleries).to.deep.equal(gogMock);
-        });
-    });
+    // describe(`with galleries`, () => {
+    //     let reactModule;
+    //     let inlineGallery;
+    //
+    //     before(() => {
+    //         reactModule = Context.mountComponent(SectionFeatured, {
+    //             articles: articlesMock,
+    //             galleries: gogMock,
+    //             polarTargets: polarTargetsStub
+    //         });
+    //         inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
+    //     });
+    //
+    //     it(`should render the CustomInlineGallery component and pass through galleries`, () => {
+    //         expect(inlineGallery).to.exist;
+    //         expect(inlineGallery.props.galleries).to.deep.equal(gogMock);
+    //     });
+    // });
 
     describe(`with articles`, () => {
         let reactModule;

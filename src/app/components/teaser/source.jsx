@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import BrandLink from '../brand/link';
 
 export default class Source extends Component {
@@ -6,17 +6,17 @@ export default class Source extends Component {
     static displayName = 'TeaserSource';
 
     static propTypes = {
-        source: PropTypes.string
+        source: PropTypes.string.isRequired
     };
 
     render() {
-        const {source} = this.props;
+        const { source } = this.props;
         if (!source) return null;
 
         return (
             <div className="teaser__source">
                 <BrandLink linkSiteBrand={false} source={source}>
-                    <span className="icon-source"></span>
+                    <span className="icon-source" />
                     {source}
                 </BrandLink>
             </div>

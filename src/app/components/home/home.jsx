@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {connectToStores} from '@bxm/flux';
+import React, { Component, PropTypes } from 'react';
+import { connectToStores } from '@bxm/flux';
 import SectionFeatured from './sectionFeatured';
 import cx from 'classnames';
 

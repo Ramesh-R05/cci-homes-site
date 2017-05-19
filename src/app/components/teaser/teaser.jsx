@@ -1,7 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import breakpoints from '../../breakpoints';
 import classnames from 'classnames';
-import isUndefined from 'lodash/lang/isUndefined';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';
@@ -24,16 +23,20 @@ class Teaser extends Component {
         sizes: PropTypes.string,
         source: PropTypes.string,
         summary: PropTypes.string,
-        tags: PropTypes.array,
         tagsDetails: PropTypes.array,
         title: PropTypes.string.isRequired,
         className: PropTypes.string,
-        imageSizes: PropTypes.object,
         lazyload: PropTypes.bool,
         gtmClass: PropTypes.string
     };
 
     static defaultProps = {
+        id: null,
+        source: null,
+        summary: null,
+        tagsDetails: [],
+        className: '',
+        gtmClass: '',
         imageAltText: '',
         modifier: 'img-left',
         sizes: '',
@@ -46,120 +49,120 @@ class Teaser extends Component {
         mode: imageResize.mode.CROP
     };
 
-    static imageQuality = 80;
+    static imageQuality = 75;
 
     static imageSizes = {
         base: {
-            s: {w: 320, h: 264},
-            m: {w: 400, h: 330},
-            l: {w: 410, h: 340},
-            xl: {w: 360, h: 300}
+            s: { w: 320, h: 264 },
+            m: { w: 400, h: 330 },
+            l: { w: 410, h: 340 },
+            xl: { w: 360, h: 300 }
         },
         hero: {
-            s: {w: 667, h: 556},
-            m: {w: 940, h: 790},
-            l: {w: 1140, h: 1100},
-            xl: {w: 1140, h: 1070}
+            s: { w: 667, h: 556 },
+            m: { w: 940, h: 790 },
+            l: { w: 1140, h: 1100 },
+            xl: { w: 1140, h: 1070 }
         },
         narrow: {
-            s: {w: 640, h: 341},
-            m: {w: 640, h: 341},
-            l: {w: 400, h: 213},
-            xl: {w: 300, h: 160}
+            s: { w: 640, h: 341 },
+            m: { w: 640, h: 341 },
+            l: { w: 400, h: 213 },
+            xl: { w: 300, h: 160 }
         },
-        'large': {
-            s: {w: 320, h: 264},
-            m: {w: 705, h: 593},
-            l: {w: 563, h: 470},
-            xl: {w: 750, h: 625}
+        large: {
+            s: { w: 320, h: 264 },
+            m: { w: 705, h: 593 },
+            l: { w: 563, h: 470 },
+            xl: { w: 750, h: 625 }
         },
         'small-hero': {
-            s: {w: 320, h: 264},
-            m: {w: 400, h: 330},
-            l: {w: 410, h: 340},
-            xl: {w: 750, h: 625}
+            s: { w: 320, h: 264 },
+            m: { w: 400, h: 330 },
+            l: { w: 410, h: 340 },
+            xl: { w: 750, h: 625 }
         },
         'img-top': {
-            s: {w: 690, h: 569},
-            m: {w: 467, h: 385},
-            l: {w: 301, h: 250},
-            xl: {w: 301, h: 250}
+            s: { w: 690, h: 569 },
+            m: { w: 467, h: 385 },
+            l: { w: 301, h: 250 },
+            xl: { w: 301, h: 250 }
         },
         'img-left-to-hero': {
-            s: {w: 320, h: 264},
-            m: {w: 940, h: 790},
-            l: {w: 750, h: 700},
-            xl: {w: 750, h: 700}
+            s: { w: 320, h: 264 },
+            m: { w: 940, h: 790 },
+            l: { w: 750, h: 700 },
+            xl: { w: 750, h: 700 }
         },
         'base-to-narrow': {
-            s: {w: 320, h: 264},
-            m: {w: 400, h: 330},
-            l: {w: 410, h: 340},
-            xl: {w: 300, h: 160}
+            s: { w: 320, h: 264 },
+            m: { w: 400, h: 330 },
+            l: { w: 410, h: 340 },
+            xl: { w: 300, h: 160 }
         },
         'home-hero': {
-            s: {w: 690, h: 575},
-            m: {w: 963, h: 809},
-            l: {w: 633, h: 527},
-            xl: {w: 633, h: 527}
+            s: { w: 690, h: 575 },
+            m: { w: 963, h: 809 },
+            l: { w: 633, h: 527 },
+            xl: { w: 633, h: 527 }
         },
-        'brand-list' : {
-            s: {w: 322, h: 256},
-            m: {w: 420, h: 347},
-            l: {w: 300, h: 250},
-            xl: {w: 300, h: 250}
+        'brand-list': {
+            s: { w: 322, h: 256 },
+            m: { w: 420, h: 347 },
+            l: { w: 300, h: 250 },
+            xl: { w: 300, h: 250 }
         },
         recommendations: {
-            s: {w: 322, h: 256},
-            m: {w: 420, h: 347},
-            l: {w: 356, h: 295},
-            xl: {w: 273, h: 238}
+            s: { w: 322, h: 256 },
+            m: { w: 420, h: 347 },
+            l: { w: 356, h: 295 },
+            xl: { w: 273, h: 238 }
         },
         'latest-real-homes': {
-            l: {w: 218, h: 182},
-            xl: {w: 218, h: 182}
+            l: { w: 218, h: 182 },
+            xl: { w: 218, h: 182 }
         }
     };
 
-    getImgSizes(sizes, modifier) {
-        if (!isUndefined(Teaser.imageSizes[sizes])) {
+    static getImgSizes(sizes, modifier) {
+        if (Teaser.imageSizes[sizes]) {
             return Teaser.imageSizes[sizes];
-        } else if (!isUndefined(Teaser.imageSizes[modifier])) {
+        } else if (Teaser.imageSizes[modifier]) {
             return Teaser.imageSizes[modifier];
         }
         return Teaser.imageSizes.base;
     }
 
     render() {
-        if (isUndefined(this.props.id)) return null;
+        if (!this.props.id) return null;
 
-        const {url, modifier, sizes, className, lazyload} = this.props;
-        const gtmClass = this.props.gtmClass ? this.props.gtmClass : 'gtm-' + this.props.id;
+        const { url, modifier, sizes, className, lazyload } = this.props;
+        const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;
         const classNames = classnames('teaser', `teaser--${modifier}`, className);
-        const imgSizes = this.getImgSizes(sizes, modifier);
+        const imgSizes = Teaser.getImgSizes(sizes, modifier);
 
         return (
             <article className={classNames}>
                 <Image
-                    alt={this.props.imageAltText}
-                    breakpoints={breakpoints}
-                    gtmClass={gtmClass}
-                    imageUrl={this.props.imageUrl}
-                    imageSizes={imgSizes}
-                    link={url}
-                    responsiveConfig={Teaser.imageConfig}
-                    quality={Teaser.imageQuality}
-                    lazyload={lazyload}
-                    className={gtmClass}
+                  alt={this.props.imageAltText}
+                  breakpoints={breakpoints}
+                  gtmClass={gtmClass}
+                  imageUrl={this.props.imageUrl}
+                  imageSizes={imgSizes}
+                  link={url}
+                  responsiveConfig={Teaser.imageConfig}
+                  quality={Teaser.imageQuality}
+                  lazyload={lazyload}
+                  className={gtmClass}
                 >
                     <Icon {...this.props} />
                 </Image>
                 <div className="teaser__content">
                     <Tags tagsDetails={this.props.tagsDetails} />
                     <Title
-                        gtmClass={gtmClass}
-                        title={this.props.title}
-                        url={url}
+                      gtmClass={gtmClass}
+                      title={this.props.title}
+                      url={url}
                     />
                     <Summary summary={this.props.summary} />
                     <Source source={this.props.source} />

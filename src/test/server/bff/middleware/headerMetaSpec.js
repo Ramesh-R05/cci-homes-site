@@ -8,7 +8,7 @@ describe('HeaderMeta middleware', () => {
     const configStub = { site: { prodDomain: 'www.homestolove.com.au' } };
     const config = { ...configStub, gtm: { masthead: 'dolly' } };
     let res = {};
-    let req = { app: { config } };
+    let req = { app: { locals: { config } } };
     const baseEntityInput = {
         nodeName: 'node name',
         pageCanonicalUrl: 'http://example.com/',

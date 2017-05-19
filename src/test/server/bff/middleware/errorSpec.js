@@ -27,12 +27,12 @@ describe('Error middleware', () => {
             });
         });
 
-        it('should set response status to `503`', () => {
+        it('should set response status to 500', () => {
             errorMiddleware(err, req, res, next);
-            expect(statusStub).to.be.calledWith(503);
+            expect(statusStub).to.be.calledWith(500);
         });
 
-        it('should set response status to `404`', () => {
+        it('should set response status to 404', () => {
             const err404 = {...err};
             err404.status = 404;
 

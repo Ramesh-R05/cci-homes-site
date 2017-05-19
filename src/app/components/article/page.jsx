@@ -4,7 +4,7 @@ import Source from './source';
 import PolarFeedItem from '../polar/polarFeed';
 import VerticalGallery from '@bxm/article/lib/gallery';
 
-import {connectToStores} from '@bxm/flux';
+import { connectToStores } from '@bxm/flux';
 
 class Page extends Component {
     static displayName = 'ContentPage';
@@ -17,35 +17,33 @@ class Page extends Component {
     };
 
     getKingTag(tagObject) {
-        return tagObject.find( (tag) => {
-            return tag.name.includes('Homes navigation');
-        });
-    };
+        return tagObject.find(tag => tag.name.includes('Homes navigation'));
+    }
 
     static articleContentBodyConfig = {
         disableAds: true,
         inlineImage: {
             imageSizes: {
-                s: {w: 690},
-                m: {w: 963},
-                l: {w: 922},
-                xl: {w: 640}
+                s: { w: 690 },
+                m: { w: 963 },
+                l: { w: 922 },
+                xl: { w: 640 }
             }
         },
         relatedContent: {
             imageSizes: {
-                s: {w: 384, h: 216},
-                m: {w: 375, h: 211},
-                l: {w: 329, h: 185},
-                xl: {w: 296, h: 166}
+                s: { w: 384, h: 216 },
+                m: { w: 375, h: 211 },
+                l: { w: 329, h: 185 },
+                xl: { w: 296, h: 166 }
             }
-        },
+        }
     };
 
     render() {
         const { content, isVerticalGallery, query } = this.props;
         const targets = { brand: content.source };
-        const kingtag =  this.getKingTag(content.tagsDetails).displayName;
+        const kingtag = this.getKingTag(content.tagsDetails).displayName;
 
         if (kingtag) targets.kingtag = kingtag;
 
@@ -57,48 +55,46 @@ class Page extends Component {
             }
         };
 
-        if (query.g === "v") {
+        if (query.g === 'v') {
             return (
-            <div className={"content-wrapper"}>
-                <VerticalGallery
-                    {...this.props}
-                    enableTeads
-                    articleHeaderOrder={[ 'Hero',  'Source', 'Title', 'Summary', Ad ]}
-                    contentBodyConfig={Page.articleContentBodyConfig}
-                    authorTranslationMap={Page.translationMap}
-                    feedItemClass={PolarFeedItem}
-                    showFeedOnRight
-                    showAdBeforeRecommendations
-                    adSpacing={6}
-                    footerMetaClass={Source}
-                    footerComponentClass={null}
-                />
-            </div>
+                <div className={'content-wrapper'}>
+                    <VerticalGallery
+                      {...this.props}
+                      enableTeads
+                      articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', Ad]}
+                      contentBodyConfig={Page.articleContentBodyConfig}
+                      authorTranslationMap={Page.translationMap}
+                      feedItemClass={PolarFeedItem}
+                      showFeedOnRight
+                      showAdBeforeRecommendations
+                      adSpacing={6}
+                      footerMetaClass={Source}
+                      footerComponentClass={null}
+                    />
+                </div>
             );
         }
 
         return (
             <div>
                 <Article
-                    {...this.props}
-                    enableTeads={true}
-                    articleHeaderOrder={[ 'Hero',  'Source', 'Title', 'Summary', Ad ]}
-                    contentBodyConfig={Page.articleContentBodyConfig}
-                    authorTranslationMap={Page.translationMap}
-                    feedItemClass={PolarFeedItem}
-                    showFeedOnRight={true}
-                    showAdBeforeRecommendations={true}
-                    adSpacing={6}
-                    footerMetaClass={Source}
-                    footerComponentClass={null}
-                    />
+                  {...this.props}
+                  enableTeads
+                  articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', Ad]}
+                  contentBodyConfig={Page.articleContentBodyConfig}
+                  authorTranslationMap={Page.translationMap}
+                  feedItemClass={PolarFeedItem}
+                  showFeedOnRight
+                  showAdBeforeRecommendations
+                  adSpacing={6}
+                  footerMetaClass={Source}
+                  footerComponentClass={null}
+                />
             </div>
         );
     }
 }
 
-export default connectToStores(Page, ['PageStore'], (context) => {
-    return {
-        query: context.getStore('PageStore').getQuery()
-    };
-});
+export default connectToStores(Page, ['PageStore'], context => ({
+    query: context.getStore('PageStore').getQuery()
+}));

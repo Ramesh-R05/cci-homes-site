@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import Teaser from '../teaser/teaser';
 
@@ -16,7 +16,7 @@ export default class InFocus extends Component {
     };
 
     render() {
-        const {articles, modifier} = this.props;
+        const { articles, modifier } = this.props;
 
         if (!articles.length) return null;
 

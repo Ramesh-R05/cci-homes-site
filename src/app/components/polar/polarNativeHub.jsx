@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import get from 'lodash/object/get';
 import PolarNativeHub from '@bxm/ad/lib/polar/components/hub/hub';
 import PolarTeaserImage from './polarTeaserImage';
@@ -17,23 +17,24 @@ export default class HomesPolarNativeHub extends Component {
         targets: {}
     };
 
-    static renderTeasers = (teasers, onClick) => teasers.map( (teaser, i) =>
+    static renderTeasers = (teasers, onClick) => teasers.map((teaser, i) =>
         <PolarTeaserImage
-            key={i}
-            nativeAd={get(teaser, 'data', {})}
-            trackClick={onClick}
-            caption="Sponsored By"
+          key={i}
+          nativeAd={get(teaser, 'data', {})}
+          trackClick={onClick}
+          caption="Sponsored By"
         />
     );
 
     render() {
         return (
-            <PolarNativeHub className="section-featured--top"
-                ad={{
-                    id: this.props.hubId,
-                    targets: this.props.targets
-                }}
-                teaserRenderer={HomesPolarNativeHub.renderTeasers}
+            <PolarNativeHub
+              className="section-featured--top"
+              ad={{
+                  id: this.props.hubId,
+                  targets: this.props.targets
+              }}
+              teaserRenderer={HomesPolarNativeHub.renderTeasers}
             />);
     }
 }

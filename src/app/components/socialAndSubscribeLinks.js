@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import Magazine from './magazine';
 import Newsletter from './newsletter';
 import SocialContainer from './social/socialContainer';
@@ -15,12 +15,12 @@ export default class SocialAndSubscribeLinks extends Component {
     };
 
     render() {
-        const {content} = this.props;
-        const {config} = this.context;
+        const { content } = this.props;
+        const { config } = this.context;
         let brand = false;
 
         if (content.nodeType === 'BrandSection') {
-           brand = getBrand(config, content.source);
+            brand = getBrand(config, content.source);
             brand.gtmClass = 'gtm-follow-brand';
         }
 
@@ -31,18 +31,18 @@ export default class SocialAndSubscribeLinks extends Component {
 
                 { brand ?
                     <SocialContainer
-                        socialUrls={brand.social}
-                        title={brand.title}
-                        gtmClass={brand.gtmClass}
-                        nodeType={content.nodeType}
+                      socialUrls={brand.social}
+                      title={brand.title}
+                      gtmClass={brand.gtmClass}
+                      nodeType={content.nodeType}
                     />
                     :
                     <SocialContainer
-                        nodeType={content.nodeType}
+                      nodeType={content.nodeType}
                     />
                 }
 
             </div>
-        )
+        );
     }
 }

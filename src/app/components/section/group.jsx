@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import PolarTeaser from '../polar/polarTeaser';
 import Teaser from '../teaser/teaser';
 import classnames from 'classnames';
@@ -25,21 +25,21 @@ export default class Group extends Component {
     };
 
     getTeasers() {
-        const {polarAd, teaserModifier} = this.props;
+        const { polarAd, teaserModifier } = this.props;
 
         return this.props.articles.map((item, index) => {
             if (get(polarAd, 'index') === index) {
                 return (
                     <PolarTeaser
-                        {...item}
-                        ad={{
-                            label: polarAd.label,
-                            targets: {
-                                kw: polarAd.label
-                            }
-                        }}
-                        key={item.id}
-                        modifier={teaserModifier}
+                      {...item}
+                      ad={{
+                          label: polarAd.label,
+                          targets: {
+                              kw: polarAd.label
+                          }
+                      }}
+                      key={item.id}
+                      modifier={teaserModifier}
                     />
                 );
             }
@@ -48,7 +48,7 @@ export default class Group extends Component {
     }
 
     render() {
-        const {articles, className, modifier} = this.props;
+        const { articles, className, modifier } = this.props;
 
         if (!articles.length || !modifier) return null;
 

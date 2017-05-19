@@ -1,11 +1,11 @@
 import makeRequest from '../../makeRequest';
-import {parseEntities} from '../helper/parseEntity';
-import {getLatestTeasers} from '../api/listing';
+import { parseEntities } from '../helper/parseEntity';
+import getLatestTeasers from '../api/listing';
 
-export default async function tag(req, res, next) {
+export default async function tagMiddleware(req, res, next) {
     try {
         const itemsCount = 6;
-        let {tag} = req.query;
+        let { tag } = req.query;
 
         if (!tag) {
             next();
@@ -23,7 +23,7 @@ export default async function tag(req, res, next) {
             .replace(/\s*&\s*/g, '-and-')
             .replace(/\s+/g, '-');
 
-        const tagData = await makeRequest(`${req.app.config.services.remote.tag}/tags/?urlName=${tag}`)
+        const tagData = await makeRequest(`${req.app.locals.config.services.remote.tag}/tags/?urlName=${tag}`)
             .then(({ data }) => {
                 if (!data.length) return {};
                 const {
@@ -42,7 +42,7 @@ export default async function tag(req, res, next) {
 
         const pageSize = 12;
         const pageNo = parseInt(req.query.pageNo || 1, 10);
-        const skip =  (pageNo-1) * pageSize;
+        const skip = (pageNo - 1) * pageSize;
 
         const filter = `tagsDetails/urlName eq '${tag}'`;
         const latestTeasersResp = await getLatestTeasers(itemsCount, skip, filter);
@@ -71,7 +71,7 @@ export default async function tag(req, res, next) {
         };
 
         next();
-    } catch(error) {
+    } catch (error) {
         next(error);
     }
 }

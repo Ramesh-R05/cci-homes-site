@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
 import classNames from 'classnames';
 
@@ -15,10 +15,10 @@ export default class Subscribe extends Component {
 
     constructor(...args) {
         super(...args);
-    };
+    }
 
     render() {
-        let {className, image, link} = this.props;
+        let { className, image, link } = this.props;
 
         if (!link) {
             link = this.context.config.get('localeData.magShop.magshopUrl') || '';
@@ -31,13 +31,14 @@ export default class Subscribe extends Component {
         return (
             <div className={cssClass}>
                 <Teaser
-                    id="brand-subscribe"
-                    modifier="img-top"
-                    title="Subscribe now"
-                    url={link}
-                    summary={summary}
-                    imageUrl={image} />
+                  id="brand-subscribe"
+                  modifier="img-top"
+                  title="Subscribe now"
+                  url={link}
+                  summary={summary}
+                  imageUrl={image}
+                />
             </div>
         );
-    };
+    }
 }

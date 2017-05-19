@@ -1,7 +1,7 @@
 export default {
     polar: {
         propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',
-        targets: {env: 'test3'}
+        targets: { env: 'test3' }
     },
     server: {
         port: 3001

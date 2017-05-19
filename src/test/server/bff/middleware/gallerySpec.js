@@ -21,9 +21,7 @@ const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/gall
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': {
-        getLatestTeasers: getLatestTeasersSpy
-    }
+    '../api/listing': getLatestTeasersSpy
 });
 
 describe('gallery middleware', () => {

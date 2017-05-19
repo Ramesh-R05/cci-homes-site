@@ -1,6 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 import SubNavigationItemAndMenu from './subNavigationItemAndMenu';
-import {canUseDOM} from 'exenv';
+import { canUseDOM } from 'exenv';
 
 export default class NavigationItem extends Component {
     static propTypes = {
@@ -13,37 +13,32 @@ export default class NavigationItem extends Component {
 
     constructor(...args) {
         super(...args);
-        this.state = {viewportSize: 0};
+        this.state = { viewportSize: 0 };
     }
 
     componentDidMount() {
         if (canUseDOM) {
-            this.setState({viewportSize: window.innerWidth});
+            this.setState({ viewportSize: window.innerWidth });
         }
     }
 
-    hasSubMenuItemsToShow = () => {
-        return (this.props.tagsDetails && this.props.tagsDetails.length > 1);
-    };
+    hasSubMenuItemsToShow = () => (this.props.tagsDetails && this.props.tagsDetails.length > 1);
 
     render() {
         if (!this.props.name || !this.props.url) return null;
 
         if (!this.hasSubMenuItemsToShow()) {
-
             return <a className={this.props.linkClassName} href={this.props.url}>{this.props.name}</a>;
-
-        } else {
-
-            return (
-                <SubNavigationItemAndMenu
-                    items={this.props.tagsDetails}
-                    name={this.props.name}
-                    linkClassName={this.props.linkClassName}
-                    showGroupLabel={this.props.showGroupLabel}
-                    viewportSize={this.state.viewportSize}
-                />
-            );
         }
+
+        return (
+            <SubNavigationItemAndMenu
+              items={this.props.tagsDetails}
+              name={this.props.name}
+              linkClassName={this.props.linkClassName}
+              showGroupLabel={this.props.showGroupLabel}
+              viewportSize={this.state.viewportSize}
+            />
+        );
     }
 }

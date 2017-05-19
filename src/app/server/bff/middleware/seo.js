@@ -1,10 +1,10 @@
-import { getKeywords } from '../api/seo';
+import getKeywords from '../api/seo';
 import { init as seoInsertKeywordLink } from '../helper/seoInsertKeywordLink';
 import { backendLogger as logger } from '@bxm/winston-logger';
 
-export default async function seo(req, res, next) {
+export default async function seoMiddleware(req, res, next) {
     try {
-        const {entity} = res.body;
+        const { entity } = res.body;
         if (!entity || (entity.nodeType !== 'HomesArticle')) {
             next();
             return;
@@ -16,8 +16,8 @@ export default async function seo(req, res, next) {
         }
 
         next();
-    } catch(error) {
-        logger.log('error', error);
+    } catch (error) {
+        logger.error(error);
         next(error);
     }
 }

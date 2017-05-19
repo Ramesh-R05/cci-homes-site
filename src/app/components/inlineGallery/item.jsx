@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
 class Item extends Component {
@@ -16,22 +16,22 @@ class Item extends Component {
     }
 
     render() {
-        const {tagsDetails, imageAltText, imageUrl, source, title, url} = this.props;
+        const { tagsDetails, imageAltText, imageUrl, source, title, url } = this.props;
 
         if (!imageUrl || !url) return null;
 
         let topic;
 
-        tagsDetails && tagsDetails.forEach( (item) => {
-        if (item.name.includes('Topic')) {
-           topic = item.displayName;
-        }
+        tagsDetails && tagsDetails.forEach((item) => {
+            if (item.name.includes('Topic')) {
+                topic = item.displayName;
+            }
         });
 
-        const sourceClass = source ? `gallery-item--${source.replace(/[^a-z]/gi, '_' ).toLowerCase()}` : '';
+        const sourceClass = source ? `gallery-item--${source.replace(/[^a-z]/gi, '_').toLowerCase()}` : '';
         const itemClass = classnames('gallery-item', sourceClass);
-        const metaClass = classnames('gallery-item__meta', {'hide': !title});
-        const topicClass = classnames('gallery-item__topic', {'hide': !topic});
+        const metaClass = classnames('gallery-item__meta', { hide: !title });
+        const topicClass = classnames('gallery-item__topic', { hide: !topic });
 
         return (
             <div className={itemClass}>

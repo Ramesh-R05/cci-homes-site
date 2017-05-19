@@ -1,25 +1,27 @@
-import {parseEntities} from '../helper/parseEntity';
-import {getLatestTeasers} from '../api/listing';
+import { parseEntities } from '../helper/parseEntity';
+import getLatestTeasers from '../api/listing';
 
-export default async function listing(req, res, next) {
+export default async function listingMiddleware(req, res, next) {
     try {
-        const {list} = res.body;
+        const { list } = res.body;
 
         if (!list || !list.params) {
             next();
             return;
         }
 
-        const {basePath, filter} = list.params;
+        const { basePath, filter } = list.params;
         const offset = parseInt(list.params.offset, 10);
         const pageNo = parseInt(list.params.pageNo, 10);
         const pageSize = parseInt(list.params.pageSize, 10);
 
-        let skip = (pageNo-1) * pageSize;
+        let skip = (pageNo - 1) * pageSize;
         let top = pageSize;
         if (offset && res.body.items) {
             if (res.body.items.length === 0) {
-                throw {status: 404, message: 'No content!'};
+                const err = new Error('No content!');
+                err.status = 404;
+                throw err;
             }
 
             skip += offset;
@@ -37,8 +39,8 @@ export default async function listing(req, res, next) {
             }
             previousPage = {
                 path,
-                url: `${req.app.config.site.host}${path}`
-            }
+                url: `${req.app.locals.config.site.host}${path}`
+            };
         }
 
         let nextPage = null;
@@ -46,14 +48,14 @@ export default async function listing(req, res, next) {
             const path = `${basePath}?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,
-                url: `${req.app.config.site.host}${path}`
+                url: `${req.app.locals.config.site.host}${path}`
             };
         }
 
         const path = pageNo > 1 ? `${basePath}?pageNo=${pageNo}` : basePath;
         const currentPage = {
             path,
-            url: `${req.app.config.site.host}${path}`
+            url: `${req.app.locals.config.site.host}${path}`
         };
 
         res.body = {
@@ -75,8 +77,7 @@ export default async function listing(req, res, next) {
         };
 
         next();
-    } catch(error) {
-        console.log(error);
+    } catch (error) {
         next(error);
     }
 }

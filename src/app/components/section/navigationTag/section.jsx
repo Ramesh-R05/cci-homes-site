@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {connectToStores} from '@bxm/flux';
+import React, { Component, PropTypes } from 'react';
+import { connectToStores } from '@bxm/flux';
 import CustomInlineGallery from '../../inlineGallery/customInlineGallery';
 import GenericSection from '../section';
 
@@ -27,7 +27,7 @@ class Section extends Component {
     render() {
         return (
             <GenericSection
-                {...this.props}
+              {...this.props}
 
             />
         );

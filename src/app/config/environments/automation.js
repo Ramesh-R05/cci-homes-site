@@ -1,7 +1,7 @@
 export default {
     polar: {
         propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',
-        targets: {env: 'test3'}
+        targets: { env: 'test3' }
     },
     services: {
         faceBookAppID: '852557544824192',
@@ -17,6 +17,6 @@ export default {
         host: 'http://automation.homes-site.wn.bauer-media.net.au'
     },
     ads: {
-        targets: {'env': 'test3'}
+        targets: { env: 'test3' }
     }
 };

@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import NavigationItem from './navigationItem';
 
 export default class Navigation extends Component {
