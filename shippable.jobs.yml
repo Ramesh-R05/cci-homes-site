@@ -41,7 +41,7 @@ jobs:
             image: homes-site-img-branch
             port: 3001
       - TASK: managed
-        deployMethod: upgrade
+        deployMethod: replace
 
   - name: homes-site-sit-deploy-master # DEV deployment for MASTER
     type: deploy
@@ -59,7 +59,7 @@ jobs:
             image: homes-site-img-master
             port: 3001
       - TASK: managed
-        deployMethod: upgrade
+        deployMethod: replace
 
   - name: homes-site-test-deploy-master # Stubbed deployment for automation tests
     type: deploy
@@ -75,7 +75,7 @@ jobs:
             image: homes-site-img-master
             port: 3001
       - TASK: managed
-        deployMethod: upgrade
+        deployMethod: replace
 
 
   - name: homes-site-automation-test # Test Stub site
