@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { canUseDOM } from 'exenv';
 import { provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
+import GoogleFont from './html/googleFont';
 
 class Application extends Component {
 
@@ -27,6 +28,7 @@ class Application extends Component {
         const className = canUseDOM ? '' : 'no-js';
         return (
             <div className={className}>
+                <GoogleFont />
                 <Handler />
             </div>
         );
