@@ -87,7 +87,7 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
-        - script: until(curl --fail homes.sit.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done
+        - script: until(curl --fail homes.test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "6.1.0"
@@ -109,6 +109,7 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
+        - script: until(curl --fail homes.test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done     
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "6.1.0"
