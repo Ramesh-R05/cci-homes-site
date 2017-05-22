@@ -47,7 +47,7 @@
     "@bxm/newsletter": "^3.0.0",
     "@bxm/react-script-loader": "^2.1.0",
     "@bxm/recommendations": "^4.0.0",
-    "@bxm/server": "^21.0.1",
+    "@bxm/server": "^21.1.0",
     "@bxm/social": "^1.1.4",
     "@bxm/tags": "^3.0.0",
     "@bxm/teaser": "^5.2.1",
