@@ -30,12 +30,12 @@ module.exports = function() {
 
     this.When(/^I can see the hero image$/, function () {
         browser.scroll(wn_article.heroImg);
-        var heroImg = browser.waitForVisible(wn_article.heroImg,2000);
+        var heroImg = browser.waitForVisible(wn_article.heroImg,5000);
         expect(heroImg).toBe(true);
     });
     this.When(/^I can see the hero image on Food$/, function () {
         browser.scroll(wn_article.heroImgFood);
-        var heroImg = browser.waitForVisible(wn_article.heroImgFood,2000);
+        var heroImg = browser.waitForVisible(wn_article.heroImgFood,5000);
         expect(heroImg).toBe(true);
     });
     this.Given(/^I can see the image alt text in the hero image element "([^"]*)"$/, function (altText) {

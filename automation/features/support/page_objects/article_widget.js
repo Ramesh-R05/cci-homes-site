@@ -25,7 +25,7 @@ var article_widget = {
     heroVideoControlBar: '.article__main-hero .vjs-control-bar button',
     heroVideoProgress: '.article__main-hero .vjs-progress-control .vjs-slider-horizontal',
     heroVideoFood: '.article__hero-wrapper--video',
-    heroImg: '.article__main-hero > picture img',
+    heroImg: '.article__main-hero picture',
     heroImgCaption: '.article__main-hero .article_image-caption',
     heroImgFood: '.article__hero-wrapper--img',
     lhrFeedItems: 'ul.feed__items li.feed-item',

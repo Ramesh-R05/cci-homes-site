@@ -5,7 +5,7 @@ Feature: Article
 
     @high
     Scenario: Verify an article page which contains a hero image on mobile
-        When I switch to "mobile" view
+        When I switch to "mobile portrait" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see the long title "Long Title Long Title EOM"
         * I can see the hero image
