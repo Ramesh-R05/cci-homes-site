@@ -98,7 +98,7 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
-        - script: until(curl --fail homes-site-test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done
+        - script: until(curl --fail homes-site.test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "6.1.0"
@@ -106,7 +106,7 @@ jobs:
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: npm install
-        - script: export URL=http://homes-site-test.bxm.net.au/
+        - script: export URL=http://homes-site.test.bxm.net.au/
         - script: npm run test:high || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
@@ -121,7 +121,7 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
-        - script: until(curl --fail homes-site-test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done     
+        - script: until(curl --fail homes-site.test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done     
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "6.1.0"
@@ -131,7 +131,7 @@ jobs:
         - script: npm install
         - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
         - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
-        - script: export URL=http://homes-site-test.bxm.net.au/
+        - script: export URL=http://homes-site.test.bxm.net.au/
         - script: npm run test:mobile
 
   # 5. Package release for production release
