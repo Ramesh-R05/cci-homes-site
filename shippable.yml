@@ -8,7 +8,6 @@ env:
     - APP_KEY=homes-site
     - APP_STUBBED=true
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site
-    - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'
 
 build:
@@ -20,13 +19,16 @@ build:
     - node --version
     - mkdir -p ./shippable/testresults ./shippable/codecoverage ./shippable/buildoutput
     - cd src
-    - npm install
+    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    - sudo apt-get update && sudo apt-get install yarn
+    - yarn install
     - echo "module.exports={buildNumber:'$BRANCH_NAME'};" > version.js
     - cat version.js
-    - npm run build
     - npm run test:ci
+    - ./node_modules/.bin/babel-istanbul report cobertura --dir  ./../shippable/codecoverage/
+    - NODE_ENV=production npm run build
     - cd ..
-    - ./src/node_modules/.bin/babel-istanbul report cobertura --dir  ./shippable/codecoverage/
     - if [ $IS_PULL_REQUEST == false ]; then docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME .; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest; fi
     - if [ "$BRANCH" == "master" ] && [ $IS_PULL_REQUEST == false ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/homes-site-img-master.env; fi
@@ -34,7 +36,8 @@ build:
   push:
     - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:$BRANCH_NAME; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:latest; fi
-    - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE; fi # Clear all docker images after completion
+    - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE:$BRANCH_NAME; fi # Clear all docker images after completion
+    - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE:latest; fi # Clear all docker images after completion
 
 branches:
   only:

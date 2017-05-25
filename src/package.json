@@ -8,10 +8,10 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "prepush": "run-p lint test",
+    "prepush": "run-p  test",
     "start": "node ./start.js",
     "test": "babel-node ./node_modules/babel-istanbul/lib/cli cover --root ./ --include-all-sources --report teamcity --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",
-    "test:ci": "npm run test -- --reporter=xunit-file",
+    "test:ci": "npm run test:unit -- --reporter=xunit --reporter-options output=./../shippable/testresults/result.xml",
     "test:unit": "mocha --require babel-polyfill --require babel-register --require test/setup.js --reporter min --recursive --check-leaks",
     "test:tdd": "npm run test:unit -- --watch",
     "clean": "rimraf dist/ coverage/ .build/ && mkdirp dist/scripts dist/styles .build/",
