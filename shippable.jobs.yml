@@ -1,13 +1,22 @@
+# This jobs are only used for HOMESTOLOVE
+
+####################################################################
+# Refer to http://docs.shippable.com/reference/jobs-overview/      #
+# Resources are located in shippable.resources.yml file            #
+# Jobs are numbered to visualize sequence                          #
+####################################################################
+
 jobs:
 
-  - name: homes-site_runCI # sync pipeline to CI
+  # 1. Sync pipeline to CI
+  - name: homes-site_runCI
     type: runCI
     steps:
       - OUT: homes-site-img-master
       - OUT: homes-site-img-branch
 
-
-  - name: homes-site-man-branch # manifest for a branch image
+  # 2branch. Manifest for a BRANCH image
+  - name: homes-site-man-branch
     type: manifest
     steps:
       - IN: homes-site-img-branch
@@ -16,16 +25,8 @@ jobs:
     flags:
       - homes-site
 
-
-  - name: homes-site-man-master # manifest for master image
-    type: manifest
-    steps:
-      - IN: homes-site-img-master
-      - IN: homes-site-opts-sit
-      - TASK: managed
-
-
-  - name: homes-site-sit-deploy-branch # DEV deployment for FEATURE BRANCH
+  # 3Branch. SIT deployment for feature BRANCH
+  - name: homes-site-sit-deploy-branch
     type: deploy
     always:
       - NOTIFY: homes-slack-notifications
@@ -43,7 +44,16 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
-  - name: homes-site-sit-deploy-master # DEV deployment for MASTER
+  # 2. Manifest for MASTER image
+  - name: homes-site-man-master
+    type: manifest
+    steps:
+      - IN: homes-site-img-master
+      - IN: homes-site-opts-sit
+      - TASK: managed
+
+  # 3a. SIT deployment for MASTER
+  - name: homes-site-sit-deploy-master
     type: deploy
     always:
       - NOTIFY: homes-slack-notifications
@@ -61,7 +71,8 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
-  - name: homes-site-test-deploy-master # Stubbed deployment for automation tests
+  # 3b. TEST deployment for MASTER - stubbed
+  - name: homes-site-test-deploy-master
     type: deploy
     steps:
       - IN: homes-site-replicas-non-prod #number of running tasks
@@ -77,8 +88,8 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
-
-  - name: homes-site-automation-test # Test Stub site
+  # 4a. Run regression test on TEST environment
+  - name: homes-site-automation-test
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
@@ -100,7 +111,8 @@ jobs:
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
-  - name: homes-site-mobile-automation-test # Test Stub site on Browser Stack
+  # 4b. Run mobile regression test on TEST environment - Browser Stack
+  - name: homes-site-mobile-automation-test
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
@@ -122,17 +134,19 @@ jobs:
         - script: export URL=http://homes.test.bxm.net.au/
         - script: npm run test:mobile
 
-  - name: homes-site-release-master # Package release for production release
+  # 5. Package release for production release
+  - name: homes-site-release-master
     type: release
     steps:
+      - IN: homes-site-automation-test
       - IN: homes-site-man-master
         switch: off
-      - IN: homes-site-automation-test
       - IN: homes-site-version
       - TASK: managed
         bump: minor
 
-  - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
+  # 6. PROD deployment for MASTER with Region AU
+  - name: homes-site-prod-deploy-master
     type: deploy
     always:
       - NOTIFY: homes-slack-notifications

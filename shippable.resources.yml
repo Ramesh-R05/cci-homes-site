@@ -1,99 +1,18 @@
+# This resources are only used for HOMESTOLOVE
+
+####################################################################
+# Refer to http://docs.shippable.com/reference/resources-overview/ #
+####################################################################
+
 resources:
 
-#
-# Common setup that should be moved into a common shippable repo
-#
-  - name: homes-slack-notifications
-    type: notification                          #required
-    integration: slack-bauerxcelmedia
-    pointer:
-      recipients:
-        - "#au-shippable"
-
-# Docker Image for the homes-site
-  - name: homes-site-img-master
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
-    seed:
-      versionName: latest
-
-# Docker Image for the homes-site
-  - name: homes-site-img-branch
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
-    seed:
-      versionName: latest
-
-# Github repo
-  - name: homes-site-repo
-    type: gitRepo
-    integration: production-github
-    pointer:
-      sourceName: bauerxcelmedia/homes-site
-      branch: master
-
-# Release version
-  - name: homes-site-version
-    type: version
-    seed:
-      versionName: "1.0.0"
-
-#
-# SIT environment configuration
-#
-  - name: homes-env-sit-ecs
-    type: cluster
-    integration: AWS-digital-nonprod
-    pointer:
-      sourceName : "app_ecs"
-      region: "ap-southeast-2"
-
-  - name: homes-site-alb-sit
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-sit-homes-au/5a2cdbbe7a7ded24"
-      method: application
-
-  - name: homes-site-alb-sit-branch
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-homes-site-sit-au/318e3c41ae0ed30f"
-      method: application
-
-  - name: homes-site-alb-test
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-test/24afa8bb9878bdb9"
-      method: application
-
-# non Prod ENv
-  - name: homes-site-params-sit
-    type: params
-    version:
-      params:
-        NODE_ENV: "production"
-        APP_ENV: "sit"
-        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
-
-  - name: homes-site-params-test
-    type: params
-    version:
-      params:
-        NODE_ENV: "production"
-        APP_ENV: "automation"
-        APP_STUBBED: true
-
-# Docker Image Options
+  # Docker Image Options to run the container
   - name: homes-site-opts-sit
     type: dockerOptions
     version:
       memory: 512
       memoryReservation: 256
-      cpuShares: 128
+      cpuShares: 64
       portMappings:
         - 0:3001
       publishAllPorts : true
@@ -104,31 +23,125 @@ resources:
           awslogs-region: "ap-southeast-2"
           awslogs-stream-prefix: "app-homes-site"
 
+  # MASTER Docker Image for the homes-site
+  - name: homes-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+    seed:
+      versionName: latest
+
+  # Feature BRANCH Docker Image for the homes-site
+  - name: homes-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+    seed:
+      versionName: latest
+
+  # Homes Github repo
+  - name: homes-site-repo
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/homes-site
+      branch: master
+
+  # Slack connection
+  - name: homes-slack-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#au-shippable"
+
+  # Seed Release version
+    # for Rollback refer to below URL
+    # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  - name: homes-site-version
+    type: version
+    seed:
+      versionName: "1.0.0" # This can be changed for Roll back
+
+  ####################################
+  # NON PROD environment configuration
+  ####################################
+
+  # AWS Non Prod Cluster
+  - name: homes-env-sit-ecs
+    type: cluster
+    integration: AWS-digital-nonprod
+    pointer:
+      sourceName : "app_ecs"
+      region: "ap-southeast-2"
+
+  # AWS SIT load Balancer - Homes AU - MASTER branch
+  - name: homes-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-sit-homes-au/5a2cdbbe7a7ded24"
+      method: application
+
+  # AWS SIT:8080 load Balancer - Homes AU - feature BRANCH
+  - name: homes-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-homes-site-sit-au/318e3c41ae0ed30f"
+      method: application
+
+  # AWS TEST load Balancer - Homes STUBBED - MASTER branch
+  - name: homes-site-alb-test
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-test/24afa8bb9878bdb9"
+      method: application
+
+  # SIT Parameter
+  - name: homes-site-params-sit
+    type: params
+    version:
+      params:
+        NODE_ENV: "production"  # this is to start APP with production version of react
+        APP_ENV: "sit"          # this is to start APP using sit config
+        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+
+  # TEST Parameter
+  - name: homes-site-params-test
+    type: params
+    version:
+      params:
+        NODE_ENV: "production"  # this is to start APP with development version of react
+        APP_ENV: "automation"   # this is to start APP using automation config
+        APP_STUBBED: true       # this is to start APP stubbed
+
+  # SIT/TEST - Number of task to run in AWS cluster
   - name: homes-site-replicas-non-prod
     type: replicas
     version:
       count: 2
 
-# PRODUCTION environment configuration (TO BE DONE)
-#
-#
-# PROD environment configuration
-#
+  ####################################
+  # PROD environment configuration
+  ####################################
+
+  # AWS PROD load Balancer - Homes PROD - MASTER branch
   - name: homes-site-alb-prod
     type: loadBalancer
     pointer:
       sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/homes-site-prod-homes-au/7f867a976b154dd5"
       method: application
 
-# ENV parameters
+  # PROD parameters
   - name: homes-site-params-prod
     type: params
     version:
       params:
-        NODE_ENV: "production"
-        APP_ENV: "production"
-        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
-
+        NODE_ENV: "production"                                # this is to start APP with development version of react
+        APP_ENV: "production"                                 # this is to start APP using production config
+        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"   # New relic key
+  # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
     type: replicas
     version:
