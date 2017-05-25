@@ -81,14 +81,14 @@ resources:
   - name: homes-site-alb-sit
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-sit-homes-au/5a2cdbbe7a7ded24"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-au-sit/5f74d13d06b36b76"
       method: application
 
   # AWS SIT:8080 load Balancer - Homes AU - feature BRANCH
   - name: homes-site-alb-sit-branch
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-homes-site-sit-au/318e3c41ae0ed30f"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-au-branch-sit/3bb9306c82d75ab5"
       method: application
 
   # AWS TEST load Balancer - Homes STUBBED - MASTER branch
