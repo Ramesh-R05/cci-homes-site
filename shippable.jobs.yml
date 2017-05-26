@@ -154,7 +154,7 @@ jobs:
       - IN: homes-site-replicas-production #number of running tasks
       - IN: homes-site-release-master
         switch: off
-      - IN: env-prod-ecs
+      - IN: homes-env-prod-ecs
       - IN: homes-site-params-prod
       - IN: homes-site-alb-prod
         applyTo:

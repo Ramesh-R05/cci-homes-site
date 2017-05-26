@@ -124,7 +124,18 @@ resources:
 
   ####################################
   # PROD environment configuration
+  # DO NOT DELETE
+  # DO NOT DELETE
+  # DO NOT DELETE
   ####################################
+
+  # AWS Prod Cluster
+  - name: homes-env-prod-ecs
+    type: cluster
+    integration: AWS-digital-prod
+    pointer:
+      sourceName : "app_ecs"
+      region: "ap-southeast-2"
 
   # AWS PROD load Balancer - Homes PROD - MASTER branch
   - name: homes-site-alb-prod
@@ -141,6 +152,7 @@ resources:
         NODE_ENV: "production"                                # this is to start APP with development version of react
         APP_ENV: "production"                                 # this is to start APP using production config
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"   # New relic key
+
   # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
     type: replicas
