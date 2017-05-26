@@ -130,7 +130,7 @@ resources:
   - name: homes-site-alb-prod
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/homes-site-prod-homes-au/7f867a976b154dd5"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/homes-site-au-prod/1f2d108e074bc534"
       method: application
 
   # PROD parameters
