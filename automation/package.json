@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "ping": "bash -c \"./features/support/files/ping.sh\"",
+    "ping:homes": "bash -c \"URL=homes-site.test.bxm.net.au npm run ping\"",
     "once": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=~@manual --browser=phantomjs --format=rerun:@rerun.txt\"",
     "test:mobile": "bash -c \"APP_KEY=homes-mobile npm run mobile\"",
     "mobile": "bash -c \"node runner.js --pMode=mobile\"",
@@ -15,7 +17,7 @@
     "features": "bash -c \"node runner.js --pMode=features\"",
     "browsers": "bash -c \"node runner.js\"",
     "homes:automation": "bash -c \"export URL= && export APP_KEY=homes-site && export APP_ENV=automation && npm run test:high\"",
-    "homes:watch": "bash -c \"export URL=http://homes.test.bxm.net.au/ && export APP_KEY=homes-site && export APP_ENV=automation && npm run ghost:watch\"",
+    "homes:watch": "bash -c \"export URL=http://homes-site.test.bxm.net.au/ && export APP_KEY=homes-site && export APP_ENV=automation && npm run ghost:watch\"",
     "homes:stubbed": "bash -c \"export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=automation && npm run once\"",
     "smoketest": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --tags=@smoketest \"",
     "homes:smoketest": "bash -c \"export URL=http://origin.prelive.homes-site.bauer-media.net.au/ && npm run smoketest\"",

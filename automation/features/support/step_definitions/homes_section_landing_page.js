@@ -99,7 +99,7 @@ module.exports = function(){
     });
 
     this.Given(/^the below position top teasers are replaced with polar ads in section page$/, function (table) {
-        browser.waitForExist('.teaser--polar', 3000);
+        browser.waitForExist('.teaser--polar', 5000);
         var listOfItems = browser.getAttribute(sectionPage.sectionTopTeasers, 'class');
         var rows = table.hashes();
         for (var i = 0; i < rows.length; ++i) {
@@ -111,7 +111,7 @@ module.exports = function(){
     });
 
     this.Given(/^the below position bottom teasers are replaced with polar ads in section page$/, function (table) {
-        browser.waitForExist('.teaser--polar', 3000);
+        browser.waitForExist('.teaser--polar', 5000);
         var listOfItems = browser.getAttribute(sectionPage.sectionBottomTeasers, 'class');
         var rows = table.hashes();
         for (var i = 0; i < rows.length; ++i) {
@@ -123,7 +123,7 @@ module.exports = function(){
     });
 
     this.Given(/^the below position added more teasers are replaced with polar ads in section page$/, function (table) {
-        browser.waitForExist('.teaser--polar', 3000);
+        browser.waitForExist('.teaser--polar', 5000);
         var listOfItems = browser.getAttribute(sectionPage.sectionLoadMoreFeed, 'class');
         var rows = table.hashes();
         for (var i = 0; i < rows.length; ++i) {
