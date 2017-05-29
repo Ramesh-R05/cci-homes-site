@@ -10,6 +10,8 @@ Feature: Users can navigate the site using a mobile device
 
     Scenario: Ads on gallery page in the mobile view
         Given I am currently viewing "automation-test-gallery-3201"
-        Then I should see the top leaderboard ad above the gallery slide
-        And I should not see the MREC ad at the bottom right of the gallery
-        And I should see the MREC ad after the 3 slide
+        * I should see the top leaderboard ad under navigation
+        * I should not see MREC ad under the hero image
+        * I should see MREC ad above recommendation
+        * I should see the bottom leaderboard ad above the footer on article
+        * I should see MREC ad between images

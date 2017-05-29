@@ -18,7 +18,7 @@ Feature: Ads
         Then I can see the sticky ad on the homepage page
 
     @med
-    Scenario: Add sticky mobile banner to bottom of the Brand Papge
+    Scenario: Add sticky mobile banner to bottom of the Brand Page
         Given I switch to "mobile portrait" view
         When I am currently viewing "australian-house-and-garden"
         Then I can see the sticky ad when the top banner disappears from view in brand page
@@ -26,7 +26,7 @@ Feature: Ads
         Then I can see the sticky ad on the brand page
 
     @low
-    Scenario: Add sticky mobile banner to bottom of the Section PAge
+    Scenario: Add sticky mobile banner to bottom of the Section Page
         Given I switch to "mobile portrait" view
         When I am currently viewing "real-homes"
         Then I can see the sticky ad when the top banner disappears from view in section page
