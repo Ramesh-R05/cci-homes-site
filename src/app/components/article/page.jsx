@@ -4,9 +4,7 @@ import Source from './source';
 import PolarFeedItem from '../polar/polarFeed';
 import VerticalGallery from '@bxm/article/lib/gallery';
 
-import { connectToStores } from '@bxm/flux';
-
-class Page extends Component {
+export default class Page extends Component {
     static displayName = 'ContentPage';
 
     static translationMap = {
@@ -41,11 +39,12 @@ class Page extends Component {
     };
 
     render() {
-        const { content, isVerticalGallery, query } = this.props;
+        const { content } = this.props;
         const targets = { brand: content.source };
-        const kingtag = this.getKingTag(content.tagsDetails).displayName;
+        const kingtag = this.getKingTag(content.tagsDetails);
+        const kingtagDisplayName = kingtag && kingtag.displayName;
 
-        if (kingtag) targets.kingtag = kingtag;
+        if (kingtagDisplayName) targets.kingtag = kingtag;
 
         const Ad = {
             type: 'Ad',
@@ -55,7 +54,7 @@ class Page extends Component {
             }
         };
 
-        if (query.g === 'v') {
+        if (content.nodeType === "Gallery") {
             return (
                 <div className={'content-wrapper'}>
                     <VerticalGallery
@@ -94,7 +93,3 @@ class Page extends Component {
         );
     }
 }
-
-export default connectToStores(Page, ['PageStore'], context => ({
-    query: context.getStore('PageStore').getQuery()
-}));

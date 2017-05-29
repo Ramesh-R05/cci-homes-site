@@ -8,6 +8,7 @@ const FeedItemStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const SourceStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
+const GalleryStub = Context.createStubComponent();
 
 const ArticlePage = proxyquire('../../../app/components/article/page', {
     'react': React,
@@ -15,28 +16,8 @@ const ArticlePage = proxyquire('../../../app/components/article/page', {
     '../polar/polarFeed': FeedItemStub,
     './footer': FooterStub,
     './source': SourceStub,
-    '@bxm/ad/lib/google/components/ad': AdStub
-});
-
-Context.addStore('GalleryPageStore', {
-    getGalleryItems() {
-        return [];
-    },
-    getNumAds() {
-        return 2;
-    }
-});
-
-Context.addStore('articleStore', {
-    getContent() {
-        return [];
-    }
-});
-
-Context.addStore('PageStore', {
-    getQuery() {
-        return {};
-    }
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/article/lib/gallery': GalleryStub
 });
 
 describe('ArticlePage', () => {

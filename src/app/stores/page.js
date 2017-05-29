@@ -28,8 +28,7 @@ const PageStore = createReducerStore({
                     navigationTags: entity.navigationTags,
                     galleries,
                     latestRealHomes,
-                    list,
-                    query: payload.request.payload.query };
+                    list }
             } return {};
         },
         LOAD_CONTENT_FAILED: (state, payload) => ({
@@ -40,8 +39,7 @@ const PageStore = createReducerStore({
             galleries: [],
             latestRealHomes: [],
             list: [],
-            content: null,
-            query: {} }),
+            content: null }),
 
         LOAD_LIST: (state, payload) => ({
 
@@ -91,10 +89,6 @@ const PageStore = createReducerStore({
 
         getErrorStatus(state) {
             return state.error;
-        },
-
-        getQuery(state) {
-            return state.query;
         }
     }
 });

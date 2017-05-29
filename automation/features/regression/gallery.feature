@@ -3,100 +3,53 @@ Feature: Gallery
     As a user
     I should be able to see the gallery page
 
-    Scenario Outline: User navigates through the gallery
-        Given I switch to "<Device>" view
-        And I am currently viewing "automation-test-gallery-3201"
-        When I navigate to all of the images
-        Then I am able to see next gallery on "<Device>"
-        @high
-        Examples:
-            | Device            |
-            | mobile portrait   |
-            | desktop           |
-        @med
-        Examples:
-            | Device            |
-            | mobile            |
-            | tablet portrait   |
-            | tablet landscape  |
+    @high
+    Scenario: Verify a gallery page with the primary content on mobile view
+        When I switch to "mobile" view
+        Given I am currently viewing "automation-test-gallery-3201"
+        * I can see the logo on the gallery header
+        * I can click the logo to go to homepage
+        * I can see an image appearing on the gallery
+        * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-article"
 
+    @med
+    Scenario: Verify a gallery page with the secondary content on mobile view
+        When I switch to "mobile" view
+        Given I am currently viewing "automation-test-gallery-3201"
+        * I can see the gallery title containing "A luxurious bushland retreat"
+        * I can see an image appearing on the gallery
+        * I can see the image number "1" of total "8" on the gallery
+        * I can see the image caption on the gallery containing "The pavilion-style renovation features"
+    @low
+    Scenario: Verify a gallery page with the optional content on mobile view
+        When I switch to "mobile" view
+        Given I am currently viewing "automation-test-gallery-3201"
+        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds"
+        #When I see the video ID "5066382704001" on the gallery
+        #* I can see the play button and click on it
 
-    Scenario Outline: User can see the headline in the gallery
-        Given I switch to "<Device>" view
-        And I am currently viewing "automation-test-gallery-3201"
-        Then I can see the headline "A luxurious bushland retreat" across all images
-        @high
-        Examples:
-            | Device            |
-            | desktop           |
-        @med
-        Examples:
-            | Device            |
-            | tablet landscape  |
+    @med
+    Scenario: Verify a gallery page in desktop style on desktop view
+        When I switch to "desktop" view
+        Given I am currently viewing "automation-test-gallery-3201"
+        * I can see the logo on the gallery header
+        * I can click the logo to go to homepage
+        * I can see the gallery title containing "A luxurious bushland retreat"
+        * I can see an image appearing on the gallery
+        * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-article"
+        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds"
+        * I can see the image number "1" of total "8" on the gallery
+        * I can see the image caption on the gallery containing "The pavilion-style renovation features"
+        #When I see the video ID "5066382704001" on the gallery
+        #* I can see the play button and click on it
 
-
-    Scenario Outline: User can see the headline in the gallery
-        Given I switch to "<Device>" view
-        And I am currently viewing "automation-test-gallery-3201"
-        Then I can see the headline "A luxurious bushland retreat" only on the first image
-        @high
-        Examples:
-            | Device            |
-            | mobile portrait   |
-        @med
-        Examples:
-            | Device            |
-            | mobile            |
-            | tablet portrait   |
-
-
-    Scenario Outline: User can see image number and the image caption
-        Given I switch to "<Device>" view
-        And I am currently viewing "automation-test-gallery-3201"
-        Then I can see the Image counter and caption truncated to two lines
-        And I can toggle between Less and More
-        @high
-        Examples:
-            | Device            |
-            | desktop           |
-            | mobile portrait   |
-        @med
-        Examples:
-            | Device            |
-            | tablet landscape  |
-            | tablet portrait   |
-            | mobile            |
-
-    Scenario Outline: User can share through social media buttons
-            Given I switch to "<Device>" view
-            And I am currently viewing "automation-test-gallery-3201"
-            Then I should be able to share through facebook
-            And I should be able to share through Pinterest
-        @high
-            Examples:
-                | Device            |
-                | desktop           |
-                | mobile portrait   |
-        @med
-            Examples:
-                | Device            |
-                | tablet landscape  |
-                | tablet portrait   |
-                | mobile            |
-
-    Scenario Outline: User should be able to see gallery description text
-         Given I switch to "<Device>" view
-         And I am currently viewing "automation-test-gallery-3201"
-         Then I should be able to see the gallery description text
-         And I should be able to see the brand logo
-        @high
-            Examples:
-                | Device            |
-                | desktop           |
-                | mobile portrait   |
-        @med
-            Examples:
-                | Device            |
-                | tablet landscape  |
-                | tablet portrait   |
-                | mobile            |
+    @low
+    Scenario: Verify a gallery page in mobile style on tablet portrait view
+        When I switch to "tablet portrait" view
+        Given I am currently viewing "automation-test-gallery-3201"
+        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds"
+    @low
+    Scenario: Verify a gallery page in desktop style on tablet landscape view
+        When I switch to "tablet landscape" view
+        Given I am currently viewing "automation-test-gallery-3201"
+        * I can see the gallery description of the gallery containing "The breathtaking natural surrounds"

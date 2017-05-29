@@ -77,8 +77,7 @@ const defaultStoreData = {
     PageStore: {
         headerNavItems,
         content: getDefaultContent(),
-        error: undefined,
-        query: {}
+        error: undefined
     }
 };
 
@@ -112,9 +111,6 @@ Context.addStore('PageStore', {
     },
     getHeaderItems() {
         return headerNavItems;
-    },
-    getQuery() {
-        return storeData.PageStore.query
     }
 });
 
@@ -315,7 +311,7 @@ describe('Default Component template', () => {
                 hideFooter: false
             },
             'Gallery': {
-                ContentHandler: GalleryStub,
+                ContentHandler: ArticleStub,
                 hideHeader: false,
                 hideFooter: false
             }

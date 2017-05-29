@@ -15,7 +15,6 @@ import Brand from '../brand/section';
 import NavSection from '../section/navigationTag/section';
 import Tag from '../section/tag/section';
 import Campaign from '../section/sponsorTag/section';
-import Gallery from '../gallery/gallery';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import getBrand from '../brand/utilities/getBrand';
 import defaultRenderFailed from '../../actions/defaultRenderFailed';
@@ -29,20 +28,14 @@ class DefaultTemplate extends Component {
         }),
         contentErrorStatus: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        headerNavItems: PropTypes.array,
-        query: PropTypes.shape({
-            g: PropTypes.oneOf(['v'])
-        })
+        headerNavItems: PropTypes.array
     };
 
     static defaultProps = {
         content: null,
         contentErrorStatus: null,
         isSideMenuOpen: false,
-        headerNavItems: [],
-        query: {
-            g: null
-        }
+        headerNavItems: []
     };
 
     static contextTypes = {
@@ -89,8 +82,7 @@ class DefaultTemplate extends Component {
                     />
                     : null
                 }
-
-
+                
                 <AdsWrapper>
                     <ContentHandler
                       brandConfig={brandConfig}
@@ -152,13 +144,9 @@ class DefaultTemplate extends Component {
                 ContentHandler: Campaign
             };
         case 'gallery':
-            if (this.props.query.g === 'v') {
-                return {
-                    ContentHeaderHandler: HomeHeader,
-                    ContentHandler: Article
-                };
-            } return {
-                ContentHandler: Gallery
+            return {
+                ContentHeaderHandler: HomeHeader,
+                ContentHandler: Article
             };
         default:
             this.context.executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
@@ -174,7 +162,6 @@ export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], contex
     content: context.getStore('PageStore').getContent(),
     contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
     isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-    headerNavItems: context.getStore('PageStore').getHeaderItems(),
-    query: context.getStore('PageStore').getQuery()
+    headerNavItems: context.getStore('PageStore').getHeaderItems()
 
 }));

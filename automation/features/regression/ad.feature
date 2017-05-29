@@ -56,13 +56,16 @@ Feature: Ads
         *  I should see 1 mrec ad slot beneath short teaser
         *  I should see 1 mrec ad slot at the end of the body content
 
-
+    @gallery
     Scenario Outline: Ads on gallery page in the <device> view
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-gallery-3201"
-        * I should see the top leaderboard ad above the gallery slide
-        * I should see the MREC ad at the bottom right of the gallery
-        * I should see the MREC ad after the 3 slide
+        * I should see the top leaderboard ad under navigation
+        * I should see the bottom leaderboard ad above the footer on article
+        * I should see four MREC ads in the RHR feed
+        * I should not see MREC ad under the hero image
+        * I should not see MREC ad above recommendation
+        * I should see MREC ad between images
         @high
         Examples:
             | device  |
@@ -72,21 +75,25 @@ Feature: Ads
             | device            |
             | tablet landscape  |
 
-    Scenario Outline: Ads on gallery page in the <device> view
-        Given I switch to "<device>" view
+    @gallery @med
+    Scenario: Ads on gallery page in the <device> view
+        Given I switch to "tablet portrait" view
         When I am currently viewing "automation-test-gallery-3201"
-        * I should see the top leaderboard ad above the gallery slide
-        * I should not see the MREC ad at the bottom right of the gallery
-        * I should see the MREC ad after the 3 slide
-        @high
-        Examples:
-            | device            |
-            | mobile portrait   |
-        @med
-        Examples:
-            | device            |
-            | mobile            |
-            | tablet portrait   |
+        * I should see the top leaderboard ad under navigation
+        * I should see MREC ad above recommendation
+        * I should see the bottom leaderboard ad above the footer on article
+        * I should not see MREC ad under the hero image
+        * I should see MREC ad between images
+
+    @gallery @high
+    Scenario: Ads on gallery page in the mobile view
+        Given I switch to "mobile" view
+        When I am currently viewing "automation-test-gallery-3201"
+        * I should see the top leaderboard ad under navigation
+        * I should not see MREC ad under the hero image
+        * I should see MREC ad above recommendation
+        * I should see the bottom leaderboard ad above the footer on article
+        * I should see MREC ad between images
 
     @BXMS-12
     Scenario Outline: Ads on brand landing page in the <device> view

@@ -6,161 +6,113 @@ var window = require('../utils/window_handler');
 
 module.exports = function() {
 
-
-    this.When(/^I navigate to all of the images$/, function () {
-        //Find the current slide no and the last slide no.
-        var current_slide = browser.getText(gallery.currentImgNum);
-        var last_slide = browser.getText(gallery.lastImgNum);
-
-        //Find a valid value in array
-        var current_slide = findValue(current_slide[0], current_slide[1]);
-        var last_slide = findValue(last_slide[0], last_slide[1]);
-
-        //Click next until it is the last slide
-        while (current_slide != last_slide) {
-            wait(500);
-            browser.waitForEnabled(gallery.galleryNextButton, 2000);
-            browser.click(gallery.galleryNextButton);
-            wait(500);
-            //To handle ad between slides q
-            if (browser.isExisting(gallery.currentImgNum) == true) {
-                var current_slide = browser.getText(gallery.currentImgNum);
-                var current_slide = findValue(current_slide[0], current_slide[1]);
-            }
-        }
+    this.Given(/^I can see the logo on the gallery header$/, function() {
+        browser.waitForVisible(gallery.headerLogo, 10000);
+        expect(browser.isVisible(gallery.headerLogo)).toBe(true);
     });
 
-    this.Then(/^I am able to see next gallery on "([^"]*)"$/, function(device) {
-        // It will direct us to the next gallery page
-        browser.click(gallery.galleryNextButton);
-        //Validate the title
-        switch(device){
-            case 'mobile':
-            case 'mobile portrait':
-            case 'tablet portrait':
-                browser.waitForVisible(gallery.mobileNextGallery, 3000);
-                wait(2000);
-                var nextGallery = browser.getText(gallery.mobileNextGallery);
-                expect(nextGallery).toEqual("UPNEXT");
-                break;
-            case 'tablet landscape':
-            case 'desktop':
-                browser.waitForVisible(gallery.nextGallery, 2000);
-                var nextGallery = browser.getText(gallery.nextGallery);
-                expect(nextGallery).toEqual("NEXT GALLERY");
-                break;
-        }
-        //Validate the next arrow on the right
-        browser.isVisible(gallery.galleryLastSlide);
-        //Validate the left arrow not visible
-        expect(browser.isVisible(gallery.galleryPrevButton)).toBe(false);
+    this.Given(/^I can click the logo to go to homepage$/, function() {
+        var logoLink = browser.getAttribute(gallery.headerLogo, 'href');
+        expect(logoLink).toEqual(world.Urls.home_page);
     });
 
-    this.Then(/^I can see the headline "([^"]*)" only on the first image$/, function(headlinetext) {
-        expect(browser.getText(gallery.mobileLongTitle)).toEqual(headlinetext);
+    this.Given(/^I can see an image appearing on the gallery$/, function() {
+        var img = browser.getAttribute(gallery.galleryImg, 'src');
+        expect(img).not.toBe(null);
+        console.log("IMAGE SRC =" + " " + img);
     });
 
-    this.Then(/^I can see the Image counter and caption truncated to two lines$/, function () {
-        // Validating counter and when we see next image counter is updated
-        var imageCount = browser.getText(gallery.imageCountDesktop);
-        expect(imageCount).toEqual("1 / 8");
-        console.log(imageCount);
-        browser.click(gallery.galleryNextButton);
-        var imageCount = browser.getText(gallery.imageCountDesktop);
-        expect(imageCount).toEqual("2 / 8");
-        // Going back to Initial Image
-        browser.click(gallery.galleryPrevButton);
-        // Validating caption
+    this.Given(/^I can see the source appearing on the gallery with gtm "([^"]*)"$/, function (gtm) {
+        //Get values
+        var sourceHref = browser.getAttribute(gallery.gallerySource, 'href');
+        var sourceGTM = browser.getAttribute(gallery.gallerySource,'class');
+        var sourceLogo = browser.getAttribute(gallery.gallerySourceImg,'src');
+
+        //Validate the values
+        console.log(sourceHref);
+        expect(sourceHref).not.toEqual('');
+        console.log(sourceGTM);
+        expect(sourceGTM).toEqual(gtm);
+        console.log(sourceLogo);
+        expect(sourceLogo).not.toEqual('');
+    });
+
+    this.Given(/^I can see the created date on the gallery "([^"]*)"$/, function(date) {
+        browser.waitForExist(gallery.galleryDate,5000);
+        browser.scroll(gallery.galleryDate);
+        var galleryDate = browser.getText(gallery.galleryDate);
+        console.log(galleryDate);
+        expect(galleryDate).toContain(date);
+        console.log('gallery date is:' + galleryDate)
+    });
+
+    this.Given(/^I can see the gallery title containing "([^"]*)"$/, function(longTitle) {
+        var galleryTitle = browser.getText(gallery.galleryLongTitle);
+        expect(galleryTitle).toContain(longTitle);
+    });
+
+    this.Given(/^I can not see the gallery title$/, function() {
+        expect(browser.isVisible(gallery.galleryLongTitle)).toBe(false);
+    });
+
+    this.Given(/^I should see the long title on the gallery header on the next gallery slide$/, function() {
+        expect(browser.isVisible(gallery.galleryLongTitle)).toBe(true);
+    });
+
+    this.Given(/^I should not see the long title on the gallery header on the next gallery slide$/, function() {
+        expect(browser.isVisible(gallery.galleryLongTitle)).toBe(false);
+    });
+
+    this.Given(/^I can see the gallery description of the gallery containing "([^"]*)"$/, function(description) {
+        var galleryDescription = browser.getText(gallery.galleryDescription);
+        expect(galleryDescription).toContain(description);
+    });
+
+    this.Given(/^I can see the image number "([^"]*)" of total "([^"]*)" on the gallery$/, function(num, total) {
+        var imageCount = browser.getText(gallery.imageCount);
+        expect(imageCount[0]).toEqual(num + " / " + total);
+        console.log(imageCount[0]);
+    });
+
+    this.Given(/^I can see the image caption on the gallery containing "([^"]*)"$/, function(caption) {
         browser.waitForVisible(gallery.imgCaption);
         var imgCaption = browser.getText(gallery.imgCaption);
-        expect(imgCaption).not.toBeUndefined();
-        console.log(imgCaption);
-        //Validate caption is truncated - Cannot be automated
+        expect(imgCaption[0]).toMatch(caption);
+        console.log(imgCaption[0]);
     });
 
-    this.Then(/^I can see the headline "([^"]*)" across all images$/, function(headlinetext) {
-        //Find the current slide no and the last slide no.
-        var current_slide = browser.getText(gallery.currentImgNum);
-        var last_slide = browser.getText(gallery.lastImgNum);
-
-        //Find a valid value in array
-        var current_slide = findValue(current_slide[0], current_slide[1]);
-        var last_slide = findValue(last_slide[0], last_slide[1]);
-
-        //Click next until it is the last slide
-        while (current_slide != last_slide) {
-            wait(500);
-            browser.waitForEnabled(gallery.galleryNextButton, 2000);
-            browser.click(gallery.galleryNextButton);
-            //To handle ad between slides q
-            if (browser.isExisting(gallery.currentImgNum) == true) {
-                var current_slide = browser.getText(gallery.currentImgNum);
-                var current_slide = findValue(current_slide[0], current_slide[1]);
-            }
-            expect(browser.getText(gallery.galleryLongTitle)).toEqual(headlinetext);
-        }
+    this.When(/^I see the image no "([^"]*)" on the gallery$/, function(imgNum) {
+        expect(browser.getText(gallery.currentImgNum)).toMatch(imgNum);
     });
 
-    this.Then(/^I can toggle between Less and More$/, function () {
-        // Validating change of style when the user click on More or Less
-        var initialStyle = browser.getAttribute(gallery.captionContainer, 'style');
-        browser.click(gallery.toggleMore);
-        var changedStyle = browser.getAttribute(gallery.captionContainer, 'style');
-        expect(initialStyle).not.toEqual(changedStyle);
-        // Need hardcoded wait for elements to load properly
-        wait(500);
-        browser.click(gallery.toggleLess);
-        var finalStyle = browser.getAttribute(gallery.captionContainer, 'style');
-        expect(changedStyle).not.toEqual(finalStyle);
-        expect(initialStyle).toContain('51');
+    this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
+        browser.waitForVisible(gallery.videoWrapper, 3000);
+        browser.moveToObject(gallery.videoWrapper);
+        expect(browser.getAttribute(gallery.videoWrapper, gallery.videoId)).toEqual(videoId)
     });
 
-    this.Then(/^I should be able to share through facebook$/, function () {
-        var currentWindow = browser.windowHandle().value;
-        browser.click(gallery.facebookshareButton);
-
-        //interact with social window
-        var wnd = new window();
-        wnd.swapWindow(currentWindow);
-        console.log(browser.getTitle());
-        expect(browser.getTitle()).toMatch("Sharing...");
-        browser.close();
-
-        //back to original window
-        browser.switchTab(currentWindow);
-        console.log(browser.getTitle());
-
+    this.When(/^I can see the play button and click on it$/, function() {
+        browser.waitForVisible(gallery.playButton, 3000);
+        browser.click(gallery.playButton);
+        expect(browser.isVisible(gallery.videoPlayWrap, gallery.videoAdPlay)).toBe(true);
     });
 
-    this.Then(/^I should be able to share through Pinterest$/, function () {
-        var currentWindow = browser.windowHandle().value;
-        browser.click(gallery.pinterestshareButton);
-
-        //interact with social window
-        var wnd = new window();
-        wnd.swapWindow(currentWindow);
-        console.log(browser.getTitle());
-        expect(browser.getTitle()).toMatch("Pinterest");
-        browser.close();
-
-        //back to original window
-        browser.switchTab(currentWindow);
-        console.log(browser.getTitle());
+    this.When(/^I can see the facebook share button on gallery page$/, function () {
+        var facebook = browser.isVisible(gallery.galleryFacebook);
+        var facebookButton = browser.getText(gallery.galleryFacebook);
+        expect(facebook).toBe(true);
+        expect(facebookButton).toEqual('SHARE');
     });
 
-    this.Then(/^I should be able to see the gallery description text$/, function () {
-        var galleryParagraph = browser.getText(gallery.galleryParagraph);
-        console.log(galleryParagraph);
-        expect(galleryParagraph).not.toBeUndefined();
-
+    this.When(/^I can see the pinterest share button on gallery page$/, function () {
+        var pinterest = browser.isVisible(gallery.galleryPinterest);
+        var pinterestButton = browser.getText(gallery.galleryPinterest);
+        expect(pinterest).toBe(true);
+        expect(pinterestButton).toEqual('PIN IT');
     });
 
-    this.Then(/^I should be able to see the brand logo$/, function () {
-        var galleryBrandLogo = browser.getAttribute(gallery.galleryBrandLogo, 'href');
-        console.log(galleryBrandLogo);
-        expect (galleryBrandLogo).not.toEqual('');
-
+    this.Given(/^I can see the author "([^"]*)" on the gallery$/, function (authorName) {
+        var author = browser.getText(gallery.authorText);
+        expect(author).toContain(authorName);
     });
-
-
 };

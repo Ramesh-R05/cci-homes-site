@@ -75,10 +75,10 @@ export default
         "open": false,
         "valid": true,
         "ispoen": false,
-        "videoId": "3976804555001",
+        "videoId": "5066382704001",
         "mediaType": "video",
         "videoTitle": "",
-        "brightcoveId": "3976804555001"
+        "brightcoveId": "5066382704001"
     }, {
         "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870207717_1479336331300SJB-WhiteHouse3.jpg",
         "open": false,

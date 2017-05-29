@@ -32,10 +32,23 @@ var ads_widget = {
     topMobileBanner: '.ad--beneath-hero',
     homesTopMobileBanner: '.ad--beneath-short-teaser',
     homesBottomMobileBanner: '.ad--article-beneath-recommendations',
-    galleryAdBottomLeaderBoard: '.ad.gallery__footer-ad.ad--top-label [id^=gpt-slot-]',
-    galleryAdTopLeaderBoard: '.ad.gallery__mobile-ad.ad--bottom-label',
-    adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label [id^=gpt-slot-]',
-    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label [id^=gpt-slot-]',
+    adTopLeaderboard: '.section__heading .ad--section-top-leaderboard [id^=gpt-slot-] iframe', //homepage, section, article
+    adBottomLeaderboard: '.content-wrapper .ad--section-top-leaderboard > [id^=gpt-slot-]', //homepage, section, article, gallery
+
+    adMrecRHRFeed1: 'ul.feed__items li.feed-ad:nth-child(3) [id^=gpt-slot-] iframe', //article
+    adMrecRHRFeed2: 'ul.feed__items li.feed-ad:nth-child(9) [id^=gpt-slot-] iframe', //article
+    adMrecRHRFeed3: 'ul.feed__items li.feed-ad:nth-child(15) [id^=gpt-slot-] iframe', //article
+    adMrecRHRFeed4: 'ul.feed__items li.feed-ad:nth-child(21) [id^=gpt-slot-] iframe', //article
+    adMrecRHRFeed5: '.carriage  [id^=gpt-slot-]', //only on vertical gallery
+    adMrecUnderHeroArticle: '.ad--beneath-hero [id^=gpt-slot-]', //article
+    adMrecAboveRecommendation: '.ad--article-before-recommendations [id^=gpt-slot-]', //article
+
+    adMrecBetweenGalleryImages1: '.gallery__feed-item--ad:nth-child(4)', //vertical gallery,
+    adMrecBetweenGalleryImages2: '.gallery__feed-item--ad:nth-child(9)', //vertical gallery
+    adTopLeaderboardGallery: '.ad.gallery__mobile-ad.ad--bottom-label [id^=gpt-slot-]', //gallery
+    adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label [id^=gpt-slot-]', //gallery
+    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label [id^=gpt-slot-]', //gallery
+    adBottomLeaderboardGallery: '.ad.gallery__footer-ad.ad--top-label', //gallery
 
     adWallpaperBrandPage: '.ad--wallpaper [id^=gpt-slot-]', //brand
     adLeftSideBrandPage: '.ad--sidepanel-left [id^=gpt-slot-]', //brand

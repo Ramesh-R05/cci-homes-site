@@ -5,6 +5,11 @@ var visibilityFunctions = require('../utils/visibilityFunctions');
 
 module.exports = function() {
 
+    this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
+        browser.waitForVisible(wn_ads.adTopLeaderboard, 15000); // long wait due to browser stack load times over the cloud
+        expect(browser.isVisible(wn_ads.adTopLeaderboard)).toBe(true);
+    });
+
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
        var topAdSlot = browser.elements(wn_ads.leaderBoard, 5000);
         expect((topAdSlot.value.length)).toEqual(1);
@@ -81,6 +86,15 @@ module.exports = function() {
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
 
+    this.Then(/^I should see MREC ad above recommendation$/, function () {
+        browser.moveToObject(wn_ads.adMrecAboveRecommendation);
+        expect(browser.isVisible(wn_ads.adMrecAboveRecommendation)).toBe(true);
+    });
+
+    this.Then(/^I should not see MREC ad above recommendation$/, function () {
+        expect(browser.isVisible(wn_ads.adMrecAboveRecommendation)).toBe(false);
+    });
+
     this.Then(/^I should see (\d+) top mobile banner ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.topMobileBanner, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
@@ -91,31 +105,48 @@ module.exports = function() {
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
 
-    this.Then(/^I should see the top leaderboard ad above the gallery slide$/, function () {
-        expect(browser.isVisible(wn_ads.galleryAdTopLeaderBoard)).toBe(true);
+    this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
+        browser.moveToObject(wn_ads.adBottomLeaderboard);
+        expect(browser.isVisible(wn_ads.adBottomLeaderboard)).toBe(true);
     });
 
-    this.Then(/^I should see the bottom leaderboard ad under the gallery slide$/, function () {
-        expect(browser.isVisible(wn_ads.galleryAdBottomLeaderBoard)).toBe(true);
+    //BELOW ARE STEPS FOR GALLERY
+    this.Then(/^I should see the top leaderboard ad above the gallery slide$/, function () {
+        expect(browser.isVisible(wn_ads.adTopLeaderboardGallery)).toBe(true);
+    });
+
+    this.Then(/^I should not see the bottom leaderboard ad under the gallery slide$/, function () {
+        expect(browser.isVisible(wn_ads.adBottomLeaderboardGallery)).toBe(false);
+    });
+
+    this.Then(/^I should see the MREC ad at the bottom right of the gallery$/, function () {
+        expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(true);
     });
 
     this.Then(/^I should not see the MREC ad at the bottom right of the gallery$/, function () {
         expect(browser.isVisible(wn_ads.adMrecBottomRightGallery)).toBe(false);
     });
 
-    this.Then(/^I should see the MREC ad at the bottom right of the gallery$/, function () {
-        expect(browser.waitForVisible(wn_ads.adMrecBottomRightGallery, 3000)).toBe(true);
+    this.Then(/^I should see MREC ad between images$/, function () {
+        browser.moveToObject(wn_ads.adMrecBetweenGalleryImages1);
+        expect(browser.isVisible(wn_ads.adMrecBetweenGalleryImages1)).toBe(true);
+        browser.moveToObject(wn_ads.adMrecBetweenGalleryImages2);
+        expect(browser.isVisible(wn_ads.adMrecBetweenGalleryImages2)).toBe(true);
     });
 
-    this.Then(/^I should see the MREC ad after the (\d+) slide$/, function (slide) {
-        //Go to the MREC slide
-        for (var i=0; i<slide; i++){
-            browser.click(gallery.galleryNextButton);
-            wait(500);
-        }
-        //Validate
-        browser.waitForVisible(wn_ads.adMrecInSlideGallery,3000);
-        expect(browser.waitForVisible(wn_ads.adMrecInSlideGallery, 3000)).toBe(true);
+    this.Then(/^I should see four MREC ads in the RHR feed$/, function () {
+        browser.moveToObject(wn_ads.adMrecRHRFeed1);
+        browser.moveToObject(wn_ads.adMrecRHRFeed2);
+        browser.moveToObject(wn_ads.adMrecRHRFeed3);
+        browser.moveToObject(wn_ads.adMrecRHRFeed4);
+    });
+
+    this.Then(/^I should see MREC ad under the hero image$/, function () {
+        expect(browser.isVisible(wn_ads.adMrecUnderHeroArticle)).toBe(true);
+    });
+
+    this.Then(/^I should not see MREC ad under the hero image$/, function () {
+        expect(browser.isVisible(wn_ads.adMrecUnderHeroArticle)).toBe(false);
     });
 
     //BELOW ARE THE STEPS TO TEST WALLPAPER, SIDE PANEL, OUT OF PAGE ADs
