@@ -7,8 +7,8 @@ export default function loggerPlugin() {
             return {
                 plugActionContext(actionContext) {
                     const originalActionDispatch = actionContext.dispatch;
-                    actionContext.dispatch = function(type, payload) {
-                        if (type.includes('_FAILED')) {
+                    actionContext.dispatch = function dispatch(type, payload) {
+                        if (type.includes('_FAILED') || type === 'PAGE_NOT_FOUND') {
                             if (payload.response && payload.response.error) {
                                 logger.error(`${type} ${this.rootId}`, { error: payload.response.error });
                             } else {

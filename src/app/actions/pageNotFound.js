@@ -1,3 +1,3 @@
-export default function pageNotFound(context) {
-    context.dispatch('LOAD_CONTENT_FAILED', { response: { status: 404 } });
+export default function pageNotFound(context, payload) {
+    context.dispatch('PAGE_NOT_FOUND', { url: payload.url });
 }
