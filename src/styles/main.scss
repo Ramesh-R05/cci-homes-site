@@ -36,8 +36,8 @@
 
 // Components
 @import 'components/helpers/theme';
-@import 'components/bxm/social-share';
 @import 'components/bxm/recommendations';
+@import '../node_modules/@bxm/social/styles/socialicons';
 @import '../node_modules/@bxm/article/styles/components/content-body/content-body';
 @import 'components/repeatable';
 @import 'components/form/input';
@@ -79,7 +79,6 @@
 
 // @bxm
 @import '../node_modules/@bxm/ui/lib/to-love/common';
-@import '../node_modules/@bxm/ui/lib/social/style/socialicons';
 @import '../node_modules/@bxm/modal/styles/modal';
 @import '../node_modules/@bxm/article/styles/page';
 @import '../node_modules/@bxm/video/styles/main';

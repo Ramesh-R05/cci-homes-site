@@ -6,7 +6,7 @@ export default [
         urlName: 'belle',
         imageUrl: '/assets/svgs/belle.svg',
         logo: '/assets/svgs/belle.svg',
-        newsletterUrl: 'https://pages.s7.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=belle',
+        newsletterUrl: 'http://cb.sailthru.com/join/5k6/signup-belle',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/belle.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -25,7 +25,7 @@ export default [
         urlName: 'real-living',
         imageUrl: '/assets/svgs/realliving_black.svg',
         logo: '/assets/svgs/realliving_black.svg',
-        newsletterUrl: 'https://pages.s7.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=real_living',
+        newsletterUrl: 'http://link.e.bauer-media.com.au/join/5l0/signup-realliving',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/real-living.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -44,7 +44,7 @@ export default [
         urlName: 'homes-plus',
         imageUrl: '/assets/svgs/homesplus.svg',
         logo: '/assets/svgs/homesplus.svg',
-        newsletterUrl: 'https://pages.s7.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=homes_plus',
+        newsletterUrl: 'http://cb.sailthru.com/join/5kx/signup-homesplus',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/homes.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -63,7 +63,7 @@ export default [
         imageUrl: '/assets/svgs/housegarden.svg',
         logo: '/assets/svgs/housegarden.svg',
         urlName: 'australian-house-and-garden',
-        newsletterUrl: 'https://pages.s7.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=house_garden',
+        newsletterUrl: 'http://cb.sailthru.com/join/5kz/signup-houseandgarden',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/house-and-garden.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'

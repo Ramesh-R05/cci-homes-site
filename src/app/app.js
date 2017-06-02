@@ -11,7 +11,6 @@ import MenuStore from './stores/menu';
 import PageStore from './stores/page';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import RouteStore from './stores/route';
-import SocialStore from '@bxm/social/lib/stores/social';
 import TrackingStore from './stores/tracking';
 import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
 
@@ -31,7 +30,6 @@ const app = new Flux({
         PageStore,
         PolarAdStore,
         RouteStore,
-        SocialStore,
         TrackingStore
     ]
 });

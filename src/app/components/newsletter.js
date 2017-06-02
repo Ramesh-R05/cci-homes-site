@@ -16,7 +16,7 @@ export default class Newsletter extends Component {
 
         if (!content) return null;
 
-        let newsletterUrl = 'https://pages.s7.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf0b8fb992ad1a0b52fb9e1dc0c154322&brand=homes_to_love';
+        let newsletterUrl = 'http://cb.sailthru.com/join/5ky/signup-homestolove';
         let gtmClass = 'gtm-subs-homepage';
         if (content.nodeType !== 'Homepage') {
             const brand = getBrand(config, content.source);
