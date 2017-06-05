@@ -30,6 +30,15 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
 });
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 const polarTargetsStub = [
     [{index: 0},{index:5}],
     [{
@@ -42,26 +51,6 @@ const polarTargetsStub = [
 describe('SectionFeatured', () => {
 
     afterEach(Context.cleanup);
-
-    // BXMS-40: hide gog in homepage temporarily
-    // describe(`with galleries`, () => {
-    //     let reactModule;
-    //     let inlineGallery;
-    //
-    //     before(() => {
-    //         reactModule = Context.mountComponent(SectionFeatured, {
-    //             articles: articlesMock,
-    //             galleries: gogMock,
-    //             polarTargets: polarTargetsStub
-    //         });
-    //         inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
-    //     });
-    //
-    //     it(`should render the CustomInlineGallery component and pass through galleries`, () => {
-    //         expect(inlineGallery).to.exist;
-    //         expect(inlineGallery.props.galleries).to.deep.equal(gogMock);
-    //     });
-    // });
 
     describe(`with articles`, () => {
         let reactModule;
@@ -114,23 +103,21 @@ describe('SectionFeatured', () => {
         describe(`Top section`, () => {
 
             describe(`Top MREC ad`, () => {
-                it(`should display only single mrec in small and medium sizes at position 1`, () => {
+                it(`should display only single mrec in small and medium sizes`, () => {
                     const expectedSizes = {
                         small: 'mrec',
                         medium: 'mrec'
                     };
                     expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
-                    expect(ads[0].props.targets).to.deep.equal({position: 1});
                 });
             });
 
             describe(`Middle MREC ad`, () => {
-                it(`should display only single mrec in medium size at position 2`, () => {
+                it(`should display only single mrec in medium size`, () => {
                     const expectedSizes = {
                         medium: 'mrec'
                     };
                     expect(ads[1].props.sizes).to.deep.equal(expectedSizes);
-                    expect(ads[1].props.targets).to.deep.equal({position: 2});
                 });
 
                 it(`should be displayed on small viewport only`, () => {
@@ -142,13 +129,12 @@ describe('SectionFeatured', () => {
                 it(`should display for both large and xlarge breakpoints with double mrec and mrec sizes`, () => {
                     expect(ads[2].props.displayFor).to.deep.equal(['large', 'xlarge']);
                     expect(ads[2].props.sizes).to.deep.equal(['double-mrec', 'mrec']);
-                    expect(ads[2].props.targets).to.deep.equal({position: 1});
                 });
             });
         });
 
         describe(`Middle banner/leaderboard/billboard ad`, () => {
-            it(`should display either a banner, leaderboard or a billboard ad at position 2`, () => {
+            it(`should display either a banner, leaderboard or a billboard ad`, () => {
                 const expectedSizes = {
                     small: 'banner',
                     leaderboard: 'leaderboard',
@@ -157,9 +143,6 @@ describe('SectionFeatured', () => {
                 expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
 
-            it(`should be targeted with position 2`, () => {
-                expect(ads[3].props.targets).to.deep.equal({position: 2});
-            });
         });
 
         describe(`Hero for sm/md viewports`, () => {

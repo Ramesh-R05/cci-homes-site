@@ -68,7 +68,7 @@ export default class Featured extends Component {
                                   displayFor={['small', 'medium']}
                                   sizes={['double-mrec', 'mrec']}
                                   updatePageOffset
-                                  targets={{ position: 1 }}
+                                  pageLocation={Ad.pos.body}
                                   label={{ active: false }}
                                 />
                             </li>
@@ -87,8 +87,8 @@ export default class Featured extends Component {
                                   className="ad--section-mrec teaser"
                                   displayFor="medium"
                                   sizes="mrec"
-                                  targets={{ position: 2 }}
                                   label={{ active: false }}
+                                  pageLocation={Ad.pos.body}
                                 />
                             </li>
                         </ul>
@@ -103,8 +103,8 @@ export default class Featured extends Component {
                           className="ad--section-mrec"
                           displayFor={['large', 'xlarge']}
                           sizes={['double-mrec', 'mrec']}
-                          targets={{ position: 1 }}
                           label={{ active: false }}
+                          pageLocation={Ad.pos.aside}
                         />
                         <SocialAndSubscribeLinks content={content} />
                     </StickyBlock>

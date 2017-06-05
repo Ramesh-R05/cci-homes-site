@@ -48,7 +48,12 @@ if (process.env.APP_STUBBED === 'true') {
     }
 }
 
+const env = {
+    APP_DEBUG: process.env.APP_DEBUG
+};
+
 const mergedConfig = mergeWith(
+    env,
     configApi,
     config,
     environmentConfig,

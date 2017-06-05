@@ -52,9 +52,7 @@ class Section extends Component {
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             },
-            targets: {
-                position: 3
-            }
+            pageLocation: Ad.pos.outside
         };
 
         return (
@@ -81,8 +79,8 @@ class Section extends Component {
                           leaderboard: 'leaderboard',
                           billboard: ['billboard', 'leaderboard']
                       }}
-                      targets={{ position: 2 }}
                       label={{ active: false }}
+                      pageLocation={Ad.pos.outside}
                     />
                 </div>
 

@@ -20,6 +20,15 @@ const Featured = proxyquire('../../../app/components/brand/featured', {
     '../polar/polarTeaser': PolarTeaserStub
 });
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 const contextConfigStub = {
     key: 'config',
     type: '',

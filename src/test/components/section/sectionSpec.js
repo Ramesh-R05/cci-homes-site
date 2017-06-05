@@ -25,6 +25,15 @@ const Section = proxyquire('../../../app/components/section/section', {
     '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
 });
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 const featuredArticles = articlesMock.slice(1, 4);
 const navigationTags = ['Test'];
 

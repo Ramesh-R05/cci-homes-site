@@ -15,6 +15,15 @@ const RepeatableGroup = proxyquire('../../../app/components/section/repeatableGr
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 describe('RepeatableGroup', () => {
 
     describe('with 9 articles', () => {
@@ -91,10 +100,6 @@ describe('RepeatableGroup', () => {
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
                 expect(ads[0].props.displayFor).to.equal(expectedDisplayFor);
             });
-
-            it(`should be at position 2`, () => {
-                expect(ads[0].props.targets).to.deep.equal({position: 2});
-            });
         });
 
         describe(`Mrec ad (visible only on small/medium/xlarge viewports)`, () => {
@@ -114,10 +119,6 @@ describe('RepeatableGroup', () => {
             const expectedDisplayFor = ['small', 'medium', 'xlarge'];
             it(`should have the displayFor props equal to ${expectedDisplayFor}`, () => {
                 expect(ads[1].props.displayFor).to.deep.equal(expectedDisplayFor);
-            });
-
-            it(`should be at position 2`, () => {
-                expect(ads[1].props.targets).to.deep.equal({position: 2});
             });
         });
 

@@ -12,6 +12,15 @@ const Home = proxyquire('../../../app/components/home/header', {
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 describe('Home Header with Top banner/leaderboard/billboard ad', () => {
     let reactModule;
     let ad;
@@ -25,7 +34,6 @@ describe('Home Header with Top banner/leaderboard/billboard ad', () => {
 
     it(`should render the Ad component with correct position and sizes`, () => {
         expect(ad).to.exist;
-        expect(ad.props.targets).to.deep.equal({position: 1});
         const expectedSizes = {
             small: 'banner',
             leaderboard: 'leaderboard',

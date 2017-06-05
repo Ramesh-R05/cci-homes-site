@@ -27,8 +27,8 @@ export default class Featured extends Component {
                   className="ad--section-mrec teaser"
                   displayFor="medium"
                   sizes={['double-mrec', 'mrec']}
-                  targets={{ position: 1 }}
                   label={{ active: false }}
+                  pageLocation={Ad.pos.body}
                 />
                 <PolarTeaser {...item} key={item.id} ad={polarTargets[0]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
                 <Ad
@@ -36,8 +36,8 @@ export default class Featured extends Component {
                   displayFor="small"
                   sizes={['double-mrec', 'mrec']}
                   updatePageOffset
-                  targets={{ position: 1 }}
                   label={{ active: false }}
+                  pageLocation={Ad.pos.body}
                 />
                 {articles.slice(1, 6).map((item, i) => {
                     if (i === 4) {
@@ -51,8 +51,8 @@ export default class Featured extends Component {
                   sizes={{
                       medium: 'mrec'
                   }}
-                  targets={{ position: 2 }}
                   label={{ active: false }}
+                  pageLocation={Ad.pos.body}
                 />
             </section>
         );

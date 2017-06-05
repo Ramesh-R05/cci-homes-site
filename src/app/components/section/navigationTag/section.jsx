@@ -28,7 +28,6 @@ class Section extends Component {
         return (
             <GenericSection
               {...this.props}
-
             />
         );
     }

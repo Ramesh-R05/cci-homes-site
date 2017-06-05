@@ -55,9 +55,7 @@ export default class Section extends Component {
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             },
-            targets: {
-                position: 3
-            }
+            pageLocation: Ad.pos.outside
         };
 
         return (
@@ -80,8 +78,8 @@ export default class Section extends Component {
                               leaderboard: 'leaderboard',
                               billboard: ['billboard', 'leaderboard']
                           }}
-                          targets={{ position: 2 }}
                           label={{ active: false }}
+                          pageLocation={Ad.pos.outside}
                         />
                     </div>
                     <div className="section__row">
@@ -91,7 +89,6 @@ export default class Section extends Component {
                           dataSource={list}
                           nextParams={listNextParams}
                           className="news-feed bottom-news-feed"
-                          adTargets={{ position: 3 }}
                           content={content}
                           polarTargets={sectionBottomFeed}
                         />

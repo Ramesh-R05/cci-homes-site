@@ -11,6 +11,15 @@ const Header = proxyquire('../../../app/components/brand/header', {
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 describe('Brand Header', () => {
     let reactModule;
     let logo;

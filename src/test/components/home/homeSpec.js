@@ -9,6 +9,16 @@ const {React, ReactDOM, TestUtils} = Context;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
+
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 const contextConfigStub = {
     key: 'config',
     type: '',

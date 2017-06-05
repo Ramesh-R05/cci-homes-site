@@ -45,9 +45,7 @@ export default class SectionFeatured extends Component {
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             },
-            targets: {
-                position: 3
-            }
+            pageLocation: Ad.pos.outside
         };
 
         let latestRealHomesComponent = null;
@@ -128,8 +126,8 @@ export default class SectionFeatured extends Component {
                                           medium: 'mrec'
                                       }}
                                       updatePageOffset
-                                      targets={{ position: 1 }}
                                       label={{ active: false }}
+                                      pageLocation={Ad.pos.body}
                                     />
 
                                     {articles.slice(0, 6).map((item, i) => {
@@ -148,8 +146,8 @@ export default class SectionFeatured extends Component {
                                       sizes={{
                                           medium: 'mrec'
                                       }}
-                                      targets={{ position: 2 }}
                                       label={{ active: false }}
+                                      pageLocation={Ad.pos.body}
                                     />
 
                                 </section>
@@ -163,8 +161,8 @@ export default class SectionFeatured extends Component {
                                       className="ad--section-mrec"
                                       displayFor={['large', 'xlarge']}
                                       sizes={['double-mrec', 'mrec']}
-                                      targets={{ position: 1 }}
                                       label={{ active: false }}
+                                      pageLocation={Ad.pos.aside}
                                     />
                                     <SocialAndSubscribeLinks content={content} />
                                 </StickyBlock>
@@ -181,8 +179,8 @@ export default class SectionFeatured extends Component {
                                   leaderboard: 'leaderboard',
                                   billboard: ['billboard', 'leaderboard']
                               }}
-                              targets={{ position: 2 }}
                               label={{ active: false }}
+                              pageLocation={Ad.pos.outside}
                             />
                         </div>
                     </div>

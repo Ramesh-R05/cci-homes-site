@@ -42,6 +42,7 @@ export default class RepeatableGroup extends Component {
                                       billboard: ['billboard', 'leaderboard']
                                   }}
                                   targets={adTargets}
+                                  pageLocation={Ad.pos.outside}
                                 />
                             </div>
                         );
@@ -81,6 +82,7 @@ export default class RepeatableGroup extends Component {
                                       xlarge: ['double-mrec', 'mrec']
                                   }}
                                   targets={adTargets}
+                                  pageLocation={Ad.pos.body}
                                 />
 
                                 {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}

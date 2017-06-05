@@ -20,7 +20,6 @@ export default class List extends Component {
 
     render() {
         const { items, index, content, polarTargets } = this.props;
-        const adPosition = (index + 1) * 2 + 1;
 
         if (items.length === 0) return null;
 
@@ -34,8 +33,8 @@ export default class List extends Component {
                           small: 'mrec',
                           medium: 'mrec'
                       }}
-                      targets={{ position: adPosition }}
                       label={{ active: false }}
+                      pageLocation={Ad.pos.body}
                     />
                     {items.map((item, i) => {
                         const polarDetails = polarTargets.find(slot => slot.index === i);
@@ -69,13 +68,12 @@ export default class List extends Component {
                       sizes={{
                           medium: 'mrec'
                       }}
-                      targets={{ position: adPosition + 1 }}
                       label={{ active: false }}
+                      pageLocation={Ad.pos.body}
                     />
                 </section>
 
                 <Rail
-                  adPosition={adPosition}
                   marginBottom={70}
                   yPosition={95}
                 />

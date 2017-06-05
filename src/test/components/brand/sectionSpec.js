@@ -14,6 +14,15 @@ const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
 const StickyMobileAdStub = Context.createStubComponent();
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 const contextConfigStub = {
     key: 'config',
     type: '',
@@ -139,9 +148,7 @@ describe(`Brand Section`, () => {
                     leaderboard: 'leaderboard',
                     billboard: ['billboard', 'leaderboard']
                 };
-                const targets = { position: 2 };
                 expect(ads[0].props.sizes).to.deep.equal(size);
-                expect(ads[0].props.targets).to.deep.equal(targets);
             });
 
         });

@@ -13,8 +13,8 @@ export default class HomeHeader extends Component {
                           leaderboard: 'leaderboard',
                           billboard: ['billboard', 'leaderboard']
                       }}
-                      targets={{ position: 1 }}
                       label={{ active: false }}
+                      pageLocation={Ad.pos.outside}
                     />
                 </div>
             </div>
