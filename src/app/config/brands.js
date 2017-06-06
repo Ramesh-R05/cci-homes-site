@@ -6,7 +6,7 @@ export default [
         urlName: 'belle',
         imageUrl: '/assets/svgs/belle.svg',
         logo: '/assets/svgs/belle.svg',
-        newsletterUrl: 'http://cb.sailthru.com/join/5k6/signup-belle',
+        newsletterUrl: 'http://www.homestolove.com.au/belle-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/belle.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -25,7 +25,7 @@ export default [
         urlName: 'real-living',
         imageUrl: '/assets/svgs/realliving_black.svg',
         logo: '/assets/svgs/realliving_black.svg',
-        newsletterUrl: 'http://link.e.bauer-media.com.au/join/5l0/signup-realliving',
+        newsletterUrl: 'http://www.homestolove.com.au/real-living-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/real-living.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -44,7 +44,7 @@ export default [
         urlName: 'homes-plus',
         imageUrl: '/assets/svgs/homesplus.svg',
         logo: '/assets/svgs/homesplus.svg',
-        newsletterUrl: 'http://cb.sailthru.com/join/5kx/signup-homesplus',
+        newsletterUrl: 'http://www.homestolove.com.au/homes-plus-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/homes.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -63,7 +63,7 @@ export default [
         imageUrl: '/assets/svgs/housegarden.svg',
         logo: '/assets/svgs/housegarden.svg',
         urlName: 'australian-house-and-garden',
-        newsletterUrl: 'http://cb.sailthru.com/join/5kz/signup-houseandgarden',
+        newsletterUrl: 'http://www.homestolove.com.au/australian-house-and-garden-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/house-and-garden.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'

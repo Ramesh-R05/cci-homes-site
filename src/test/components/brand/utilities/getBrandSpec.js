@@ -18,7 +18,7 @@ describe('Get Brand Method', () => {
             "urlName" : "real-living",
             "imageUrl": "/assets/svgs/realliving_black.svg",
             "logo": "/assets/svgs/realliving_black.svg",
-            "newsletterUrl": "http://link.e.bauer-media.com.au/join/5l0/signup-realliving",
+            "newsletterUrl": "http://www.homestolove.com.au/real-living-newsletter/",
             "subscribe" :{
                 "image": "/assets/images/brand-pages/subscribe/real-living.jpg",
                 "link": "https://www.magshop.com.au/store/homestolove"

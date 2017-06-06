@@ -2,6 +2,11 @@
 Feature: Homepage
     As a user
     I should be able to see homepage
+    
+    Scenario: Verify the sign-up URL on homepage
+        Given I switch to "desktop" view
+        When I am currently viewing the homepage
+        Then I should see the sign up button containing "http://www.homestolove.com.au/homes-newsletter/" url and "gtm-subs-homepage" gtm
 
     Scenario Outline: Verify Homes to Love homepage has a hero content on "<device>"
         Given I switch to "<device>" view

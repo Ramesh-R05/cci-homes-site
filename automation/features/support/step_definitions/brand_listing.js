@@ -151,4 +151,11 @@ module.exports = function() {
         browser.moveToObject(loadMore.loadMoreButton);
         browser.waitForVisible(brand_listing.brandStickyMobileBanner,3000);
     });
+
+    this.When(/^I should see the sign up button containing "([^"]*)" url and "([^"]*)" gtm$/, function (url, gtm) {
+        var signUpBtnLink = browser.getAttribute(brand_listing.newsletterSignUpBtn, 'href');
+        expect(signUpBtnLink[0]).toEqual(url);
+        var signUpBtnClass = browser.getAttribute(brand_listing.newsletterSignUpBtn, 'class');
+        expect(signUpBtnClass[0]).toContain(gtm);
+    });
 };

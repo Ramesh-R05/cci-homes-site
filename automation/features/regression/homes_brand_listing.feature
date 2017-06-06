@@ -27,3 +27,14 @@ Feature: Brand Listing page
             | tablet portrait   |
             | mobile            |
 
+    Scenario Outline: Verify the sign-up URL on <page> brand landing page
+        Given I switch to "desktop" view
+        When I am currently viewing "<page>"
+        Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm
+
+        Examples:
+            | page                  | link |
+            | belle/                | http://www.homestolove.com.au/belle-newsletter/ |
+            | real-living/          | http://www.homestolove.com.au/real-living-newsletter/ |
+            | homes-plus/           | http://www.homestolove.com.au/homes-plus-newsletter/ |
+            | australian-house-and-garden/ | http://www.homestolove.com.au/australian-house-and-garden-newsletter/ |
