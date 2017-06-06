@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@bxm/ad@^11.1.1":
-  version "11.1.1"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-11.1.1.tgz#7692aeae94ec15dec8f8280e32c91d9761c0b7d7"
+"@bxm/ad@11.2.0":
+  version "11.2.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-11.2.0.tgz#1156fb3702234b37fa0648caff17aa0688f70d40"
   dependencies:
     "@bxm/react-script-loader" "^2.0.0"
     classnames "^2.2.1"
@@ -13,9 +13,9 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.0.0":
-  version "25.0.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.0.0.tgz#3b8ccbf5db4a9e8ac24482c3f9971b2211737298"
+"@bxm/article@25.2.0":
+  version "25.2.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.2.0.tgz#e3e947ffbdab86ecd787a91dff214ddffd469770"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
@@ -145,9 +145,9 @@
     request "^2.81.0"
     serialize-javascript "^1.3.0"
 
-"@bxm/site-header@2.6.0":
-  version "2.6.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fsite-header/-/site-header-2.6.0.tgz#ab0ba8fdbe3aad7a3a3206d9846985fe4fb77448"
+"@bxm/site-header@2.7.0":
+  version "2.7.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fsite-header/-/site-header-2.7.0.tgz#58bc027b69fb04570396e1a313709dbd73f0b863"
   dependencies:
     "@bxm/behaviour" "^1.3.0"
     classnames "^2.2.3"
@@ -1925,7 +1925,7 @@ crypto-browserify@^3.0.0:
 
 css-mediaquery@^0.1.2:
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/css-mediaquery/-/css-mediaquery-0.1.2.tgz#6a2c37344928618631c54bd33cedd301da18bea0"
+  resolved "http://npm.digital.bauer-media.net.au/css-mediaquery/-/css-mediaquery-0.1.2.tgz#6a2c37344928618631c54bd33cedd301da18bea0"
 
 css-select@~1.2.0:
   version "1.2.0"
@@ -4046,7 +4046,7 @@ marked@0.3.2:
 
 matchmedia@^0.1.2:
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/matchmedia/-/matchmedia-0.1.2.tgz#cfd47f2bf68fbc7f5ea1bd3a3cf1715ecba3c1bd"
+  resolved "http://npm.digital.bauer-media.net.au/matchmedia/-/matchmedia-0.1.2.tgz#cfd47f2bf68fbc7f5ea1bd3a3cf1715ecba3c1bd"
   dependencies:
     css-mediaquery "^0.1.2"
 
