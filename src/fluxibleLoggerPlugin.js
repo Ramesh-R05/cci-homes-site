@@ -9,13 +9,12 @@ export default function loggerPlugin() {
                     const originalActionDispatch = actionContext.dispatch;
                     actionContext.dispatch = function dispatch(type, payload) {
                         if (type.includes('_FAILED') || type === 'PAGE_NOT_FOUND') {
-                            if (payload.response && payload.response.error) {
-                                logger.error(`${type} ${this.rootId}`, { error: payload.response.error });
-                            } else {
-                                logger.error(`${type} ${this.rootId}`, { error: payload });
-                            }
+                            let err = payload;
+                            if (payload.response && payload.response.error) err = payload.response.error;
+                            logger.error(`${type} ${this.rootId}`, err);
+                        } else if (process.env.APP_DEBUG === 'true') {
+                            logger.debug(`${type} ${this.rootId}`);
                         }
-                        logger.debug(`${type} ${this.rootId}`);
                         originalActionDispatch(type, payload);
                     };
                 }
