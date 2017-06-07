@@ -218,7 +218,7 @@ export default {
     },
 
     site: {
-        host: 'http://dev.homes-site.bauer-media.net.au',
+        host: 'http://homes-site-au.sit.bxm.net.au',
         name: 'HOMES',
         shortName: 'Homes To Love',
         prefix: 'HOMES',
@@ -234,11 +234,11 @@ export default {
     services: {
         local: 'http://127.0.0.1',
         remote: {
-            entity: 'http://dev.entities.services.bauer-media.internal/v1/homes',
-            listings: 'http://dev.listings.services.bauer-media.internal/v1/homes',
-            module: 'http://dev.modules.services.bauer-media.internal/v1/homes',
-            sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/homes',
-            tag: 'http://dev.tags.services.bauer-media.internal/v1',
+            entity: 'http://services.sit.bxm.internal/entity/v1/homes',
+            listings: 'http://services.sit.bxm.internal/listing/v1/homes',
+            module: 'http://services.sit.bxm.internal/module/v1/homes',
+            sitemap: 'http://services.sit.bxm.internal/sitemap/v1/homes',
+            tag: 'http://services.sit.bxm.internal/tag/v1',
             keywords: 'http://dev.seo-batman.services.bauer-media.internal/v1/keywords'
         },
         endpoints: {

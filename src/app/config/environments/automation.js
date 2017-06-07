@@ -6,15 +6,15 @@ export default {
     services: {
         faceBookAppID: '852557544824192',
         remote: {
-            entity: 'http://automation.homes-site.bauer-media.net.au/stub/entity-service',
-            listings: 'http://automation.homes-site.bauer-media.net.au/stub/listings-service',
-            module: 'http://automation.homes-site.bauer-media.net.au/stub/module-service',
-            sitemap: 'http://automation.homes-site.bauer-media.net.au/stub/sitemap-service',
-            tag: 'http://automation.homes-site.bauer-media.net.au/stub/tag-service'
+            entity: 'http://localhost:3001/stub/entity-service',
+            listings: 'http://localhost:3001/stub/listings-service',
+            module: 'http://localhost:3001/stub/module-service',
+            sitemap: 'http://localhost:3001/stub/sitemap-service',
+            tag: 'http://localhost:3001/stub/tag-service'
         }
     },
     site: {
-        host: 'http://automation.homes-site.wn.bauer-media.net.au'
+        host: 'http://homes-site.test.bxm.net.au'
     },
     ads: {
         targets: { env: 'test3' }
