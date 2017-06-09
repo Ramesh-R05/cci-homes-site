@@ -38,12 +38,12 @@ Feature: Ads
         When I switch to "desktop" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         *  I should see 2 leaderboard ad slots
-        *  I should see 4 mrec ad slots in LHS feed
+        *  I should see 4 mrec ad slots in RHS feed
 
         When I switch to "tablet landscape" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         *  I should see 2 leaderboard ad slots
-        *  I should see 4 mrec ad slots in LHS feed
+        *  I should see 4 mrec ad slots in RHS feed
 
         When I switch to "tablet portrait" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
@@ -76,7 +76,7 @@ Feature: Ads
             | tablet landscape  |
 
     @gallery @med
-    Scenario: Ads on gallery page in the <device> view
+    Scenario: Ads on gallery page in the tablet portrait view
         Given I switch to "tablet portrait" view
         When I am currently viewing "automation-test-gallery-3201"
         * I should see the top leaderboard ad under navigation
@@ -90,17 +90,18 @@ Feature: Ads
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-gallery-3201"
         * I should see the top leaderboard ad under navigation
-        * I should not see MREC ad under the hero image
+        * I should see MREC ad under the hero image
         * I should see MREC ad above recommendation
         * I should see the bottom leaderboard ad above the footer on article
         * I should see MREC ad between images
+
 
     @BXMS-12
     Scenario Outline: Ads on brand landing page in the <device> view
         Given I switch to "<device>" view
         When I am currently viewing "australian-house-and-garden"
         * I should see leaderboard ad slots at top middle and bottom
-        * I should see sticky MREC ad next to the top news feed
+        * I should see sticky MREC ad next to the top news feed on the brand page
         * I should see sticky MREC ad next to the bottom news feed
         @high
         Examples:
@@ -247,8 +248,8 @@ Feature: Ads
         Given I switch to "<device>" view
         When I am currently viewing "real-homes"
         * I should see leaderboard ad slots at top middle and bottom
-        * I should see sticky MREC ad next to the top news feed of the section Page
-        * I should see sticky MREC ad next to the bottom news feed of the section Page
+        * I should see sticky MREC ad next to the top news feed on the section page
+        * I should see sticky MREC ad next to the bottom news feed on the section page
         When I click on the Load More button
         Then I should see <second count> mrec ad slots
 

@@ -1,61 +1,58 @@
 var ads_widget = {
 
-    leaderBoard: '.ad--section-top-leaderboard',
-    midLeaderBoard: '.ad--section-middle-leaderboard',
-    bottomLeaderBoard: '.ad--section-bottom-leaderboard',
-    mrec: '.ad--section-mrec',
-    articleAdBeneathShortTeaser: '.ad.ad--beneath-short-teaser.ad--bottom-label.hide-for-print',
-    articleAdAfterBodyContent: '.ad.ad--article-before-recommendations.ad--bottom-label.hide-for-print',
-    topFeedMrec: '.brand-section--top .ad--section-mrec',
-    bottomFeedMrec: '.brand__body--bottom .ad--section-mrec',
-
-    //homes page
-    homepagetopFeedMrec: '.home-section--top .ad--section-mrec',
-    homepageBottomFeedMrec: '.home-section--bottom .ad--section-mrec',
+    //For checking attribute of sticky ads
     homepageMrecTopFeedSticky: '.home-section--top>div .fixed-column--sticky>div',
     homepageMrecBottomFeedSticky: '.home-section--bottom>div .fixed-column--sticky>div',
-    homepageLoadMoreStickyMrec: 'div.repeatable-component>div:nth-child(2) .ad--section-mrec [id^=gpt-slot-]',
-
-    //section page
-    sectionpagetopFeedMrec: 'div.section__landing.side-menu-slider > div > div:nth-child(3) > div > div.section__row > div > div > div',
-    sectionpageBottomFeedMrec: '.repeatable-component .ad--section-mrec',
-
     mrecTopFeedSticky: '.brand-section--top>div .fixed-column--sticky>div',
     mrecBottomFeedSticky: '.brand__body--bottom>div .fixed-column--sticky>div',
-    middleLeaderBoard: '.ad--section-leaderboard',
-    middleMrec: '.ad--teaser-list',
-    articleTopLeaderBoard: '.ad--article-top',
-    articleBottomLeaderBoard: '.ad--article-beneath-recommendations',
+    sectionMrecTopFeedSticky: '.container>div .fixed-column--sticky>div',
+    sectionMrecBottomFeedSticky: '.section__row>div .fixed-column--sticky>div',
+
+    //For checking number of ads
+    mrec: '.ad--section-mrec',
     articleLeaderBoard: 'div.ad.ad--section-top-leaderboard.ad--bottom-label.hide-for-print',
-    articleLHSMrec: '.feed-ad',//verifying MRECS in RHS, using article feed container to uniquely identify
-    articleBottomMrec: '.ad--article-before-recommendations',
-    topMobileBanner: '.ad--beneath-hero',
-    homesTopMobileBanner: '.ad--beneath-short-teaser',
-    homesBottomMobileBanner: '.ad--article-beneath-recommendations',
-    adTopLeaderboard: '.section__heading .ad--section-top-leaderboard [id^=gpt-slot-] iframe', //homepage, section, article
-    adBottomLeaderboard: '.content-wrapper .ad--section-top-leaderboard > [id^=gpt-slot-]', //homepage, section, article, gallery
+    articleRHSMrec: '.feed-ad',
 
-    adMrecRHRFeed1: 'ul.feed__items li.feed-ad:nth-child(3) [id^=gpt-slot-] iframe', //article
-    adMrecRHRFeed2: 'ul.feed__items li.feed-ad:nth-child(9) [id^=gpt-slot-] iframe', //article
-    adMrecRHRFeed3: 'ul.feed__items li.feed-ad:nth-child(15) [id^=gpt-slot-] iframe', //article
-    adMrecRHRFeed4: 'ul.feed__items li.feed-ad:nth-child(21) [id^=gpt-slot-] iframe', //article
-    adMrecRHRFeed5: '.carriage  [id^=gpt-slot-]', //only on vertical gallery
-    adMrecUnderHeroArticle: '.ad--beneath-hero [id^=gpt-slot-]', //article
-    adMrecAboveRecommendation: '.ad--article-before-recommendations [id^=gpt-slot-]', //article
+ // =======For Ads Location
+    //outside
+    ad_TopLeaderboard: '.section__heading__ad > .ad--section-top-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
+    ad_MiddleLeaderboard: '.site-wrapper .ad--section-middle-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
+    ad_BottomLeaderboard: '.site-wrapper .ad--section-bottom-leaderboard [id^=gpt-slot-]', //homepage, index, brand
+    ad_BottomLeaderboard_Article: '.site-wrapper .ad--section-top-leaderboard [id^=gpt-slot-]', //gallery, article
+    ad_Teads: '.ad--slot-teads [id^=gpt-slot-]', //gallery, article
 
-    adMrecBetweenGalleryImages1: '.gallery__feed-item--ad:nth-child(4)', //vertical gallery,
-    adMrecBetweenGalleryImages2: '.gallery__feed-item--ad:nth-child(9)', //vertical gallery
-    adTopLeaderboardGallery: '.ad.gallery__mobile-ad.ad--bottom-label [id^=gpt-slot-]', //gallery
-    adMrecBottomRightGallery: '.ad.gallery__aside-ad.ad--top-label [id^=gpt-slot-]', //gallery
-    adMrecInSlideGallery: '.ad.gallery__slide-ad.ad--bottom-label [id^=gpt-slot-]', //gallery
-    adBottomLeaderboardGallery: '.ad.gallery__footer-ad.ad--top-label', //gallery
+    //RHS
+    ad_TopMrecRhs_Homepage: '.home-section--top .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //homepage
+    ad_TopMrecRhs_Section: '.container > .section__row:nth-child(1) .fixed-column--sticky  .ad--section-mrec [id^=gpt-slot-]', //navigation, tag
+    ad_TopMrecRhs_Brand: '.brand-section--top .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //brand
+    ad_BottomMrecRhs: '.repeatable-component .section__row .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //homepage, index, brand
+    ad_MrecRhs1: '.feed-ad:nth-child(3) [id^=gpt-slot-]', //gallery, article
+    ad_MrecRhs2: '.feed-ad:nth-child(9) [id^=gpt-slot-]', //gallery, article
+    ad_MrecRhs3: '.feed-ad:nth-child(15) [id^=gpt-slot-]', //gallery, article
+    ad_MrecRhs4: '.feed-ad:nth-child(21) [id^=gpt-slot-]', //gallery, article
+    ad_StickyMrecRhs: '.sticky-block.rhs-ads [id^=gpt-slot-]', //gallery
 
-    adWallpaperBrandPage: '.ad--wallpaper [id^=gpt-slot-]', //brand
-    adLeftSideBrandPage: '.ad--sidepanel-left [id^=gpt-slot-]', //brand
-    adRightSideBrandPage: '.ad--sidepanel-right [id^=gpt-slot-]', //brand
-    adOutOfPageBrandPage: '#inskinanchor' //brand
+    //Additional
+    ad_OutOfPage: '.ad--out-of-page [id^=gpt-slot-]', //homepage, index, brand
+    ad_LeftSidePanel: '.ad--sidepanel-left [id^=gpt-slot-]', //homepage, index, brand
+    ad_RightSidePanel: '.ad--sidepanel-right [id^=gpt-slot-]', //homepage, index, brand
+    ad_Wallpaper: '.ad--wallpaper [id^=gpt-slot-]', //homepage, index, brand
 
+    //After Load More
+    ad_LoadMoreMrecRhs: '.repeatable-component .section__row:nth-child(2) .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //homepage, index, brand
 
+    //Body
+    ad_MrecAfterSlide3: '.gallery__feed-item--ad:nth-child(4) [id^=gpt-slot-]', //gallery
+    ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(9) [id^=gpt-slot-]', //gallery
+
+    //For Mobile
+    ad_MrecUnderHeroTeaser: '.top-teasers [id^=gpt-slot-]', //mobile homepage
+    ad_MrecUnderHeroTeaser_Section: '.section__featured [id^=gpt-slot-]', //mobile index
+    ad_MrecUnderHeroTeaser_Brand: '.ad--section-mrec-top-1 [id^=gpt-slot-]', //mobile brand
+    ad_MrecInBottomFeed: '.repeatable-component [id^=gpt-slot-]', //mobile homepage, index, brand
+    ad_LoadMoreMrecInBottomFeed: '.repeatable-component .section__row:nth-child(2) .ad--section-mrec [id^=gpt-slot-]', //mobile homepage, index, brand
+    ad_MrecBeforeRecommendation: '.ad--article-before-recommendations [id^=gpt-slot-]', //mobile gallery
+    ad_MrecUnderHeroImage: '.ad--beneath-short-teaser [id^=gpt-slot-]', //mobile article
 };
 
 module.exports = ads_widget;
