@@ -97,7 +97,7 @@ Feature: Ads Location
         Then I should see each load more ad slot element containing proper class name
             |ad                 |class-name  |
             |Load More MREC RHS |brandsection_rhs_3 |
-
+    
     Scenario: Ads slot elements should have proper class name on gallery page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-gallery-3201"
@@ -105,7 +105,7 @@ Feature: Ads Location
             |ad                             |class-name        |
             |Top Leaderboard                |gallery_outside_1 |
             |Teads                          |gallery_outside_2 |
-            |Bottom Leaderboard on Gallery  |gallery_outside_3 |
+            |Bottom Leaderboard on Gallery  |gallery_outside_4 |
         And I should see each body ad slot element containing proper class name
             |ad                 |class-name     |
             |MREC After Slide 3 |gallery_body_2 |
@@ -123,7 +123,7 @@ Feature: Ads Location
             |Left Side Panel    |gallery_panel_1     |
             |Right Side Panel   |gallery_panel_2     |
             |Wallpaper          |gallery_wallpaper_1 |
-
+    
     Scenario: Ads slot elements should have proper class name on article page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
@@ -131,7 +131,7 @@ Feature: Ads Location
             |ad                            |class-name        |
             |Top Leaderboard               |homesarticle_outside_1 |
             |Teads                         |homesarticle_outside_2 |
-            |Bottom Leaderboard on Article |homesarticle_outside_3 |
+            |Bottom Leaderboard on Article |homesarticle_outside_4 |
         And I should see each RHS ad slot element containing proper class name
             |ad              |class-name     |
             |MREC RHS 1      |homesarticle_rhs_1  |
