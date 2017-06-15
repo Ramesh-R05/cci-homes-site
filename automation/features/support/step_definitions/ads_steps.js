@@ -327,4 +327,30 @@ module.exports = function() {
         }
     });
 
+    this.Then(/^I can see last RHR ad is sticky$/, function () {
+        // Scrolling down to the last RHR feed with keeping ad in view
+        var x = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'x') - 50;
+        var y = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'y') - 50;
+
+        browser.scroll(x, y);
+
+        // ad will auto refresh once in view on the screen
+        browser.waitForVisible(wn_ads.ad_StickyMrecRhs, 2000);
+    });
+
+    this.Then(/^the sticky ad will auto refresh every (\d+) seconds when is in View$/, function (seconds) {
+        browser.isVisible(wn_ads.ad_StickyMrecRhs);
+        // scrolling down a little makes the ad appear on the screen
+        var x = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'x') - 1;
+        var y = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'y') - 1;
+
+        browser.scroll(x, y);
+
+        // check the iframe ID before change
+        var first_googleId = browser.getAttribute(wn_ads.ad_StickyMrecRhs,"data-google-query-id");
+        wait(6000);
+        // check the iframe ID after change
+        var second_googleId = browser.getAttribute(wn_ads.ad_StickyMrecRhs,"data-google-query-id");
+        expect(first_googleId).not.toEqual(second_googleId);
+    });
 };

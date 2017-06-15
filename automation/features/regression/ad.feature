@@ -56,6 +56,13 @@ Feature: Ads
         *  I should see 1 mrec ad slot beneath short teaser
         *  I should see 1 mrec ad slot at the end of the body content
 
+    @BXMA-406 @high
+    Scenario: Ads will autorefresh on article page
+        Given I switch to "desktop" view
+        When I am currently viewing "automation-test-article-with-hero-image-3193"
+        Then I can see last RHR ad is sticky
+        And the sticky ad will auto refresh every 6 seconds when is in View
+
     @gallery
     Scenario Outline: Ads on gallery page in the <device> view
         Given I switch to "<device>" view
@@ -262,3 +269,9 @@ Feature: Ads
             | device            | second count |
             | tablet landscape  | 3            |
 
+    @BXMA-415 @high
+    Scenario: Ads will autorefresh on Vertical gallery
+        Given I switch to "desktop" view
+        When I am currently viewing "automation-test-gallery-3201"
+        Then I can see last RHR ad is sticky
+        And the sticky ad will auto refresh every 6 seconds when is in View

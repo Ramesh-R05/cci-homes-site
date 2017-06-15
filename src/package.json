@@ -33,8 +33,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@bxm/ad": "^11.2.1",
-    "@bxm/article": "^25.2.2",
+    "@bxm/ad": "^11.3.0",
+    "@bxm/article": "^25.3.0",
     "@bxm/behaviour": "^1.3.0",
     "@bxm/datetime": "^3.0.0",
     "@bxm/flux": "^4.0.0",
