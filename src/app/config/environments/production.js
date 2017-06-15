@@ -31,7 +31,7 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://live.entities.services.bauer-media.internal/v1/homes',
+            entity: 'http://services.prod.bxm.internal/entity/v1/homes',
             listings: 'http://services.prod.bxm.internal/listing/v1/homes',
             module: 'http://live.modules.services.bauer-media.internal/v1/homes',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/homes',
