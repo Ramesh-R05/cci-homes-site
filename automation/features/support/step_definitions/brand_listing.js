@@ -152,10 +152,28 @@ module.exports = function() {
         browser.waitForVisible(brand_listing.brandStickyMobileBanner,3000);
     });
 
-    this.When(/^I should see the sign up button containing "([^"]*)" url and "([^"]*)" gtm$/, function (url, gtm) {
-        var signUpBtnLink = browser.getAttribute(brand_listing.newsletterSignUpBtn, 'href');
-        expect(signUpBtnLink[0]).toEqual(url);
-        var signUpBtnClass = browser.getAttribute(brand_listing.newsletterSignUpBtn, 'class');
-        expect(signUpBtnClass[0]).toContain(gtm);
+    this.When(/^I should see the sign up button containing "([^"]*)" url and "([^"]*)" gtm in "([^"]*)" view$/, function (url, gtm, device) {
+        var signUpBtn, signUpBtnLink, signUpBtnClass;
+
+        switch(device) {
+            case 'mobile':
+            case 'tablet portrait':
+                signUpBtn = brand_listing.newsletterSignUpBtnMobile;
+                signUpBtnLink = browser.getAttribute(signUpBtn, 'href');
+                signUpBtnClass = browser.getAttribute(signUpBtn, 'class');
+                break;
+            case 'desktop':
+            case 'tablet landscape':
+                signUpBtn = brand_listing.newsletterSignUpBtnDesktop;
+                signUpBtnLink = browser.getAttribute(signUpBtn, 'href');
+                signUpBtnClass = browser.getAttribute(signUpBtn, 'class');
+                break;
+        }
+
+        browser.scroll(signUpBtn);
+        expect(browser.isVisible(signUpBtn)).toEqual(true);
+        expect(signUpBtnLink).toEqual(url);
+        expect(signUpBtnClass).toContain(gtm);
     });
+
 };
