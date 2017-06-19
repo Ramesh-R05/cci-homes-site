@@ -88,9 +88,20 @@ module.exports = function() {
 
     //BELOW ARE STEPS FOR GALLERY
     this.Then(/^I should see MREC ad between images$/, function () {
-        wait(2000)
+        // Verify the mrec ad after slide no. 3
         browser.moveToObject(wn_ads.ad_MrecAfterSlide3);
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true);
+
+        // Ensure last two images (before the mrec ad after slide no.7) are loaded before verifying the mrec ad.
+        // This is to ensure the mrec ad is in the view when being verified.
+        browser.moveToObject(wn_ads.ad_MrecAfterSlide7);
+        browser.waitForVisible(wn_ads.gallerySlide6,5000);
+        browser.waitForVisible(wn_ads.gallerySlide7,5000);
+        // Why do we have to wait for two images?
+        // When I waited for side 7 only, there were a few running rounds that the slide no.6 hadn't been loaded yet while slide 7 was loaded completely.
+        // So I have to check at least two image slides. Then it works well.
+
+        // Verify the mrec ad after slide no. 7
         browser.moveToObject(wn_ads.ad_MrecAfterSlide7);
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
     });
