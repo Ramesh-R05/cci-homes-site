@@ -97,7 +97,7 @@ Feature: Ads Location
         Then I should see each load more ad slot element containing proper class name
             |ad                 |class-name  |
             |Load More MREC RHS |brandsection_rhs_3 |
-    
+
     Scenario: Ads slot elements should have proper class name on gallery page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-gallery-3201"
@@ -123,23 +123,24 @@ Feature: Ads Location
             |Left Side Panel    |gallery_panel_1     |
             |Right Side Panel   |gallery_panel_2     |
             |Wallpaper          |gallery_wallpaper_1 |
-    
+
     Scenario: Ads slot elements should have proper class name on article page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         Then I should see each outside ad slot element containing proper class name
-            |ad                            |class-name        |
+            |ad                            |class-name             |
             |Top Leaderboard               |homesarticle_outside_1 |
             |Teads                         |homesarticle_outside_2 |
             |Bottom Leaderboard on Article |homesarticle_outside_4 |
         And I should see each RHS ad slot element containing proper class name
-            |ad              |class-name     |
+            |ad              |class-name          |
             |MREC RHS 1      |homesarticle_rhs_1  |
             |MREC RHS 2      |homesarticle_rhs_2  |
             |MREC RHS 3      |homesarticle_rhs_3  |
             |MREC RHS 4      |homesarticle_rhs_4  |
+            |Sticky MREC RHS |homesarticle_rhs_5  |
         And I should see each additional ad slot element containing proper class name
-            |ad                 |class-name          |
+            |ad                 |class-name               |
             |Out Of Page        |homesarticle_outofpage_1 |
             |Left Side Panel    |homesarticle_panel_1     |
             |Right Side Panel   |homesarticle_panel_2     |
