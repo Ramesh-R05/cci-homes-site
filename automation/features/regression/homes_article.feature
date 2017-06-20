@@ -21,7 +21,7 @@ Feature: Article
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
-    @DAW-1125 @med
+    @DAW-1125 @low
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "automation-test-article-with-hero-video-3194"
@@ -54,23 +54,13 @@ Feature: Article
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
 
-    @DDO-160 @DDO-48 @med
+    @DDO-160 @DDO-48 @low
     Scenario: Verify an hero image caption and LHR on different screen sizes
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
     When I switch to "desktop" view
     * I can see the hero image
     * I should not see the hero image caption
     * I can see the LHR
-
-    When I switch to "tablet landscape" view
-    * I can see the hero image
-    * I should not see the hero image caption
-    * I can see the LHR
-
-    When I switch to "tablet portrait" view
-    * I can see the hero image
-    * I should not see the hero image caption
-    * I should not see the LHR
 
     When I switch to "mobile" view
     * I can see the hero image
@@ -105,14 +95,16 @@ Feature: Article
     @high
         Examples:
             | Device            |
-            | desktop           |
-            | mobile portrait   |
+            | mobile            |
     @med
+        Examples:
+            | Device            |
+            | desktop           |
+    @low
         Examples:
             | Device            |
             | tablet landscape  |
             | tablet portrait   |
-            | mobile            |
 
     Scenario Outline: Editorial team can add social feeds to the article body
         Given I switch to "<device>" view
@@ -131,6 +123,9 @@ Feature: Article
         Examples:
             | device            |
             | mobile            |
+    @med
+        Examples:
+            | device            |
             | desktop           |
     @med
         Examples:

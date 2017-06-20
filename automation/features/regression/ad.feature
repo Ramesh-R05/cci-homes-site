@@ -3,13 +3,9 @@ Feature: Ads
     As a user
     I should be able to see the relevant Ads on the site
 
-    @DAW-1070 @high
-    Scenario: Add sticky mobile banner to bottom of the article
-        Given I switch to "mobile portrait" view
-        And I am currently viewing "automation-test-article-with-hero-image-3193"
-        Then I can see the sticky ad when the top banner disappears from view
+# -------- Sticky Mobile banner on homepage is high priority for mobile device ---------------
 
-    @high
+    @DAW-1070 @high
     Scenario: Add sticky mobile banner to bottom of the HomePage
         Given I switch to "mobile portrait" view
         When I am currently viewing the homepage
@@ -17,7 +13,9 @@ Feature: Ads
         When I click on the Load More button
         Then I can see the sticky ad on the homepage page
 
-    @med
+# -------- Sticky Mobile banner on brand and section page is low priority for mobile device ---------------
+
+    @low
     Scenario: Add sticky mobile banner to bottom of the Brand Page
         Given I switch to "mobile portrait" view
         When I am currently viewing "australian-house-and-garden"
@@ -33,28 +31,7 @@ Feature: Ads
         When I click on the Load More button
         Then I can see the sticky ad on the section page
 
-    @high
-    Scenario: check all ad slots are visible on the article page
-        When I switch to "desktop" view
-        Given I am currently viewing "automation-test-article-with-hero-image-3193"
-        *  I should see 2 leaderboard ad slots
-        *  I should see 4 mrec ad slots in RHS feed
-
-        When I switch to "tablet landscape" view
-        Given I am currently viewing "automation-test-article-with-hero-image-3193"
-        *  I should see 2 leaderboard ad slots
-        *  I should see 4 mrec ad slots in RHS feed
-
-        When I switch to "tablet portrait" view
-        Given I am currently viewing "automation-test-article-with-hero-image-3193"
-        *  I should see 2 leaderboard ad slots
-        *  I should see 1 mrec ad slot at the end of the body content
-
-        When I switch to "mobile" view
-        Given I am currently viewing "automation-test-article-with-hero-image-3193"
-        *  I should see 2 leaderboard ad slots
-        *  I should see 1 mrec ad slot beneath short teaser
-        *  I should see 1 mrec ad slot at the end of the body content
+# -------- Auto refresh is high priority for desktop ---------------
 
     @BXMA-406 @high
     Scenario: Ads will autorefresh on article page
@@ -62,6 +39,9 @@ Feature: Ads
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         Then I can see last RHR ad is sticky
         And the sticky ad will auto refresh every 6 seconds when is in View
+#       And after 15 seconds the page will go idle and the add will no refresh anymore # This is tested manually
+
+# -------- Gallery Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
 
     @gallery
     Scenario Outline: Ads on gallery page in the <device> view
@@ -102,6 +82,7 @@ Feature: Ads
         * I should see the bottom leaderboard ad above the footer on article
         * I should see MREC ad between images
 
+# -------- Brand Landing Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
 
     @BXMS-12
     Scenario Outline: Ads on brand landing page in the <device> view
@@ -119,20 +100,12 @@ Feature: Ads
             | device            |
             | tablet landscape  |
 
-    @BXMS-12
-    Scenario Outline: Ads on brand landing page in the <device> view
-        Given I switch to "<device>" view
+    @BXMS-12 @high
+    Scenario: Ads on brand landing page in the <device> view
+        Given I switch to "mobile" view
         When I am currently viewing "australian-house-and-garden"
         And I should see leaderboard ad slots at top middle and bottom
         And I should see 2 mrec ad slots
-        @high
-        Examples:
-            | device            |
-            | mobile portrait   |
-        @med
-        Examples:
-            | device            |
-            | mobile            |
 
     @med
     Scenario: Ads on brand landing page in the tablet portrait view
@@ -141,41 +114,17 @@ Feature: Ads
         And I should see leaderboard ad slots at top middle and bottom
         And I should see 4 mrec ad slots
 
+# -------- Wall Paper Ads are High as this is an area with Commercial Value ---------------
+
     @BXMA-107 @high
-    Scenario: Wallpaper ad should appear on "brand" page in the desktop view
+    Scenario: Wallpaper and side panel ad should appear on "brand" page in the desktop view
         Given I switch to "desktop" view
-        When I am currently viewing "homes-plus/"
+        When I am currently viewing "homes-plus"
         * I should "see" the wallpaper ad slot on "brand"
-
-    @BXMA-107
-    Scenario Outline: Wallpaper ad should not appear on "<page>" page in the "<device>" view
-        Given I switch to "<device>" view
-        When I am currently viewing "<url>"
-        * I should "not see" the wallpaper ad slot on "<page>"
-        @low
-        Examples:
-            | device             | page       | url            |
-            | tablet portrait    | brand      | homes-plus/    |
-            | mobile portrait    | brand      | homes-plus/    |
-            | mobile             | brand      | homes-plus/    |
-
-    @BXMA-107 @high
-    Scenario: Side panel ad should appear on "brand" page in the desktop view
-        Given I switch to "desktop" view
-        When I am currently viewing "belle/"
+        When I am currently viewing "belle"
         * I should "see" the left and right side ad slot on "brand"
 
-    @BXMA-107
-    Scenario Outline: Side panel ad should not appear on "<page>" page in the "<device>" view
-        Given I switch to "<device>" view
-        When I am currently viewing "<url>"
-        * I should "not see" the left and right side ad slot on "<page>"
-        @low
-        Examples:
-            | device             | page       | url    |
-            | tablet portrait    | brand      | belle/ |
-            | mobile portrait    | brand      | belle/ |
-            | mobile             | brand      | belle/ |
+# -------- Inskin Ads on desktop and tablet are Manual ---------------
 
     @BXMA-107 @manual @chrome
     Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
@@ -191,6 +140,8 @@ Feature: Ads
             | device             | page       | url            |
             | tablet landscape   | brand      | real-living/   |
             | tablet portrait    | brand      | real-living/   |
+
+# -------- Homepage Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
 
     @BXMS-108
     Scenario Outline: Ads on homepage in the <device> view
@@ -211,8 +162,9 @@ Feature: Ads
             | device            |
             | tablet landscape  |
 
+
     @BXMS-108
-    Scenario Outline: Ads on homepage in the <desktop> view
+    Scenario Outline: Ads on homepage in the <device> view
         Given I switch to "<device>" view
         And I am currently viewing the homepage
         And I should see leaderboard ad slots at top middle and bottom
@@ -223,13 +175,14 @@ Feature: Ads
     @high
         Examples:
             | device            | number | 2ndCount |
-            | mobile portrait   | 2      | 3        |
+            | mobile            | 2      | 3        |
 
     @med
         Examples:
             | device            | number | 2ndCount |
-            | mobile            | 2      | 3        |
             | tablet portrait   | 4      | 6        |
+
+# -------- Section Page Ads on desktop and mobile are High as this are areas with Commercial Value ---------------
 
     @BXMS-129
     Scenario Outline: Ads on section landing page in the <desktop> view
@@ -243,11 +196,10 @@ Feature: Ads
     @high
         Examples:
             | device            | number | second count |
-            | mobile portrait   | 2      | 3            |
+            | mobile            | 2      | 3            |
     @med
         Examples:
             | device            | number | second count |
-            | mobile            | 2      | 3            |
             | tablet portrait   | 4      | 6            |
 
     @BXMS-129
@@ -262,16 +214,9 @@ Feature: Ads
 
     @high
         Examples:
-            | device  | second count |
-            | desktop | 3            |
+            | device        | second count |
+            | desktop       | 3            |
     @med
         Examples:
             | device            | second count |
             | tablet landscape  | 3            |
-
-    @BXMA-415 @high
-    Scenario: Ads will autorefresh on Vertical gallery
-        Given I switch to "desktop" view
-        When I am currently viewing "automation-test-gallery-3201"
-        Then I can see last RHR ad is sticky
-        And the sticky ad will auto refresh every 6 seconds when is in View

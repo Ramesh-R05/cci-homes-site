@@ -7,7 +7,7 @@ Feature: Homepage
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         Then I should see the sign up button containing "http://www.homestolove.com.au/homes-newsletter/" url and "gtm-subs-homepage" gtm in "<device>" view
-        @high
+        @med
         Examples:
             | device            |
             | desktop           |
@@ -32,11 +32,11 @@ Feature: Homepage
         Then I should see extra 12 top teasers on the loaded feed section page
     @high
     Examples:
-        | device |
+        | device  |
         | desktop |
     @low
     Examples:
-        | device |
+        | device           |
         | tablet landscape |
 
     Scenario Outline: Verify Homes to Love homepage has a hero content on "<device>"
@@ -54,10 +54,10 @@ Feature: Homepage
     @high
     Examples:
         | device |
-        | mobile portrait |
+        | mobile |
     @low
     Examples:
-        | device |
+        | device          |
         | tablet portrait |
 
     Scenario Outline: Verify Home page has top featured content on "<device>"
@@ -67,14 +67,14 @@ Feature: Homepage
         And I should see each top teaser containing its image and is clickable to open its page
         And I should see each top teaser containing its title and is clickable to open its page
         And I should see each top teaser containing its tag and is clickable to open its page
-    @high
+    @med
     Examples:
-        | device |
+        | device          |
         | mobile portrait |
         | desktop         |
     @low
     Examples:
-        | device |
+        | device           |
         | tablet portrait  |
         | tablet landscape |
 
@@ -85,14 +85,14 @@ Feature: Homepage
         And I should see each bottom teaser containing its image and is clickable to open its page
         And I should see each bottom teaser containing its title and is clickable to open its page
         And I should see each bottom teaser containing its tag and is clickable to open its page
-    @high
+    @med
     Examples:
-        | device |
+        | device          |
         | mobile portrait |
         | desktop         |
     @low
         Examples:
-        | device |
+        | device           |
         | tablet portrait  |
         | tablet landscape |
 
@@ -106,12 +106,12 @@ Feature: Homepage
             | 6 |
         @high
             Examples:
-                | device |
+                | device          |
                 | mobile portrait |
                 | desktop         |
         @low
             Examples:
-                | device |
+                | device           |
                 | tablet portrait  |
                 | tablet landscape |
 
@@ -144,15 +144,15 @@ Feature: Homepage
             | 6 |
     @high
         Examples:
-            | device |
-            | mobile portrait |
+            | device          |
+            | mobile          |
             | desktop         |
     @low
         Examples:
-            | device |
+            | device           |
             | tablet portrait  |
             | tablet landscape |
-    @high
+    @low
     Scenario: Users can see the latest real homes on homepage
         Given I switch to "desktop" view
         And I am currently viewing the homepage

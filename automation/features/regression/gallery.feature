@@ -25,8 +25,8 @@ Feature: Gallery
         When I switch to "mobile" view
         Given I am currently viewing "automation-test-gallery-3201"
         * I can see the gallery description of the gallery containing "The breathtaking natural surrounds"
-        #When I see the video ID "5066382704001" on the gallery
-        #* I can see the play button and click on it
+        When I see the video ID "5066382704001" on the gallery
+        * I can see the play button and click on it
 
     @med
     Scenario: Verify a gallery page in desktop style on desktop view
@@ -40,8 +40,8 @@ Feature: Gallery
         * I can see the gallery description of the gallery containing "The breathtaking natural surrounds"
         * I can see the image number "1" of total "8" on the gallery
         * I can see the image caption on the gallery containing "The pavilion-style renovation features"
-        #When I see the video ID "5066382704001" on the gallery
-        #* I can see the play button and click on it
+        When I see the video ID "5066382704001" on the gallery
+        * I can see the play button and click on it
 
     @low
     Scenario: Verify a gallery page in mobile style on tablet portrait view

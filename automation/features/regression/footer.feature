@@ -26,12 +26,12 @@ Feature: Footer
             |ADVERTISE      |http://www.bauer-media.com.au/advertising/advertise-with-us    |
             |TERMS OF USE   |http://www.bauer-media.com.au/terms/website-terms              |
         * I can see the standard copyright text in the footer as "COPYRIGHT BAUER MEDIA PTY LTD ALL RIGHTS RESERVED"
-        @high
+        @med
             Examples:
                 |device            |
                 |mobile portrait   |
                 |desktop           |
-        @med
+        @low
             Examples:
                 |device            |
                 |tablet portrait   |
@@ -41,7 +41,7 @@ Feature: Footer
         Given I switch to "desktop" view
         When I am currently viewing "<url>"
         * 	I can see all main elements in the footer
-        @high
+        @med
         Examples:
             |page               | url                                              |
             |brand page         | australian-house-and-garden                      |

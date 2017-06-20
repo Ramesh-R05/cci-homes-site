@@ -1,4 +1,4 @@
-@wnheader @BXMA-89 @homes @high
+@wnheader @BXMA-89 @homes @low
 Feature: Uniheader
     As a user
     I should be able to see the Uniheader

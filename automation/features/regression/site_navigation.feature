@@ -1,20 +1,24 @@
 @homepage @homes
 Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to be used across all devices
 
-    @high
+
     Scenario Outline: As a User I want a Navigation widget accross all my pages
         Given I switch to "<device>" view
         And I am currently viewing "<page>"
         Then I can always see the navigation at the top of the screen
-    Examples:
+    @med
+        Examples:
         | page                                          | device            |
         |                                               | mobile            |
+        | automation-test-article-with-hero-image-3193  | desktop           |
+    @low
+        Examples:
+        | page                                          | device            |
         | real-homes                                    | tablet landscape  |
         | belle                                         | tablet portrait   |
-        | automation-test-article-with-hero-image-3193  | desktop           |
         | automation-test-gallery-3201                  | mobile portrait   |
 
-    @high
+    @med
     Scenario: As a Product Owner I want all of the navigation sections to have a gtm class
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-gallery-3201"
@@ -22,13 +26,13 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And all hamburger sections have "gtm-hamburger-section"
         And the navigation homes icon has "gtm-navbar-homes"
 
-    @high
+    @med
     Scenario: Mobile users menu will fade out as they scroll down the page
         Given I switch to "mobile portrait" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         Then the menu fades out as I scroll down the page
 
-    @BXMS-85 @high
+    @BXMS-85 @med
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"

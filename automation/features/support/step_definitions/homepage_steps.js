@@ -251,4 +251,5 @@ module.exports = function(){
         browser.moveToObject(loadMore.loadMoreButton);
         browser.waitForVisible(home.stickyMobileBanner,3000);
     });
+
 };

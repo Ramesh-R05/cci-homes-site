@@ -24,6 +24,9 @@ Feature: SectionLanding page
         Examples:
             | device    |
             | mobile    |
+    @med
+        Examples:
+            | device    |
             | desktop   |
     @low
         Examples:
@@ -40,12 +43,15 @@ Feature: SectionLanding page
             | 6 |
     @high
         Examples:
-            | device |
-            | mobile portrait |
+            | device          |
+            | mobile          |
+    @med
+        Examples:
+            | device          |
             | desktop         |
     @low
         Examples:
-            | device |
+            | device           |
             | tablet portrait  |
             | tablet landscape |
 
@@ -56,14 +62,14 @@ Feature: SectionLanding page
             |pos|
             | 2 |
             | 6 |
-    @high
+    @med
         Examples:
-            | device |
+            | device          |
             | mobile portrait |
             | desktop         |
     @low
         Examples:
-            | device |
+            | device           |
             | tablet portrait  |
             | tablet landscape |
 
@@ -76,13 +82,13 @@ Feature: SectionLanding page
             |pos|
             | 2 |
             | 6 |
-    @high
+    @med
         Examples:
-            | device |
-            | mobile portrait |
+            | device          |
+            | mobile          |
             | desktop         |
     @low
         Examples:
-            | device |
+            | device           |
             | tablet portrait  |
             | tablet landscape |
