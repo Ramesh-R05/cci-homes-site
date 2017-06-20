@@ -163,3 +163,34 @@ jobs:
             port: 3001
       - TASK: managed
         deployMethod: upgrade
+
+
+  ##############################################
+  # Schedule jobs - not attached to the pipeline
+  ##############################################
+  
+  
+  # i. Full regression in SIT Homes
+  - name: FULL-homes-site-regression-test
+    type: runSh
+    always:
+      - NOTIFY: homes-qa-team-notifications
+    steps:
+     - IN: homes-site-repo
+       switch: off
+     - IN: morning-trigger
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/homes-site-repo/gitRepo/automation
+        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: export URL=http://homes-site.test.bxm.net.au/
+        - script: export APP_KEY=homes-site
+        - script: npm run all:test || true
+        - script: actualsize=$(wc -c <"@rerun.txt")
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+    flags:
+      - homes-site

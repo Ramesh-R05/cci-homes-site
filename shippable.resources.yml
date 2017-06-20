@@ -56,6 +56,15 @@ resources:
     pointer:
       recipients:
         - "#au-shippable"
+        
+  # Slack connection
+  - name: homes-qa-team-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#bxm_qa_notifications"
+        
 
   # Seed Release version
     # for Rollback refer to below URL
