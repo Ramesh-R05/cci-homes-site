@@ -131,9 +131,9 @@
   version "4.1.0"
   resolved "http://npm.digital.bauer-media.net.au/@bxm%2frecommendations/-/recommendations-4.1.0.tgz#d876ea5d5126943e9fbd252d7395f3c4405f6c22"
 
-"@bxm/server@^21.2.0":
-  version "21.2.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fserver/-/server-21.2.0.tgz#ca0944c5ee5f3dd0b0a96ac83aac6ed478981451"
+"@bxm/server@^21.4.0":
+  version "21.4.1"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fserver/-/server-21.4.1.tgz#f3d97ccd0b9ecd0c0397a744ab4e4315930f439f"
   dependencies:
     "@bxm/flux" "^4.4.1"
     "@bxm/winston-logger" "^1.1.0"
@@ -3510,11 +3510,11 @@ husky@^0.13.3:
     is-ci "^1.0.9"
     normalize-path "^1.0.0"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@^0.4.5, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "http://npm.digital.bauer-media.net.au/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
 
-iconv-lite@0.4.15, iconv-lite@^0.4.5, iconv-lite@~0.4.13:
+iconv-lite@0.4.15:
   version "0.4.15"
   resolved "http://npm.digital.bauer-media.net.au/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
