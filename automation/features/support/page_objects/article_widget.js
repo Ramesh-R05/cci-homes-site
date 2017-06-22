@@ -58,7 +58,10 @@ var article_widget = {
     wd_lhrFeedSubsection: '.article__listing .feed__subSection',
     wd_lhrFeedSubsectionLink: '.article__listing .feed__subSection a',
     wd_lhrFeedDate: '.article__listing .feed__item-date',
-    relatedPolarFeed: '.related-content-items > .polar-feed-item'
+    relatedPolarFeed: '.related-content-items > .polar-feed-item',
+    imageRevealer: '.content-body .image-revealer',
+    imageRevealerLeftImg: '.content-body .image-revealer__left img',
+    imageRevealerRightImg: '.content-body .image-revealer__right img'
 };
 
 module.exports = article_widget;

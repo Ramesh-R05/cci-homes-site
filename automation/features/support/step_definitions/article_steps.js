@@ -437,7 +437,14 @@ module.exports = function() {
         browser.waitForExist(wn_article.relatedPolarFeed, 2000);
     });
 
-
+    this.Given(/^I can see the Image Revealer component$/, function() {
+        var isVisible = browser.isVisible(wn_article.imageRevealer);
+        var leftImageSrc = browser.getAttribute(wn_article.imageRevealerLeftImg, 'src');
+        var rightImageSrc = browser.getAttribute(wn_article.imageRevealerRightImg, 'src');
+        expect(isVisible).toBe(true);
+        expect(leftImageSrc).not.toBeUndefined();
+        expect(rightImageSrc).not.toBeUndefined();
+    });
 
 };
 

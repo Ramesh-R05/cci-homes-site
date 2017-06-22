@@ -152,3 +152,22 @@ Feature: Article
             | tablet portrait   |
             | tablet landscape  |
     # -------- Outbrain end   ---------------#
+
+    
+    Scenario Outline: Users can see the Image Revealer component on the article page
+        When I switch to "<device>" view
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        * I can see the Image Revealer component
+    @high
+        Examples:
+            | device            |
+            | mobile            |
+    @med
+        Examples:
+            | device            |
+            | desktop           |
+    @low
+        Examples:
+            | device            |
+            | tablet portrait   |
+            | tablet landscape  |

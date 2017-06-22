@@ -231,6 +231,18 @@ export default
             "content": {
                 "url": "http://embed.wirewax.com/8037657/ff0044/"
             }
+        },
+        {
+            "type": "image-revealer",
+            "label": "image-revealer",
+            "content": {
+                "left": {
+                    "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/hb/2017/06/14/1497396990978_helen-before.png"
+                },
+                "right": {
+                    "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/hb/2017/06/14/1497396999493_jennifer-after.png"
+                }
+            }
         }
     ],
     "contentYear": 2016,
