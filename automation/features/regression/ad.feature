@@ -4,32 +4,42 @@ Feature: Ads
     I should be able to see the relevant Ads on the site
 
 # -------- Sticky Mobile banner on homepage is high priority for mobile device ---------------
-
-    @DAW-1070 @high
-    Scenario: Add sticky mobile banner to bottom of the HomePage
-        Given I switch to "mobile portrait" view
-        When I am currently viewing the homepage
-        Then I can see the sticky ad when the top banner disappears from view in homepage
-        When I click on the Load More button
-        Then I can see the sticky ad on the homepage page
-
 # -------- Sticky Mobile banner on brand and section page is low priority for mobile device ---------------
-
-    @low
-    Scenario: Add sticky mobile banner to bottom of the Brand Page
+    @DAW-1070 @BXMA-498 @must
+    Scenario Outline: Add sticky mobile banner to bottom of the <page>
         Given I switch to "mobile portrait" view
-        When I am currently viewing "australian-house-and-garden"
-        Then I can see the sticky ad when the top banner disappears from view in brand page
-        When I click on the Load More button
-        Then I can see the sticky ad on the brand page
+        When I am currently viewing "<pageUrl>"
+        Then I can see the sticky ad when the top banner disappears from view
+        @high
+        Examples:
+            |page              |pageUrl                                               |
+            |homepage          |                                                      |
+            |article           |automation-test-article-with-hero-image-3193          |
+            |gallery           |automation-test-gallery-3201                          |
+        @low
+        Examples:
+            |page              |pageUrl                                               |
+            |tag section       |tags/luxury-home/                                     |
+            |navigation section|real-homes                                            |
+            |brand             |australian-house-and-garden                           |
 
-    @low
-    Scenario: Add sticky mobile banner to bottom of the Section Page
-        Given I switch to "mobile portrait" view
-        When I am currently viewing "real-homes"
-        Then I can see the sticky ad when the top banner disappears from view in section page
-        When I click on the Load More button
-        Then I can see the sticky ad on the section page
+    @high @BXMA-499
+    Scenario Outline: Add sticky bottom leaderboard to bottom of the <page>
+        Given I switch to "tablet portrait" view
+        When I am currently viewing "<pageUrl>"
+        Then I can see the sticky ad when the top banner disappears from view
+        @high
+        Examples:
+            |page              |pageUrl                                               |
+            |homepage          |                                                      |
+            |article           |automation-test-article-with-hero-image-3193          |
+            |gallery           |automation-test-gallery-3201                          |
+        @low
+        Examples:
+            |page              |pageUrl                                               |
+            |tag section       |tags/luxury-home/                                     |
+            |navigation section|real-homes                                            |
+            |brand             |australian-house-and-garden                           |
 
 # -------- Auto refresh is high priority for desktop ---------------
 

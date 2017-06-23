@@ -24,7 +24,7 @@
     "general:live": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --tags=@live \"",
     "all:test": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@homes --tags=~@manual\""
   },
-  
+
   "dependencies": {
     "@bxm/automation": "^1.0.2",
     "cucumber-html-report": "^0.2.8"

@@ -237,19 +237,4 @@ module.exports = function(){
 
     });
 
-    this.Then(/^I can see the sticky ad when the top banner disappears from view in homepage$/, function () {
-        //Scroll through the page to confirm is sticky
-        expect(browser.isVisible(home.stickyMobileBanner)).toBe(false);
-        browser.scroll(0, 1500);
-        expect(browser.waitForVisible(home.stickyMobileBanner, 2000)).toBe(true);
-        browser.scroll(1500, 2500);
-        expect(browser.waitForVisible(home.stickyMobileBanner, 2000)).toBe(true);
-
-    });
-
-    this.Then(/^I can see the sticky ad on the homepage page$/, function () {
-        browser.moveToObject(loadMore.loadMoreButton);
-        browser.waitForVisible(home.stickyMobileBanner,3000);
-    });
-
 };

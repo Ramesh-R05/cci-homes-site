@@ -45,7 +45,12 @@ export default class SectionFeatured extends Component {
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             },
-            pageLocation: Ad.pos.outside
+            pageLocation: Ad.pos.outside,
+            lazyLoad:true,
+            autoRefreshing: {
+                interval: 6000,
+                idle: 120000
+            }
         };
 
         let latestRealHomesComponent = null;
@@ -208,6 +213,7 @@ export default class SectionFeatured extends Component {
                     <StickyAd
                       adProps={stickyAdProps}
                       minHeight={450}
+                      stickyAtViewPort="mediumRangeMax"
                     />
 
                 </div>

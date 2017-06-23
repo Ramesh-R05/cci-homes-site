@@ -154,32 +154,20 @@
 
 .sticky-block {
     @media #{$small-only} {
+        bottom: -80px;
+
         &--out-of-view:not(.sticky-block--at-top) {
             background: #FFF;
+            border-top: 1px solid #ddd;
             position: fixed;
-            -webkit-transition: bottom 450ms;
             transition: bottom 450ms;
             width: 100%;
-            z-index: 1100;
-            height: 51px;
-            margin-left: -15px;
+            z-index: $z-index-11;
+            height: 50px;
 
             .ad {
-                &--section-top-leaderboard,
-                &--section-bottom-leaderboard  {
-                    border-top: 1px solid #ddd;
-                    margin: 0;
-                    padding-top: 0;
-                    background: $color-white;
-                }
-
-                &__label {
-                    display: none;
-                }
-
-                &--article-beneath-recommendations {
-                    padding-top: 0;
-                }
+                padding-top: 0;
+                margin-bottom: 0;
             }
         }
 
@@ -193,7 +181,37 @@
             padding-bottom: 20px;
         }
     }
-}
+
+    @media #{$medium-only} { 
+        bottom: -130px;
+
+        &--out-of-view:not(.sticky-block--at-top) {
+            background: #FFF;
+            border-top: 1px solid #ddd;
+            position: fixed;
+            transition: bottom 450ms;
+            width: 100%;
+            z-index: $z-index-11;
+            height: 130px;
+
+            .ad {
+                margin-top: 20px;
+                padding-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        &--at-bottom {
+            bottom: 0;
+        }
+
+        &--in-view {
+            bottom: 0;
+            position: static;
+            padding-bottom: 20px;
+        }
+    }
+};
 
 // Overriding ALL ad labels.
 .ad__label {

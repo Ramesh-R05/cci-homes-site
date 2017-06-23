@@ -364,4 +364,15 @@ module.exports = function() {
         var second_googleId = browser.getAttribute(wn_ads.ad_StickyMrecRhs,"data-google-query-id");
         expect(first_googleId).not.toEqual(second_googleId);
     });
+
+
+    this.Then(/^I can see the sticky ad when the top banner disappears from view$/, function () {
+        //Scroll through the page to confirm is sticky
+        expect(browser.isVisible(wn_ads.bottomSticky)).toBe(false);
+        browser.scroll(0,1500);
+        expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
+        browser.scroll(1500,2000);
+        expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
+    });
+
 };

@@ -52,7 +52,12 @@ class Section extends Component {
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             },
-            pageLocation: Ad.pos.outside
+            pageLocation: Ad.pos.outside,
+            lazyLoad:true,
+            autoRefreshing: {
+                interval: 6000,
+                idle: 120000
+            }
         };
 
         return (
@@ -100,6 +105,7 @@ class Section extends Component {
                 <StickyAd
                   adProps={stickyAdProps}
                   minHeight={450}
+                  stickyAtViewPort="mediumRangeMax"
                 />
 
             </div>

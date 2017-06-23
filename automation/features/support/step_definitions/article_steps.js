@@ -255,15 +255,6 @@ module.exports = function() {
         expect(author).toEqual(authorName);
     });
 
-    this.Then(/^I can see the sticky ad when the top banner disappears from view$/, function () {
-        //Scroll through the page to confirm is sticky
-        expect(browser.isVisible(wn_article.stickyAdSection)).toBe(false);
-        browser.scroll(0,1500);
-        expect(browser.waitForVisible(wn_article.stickyAdSection,2000)).toBe(true);
-        browser.scroll(1500,2000);
-        expect(browser.waitForVisible(wn_article.stickyAdSection,2000)).toBe(true);
-    });
-
     this.Given(/^I can see the hero video is "([^"]*)"$/, function (heroVideoID) {
         browser.waitForVisible(wn_article.heroVideo,2000);
         var heroVideo = browser.getAttribute(wn_article.heroVideo, 'poster');

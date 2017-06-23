@@ -33,7 +33,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@bxm/ad": "^11.3.0",
+    "@bxm/ad": "^11.4.0",
     "@bxm/article": "^25.4.0",
     "@bxm/behaviour": "^1.3.0",
     "@bxm/datetime": "^3.0.0",

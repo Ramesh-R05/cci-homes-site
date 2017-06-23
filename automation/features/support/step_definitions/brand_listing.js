@@ -136,22 +136,6 @@ module.exports = function() {
         console.log(brandLogoSrc);
     });
 
-    this.Then(/^I can see the sticky ad when the top banner disappears from view in brand page$/, function () {
-        //Scroll through the page to confirm is sticky
-        expect(browser.isVisible(brand_listing.brandStickyMobileBanner)).toBe(false);
-        browser.scroll(0, 1800);
-        expect(browser.waitForVisible(brand_listing.brandStickyMobileBanner, 2000)).toBe(true);
-        browser.scroll(1500, 2000);
-        expect(browser.waitForVisible(brand_listing.brandStickyMobileBanner, 2000)).toBe(true);
-
-    });
-
-    this.Then(/^I can see the sticky ad on the brand page$/, function () {
-        //browse to next loadmore button and check sticky mobile banner
-        browser.moveToObject(loadMore.loadMoreButton);
-        browser.waitForVisible(brand_listing.brandStickyMobileBanner,3000);
-    });
-
     this.When(/^I should see the sign up button containing "([^"]*)" url and "([^"]*)" gtm in "([^"]*)" view$/, function (url, gtm, device) {
         var signUpBtn, signUpBtnLink, signUpBtnClass;
 

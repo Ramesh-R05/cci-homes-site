@@ -134,22 +134,5 @@ module.exports = function(){
             expect(listOfItems[row['pos']-1]).toContain('polar');}
     });
 
-    this.Then(/^I can see the sticky ad when the top banner disappears from view in section page$/, function () {
-        //Scroll through the page to confirm is sticky
-        expect(browser.isVisible(sectionPage.sectionStickyMobileBanner)).toBe(false);
-        browser.scroll(0, 1500);
-        expect(browser.waitForVisible(sectionPage.sectionStickyMobileBanner, 2000)).toBe(true);
-        browser.scroll(1500, 2000);
-        expect(browser.waitForVisible(sectionPage.sectionStickyMobileBanner, 2000)).toBe(true);
-
-    });
-
-    this.Then(/^I can see the sticky ad on the section page$/, function () {
-        //browse to next loadmore button and check sticky mobile banner
-        browser.moveToObject(loadMore.loadMoreButton);
-        browser.waitForVisible(sectionPage.sectionStickyMobileBanner,3000);
-
-    });
-
 };
 

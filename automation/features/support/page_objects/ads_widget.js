@@ -7,6 +7,7 @@ var ads_widget = {
     mrecBottomFeedSticky: '.brand__body--bottom>div .fixed-column--sticky>div',
     sectionMrecTopFeedSticky: '.container>div .fixed-column--sticky>div',
     sectionMrecBottomFeedSticky: '.section__row>div .fixed-column--sticky>div',
+    bottomSticky: 'div.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
 
     //For checking number of ads
     mrec: '.ad--section-mrec',
