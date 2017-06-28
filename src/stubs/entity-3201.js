@@ -52,7 +52,7 @@ export default
     "nodeTypeAlias": "Gallery",
     "contentAuthors": ["HOMES-2040"],
     "contentGallery": [{
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870081240_1479341507654WhiteHouseSJB.jpg",
+        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/19/52893/benedict.jpg",
         "open": false,
         "tags": [],
         "title": "Mornington Peninsular Home.jpg",
@@ -62,7 +62,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870132577_1479336337608SJB-WhiteHouse12.jpg",
+        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/05/51410/resized.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (12).jpg",
@@ -80,7 +80,7 @@ export default
         "videoTitle": "",
         "brightcoveId": "5066382704001"
     }, {
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870207717_1479336331300SJB-WhiteHouse3.jpg",
+        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/04/51358/blake-lively.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (3).jpg",
@@ -90,7 +90,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870235980_1479336326377SJB-WhiteHouse8.jpg",
+        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2016/12/05/107325/gigi-kendall-victoria-s-secret.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (8).jpg",
@@ -100,7 +100,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870264253_1479336345745SJB-WhiteHouse11.jpg",
+        "url": "http://assets.cougar.nineentertainment.com.au/Assets/Elle/2014/03/21/30477/montana-lead.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (11).jpg",
@@ -110,7 +110,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870302994_1479336358195SJB-WhiteHouse16.jpg",
+        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/22/63561/taylor-swift-clothing-line.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (16).jpg",
@@ -120,7 +120,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/1479870372263_1479336362494SJB-WhiteHouse20.jpg",
+        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/15/63103/mainel0815_Brittany-06-070-FINAL.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (20).jpg",
