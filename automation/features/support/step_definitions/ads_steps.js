@@ -349,20 +349,50 @@ module.exports = function() {
         browser.waitForVisible(wn_ads.ad_StickyMrecRhs, 2000);
     });
 
-    this.Then(/^the sticky ad will auto refresh every (\d+) seconds when is in View$/, function (seconds) {
-        browser.isVisible(wn_ads.ad_StickyMrecRhs);
-        // scrolling down a little makes the ad appear on the screen
-        var x = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'x') - 1;
-        var y = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'y') - 1;
+    this.Then(/^the "([^"]*)" will "([^"]*)" refresh every (\d+) seconds when is in View$/, function (ad, auto, seconds) {
+        // Find an element of the ad
+        var adElement;
+        switch(ad) {
+            case 'sticky MREC ad':
+                adElement = wn_ads.ad_StickyMrecRhs;
+                break;
+            case 'bottom leaderboard ad':
+            case 'mobile banner ad':
+                adElement = wn_ads.ad_BottomLeaderboard_Article;
+                break;
+        }
 
-        browser.scroll(x, y);
+        // declare variables
+        var first_googleId;
+        var second_googleId;
+        var loopCount = 0;
 
-        // check the iframe ID before change
-        var first_googleId = browser.getAttribute(wn_ads.ad_StickyMrecRhs,"data-google-query-id");
-        wait(6000);
+        // check the iframe ID before change and ensure the value is not NULL
+        do {
+            browser.scroll(adElement);
+            browser.waitForVisible(adElement, 5000);
+            first_googleId = browser.getAttribute(adElement, "data-google-query-id");
+            console.log(loopCount, first_googleId);
+            loopCount++;
+        }
+        while (first_googleId === null && loopCount < 6); // to exist the loop if it does more than 5 times.
+
+        // waiting for x seconds as it is a rule of ad auto refreshing.
+        // 1050 is a better number to ensure it has passed x seconds. E.g. 6 seconds is going to be 6.05 seconds.
+        wait(seconds*1050);
+
         // check the iframe ID after change
-        var second_googleId = browser.getAttribute(wn_ads.ad_StickyMrecRhs,"data-google-query-id");
-        expect(first_googleId).not.toEqual(second_googleId);
+        second_googleId = browser.getAttribute(adElement,"data-google-query-id");
+
+        // verify if the ad is auto-refreshing
+        switch(auto) {
+            case 'auto':
+                expect(first_googleId).not.toEqual(second_googleId);
+                break;
+            case 'not auto':
+                expect(first_googleId).toEqual(second_googleId);
+                break;
+        }
     });
 
 

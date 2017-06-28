@@ -1,11 +1,11 @@
 export default
 {
-    "id": "HOMES-3193",
-    "url": "/test-article-3193",
-    "path": ["HOMES--1", "HOMES-1158", "HOMES-1237", "HOMES-2791", "HOMES-3189", "HOMES-3193"],
+    "id": "HOMES-3195",
+    "url": "/automation-test-article-with-social-embeds-3195",
+    "path": ["HOMES--1", "HOMES-1158", "HOMES-1237", "HOMES-2791", "HOMES-3189", "HOMES-3195"],
     "tags": ["food:Homes navigation:Interiors", "food:Topic:Trend", "food:Topic:Profile"],
     "level": 5,
-    "nodeId": "HOMES-3193",
+    "nodeId": "HOMES-3195",
     "siteUrl": "http://dev.homes-site.wn.bauer-media.net.au",
     "urlName": "test-article",
     "nodeName": "test article",
@@ -174,6 +174,65 @@ export default
             }
         },
         {
+            "type": "twitter",
+            "label": "Twitter",
+            "content": {"url": "https://twitter.com/dollymag/status/697199025729048577"}
+        },
+        {
+            "type": "instagram",
+            "label": "Instagram",
+            "content": {
+                "url": "https://www.instagram.com/p/BBda49yyr4J/embed/captioned/",
+                "includeCaption": true
+            }
+        },
+        {
+            "type": "instagram",
+            "label": "Instagram",
+            "content": {
+                "url": "https://www.instagram.com/p/BA4NkZeSr_r/embed/",
+                "includeCaption": false
+            }
+        },
+        {
+            "type": "facebook",
+            "label": "Facebook",
+            "content": {"url": "https://www.facebook.com/Foodtoloveau/posts/823515874446034"}
+        },
+        {
+            "type": "playbuzz",
+            "label": "Playbuzz",
+            "content": {"game": "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"}
+        },
+        {
+            "type": "youtube",
+            "label": "Youtube",
+            "content": {
+                "url": "https://www.youtube.com/embed/4GpnNxjy6m0"
+            }
+        },
+        {
+            "type": "vimeo",
+            "label": "Vimeo",
+            "content": {
+                "url": "https://player.vimeo.com/video/181027959"
+            }
+        },
+        {
+            "type": "whooshka",
+            "label": "Whooshka",
+            "content": {
+                "url": "https://www.whooshkaa.com/player/episode/id/90704?visual=true"
+            }
+        },
+        {
+            "type": "wirewax",
+            "label": "Wirewax",
+            "content": {
+                "url": "http://embed.wirewax.com/8037657/ff0044/"
+            }
+        },
+        {
             "type": "image-revealer",
             "label": "image-revealer",
             "content": {
@@ -218,7 +277,7 @@ export default
     "nodeTypeAlias": "HomesArticle",
     "contentAuthors": [],
     "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
-    "moduleParentId": "HOMES-3193",
+    "moduleParentId": "HOMES-3195",
     "contentCampaign": [],
     "contentHasVideo": false,
     "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
