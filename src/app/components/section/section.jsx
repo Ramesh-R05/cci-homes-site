@@ -56,11 +56,7 @@ export default class Section extends Component {
                 billboard: ['billboard', 'leaderboard']
             },
             pageLocation: Ad.pos.outside,
-            lazyLoad:true,
-            autoRefreshing: {
-                interval: 6000,
-                idle: 120000
-            }
+            lazyLoad:true
         };
 
         return (
