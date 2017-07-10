@@ -15,11 +15,18 @@ export default
     "siteName": "homes",
     "pageTitle": "A Bushland Retreat On The Mornington Penisular",
     "sortOrder": 3,
-    "contentBody": [{
-        "type": "paragraph",
-        "label": "Paragraph",
-        "content": "The breathtaking natural surrounds of the Mornington Peninsula is what made this location supremely appealing to interior designer, Ljiljana Gazevic and her architect partner, Axel Baumann, when they were looking for a property to renovate. Their objective was to create a home with longevity and simplicity – for them the very essence of luxury. \n\n‘Quiet, calming and restorative’ were key words that directed the renovation, creating a home that is “serene and tranquil, allowing us to revive and recharge”, says Ljiljana. These qualities were approached spatially, through the modulation of light and shadow, and through furnishings and finishes. \n\nA new [pavilion-style](http://www.homestolove.com.au/gallery-level-best-2638|target=\"_blank\") extension alongside a reworking of the old floorplan has created a contemporary home. Ceiling heights were raised to allow the insertion of larger windows to maximise natural light, softening the interior and connecting with the landscape. \n\nSimplicity is the hallmark of the interior as well, integrating Japanese influences and Nordic design sensibilities. A minimalist aesthetic is created through a limited palette of materials, taking inspiration from the landscape. Muted tones of grey, white and black, combined with warm and textured limed oak timber, reflect the natural beauty outside, linking interior with exterior.\n \nIn this home away from home, recharging is the necessity. And in this state of relaxation, inspiration comes easily, helped along by the carefully curated art, furniture and object collection that is always evolving.\n\n*Belle*\nPhotos: Nicole England\nStory: Nicky Lobo"
-    }],
+    "contentBody": [
+        {
+            type: "paragraph",
+            label: "Paragraph",
+            content: "Beauty inspo for school!"
+        },
+        {
+            type: "paragraph",
+            label: "Paragraph",
+            content: "Test the second paragraph [This is link](http://testonlylyl.com) Test the second paragraph Test the second paragraph Test the second paragraph \\n\\n**test bold text** Test *test Italic text* the ***bold and italic text*** second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph \\n\\n## Test heading\\n* test bullet 1\\n* test bullet 2"
+        }
+    ],
     "contentTags": ["food:Location and setting:Australia:Victoria:Mornington Peninsula", "food:Homes navigation:Real Homes", "food:Topic:Luxury home", "food:Decorating:Style:Coastal/beach"],
     "contentYear": 2016,
     "navIsHidden": 0,

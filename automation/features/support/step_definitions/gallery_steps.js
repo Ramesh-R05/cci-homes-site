@@ -17,9 +17,10 @@ module.exports = function() {
     });
 
     this.Given(/^I can see an image appearing on the gallery$/, function() {
-        var img = browser.getAttribute(gallery.galleryImg, 'src');
-        expect(img).not.toBe(null);
-        console.log("IMAGE SRC =" + " " + img);
+        browser.scroll(gallery.galleryImg);
+        var img = browser.getAttribute(gallery.galleryImg, 'srcset');
+        console.log("IMAGE URL =" + " " + img[0]);
+        expect(img[0]).not.toEqual('');
     });
 
     this.Given(/^I can see the source appearing on the gallery with gtm "([^"]*)"$/, function (gtm) {

@@ -245,20 +245,20 @@ Feature: Ads
 #-------- Test Wallpaper and side panel ad end-----------#
 
 # -------- Inskin Ads on desktop and tablet are Manual ---------------
-    @BXMA-107 @manual @chrome
-    Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
-        Given I switch to "<device>" view
-        When I am currently viewing "<url>"
-        * I should "see" the out of page ad slot on "<page>"
-
-        Examples:
-            | device             | page       | url            |
-            | desktop            | brand      | real-living/   |
-
-        Examples:
-            | device             | page       | url            |
-            | tablet landscape   | brand      | real-living/   |
-            | tablet portrait    | brand      | real-living/   |
+#    @BXMA-107 @manual @chrome
+#    Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
+#        Given I switch to "<device>" view
+#        When I am currently viewing "<url>"
+#        * I should "see" the out of page ad slot on "<page>"
+#
+#        Examples:
+#            | device             | page       | url            |
+#            | desktop            | brand      | real-living/   |
+#
+#        Examples:
+#            | device             | page       | url            |
+#            | tablet landscape   | brand      | real-living/   |
+#            | tablet portrait    | brand      | real-living/   |
 #-------- Test Inskin Ads end-----------#
 
 #-------- Test auto-refreshing ad -----------#
@@ -267,7 +267,7 @@ Feature: Ads
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
         Then I can see last RHR ad is sticky
-        And the "sticky MREC ad" will "auto" refresh every 6 seconds when is in View
+        And the "sticky MREC ad" will "auto" refresh every 6 seconds on "<page>" when is in View
         # And after 15 seconds the page will go idle and the add will no refresh anymore # This is tested manually
         Examples:
             |page     |pageUrl                                      |
@@ -278,7 +278,7 @@ Feature: Ads
     Scenario Outline: Mobile banner will autorefresh on <page> in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "<pageUrl>"
-        Then the "mobile banner ad" will "auto" refresh every 6 seconds when is in View
+        Then the "mobile banner ad" will "auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                      |
             |article  |automation-test-article-with-hero-image-3193 |
@@ -288,7 +288,7 @@ Feature: Ads
     Scenario Outline: Bottom leaderboard ad will autorefresh on <page> in tablet portrait view
         Given I switch to "tablet portrait" view
         When I am currently viewing "<pageUrl>"
-        Then the "bottom leaderboard ad" will "auto" refresh every 6 seconds when is in View
+        Then the "sticky bottom leaderboard ad" will "auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                      |
             |article  |automation-test-article-with-hero-image-3193 |
@@ -298,7 +298,7 @@ Feature: Ads
     Scenario Outline: Bottom leaderboard ad will not autorefresh on <page> in tablet landscape view
         Given I switch to "tablet landscape" view
         When I am currently viewing "<pageUrl>"
-        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds when is in View
+        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                      |
             |article  |automation-test-article-with-hero-image-3193 |
@@ -308,7 +308,7 @@ Feature: Ads
     Scenario Outline: Bottom leaderboard ad will not autorefresh on <page> in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
-        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds when is in View
+        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                      |
             |article  |automation-test-article-with-hero-image-3193 |

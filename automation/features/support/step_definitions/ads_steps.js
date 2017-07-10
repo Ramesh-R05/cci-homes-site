@@ -1,6 +1,7 @@
 var wn_ads = require('../page_objects/ads_widget');
 var wait = require('../utils/wait');
 var visibilityFunctions = require('../utils/visibilityFunctions');
+var loadAllElements = require('../utils/loadAllElements');
 
 module.exports = function() {
 
@@ -71,7 +72,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
-        browser.moveToObject(wn_ads.ad_MrecBeforeRecommendation);
+        browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
         expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(true);
     });
 
@@ -80,37 +81,31 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-        browser.moveToObject(wn_ads.ad_BottomLeaderboard_Article);
+        browser.scroll(wn_ads.ad_BottomLeaderboard_Article);
         wait(1500);
-        browser.moveToObject(wn_ads.ad_BottomLeaderboard_Article); //move to the object again after the images on gallery are loaded from the first move.
+        browser.scroll(wn_ads.ad_BottomLeaderboard_Article); //move to the object again after the images on gallery are loaded from the first move.
         expect(browser.isVisible(wn_ads.ad_BottomLeaderboard_Article)).toBe(true);
     });
 
     //BELOW ARE STEPS FOR GALLERY
     this.Then(/^I should see MREC ad between images$/, function () {
+        // To load all elements on the page before validating the bottom ads
+        loadAllElements('gallery');
+
         // Verify the mrec ad after slide no. 3
         browser.scroll(wn_ads.gallerySlide3); // Scroll to the slide no.3 to make sure the header will not overlap the MREC element. This has fixed the Browser Stack issue when running on iPhone 6 plus
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true);
 
-        // Ensure last two images (before the mrec ad after slide no.7) are loaded before verifying the mrec ad.
-        // This is to ensure the mrec ad is in the view when being verified.
-        browser.scroll(wn_ads.ad_MrecAfterSlide7);
-        browser.waitForVisible(wn_ads.gallerySlide6,5000);
-        browser.waitForVisible(wn_ads.gallerySlide7,5000);
-        // Why do we have to wait for two images?
-        // When I waited for side 7 only, there were a few running rounds that the slide no.6 hadn't been loaded yet while slide 7 was loaded completely.
-        // So I have to check at least two image slides. Then it works well.
-
         // Verify the mrec ad after slide no. 7
-        browser.scroll(wn_ads.ad_MrecAfterSlide7);
+        browser.scroll(wn_ads.gallerySlide7);
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
     });
 
     this.Then(/^I should see four MREC ads in the RHR feed$/, function () {
-        browser.moveToObject(wn_ads.ad_MrecRhs1);
-        browser.moveToObject(wn_ads.ad_MrecRhs2);
-        browser.moveToObject(wn_ads.ad_MrecRhs3);
-        browser.moveToObject(wn_ads.ad_MrecRhs4);
+        browser.scroll(wn_ads.ad_MrecRhs1);
+        browser.scroll(wn_ads.ad_MrecRhs2);
+        browser.scroll(wn_ads.ad_MrecRhs3);
+        browser.scroll(wn_ads.ad_MrecRhs4);
     });
 
     this.Then(/^I should not see MREC ad under the hero image$/, function () {
@@ -186,7 +181,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see sticky MREC on the new feed$/, function () {
-        browser.moveToObject(wn_ads.ad_LoadMoreMrecInBottomFeed);
+        browser.scroll(wn_ads.ad_LoadMoreMrecInBottomFeed);
         expect(browser.waitForVisible(wn_ads.ad_LoadMoreMrecInBottomFeed,5000)).toBe(true);
     });
 
@@ -349,15 +344,21 @@ module.exports = function() {
         browser.waitForVisible(wn_ads.ad_StickyMrecRhs, 2000);
     });
 
-    this.Then(/^the "([^"]*)" will "([^"]*)" refresh every (\d+) seconds when is in View$/, function (ad, auto, seconds) {
+    this.Then(/^the "([^"]*)" will "([^"]*)" refresh every (\d+) seconds on "([^"]*)" when is in View$/, function (ad, auto, seconds, page) {
+
         // Find an element of the ad
         var adElement;
         switch(ad) {
-            case 'sticky MREC ad':
+            case 'sticky MREC ad': //desktop, tablet landscape
+                loadAllElements(page); // To load all elements on the page before validating the ad
                 adElement = wn_ads.ad_StickyMrecRhs;
                 break;
-            case 'bottom leaderboard ad':
-            case 'mobile banner ad':
+            case 'bottom leaderboard ad': //desktop, tablet landscape
+                loadAllElements(page); // To load all elements on the page before validating the ad
+                adElement = wn_ads.ad_BottomLeaderboard_Article;
+                break;
+            case 'sticky bottom leaderboard ad': //mobile, tablet portrait
+            case 'mobile banner ad': //mobile, tablet portrait
                 adElement = wn_ads.ad_BottomLeaderboard_Article;
                 break;
         }
@@ -375,14 +376,20 @@ module.exports = function() {
             console.log(loopCount, first_googleId);
             loopCount++;
         }
-        while (first_googleId === null && loopCount < 6); // to exist the loop if it does more than 5 times.
+        while (first_googleId === null && loopCount < 10); // to exist the loop if it does more than 10 times.
 
         // waiting for x seconds as it is a rule of ad auto refreshing.
         // 1050 is a better number to ensure it has passed x seconds. E.g. 6 seconds is going to be 6.05 seconds.
         wait(seconds*1050);
 
         // check the iframe ID after change
-        second_googleId = browser.getAttribute(adElement,"data-google-query-id");
+        second_googleId = browser.getAttribute(adElement, "data-google-query-id");
+        // There are a few times that the google ID hasn't changed. So we will wait one more second to get the ID again.
+        if (first_googleId == second_googleId){
+            wait(1000);
+            second_googleId = browser.getAttribute(adElement, "data-google-query-id");
+        }
+        console.log('SecondID: ' + second_googleId);
 
         // verify if the ad is auto-refreshing
         switch(auto) {
