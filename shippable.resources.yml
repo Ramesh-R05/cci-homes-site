@@ -115,7 +115,7 @@ resources:
         NODE_ENV: "production"  # this is to start APP with production version of react
         APP_ENV: "sit"          # this is to start APP using sit config
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
-        APP_DEBUG: true
+        APP_DEBUG: false
 
   # TEST Parameter
   - name: homes-site-params-test
