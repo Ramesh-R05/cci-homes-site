@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@bxm/ad@^11.4.0":
-  version "11.4.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-11.4.0.tgz#4fb9bd98ff4987c0c7047f27e2a3c732fa988893"
+"@bxm/ad@^11.6.0":
+  version "11.6.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-11.6.0.tgz#b856027b90a2cac1399e82621ed6c25089564422"
   dependencies:
     "@bxm/react-script-loader" "^2.0.0"
     classnames "^2.2.1"
@@ -13,13 +13,13 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.4.0":
-  version "25.4.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.4.0.tgz#ee2853967eb8be956ad4a11c451bf706fd92b602"
+"@bxm/article@^25.7.0":
+  version "25.7.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.0.tgz#7241beeafac7964766aabcf56a92eae48a7605f9"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
-    "@bxm/image-revealer" "1.0.0"
+    "@bxm/image-revealer" "^1.0.1"
     "@bxm/markdown" "^1.1.0"
     classnames "^2.1.1"
     exenv "^1.2.0"
@@ -80,9 +80,9 @@
     reactify "^1.1.1"
     request "2.55.0"
 
-"@bxm/image-revealer@1.0.0":
-  version "1.0.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fimage-revealer/-/image-revealer-1.0.0.tgz#46f948bcce074c2290644a470ac49732c9668c0e"
+"@bxm/image-revealer@^1.0.1":
+  version "1.0.1"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fimage-revealer/-/image-revealer-1.0.1.tgz#b909c12a2d255767a53dd604e3caa52ee8365523"
 
 "@bxm/image@^2.0.0":
   version "2.0.1"

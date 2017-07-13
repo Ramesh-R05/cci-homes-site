@@ -100,6 +100,7 @@ export default class Section extends Component {
                       adProps={stickyAdProps}
                       minHeight={450}
                       stickyAtViewPort="mediumRangeMax"
+                      stickyDelay={5500}
                     />
 
                 </div>

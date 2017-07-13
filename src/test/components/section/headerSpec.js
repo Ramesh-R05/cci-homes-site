@@ -7,11 +7,13 @@ const {React, ReactDOM, TestUtils} = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const SponsorHeaderStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
+const StickyAdStub = Context.createStubComponent();
 
 const Header = proxyquire('../../../app/components/section/header', {
     'react': React,
     '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
 });
 
 AdStub.pos = {
@@ -31,25 +33,26 @@ describe('SectionHeader', () => {
     describe(`with Top banner/leaderboard/billboard ad and heading prop`, () => {
         let reactModule;
         let ad;
+        let stickyAd;
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} />);
-            ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+            stickyAd = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         });
 
         it(`should render the Ad component with correct size`, () => {
-            expect(ad).to.exist;
+            expect(stickyAd).to.exist;
             const expectedSizes = {
                 small: 'banner',
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             };
-            expect(ad.props.sizes).to.deep.equal(expectedSizes);
+            expect(stickyAd[0].props.adProps.sizes).to.deep.equal(expectedSizes);
         });
 
         const expectedClassname = 'ad--section-top-leaderboard';
         it(`should have the classname prop equal to ${expectedClassname}`, () => {
-            expect(ad.props.className).to.equal(expectedClassname);
+            expect(stickyAd[0].props.adProps.className).to.equal(expectedClassname);
         });
     });
 

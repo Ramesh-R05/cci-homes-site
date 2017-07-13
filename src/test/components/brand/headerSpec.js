@@ -6,9 +6,11 @@ const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const AdStub = Context.createStubComponent();
+const StickyAdStub = Context.createStubComponent();
 const Header = proxyquire('../../../app/components/brand/header', {
     'react': React,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
 });
 
 AdStub.pos = {
@@ -25,6 +27,7 @@ describe('Brand Header', () => {
     let logo;
     let logoImage;
     let ads;
+    let stickyAd;
     const title = 'Belle';
     const logoUrl = 'http://image.com';
 
@@ -35,7 +38,7 @@ describe('Brand Header', () => {
             );
             logo = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'brand__logo');
             logoImage = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'img');
-            ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
+            stickyAd = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         });
 
         it(`should render the component`, () => {
@@ -55,8 +58,8 @@ describe('Brand Header', () => {
         });
 
         const expectedNumAds = 1;
-        it(`should render ${expectedNumAds} Ads`, () => {
-            expect(ads.length).to.equal(expectedNumAds);
+        it(`should render ${expectedNumAds} Sitiky Ad`, () => {
+            expect(stickyAd.length).to.equal(expectedNumAds);
         });
     });
 

@@ -5,7 +5,6 @@ Feature: Ads Location
     I should see an ad slot containing the correct class name which is the adLocation parameter in the ad call.
 
 #--Start testing in desktop view--#
-
     Scenario: Ads slot elements should have proper class name
         Given I switch to "desktop" view
         When I am currently viewing the homepage

@@ -15,11 +15,18 @@ var ads_widget = {
     articleRHSMrec: '.feed-ad',
 
  // =======For Ads Location
+
+    // For ad wrapper
+    adWrapper_TopLeaderboard_For_Viewability : '.section__heading div .sticky-block', //homepage, index, brand, gallery, article
+    adWrapper_BottomLeaderboard_Home: '.site-wrapper .row + div > .sticky-block', //homepage, index, brand, gallery, article
+    adWrapper_BottomLeaderboard_Section: '.site-wrapper .section__row + div > .sticky-block', //homepage, index, brand, gallery, article
+    adWrapper_BottomLeaderboard_Brand: '.site-wrapper .brand__body + div > .sticky-block',
+    adWrapper_BottomLeaderboard_Content: '.site-wrapper .article-section + div .sticky-block', //homepage, index, brand, gallery, article
+
     //outside
-    ad_TopLeaderboard: '.section__heading__ad > .ad--section-top-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
+    ad_TopLeaderboard: '.section__heading .ad--section-top-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
     ad_MiddleLeaderboard: '.site-wrapper .ad--section-middle-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
     ad_BottomLeaderboard: '.site-wrapper .ad--section-bottom-leaderboard [id^=gpt-slot-]', //homepage, index, brand
-    ad_BottomLeaderboard_Article: '.site-wrapper .ad--section-top-leaderboard [id^=gpt-slot-]', //gallery, article
     ad_Teads: '.ad--slot-teads [id^=gpt-slot-]', //gallery, article
 
     //RHS
@@ -57,7 +64,14 @@ var ads_widget = {
 
     //--Non-ad element
     gallerySlide3: '.gallery__feed-item:nth-child(3)', //for 'I should see MREC ad between images'
-    gallerySlide7: '.gallery__feed-item:nth-child(8)' //for 'I should see MREC ad between images'
+    gallerySlide7: '.gallery__feed-item:nth-child(8)', //for 'I should see MREC ad between images'
+
+    // Vertical Gallery
+    galleryNativeAd: '.ad--article-native',
+    galleryNativeAdDfp: '.ad--article-native [id^=gpt-slot-]',
+    //
+    stickyTopBanner: '.sticky-block--at-top',
+    stickyBottomBanner: '.sticky-block--at-bottom'
 };
 
 module.exports = ads_widget;

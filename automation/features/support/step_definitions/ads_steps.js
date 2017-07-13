@@ -81,10 +81,10 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-        browser.scroll(wn_ads.ad_BottomLeaderboard_Article);
+        browser.scroll(wn_ads.ad_BottomLeaderboard);
         wait(1500);
-        browser.scroll(wn_ads.ad_BottomLeaderboard_Article); //move to the object again after the images on gallery are loaded from the first move.
-        expect(browser.isVisible(wn_ads.ad_BottomLeaderboard_Article)).toBe(true);
+        browser.scroll(wn_ads.ad_BottomLeaderboard); //move to the object again after the images on gallery are loaded from the first move.
+        expect(browser.isVisible(wn_ads.ad_BottomLeaderboard)).toBe(true);
     });
 
     //BELOW ARE STEPS FOR GALLERY
@@ -196,13 +196,11 @@ module.exports = function() {
                     break;
                 case 'Middle Leaderboard':
                     adElement = wn_ads.ad_MiddleLeaderboard;
-                    break;
+                    break;                
                 case 'Bottom Leaderboard':
-                    adElement = wn_ads.ad_BottomLeaderboard;
-                    break;
                 case 'Bottom Leaderboard on Gallery':
                 case 'Bottom Leaderboard on Article':
-                    adElement = wn_ads.ad_BottomLeaderboard_Article;
+                    adElement = wn_ads.ad_BottomLeaderboard;
                     break;
                 case 'Teads':
                     adElement = wn_ads.ad_Teads;
@@ -355,11 +353,11 @@ module.exports = function() {
                 break;
             case 'bottom leaderboard ad': //desktop, tablet landscape
                 loadAllElements(page); // To load all elements on the page before validating the ad
-                adElement = wn_ads.ad_BottomLeaderboard_Article;
+                adElement = wn_ads.ad_BottomLeaderboard;
                 break;
             case 'sticky bottom leaderboard ad': //mobile, tablet portrait
             case 'mobile banner ad': //mobile, tablet portrait
-                adElement = wn_ads.ad_BottomLeaderboard_Article;
+                adElement = wn_ads.ad_BottomLeaderboard;
                 break;
         }
 
@@ -371,7 +369,7 @@ module.exports = function() {
         // check the iframe ID before change and ensure the value is not NULL
         do {
             browser.scroll(adElement);
-            browser.waitForVisible(adElement, 5000);
+            browser.waitForVisible(adElement, 10000);
             first_googleId = browser.getAttribute(adElement, "data-google-query-id");
             console.log(loopCount, first_googleId);
             loopCount++;
@@ -407,9 +405,68 @@ module.exports = function() {
         //Scroll through the page to confirm is sticky
         expect(browser.isVisible(wn_ads.bottomSticky)).toBe(false);
         browser.scroll(0,1500);
+        wait(3500);//the top ad will be sticky for 3.5sec 
         expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
         browser.scroll(1500,2000);
         expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
+    });
+
+    this.Then(/^I should see sticky top leaderboard as I scroll down and "([^"]*)" sticky bottom leaderboard once top disappears$/, function (shouldSee) {
+
+        // verify before scrolling down    
+        browser.scroll(0,0);
+        expect(browser.isVisible(wn_ads.stickyTopBanner)).toBe(false);
+        expect(browser.isVisible(wn_ads.stickyBottomBanner)).toBe(false);
+
+        browser.scroll(0,500);
+        //After 2 sec delay for the browser fully load the page, the viewability sticky will apply.
+        expect(browser.waitForVisible(wn_ads.stickyTopBanner, 5000)).toBe(true);
+
+        // verify the ad disappears after 5 seconds
+        wait(3500);//the top ad will be sticky for 3.5sec 
+        expect(browser.isVisible(wn_ads.stickyTopBanner)).toBe(false);
+        switch (shouldSee) {
+            case 'see':
+                expect(browser.isVisible(wn_ads.stickyBottomBanner)).toBe(true);
+                break;
+            case 'not see':
+                expect(browser.isVisible(wn_ads.stickyBottomBanner)).toBe(false);
+                break;
+        }
+    });
+
+    this.Then(/^I should "([^"]*)" bottom leaderboard ad sticky at the bottom of the "([^"]*)" page$/, function (shouldSee, page) {
+        // Specify the element name of the ad wrapper type
+        var adWrapperType;
+        switch (page) {
+            case 'article':
+            case 'gallery':
+                adWrapperType = wn_ads.adWrapper_BottomLeaderboard_Content;
+                break;
+            case 'tag section':
+            case 'navigation section':
+                adWrapperType = wn_ads.adWrapper_BottomLeaderboard_Section;
+                break;
+            case 'brand':
+                adWrapperType = wn_ads.adWrapper_BottomLeaderboard_Brand;
+                break;
+            case 'homepage':
+                adWrapperType = wn_ads.adWrapper_BottomLeaderboard_Home;
+                break;
+        }
+
+        wait(500);
+        expect(browser.isVisible(adWrapperType)).toBe(true);
+        switch (shouldSee) {
+            case 'see':
+                expect(browser.getAttribute(adWrapperType, 'class')).toContain('sticky-block--at-bottom');
+                break;
+            case 'not see':
+                expect(browser.getAttribute(adWrapperType, 'class')).not.toContain('sticky-block--at-bottom');
+                break;
+        }
+
+
     });
 
 };

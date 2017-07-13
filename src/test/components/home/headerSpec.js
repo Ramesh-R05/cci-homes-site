@@ -6,10 +6,12 @@ const Context = betterMockComponentContext();
 const {React, ReactDOM, TestUtils} = Context;
 
 const AdStub = Context.createStubComponent();
+const StickyAdStub = Context.createStubComponent();
 
 const Home = proxyquire('../../../app/components/home/header', {
     'react': React,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
 });
 
 AdStub.pos = {
@@ -23,27 +25,26 @@ AdStub.pos = {
 
 describe('Home Header with Top banner/leaderboard/billboard ad', () => {
     let reactModule;
-    let ad;
-
+    let stickyAd;
     afterEach(Context.cleanup);
 
     before(() => {
         reactModule = Context.mountComponent(Home);
-        ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+        stickyAd = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
     });
 
-    it(`should render the Ad component with correct position and sizes`, () => {
-        expect(ad).to.exist;
+    it(`should render the Sticky Ad component with correct position and sizes`, () => {
+        expect(stickyAd).to.exist;
         const expectedSizes = {
             small: 'banner',
             leaderboard: 'leaderboard',
             billboard: ['billboard', 'leaderboard']
         };
-        expect(ad.props.sizes).to.deep.equal(expectedSizes);
+        expect(stickyAd[0].props.adProps.sizes).to.deep.equal(expectedSizes);
     });
 
     const expectedClassname = 'ad--section-top-leaderboard';
     it(`should have the classname prop equal to ${expectedClassname}`, () => {
-        expect(ad.props.className).to.equal(expectedClassname);
+        expect(stickyAd[0].props.adProps.className).to.equal(expectedClassname);
     });
 });

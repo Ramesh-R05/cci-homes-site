@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 export default class Header extends Component {
 
@@ -10,21 +11,30 @@ export default class Header extends Component {
 
     render() {
         const { title, logo } = this.props;
+        const pageLocation = Ad.pos.outside;
+        const stickyAdProps = {
+            className: 'ad--section-top-leaderboard',
+            displayFor: ['small', 'medium', 'large', 'xlarge'],
+            sizes: {
+                small: "banner",
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            },
+            pageLocation
+        };
 
         if (!logo) return null;
 
         return (
             <div className="section__heading">
                 <div className="section__heading__ad">
-                    <Ad
-                      className="ad--section-top-leaderboard"
-                      sizes={{
-                          small: 'banner',
-                          leaderboard: 'leaderboard',
-                          billboard: ['billboard', 'leaderboard']
-                      }}
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.outside}
+                    <StickyAd
+                      adProps={stickyAdProps}
+                      minHeight={450}
+                      stickyAtViewPort="xlargeRangeMax"
+                      stickyDelay={2000}
+                      isStickyTemporary={true}
+                      stickyDuration={3500}
                     />
                 </div>
                 <div className="brand__wrapper">
