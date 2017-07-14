@@ -13,9 +13,9 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.7.0":
-  version "25.7.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.0.tgz#7241beeafac7964766aabcf56a92eae48a7605f9"
+"@bxm/article@^25.7.3":
+  version "25.7.3"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.3.tgz#6138fd0456727f97bf741051d7360666f3dea6af"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
