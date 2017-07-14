@@ -224,7 +224,7 @@ Feature: Ads
 
 
 #-------- Test Auto-refreshing Ads for MREC in RHR -----------#
-    @BXMA-406  @watch
+    @BXMA-406  
     Scenario Outline: Sticky MREC ad in RHS will autorefresh on <page> in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
@@ -245,7 +245,7 @@ Feature: Ads
 
 
 #-------- Test sticky bottom and top ads appear after eachother -----------#
-    @high @BXMA-409 @BXMA-410 @watch
+    @high @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing mobile banner on <page> in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "<pageUrl>"
@@ -257,7 +257,7 @@ Feature: Ads
             |navigation section |real-homes                                            |
             |brand              |australian-house-and-garden                           |
 
-    @low @BXMA-409 @BXMA-410 @watch
+    @low @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet portrait view
         Given I switch to "tablet portrait" view
         When I am currently viewing "<pageUrl>"
@@ -269,7 +269,7 @@ Feature: Ads
             |tag section        |tags/luxury-home/                                     |
             |homepage           |                                                      |
 
-    @low @BXMA-409 @BXMA-410 @watch
+    @low @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet landscape view
         Given I switch to "tablet landscape" view
         When I am currently viewing "<pageUrl>"
@@ -280,7 +280,7 @@ Feature: Ads
             |brand              |australian-house-and-garden                           |
             |homepage           |                                                      |
 
-    @high @BXMA-409 @BXMA-410 @watch
+    @high @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in desktop view 
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
@@ -294,7 +294,7 @@ Feature: Ads
 
 
 #-------- Test auto-refreshing ads -----------#
-    @BXMA-409 @BXMA-410 @watch
+    @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing mobile banner on <page> in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "<pageUrl>"
@@ -307,9 +307,9 @@ Feature: Ads
         @med
         Examples:
             |page               |auto        |pageUrl                                               |           
-            |home               |not auto    |                                                      |
+            |homepage           |not auto    |                                                      |
             
-    @low @BXMA-409 @BXMA-410  @watch
+    @low @BXMA-409 @BXMA-410  
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet portrait view
         Given I switch to "tablet portrait" view
         When I am currently viewing "<pageUrl>"
@@ -320,7 +320,7 @@ Feature: Ads
             |gallery            |auto        |automation-test-gallery-3201                          |
             |brand              |not auto    |australian-house-and-garden                           |
 
-    @low @BXMA-409 @BXMA-410 @watch
+    @low @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet landscape view
         Given I switch to "tablet landscape" view
         When I am currently viewing "<pageUrl>"
@@ -331,7 +331,7 @@ Feature: Ads
             |article            |automation-test-article-with-hero-image-3193          |
             |navigation section |real-homes                                            |
 
-    @med @BXMA-409 @BXMA-410 @watch
+    @med @BXMA-409 @BXMA-410 
     Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in desktop view 
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
