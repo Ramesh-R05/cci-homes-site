@@ -1,6 +1,7 @@
 import isUndefined from 'lodash/lang/isUndefined';
 import { canUseDOM } from 'exenv';
 import { createStore } from '@bxm/flux';
+import get from 'lodash/object/get';
 
 const dataLayer = canUseDOM && !isUndefined(window.dataLayer) ? window.dataLayer : [];
 
@@ -138,7 +139,8 @@ function trackLoadList(payload) {
     const data = {
         event: 'expandListing',
         eventInfo: {
-            listingName: list.params.listName
+            listingName: list.params.listName,
+            pageNo: get(payload, 'body.list.params.pageNo')
         }
     };
     dataLayerPush(data);
