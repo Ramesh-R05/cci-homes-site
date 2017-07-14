@@ -34,7 +34,7 @@
   "license": "",
   "dependencies": {
     "@bxm/ad": "^11.6.0",
-    "@bxm/article": "^25.7.0",
+    "@bxm/article": "^25.7.3",
     "@bxm/behaviour": "^1.3.0",
     "@bxm/datetime": "^3.0.0",
     "@bxm/flux": "^4.0.0",
