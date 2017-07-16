@@ -19,10 +19,7 @@ build:
     - node --version
     - mkdir -p ./shippable/testresults ./shippable/codecoverage ./shippable/buildoutput
     - cd src
-    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    - sudo apt-get update && sudo apt-get install yarn
-    - yarn install
+    - yarn
     - echo "module.exports={buildNumber:'$BRANCH_NAME'};" > version.js
     - cat version.js
     - npm run test:ci
