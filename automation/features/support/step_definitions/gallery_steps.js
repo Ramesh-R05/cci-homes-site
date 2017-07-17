@@ -88,7 +88,7 @@ module.exports = function() {
 
     this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
         browser.waitForVisible(gallery.videoWrapper, 3000);
-        browser.moveToObject(gallery.videoWrapper);
+        browser.scroll(gallery.videoWrapper);
         expect(browser.getAttribute(gallery.videoWrapper, gallery.videoId)).toEqual(videoId)
     });
 
