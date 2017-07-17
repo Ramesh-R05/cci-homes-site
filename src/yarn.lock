@@ -13,9 +13,9 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.7.3":
-  version "25.7.3"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.3.tgz#6138fd0456727f97bf741051d7360666f3dea6af"
+"@bxm/article@^25.7.4":
+  version "25.7.4"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.4.tgz#aa9e7c567d7ef256f6c77f543376116412fe02c3"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
@@ -25,6 +25,7 @@
     exenv "^1.2.0"
     flux-standard-action "^0.6.1"
     lazysizes "^3.0.0"
+    matchmedia "^0.1.2"
     moment "^2.10.3"
     moment-timezone "^0.5.0"
 
