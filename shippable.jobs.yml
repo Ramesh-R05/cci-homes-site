@@ -98,24 +98,13 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
-        - script: until(curl --fail homes-site.test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: sh setup.sh
         - script: npm install
-        - script: xvfb-run --server-args="-screen 0, 1920x1080x24"
-        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-        - script: sudo apt-get update
-        - script: sudo apt-get install google-chrome-stable
-        - script: google-chrome --product-version
-        - script: npm run test:high || true
+        - script: xvfb-run --server-args="-screen 0, 1920x1080x24" npm run test:high || true
         - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else xvfb-run --server-args="-screen 0, 1920x1080x24" npm run test:rerun; fi"
 
   # 4b. Run mobile regression test on TEST environment - Browser Stack
   - name: homes-site-mobile-automation-test
@@ -186,24 +175,14 @@ jobs:
        switch: off
      - IN: morning-trigger
      - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: sh setup.sh
         - script: npm install
-        - script: xvfb-run --server-args="-screen 0, 1920x1080x24"
-        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-        - script: sudo apt-get update
-        - script: sudo apt-get install google-chrome-stable
-        - script: google-chrome --product-version
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: export APP_KEY=homes-site
-        - script: npm run all:test || true
+        - script: xvfb-run --server-args="-screen 0, 1920x1080x24" npm run all:test || true
         - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else xvfb-run --server-args="-screen 0, 1920x1080x24" npm run test:rerun; fi"
     flags:
       - homes-site
