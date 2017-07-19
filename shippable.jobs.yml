@@ -105,7 +105,9 @@ jobs:
         - script: nvm use "6.1.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: sh setup.sh
         - script: npm install
+        - script: xvfb-run --server-args="-screen 0, 1920x1080x24"
         - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
         - script: sudo apt-get update
@@ -190,7 +192,9 @@ jobs:
         - script: nvm use "6.1.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: sh setup.sh
         - script: npm install
+        - script: xvfb-run --server-args="-screen 0, 1920x1080x24"
         - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
         - script: sudo apt-get update
