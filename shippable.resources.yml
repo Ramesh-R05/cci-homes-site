@@ -115,6 +115,7 @@ resources:
         NODE_ENV: "production"  # this is to start APP with production version of react
         APP_ENV: "sit"          # this is to start APP using sit config
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+        APP_DEBUG: true
 
   # TEST Parameter
   - name: homes-site-params-test
@@ -124,6 +125,7 @@ resources:
         NODE_ENV: "production"  # this is to start APP with development version of react
         APP_ENV: "automation"   # this is to start APP using automation config
         APP_STUBBED: true       # this is to start APP stubbed
+        APP_DEBUG: true
 
   # SIT/TEST - Number of task to run in AWS cluster
   - name: homes-site-replicas-non-prod
