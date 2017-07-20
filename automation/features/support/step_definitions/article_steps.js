@@ -14,13 +14,13 @@ module.exports = function() {
         var feedImages = browser.elements(wn_article.lhrFeedImgs);
         expect((feedImages.value.length).toString()).toEqual(count);
         var feedImagesUrls = browser.getAttribute(wn_article.lhrFeedImgs, 'href');
-        for (var i = 0; i <=count; ++i) {
+        for (var i = 0; i < count; ++i) {
             var indFeedImgUrl = feedImagesUrls[i];
             var feedTitles = browser.getText(wn_article.lhrFeedTitles);
             var title = feedTitles[i];
             var feedTitlesUrls = browser.getAttribute(wn_article.lhrFeedTitles, 'href');
             var titleUrl = feedTitlesUrls[i];
-            console.log('teaser url is :'+indFeedImgUrl);
+            console.log(i + ': teaser url is :' + indFeedImgUrl);
             expect(indFeedImgUrl === '').toBe(false);
             expect(title === '').toBe(false);
             expect(titleUrl === '').toBe(false);

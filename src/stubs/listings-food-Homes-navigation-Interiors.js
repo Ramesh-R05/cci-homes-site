@@ -901,6 +901,7 @@ export default{
             "url": "/10-ways-to-style-indoor-plants-3042"
         },
         {
+            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3038/Take-five-HERO.jpg",
             "contentHasVideo": false,
             "contentMonth": 2,
             "contentTags": [
