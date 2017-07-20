@@ -64,7 +64,14 @@ resources:
     pointer:
       recipients:
         - "#bxm_qa_notifications"
-        
+  
+    # Slack connection
+  - name: homes-deployment-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#survivors_outlast_au"
 
   # Seed Release version
     # for Rollback refer to below URL

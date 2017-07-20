@@ -148,6 +148,7 @@ jobs:
     type: deploy
     always:
       - NOTIFY: homes-slack-notifications
+      - NOTIFY: homes-deployment-notifications
     steps:
       - IN: homes-site-replicas-production #number of running tasks
       - IN: homes-site-release-master
