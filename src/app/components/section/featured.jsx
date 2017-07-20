@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
-import PolarTeaser from '../polar/polarTeaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class Featured extends Component {
@@ -30,7 +29,7 @@ export default class Featured extends Component {
                   label={{ active: false }}
                   pageLocation={Ad.pos.body}
                 />
-                <PolarTeaser {...item} key={item.id} ad={polarTargets[0]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
+                <Teaser {...item} key={item.id} polar={polarTargets[0]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
                 <Ad
                   className="ad--section-mrec"
                   displayFor="small"
@@ -41,7 +40,7 @@ export default class Featured extends Component {
                 />
                 {articles.slice(1, 6).map((item, i) => {
                     if (i === 4) {
-                        return <PolarTeaser {...item} key={item.id} ad={polarTargets[1]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />;
+                        return <Teaser {...item} key={item.id} polar={polarTargets[1]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />;
                     }
                     return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />;
                 })}

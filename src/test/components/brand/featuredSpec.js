@@ -9,15 +9,13 @@ const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyStub = Context.createStubComponentWithChildren();
-const PolarTeaserStub = Context.createStubComponent();
 const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const Featured = proxyquire('../../../app/components/brand/featured', {
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
-    '../polar/polarTeaser': PolarTeaserStub
+    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
 });
 
 AdStub.pos = {
@@ -52,7 +50,6 @@ describe('Brand Featured', () => {
                 <Featured hero={heroMock} articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
-            polarTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
             hero = teasers.shift();
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         });
@@ -62,73 +59,50 @@ describe('Brand Featured', () => {
             expect(ReactDOM.findDOMNode(reactModule).className).to.contain(sectionClass);
         });
 
-        const expectedNumTeasers = 4;
+        const expectedNumTeasers = 6;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
 
-        const expectedPolarTeasers = 2;
-        it(`should render ${expectedPolarTeasers} polar teasers`, () => {
-            expect(polarTeasers.length).to.equal(expectedPolarTeasers);
-        });
-
         it(`should render the hero as the 1st hero teaser`, () => {
-            const componentData = heroMock;
-            componentData.modifier = 'hero';
-            componentData.gtmClass = 'gtm-hero-brand';
-            componentData.sizes = 'home-hero';
-            expect(hero.props).to.deep.equal(componentData);
+            const heroProps = {...heroMock, modifier: "hero", gtmClass: "gtm-hero-brand", sizes: "home-hero"};
+            expect(hero.props).to.deep.equal(heroProps);
         });
 
-        it(`should render the 1st article as the 1st polar Teaser`, () => {
-            const componentData = articlesMock[0];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'brand-list';
-            componentData.ad = polarTargetsStub[0];
-            componentData.gtmClass = 'gtm-topteaserlist-brand';
-            componentData.ad = polarTargetsStub[0];
-            expect(polarTeasers[0].props).to.deep.equal(componentData);
+        const componentData = {
+            modifier: "img-top",
+            sizes: "brand-list",
+            gtmClass: "gtm-topteaserlist-brand",
+        }
+
+        it(`should render the 1st article as the 1st teaser with polar index of 0`, () => {
+            const teaserProps = {...articlesMock[0], ...componentData, polar: {index: 0}}
+            expect(teasers[0].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 2nd article as the 2nd teaser`, () => {
-            const componentData = articlesMock[1];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'brand-list';
-            componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[0].props).to.deep.equal(componentData);
+            const teaserProps = {...articlesMock[1], ...componentData, polar: false}
+            expect(teasers[1].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 3rd article as the 3rd teaser`, () => {
-            const componentData = articlesMock[2];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'brand-list';
-            componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[1].props).to.deep.equal(componentData);
+            const teaserProps = {...articlesMock[2], ...componentData, polar: false}
+            expect(teasers[2].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 4th article as the 4th teaser`, () => {
-            const componentData = articlesMock[3];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'brand-list';
-            componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[2].props).to.deep.equal(componentData);
+            const teaserProps = {...articlesMock[3], ...componentData, polar: false}
+            expect(teasers[3].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 5th article as the 5th teaser`, () => {
-            const componentData = articlesMock[4];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'brand-list';
-            componentData.gtmClass = 'gtm-topteaserlist-brand';
-            expect(teasers[3].props).to.deep.equal(componentData);
+            const teaserProps = {...articlesMock[4], ...componentData, polar: false}
+            expect(teasers[4].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 6th article as the 2nd polar Teaser`, () => {
-            const componentData = articlesMock[5];
-            componentData.modifier = 'img-top';
-            componentData.sizes = 'brand-list';
-            componentData.gtmClass = 'gtm-topteaserlist-brand';
-            componentData.ad = polarTargetsStub[1];
-            expect(polarTeasers[1].props).to.deep.equal(componentData);
+        it(`should render the 6th article as the 6nd teaser with polar index 5`, () => {         
+            const teaserProps = {...articlesMock[5], ...componentData, polar: {index: 5}}
+            expect(teasers[5].props).to.deep.equal(teaserProps);
         });
 
         const expectedNumAds = 3;
@@ -211,17 +185,11 @@ describe('Brand Featured', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brand={brand} />);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
-            polarTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
         });
 
         const expectedNumTeasers = 7;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
-        });
-
-        const expectedPolarTeasers = 0;
-        it(`should render ${expectedPolarTeasers} polar teasers`, () => {
-            expect(polarTeasers.length).to.equal(expectedPolarTeasers);
         });
     });
 

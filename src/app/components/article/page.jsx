@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Article from './section';
 import Source from './source';
-import PolarFeedItem from '../polar/polarFeed';
 import VerticalGallery from '@bxm/article/lib/gallery';
 
 export default class Page extends Component {
@@ -63,7 +62,6 @@ export default class Page extends Component {
                       articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', Ad]}
                       contentBodyConfig={Page.articleContentBodyConfig}
                       authorTranslationMap={Page.translationMap}
-                      feedItemClass={PolarFeedItem}
                       showFeedOnRight
                       showAdBeforeRecommendations
                       adSpacing={6}
@@ -82,7 +80,6 @@ export default class Page extends Component {
                   articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', Ad]}
                   contentBodyConfig={Page.articleContentBodyConfig}
                   authorTranslationMap={Page.translationMap}
-                  feedItemClass={PolarFeedItem}
                   showFeedOnRight
                   showAdBeforeRecommendations
                   adSpacing={6}

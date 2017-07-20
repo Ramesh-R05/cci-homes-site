@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import PolarTeaser from '../polar/polarTeaser';
 import Teaser from '../teaser/teaser';
 import chunk from 'lodash/array/chunk';
-
 
 export default class RepeatableGroup extends Component {
 
@@ -55,9 +53,9 @@ export default class RepeatableGroup extends Component {
                             <section key={index} className="section--9-items">
                                 <Teaser {...groupArticles[0]} key={groupArticles[0].id} />
 
-                                <PolarTeaser
+                                <Teaser
                                   {...groupArticles[1]}
-                                  ad={{
+                                  polar={{
                                       label: polarAdLabel,
                                       targets: {
                                           kw: polarAdLabel

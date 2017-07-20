@@ -313,6 +313,60 @@ module.exports = function() {
         }
     });
 
+    this.Then(/^I should see each polar ad slot element containing proper class name$/, function (dataTable) {
+       var rows = dataTable.hashes();
+       var adElement;
+       for (var i = 0; i < rows.length; i++) {
+           var row = rows[i];
+           switch(row['ad']) {
+               case 'Polar in Home Top Teaser 1':
+                   adElement = wn_ads.ad_PolarHomeTopTeaser1;
+                   break;
+               case 'Polar in Home Top Teaser 6':
+                   adElement = wn_ads.ad_PolarHomeTopTeaser6;
+                   break;
+               case 'Polar in Brand Top Teaser 1':
+                   adElement = wn_ads.ad_PolarBrandTopTeaser1;
+                   break;
+               case 'Polar in Brand Top Teaser 6':
+                   adElement = wn_ads.ad_PolarBrandTopTeaser6;
+                   break;
+               case 'Polar in Nav Top Teaser 1':
+                   adElement = wn_ads.ad_PolarNavTopTeaser1;
+                   break;
+               case 'Polar in Nav Top Teaser 6':
+                   adElement = wn_ads.ad_PolarNavTopTeaser6;
+                   break;    
+               case 'Polar in Bottom Teaser 2':
+                   adElement = wn_ads.ad_PolarBottomTeaser2;
+                   break;
+               case 'Polar in Bottom Teaser 6':
+                   adElement = wn_ads.ad_PolarBottomTeaser6;
+                   break;
+               case 'Polar in RHS 2':
+                   adElement = wn_ads.ad_PolarRHS2;
+                   break;
+               case 'Polar in RHS 5':
+                   adElement = wn_ads.ad_PolarRHS5;
+                   break;
+               case 'Polar in RHS 9':
+                   adElement = wn_ads.ad_PolarRHS9;
+                   break;
+               case 'Polar in RHS 14':
+                   adElement = wn_ads.ad_PolarRHS14;
+                   break;
+               case 'Polar in Related Content In Body':
+                   adElement = wn_ads.ad_PolarRelatedContentInBody;
+                   break;
+               case 'Polar in Related Content After Slide 7':
+                   adElement = wn_ads.ad_PolarRelatedContentAfterSlide7;
+                   break;
+               }
+           var className = browser.getAttribute(adElement,'class');
+           expect(className).toEqual(row['class-name']);
+       }
+    });
+
     this.Then(/^I should see each load more ad slot element containing proper class name$/, function (dataTable) {
         var rows = dataTable.hashes();
         var adElement;
@@ -324,6 +378,12 @@ module.exports = function() {
                     break;
                 case 'Load More MREC In Bottom Feed': //mobile
                     adElement = wn_ads.ad_LoadMoreMrecInBottomFeed;
+                    break;
+                case 'Polar in Load More 2':
+                    adElement = wn_ads.ad_PolarLoadMore2;
+                    break;
+                case 'Polar in Load More 6':
+                    adElement = wn_ads.ad_PolarLoadMore6;
                     break;
             }
             var className = browser.getAttribute(adElement, 'class');

@@ -11,7 +11,6 @@ const {React, ReactDOM, TestUtils} = Context;
 const InlineGalleryStub = Context.createStubComponent();
 const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
-const PolarTeaserStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponentWithChildren();
 const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
@@ -22,7 +21,6 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     'react': React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '../polar/polarTeaser': PolarTeaserStub,
     '@bxm/behaviour/lib/components/sticky': StickyAdStub,
     '../repeatable': repeatableStub,
     '../section/list': listStub,
@@ -57,7 +55,6 @@ describe('SectionFeatured', () => {
         let domElements;
         let ads;
         let teasers;
-        let polarTeasers;
         let stickies;
         let stickyMobile;
 
@@ -74,23 +71,17 @@ describe('SectionFeatured', () => {
 
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
-            polarTeasers =  TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
             stickies = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
             stickyMobile = TestUtils.scryRenderedComponentsWithType(reactModule, StickyMobileAdStub)
         });
 
-        const expectedNumTeasers = 6;
+        const expectedNumTeasers = 8;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
 
         it('should teaser lazyload to be turn off', () => {
             expect(teasers[0].props.lazyload).to.eq(false);
-        });
-
-        const expectedNumPolarTeasers = 2;
-        it(`should render ${expectedNumPolarTeasers} Polar native teasers`, () => {
-            expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
         });
 
         describe(`Sticky ads`, () => {

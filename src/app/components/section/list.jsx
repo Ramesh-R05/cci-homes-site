@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
-import PolarTeaser from '../polar/polarTeaser';
 import Rail from './rail';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class List extends Component {
+
+    static displayName = "List"
 
     static propTypes = {
         items: PropTypes.array,
@@ -55,11 +56,7 @@ export default class List extends Component {
                             section = sections.indexOf(lc) > -1 ? 'index' : null;
                         }
 
-
-                        if (polarDetails) {
-                            return <PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />;
-                        }
-                        return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />;
+                        return <Teaser polar={polarDetails} {...item} key={item.id} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />;
                     })}
 
                     <Ad

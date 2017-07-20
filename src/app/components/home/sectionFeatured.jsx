@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
-import PolarTeaser from '../polar/polarTeaser';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import loadList from '../../actions/loadList';
@@ -132,12 +131,8 @@ export default class SectionFeatured extends Component {
                                     />
 
                                     {articles.slice(0, 6).map((item, i) => {
-                                        const polarDetails = polarTargets[0].find(slot => slot.index === i);
-
-                                        if (polarDetails) {
-                                            return <PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-homepage" />;
-                                        }
-                                        return <Teaser {...item} key={item.id} modifier="img-top" gtmClass="gtm-topteaserlist-homepage" />;
+                                        const polarDetails = polarTargets[0].find(slot => slot.index === i) || false;
+                                        return <Teaser {...item} key={item.id} polar={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" />;
                                     }
                                     )}
 

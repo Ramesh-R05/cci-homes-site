@@ -6,6 +6,7 @@ import imageResize from '@bxm/ui/lib/common/ImageResize';
 import Title from '@bxm/article/lib/components/teaser/title';
 import Image from '@bxm/article/lib/components/teaser/image';
 import Summary from '@bxm/article/lib/components/teaser/summary';
+import Ad from '@bxm/ad/lib/google/components/ad';
 import Tags from './tags';
 import Source from './source';
 import Icon from './icon';
@@ -27,7 +28,16 @@ class Teaser extends Component {
         title: PropTypes.string.isRequired,
         className: PropTypes.string,
         lazyload: PropTypes.bool,
-        gtmClass: PropTypes.string
+        gtmClass: PropTypes.string,
+        polar: PropTypes.oneOfType([
+            PropTypes.shape({
+               targets: PropTypes.shape({
+                   kw: PropTypes.string
+               }),
+               label: PropTypes.string
+            }),
+            PropTypes.bool
+        ])
     };
 
     static defaultProps = {
@@ -40,7 +50,8 @@ class Teaser extends Component {
         imageAltText: '',
         modifier: 'img-left',
         sizes: '',
-        lazyload: true
+        lazyload: true,
+        polar: false
     };
 
     static imageConfig = {
@@ -136,11 +147,11 @@ class Teaser extends Component {
     render() {
         if (!this.props.id) return null;
 
-        const { url, modifier, sizes, className, lazyload } = this.props;
+        const { url, modifier, sizes, className, lazyload, polar } = this.props;
         const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;
         const classNames = classnames('teaser', `teaser--${modifier}`, className);
         const imgSizes = Teaser.getImgSizes(sizes, modifier);
-
+        
         return (
             <article className={classNames}>
                 <Image
@@ -167,6 +178,16 @@ class Teaser extends Component {
                     <Summary summary={this.props.summary} />
                     <Source source={this.props.source} />
                 </div>
+
+                {polar && (
+                    <Ad
+                        nativeAd
+                        label={polar.label}
+                        targets={polar.targets}
+                        sizes={'nativeAdTeaser'}
+                        pageLocation={Ad.pos.body}
+                    />
+                )}
             </article>
         );
     }

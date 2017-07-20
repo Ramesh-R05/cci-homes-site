@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
-import PolarTeaser from '../polar/polarTeaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
@@ -74,12 +73,8 @@ export default class Featured extends Component {
                             </li>
 
                             {articles.slice(0, 6).map((item, i) => {
-                                const polarDetails = polarTargets.find(slot => slot.index === i);
-
-                                if (polarDetails) {
-                                    return <li><PolarTeaser {...item} key={item.id} ad={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>;
-                                }
-                                return <li><Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>;
+                                const polarDetails = polarTargets.find(slot => slot.index === i) || false;
+                                return <li><Teaser {...item} key={item.id} polar={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>;
                             })}
 
                             <li className="ad--section-mrec-top-2">

@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import PolarTeaser from '../polar/polarTeaser';
 import Teaser from '../teaser/teaser';
 import classnames from 'classnames';
 import get from 'lodash/object/get';
 
 export default class Group extends Component {
+
+    static displayName = "Group"
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
@@ -28,22 +29,15 @@ export default class Group extends Component {
         const { polarAd, teaserModifier } = this.props;
 
         return this.props.articles.map((item, index) => {
-            if (get(polarAd, 'index') === index) {
-                return (
-                    <PolarTeaser
-                      {...item}
-                      ad={{
-                          label: polarAd.label,
-                          targets: {
-                              kw: polarAd.label
-                          }
-                      }}
-                      key={item.id}
-                      modifier={teaserModifier}
-                    />
-                );
-            }
-            return <Teaser {...item} key={item.id} modifier={teaserModifier} />;
+            const polar = get(polarAd, 'index') === index ? 
+                        {
+                            label: polarAd.label,
+                            targets: {
+                                  kw: polarAd.label
+                            } 
+                        } : false;
+
+            return <Teaser {...item} polar={polar} key={item.id} modifier={teaserModifier} />;
         });
     }
 

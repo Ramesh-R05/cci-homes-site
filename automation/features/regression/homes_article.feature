@@ -72,12 +72,6 @@ Feature: Article
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
     When I switch to "<Device>" view
     * I can see 20 items in the list of items in RHR
-    And the below position are replaced with Polar ads
-    | pos |
-    | 2   |
-    | 5   |
-    | 9   |
-    | 14  |
     @high
         Examples:
         | Device            |
@@ -87,24 +81,6 @@ Feature: Article
         Examples:
         | Device            |
         | tablet landscape  |
-
-    Scenario Outline: I can see a polar placement on the first teaser in a Related Content module
-        Given I am currently viewing "automation-test-article-with-hero-image-3193"
-        When I switch to "<Device>" view
-        Then I can see a polar placement on the first teaser in a Related Content module
-    @high
-        Examples:
-            | Device            |
-            | mobile            |
-    @med
-        Examples:
-            | Device            |
-            | desktop           |
-    @low
-        Examples:
-            | Device            |
-            | tablet landscape  |
-            | tablet portrait   |
 
     Scenario Outline: Editorial team can add social feeds to the article body
         Given I switch to "<device>" view

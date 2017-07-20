@@ -25,6 +25,53 @@ export default
             type: "paragraph",
             label: "Paragraph",
             content: "Test the second paragraph [This is link](http://testonlylyl.com) Test the second paragraph Test the second paragraph Test the second paragraph \\n\\n**test bold text** Test *test Italic text* the ***bold and italic text*** second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph \\n\\n## Test heading\\n* test bullet 1\\n* test bullet 2"
+        },
+        {
+            "type": "related-content",
+            "label": "Related Content",
+            "content": [
+                {
+                    "id": "NOW-9822",
+                    "url": "/celebrity/celeb-news/our-royal-cover-explained-9822",
+                    "name": "Our royal cover explained",
+                    "level": 6,
+                    "title": "Our royal cover explained",
+                    "source": "Australian Women's Weekly",
+                    "pathIds": [
+                        "NOW--1",
+                        "NOW-1159",
+                        "NOW-1168",
+                        "NOW-1169",
+                        "NOW-3989",
+                        "NOW-4232",
+                        "NOW-9822"
+                    ],
+                    "siteUrl": "http://dev.now-site.bauer-media.net.au",
+                    "summary": "Why did we choose that image for the May cover of The Australian Women's Weekly?",
+                    "urlName": "our-royal-cover-explained",
+                    "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/AWW/2014/05/01/76081/whythatcover.jpg",
+                    "nodeType": "Article",
+                    "parentId": "NOW-4232",
+                    "redirect": {
+                        "mode": 2
+                    },
+                    "siteCode": "8507aea9-5ac4-4831-90e5-f567f9a3c63a",
+                    "siteName": "now",
+                    "typeName": "TeaserDto",
+                    "parentUrl": "/celebrity/celeb-news",
+                    "sortOrder": 82,
+                    "parentName": "Celeb News",
+                    "dateIndexed": "2016-11-28T12:19:40",
+                    "imageAltText": "The cover of the Royal Tour Souvenir issue and the photo we selected.",
+                    "imageCaption": "The cover of the Royal Tour Souvenir issue and the photo we selected.",
+                    "nodeTypeAliasPath": [
+                        "Page",
+                        "Editorial",
+                        "Articles",
+                        "Article"
+                    ]
+                }
+            ]
         }
     ],
     "contentTags": ["food:Location and setting:Australia:Victoria:Mornington Peninsula", "food:Homes navigation:Real Homes", "food:Topic:Luxury home", "food:Decorating:Style:Coastal/beach"],

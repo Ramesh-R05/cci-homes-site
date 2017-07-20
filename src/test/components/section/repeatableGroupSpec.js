@@ -6,12 +6,10 @@ const {React, ReactDOM, TestUtils} = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
-const PolarTeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const RepeatableGroup = proxyquire('../../../app/components/section/repeatableGroup', {
     'react': React,
     '../teaser/teaser': TeaserStub,
-    '../polar/polarTeaser': PolarTeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub
 });
 
@@ -30,7 +28,6 @@ describe('RepeatableGroup', () => {
         let section;
         let reactModule;
         let teasers;
-        let polarTeasers;
         let ads;
 
         before(() => {
@@ -39,7 +36,6 @@ describe('RepeatableGroup', () => {
             );
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
-            polarTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         });
 
@@ -48,7 +44,7 @@ describe('RepeatableGroup', () => {
             expect(section.length).to.equal(expectedNumSections);
         });
 
-        const expectedNumTeasers = 8;
+        const expectedNumTeasers = 9;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
@@ -59,22 +55,13 @@ describe('RepeatableGroup', () => {
         });
 
         describe(`native polar teasers`, () => {
-            const expectedNumPolarTeasers = 1;
-            it(`should render ${expectedNumPolarTeasers} polar teasers`, () => {
-                expect(polarTeasers.length).to.equal(expectedNumPolarTeasers);
-            });
-
             it(`should pass down the ad prop`, () => {
-                expect(polarTeasers[0].props.ad).to.deep.equal({
+                expect(teasers[1].props.polar).to.deep.equal({
                     label: 'section_teaser_2',
                     targets: {
                         kw: 'section_teaser_2'
                     }
                 });
-            });
-
-            it(`should pass down the second article data`, () => {
-                expect(polarTeasers[0].props.id).to.equal(articlesMock[2].id);
             });
         });
 
@@ -128,7 +115,6 @@ describe('RepeatableGroup', () => {
         let section;
         let reactModule;
         let teasers;
-        let polarTeasers;
         let ads;
 
         before(() => {
@@ -137,7 +123,6 @@ describe('RepeatableGroup', () => {
             );
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
-            polarTeasers = TestUtils.scryRenderedComponentsWithType(reactModule, PolarTeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         });
 
@@ -146,7 +131,7 @@ describe('RepeatableGroup', () => {
             expect(section.length).to.equal(expectedNumSections);
         });
 
-        const expectedNumTeasers = 9;
+        const expectedNumTeasers = 11;
         it(`should render ${expectedNumTeasers} teasers`, () => {
             expect(teasers.length).to.equal(expectedNumTeasers);
         });
