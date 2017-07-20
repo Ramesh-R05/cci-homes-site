@@ -104,12 +104,11 @@ jobs:
         - script: nvm use "6.1.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
-        - script: sh setup.sh
         - script: npm install
         - script: export URL=http://homes-site.test.bxm.net.au/
-        - script: xvfb-run --server-args="-screen 0, 1920x1080x24" npm run test:high || true
+        - script: npm run test:high || true
         - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else xvfb-run --server-args="-screen 0, 1920x1080x24" npm run test:rerun; fi"
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
   # 4b. Run mobile regression test on TEST environment - Browser Stack
   - name: homes-site-mobile-automation-test
@@ -120,8 +119,7 @@ jobs:
      - IN: homes-site-test-deploy-master
      - IN: homes-site-repo
        switch: off
-     - TASK:
-        - script: until(curl --fail homes-site.test.bxm.net.au/version); do echo "Pinging Homes Version Page..."; sleep 5; done     
+     - TASK:   
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "6.1.0"
@@ -186,12 +184,11 @@ jobs:
         - script: nvm use "6.1.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
-        - script: sh setup.sh
         - script: npm install
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: export APP_KEY=homes-site
-        - script: xvfb-run --server-args="-screen 0, 1920x1080x24" npm run all:test || true
+        - script: npm run all:test || true
         - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else xvfb-run --server-args="-screen 0, 1920x1080x24" npm run test:rerun; fi"
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     flags:
       - homes-site
