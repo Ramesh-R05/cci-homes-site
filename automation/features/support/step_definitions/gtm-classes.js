@@ -1,5 +1,4 @@
 var world = require('../world');
-var wait = require('../utils/wait');
 
 module.exports = function(){
 

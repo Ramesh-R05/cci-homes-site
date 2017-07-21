@@ -1,5 +1,4 @@
 var world = require('../world');
-var waitUtl = require('../utils/wait');
 var wn_article = require('../page_objects/article_widget');
 var wn_recipe = require('../page_objects/recipe_widget');
 var wn_social = require('../page_objects/social_widget');

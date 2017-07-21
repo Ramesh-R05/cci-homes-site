@@ -1,6 +1,6 @@
 var lhr = require('../page_objects/lhr_widget');
 var wn_article = require('../page_objects/article_widget');
-var wait = require('../utils/wait');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var nconf = require('nconf');
 var site_domain = nconf.get('APP_KEY');
 

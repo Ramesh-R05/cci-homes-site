@@ -1,8 +1,7 @@
 var gallery = require('../page_objects/gallery_widget');
 var world = require('../world');
-var wait = require('../utils/wait');
-var findValue = require('../utils/findValue');
-var window = require('../utils/window_handler');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
+var findValue = require('../../../node_modules/@bxm/automation/lib/utils/findValue');
 
 module.exports = function() {
 

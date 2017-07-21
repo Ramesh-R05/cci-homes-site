@@ -1,6 +1,6 @@
 var home = require('../page_objects/homepage_widget');
 var world = require('../world');
-var wait = require('../utils/wait');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function(){

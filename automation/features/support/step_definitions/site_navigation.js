@@ -1,5 +1,5 @@
 var site_nav = require('../page_objects/site_navigation_widget');
-var wait = require('../utils/wait');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var uniheader = require('../page_objects/uniheader_widget');
 
 module.exports = function() {

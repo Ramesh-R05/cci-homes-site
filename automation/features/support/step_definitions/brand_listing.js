@@ -1,5 +1,5 @@
 var brand_listing = require('../page_objects/brand_listing_widget');
-var wait = require('../utils/wait');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function() {

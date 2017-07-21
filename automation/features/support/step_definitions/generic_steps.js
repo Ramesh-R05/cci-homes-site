@@ -1,13 +1,13 @@
 var world = require('../world');
-var window_handler = require('../utils/window_handler');
-var wait = require('../utils/wait');
+var window_handler = require('../../../node_modules/@bxm/automation/lib/utils/window_handler');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function() {
 
     //I switch to mobile|desktop|tablet view
     this.When(/^I switch to "([^"]*)" view$/, function (device) {
-        var window = new window_handler();
+        var window = new window_handler(browser);
         window.windowResize(device);
     });
 
