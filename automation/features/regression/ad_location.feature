@@ -138,23 +138,23 @@ Feature: Ads Location
             |Bottom Leaderboard on Gallery  |gallery_outside_4 |
         And I should see each body ad slot element containing proper class name
             |ad                 |class-name     |
-            |MREC After Slide 3 |gallery_body_2 |
-            |MREC After Slide 7 |gallery_body_3 |
+            |MREC After Slide 3 |gallery_body_3 |
+            |MREC After Slide 7 |gallery_body_4 |
         And I should see each RHS ad slot element containing proper class name
             |ad              |class-name     |
-            |MREC RHS 1      |gallery_rhs_12 |
-            |MREC RHS 2      |gallery_rhs_13 |
-            |MREC RHS 3      |gallery_rhs_14 |
-            |MREC RHS 4      |gallery_rhs_15 |
-            |Sticky MREC RHS |gallery_rhs_16 |
+            |MREC RHS 1      |gallery_rhs_10 |
+            |MREC RHS 2      |gallery_rhs_11 |
+            |MREC RHS 3      |gallery_rhs_12 |
+            |MREC RHS 4      |gallery_rhs_13 |
+            |Sticky MREC RHS |gallery_rhs_14 |
         And I should see each polar ad slot element containing proper class name
             |ad                                     |class-name    |
-            |Polar in Related Content In Body       |gallery_rhs_1 |
-            |Polar in Related Content After Slide 7 |gallery_rhs_2 |
-            |Polar in RHS 2                         |gallery_rhs_3 |
-            |Polar in RHS 5                         |gallery_rhs_5 |
-            |Polar in RHS 9                         |gallery_rhs_7 |
-            |Polar in RHS 14                        |gallery_rhs_9 |
+            |Polar in Related Content In Body       |gallery_body_2 |
+            |Polar in Related Content After Slide 7 |gallery_body_5 |
+            |Polar in RHS 2                         |gallery_rhs_1 |
+            |Polar in RHS 5                         |gallery_rhs_3 |
+            |Polar in RHS 9                         |gallery_rhs_5 |
+            |Polar in RHS 14                        |gallery_rhs_7 |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name          |
             |Out Of Page        |gallery_outofpage_1 |
@@ -172,11 +172,11 @@ Feature: Ads Location
             |Bottom Leaderboard on Article |homesarticle_outside_4 |
         And I should see each RHS ad slot element containing proper class name
             |ad              |class-name          |
-            |MREC RHS 1      |homesarticle_rhs_3  |
-            |MREC RHS 2      |homesarticle_rhs_5  |
-            |MREC RHS 3      |homesarticle_rhs_7  |
-            |MREC RHS 4      |homesarticle_rhs_9  |
-            |Sticky MREC RHS |homesarticle_rhs_10 |
+            |MREC RHS 1      |homesarticle_rhs_2  |
+            |MREC RHS 2      |homesarticle_rhs_4  |
+            |MREC RHS 3      |homesarticle_rhs_6  |
+            |MREC RHS 4      |homesarticle_rhs_8  |
+            |Sticky MREC RHS |homesarticle_rhs_9  |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name               |
             |Out Of Page        |homesarticle_outofpage_1 |
@@ -185,11 +185,11 @@ Feature: Ads Location
             |Wallpaper          |homesarticle_wallpaper_1 |
         And I should see each polar ad slot element containing proper class name
             |ad               |class-name    |
-            |Polar in Related Content In Body   |homesarticle_rhs_1 |
-            |Polar in RHS 2                     |homesarticle_rhs_2 |
-            |Polar in RHS 5                     |homesarticle_rhs_4 |
-            |Polar in RHS 9                     |homesarticle_rhs_6 |
-            |Polar in RHS 14                    |homesarticle_rhs_8 |
+            |Polar in Related Content In Body   |homesarticle_body_2 |
+            |Polar in RHS 2                     |homesarticle_rhs_1 |
+            |Polar in RHS 5                     |homesarticle_rhs_3 |
+            |Polar in RHS 9                     |homesarticle_rhs_5 |
+            |Polar in RHS 14                    |homesarticle_rhs_7 |
 
 
 ##--Start testing in mobile view--#
@@ -317,16 +317,16 @@ Feature: Ads Location
         And I should see each body ad slot element containing proper class name
             |ad                         |class-name     |
             |MREC Under Hero Image      |gallery_body_1 |
-            |MREC After Slide 3         |gallery_body_2 |
-            |MREC After Slide 7         |gallery_body_3 |
-            |MREC Before Recommendation |gallery_body_4 |
+            |MREC After Slide 3         |gallery_body_3 |
+            |MREC After Slide 7         |gallery_body_4 |
+            |MREC Before Recommendation |gallery_body_6 |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name          |
             |Out Of Page        |gallery_outofpage_1 |
         And I should see each polar ad slot element containing proper class name
             |ad                                     |class-name    |
-            |Polar in Related Content In Body       |gallery_rhs_1 |
-            |Polar in Related Content After Slide 7 |gallery_rhs_2 |
+            |Polar in Related Content In Body       |gallery_body_2 |
+            |Polar in Related Content After Slide 7 |gallery_body_5 |
 
     Scenario: Ads slot elements should have proper class name on article page in mobile view
         Given I switch to "mobile" view
@@ -339,11 +339,11 @@ Feature: Ads Location
         And I should see each body ad slot element containing proper class name
             |ad                         |class-name          |
             |MREC Under Hero Image      |homesarticle_body_1 |
-            |MREC Before Recommendation |homesarticle_body_2 |
+            |MREC Before Recommendation |homesarticle_body_3 |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name               |
             |Out Of Page        |homesarticle_outofpage_1 |
         And I should see each polar ad slot element containing proper class name
             |ad                                 |class-name         |
-            |Polar in Related Content In Body   |homesarticle_rhs_1 |
+            |Polar in Related Content In Body   |homesarticle_body_2 |
 

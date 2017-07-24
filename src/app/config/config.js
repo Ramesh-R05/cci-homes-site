@@ -209,7 +209,8 @@ export default {
                 label: 'article_related_1',
                 targets: {
                     kw: 'article_related_1'
-                }
+                },
+                pos: 'body'
             }
         }
     },
