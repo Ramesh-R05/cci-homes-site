@@ -142,11 +142,11 @@ Feature: Ads Location
             |MREC After Slide 7 |gallery_body_4 |
         And I should see each RHS ad slot element containing proper class name
             |ad              |class-name     |
-            |MREC RHS 1      |gallery_rhs_10 |
-            |MREC RHS 2      |gallery_rhs_11 |
-            |MREC RHS 3      |gallery_rhs_12 |
-            |MREC RHS 4      |gallery_rhs_13 |
-            |Sticky MREC RHS |gallery_rhs_14 |
+            |MREC RHS 1      |gallery_rhs_2 |
+            |MREC RHS 2      |gallery_rhs_4 |
+            |MREC RHS 3      |gallery_rhs_6 |
+            |MREC RHS 4      |gallery_rhs_8 |
+            |Sticky MREC RHS |gallery_rhs_9 |
         And I should see each polar ad slot element containing proper class name
             |ad                                     |class-name    |
             |Polar in Related Content In Body       |gallery_body_2 |

@@ -34,7 +34,7 @@
   "license": "",
   "dependencies": {
     "@bxm/ad": "^11.6.0",
-    "@bxm/article": "^25.7.6",
+    "@bxm/article": "^25.9.1",
     "@bxm/behaviour": "^1.3.0",
     "@bxm/datetime": "^3.0.0",
     "@bxm/flux": "^4.0.0",
@@ -51,7 +51,7 @@
     "@bxm/site-header": "2.7.0",
     "@bxm/social": "^2.0.0",
     "@bxm/tags": "^3.0.0",
-    "@bxm/ui": "^17.0.0",
+    "@bxm/ui": "^17.1.0",
     "@bxm/video": "^5.0.0",
     "@bxm/winston-logger": "^1.1.0",
     "babel-core": "^6.5.2",

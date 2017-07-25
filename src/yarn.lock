@@ -13,9 +13,9 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.7.6":
-  version "25.7.6"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.6.tgz#18a035884c26332b8559916235315f7597af8bd7"
+"@bxm/article@^25.9.1":
+  version "25.9.1"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.9.1.tgz#0d534ccb676403860a378f387bcdaec106869f4e"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
@@ -178,9 +178,9 @@
     classnames "^2.2.5"
     lodash "^3.3.1"
 
-"@bxm/ui@^17.0.0":
-  version "17.0.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fui/-/ui-17.0.0.tgz#f79c47af60ea8e8f66b69873c2ad3ecdc256b249"
+"@bxm/ui@^17.1.0":
+  version "17.1.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fui/-/ui-17.1.0.tgz#203ff9b52bc42d41beccc69f343e946707ce8eb0"
   dependencies:
     "@bxm/markdown" "^1.0.0"
     "@bxm/react-script-loader" "^2.0.0"
@@ -5988,10 +5988,6 @@ split@0.3:
   dependencies:
     through "2"
 
-sprintf-js@^1.0.3:
-  version "1.1.1"
-  resolved "http://npm.digital.bauer-media.net.au/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
-
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "http://npm.digital.bauer-media.net.au/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -6418,22 +6414,11 @@ undefsafe@0.0.3:
   version "0.0.3"
   resolved "http://npm.digital.bauer-media.net.au/undefsafe/-/undefsafe-0.0.3.tgz#ecca3a03e56b9af17385baac812ac83b994a962f"
 
-underscore.string@:
-  version "3.3.4"
-  resolved "http://npm.digital.bauer-media.net.au/underscore.string/-/underscore.string-3.3.4.tgz#2c2a3f9f83e64762fdc45e6ceac65142864213db"
-  dependencies:
-    sprintf-js "^1.0.3"
-    util-deprecate "^1.0.2"
-
-underscore.string@~2.4.0:
+underscore.string@, underscore.string@~2.4.0:
   version "2.4.0"
   resolved "http://npm.digital.bauer-media.net.au/underscore.string/-/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
 
-underscore@^1.7.0:
-  version "1.8.3"
-  resolved "http://npm.digital.bauer-media.net.au/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
-
-underscore@~1.7.0:
+underscore@^1.7.0, underscore@~1.7.0:
   version "1.7.0"
   resolved "http://npm.digital.bauer-media.net.au/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
 
@@ -6480,7 +6465,7 @@ user-home@^2.0.0:
   dependencies:
     os-homedir "^1.0.0"
 
-util-deprecate@^1.0.2, util-deprecate@~1.0.1:
+util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "http://npm.digital.bauer-media.net.au/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
