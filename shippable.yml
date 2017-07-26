@@ -1,7 +1,7 @@
 # language setting
 build_environment: Ubuntu 12.04
 language: node_js
-node_js: "6.1.0"
+node_js: "6.11.1"
 
 env:
   global:
