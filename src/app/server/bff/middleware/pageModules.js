@@ -1,5 +1,5 @@
 import has from 'lodash/object/has';
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../../../logger';
 import getModules from '../api/module';
 import { parseEntities } from '../helper/parseEntity';
 

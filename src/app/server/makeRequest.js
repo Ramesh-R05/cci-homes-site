@@ -1,4 +1,4 @@
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../logger';
 import request from 'request';
 import LRU from 'lru-cache';
 

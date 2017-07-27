@@ -1,6 +1,6 @@
 import getKeywords from '../api/seo';
 import { init as seoInsertKeywordLink } from '../helper/seoInsertKeywordLink';
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../../../logger';
 
 export default async function seoMiddleware(req, res, next) {
     try {

@@ -1,4 +1,4 @@
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../../../logger';
 
 // disable lint rule for unused next param as expressjs uses function parameters length to detect error middleware
 // eslint-disable-next-line no-unused-vars

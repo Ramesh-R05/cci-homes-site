@@ -1,4 +1,4 @@
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from './logger';
 
 if (process.env.APM_KEY && process.env.NODE_ENV === 'production') {
     // New Relic environment variable configuration options
