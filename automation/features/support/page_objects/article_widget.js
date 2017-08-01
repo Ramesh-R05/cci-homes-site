@@ -41,7 +41,7 @@ var article_widget = {
     authorText: '.article .article-header-author span:last-child',
     twitterEmb1: '#twitter-widget-0',
     instagramEmb1: '.instagram-media',
-    facebookEmb1: '.fb_iframe_widget',
+    facebookEmb1: '.fb-post.fb_iframe_widget',
     playbuzzEmb1: '.content-body__embed--playbuzz .pb_feed_rendered',
     videoEmbArry: '.content-body__embed-video-container iframe',
     whooshkaEmb: '.content-body__embed-whooshka iframe',

@@ -166,7 +166,8 @@ module.exports = function() {
         expect(competiton).toMatch("engagesciences");
     });
     this.Given(/^I can see the body Twitter embed "([^"]*)"$/, function (twitterId) {
-       var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
+        browser.waitForVisible(wn_article.twitterEmb1, 3000);
+        var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
         console.log(twitEmbed);
         expect(twitEmbed).toEqual(twitterId);
        });
@@ -180,7 +181,8 @@ module.exports = function() {
         expect(instagramEmbed[1]).not.toMatch("captioned");
     });
     this.Given(/^I can see the body Facebook embed "([^"]*)"$/, function (facebookUrl) {
-       var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
+        browser.waitForVisible(wn_article.facebookEmb1, 3000);
+        var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
         console.log(facebookEmbed);
         expect(facebookEmbed).toEqual(facebookUrl);
     });
