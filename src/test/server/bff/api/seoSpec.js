@@ -8,7 +8,7 @@ const remoteListingUrl = 'http://dev.seo-batman.services.bauer-media.internal/v1
 
 const getKeywords = proxyquire('../../../../app/server/bff/api/seo', {
     '../../makeRequest': (args) => { return makeRequestStub(args) },
-    '@bxm/winston-logger': { backendLogger: { error(){} } }
+    '../../../../logger': { error(){} }
 });
 
 describe('SeoAPI', () => {

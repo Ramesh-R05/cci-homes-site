@@ -1,6 +1,6 @@
 /* eslint-disable global-require, import/no-dynamic-require, max-len */
 
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../logger';
 import express from 'express';
 import get from 'lodash/object/get';
 

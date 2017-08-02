@@ -1,4 +1,4 @@
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../logger';
 import mergeWith from 'lodash.mergewith';
 
 logger.info(`loading config for ${process.env.APP_KEY}`);

@@ -1,5 +1,5 @@
 import makeRequest from '../../makeRequest';
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../../../logger';
 import config from '../../../config';
 
 export default function getLatestTeasers(top = 20, skip = 0, filter = '') {

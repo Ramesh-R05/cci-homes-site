@@ -1,6 +1,6 @@
 import makeRequest from '../../makeRequest';
 import config from '../../../config';
-import { backendLogger as logger } from '@bxm/winston-logger';
+import logger from '../../../../logger';
 
 export default function getKeywords(url) {
     if (!url) return Promise.resolve({});
