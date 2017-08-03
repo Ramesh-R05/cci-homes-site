@@ -1,26 +1,18 @@
 import { backendLogger as logger } from '@bxm/winston-logger';
 
 logger.transports.console.handleExceptions = false;
+logger.transports.console.level = (process.env.APP_DEBUG === 'true') ? 'debug' : 'info';
 
-if (process.env.APP_DEBUG === 'silly') {
-    logger.transports.console.level = 'silly';
-} else {
-    logger.transports.console.level = (process.env.APP_DEBUG === 'true') ? 'debug' : 'info';
-}
-
-if (process.env.APP_ENV === 'prod' || process.env.NODE_ENV === 'production') {
+if (process.env.APP_ENV === 'production' || process.env.APP_ENV === 'prod' || process.env.APP_ENV === 'sit') {
     logger.addTransports([{
         type: 'loggly',
         name: 'loggly',
         options: {
             inputToken: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
             subdomain: 'bauerdigital',
-            tags: [
-                process.env.APP_KEY,
-                process.env.APP_ENV || process.env.NODE_ENV
-            ],
+            tags: [process.env.APP_KEY, process.env.APP_ENV],
             json: true,
-            level: (typeof process.env.APP_DEBUG === 'undefined') ? 'warn' : 'debug',
+            level: (process.env.APP_DEBUG === 'true') ? 'debug' : 'info',
             proxy: process.env.HTTP_PROXY,
             colorize: false
         }
@@ -28,7 +20,7 @@ if (process.env.APP_ENV === 'prod' || process.env.NODE_ENV === 'production') {
     logger.setMetadata({
         product: process.env.APP_KEY,
         env: process.env.APP_ENV || process.env.NODE_ENV || 'local',
-        region: process.env.APP_REGION || process.env.NODE_ENV || 'au'
+        region: process.env.APP_REGION || process.env.NODE_REGION || 'au'
     });
 } else {
     logger.transports.console.timestamp = function () {
@@ -42,7 +34,12 @@ if (process.env.APP_ENV === 'prod' || process.env.NODE_ENV === 'production') {
 }
 
 logger.info([
-    `NODE_ENV=${process.env.NODE_ENV}`
+    `HTTP_PROXY=${process.env.HTTP_PROXY ? 'set' : 'not set'}`
+].join(' '));
+
+logger.info([
+    `NODE_ENV=${process.env.NODE_ENV}`,
+    `NODE_REGION=${process.env.NODE_REGION}`
 ].join(' '));
 
 logger.info([

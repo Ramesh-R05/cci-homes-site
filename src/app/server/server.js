@@ -7,8 +7,9 @@ import app from '../app';
 import bff from './bff';
 import fluxibleConfigPlugin from 'fluxible-plugin-context-config';
 import fluxibleLoggerPlugin from '../../fluxibleLoggerPlugin';
+import logger from '../../logger';
 
 app.plug(fluxibleConfigPlugin(config));
 app.plug(fluxibleLoggerPlugin());
 
-server(bff, config, app, React, navigateAction);
+server(bff, config, app, React, navigateAction, logger);
