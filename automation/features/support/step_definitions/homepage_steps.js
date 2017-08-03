@@ -226,11 +226,11 @@ module.exports = function(){
             browser.moveToObject(home.latestHomeTeasers+':nth-child('+(i+1)+') img');
             wait(1000);
             // validating the opacity of the teaser
-            var opacityProperty = browser.getCssProperty(home.latestHomeTeasers+':nth-child('+(i+1)+') h3','opacity');
+            var opacityProperty = browser.getCssProperty(home.latestHomeTeasers+':nth-child('+(i+1)+') h2','opacity');
             expect(opacityProperty.value).not.toEqual(0);
             console.log("Opacity value is :"+opacityProperty.value);
             // validating the text after the hover is correct and not empty
-            var elmTitle = browser.getText(home.latestHomeTeasers+':nth-child('+(i+1)+') h3');
+            var elmTitle = browser.getText(home.latestHomeTeasers+':nth-child('+(i+1)+') h2');
             console.log(elmTitle);
             expect(elmTitle).not.toEqual('');
         }
