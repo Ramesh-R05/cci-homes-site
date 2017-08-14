@@ -80,6 +80,15 @@ resources:
     type: version
     seed:
       versionName: "1.0.0" # This can be changed for Roll back
+      
+  #Schedule Run of automation
+  # This is using Shippable timezone
+  # CRON is (14 22 * * *") this is 09:15pm every day refer to https://en.wikipedia.org/wiki/Cron
+  # will run at 7:15am Sydney time
+  - name: homes-morning-trigger
+    type: time
+    seed:
+      interval: "14 22 * * *"
 
   ####################################
   # NON PROD environment configuration
