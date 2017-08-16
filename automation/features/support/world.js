@@ -33,6 +33,7 @@ console.log('running on url :: ' + baseUrl);
 
 module.exports = {
     Urls: {
-        'home_page': baseUrl
+        'home_page': baseUrl,
+        'site': site_domain
     }
 };
