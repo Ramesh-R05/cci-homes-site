@@ -130,7 +130,7 @@ resources:
       params:
         NODE_ENV: "production"  # this is to start APP with production version of react
         APP_ENV: "sit"          # this is to start APP using sit config
-        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522b"
         APP_DEBUG: true
 
   # TEST Parameter
@@ -178,7 +178,7 @@ resources:
       params:
         NODE_ENV: "production"                                # this is to start APP with development version of react
         APP_ENV: "production"                                 # this is to start APP using production config
-        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"   # New relic key
+        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522b"   # New relic key
 
   # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
