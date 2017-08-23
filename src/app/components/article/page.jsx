@@ -55,7 +55,7 @@ export default class Page extends Component {
 
         if (content.nodeType === "Gallery") {
             return (
-                <div className={'content-wrapper'}>
+                <div className='content-wrapper'>
                     <VerticalGallery
                       {...this.props}
                       enableTeads
@@ -73,7 +73,7 @@ export default class Page extends Component {
         }
 
         return (
-            <div>
+            <div className='content-wrapper'>
                 <Article
                   {...this.props}
                   enableTeads

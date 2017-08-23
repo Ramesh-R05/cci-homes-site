@@ -56,6 +56,13 @@
             display: table-header-group;
         }
     }
+    &--top-label,
+    &--bottom-label {
+        >div {
+            font-size: 0;
+            line-height: 0;
+        }
+    }
 
     &__label {
         color: $color-grey-light;
@@ -151,6 +158,11 @@
 }
 
 .site-wrapper .sticky-block {
+
+    &.rhs-ads {
+        min-height: 550px;
+    }
+
     @media #{$small-only} {
         bottom: -80px;
 
