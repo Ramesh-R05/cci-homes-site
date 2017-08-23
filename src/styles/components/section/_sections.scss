@@ -63,6 +63,42 @@
 
         .teaser {
 
+            &.teaser--hero {
+                margin-bottom: 20px;
+                width: auto;
+
+                @media #{$medium-up} {
+                    margin-bottom: 30px;
+                    padding-left: 0;
+                    padding-right: 0;
+
+                    .teaser__content {
+                        margin: 0 75px;
+                        bottom: 30px;
+                        padding-bottom: 10px;
+                    }
+                }
+
+                .teaser__summary {
+                    display: inline;
+                }
+
+                .teaser__source {
+                    display: none;
+                }
+
+                @media #{$large-up} {
+                    .teaser__title {
+                        font-size: 18px;
+                        letter-spacing: normal;
+                        margin-bottom: 20px;
+                    }
+                    .teaser__summary {
+                        display: none;
+                    }
+                }
+            }
+
             &--polar {
 
                 img {
@@ -99,43 +135,43 @@
 
             @media #{$medium-only} {
 
-                &:nth-child(1) {
-                    padding-left: 0px;
+                &:nth-child(1):not(.teaser--hero) {
+                    padding-left: 0;
                     clear: both;
                 }
 
                 &:nth-child(n+3):nth-child(even):nth-child(-n+9) {
-                    padding-left: 0px;
+                    padding-left: 0;
                     clear: both;
                 }
 
                 &:nth-child(2) {
-                    padding-right: 0px;
+                    padding-right: 0;
                 }
 
                 &:nth-child(n+2):nth-child(odd):nth-child(-n+9) {
-                    padding-right: 0px;
+                    padding-right: 0;
                 }
             }
 
             @media #{$large-up} {
 
                 &:nth-child(2) {
-                    padding-left: 0px;
+                    padding-left: 0;
                     clear: both;
                 }
 
                 &:nth-child(n+3):nth-child(odd):nth-child(-n+9) {
-                    padding-left: 0px;
+                    padding-left: 0;
                     clear: both;
                 }
 
                 &:nth-child(4) {
-                    padding-right: 0px;
+                    padding-right: 0;
                 }
 
                 &:nth-child(n+5):nth-child(even):nth-child(-n+9) {
-                    padding-right: 0px;
+                    padding-right: 0;
                 }
 
             }

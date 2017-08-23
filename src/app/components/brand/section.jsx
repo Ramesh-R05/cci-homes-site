@@ -10,6 +10,9 @@ import List from '../section/list';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 class Section extends Component {
+
+    static displayName = 'BrandSection';
+
     static propTypes = {
         brandConfig: PropTypes.object.isRequired,
         hero: PropTypes.object,

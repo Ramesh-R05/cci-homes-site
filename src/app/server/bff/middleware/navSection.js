@@ -23,13 +23,21 @@ export default async function navSectionMiddleware(req, res, next) {
         const skip = (pageNo - 1) * pageSize;
 
         const filter = `tagsDetails/fullName eq '${sectionTag.fullName}'`;
-        const [latestTeasersResp, galleryListingResponse] = await Promise.all([
+        const heroModuleName = `${navSection.replace(/-/g, '')}hero`;
+
+        const [
+            latestTeasersResp,
+            galleryListingResponse,
+            heroResp
+        ] = await Promise.all([
             getLatestTeasers(itemsCount, skip, filter),
             // eslint-disable-next-line max-len
-            makeRequest(`${req.app.locals.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`)
+            makeRequest(`${req.app.locals.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`),
+            makeRequest(`${req.app.locals.config.services.remote.module}/${heroModuleName}`)
         ]);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
+        const heroModule = (heroResp && heroResp.data && heroResp.data[0]) || {};
 
         const list = {
             params: {
@@ -47,7 +55,11 @@ export default async function navSectionMiddleware(req, res, next) {
             entity: parseEntity(entityResponse),
             items: parseEntities(latestTeasers),
             list,
-            galleries: parseEntities(galleryListingResponse.data)
+            galleries: parseEntities(galleryListingResponse.data),
+            hero: parseEntity((
+                heroModule &&
+                heroModule.moduleManualContent &&
+                heroModule.moduleManualContent.data[0]) || {}),
         };
 
         next();

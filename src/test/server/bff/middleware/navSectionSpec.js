@@ -3,6 +3,7 @@ noCallThru();
 import entityStubData from '../../../../stubs/entity-interiors';
 import listingsStubData from '../../../../stubs/listings-food-Homes-navigation-Interiors';
 import galleryStubData from '../../../../stubs/listings-gallery';
+import heroStubData from '../../../../stubs/module-interiorshero';
 
 const makeRequestStub = () => ({tagsDetails: entityStubData.tagsDetails});
 const getLatestTeasersStub = () => listingsStubData;
@@ -41,7 +42,8 @@ const expectedBody = {
             filter: navSectionFilter
         }
     },
-    galleries: galleryStubData.data
+    galleries: galleryStubData.data,
+    hero: heroStubData.moduleManualContent.data[0]
 };
 
 const navSectionMiddleware = proxyquire('../../../../app/server/bff/middleware/navSection', {

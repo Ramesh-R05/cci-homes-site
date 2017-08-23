@@ -23,7 +23,8 @@ ComponentContext.addStore('PageStore', {
     getItems: () => articlesMock,
     getNavigationTags: () => tags,
     getList: () => articlesMock,
-    getListNextParams: () => articlesMock
+    getListNextParams: () => articlesMock,
+    getHeroItem: () => {}
 });
 
 describe(`NavigationTagSection`, () => {

@@ -3,10 +3,10 @@ var section_page = {
     //Page Elements
     sectionTitle: '.section__heading__title h1',
     sectionTopFeed: '.section__featured',
-    sectionTopFeedTeaser: '.section__featured article.teaser',
-    sectionTopFeedTeaserImg: '.section__featured article.teaser a.teaser__image',
-    sectionTopFeedTeaserTitle: '.section__featured article.teaser .teaser__title',
-    sectionTopFeedTeaserSource: '.section__featured article.teaser .teaser__source',
+    sectionTopFeedTeaser: '.section__featured article.teaser.teaser--img-top',
+    sectionTopFeedTeaserImg: '.section__featured article.teaser.teaser--img-top a.teaser__image',
+    sectionTopFeedTeaserTitle: '.section__featured article.teaser.teaser.teaser--img-top .teaser__title',
+    sectionTopFeedTeaserSource: '.section__featured article.teaser.teaser.teaser--img-top .teaser__source',
     sectionTopTeasers: '.section__featured .teaser--img-top',
 
     //Repeatable Bottom Component

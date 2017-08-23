@@ -3,11 +3,11 @@ Feature: SectionLanding page
     As a user
     I should be able to see the section landing page to show contents of that brand
 
-
     Scenario Outline: Verify a Section page on "<device>"
         When I switch to "<device>" view
         Given I am currently viewing "real-homes"
         Then I should see the section title "REAL HOMES"
+        And the top teaser is a hero article or gallery curated from the CMS
         And I should see 6 top teasers on the top feed section page
         * every top teaser image takes the user to the content page
         * every top teaser title takes the user to the content page

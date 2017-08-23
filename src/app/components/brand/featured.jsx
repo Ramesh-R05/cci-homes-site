@@ -6,6 +6,8 @@ import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
 
 export default class Featured extends Component {
 
+    static displayName = 'Featured';
+
     static propTypes = {
         hero: PropTypes.object,
         articles: PropTypes.array.isRequired,
@@ -25,22 +27,10 @@ export default class Featured extends Component {
         config: PropTypes.object.isRequired
     };
 
-    static contextTypes = {
-        config: PropTypes.object.isRequired
-    };
-
     render() {
         const { hero, articles, content, brandConfig, brand, polarTargets } = this.props;
 
         if (articles.length === 0) return null;
-
-        let subscribeImage = '';
-        let subscribeLink = '';
-
-        if (brandConfig.subscribe) {
-            subscribeImage = brandConfig.subscribe.image;
-            subscribeLink = brandConfig.subscribe.link;
-        }
 
         return (
             <section className="brand-section brand-section--top columns small-12">

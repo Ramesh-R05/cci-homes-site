@@ -22,17 +22,19 @@ export default class Section extends Component {
         inlineGalleries: PropTypes.element,
         isSideMenuOpen: PropTypes.bool,
         list: PropTypes.object.isRequired,
-        listNextParams: PropTypes.object.isRequired
+        listNextParams: PropTypes.object.isRequired,
+        hero: PropTypes.object
     };
 
     static defaultProps = {
         articles: [],
         isSideMenuOpen: false,
-        list: {}
+        list: {},
+        hero: {}
     };
 
     render() {
-        const { articles, list, content, listNextParams, isSideMenuOpen } = this.props;
+        const { articles, list, content, listNextParams, isSideMenuOpen, hero } = this.props;
         const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
         if (!articles.length) return null;
@@ -63,7 +65,7 @@ export default class Section extends Component {
             <div className={sectionClassName}>
                 <div className="container">
                     <div className="section__row">
-                        <Featured articles={articles} polarTargets={sectionTopFeed} />
+                        <Featured articles={articles} polarTargets={sectionTopFeed} hero={hero} />
                         <Rail
                           adPosition={1}
                           marginBottom={60}

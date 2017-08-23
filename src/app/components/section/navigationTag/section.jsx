@@ -11,13 +11,15 @@ class Section extends Component {
         articles: PropTypes.arrayOf(PropTypes.object).isRequired,
         content: PropTypes.object.isRequired,
         galleries: PropTypes.array,
-        isSideMenuOpen: PropTypes.bool
+        isSideMenuOpen: PropTypes.bool,
+        hero: PropTypes.object
     };
 
     static defaultProps = {
         articles: [],
         galleries: [],
-        isSideMenuOpen: false
+        isSideMenuOpen: false,
+        hero: {}
     };
 
     constructor() {
@@ -41,6 +43,7 @@ export default connectToStores(Section, ['PageStore'], (context) => {
         articles: pageStore.getItems(),
         galleries: pageStore.getModuleItems('galleries'),
         list: pageStore.getList(),
-        listNextParams: pageStore.getListNextParams()
+        listNextParams: pageStore.getListNextParams(),
+        hero: pageStore.getHeroItem()
     };
 });
