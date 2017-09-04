@@ -473,6 +473,9 @@ module.exports = function() {
 
     this.Then(/^I should see sticky top leaderboard as I scroll down and "([^"]*)" sticky bottom leaderboard once top disappears$/, function (shouldSee) {
 
+        // Refresh the page before checking the sticky ad to ensure the sticky ad is tested after the page is loaded within 5.5 seconds (2 seconds delay and 3.5 seconds sticky)
+        browser.refresh();
+
         // verify before scrolling down
         browser.scroll(0,0);
         expect(browser.isVisible(wn_ads.stickyTopBanner)).toBe(false);
