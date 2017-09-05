@@ -90,6 +90,12 @@ resources:
     seed:
       interval: "14 22 * * *"
 
+  #"14 22 * * 2" is 10:15pm Tuesday which is Wednesday morning in Sydney
+  - name: homes-weekly-trigger
+    type: time
+    seed:
+      interval: "14 22 * * 2"
+
   ####################################
   # NON PROD environment configuration
   ####################################
