@@ -132,9 +132,9 @@
   version "4.1.0"
   resolved "http://npm.digital.bauer-media.net.au/@bxm%2frecommendations/-/recommendations-4.1.0.tgz#d876ea5d5126943e9fbd252d7395f3c4405f6c22"
 
-"@bxm/server@^22.4.2":
-  version "22.4.2"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fserver/-/server-22.4.2.tgz#e4d5a0fc3a96c09cd90115fa45b63908ffc5f4b5"
+"@bxm/server@^22.7.0":
+  version "22.7.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fserver/-/server-22.7.0.tgz#f9159dc98f61a86039e412ee445b05044aec99fe"
   dependencies:
     "@bxm/flux" "^4.4.1"
     "@bxm/winston-logger" "^1.1.0"
@@ -146,6 +146,7 @@
     fluxible-addons-react "~0.2.2"
     helmet "^3.6.1"
     lodash "^3.10.0"
+    moment "^2.18.1"
     pem "^1.9.7"
     react "^0.14.8"
     react-dom "^0.14.8"
@@ -4710,7 +4711,7 @@ moment-timezone@^0.5.0:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.10.2, moment@^2.10.3, moment@^2.10.6, moment@^2.11.0, moment@^2.8.3:
+"moment@>= 2.9.0", moment@^2.10.2, moment@^2.10.3, moment@^2.10.6, moment@^2.11.0, moment@^2.18.1, moment@^2.8.3:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
