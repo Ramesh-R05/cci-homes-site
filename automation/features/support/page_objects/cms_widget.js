@@ -26,6 +26,7 @@ var cms_widget = {
     articleSource: '.content-select-menu__form-group select',
     articleTags: '.tw-bs.module.tag .tag-list__item',
     articleTagsList: '.tw-bs.module.tag ul.dropdown-menu li a',
+    propertiesCreatedAt: '.tabpageContent div:nth-child(9) .umbDateTimePicker input'
 
 };
 

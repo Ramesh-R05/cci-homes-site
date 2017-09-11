@@ -137,6 +137,10 @@ module.exports = function() {
                     browser.setValue(cms.searchAndSocialPageTitle, valuePageTitle);
                     console.log(valuePageTitle);
                     break;
+                case 'Created at':
+                    var valuePropertiesCreatedAt = '2017-01-02 08:00';
+                    browser.setValue(tabElement + cms.propertiesCreatedAt, valuePropertiesCreatedAt);
+                    break;
             }
         }
 
