@@ -110,8 +110,8 @@ jobs:
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
-  # 4b. Run mobile regression test on TEST environment - Browser Stack
-  - name: homes-site-mobile-automation-test
+  # 4b. Run compatibility regression test on TEST environment - Browser Stack
+  - name: homes-site-compabtibility-automation-test
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
@@ -131,6 +131,7 @@ jobs:
         - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: npm run test:mobile
+        - script: npm run test:browser
 
   # 5. Package release for production release
   - name: homes-site-release-master
