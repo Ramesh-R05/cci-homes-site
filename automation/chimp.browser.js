@@ -1,12 +1,14 @@
 //compose URL base on ENV variables
 var nconf = require('nconf');
 nconf.argv().env();
-var run_device = nconf.get('DEVICE');
+var run_version = nconf.get('BrowserVersion');
+var run_os = nconf.get('BrowserOs');
+var run_osversion = nconf.get('BrowserOsVersion');
 
 module.exports = {
 
     featurePath: './features/compatibility',
-    tags: '@mobile',
+    tags: '@browser',
     offline: false,
     screenshotsOnError: false,
     captureAllStepScreenshots: false,
@@ -21,10 +23,12 @@ module.exports = {
 
     webdriverio: {
         desiredCapabilities: {
-            device: run_device,
-            project: 'Homes To Love',
-            "browserstack.debug": true,
-            "realMobile" : true
+            "browser_version": run_version,
+            "os": run_os,
+            "os_version": run_osversion,
+            'resolution' : '1920x1080',
+            "browserstack.debug": true
         }
-      }
+
+    }
 };

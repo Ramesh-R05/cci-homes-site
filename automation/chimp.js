@@ -6,7 +6,7 @@ module.exports = {
     screenshotsPath: 'screenshots',
     saveScreenshotsToDisk: true,
 
-    featurePath: './features/mobile',
+    featurePath: './features/compatibility',
 
     webdriverio: {
         desiredCapabilities: {
