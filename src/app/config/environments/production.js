@@ -34,7 +34,7 @@ export default {
             entity: 'http://services.prod.bxm.internal/entity/v1/homes',
             listings: 'http://services.prod.bxm.internal/listing/v1/homes',
             module: 'http://services.prod.bxm.internal/module/v1/homes',
-            sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/homes',
+            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/homes',
             tag: 'http://services.prod.bxm.internal/tag/v1',
             keywords: 'http://live.seo-batman.services.bauer-media.internal/v1/keywords'
         },
