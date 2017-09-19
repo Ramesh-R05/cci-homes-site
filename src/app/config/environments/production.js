@@ -39,7 +39,7 @@ export default {
             keywords: 'http://live.seo-batman.services.bauer-media.internal/v1/keywords'
         },
         redirect: {
-            url: 'http://live.redirect.services.bauer-media.internal/v1/homes/301'
+            url: 'http://services.prod.bxm.internal/redirect/v1/homes/301'
         },
         seoApi: {
             batman: 'http://live.seo-batman.services.bauer-media.internal/v1/keywords'
