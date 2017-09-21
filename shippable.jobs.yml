@@ -109,7 +109,9 @@ jobs:
         - script: npm run test:high || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-
+    on_failure:
+      - NOTIFY: homes-deployment-notifications
+      
   # 4b. Run compatibility regression test on TEST environment - Browser Stack
   - name: homes-site-compabtibility-automation-test
     type: runSh
