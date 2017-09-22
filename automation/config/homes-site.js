@@ -4,7 +4,7 @@
     "reportPath": "./reports",
     "chimpPath": "./node_modules/.bin/chimp",
     "rerunPath": "./rerun",
-    "chimpConfig": "chimp.js",
+    "chimpConfig": "chimp.shippable.js",
     "offline": false,
     "tags": "@high"
 }
