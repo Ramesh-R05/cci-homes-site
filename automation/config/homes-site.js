@@ -1,10 +1,10 @@
 {
     "maxWorkers": 2,
-    "featurePath": "./features",
+    "featurePath": "./features/regression",
     "reportPath": "./reports",
     "chimpPath": "./node_modules/.bin/chimp",
+    "rerunPath": "./rerun",
     "chimpConfig": "chimp.js",
-    "browsers": "firefox, chrome",
     "offline": false,
     "tags": "@high"
 }

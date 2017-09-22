@@ -2,6 +2,7 @@
 .screenshots
 reports/*.json
 reports/*.html
+rerun/*.*
 screenshots/*.jpg
 screenshots/*.png
 cucumber.json
@@ -9,3 +10,4 @@ cucumber.json
 
 #Include
 !reports/template.html
+!rerun/rerun.log

@@ -13,16 +13,15 @@ module.exports = {
     saveScreenshotsToReport: false,
 
     // - - - - SELENIUM  - - - -
-    name: 'Homes Repo',
     user: 'bxmdeveloper1',
     key: 'QmqNpg983H2ucStjNMu9',
     port: 80,
-    host: 'hub.browserstack.com',
+    host: 'hub-cloud.browserstack.com',
 
     webdriverio: {
         desiredCapabilities: {
-            device: run_device,
-            project: 'Homes To Love',
+            "project": 'Homes Repo',
+            "device": run_device,
             "browserstack.debug": true,
             "realMobile" : true
         }
