@@ -15,6 +15,7 @@ var section_page = {
     sectionRepeatableSectionTeaserTitle: '.repeatable-component article.teaser .teaser__title',
     sectionRepeatableSectionTeaserSource: '.repeatable-component article.teaser .teaser__source',
     sectionBottomTeasers: '.repeatable-component .section__row:nth-child(1) .teaser--img-left',
+    sectionRepeatableSectionTeaserAfterLoadMore: '.repeatable-component .section__row:nth-child(2) article.teaser',
 
     //LoadMore Feed
 

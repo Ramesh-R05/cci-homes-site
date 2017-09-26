@@ -29,7 +29,7 @@ Feature: Homepage
         And I should see hero content secondary tag "SUSTAINABLE MATERIALS"
         * I should not see the homepage hero source
         When I click on the Load More button
-        Then I should see extra 12 top teasers on the loaded feed section page
+        Then I should see extra 12 teasers after loading more
     @high
     Examples:
         | device  |
@@ -50,7 +50,7 @@ Feature: Homepage
         And I should see mobile hero content secondary tag "SUSTAINABLE MATERIALS"
         * I should not see the homepage hero source
         When I click on the Load More button
-        Then I should see extra 12 top teasers on the loaded feed section page
+        Then I should see extra 12 teasers after loading more
     @high
     Examples:
         | device |

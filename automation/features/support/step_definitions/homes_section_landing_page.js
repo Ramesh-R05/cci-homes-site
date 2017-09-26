@@ -7,9 +7,9 @@ module.exports = function(){
     this.Then(/^I should see the section title "([^"]*)"$/, function (titleTxt) {
         expect(browser.getText(sectionPage.sectionTitle)).toEqual(titleTxt);
     });
-    this.Then(/^I should see (\d+) top teasers on the top feed section page$/, function (teaserCount) {
+    this.Then(/^I should see (\d+) top teasers on the feed section page$/, function (teaserCount) {
         var topTeasers = browser.getAttribute(sectionPage.sectionTopFeedTeaser,'data-reactid');
-        console.log("top "+teaserCount+" teser");
+        console.log("top "+teaserCount+" teasers");
         expect(topTeasers.length).toEqual(parseInt(teaserCount),10);
     });
     this.Then(/^every top teaser image takes the user to the content page$/, function () {
@@ -49,53 +49,52 @@ module.exports = function(){
 
 
 //    Bottom Feed
-    this.Then(/^I should see (\d+) top teasers on the bottom feed section page$/, function (teaserCount) {
-        var topTeasers = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaser,'data-reactid');
-        console.log("top "+teaserCount+" teser");
-        expect(topTeasers.length).toEqual(parseInt(teaserCount),10);
+    this.Then(/^I should see (\d+) bottom teasers on the feed section page$/, function (teaserCount) {
+        var bottomTeasers = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaser,'data-reactid');
+        console.log("bottom "+teaserCount+" teasers");
+        expect(bottomTeasers.length).toEqual(parseInt(teaserCount),10);
     });
 
     this.Then(/^every bottom teaser image takes the user to the content page$/, function () {
-        var topTeaserImgsCount = browser.elements(sectionPage.sectionRepeatableSectionTeaserImg).value.length;
-        console.log("Teaser images count: "+topTeaserImgsCount);
-        var topTeaserImgsUrl = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserImg, 'href');
-        for(var i=0; i<topTeaserImgsUrl.length; i++) {
-            expect(topTeaserImgsUrl[i]).not.toBeUndefined();
-            console.log("bottom teaser urls are: " + '\n' + topTeaserImgsUrl[i]);
+        var bottomTeaserImgsCount = browser.elements(sectionPage.sectionRepeatableSectionTeaserImg).value.length;
+        console.log("Teaser images count: "+bottomTeaserImgsCount);
+        var bottomTeaserImgsUrl = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserImg, 'href');
+        for(var i=0; i<bottomTeaserImgsUrl.length; i++) {
+            expect(bottomTeaserImgsUrl[i]).not.toBeUndefined();
+            console.log("bottom teaser urls are: " + '\n' + bottomTeaserImgsUrl[i]);
         }
     });
     this.Then(/^every bottom teaser title takes the user to the content page$/, function () {
-        var topTeaserTitles = browser.getText(sectionPage.sectionRepeatableSectionTeaserTitle);
-        console.log("Teaser Titles are: "+topTeaserTitles);
+        var bottomTeaserTitles = browser.getText(sectionPage.sectionRepeatableSectionTeaserTitle);
+        console.log("Teaser Titles are: "+bottomTeaserTitles);
 
-        var topTeaserTitlesUrls = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserTitle+' a', 'href');
-        for(var i=0; i<topTeaserTitlesUrls.length; i++) {
-            expect(topTeaserTitlesUrls[i]).not.toBeUndefined();
-            console.log("top teaser urls are: " + '\n' + topTeaserTitlesUrls[i]);
+        var bottomTeaserTitlesUrls = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserTitle+' a', 'href');
+        for(var i=0; i<bottomTeaserTitlesUrls.length; i++) {
+            expect(bottomTeaserTitlesUrls[i]).not.toBeUndefined();
+            console.log("bottom teaser urls are: " + '\n' + bottomTeaserTitlesUrls[i]);
         }
     });
     this.Then(/^every bottom teaser has a source tag$/, function () {
-        var topTeaserTags = browser.getText(sectionPage.sectionRepeatableSectionTeaserSource);
-        for(var i=0; i<topTeaserTags.length; i++) {
-            expect(topTeaserTags[i]).not.toBeUndefined();
-            console.log("top teaser Source Tags are: " + '\n' + topTeaserTags[i]);
+        var bottomTeaserTags = browser.getText(sectionPage.sectionRepeatableSectionTeaserSource);
+        for(var i=0; i<bottomTeaserTags.length; i++) {
+            expect(bottomTeaserTags[i]).not.toBeUndefined();
+            console.log("bottom teaser Source Tags are: " + '\n' + bottomTeaserTags[i]);
         }
     });
     this.Then(/^the bottom teaser tag is a link to a page with all content tagged with it$/, function () {
-        var topTeaserTagsUrls = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserSource+' a', 'href');
-        for(var i=0; i<topTeaserTagsUrls.length; i++) {
-            expect(topTeaserTagsUrls[i]).not.toBeUndefined();
-            expect(topTeaserTagsUrls[i]).toContain(world.Urls.home_page);
-            console.log("top teaser Source URLs are: " + '\n' + topTeaserTagsUrls[i]);
+        var bottomTeaserTagsUrls = browser.getAttribute(sectionPage.sectionRepeatableSectionTeaserSource+' a', 'href');
+        for(var i=0; i<bottomTeaserTagsUrls.length; i++) {
+            expect(bottomTeaserTagsUrls[i]).not.toBeUndefined();
+            expect(bottomTeaserTagsUrls[i]).toContain(world.Urls.home_page);
+            console.log("bottom teaser Source URLs are: " + '\n' + bottomTeaserTagsUrls[i]);
         }
     });
 
     //Load More content
-    this.Then(/^I should see extra (\d+) top teasers on the loaded feed section page$/, function (teaserCount) {
-        var extraTeasers = browser.elements(sectionPage.sectionRepeatableSectionTeaser).value.length;
-        console.log("extra "+extraTeasers+" teser");
-        //need to check how to improve the below validation
-        //expect(extraTeasers-6).toEqual(parseInt(teaserCount),10);
+    this.Then(/^I should see extra (\d+) teasers after loading more$/, function (teaserCount) {
+        var extraTeasers = browser.elements(sectionPage.sectionRepeatableSectionTeaserAfterLoadMore).value.length;
+
+        expect(extraTeasers).toEqual(parseInt(teaserCount),10);
     });
 
     this.Given(/^the below position top teasers are replaced with polar ads in section page$/, function (table) {

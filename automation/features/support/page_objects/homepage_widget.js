@@ -30,10 +30,10 @@ var homepage_widget = {
 
     //Top feed
     topTeasers: '.home-section--top .teaser--img-top',
-    topTeaserImgs: '.home-section--top .teaser img',
-    topTeaserTitles: '.home-section--top .teaser__title',
-    topTeaserTags: ".home-section--top .teaser__tags [class^='tag-']",
-    topTeaserTagLinks: ".home-section--top .teaser__tags [class^='tag-'] a",
+    topTeaserImgs: '.home-section--top .teaser--img-top img',
+    topTeaserTitles: '.home-section--top .teaser--img-top .teaser__title',
+    topTeaserTags: ".home-section--top .teaser--img-top .teaser__tags [class^='tag-']",
+    topTeaserTagLinks: ".home-section--top .teaser--img-top .teaser__tags [class^='tag-'] a",
 
 
     //Bottom feed

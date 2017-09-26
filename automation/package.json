@@ -23,7 +23,8 @@
     "homes:smoketest": "bash -c \"URL=http://homes-site-au.sit.bxm.net.au/ npm run smoketest\"",
     "general:live": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --tags=@live \"",
     "all:test": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@homes --tags=~@cms --tags=~@manual\"",
-    "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms --tags=~@manual\""
+    "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms --tags=~@manual\"",
+    "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU\""
   },
 
   "dependencies": {

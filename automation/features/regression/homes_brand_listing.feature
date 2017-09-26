@@ -14,7 +14,7 @@ Feature: Brand Listing page
         * I should see each teaser containing its title and clickable to open its page
         * I should see each teaser containing its tag and clickable to open its page
         When I click on the Load More button
-        Then I should see extra 12 top teasers on the loaded feed section page
+        Then I should see extra 12 teasers after loading more
     @med
         Examples:
             | Device            |
