@@ -22,8 +22,6 @@ jobs:
       - IN: homes-site-img-branch
       - IN: homes-site-opts-sit
       - TASK: managed
-    flags:
-      - homes-site
 
   # 3Branch. SIT deployment for feature BRANCH
   - name: homes-site-sit-deploy-branch
@@ -159,8 +157,6 @@ jobs:
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
       - NOTIFY: homes-deployment-notifications
-    flags:
-      - homes-site
 
   # 5. Package release for production release
   - name: homes-site-release-master
@@ -222,8 +218,6 @@ jobs:
         - script: npm run all:test || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    flags:
-      - homes-site
 
   # ii. Smoke Test in Homes Dev CMS
   - name: CMS-homes-smoke-test
@@ -246,5 +240,3 @@ jobs:
         - script: APP_KEY=homes-site npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    flags:
-      - homes-site
