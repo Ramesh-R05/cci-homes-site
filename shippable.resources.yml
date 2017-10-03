@@ -83,18 +83,18 @@ resources:
       
   #Schedule Run of automation
   # This is using Shippable timezone
-  # CRON is (14 22 * * *") this is 09:15pm every day refer to https://en.wikipedia.org/wiki/Cron
-  # will run at 7:15am Sydney time
+  # CRON is (0 19 * * *") this is 7:00pm every day refer to https://en.wikipedia.org/wiki/Cron
+  # will run at 6:00am daylight saving or 5:00am standard time in Sydney
   - name: homes-morning-trigger
     type: time
     seed:
-      interval: "14 22 * * *"
+      interval: "0 19 * * *"
 
-  #"14 22 * * 2" is 10:15pm Tuesday which is Wednesday morning in Sydney
+  #"0 19 * * 2" is 7:00pm Tuesday which is Wednesday morning in Sydney
   - name: homes-weekly-trigger
     type: time
     seed:
-      interval: "14 22 * * 2"
+      interval: "0 19 * * 2"
 
   ####################################
   # NON PROD environment configuration
