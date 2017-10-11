@@ -13,13 +13,13 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.10.0":
-  version "25.10.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.10.0.tgz#6b52fb298212500a0b56b16572cabac841964669"
+"@bxm/article@^25.16.0":
+  version "25.16.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.16.0.tgz#c2afb1b217bf6309480bfe04b8f483926c65f413"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
-    "@bxm/image-revealer" "^1.0.1"
+    "@bxm/image-revealer" "^1.1.0"
     "@bxm/markdown" "^1.1.0"
     classnames "^2.1.1"
     exenv "^1.2.0"
@@ -81,9 +81,9 @@
     reactify "^1.1.1"
     request "2.55.0"
 
-"@bxm/image-revealer@^1.0.1":
-  version "1.0.1"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fimage-revealer/-/image-revealer-1.0.1.tgz#b909c12a2d255767a53dd604e3caa52ee8365523"
+"@bxm/image-revealer@^1.1.0":
+  version "1.1.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fimage-revealer/-/image-revealer-1.1.0.tgz#82a3ebf9560798d697725d8d3532853d390bf3e3"
 
 "@bxm/image@^2.0.0":
   version "2.0.1"
