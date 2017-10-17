@@ -82,7 +82,7 @@ export default{
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Dazzling colours and eccentric panache reign in the home of design’s king of pop.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3009/hero_LGarcia_JonathanAdler_0657.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3009/hero_LGarcia_JonathanAdler_0657.jpg",
             "pageDateCreated": "2016-02-19T03:30:20.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -218,7 +218,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2993/hero_C14B9601-9772.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2993/hero_C14B9601-9772.jpg",
             "pageDateCreated": "2016-02-17T05:04:56.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -315,7 +315,7 @@ export default{
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Celebrity interior designer and TV renovation judge Darren Palmer works his magic off the screen to create a contempoary-classic family home.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2992/hero_C14B9601-9651.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2992/hero_C14B9601-9651.jpg",
             "pageDateCreated": "2016-02-17T04:41:51.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -416,7 +416,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/12/2966/Home-tour-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/12/2966/Home-tour-HERO.jpg",
             "pageDateCreated": "2016-02-12T00:23:32.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -530,7 +530,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2959/Lyle-House-01.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2959/Lyle-House-01.jpg",
             "pageDateCreated": "2016-02-11T01:18:07.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -663,7 +663,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2951/hero_hg0216-Kada01.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2951/hero_hg0216-Kada01.jpg",
             "pageDateCreated": "2016-02-10T02:53:38.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -774,7 +774,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2944/ARTICLE_HERO_hg0714JessopNSW-7988R4-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2944/ARTICLE_HERO_hg0714JessopNSW-7988R4-(2).jpg",
             "pageDateCreated": "2016-02-09T02:28:15.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -852,7 +852,7 @@ export default{
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "The family commissioned designers Ashe + Leandro to turn a cavernous loft into a warm family home.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2923/hero_watts-schreiber-manhattan-loft-06.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2923/hero_watts-schreiber-manhattan-loft-06.jpg",
             "pageDateCreated": "2016-02-04T05:35:28.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -924,7 +924,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2918/hero_C1487101-4714.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2918/hero_C1487101-4714.jpg",
             "pageDateCreated": "2016-02-03T23:23:23.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1017,7 +1017,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2905/JOADJA-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2905/JOADJA-HERO.jpg",
             "pageDateCreated": "2016-02-01T05:51:21.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1088,7 +1088,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2903/Bass-Straight-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2903/Bass-Straight-Hero.jpg",
             "pageDateCreated": "2016-02-01T05:12:59.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1156,7 +1156,7 @@ export default{
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "“Modernism released us from the constraints of everything that had gone before with a euphoric sense of freedom.” - Arthur Erickson.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2902/Modern-Marval-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2902/Modern-Marval-Hero.jpg",
             "pageDateCreated": "2016-02-01T05:08:49.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1219,7 +1219,7 @@ export default{
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Win a handy portable WD Passport Ultra hard drive in beautiful Berry for yourself or your partner this Valentine’s Day.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2901/WD_RL-comp-hero100216.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2901/WD_RL-comp-hero100216.jpg",
             "pageDateCreated": "2016-02-01T00:50:17.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1290,7 +1290,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2900/HEROOH-G_Friedrich28560.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2900/HEROOH-G_Friedrich28560.jpg",
             "pageDateCreated": "2016-02-01T00:22:09.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1372,7 +1372,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/3201/1479341507654_WhiteHouseSJB.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-23T03:00:27.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1455,7 +1455,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
             "pageDateCreated": "2016-02-29T23:02:46.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1525,7 +1525,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3032/Cottage-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3032/Cottage-HERO.jpg",
             "pageDateCreated": "2016-02-29T00:59:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1638,7 +1638,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3034/hero_HG1602_Williams_Williams_CurlCurl_06.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3034/hero_HG1602_Williams_Williams_CurlCurl_06.jpg",
             "pageDateCreated": "2016-02-25T22:24:40.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1713,7 +1713,7 @@ export default{
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Clever design makes living a breeze in these microscopic spaces.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3033/hero_17299.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3033/hero_17299.jpg",
             "pageDateCreated": "2016-02-25T05:15:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1806,7 +1806,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3032/Cottage-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3032/Cottage-HERO.jpg",
             "pageDateCreated": "2016-02-25T02:46:59.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1901,7 +1901,7 @@ export default{
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3031/Home-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3031/Home-HERO.jpg",
             "pageDateCreated": "2016-02-24T05:27:17.00Z",
             "nodeTypeAliasPath": [
                 "Page",

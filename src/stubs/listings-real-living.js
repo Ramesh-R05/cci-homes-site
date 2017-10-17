@@ -51,7 +51,7 @@ export default {
                 "kitchen news"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/13/3240/Desert.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2017-02-13T02:28:52.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -111,7 +111,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Light and casual or dark and dramatic, this hard-working fabric does double duty in chic home interiors.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/13/3212/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-12-13T04:06:46.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -180,7 +180,7 @@ export default {
                 "diy"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/07/2785/HERO_Halycon.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/07/2785/HERO_Halycon.jpg",
             "pageDateCreated": "2016-12-01T13:00:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -262,7 +262,7 @@ export default {
                 "outdoor"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/aww/2014/12/03/1447/koala.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-10-12T01:52:25.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -322,7 +322,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "short teaser goes here",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3175/Small-bathrooms-main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-08-04T06:11:13.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -419,7 +419,7 @@ export default {
                 "diy"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/03/3064/Deb-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/03/3064/Deb-HERO.jpg",
             "pageDateCreated": "2016-03-03T00:15:29.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -474,7 +474,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "After travelling and living a “gypsy life” for the past 12 months, Cassandra is excited about her return to Australian and the chance to decorate her own place.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/03/3063/Cassandr-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/03/3063/Cassandr-HERO.jpg",
             "pageDateCreated": "2016-03-02T23:34:58.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -538,7 +538,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "A Sydney Northern Beaches garden has grown into a lush piece of paradise. - JaniceTest",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3055/hero2_150520H-garden-0232.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3055/hero2_150520H-garden-0232.jpg",
             "pageDateCreated": "2016-03-01T04:39:10.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -623,7 +623,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
             "pageDateCreated": "2016-02-29T23:02:46.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -693,7 +693,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Stylist Jackie Brown on how to hide your television in plain sight.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/22/3012/TV-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/22/3012/TV-HERO.jpg",
             "pageDateCreated": "2016-02-22T00:39:38.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -771,7 +771,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Watch a fun video of how stylist Sarah Ellison put together the bedroom shoot featured on the March cover of *real living*.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3008/hero_C14B9F62-89.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3008/hero_C14B9F62-89.jpg",
             "pageDateCreated": "2016-02-19T02:07:25.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -863,7 +863,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "A flexible attitude has transformed this spatially challenged kitchen in a Sydney heritage home.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3001/hero_C14BA322-Kitchen-056.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3001/hero_C14BA322-Kitchen-056.jpg",
             "pageDateCreated": "2016-02-18T04:54:29.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -947,7 +947,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Stylist Jackie Brown shares her tips for making your rental property feel like home.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/16/2985/Renters-HERO-FINAL.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/16/2985/Renters-HERO-FINAL.jpg",
             "pageDateCreated": "2016-02-15T22:59:09.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1023,7 +1023,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "This simple beach shack on the shores of Pittwater, owned by Deb Bibby, editor-in-chief of *real living*, underwent a stunning transformation.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/15/2972/Deb-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/15/2972/Deb-Hero.jpg",
             "pageDateCreated": "2016-02-12T03:33:43.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1094,7 +1094,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Create a striking statement with a washi tape wall decal.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/15/2968/Handy-Woman-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/15/2968/Handy-Woman-Hero.jpg",
             "pageDateCreated": "2016-02-12T00:54:18.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1219,7 +1219,7 @@ export default {
                 "kitchen"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2963/hero_C14A4502-120.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2963/hero_C14A4502-120.jpg",
             "pageDateCreated": "2016-02-11T06:37:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1332,7 +1332,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2959/Lyle-House-01.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2959/Lyle-House-01.jpg",
             "pageDateCreated": "2016-02-11T01:18:07.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1408,7 +1408,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "You may not have heard of these financial tips and tricks, but they are sure to give your finances a boost. *Money Magazine*'s Effie Zahos shares her advice.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/05/2926/201405093169825794.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/05/2926/201405093169825794.jpg",
             "pageDateCreated": "2016-02-05T00:01:22.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1513,7 +1513,7 @@ export default {
                 "bedroom"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2920/hero_FashionHome_Bedroom2_main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2920/hero_FashionHome_Bedroom2_main.jpg",
             "pageDateCreated": "2016-02-04T01:13:29.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1574,7 +1574,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Win a handy portable WD Passport Ultra hard drive in beautiful Berry for yourself or your partner this Valentine’s Day.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2901/WD_RL-comp-hero100216.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2901/WD_RL-comp-hero100216.jpg",
             "pageDateCreated": "2016-02-01T00:50:17.00Z",
             "nodeTypeAliasPath": [
                 "Page",

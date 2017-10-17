@@ -38,7 +38,7 @@ export default {
             "contentVideo": "",
             "nodeTypeAlias": "HomesArticle",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/09/3210/6.JPG",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-12-08T05:04:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -120,7 +120,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "A cool, modern makeover tranforms 13-year old Emma's bedroom into a stylish retreat she can be proud of.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/13/2828/HEROOIMG_297-copy.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/13/2828/HEROOIMG_297-copy.jpg",
             "pageDateCreated": "2016-12-01T13:00:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -191,7 +191,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "A tired old kitchen is reinvented with a designer look thanks to this DIY-savvy duo.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3052/hero_Sally-Adam---after-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3052/hero_Sally-Adam---after-(2).jpg",
             "pageDateCreated": "2016-02-29T23:27:51.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -247,7 +247,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "A young couple on a strict budget gave their dingy kitchen a fresh makeover with an industrial-style edge.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3048/hero_Jack-Ali---after-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3048/hero_Jack-Ali---after-(2).jpg",
             "pageDateCreated": "2016-02-29T22:27:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -318,7 +318,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Scotty Cam shows you how to easily create a fun plant shelf for your kitchen windowsill – perfect for inside or out.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3039/HERO-2011.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3039/HERO-2011.jpg",
             "pageDateCreated": "2016-02-26T05:26:30.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -410,7 +410,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3032/Cottage-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3032/Cottage-HERO.jpg",
             "pageDateCreated": "2016-02-25T02:46:59.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -505,7 +505,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3031/Home-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3031/Home-HERO.jpg",
             "pageDateCreated": "2016-02-24T05:27:17.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -576,7 +576,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Style up your work space with this make-it-yourself timekeeper.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3030/hero_151019H-DIY-7485.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3030/hero_151019H-DIY-7485.jpg",
             "pageDateCreated": "2016-02-24T04:18:20.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -624,7 +624,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Have fun and deck out your home, kitchen and even your pets with these fabulous prizes.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/18/2984/homes-mar-16.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/18/2984/homes-mar-16.jpg",
             "pageDateCreated": "2016-02-15T22:13:16.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -771,7 +771,7 @@ export default {
                 "living"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2956/150918H-style-5332.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2956/150918H-style-5332.jpg",
             "pageDateCreated": "2016-02-10T23:07:06.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -853,7 +853,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Custom shapes and sizes mean you can make these wire baskets to fit any purpose or space.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2954/hero_151110H-DIY-3204.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2954/hero_151110H-DIY-3204.jpg",
             "pageDateCreated": "2016-02-10T04:57:08.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -946,7 +946,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "It may look tricky, but it couldn’t be simpler to take an everyday pendant light from ordinary to an original style statement. All you need is rope!",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/09/2939/hero_151020H-DIY-7746.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/09/2939/hero_151020H-DIY-7746.jpg",
             "pageDateCreated": "2016-02-08T23:14:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1002,7 +1002,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Spruce up your home with these handmade clay planters involving minimum effort for maximum impact.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/05/2929/Clay-Planters.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/05/2929/Clay-Planters.jpg",
             "pageDateCreated": "2016-02-05T03:20:22.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1075,7 +1075,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2918/hero_C1487101-4714.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2918/hero_C1487101-4714.jpg",
             "pageDateCreated": "2016-02-03T23:23:23.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1165,7 +1165,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Everything you need to consider before listing your property on a holiday rental site.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/03/2913/AirBnB-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/03/2913/AirBnB-HERO.jpg",
             "pageDateCreated": "2016-02-02T23:47:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1215,7 +1215,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Enter to win one of these fab prizes!",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2867/Homesplus_Feb_compimage.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2867/Homesplus_Feb_compimage.jpg",
             "pageDateCreated": "2016-01-25T00:38:06.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1264,7 +1264,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "With a little TLC, renovation expert Cherie Barber has made a neglected rental home fit for family living.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2866/HEROOprint_dsc_6132a-copy-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2866/HEROOprint_dsc_6132a-copy-(2).jpg",
             "pageDateCreated": "2016-01-24T23:42:14.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1376,7 +1376,7 @@ export default {
                 "outdoor"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/22/2865/Path-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/22/2865/Path-HERO.jpg",
             "pageDateCreated": "2016-01-22T03:52:19.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1452,7 +1452,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Garden expert Dale Vine shares his tips on keeping plants healthy in searing heat.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/08/04/1763/HERO_200811133250826775.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/08/04/1763/HERO_200811133250826775.jpg",
             "pageDateCreated": "2016-01-13T13:00:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1533,7 +1533,7 @@ export default {
                 "diy"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2826/HERO1201201133639063553-copy.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2826/HERO1201201133639063553-copy.jpg",
             "pageDateCreated": "2016-01-13T03:02:05.00Z",
             "nodeTypeAliasPath": [
                 "Page",

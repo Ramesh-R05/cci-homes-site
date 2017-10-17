@@ -54,7 +54,7 @@ export default {
     "pageMetaDescription": "Take a tour of stylish Australian homes and meet the people behind them including clever homemakers, talented designers and prominent creatives.",
     "pageExcludeFromSitemap": 0,
     "contentFacebookImageUrl": {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/09/29/1443492671404_HOMETOURS.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/09/29/1443492671404_HOMETOURS.jpg",
         "tags": [],
         "valid": true,
         "source": "",

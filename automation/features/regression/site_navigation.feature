@@ -2,7 +2,7 @@
 Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to be used across all devices
 
 
-    Scenario Outline: As a User I want a Navigation widget accross all my pages
+    Scenario Outline: As a User I want a Navigation widget across all my pages and see it in <device> view
         Given I switch to "<device>" view
         And I am currently viewing "<page>"
         Then I can always see the navigation at the top of the screen

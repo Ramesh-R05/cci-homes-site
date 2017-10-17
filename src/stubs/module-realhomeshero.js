@@ -61,7 +61,7 @@ export default {
                 "nodeTypeAlias": "HomesArticle",
                 "contentSummary": "*Australian House & Garden*'s rich heritage of influencing design continues with the My Ideal House competition.",
                 "contentHasVideo": false,
-                "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/22/3015/hero_00019231H_Gmp63-03.jpg",
+                "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/22/3015/hero_00019231H_Gmp63-03.jpg",
                 "pageDateCreated": "2016-01-29T13:00:00.00Z"
             }
         ]

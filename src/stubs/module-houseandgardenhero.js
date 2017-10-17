@@ -54,7 +54,7 @@ export default {
                 nodeTypeAlias: "HomesArticle",
                 contentSummary: "“Modernism released us from the constraints of everything that had gone before with a euphoric sense of freedom.” - Arthur Erickson.",
                 contentHasVideo: false,
-                contentImageUrl: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2902/Modern-Marval-Hero.jpg",
+                contentImageUrl: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2902/Modern-Marval-Hero.jpg",
                 pageDateCreated: "2016-02-01T05:08:49.00Z"
             }
         ]

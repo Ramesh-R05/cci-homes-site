@@ -68,21 +68,21 @@ Feature: Article
     * I should not see the LHR
 
     @DDO-48
-    Scenario Outline: Verify the RHR on an article page
+    Scenario Outline: Verify the RHR on an article page in <device> view
     Given I am currently viewing "automation-test-article-with-hero-image-3193"
-    When I switch to "<Device>" view
+    When I switch to "<device>" view
     * I can see 20 items in the list of items in RHR
     @high
         Examples:
-        | Device            |
+        | device            |
         | desktop           |
 
     @med
         Examples:
-        | Device            |
+        | device            |
         | tablet landscape  |
 
-    Scenario Outline: Editorial team can add social feeds to the article body
+    Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-article-with-social-embeds-3195"
         Then I can see the body Twitter embed "697199025729048577"
@@ -110,7 +110,7 @@ Feature: Article
             | tablet landscape  |
 
     # -------- Outbrain is High  ---------------#
-    Scenario Outline: Users can see Outbrain on the article page
+    Scenario Outline: Users can see Outbrain on the article page in <device> view
         When I switch to "<device>" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see the outbrain frame with "Homestolove" template
@@ -130,7 +130,7 @@ Feature: Article
     # -------- Outbrain end   ---------------#
 
 
-    Scenario Outline: Users can see the Image Revealer component on the article page
+    Scenario Outline: Users can see the Image Revealer component on the article page in <device> view
         When I switch to "<device>" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see the Image Revealer component

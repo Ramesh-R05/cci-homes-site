@@ -234,7 +234,18 @@ module.exports = function(){
             console.log(elmTitle);
             expect(elmTitle).not.toEqual('');
         }
+    });
 
+    this.When(/^I should see each load more feed item containing its image and clickable to open its page$/, function () {
+        //verify images of all teasers
+        console.log(browser.elements(home.loadMoreFeedTeaserImg).value.length);
+        var loadMoreFeedTeaserImgUrl = browser.getAttribute(home.loadMoreFeedTeaserImg,'data-srcset');
+        var loadMoreFeedTeaserImgLink = browser.getAttribute(home.loadMoreFeedTeaserImgLink,'href');
+        for (var i=0; i<loadMoreFeedTeaserImgUrl.length; i++){
+            console.log( i + ":" + loadMoreFeedTeaserImgUrl[i] + " => " + loadMoreFeedTeaserImgLink[i]);
+            expect(loadMoreFeedTeaserImgUrl[i]).not.toEqual('');
+            expect(loadMoreFeedTeaserImgLink[i]).not.toEqual('');
+        }
     });
 
 };

@@ -12,7 +12,7 @@ export default {
                     "credits": [],
                     "source": "",
                     "tags": [],
-                    "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/10/07/1444183078227_INTERIORS.jpg",
+                    "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/10/07/1444183078227_INTERIORS.jpg",
                     "valid": true
                 },
                 "contentHasVideo": false,

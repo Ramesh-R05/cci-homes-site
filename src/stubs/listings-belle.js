@@ -46,7 +46,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2017-01-20T04:27:06.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -93,7 +93,7 @@ export default {
             },
             "nodeTypeAlias": "Gallery",
             "contentHasVideo": true,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/14/3218/download.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-12-14T10:28:05.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -151,7 +151,7 @@ export default {
                 "living"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/28/3203/issue-11-FB-COV-Profile.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-28T00:40:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -198,7 +198,7 @@ export default {
                 "in focus"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/16/3197/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-11T01:17:17.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -256,7 +256,7 @@ export default {
                 "in focus"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/06/3195/1436507937628_2015040236044105611.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-10T06:29:39.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -302,7 +302,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "test Tags",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/24/3188/Christmas-home.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-01T05:42:21.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -385,7 +385,7 @@ export default {
                 "luxury home"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3186/Mid-century-style.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-10-16T23:49:15.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -430,7 +430,7 @@ export default {
             "contentVideo": "",
             "nodeTypeAlias": "HomesArticle",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/10/28/4290/scandinavian-style.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/10/28/4290/scandinavian-style.jpg",
             "pageDateCreated": "2016-08-10T00:48:45.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -477,7 +477,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "joetest home article new",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/10/31/3157/HP1610_home-kylie-_Homes-Wynnum_031-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-08-04T01:50:54.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -508,7 +508,7 @@ export default {
             "nodeTypeAlias": "Gallery",
             "contentSummary": "joe test gallery",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/aww/2014/12/03/1447/koala.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-08-02T03:32:06.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -554,7 +554,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "joe test new article 2016",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/10/31/3081/PennyDunnMiddlePark25.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-08-02T03:25:52.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -601,7 +601,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "joetest dsp 3 short teaser",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/08/02/3078/Lighthouse.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-07-11T14:00:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -648,7 +648,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Kev test article content body short teaser. Blah blah blah",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2016/06/02/11562/Untitled-5.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2016/06/02/11562/Untitled-5.jpg",
             "pageDateCreated": "2016-06-09T06:04:14.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -710,7 +710,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Theo loves tags",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/10/31/3067/Chris-Hemsworth-Thor-Art-by-PC-Designs.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-04-07T04:39:02.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -793,7 +793,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "The latest in luxury kitchen and bathroom design is inspired by luminous white.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3019/heroDH_MathouraSt_smg_221846.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3019/heroDH_MathouraSt_smg_221846.jpg",
             "pageDateCreated": "2016-02-22T05:02:48.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -885,7 +885,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Dazzling colours and eccentric panache reign in the home of design’s king of pop.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3009/hero_LGarcia_JonathanAdler_0657.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3009/hero_LGarcia_JonathanAdler_0657.jpg",
             "pageDateCreated": "2016-02-19T03:30:20.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -995,7 +995,7 @@ export default {
                 "living"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2921/Bar-trolly-hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2921/Bar-trolly-hero.jpg",
             "pageDateCreated": "2016-02-04T01:27:12.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1098,7 +1098,7 @@ export default {
                 "luxe"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2906/Vaucluse-hero-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2906/Vaucluse-hero-(1).jpg",
             "pageDateCreated": "2016-02-01T06:15:39.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1191,7 +1191,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2905/JOADJA-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2905/JOADJA-HERO.jpg",
             "pageDateCreated": "2016-02-01T05:51:21.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1262,7 +1262,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2903/Bass-Straight-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2903/Bass-Straight-Hero.jpg",
             "pageDateCreated": "2016-02-01T05:12:59.00Z",
             "nodeTypeAliasPath": [
                 "Page",

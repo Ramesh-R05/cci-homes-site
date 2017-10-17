@@ -82,7 +82,7 @@ export default {
                 nodeTypeAlias: "HomesArticle",
                 contentSummary: "Not all timber flooring is created equal. James Treble guides you through the options currently on the market.",
                 contentHasVideo: false,
-                contentImageUrl: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/08/05/1809/HERO_hg0714MurrayVIC_Armadale03R1.jpg",
+                contentImageUrl: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/08/05/1809/HERO_hg0714MurrayVIC_Armadale03R1.jpg",
                 pageDateCreated: "2015-08-31T23:00:00.00Z"
             }
         ]

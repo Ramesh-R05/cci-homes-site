@@ -3,7 +3,7 @@ export default {
     "data": [
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/09/3210/6.JPG",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "contentMonth": 12,
             "contentTitle": "Template HTL Poll",
             "contentVideo": "",
@@ -50,7 +50,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "Mornington Peninsular home",
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/3201/1479341507654_WhiteHouseSJB.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "contentMonth": 11,
             "contentSummary": "A quiet place on the Mornington Peninsula to relax and recharge has also become a source of inspiration for these creative owners.",
             "contentTags": [
@@ -132,7 +132,7 @@ export default {
         },
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3186/Mid-century-style.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "contentMonth": 10,
             "contentSummary": "Test Gallery",
             "contentTags": [
@@ -214,7 +214,7 @@ export default {
         },
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3175/Small-bathrooms-main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "contentMonth": 8,
             "contentSummary": "short teaser goes here",
             "contentTitle": "Test Top 50 Rooms Staging Link",
@@ -276,7 +276,7 @@ export default {
         {
             "contentHasVideo": true,
             "contentImageCaption": "“I make a lot of stuff, and I’m constantly making more stuff and filling the space with lots and lots of stuff,” says Jonathan.",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3009/hero_LGarcia_JonathanAdler_0657.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/19/3009/hero_LGarcia_JonathanAdler_0657.jpg",
             "contentMonth": 2,
             "contentSummary": "Dazzling colours and eccentric panache reign in the home of design’s king of pop.",
             "contentTitle": "Jonathan Adler's Greenwich Village apartment",
@@ -367,7 +367,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "Darren Palmer house",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2993/hero_C14B9601-9772.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2993/hero_C14B9601-9772.jpg",
             "contentMonth": 2,
             "contentSummary": "Celebrity interior designer and TV renovation judge Darren Palmer works his magic off the screen to create a dreamy, durable Sydney family home.",
             "contentTags": [
@@ -503,7 +503,7 @@ export default {
             "contentHasVideo": false,
             "contentImageAltText": "Darren Palmer house",
             "contentImageCaption": "The interior balances contemporary lifestyle needs with Darren’s love of classic American homes, which he says “worked perfectly with the sweetness of the house”. Photo: Maree Homer | Styling: Ashley Pratt",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2992/hero_C14B9601-9651.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2992/hero_C14B9601-9651.jpg",
             "contentMonth": 2,
             "contentSummary": "Celebrity interior designer and TV renovation judge Darren Palmer works his magic off the screen to create a contempoary-classic family home.",
             "contentTitle": "Darren Palmer's dreamy yet durable Sydney home",
@@ -601,7 +601,7 @@ export default {
         {
             "contentHasVideo": true,
             "contentImageAltText": "Naomi Watts apartment",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2923/hero_watts-schreiber-manhattan-loft-06.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/04/2923/hero_watts-schreiber-manhattan-loft-06.jpg",
             "contentMonth": 2,
             "contentSummary": "The family commissioned designers Ashe + Leandro to turn a cavernous loft into a warm family home.",
             "contentTitle": "Inside Naomi Watts and Liev Schreiber’s New York City Apartment",
@@ -680,7 +680,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "Melissa Collison transforms 50s-style Sydney duplex",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2906/Vaucluse-hero-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2906/Vaucluse-hero-(1).jpg",
             "contentMonth": 2,
             "contentSummary": "Knocking down this house and starting again seemed like the right thing to do, until the owners spent time living in the property.",
             "contentTags": [
@@ -783,7 +783,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "Harry Seidler's award winning modern marvel",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2905/JOADJA-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2905/JOADJA-HERO.jpg",
             "contentMonth": 2,
             "contentSummary": "This sculptural masterpiece remains on the cutting edge of design.",
             "contentTags": [
@@ -877,7 +877,7 @@ export default {
             "contentHasVideo": false,
             "contentImageAltText": "Modernist marvels with a contemporary flavour",
             "contentImageCaption": "Harry Seidler's award-winning modernist marvel nestled in the Southern Highlands. Photo: Richard Powers",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2902/Modern-Marval-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/01/2902/Modern-Marval-Hero.jpg",
             "contentMonth": 2,
             "contentSummary": "“Modernism released us from the constraints of everything that had gone before with a euphoric sense of freedom.” - Arthur Erickson.",
             "contentTitle": "Celebrating Australian design: amazing modernist homes",
@@ -945,7 +945,7 @@ export default {
         },
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/21/2640/hero_Nexus_Wollongara_0109FBELLE.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/21/2640/hero_Nexus_Wollongara_0109FBELLE.jpg",
             "contentMonth": 1,
             "contentSummary": "A modern design aesthetic mixes with functional form in this revamp of a '70s country home.",
             "contentTags": [
@@ -1016,7 +1016,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "interior designer's country retreat",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/11/2636/HERO_SimonCarver_006-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/11/2636/HERO_SimonCarver_006-(1).jpg",
             "contentMonth": 11,
             "contentSummary": "An 1865 miner's cottage gets the loving touch of its interior designer owner. See how high-end details beautify an already charming home.",
             "contentTags": [
@@ -1120,7 +1120,7 @@ export default {
             "contentHasVideo": false,
             "contentImageAltText": "Daylesford miner's cottage",
             "contentImageCaption": "“Finding comfort, the right pieces, and the right scale and size for a room is important,” says homeowner and interior designer Simon Carver of [Carver Design](http://www.carverdesign.com.au/?utm_campaign=supplier/|target=\"_blank\"). Photo: Derek Swalwell | Styling: Beck Simon",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/11/2622/hero_SimonCarver_005.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/11/2622/hero_SimonCarver_005.jpg",
             "contentMonth": 11,
             "contentSummary": "An interior designer’s historic retreat mixes cottage charm and high-end details with finesse.",
             "contentTitle": "Dramatic makeover for Daylesford miner's cottage",
@@ -1197,7 +1197,7 @@ export default {
             "contentHasVideo": false,
             "contentImageAltText": "luxury dining room",
             "contentImageCaption": "“The longer the design period the more special things can be,” says architect Matt Gibson who spent five years overseeing the overhaul of this Victorian house. Photo: Shannon McGrath",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/11/18/2572/2MG_AlbertPark_-smg_178942.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/11/18/2572/2MG_AlbertPark_-smg_178942.jpg",
             "contentMonth": 11,
             "contentSummary": "Putting a modern spin on a 19th-century house is not for the faint-hearted. Architect Matt Gibson stepped up to the challenge.",
             "contentTitle": "Something old, something new: one heritage home gets a beautifully modern revamp",
@@ -1253,7 +1253,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageCaption": "To modernise a double-fronted Victorian house, architect and interior designer [Matt Gibson](http://mattgibson.com.au/?utm_campaign=supplier/|target=\"_blank\") created a bold\r\nextension that marries past and present.",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2825/James-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/25/2825/James-Hero.jpg",
             "contentMonth": 11,
             "contentSummary": "Putting a modern spin on a 19th-century house is not for the faint-hearted, but architect Matt Gibson was up for the challenge.",
             "contentTitle": "Bold revision for worn-out Victorian",
@@ -1315,7 +1315,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "Art deco",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/12/18/2424/HERO1FMDHouse_FINAL0026_v0.5-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/12/18/2424/HERO1FMDHouse_FINAL0026_v0.5-(1).jpg",
             "contentMonth": 10,
             "contentSummary": "Taking this pristine 1930s house into the 21st century required a light touch but this stately home is now fit for family living.",
             "contentTags": [
@@ -1392,7 +1392,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "coastal style Sydney",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/10/20/2380/GALLERY-HERO_150204---BELLE---AVALON-HOME-9172_v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/10/20/2380/GALLERY-HERO_150204---BELLE---AVALON-HOME-9172_v0.4.jpg",
             "contentMonth": 10,
             "contentSummary": "With a pastel palette, natural materials and an easy connection with its beachfront locale, this home is a sanctuary for its owners.",
             "contentTags": [
@@ -1486,7 +1486,7 @@ export default {
             "contentHasVideo": false,
             "contentImageAltText": "Modern retro living room",
             "contentImageCaption": "“My brief for the living room was a confusing mix between New York loft style and classic with a contemporary edge,” say Vivienne. “I didn’t even know what that meant, but our interior designer Sally was able to work with it and quickly understood what we liked.”",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/30/1672/ARTICLE-HERO_ElwoodHouse-02.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/07/30/1672/ARTICLE-HERO_ElwoodHouse-02.jpg",
             "contentMonth": 10,
             "contentSummary": "A couple of expats return to Melbourne, buy a house, and engage interior designer Sally Caroline Klopper to create a high-end hotel vibe.",
             "contentTitle": "Vivienne and Max’s luxe hotel-inspired home",
@@ -1570,7 +1570,7 @@ export default {
         {
             "contentHasVideo": false,
             "contentImageAltText": "Luxury brick and steel open plan living",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/11/26/2453/HERO_be0614_Home_Inglis_02R1.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/11/26/2453/HERO_be0614_Home_Inglis_02R1.jpg",
             "contentMonth": 10,
             "contentSummary": "A sculptural facade, open-plan design and restrained palette of materials add up to a smart, spacious feel for this inner-city Melbourne home.",
             "contentTags": [

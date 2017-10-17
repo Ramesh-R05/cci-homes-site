@@ -40,7 +40,7 @@ export default {
                 nodeTypeAlias: "HomesArticle",
                 contentSummary: "A young couple on a strict budget gave their dingy kitchen a fresh makeover with an industrial-style edge.",
                 contentHasVideo: false,
-                contentImageUrl: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3048/hero_Jack-Ali---after-(2).jpg",
+                contentImageUrl: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3048/hero_Jack-Ali---after-(2).jpg",
                 pageDateCreated: "2016-02-29T22:27:50.00Z"
             }
         ]

@@ -4,7 +4,7 @@ export default{
         {
             "contentHasVideo": true,
             "contentImageCaption": "This is hero image caption Black brings a sense of drama to your home. Photo: Felix Forest",
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/24/3194/Small-bathrooms-main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "contentMonth": 11,
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentTitle": "TEST ME Article Long Title - How to get black and white decorating right Long Title Long Title EOM",
@@ -80,7 +80,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageCaption": "This is hero image caption Black brings a sense of drama to your home. Photo: Felix Forest",
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "contentMonth": 11,
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentTitle": "Article Long Title - How to get black and white decorating right Long Title Long Title EOM",
@@ -155,7 +155,7 @@ export default{
         },
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/24/3188/Christmas-home.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "contentMonth": 11,
             "contentSummary": "test Tags",
             "contentTitle": "test Tags",
@@ -202,7 +202,7 @@ export default{
         },
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3175/Small-bathrooms-main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "contentMonth": 8,
             "contentSummary": "short teaser goes here",
             "contentTitle": "Test Top 50 Rooms Staging Link",
@@ -238,7 +238,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "imaage alt",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2016/06/02/11562/Untitled-5.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2016/06/02/11562/Untitled-5.jpg",
             "contentMonth": 6,
             "contentSummary": "Kev test article content body short teaser. Blah blah blah",
             "contentTitle": "Kev test article content body lonnnngg title",
@@ -285,7 +285,7 @@ export default{
         },
         {
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/04/26/3410/Laundry-Hero-Final.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/04/26/3410/Laundry-Hero-Final.jpg",
             "contentMonth": 3,
             "contentSummary": "Check out some inspiring ways to use this revolutionary adhesive material at home.",
             "contentTags": [
@@ -367,7 +367,7 @@ export default{
             "contentHasVideo": false,
             "contentImageAltText": "living room decorating tips",
             "contentImageCaption": "Your living room can be completely refreshed by changing a few key pieces. Photo: Chris Warnes / bauersyndication.com.au \r\n",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3059/hero_201007193857568759.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3059/hero_201007193857568759.jpg",
             "contentMonth": 3,
             "contentSummary": "Four tips for transforming your home from drab to fab!",
             "contentTitle": "Easy ways to transform your living room",
@@ -408,7 +408,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "Divide and conquer: creative ways to use wall dividers",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3058/Divider-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3058/Divider-HERO.jpg",
             "contentMonth": 3,
             "contentSummary": "Get the lowdown on these fun and functional ways to make the most out of your space.",
             "contentTags": [
@@ -506,7 +506,7 @@ export default{
             "contentHasVideo": false,
             "contentImageAltText": "greg natale furniture",
             "contentImageCaption": "\"There’s an air of formality to the glamorous interior from yesteryear,\" says Greg. \"Living areas really exude sophistication when everything is in its place.\"",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3057/hero_Celebrity-home-badge.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3057/hero_Celebrity-home-badge.jpg",
             "contentMonth": 3,
             "contentSummary": "Test Famous for his sophisticated style, interior designer Greg Natale explains how to capture the elegance of a time gone by.",
             "contentTitle": "Test How to evoke old school glamour at home",
@@ -568,7 +568,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "Spotlight on architect Kerstin Thompson",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
             "contentMonth": 3,
             "contentSummary": "Architect Kerstin Thompson amps up the impact in her subtle structures with raw materials that age gracefully.",
             "contentTags": [
@@ -658,7 +658,7 @@ export default{
             "contentHasVideo": false,
             "contentImageAltText": "black kitchen designs",
             "contentImageCaption": "The couple’s biggest challenge was making the most of the small space available to them.",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3052/hero_Sally-Adam---after-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3052/hero_Sally-Adam---after-(2).jpg",
             "contentMonth": 2,
             "contentSummary": "A tired old kitchen is reinvented with a designer look thanks to this DIY-savvy duo.",
             "contentTitle": "Before & after: Stylish black kitchen transformation",
@@ -697,7 +697,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "bedhead fabric",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/29/3043/Williams_CurlCurl_02.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/29/3043/Williams_CurlCurl_02.jpg",
             "contentMonth": 2,
             "contentSummary": "If you bedroom is minus a bedhead you can hereby consider it incomplete!",
             "contentTags": [
@@ -810,7 +810,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "indoor plant ideas",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3042/GALLERY_HERO_Georgies-House-05_v0.3.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3042/GALLERY_HERO_Georgies-House-05_v0.3.jpg",
             "contentMonth": 2,
             "contentSummary": "Looking to liven up your home? These leafy looks are bound to grow on you.",
             "contentTags": [
@@ -901,7 +901,7 @@ export default{
             "url": "/10-ways-to-style-indoor-plants-3042"
         },
         {
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3038/Take-five-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3038/Take-five-HERO.jpg",
             "contentHasVideo": false,
             "contentMonth": 2,
             "contentTags": [
@@ -991,7 +991,7 @@ export default{
             "contentHasVideo": false,
             "contentImageAltText": "Colour expert Andrea Lucena-Orr on creating colour schemes",
             "contentImageCaption": "Colour expert Andrea Lucena-Orr shows you how to choose a colour scheme and make it work throughout your home. Photo: Lisa Cohen | Styling: Bree Leech & Heather Nette King for Dulux Colour Trends 2016 – Future Past palette.",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3038/Take-five-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3038/Take-five-HERO.jpg",
             "contentMonth": 2,
             "contentSummary": "Put down the paintbrush! Before you commit to anything, here's how to nail the right colour scheme in your home.",
             "contentTitle": "Take 5: Dulux's Andrea Lucena-Orr on creating the perfect colour scheme",
@@ -1027,7 +1027,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "baby nursery decor",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3037/hero_201404083249852421.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3037/hero_201404083249852421.jpg",
             "contentMonth": 2,
             "contentSummary": "Be inspired by these double-tap worthy nursery spaces brought to you by social-media savvy mums.",
             "contentTags": [
@@ -1126,7 +1126,7 @@ export default{
         {
             "contentHasVideo": true,
             "contentImageAltText": "clock DIY projects",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3030/hero_151019H-DIY-7485.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3030/hero_151019H-DIY-7485.jpg",
             "contentMonth": 2,
             "contentSummary": "Style up your work space with this make-it-yourself timekeeper.",
             "contentTitle": "Weekend project: DIY wooden clock",
@@ -1167,7 +1167,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "Soak up these beautiful bathtubs",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3029/Bathroom-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3029/Bathroom-HERO.jpg",
             "contentMonth": 2,
             "contentSummary": "Pull the plug on your boring tub and make a splash in one of these beauties.",
             "contentTags": [
@@ -1250,7 +1250,7 @@ export default{
         {
             "contentHasVideo": false,
             "contentImageAltText": "myer",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3028/hero_0950_99_003_145.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/25/3028/hero_0950_99_003_145.jpg",
             "contentMonth": 2,
             "contentSummary": "Transform your home with these stylish picks from Australia's largest department store.",
             "contentTags": [
@@ -1318,7 +1318,7 @@ export default{
             "contentHasVideo": false,
             "contentImageAltText": "How to choose a colour for your feature wall",
             "contentImageCaption": "A feature wall is a great way to bring a bold colour or interesting textures into a room without overdoing it or commiting to a limited colour scheme. Photo: Angelita Bonetti",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3027/Feature-wall-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3027/Feature-wall-HERO.jpg",
             "contentMonth": 2,
             "contentSummary": "Find out the meaning behind your favourite colours to help you decide on the perfect feature wall.",
             "contentTitle": "How to choose a colour for your feature wall",
@@ -1356,7 +1356,7 @@ export default{
             "contentHasVideo": false,
             "contentImageAltText": "styling a coffee table",
             "contentImageCaption": "For an elegant, minimal look opt for a highly-curated display of colour-coordinated accessories. Photo: Nick Scott / bauersyndication.com.au \r\n",
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3025/hero_201412102914694373.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/24/3025/hero_201412102914694373.jpg",
             "contentMonth": 2,
             "contentSummary": "A coffee table is the perfect canvas to express your personal style. Here's how to style it up!",
             "contentTitle": "Tips for standout coffee table styling",

@@ -49,7 +49,7 @@ export default
                     "siteUrl": "http://dev.now-site.bauer-media.net.au",
                     "summary": "Why did we choose that image for the May cover of The Australian Women's Weekly?",
                     "urlName": "our-royal-cover-explained",
-                    "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/AWW/2014/05/01/76081/whythatcover.jpg",
+                    "imageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/AWW/2014/05/01/76081/whythatcover.jpg",
                     "nodeType": "Article",
                     "parentId": "NOW-4232",
                     "redirect": {
@@ -106,7 +106,7 @@ export default
     "nodeTypeAlias": "Gallery",
     "contentAuthors": ["HOMES-2040"],
     "contentGallery": [{
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/19/52893/benedict.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/19/52893/benedict.jpg",
         "open": false,
         "tags": [],
         "title": "Mornington Peninsular Home.jpg",
@@ -116,7 +116,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/05/51410/resized.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/05/51410/resized.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (12).jpg",
@@ -134,7 +134,7 @@ export default
         "videoTitle": "",
         "brightcoveId": "5066382704001"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/04/51358/blake-lively.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/04/51358/blake-lively.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (3).jpg",
@@ -144,7 +144,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2016/12/05/107325/gigi-kendall-victoria-s-secret.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2016/12/05/107325/gigi-kendall-victoria-s-secret.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (8).jpg",
@@ -154,7 +154,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://assets.cougar.nineentertainment.com.au/Assets/Elle/2014/03/21/30477/montana-lead.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (11).jpg",
@@ -164,7 +164,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/22/63561/taylor-swift-clothing-line.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/22/63561/taylor-swift-clothing-line.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (16).jpg",
@@ -174,7 +174,7 @@ export default
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/15/63103/mainel0815_Brittany-06-070-FINAL.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/15/63103/mainel0815_Brittany-06-070-FINAL.jpg",
         "open": false,
         "tags": [],
         "title": "SJB - White House (20).jpg",
@@ -189,7 +189,7 @@ export default
     "pageSearchTags": ["Mornington Peninsula", "Mornington-Peninsula", "mornington-peninsula", "mornington peninsula", "Home Tours", "Home-Tours", "home-tours", "home tours", "Luxury home", "Luxury-home", "luxury-home", "luxury home", "Coastal/beach", "coastal/beach"],
     "contentCampaign": [],
     "contentHasVideo": false,
-    "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/3201/1479341507654_WhiteHouseSJB.jpg",
+    "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
     "contentProfiles": [{
         "id": "HOMES-2040",
         "url": "/contributors/nicole-england",

@@ -1,6 +1,10 @@
 var site_nav = require('../page_objects/site_navigation_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var uniheader = require('../page_objects/uniheader_widget');
+//compose URL base on ENV variables
+var nconf = require('nconf');
+nconf.argv().env();
+var site_domain = nconf.get('URL');
 
 module.exports = function() {
 
@@ -85,5 +89,15 @@ module.exports = function() {
         browser.scroll(0,1000);
         wait(500);
         expect(browser.getAttribute(site_nav.menuHeader,'class')).toContain('fade-out');
+    });
+
+    this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
+        browser.waitForExist(site_nav.smallIconlink, 3000);
+        //Validate the logo is clickable to open homepage
+        var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
+        expect(headerLogoLink).toEqual(site_domain);
+        //Validate GTM
+        var headerLogoClass = browser.getAttribute(site_nav.smallIconlink,'class');
+        expect(headerLogoClass).toContain(gtm);
     });
 };

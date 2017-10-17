@@ -51,7 +51,7 @@ export default {
                 "kitchen news"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/13/3240/Desert.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2017-02-13T02:28:52.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -111,7 +111,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Hi this is teaser",
             "contentHasVideo": true,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/13/3238/2017-02-13_13h45_43.png",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2017-02-12T23:58:02.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -166,7 +166,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2017-01-20T04:27:06.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -213,7 +213,7 @@ export default {
             },
             "nodeTypeAlias": "Gallery",
             "contentHasVideo": true,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/14/3218/download.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-12-14T10:28:05.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -273,7 +273,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Light and casual or dark and dramatic, this hard-working fabric does double duty in chic home interiors.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/13/3212/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-12-13T04:06:46.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -327,7 +327,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "test source",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/09/3211/cara-delevingne-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-12-09T00:54:16.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -373,7 +373,7 @@ export default {
             "contentVideo": "",
             "nodeTypeAlias": "HomesArticle",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/09/3210/6.JPG",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-12-08T05:04:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -442,7 +442,7 @@ export default {
                 "diy"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/07/2785/HERO_Halycon.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/07/2785/HERO_Halycon.jpg",
             "pageDateCreated": "2016-12-01T13:00:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -525,7 +525,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "A cool, modern makeover tranforms 13-year old Emma's bedroom into a stylish retreat she can be proud of.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/13/2828/HEROOIMG_297-copy.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/01/13/2828/HEROOIMG_297-copy.jpg",
             "pageDateCreated": "2016-12-01T13:00:00.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -580,7 +580,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Brand Artcile test Brand Artcile",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/30/3205/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-11-30T01:16:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -639,7 +639,7 @@ export default {
                 "living"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/28/3203/issue-11-FB-COV-Profile.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-28T00:40:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -721,7 +721,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/3201/1479341507654_WhiteHouseSJB.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-11-23T03:00:27.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -767,7 +767,7 @@ export default {
             "contentVideo": "",
             "nodeTypeAlias": "HomesArticle",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/11/3198/Koala.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-11T03:35:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -815,7 +815,7 @@ export default {
                 "in focus"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/16/3197/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-11-11T01:17:17.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -873,7 +873,7 @@ export default {
                 "in focus"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/06/3195/1436507937628_2015040236044105611.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-10T06:29:39.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -947,7 +947,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentHasVideo": true,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/24/3194/Small-bathrooms-main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-11-09T04:37:39.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1023,7 +1023,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-09T00:46:55.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1071,7 +1071,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "test Tags",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/24/3188/Christmas-home.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-01T05:42:21.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1154,7 +1154,7 @@ export default {
                 "luxury home"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3186/Mid-century-style.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2016-10-16T23:49:15.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1234,7 +1234,7 @@ export default {
                 "outdoor"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/aww/2014/12/03/1447/koala.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-10-12T01:52:25.00Z",
             "nodeTypeAliasPath": [
                 "Page",

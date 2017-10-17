@@ -23,7 +23,7 @@ export default {
     "nodeTypeAlias": "BrandSection",
     "moduleParentId": "HOMES-2115",
     "contentHasVideo": false,
-    "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/23/2115/0018667_australian-house-and-garden.jpeg",
+    "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
     "nodeDateIndexed": "2016-11-03T00:08:03.96Z",
     "pageDateCreated": "2015-09-15T02:15:17.00Z",
     "nodeTypeAliasPath": ["Page", "Sections", "Section", "BrandSection"],

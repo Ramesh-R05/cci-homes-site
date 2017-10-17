@@ -46,7 +46,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "test source",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/12/09/3211/cara-delevingne-(2).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-12-09T00:54:16.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -100,7 +100,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Brand Artcile test Brand Artcile",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/30/3205/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-30T01:16:01.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -183,7 +183,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/23/3201/1479341507654_WhiteHouseSJB.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-23T03:00:27.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -229,7 +229,7 @@ export default {
             "contentVideo": "",
             "nodeTypeAlias": "HomesArticle",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/11/3198/Koala.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-11T03:35:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -304,7 +304,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentHasVideo": true,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/24/3194/Small-bathrooms-main.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-09T04:37:39.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -380,7 +380,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/09/3193/hero_150115---rl---shopping-3-timeless-spaces-063_v0.5-(1).jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-11-09T00:46:55.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -540,7 +540,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Joe test old article",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/01/18/3076/Jellyfish.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-08-01T05:35:43.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -615,7 +615,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "At the competition launch, NSW Minister for Planning Rob Stokes spoke about the potential for My Ideal House to shape house design for the next 50 years.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/16/3065/1436507825996_140718-REALLIVING-RENATA99of286v0.4.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
             "pageDateCreated": "2016-03-03T00:53:28.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -704,7 +704,7 @@ export default {
                 "diy"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
             "pageDateCreated": "2016-03-01T04:07:50.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -818,7 +818,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3034/hero_HG1602_Williams_Williams_CurlCurl_06.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/26/3034/hero_HG1602_Williams_Williams_CurlCurl_06.jpg",
             "pageDateCreated": "2016-02-25T22:24:40.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -953,7 +953,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2993/hero_C14B9601-9772.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2993/hero_C14B9601-9772.jpg",
             "pageDateCreated": "2016-02-17T05:04:56.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1050,7 +1050,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Celebrity interior designer and TV renovation judge Darren Palmer works his magic off the screen to create a contempoary-classic family home.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2992/hero_C14B9601-9651.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2992/hero_C14B9601-9651.jpg",
             "pageDateCreated": "2016-02-17T04:41:51.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1131,7 +1131,7 @@ export default {
                 "outdoor"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2991/Garden-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2991/Garden-HERO.jpg",
             "pageDateCreated": "2016-02-17T00:02:39.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1207,7 +1207,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "When it comes to her love for plants, second-generation\r\ncacti-and-succulent-grower Kim is straight to the point.",
             "contentHasVideo": true,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2988/Succulent-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/17/2988/Succulent-Hero.jpg",
             "pageDateCreated": "2016-02-16T22:40:22.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1298,7 +1298,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "Smart storage can change your life, writes Darren Palmer, and it doesn’t need to break the budget. Here, he shares his top space-saving tips.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/15/2978/201502203420314327.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/15/2978/201502203420314327.jpg",
             "pageDateCreated": "2016-02-15T02:48:54.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1399,7 +1399,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/12/2966/Home-tour-HERO.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/12/2966/Home-tour-HERO.jpg",
             "pageDateCreated": "2016-02-12T00:23:32.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1462,7 +1462,7 @@ export default {
             "nodeTypeAlias": "HomesArticle",
             "contentSummary": "This 1950s seaside property has been completed by a garden that salutes its location and makes entertaining a breeze.",
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2961/Garden-Hero.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/11/2961/Garden-Hero.jpg",
             "pageDateCreated": "2016-02-11T05:29:27.00Z",
             "nodeTypeAliasPath": [
                 "Page",
@@ -1597,7 +1597,7 @@ export default {
                 "real homes"
             ],
             "contentHasVideo": false,
-            "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2951/hero_hg0216-Kada01.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/10/2951/hero_hg0216-Kada01.jpg",
             "pageDateCreated": "2016-02-10T02:53:38.00Z",
             "nodeTypeAliasPath": [
                 "Page",

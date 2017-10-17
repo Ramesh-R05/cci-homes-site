@@ -46,6 +46,8 @@ var homepage_widget = {
     //LoadMore Feed
     loadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left',
     stickyMobileBanner: '.home-section .sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
+    loadMoreFeedTeaserImg: '.repeatable-component div:nth-child(2) article .teaser__image img',
+    loadMoreFeedTeaserImgLink: '.repeatable-component div:nth-child(2) article .teaser__image',
 
     // RHR
     newsletterSignUpBtn: '.newsletter-subscribe__button .button--link'

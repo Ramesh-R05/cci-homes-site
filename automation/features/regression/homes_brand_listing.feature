@@ -4,8 +4,8 @@ Feature: Brand Listing page
     I should be able to see the brand listing page to show contents of that brand
 
     @DHO-130 @DHO-132 @DIGOT-74
-    Scenario Outline: Verify a brand listing page on mobile
-        When I switch to "<Device>" view
+    Scenario Outline: Verify a brand listing page in <device> view
+        When I switch to "<device>" view
         Given I am currently viewing "australian-house-and-garden"
         * I should see the brand title logo on the brand landing page
         * I should see 12 teasers on the brand listing page
@@ -17,12 +17,12 @@ Feature: Brand Listing page
         Then I should see extra 12 teasers after loading more
     @med
         Examples:
-            | Device            |
+            | device            |
             | desktop           |
             | mobile            |
     @low
         Examples:
-            | Device            |
+            | device            |
             | tablet landscape  |
             | tablet portrait   |
 

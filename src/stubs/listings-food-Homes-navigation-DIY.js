@@ -37,7 +37,7 @@ export default {
         "contentSummary": "We asked four fab florists to create their dream arrangements for a Christmas centrepiece. Here, they reveal the what, why and how…\r\n\r\nArticle from: *real living*\r\nPhotography: Nick Scott",
         "pageSearchTags": ["Tips and advice", "Tips-and-advice", "tips-and-advice", "tips and advice", "DIY & How To", "DIY-&-How-To", "diy-&-how-to", "diy & how to", "Christmas", "christmas", "Flowers", "flowers", "Vases", "vases"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/12/04/2724/HERO.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/12/04/2724/HERO.jpg",
         "pageDateCreated": "2015-12-03T23:32:19.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "Christmas floral centrepiece"
@@ -73,7 +73,7 @@ export default {
         "contentSummary": "With some imagination and everyday items, you can easily craft the perfect gift.",
         "pageSearchTags": ["Tips and advice", "Tips-and-advice", "tips-and-advice", "tips and advice", "DIY & How To", "DIY-&-How-To", "diy-&-how-to", "diy & how to", "Christmas", "christmas", "DIY gift projects", "DIY-gift-projects", "diy-gift-projects", "diy gift projects"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/11/25/2689/HERO.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/11/25/2689/HERO.jpg",
         "pageDateCreated": "2015-11-25T05:45:49.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "Kombucha gift bottles"
@@ -153,7 +153,7 @@ export default {
         "contentSummary": "Here are the basics for growing and potting orchids at home – you don't need to be an expert!",
         "pageSearchTags": ["Orchids", "orchids", "Outdoor", "outdoor", "How to", "How-to", "how-to", "how to", "Gardening 101", "Gardening-101", "gardening-101", "gardening 101", "DIY & How To", "DIY-&-How-To", "diy-&-how-to", "diy & how to"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/10/13/2313/HERO_.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/10/13/2313/HERO_.jpg",
         "pageDateCreated": "2015-10-13T06:27:10.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"]
     }]

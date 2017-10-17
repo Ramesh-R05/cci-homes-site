@@ -75,7 +75,7 @@ export default {
                 nodeTypeAlias: "HomesArticle",
                 contentSummary: "Not all renovations will add value to your home. Watch out for these common mistakes.",
                 contentHasVideo: false,
-                contentImageUrl: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/09/2936/hero_201310213788171754.jpg",
+                contentImageUrl: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/09/2936/hero_201310213788171754.jpg",
                 pageDateCreated: "2016-02-08T22:21:52.00Z"
             }
         ]

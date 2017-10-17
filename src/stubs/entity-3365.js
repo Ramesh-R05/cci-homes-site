@@ -56,7 +56,7 @@ export default {
     "nodeTypeAlias": "Gallery",
     "contentAuthors": ["HOMES-1630", "HOMES-1627", "HOMES-1421"],
     "contentGallery": [{
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651514_Frag-11.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651514_Frag-11.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-11.jpg",
@@ -66,7 +66,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651511_Frag-9.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651511_Frag-9.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-9.jpg",
@@ -76,7 +76,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651518_Frag-42.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651518_Frag-42.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-42.jpg",
@@ -86,7 +86,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651532_Frag-130.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651532_Frag-130.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-130.jpg",
@@ -96,7 +96,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651529_Frag-87.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651529_Frag-87.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-87.jpg",
@@ -106,7 +106,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651526_Frag-65.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651526_Frag-65.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-65.jpg",
@@ -116,7 +116,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651534_Frag-152.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651534_Frag-152.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-152.jpg",
@@ -126,7 +126,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651524_Frag-54.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651524_Frag-54.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-54.jpg",
@@ -136,7 +136,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651521_Frag-49.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651521_Frag-49.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-49.jpg",
@@ -146,7 +146,7 @@ export default {
         "credits": [],
         "mediaType": "image"
     }, {
-        "url": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651533_Frag-146.jpg",
+        "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/1456787651533_Frag-146.jpg",
         "open": false,
         "tags": [],
         "title": "Frag-146.jpg",
@@ -161,7 +161,7 @@ export default {
     "pageSearchTags": ["Scandinavian style", "Scandinavian-style", "scandinavian-style", "scandinavian style", "Home Tours", "Home-Tours", "home-tours", "home tours", "Feature home", "Feature-home", "feature-home", "feature home", "Contemporary", "contemporary"],
     "contentCampaign": [],
     "contentHasVideo": false,
-    "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
+    "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
     "contentProfiles": [{
         "id": "HOMES-1630",
         "url": "/contributors/natalie-walton",

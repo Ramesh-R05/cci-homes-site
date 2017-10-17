@@ -40,7 +40,7 @@ export default {
             "nodeTypeAlias": "Gallery",
             "contentSummary": "it is a teaser",
             "contentHasVideo": false,
-            "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2017/02/13/3240/Desert.jpg",
+            "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131915542_14786528301071436507825996140718-REALLIVING-RENATA99of286v0.4.jpg",
             "pageDateCreated": "2017-02-13T02:28:52.00Z",
             "contentSummaryTitle": "short title"
         }]

@@ -13,7 +13,8 @@ var site_navigation_widget = {
     siteHamburgerDetailSub: "nav.side-menu__nav__nav .header-sub-nav a",
     siteHamburgerActiveLink: "nav.side-menu__nav__nav > a.nav-item.nav-item--active",
     siteHamburgerClose: "button.side-menu__close",
-    siteHeaderBanner: ".header-banner a"
+    siteHeaderBanner: ".header-banner a",
+    smallIconlink: ".header__sections .header-logo a",
 };
 
 module.exports = site_navigation_widget;

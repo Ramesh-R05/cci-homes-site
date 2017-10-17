@@ -37,7 +37,7 @@ export default {
         "contentSummary": "Test Gallery",
         "pageSearchTags": ["Interior design", "Interior-design", "interior-design", "interior design", "My Ideal House", "My-Ideal-House", "my-ideal-house", "my ideal house", "Fabrics", "fabrics", "Luxury home", "Luxury-home", "luxury-home", "luxury home"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2016/11/01/3186/Mid-century-style.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
         "pageDateCreated": "2016-10-16T23:49:15.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"]
     }, {
@@ -72,7 +72,7 @@ export default {
         "contentSummary": "Kev test gallery short teaser",
         "pageSearchTags": ["Nicholas Hoult", "Nicholas-Hoult", "nicholas-hoult", "nicholas hoult", "Palms", "palms", "Gardening 101", "Gardening-101", "gardening-101", "gardening 101"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/aww/2014/12/03/1447/koala.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
         "pageDateCreated": "2016-10-12T01:52:25.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"]
     }, {
@@ -90,7 +90,7 @@ export default {
         "nodeTypeAlias": "Gallery",
         "contentSummary": "joe test gallery",
         "contentHasVideo": false,
-        "contentImageUrl": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/aww/2014/12/03/1447/koala.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2017/10/16/1508131321242_hero150115---rl---shopping-3-timeless-spaces-063v0.5-1.jpg",
         "pageDateCreated": "2016-08-02T03:32:06.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"]
     }, {
@@ -135,7 +135,7 @@ export default {
         "contentSummary": "Check out some inspiring ways to use this revolutionary adhesive material at home.",
         "pageSearchTags": ["Wallpaper", "wallpaper", "Interiors", "interiors", "Renovate", "renovate", "DIY", "diy", "Print", "print"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/04/26/3410/Laundry-Hero-Final.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/04/26/3410/Laundry-Hero-Final.jpg",
         "pageDateCreated": "2016-03-03T03:33:27.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"]
     }, {
@@ -180,7 +180,7 @@ export default {
         "contentSummary": "Editor-in-chief of *real living* Deb Bibby shares the highs and lows of her incredible renovation journey.",
         "pageSearchTags": ["Renovation", "renovation", "Renovate", "renovate", "Renovating 101", "Renovating-101", "renovating-101", "renovating 101", "Northern beaches", "Northern-beaches", "northern-beaches", "northern beaches", "Sydney northern beaches", "Sydney-northern-beaches", "sydney-northern-beaches", "sydney northern beaches", "Coastal/beach", "coastal/beach"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/03/3064/Deb-HERO.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/03/3064/Deb-HERO.jpg",
         "pageDateCreated": "2016-03-03T00:15:29.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "Pittwater beach shack gets a heartfelt renovation",
@@ -227,7 +227,7 @@ export default {
         "contentSummary": "Get the lowdown on these fun and functional ways to make the most out of your space.",
         "pageSearchTags": ["Room divider/ screen\"", "Room-divider/-screen\"", "room-divider/-screen\"", "room divider/ screen\"", "Interiors", "interiors", "Tips and advice", "Tips-and-advice", "tips-and-advice", "tips and advice", "Luxe", "luxe", "Contemporary", "contemporary", "Furniture projects", "Furniture-projects", "furniture-projects", "furniture projects"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3058/Divider-HERO.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/02/3058/Divider-HERO.jpg",
         "pageDateCreated": "2016-03-02T00:22:52.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "Divide and conquer: creative ways to use wall dividers"
@@ -268,7 +268,7 @@ export default {
         "contentSummary": "Architect Kerstin Thompson amps up the impact in her subtle structures with raw materials that age gracefully.",
         "pageSearchTags": ["Contemporary", "contemporary", "Interiors", "interiors", "In focus", "In-focus", "in-focus", "in focus", "Luxe", "luxe"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3054/Kerstin-Thompson.jpg",
         "pageDateCreated": "2016-03-01T04:07:50.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "Spotlight on architect Kerstin Thompson"
@@ -309,7 +309,7 @@ export default {
         "contentSummary": "“It almost merges and marries mid-century Scandi with a beachside Australian feel,” says owner Fräg Woodall.",
         "pageSearchTags": ["Scandinavian style", "Scandinavian-style", "scandinavian-style", "scandinavian style", "Home Tours", "Home-Tours", "home-tours", "home tours", "Feature home", "Feature-home", "feature-home", "feature home", "Contemporary", "contemporary"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/01/3050/Scandi-HERO.jpg",
         "pageDateCreated": "2016-02-29T23:02:46.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "Sydney apartment gets Swedish summer house makeover"
@@ -394,7 +394,7 @@ export default {
         "contentSummary": "If you bedroom is minus a bedhead you can hereby consider it incomplete!",
         "pageSearchTags": ["Bedheads\"", "bedheads\"", "Interiors", "interiors", "In focus", "In-focus", "in-focus", "in focus", "Bedrooms", "bedrooms", "Bedlinen\"", "bedlinen\"", "Master bedroom", "Master-bedroom", "master-bedroom", "master bedroom", "Guest bedroom", "Guest-bedroom", "guest-bedroom", "guest bedroom", "Girl's bedroom", "Girl's-bedroom", "girl's-bedroom", "girl's bedroom"],
         "contentHasVideo": false,
-        "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/29/3043/Williams_CurlCurl_02.jpg",
+        "contentImageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/02/29/3043/Williams_CurlCurl_02.jpg",
         "pageDateCreated": "2016-02-28T22:36:39.00Z",
         "nodeTypeAliasPath": ["Page", "Editorial", "Gallery"],
         "contentImageAltText": "bedhead fabric"
