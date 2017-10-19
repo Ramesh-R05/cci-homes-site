@@ -16,7 +16,7 @@ var cms_widget = {
     editorialBodyParagraphOption: 'option[value="0"]',
     editorialBodyHeadingOption: 'option[value="1"]',
     editorialBodyAddButton: 'button[ng-click="addComponent()"]',
-    editorialBodyParagraph: 'textarea.form-control.paragraph-editor',
+    editorialBodyParagraph: 'textarea.markdown-input',
     editorialBodyHeading: '.content-body-editor .form-control.one-half.ng-pristine.ng-valid',
     searchAndSocialPageTitle: 'div[module-id="pageTitle"] input',
     searchBox: '#umbSearchField',
