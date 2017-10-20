@@ -1,21 +1,21 @@
 module.exports = {
     //Generic config
-    screenshotsOnError: true,
+    screenshotsOnError: false,
+    //screenshotsPath: './screenshots',
     captureAllStepScreenshots: false,
-    saveScreenshotsToReport: false,
-    screenshotsPath: 'screenshots',
-    saveScreenshotsToDisk: true,
-
-    featurePath: './features/compatibility',
-
+    //saveScreenshotsToReport: false,
+    //saveScreenshotsToDisk: true,
+    jsonOutput: 'reports/regression.json',
     webdriverio: {
         desiredCapabilities: {
+            // go to https://peter.sh/experiments/chromium-command-line-switches/
             chromeOptions: {
-                args: ["--enable-automation"]
+                args: ["--enable-automation", "--allow-insecure-localhost"]
             }
         }
     },
 
+    phantom_ignoreSSLErrors: true,
 
     // - - - - SELENIUM-STANDALONE
     seleniumStandaloneOptions: {
@@ -27,12 +27,11 @@ module.exports = {
             chrome: {
                 // check for more recent versions of chrome driver here:
                 // http://chromedriver.storage.googleapis.com/index.html
-                version: '2.30',
+                version: '2.29',
                 arch: process.arch,
                 baseURL: 'https://chromedriver.storage.googleapis.com'
-                }
             }
         }
-    };
+    }
 
-
+};
