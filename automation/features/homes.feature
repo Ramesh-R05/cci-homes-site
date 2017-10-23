@@ -6,7 +6,7 @@ Feature: Smoke test for HOMES
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "http://www.homestolove.com.au/homes-newsletter/" url and "gtm-subs-homepage" gtm in "mobile" view
+        Then I should see the sign up button containing "https://www.homestolove.com.au/homes-newsletter/" url and "gtm-subs-homepage" gtm in "mobile" view
         And The homepage hero image should be clickable to open its page
         And I should see each top teaser containing its image and is clickable to open its page
         And I should see each bottom teaser containing its title and is clickable to open its page
@@ -21,11 +21,11 @@ Feature: Smoke test for HOMES
         And the top teaser is a hero article or gallery curated from the CMS
         And I should see each teaser containing its image and clickable to open its page
         Examples:
-            | page                          | link                                                                  |
-            | belle/                        | http://www.homestolove.com.au/belle-newsletter/                       |
-            | real-living/                  | http://www.homestolove.com.au/real-living-newsletter/                 |
-            | homes-plus/                   | http://www.homestolove.com.au/homes-plus-newsletter/                  |
-            | australian-house-and-garden/  | http://www.homestolove.com.au/australian-house-and-garden-newsletter/ |
+            | page                          | link                                                                   |
+            | belle/                        | https://www.homestolove.com.au/belle-newsletter/                       |
+            | real-living/                  | https://www.homestolove.com.au/real-living-newsletter/                 |
+            | homes-plus/                   | https://www.homestolove.com.au/homes-plus-newsletter/                  |
+            | australian-house-and-garden/  | https://www.homestolove.com.au/australian-house-and-garden-newsletter/ |
 
     Scenario: Verify the section landing page
         Given I switch to "mobile" view

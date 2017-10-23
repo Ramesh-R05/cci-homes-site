@@ -1,7 +1,6 @@
 import makeRequest from '../../makeRequest';
 import { parseEntity } from '../helper/parseEntity';
 
-
 export default async function pageMiddleware(req, res, next) {
     try {
         const { page, preview } = req.query;

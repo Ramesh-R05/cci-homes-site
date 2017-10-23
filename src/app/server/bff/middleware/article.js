@@ -1,7 +1,6 @@
 import getLatestTeasers from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
 
-
 export default async function articleMiddleware(req, res, next) {
     try {
         const { entity } = res.body;

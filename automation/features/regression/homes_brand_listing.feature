@@ -32,11 +32,11 @@ Feature: Brand Listing page
         When I am currently viewing "<page>"
         Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm in "mobile" view
         Examples:
-            | page                          | link                                                                  |
-            | belle/                        | http://www.homestolove.com.au/belle-newsletter/                       |
-            | real-living/                  | http://www.homestolove.com.au/real-living-newsletter/                 |
-            | homes-plus/                   | http://www.homestolove.com.au/homes-plus-newsletter/                  |
-            | australian-house-and-garden/  | http://www.homestolove.com.au/australian-house-and-garden-newsletter/ |
+            | page                          | link                                                             |
+            | belle/                        | //www.homestolove.com.au/belle-newsletter/                       |
+            | real-living/                  | //www.homestolove.com.au/real-living-newsletter/                 |
+            | homes-plus/                   | //www.homestolove.com.au/homes-plus-newsletter/                  |
+            | australian-house-and-garden/  | //www.homestolove.com.au/australian-house-and-garden-newsletter/ |
 
     Scenario Outline: Verify the sign-up URL on <page> brand landing page in <device> view
         Given I switch to "<device>" view
@@ -44,10 +44,10 @@ Feature: Brand Listing page
         Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm in "<device>" view
         @med
         Examples:
-            | device            | page         | link                                                   |
-            | desktop           | belle/       | http://www.homestolove.com.au/belle-newsletter/        |
+            | device            | page         | link                                              |
+            | desktop           | belle/       | //www.homestolove.com.au/belle-newsletter/        |
         @low
         Examples:
-            | device            | page         | link                                                   |
-            | tablet landscape  | real-living/ | http://www.homestolove.com.au/real-living-newsletter/  |
-            | tablet portrait   | homes-plus/  | http://www.homestolove.com.au/homes-plus-newsletter/   |
+            | device            | page         | link                                              |
+            | tablet landscape  | real-living/ | //www.homestolove.com.au/real-living-newsletter/  |
+            | tablet portrait   | homes-plus/  | //www.homestolove.com.au/homes-plus-newsletter/   |

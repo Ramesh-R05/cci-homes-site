@@ -2,6 +2,8 @@ var gallery = require('../page_objects/gallery_widget');
 var world = require('../world');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var findValue = require('../../../node_modules/@bxm/automation/lib/utils/findValue');
+var validateImageURL = require('../../../node_modules/@bxm/automation/lib/utils/validateImageURL');
+var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
 
 module.exports = function() {
 
@@ -16,10 +18,12 @@ module.exports = function() {
     });
 
     this.Given(/^I can see an image appearing on the gallery$/, function() {
-        browser.scroll(gallery.galleryImg);
+        // To load all elements on the page before validating
+        loadAllElements('gallery', browser);
+
         var img = browser.getAttribute(gallery.galleryImg, 'srcset');
-        console.log("IMAGE URL =" + " " + img[0]);
-        expect(img[0]).not.toEqual('');
+        console.log("IMAGE SRC =" + " " + img[0]);
+        validateImageURL(img[0]);
     });
 
     this.Given(/^I can see the source appearing on the gallery with gtm "([^"]*)"$/, function (gtm) {

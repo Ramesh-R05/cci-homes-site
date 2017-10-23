@@ -116,7 +116,7 @@ export default {
     outbrain: {
         templateId: 'Homestolove',
         widgetId: 'AR_1',
-        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
+        scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
 
     polar: {

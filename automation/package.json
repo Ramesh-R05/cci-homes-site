@@ -26,9 +26,8 @@
     "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms --tags=~@manual\"",
     "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU\""
   },
-
   "dependencies": {
-    "@bxm/automation": "4.0.3",
+    "@bxm/automation": "^4.1.0",
     "cucumber-html-report": "^0.2.8"
   }
 }

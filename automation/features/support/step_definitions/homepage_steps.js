@@ -2,6 +2,7 @@ var home = require('../page_objects/homepage_widget');
 var world = require('../world');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadMore = require('../page_objects/loadmore_widget');
+var validateImageURL = require('../../../node_modules/@bxm/automation/lib/utils/validateImageURL');
 
 module.exports = function(){
 
@@ -10,7 +11,7 @@ module.exports = function(){
     });
     this.When(/^I should see the homepage hero image$/, function () {
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'src');
-        expect(heroImgUrl).not.toBeUndefined();
+        validateImageURL(heroImgUrl);
         console.log(heroImgUrl);
     });
     this.When(/^The homepage hero image should be clickable to open its page$/, function () {
@@ -38,7 +39,7 @@ module.exports = function(){
 
     this.When(/^I should see the homepage hero containing its tag and clickable to open its page$/, function () {
         var heroTags = browser.getText(home.heroTag);
-            console.log("Hero image tags are "+heroTags.length + ": " + heroTags);
+        console.log("Hero image tags are "+heroTags.length + ": " + heroTags);
         expect(heroTags).not.toEqual('');
         });
     this.When(/^I should see (\d+) top teasers on the homepage page$/, function (number) {
@@ -51,7 +52,7 @@ module.exports = function(){
         console.log("Teaser images count: "+topTeaserImgsCount);
         var topTeaserImgsUrl = browser.getAttribute(home.topTeaserImgs, 'data-srcset');
         for(var i=0; i<topTeaserImgsUrl.length; i++){
-            expect(topTeaserImgsUrl[i]).not.toBeUndefined();
+            validateImageURL(topTeaserImgsUrl[i]);
             console.log("top 10 teaser urls are: "+'\n'+topTeaserImgsUrl[i]);
         }
     });
@@ -79,7 +80,7 @@ module.exports = function(){
         console.log("Teaser images count: "+topTeaserImgsCount);
         var topTeaserImgsUrl = browser.getAttribute(home.bottomTeaserImgs, 'data-srcset');
         for(var i=0; i<topTeaserImgsUrl.length; i++){
-            expect(topTeaserImgsUrl[i]).not.toBeUndefined();
+            validateImageURL(topTeaserImgsUrl[i]);
             console.log("top teaser urls are: "+'\n'+topTeaserImgsUrl[i]);
         }
     });
@@ -243,7 +244,7 @@ module.exports = function(){
         var loadMoreFeedTeaserImgLink = browser.getAttribute(home.loadMoreFeedTeaserImgLink,'href');
         for (var i=0; i<loadMoreFeedTeaserImgUrl.length; i++){
             console.log( i + ":" + loadMoreFeedTeaserImgUrl[i] + " => " + loadMoreFeedTeaserImgLink[i]);
-            expect(loadMoreFeedTeaserImgUrl[i]).not.toEqual('');
+            validateImageURL(loadMoreFeedTeaserImgUrl[i]);
             expect(loadMoreFeedTeaserImgLink[i]).not.toEqual('');
         }
     });

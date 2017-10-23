@@ -15,6 +15,8 @@ import sitemap from './bff/middleware/sitemap';
 import seo from './bff/middleware/seo';
 import listing from './bff/middleware/listing';
 import servicesStubs from './servicesStubs';
+import https from './bff/middleware/https';
+import assetProxy from './bff/middleware/assetProxy';
 
 export default function bff(server) {
     if (process.env.APP_STUBBED === 'true' ||
@@ -24,11 +26,13 @@ export default function bff(server) {
     ) {
         server.use('/stub', servicesStubs);
     }
+    server.get('/api/asset', assetProxy);
     server.get('/sitemap/:section?', sitemap, error);
     server.get(
         server.locals.config.services.endpoints.list,
         list,
         listing,
+        https,
         render,
         error
     );
@@ -46,6 +50,7 @@ export default function bff(server) {
         listing,
         seo,
         headerMeta,
+        https,
         render,
         error
     );
