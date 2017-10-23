@@ -151,7 +151,7 @@ jobs:
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: npm install
-        - script: export URL=http://homes-site-au.sit.bxm.net.au/
+        - script: export URL=https://www.sit.homestolove.com.au/
         - script: APP_KEY=homes-site npm run sit:au || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
