@@ -19,7 +19,8 @@ const itemLists = [
 const imageUrls = [
     'body.entity.imageUrl',
     'body.entity.imageFacebookUrl.url',
-    'data.magcover.moduleImageUrl'
+    'data.magcover.moduleImageUrl',
+    'body.hero.imageUrl'
 ];
 
 export default function https(req, res, next) {
@@ -64,6 +65,14 @@ export default function https(req, res, next) {
                     break;
                 default:
             }
+        });
+
+        get(res, 'body.entity.galleryItems', []).forEach((item) => {
+            httpsSet(item, 'url');
+        });
+
+        get(res, 'body.moreGalleries', []).forEach((item) => {
+            httpsSet(item, 'imageUrl');
         });
 
         get(res, 'body.list.items', []).forEach((item) => {
