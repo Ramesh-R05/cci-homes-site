@@ -26,7 +26,17 @@ var cms_widget = {
     articleSource: '.content-select-menu__form-group select',
     articleTags: '.tw-bs.module.tag .tag-list__item',
     articleTagsList: '.tw-bs.module.tag ul.dropdown-menu li a',
-    propertiesCreatedAt: '.tabpageContent div:nth-child(9) .umbDateTimePicker input'
+    propertiesCreatedAt: '.tabpageContent div:nth-child(9) .umbDateTimePicker input',
+    editorialSearchVideo: 'div > div:nth-child(2) > input.form-control.one-half.ng-pristine.ng-valid',
+    editorialSearchButton: 'div > div:nth-child(2) > input.btn.btn-primary',
+    galleryImageOption: '#the_media_select > option[value="1"]',
+    editorialUseVideo: 'video-uploader div > div:nth-child(n) > div >div.bordered-group > input',
+    editorialVideoAddButton: 'video-uploader > div div:nth-child(n) > div > div.bordered-group div button',
+    editorialVideoId: '.tw-bs.module.video .panel [ng-show="data.videoId"] td.ng-binding',
+    editorialAddVideoButton: 'search-videos > div > div.top-five-latest-videos.bordered-group > div:nth-child(1) > div.video-info > div.button-group > button',
+    editorialVideoThumbnail: 'div.propertyItem > div > div > div > div.preview.ng-scope > div:nth-child(2) > img',
+    editorialSecondVideoThumbnail: 'video-uploader > div > div > div.preview.ng-scope > div:nth-child(2) > img',
+    editorialBodyVideoOption: 'option[value="6"]'
 
 };
 

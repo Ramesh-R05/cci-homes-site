@@ -12,6 +12,8 @@ var idElement; //Global variable for the element of a selected item in LHR
 var page; //Global variable for the page name
 var previewUrl; //Global variable for the preview URL
 var liveUrl; //Global variable for the live URL
+var videoId; //global variable for video id
+var tabElement; //To ensure we find an element under that tab
 
 
 module.exports = function() {
@@ -27,6 +29,20 @@ module.exports = function() {
 
         //Validate the cms display
         expect(browser.waitForVisible(cms.cmsLeftSide,3000)).toBe(true);
+        expect(browser.waitForVisible(cms.cmsRightSide,3000)).toBe(true);
+    });
+
+    this.Given(/^I am logging in Prelive CMS$/, function () {
+        //To ensure smoke test is running on prelive
+        expect(world.Urls.home_page).toContain('prelive');
+
+        browser.url(world.Urls.home_page + 'Login.aspx');
+        browser.setValue(cms.loginUsername, 'admin');
+        browser.setValue(cms.loginPassword, '69CasePublicWeekDay');
+        browser.click(cms.loginButton);
+
+        //Validate the cms display
+        expect(browser.waitForVisible(cms.cmsLeftSide, 3000)).toBe(true);
         expect(browser.waitForVisible(cms.cmsRightSide,3000)).toBe(true);
     });
 
@@ -88,9 +104,15 @@ module.exports = function() {
         expect(browser.waitForVisible(cms.itemTabs,2000)).toBe(true);
     });
 
+    this.Given(/^I am currently viewing "([^"]*)" of live "([^"]*)" Page$/, function (pagename, type) {
+        page = pagename;
+        docType = type;
+        browser.url(world.Urls.home_page + page + '2898');
+        expect(browser.waitForVisible(cms.itemTabs,2000)).toBe(true);
+    });
+
     this.Then(/^I should be able to add content in the item$/, function (dataTable) {
         var row = dataTable.hashes();
-        var tabElement; //To ensure we find an element under that tab
 
         for (var i = 0; i < row.length; ++i) {
             //Click the tab and record the tab no to use in the publishing step
@@ -140,6 +162,31 @@ module.exports = function() {
                 case 'Created at':
                     var valuePropertiesCreatedAt = '2017-01-02 08:00';
                     browser.setValue(tabElement + cms.propertiesCreatedAt, valuePropertiesCreatedAt);
+                    break;
+                case 'Video':
+                    var valueSearchVideo = 'Football';
+                    browser.setValue(tabElement + cms.editorialSearchVideo, valueSearchVideo);
+                    browser.click(tabElement + cms.editorialSearchButton);
+                    browser.waitForVisible(cms.editorialAddVideoButton,5000);
+                    browser.click(cms.editorialAddVideoButton);
+                    videoId = browser.getText(cms.editorialVideoId);
+                    console.log(videoId);
+                    expect(videoId).not.toEqual('');
+                    browser.waitForVisible(cms.editorialVideoThumbnail,2000);
+                    var videoThumbnail = browser.getAttribute(tabElement + cms.editorialVideoThumbnail, 'src');
+                    console.log(videoThumbnail);
+                    expect(videoThumbnail).not.toEqual('');
+                    break;
+                case 'Body Video':
+                    browser.click(tabElement + cms.editorialBodyVideoOption);
+                    browser.click(tabElement + cms.editorialBodyAddButton);
+                    browser.waitForVisible(tabElement + cms.editorialUseVideo,2000);
+                    browser.setValue(tabElement + cms.editorialUseVideo, videoId);
+                    browser.click(tabElement + cms.editorialVideoAddButton);
+                    browser.waitForVisible(cms.editorialSecondVideoThumbnail,2000);
+                    var videoSecondThumbnail = browser.getAttribute(tabElement + cms.editorialSecondVideoThumbnail, 'src');
+                    console.log(videoSecondThumbnail);
+                    expect(videoSecondThumbnail).not.toEqual('');
                     break;
             }
         }
@@ -194,9 +241,32 @@ module.exports = function() {
 
         //Open the page again to see the publish status
         browser.url(world.Urls.home_page + page + nodeId[docType]);
-        browser.waitForVisible(propertiesTabElement[docType], 2000);
+        browser.waitForVisible(propertiesTabElement[docType], 3000);
         browser.click(propertiesTabElement[docType]);
         expect(browser.getText('#body_TabView1_tab0' + propertiesTabNo[docType] + 'layer .propertypane:nth-child(3) .propertyItem:nth-child(1) .propertyItemContent')).toContain('Last published');
+    });
+
+    this.Then(/^I should be able to publish the live item$/, function () {
+        //Validate the time before publishing
+        tabNo = cmsGoToTab('Properties', browser);
+        tabElement = '#body_TabView1_tab0' + tabNo + 'layer ';
+        var lastEdit = browser.getText('.propertypane:nth-child(3) .propertyItem:nth-child(2) .propertyItemContent');
+
+        //Click the publish button
+        browser.click('#body_TabView1_tab0' + tabNo + 'layer_publish');
+        wait(2000);
+
+        //Open the page again to see the publish status
+        browser.url(world.Urls.home_page + page + '2898');
+        tabNo = cmsGoToTab('Properties', browser);
+        tabElement = '#body_TabView1_tab0' + tabNo + 'layer ';
+        var lastEditPublish = browser.getText('.propertypane:nth-child(3) .propertyItem:nth-child(2) .propertyItemContent');
+
+        //Validate the time after publishing
+        console.log('lastEdit:' + lastEdit);
+        console.log('lastEditPublish:' + lastEditPublish);
+        expect(lastEdit).not.toBe(lastEditPublish);
+
     });
 
     this.Then(/^I should be able to see the "([^"]*)" URL$/, function (urlType) {
@@ -231,6 +301,21 @@ module.exports = function() {
         browser.waitForVisible(propertiesTabElement[docType], 2000);
         browser.click(propertiesTabElement[docType]);
         expect(browser.getText('#body_TabView1_tab0' + propertiesTabNo[docType] + 'layer .propertypane:nth-child(3) .propertyItem:nth-child(1) .propertyItemContent')).toContain('This item is not published');
+    });
+
+    this.Then(/^I should be able to see the "([^"]*)" URL of live item$/, function (urlType) {
+        switch (urlType) {
+            case 'preview':
+                previewUrl = browser.getAttribute('.document-link .propertyItem:nth-child(1) .propertyItemContent a', 'href');
+                console.log(previewUrl);
+                expect(previewUrl).toContain('/preview/');
+                break;
+            case 'live':
+                liveUrl = browser.getAttribute('.document-link .propertyItem:nth-child(2) .propertyItemContent a', 'href');
+                console.log(liveUrl);
+                expect(liveUrl).not.toContain('/preview/');
+                break;
+        }
     });
 
     this.Then(/^I should be able to find the "([^"]*)" in the LHR list$/, function (type) {
