@@ -8,12 +8,17 @@ var counter;
 fs.readdir(testFolder, (err, files) => {
     files.forEach(file => {
     const stats = fs.statSync(testFolder + file);
+
 if (stats.size > 0) {
     fileList.push(testFolder + file);
 };
 });
+
 console.log(fileList);
 counter = fileList.length;
+
+fs.createWriteStream("@rerun.txt");
+
 fileList.forEach(file => {
     counter = counter - 1;
 contents = fs.readFileSync(file, 'utf8');

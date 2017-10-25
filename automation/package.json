@@ -14,6 +14,7 @@
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
     "ghost:watch": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --watch\"",
+    "test:phantom": "URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run features",
     "features": "bash -c \"node runner.js --pMode=features\"",
     "browser": "bash -c \"node runner.js --tags=@browser\"",
     "homes:automation": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run test:high\"",
