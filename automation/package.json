@@ -14,7 +14,7 @@
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
     "ghost:watch": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --watch\"",
-    "test:phantom": "URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run features",
+    "test:phantom": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run features\"",
     "features": "bash -c \"node runner.js --pMode=features\"",
     "browser": "bash -c \"node runner.js --tags=@browser\"",
     "homes:automation": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run test:high\"",
@@ -29,7 +29,7 @@
     "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU\""
   },
   "dependencies": {
-    "@bxm/automation": "^4.1.0",
+    "@bxm/automation": "^4.2.0",
     "cucumber-html-report": "^0.2.8"
   }
 }
