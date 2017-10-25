@@ -26,7 +26,6 @@ resources:
   # MASTER Docker Image for the homes-site
   - name: homes-site-img-master
     type: image
-    integration: AWS-digital-services-ECR
     pointer:
       sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
     seed:
@@ -35,7 +34,6 @@ resources:
   # Feature BRANCH Docker Image for the homes-site
   - name: homes-site-img-branch
     type: image
-    integration: AWS-digital-services-ECR
     pointer:
       sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
     seed:
@@ -103,7 +101,7 @@ resources:
   # AWS Non Prod Cluster
   - name: homes-env-sit-ecs
     type: cluster
-    integration: AWS-digital-nonprod
+    integration: digital-nonprod-AWS
     pointer:
       sourceName : "app_ecs"
       region: "ap-southeast-2"
