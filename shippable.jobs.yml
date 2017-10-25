@@ -196,7 +196,7 @@ jobs:
   ##############################################
   
   
-  # i. Full regression in SIT Homes
+  # i. Full regression in TEST
   - name: FULL-homes-site-regression-test
     type: runSh
     always:
@@ -215,7 +215,8 @@ jobs:
         - script: npm install
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: export APP_KEY=homes-site
-        - script: npm run all:test || true
+        - script: APP_KEY=homes-site npm run test:phantom || true
+        - script: node rerun.combine.js
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
