@@ -12,7 +12,6 @@ import tag from './bff/middleware/tag';
 import campaign from './bff/middleware/campaign';
 import list from './bff/middleware/list';
 import sitemap from './bff/middleware/sitemap';
-import seo from './bff/middleware/seo';
 import listing from './bff/middleware/listing';
 import servicesStubs from './servicesStubs';
 import https from './bff/middleware/https';
@@ -48,7 +47,6 @@ export default function bff(server) {
         gallery,
         campaign,
         listing,
-        seo,
         headerMeta,
         https,
         render,

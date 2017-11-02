@@ -236,8 +236,7 @@ export default {
             listings: 'http://services.sit.bxm.internal/listing/v1/homes',
             module: 'http://services.sit.bxm.internal/module/v1/homes',
             sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/homes',
-            tag: 'http://services.sit.bxm.internal/tag/v1',
-            keywords: 'http://dev.seo-batman.services.bauer-media.internal/v1/keywords'
+            tag: 'http://services.sit.bxm.internal/tag/v1'
         },
         endpoints: {
             page: '/api/getPageContent',
@@ -251,10 +250,7 @@ export default {
             url: 'http://services.sit.bxm.internal/redirect/v1/homes/301'
         },
         googlePlusUrl: 'https://plus.google.com/+HomesToLoveAu/',
-        faceBookAppID: '852557544824192',
-        seoApi: {
-            batman: 'http://dev.seo-batman.services.bauer-media.internal/v1/keywords'
-        }
+        faceBookAppID: '852557544824192'
     },
 
     localeData: {
