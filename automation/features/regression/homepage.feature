@@ -30,14 +30,14 @@ Feature: Homepage
         * I should not see the homepage hero source
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-    @high
-    Examples:
-        | device  |
-        | desktop |
-    @low
-    Examples:
-        | device           |
-        | tablet landscape |
+        @high
+        Examples:
+            | device  |
+            | desktop |
+        @low
+        Examples:
+            | device           |
+            | tablet landscape |
 
     Scenario Outline: Verify Homes to Love homepage has a hero content on "<device>"
         Given I switch to "<device>" view
@@ -51,14 +51,14 @@ Feature: Homepage
         * I should not see the homepage hero source
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-    @high
-    Examples:
-        | device |
-        | mobile |
-    @low
-    Examples:
-        | device          |
-        | tablet portrait |
+        @med
+        Examples:
+            | device |
+            | mobile |
+        @low
+        Examples:
+            | device          |
+            | tablet portrait |
 
     Scenario Outline: Verify Home page has top featured content on "<device>"
         Given I switch to "<device>" view
@@ -67,16 +67,16 @@ Feature: Homepage
         And I should see each top teaser containing its image and is clickable to open its page
         And I should see each top teaser containing its title and is clickable to open its page
         And I should see each top teaser containing its tag and is clickable to open its page
-    @med
-    Examples:
-        | device          |
-        | mobile portrait |
-        | desktop         |
-    @low
-    Examples:
-        | device           |
-        | tablet portrait  |
-        | tablet landscape |
+        @med
+        Examples:
+            | device          |
+            | mobile portrait |
+            | desktop         |
+        @low
+        Examples:
+            | device           |
+            | tablet portrait  |
+            | tablet landscape |
 
     Scenario Outline: Verify Home page has bottom featured content on "<device>"
         Given I switch to "<device>" view
@@ -85,16 +85,16 @@ Feature: Homepage
         And I should see each bottom teaser containing its image and is clickable to open its page
         And I should see each bottom teaser containing its title and is clickable to open its page
         And I should see each bottom teaser containing its tag and is clickable to open its page
-    @med
-    Examples:
-        | device          |
-        | mobile portrait |
-        | desktop         |
-    @low
+        @med
         Examples:
-        | device           |
-        | tablet portrait  |
-        | tablet landscape |
+            | device          |
+            | mobile portrait |
+            | desktop         |
+        @low
+        Examples:
+            | device           |
+            | tablet portrait  |
+            | tablet landscape |
 
     @low
     Scenario: Users can see the latest real homes on homepage
@@ -103,5 +103,3 @@ Feature: Homepage
         Then User will be provided with 4 "LATEST REAL HOMES"
         And each image will display text and be opaque when hover
 
-
-#   MRECS and Ads are tested on --> ad.feature

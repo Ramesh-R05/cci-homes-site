@@ -1,4 +1,4 @@
-@gallery @DDO-298 @homes
+@gallery @homes
 Feature: Gallery
     As a user
     I should be able to see the gallery page
@@ -20,6 +20,7 @@ Feature: Gallery
         * I can see an image appearing on the gallery
         * I can see the image number "1" of total "8" on the gallery
         * I can see the image caption on the gallery containing "The pavilion-style renovation features"
+
     @low
     Scenario: Verify a gallery page with the optional content on mobile view
         When I switch to "mobile" view

@@ -1,24 +1,34 @@
-@homepage @homes
+@navigation @homes
 Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to be used across all devices
+    As a user
+    I should be able to see the navigation working properly
 
-
-    Scenario Outline: As a User I want a Navigation widget across all my pages and see it in <device> view
+    Scenario Outline: As a User I want a Navigation widget across all my pages and see it in <device> view (test on <page>)
         Given I switch to "<device>" view
-        And I am currently viewing "<page>"
+        And I am currently viewing "<pageURL>"
         Then I can always see the navigation at the top of the screen
-    @med
+        @med @homepage
         Examples:
-        | page                                          | device            |
-        |                                               | mobile            |
-        | automation-test-article-with-hero-image-3193  | desktop           |
-    @low
+            | page      | pageURL                                       | device            |
+            | homepage  |                                               | mobile            |
+        @med @article
         Examples:
-        | page                                          | device            |
-        | real-homes                                    | tablet landscape  |
-        | belle                                         | tablet portrait   |
-        | automation-test-gallery-3201                  | mobile portrait   |
+            | page      | pageURL                                       | device            |
+            | article   | automation-test-article-with-hero-image-3193  | desktop           |
+        @low @section
+        Examples:
+            | page      | pageURL                                       | device            |
+            | section   | real-homes                                    | tablet landscape  |
+        @low @brand
+        Examples:
+            | page      | pageURL                                       | device            |
+            | brand     | belle                                         | tablet portrait   |
+        @low @gallery
+        Examples:
+            | page      | pageURL                                       | device            |
+            | gallery   | automation-test-gallery-3201                  | mobile portrait   |
 
-    @med
+    @med @gallery
     Scenario: As a Product Owner I want all of the navigation sections to have a gtm class
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-gallery-3201"
@@ -26,13 +36,13 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And all hamburger sections have "gtm-hamburger-section"
         And the navigation homes icon has "gtm-navbar-homes"
 
-    @med
+    @med @article
     Scenario: Mobile users menu will fade out as they scroll down the page
         Given I switch to "mobile portrait" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         Then the menu fades out as I scroll down the page
 
-    @BXMS-85 @med
+    @med @article
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"

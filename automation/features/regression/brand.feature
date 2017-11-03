@@ -1,9 +1,8 @@
-@brandlisting @homes
+@brand @homes
 Feature: Brand Listing page
     As a user
     I should be able to see the brand listing page to show contents of that brand
 
-    @DHO-130 @DHO-132 @DIGOT-74
     Scenario Outline: Verify a brand listing page in <device> view
         When I switch to "<device>" view
         Given I am currently viewing "australian-house-and-garden"
@@ -15,12 +14,12 @@ Feature: Brand Listing page
         * I should see each teaser containing its tag and clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-    @med
+        @med
         Examples:
             | device            |
             | desktop           |
             | mobile            |
-    @low
+        @low
         Examples:
             | device            |
             | tablet landscape  |

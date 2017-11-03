@@ -1,9 +1,10 @@
-@ad @high @homes
+@ad @med @homes
 Feature: Ads Location
     As a user
     I should see an ad slot containing the correct class name which is the adLocation parameter in the ad call.
 
 #--Start testing in desktop view--#
+    @homepage
     Scenario: Ads slot elements should have proper class name
         Given I switch to "desktop" view
         When I am currently viewing the homepage
@@ -35,6 +36,7 @@ Feature: Ads Location
             |Polar in Load More 2|home_body_10   |
             |Polar in Load More 6|home_body_11  |
 
+    @section
     Scenario: Ads slot elements should have proper class name on navigation section page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "real-homes"
@@ -66,6 +68,7 @@ Feature: Ads Location
             |Polar in Load More 2|navigationsection_body_11   |
             |Polar in Load More 6|navigationsection_body_12   |
 
+    @tag
     Scenario: Ads slot elements should have proper class name on tag section page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "tags/luxury-home/"
@@ -97,6 +100,7 @@ Feature: Ads Location
             |Polar in Load More 2|index_body_11   |
             |Polar in Load More 6|index_body_12   |
 
+    @brand
     Scenario: Ads slot elements should have proper class name on brand page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "australian-house-and-garden"
@@ -128,6 +132,7 @@ Feature: Ads Location
             |Polar in Load More 2|brandsection_body_10   |
             |Polar in Load More 6|brandsection_body_11   |
 
+    @gallery
     Scenario: Ads slot elements should have proper class name on gallery page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-gallery-3201"
@@ -162,6 +167,7 @@ Feature: Ads Location
             |Right Side Panel   |gallery_panel_2     |
             |Wallpaper          |gallery_wallpaper_1 |
 
+    @article
     Scenario: Ads slot elements should have proper class name on article page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
@@ -193,7 +199,7 @@ Feature: Ads Location
 
 
 ##--Start testing in mobile view--#
-
+    @homepage
     Scenario: Ads slot elements should have proper class name on home page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing the homepage
@@ -222,6 +228,7 @@ Feature: Ads Location
             |Polar in Load More 2          |home_body_10   |
             |Polar in Load More 6          |home_body_11  |
 
+    @section
     Scenario: Ads slot elements should have proper class name on navigation section page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "real-homes"
@@ -250,6 +257,7 @@ Feature: Ads Location
             |Polar in Load More 2          |navigationsection_body_11   |
             |Polar in Load More 6          |navigationsection_body_12   |
 
+    @tag
     Scenario: Ads slot elements should have proper class name on tag section page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "tags/luxury-home"
@@ -278,6 +286,7 @@ Feature: Ads Location
             |Polar in Load More 2          |index_body_11  |
             |Polar in Load More 6          |index_body_12  |
 
+    @brand
     Scenario: Ads slot elements should have proper class name on brand page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "australian-house-and-garden"
@@ -306,6 +315,7 @@ Feature: Ads Location
             |Polar in Load More 2|brandsection_body_10   |
             |Polar in Load More 6|brandsection_body_11   |
 
+    @gallery
     Scenario: Ads slot elements should have proper class name on gallery page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-gallery-3201"
@@ -328,6 +338,7 @@ Feature: Ads Location
             |Polar in Related Content In Body       |gallery_body_2 |
             |Polar in Related Content After Slide 7 |gallery_body_5 |
 
+    @article
     Scenario: Ads slot elements should have proper class name on article page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"

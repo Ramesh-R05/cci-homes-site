@@ -20,8 +20,7 @@ Feature: Article
         * I can see the body tips "body tips body tips EOM"
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
-
-    @DAW-1125 @low
+    @low
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "automation-test-article-with-hero-video-3194"
@@ -34,7 +33,6 @@ Feature: Article
         * I can see the body image caption "This is inline image caption"
         * I can see the body gallery
         * I can see the body video
-
 
     @med
     Scenario: Verify an article page which contains a hero image on desktop
@@ -53,35 +51,32 @@ Feature: Article
         * I can see the body tips "body tips body tips EOM"
         * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
 
-
-    @DDO-160 @DDO-48 @low
+    @low
     Scenario: Verify an hero image caption and LHR on different screen sizes
-    Given I am currently viewing "automation-test-article-with-hero-image-3193"
-    When I switch to "desktop" view
-    * I can see the hero image
-    * I should not see the hero image caption
-    * I can see the LHR
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        When I switch to "desktop" view
+        * I can see the hero image
+        * I should not see the hero image caption
+        * I can see the LHR
+        When I switch to "mobile" view
+        * I can see the hero image
+        * I should not see the hero image caption
+        * I should not see the LHR
 
-    When I switch to "mobile" view
-    * I can see the hero image
-    * I should not see the hero image caption
-    * I should not see the LHR
-
-    @DDO-48
     Scenario Outline: Verify the RHR on an article page in <device> view
-    Given I am currently viewing "automation-test-article-with-hero-image-3193"
-    When I switch to "<device>" view
-    * I can see 20 items in the list of items in RHR
-    @high
+        Given I am currently viewing "automation-test-article-with-hero-image-3193"
+        When I switch to "<device>" view
+        * I can see 20 items in the list of items in RHR
+        @high
         Examples:
-        | device            |
-        | desktop           |
+            | device            |
+            | desktop           |
+        @med
+            Examples:
+            | device            |
+            | tablet landscape  |
 
     @med
-        Examples:
-        | device            |
-        | tablet landscape  |
-
     Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-article-with-social-embeds-3195"
@@ -94,18 +89,11 @@ Feature: Article
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the body Whooshka embed "https://www.whooshkaa.com/player/episode/id/90704?visual=true"
         * I can see the body Wirewax embed "http://embed.wirewax.com/8037657/ff0044/"
-
-    @high
+        @med
         Examples:
             | device            |
             | mobile            |
-    @med
-        Examples:
-            | device            |
             | desktop           |
-    @med
-        Examples:
-            | device            |
             | tablet portrait   |
             | tablet landscape  |
 
@@ -114,35 +102,31 @@ Feature: Article
         When I switch to "<device>" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see the outbrain frame with "Homestolove" template
-    @high
+        @high
         Examples:
             | device            |
             | mobile            |
-    @med
+        @med
         Examples:
             | device            |
             | desktop           |
-    @low
+        @low
         Examples:
             | device            |
             | tablet portrait   |
             | tablet landscape  |
     # -------- Outbrain end   ---------------#
 
-
     Scenario Outline: Users can see the Image Revealer component on the article page in <device> view
         When I switch to "<device>" view
         Given I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see the Image Revealer component
-    @high
+        @med
         Examples:
             | device            |
             | mobile            |
-    @med
-        Examples:
-            | device            |
             | desktop           |
-    @low
+        @low
         Examples:
             | device            |
             | tablet portrait   |

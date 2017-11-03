@@ -1,5 +1,5 @@
-@landingpage @homes
-Feature: SectionLanding page
+@section @homes
+Feature: Section Landing page (Navigation Section)
     As a user
     I should be able to see the section landing page to show contents of that brand
 
@@ -20,15 +20,15 @@ Feature: SectionLanding page
         And the bottom teaser tag is a link to a page with all content tagged with it
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-    @high
+        @high
         Examples:
             | device    |
             | mobile    |
-    @med
+        @med
         Examples:
             | device    |
             | desktop   |
-    @low
+        @low
         Examples:
             | device           |
             | tablet portrait  |
