@@ -13,20 +13,17 @@ module.exports = function() {
 
     this.When(/^I should see (\d+) teasers on the brand listing page$/, function (number) {
         //verify the number of teasers
-        var brandArticle = browser.getAttribute(brand_listing.brandArticle, 'src');
-        expect(brandArticle.length).toEqual(parseInt(number,10));
+        var brandArticle = browser.elements(brand_listing.brandArticle);
+        expect((brandArticle.value.length).toString()).toEqual(number);
     });
 
     this.When(/^I should see each teaser containing its image and clickable to open its page$/, function () {
         //verify images of all teasers
         var brandArticleImgUrl = browser.getAttribute(brand_listing.brandArticleImg,'data-srcset');
-        console.log(brandArticleImgUrl.length);
         var brandArticleImgLink = browser.getAttribute(brand_listing.brandArticleImgLink,'href');
-        for (var i=0; i<brandArticleImgUrl.length; i++){
-            expect(brandArticleImgUrl[i]).not.toEqual('');
-            expect(brandArticleImgLink[i]).not.toEqual('');
-            console.log( i + ":" + brandArticleImgUrl[i] + " => " + brandArticleImgLink[i]);
-        }
+        console.log(brandArticleImgUrl + " => " + brandArticleImgLink);
+        expect(brandArticleImgUrl).not.toEqual('');
+        expect(brandArticleImgLink).not.toEqual('');
     });
 
     this.When(/^I should see each teaser containing its title and clickable to open its page$/, function () {
@@ -41,26 +38,20 @@ module.exports = function() {
 
         //verify titles of all teasers
         var brandArticleTitle = browser.getText(brand_listing.brandArticleTitle);
-        console.log(brandArticleTitle.length);
         var brandArticleTitleLink = browser.getAttribute(brand_listing.brandArticleTitle,'href');
-        for (var i=0; i<brandArticleTitle.length; i++){
-            console.log( i + ":" + brandArticleTitle[i] + " => " + brandArticleTitleLink[i]);
-            expect(brandArticleTitle[i]).not.toEqual('');
-            expect(brandArticleTitleLink[i]).not.toEqual('');
-        }
+        console.log(brandArticleTitle + " => " + brandArticleTitleLink);
+        expect(brandArticleTitle).not.toEqual('');
+        expect(brandArticleTitleLink).not.toEqual('');
     });
 
     this.When(/^I should see each teaser containing its tag and clickable to open its page$/, function () {
         //verify tags of all teasers
         var brandArticleTag = browser.getText(brand_listing.brandArticleTag);
-        console.log(brandArticleTag.length);
         var brandArticlePrimaryTagLink = browser.getAttribute(brand_listing.brandArticlePrimaryTagLink,'href');
         var brandArticleSecondaryTagLink = browser.getAttribute(brand_listing.brandArticleSecondaryTagLink,'href');
-        for (var i=0; i<brandArticleTag.length; i++){
-            expect(brandArticleTag[i]).not.toEqual('');
-            expect(brandArticlePrimaryTagLink[i]).not.toEqual('');
-            console.log( i + ":" + brandArticleTag[i] + " => " + brandArticlePrimaryTagLink[i] + ", " + brandArticleSecondaryTagLink[i]);
-        }
+        console.log(brandArticleTag + " => " + brandArticlePrimaryTagLink + ", " + brandArticleSecondaryTagLink);
+        expect(brandArticleTag).not.toEqual('');
+        expect(brandArticlePrimaryTagLink).not.toEqual('');
     });
 
     this.When(/^I should see the brand subscribe teaser "([^"]*)" the main hero and clickable to open its page$/, function (position) {
