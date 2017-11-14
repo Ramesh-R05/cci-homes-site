@@ -12,14 +12,15 @@ Feature: Smoke test for HOMES
         And I should see each bottom teaser containing its title and is clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-        And I should see each load more feed item containing its image and clickable to open its page
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario Outline: Verify the <page> brand landing page
         Given I switch to "mobile" view
         When I am currently viewing "<page>"
         Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm in "mobile" view
         And the top teaser is a hero article or gallery curated from the CMS
-        And I should see each teaser containing its image and clickable to open its page
+        And I should see each top teaser containing its image and is clickable to open its page
+        And I should see each bottom teaser containing its title and is clickable to open its page
         Examples:
             | page                          | link                                                                   |
             | belle/                        | https://www.homestolove.com.au/belle-newsletter/                       |
@@ -35,7 +36,7 @@ Feature: Smoke test for HOMES
         Then I should see 6 bottom teasers on the feed section page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-        And I should see each load more feed item containing its image and clickable to open its page
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: Verify the tag landing page
         Given I switch to "mobile" view
@@ -44,7 +45,7 @@ Feature: Smoke test for HOMES
         Then I should see 6 bottom teasers on the feed section page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
-        And I should see each load more feed item containing its image and clickable to open its page
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: Verify the article page
         Given Emily just published the "article" doc type item

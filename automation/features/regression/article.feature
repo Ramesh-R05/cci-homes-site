@@ -64,9 +64,14 @@ Feature: Article
         * I should not see the LHR
 
     Scenario Outline: Verify the RHR on an article page in <device> view
-        Given I am currently viewing "automation-test-article-with-hero-image-3193"
-        When I switch to "<device>" view
+        Given I switch to "<device>" view
+        When I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see 20 items in the list of items in RHR
+        * I can see the 20 images of each item in RHR
+        * Image in RHR is clickable to open its page
+        * I can see the long title of an item in RHR
+        * Long title in RHR is clickable to open its page
+        * I can see an item in RHR containing source
         @high
         Examples:
             | device            |

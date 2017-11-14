@@ -7,26 +7,37 @@ var site_domain = nconf.get('APP_KEY');
 module.exports = function() {
 
     this.When(/^I can see (\d+) items in the list of items in RHR$/, function (count) {
-        wait(5000);
-        // Verifying 20 images, clickable and long title available and clickable
         var feedList = browser.elements(wn_article.lhrFeedItems);
         expect((feedList.value.length).toString()).toEqual(count);
-        var feedImages = browser.elements(wn_article.lhrFeedImgs);
-        expect((feedImages.value.length).toString()).toEqual(count);
-        var feedImagesUrls = browser.getAttribute(wn_article.lhrFeedImgs, 'href');
-        for (var i = 0; i < count; ++i) {
-            var indFeedImgUrl = feedImagesUrls[i];
-            var feedTitles = browser.getText(wn_article.lhrFeedTitles);
-            var title = feedTitles[i];
-            var feedTitlesUrls = browser.getAttribute(wn_article.lhrFeedTitles, 'href');
-            var titleUrl = feedTitlesUrls[i];
-            console.log(i + ': teaser url is :' + indFeedImgUrl);
-            expect(indFeedImgUrl === '').toBe(false);
-            expect(title === '').toBe(false);
-            expect(titleUrl === '').toBe(false);
-            expect(titleUrl === null).toBe(false);}
     });
 
+    this.When(/^I can see the (\d+) images of each item in RHR$/, function (count) {
+        var feedImages = browser.elements(wn_article.lhrFeedImgs);
+        expect((feedImages.value.length).toString()).toEqual(count);
+    });
+
+    this.When(/^Image in RHR is clickable to open its page$/, function () {
+        var feedImageUrl = browser.getAttribute(wn_article.lhrFeedOneImg, 'href');
+        expect(feedImageUrl === '').toBe(false);
+    });
+
+    this.When(/^I can see the long title of an item in RHR$/, function () {
+        var feedTitle = browser.getText(wn_article.lhrFeedOneTitle);
+        expect(feedTitle === '').toBe(false);
+    });
+
+    this.When(/^Long title in RHR is clickable to open its page$/, function () {
+        var feedTitleUrl = browser.getAttribute(wn_article.lhrFeedOneTitle, 'href');
+        expect(feedTitleUrl === '').toBe(false);
+        expect(feedTitleUrl === null).toBe(false);
+    });
+
+    this.When(/^I can see an item in RHR containing source$/, function () {
+        //verify sources of one RHR items
+        var feedSource = browser.getText(wn_article.lhrFeedOneSource);
+        //validate the source
+        expect(feedSource).not.toEqual('');
+    });
 
     this.When(/^I can see the hero image$/, function () {
         browser.scroll(wn_article.heroImg);
