@@ -72,10 +72,10 @@ module.exports = function() {
         expect(galleryDescription).toContain(description);
     });
 
-    this.Given(/^I can see the image number "([^"]*)" of total "([^"]*)" on the gallery$/, function(num, total) {
-        var imageCount = browser.getText(gallery.imageCount);
-        expect(imageCount[0]).toEqual(num + " / " + total);
-        console.log(imageCount[0]);
+    this.Given(/^I can see the image number "([^"]*)" on the gallery$/, function(num) {
+        var imageCountIndex = browser.getText('.gallery__feed-item:nth-child(' + num +') .gallery__item-index');
+        console.log(imageCountIndex);
+        expect(imageCountIndex).toEqual(num);
     });
 
     this.Given(/^I can see the image caption on the gallery containing "([^"]*)"$/, function(caption) {

@@ -30,7 +30,7 @@
     "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU\""
   },
   "dependencies": {
-    "@bxm/automation": "^4.2.0",
+    "@bxm/automation": "^4.4.0",
     "cucumber-html-report": "^0.2.8"
   }
 }
