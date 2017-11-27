@@ -51,7 +51,6 @@ module.exports = function() {
     });
     this.Given(/^I can see the image alt text in the hero image element "([^"]*)"$/, function (altText) {
         var imgaltText = browser.getAttribute(wn_article.heroImg, 'alt');
-        console.log(imgaltText);
         expect(imgaltText).toMatch(altText);
     });
     this.When(/^I should not see the hero image caption$/, function () {
@@ -173,13 +172,11 @@ module.exports = function() {
     });
     this.Given(/^I can see the body competition$/, function () {
         var competiton = browser.getAttribute(wn_article.Bodycomp,'src');
-        console.log(competiton);
         expect(competiton).toMatch("engagesciences");
     });
     this.Given(/^I can see the body Twitter embed "([^"]*)"$/, function (twitterId) {
         browser.waitForVisible(wn_article.twitterEmb1, 3000);
         var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
-        console.log(twitEmbed);
         expect(twitEmbed).toEqual(twitterId);
        });
     this.Given(/^I can see the body Instagram embed with caption "([^"]*)"$/, function (instagramSrc) {
@@ -194,35 +191,34 @@ module.exports = function() {
     this.Given(/^I can see the body Facebook embed "([^"]*)"$/, function (facebookUrl) {
         browser.waitForVisible(wn_article.facebookEmb1, 3000);
         var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
-        console.log(facebookEmbed);
         expect(facebookEmbed).toEqual(facebookUrl);
     });
     this.Given(/^I can see the body Playbuzz embed "([^"]*)"$/, function (playbuzzUrl) {
         var playbuzzEmbed = browser.getAttribute(wn_article.playbuzzEmb1, 'data-game');
-        console.log(playbuzzEmbed);
         expect(playbuzzEmbed).toEqual(playbuzzUrl);
     });
     this.Given(/^I can see the body Youtube embed "([^"]*)"$/, function (youtubeUrl) {
         var videoEmbArry = browser.getAttribute(wn_article.videoEmbArry, 'src');
-        console.log(videoEmbArry[0]); //The stubbed data of Youtube is in the first iframe of video container.
         expect(videoEmbArry[0]).toEqual(youtubeUrl);
     });
     this.Given(/^I can see the body Vimeo embed "([^"]*)"$/, function (vimeoUrl) {
         var videoEmbArry = browser.getAttribute(wn_article.videoEmbArry, 'src');
-        console.log(videoEmbArry[1]); //The stubbed data of Vimeo is in the second iframe of video container.
         expect(videoEmbArry[1]).toEqual(vimeoUrl);
     });
     this.Given(/^I can see the body Whooshka embed "([^"]*)"$/, function (whooshkaUrl) {
         browser.waitForVisible(wn_article.whooshkaEmb, 3000);
         var whooshkaEmb = browser.getAttribute(wn_article.whooshkaEmb, 'src');
-        console.log(whooshkaEmb);
         expect(whooshkaEmb).toEqual(whooshkaUrl);
     });
     this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
         browser.waitForVisible(wn_article.wirewaxEmb, 3000);
         var wirewaxEmb = browser.getAttribute(wn_article.wirewaxEmb, 'src');
-        console.log(wirewaxEmb);
         expect(wirewaxEmb).toEqual(wirewaxUrl);
+    });
+    this.Given(/^I can see the body Giphy embed "([^"]*)"$/, function (giphyId) {
+        browser.waitForVisible(wn_article.giphyEmb, 3000);
+        var giphyEmb = browser.getAttribute(wn_article.giphyEmb, 'src');
+        expect(giphyEmb).toEqual(giphyId);
     });
     this.Given(/^I can see the outbrain frame with "([^"]*)" template$/, function (templateName) {
         var outbrainTemplate = browser.getAttribute(wn_article.outbrain, 'data-ob-template');
@@ -246,7 +242,6 @@ module.exports = function() {
                 break;
             case 'leaderboard':
                 adPlacements = browser.getText(wn_article.adSection);
-                console.log(adPlacements);
                 break;
             case 'banner':
                 adPlacements = browser.getText(wn_article.adSection);

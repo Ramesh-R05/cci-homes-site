@@ -94,6 +94,7 @@ Feature: Article
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the body Whooshka embed "https://www.whooshkaa.com/player/episode/id/90704?visual=true"
         * I can see the body Wirewax embed "http://embed.wirewax.com/8037657/ff0044/"
+        * I can see the body Giphy embed "https://i.giphy.com/sLs8Ll8Qx51xm.gif"
         @med
         Examples:
             | device            |
