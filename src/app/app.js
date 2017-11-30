@@ -15,7 +15,6 @@ import TrackingStore from './stores/tracking';
 import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
 import NavigationStore from '@bxm/site-header/lib/stores/navigation';
 
-
 const app = new Flux({
     component: AppComponent,
     stores: [

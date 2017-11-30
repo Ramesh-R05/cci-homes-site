@@ -48,6 +48,11 @@ $header-height-medium-up: 58px;
 $header-height-desktop: 58px;
 $header-banner-logo-height: 190px;
 
+$ad-wallpaper-top-mobile: $header-height-medium-up;
+$ad-wallpaper-top-pinned: $header-height-desktop;
+$ad-wallpaper-top-unpinned-90: -163px;  // top leaderBoard has 90 height
+$ad-wallpaper-top-unpinned-250: -323px; // top leaderBoard has 250 height
+
 // Side menu
 $offcanvas-width: 255px;
 $offcanvas-tablet-width: 450px;

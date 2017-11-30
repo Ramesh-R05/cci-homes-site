@@ -13,6 +13,35 @@
     .brand {
         @include brand-gap-from-nav-to-top-mrec;
     }
+
+    .ad--wallpaper-wrapper {
+        left: calc((100% - 1920px) / 2);
+        width: 100%;
+        z-index: $z-index-minus-1;
+        position: fixed;
+        top: $ad-wallpaper-top-mobile;
+
+        @media (min-width: 1940px) {
+            left: 0;
+        }
+    }
+
+    @media #{$medium-up} {
+        &-top-leaderboard {
+            &-90 .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-90;
+            }
+            &-250 .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-250;
+            }
+        }
+        &-pinned .ad--wallpaper-wrapper {
+            position: fixed;
+            top: $ad-wallpaper-top-pinned;
+        }
+    }
 }
 
 .uniheader {
@@ -33,17 +62,5 @@
 
     @media #{$large-up} {
         max-width: $large-range-min;
-    }
-}
-
-.ad--wallpaper-wrapper {
-    position: fixed;
-    top: $header-height-medium-up;
-    left: calc((100% - 1920px) / 2);
-    width: 100%;
-    z-index: $z-index-minus-1;
-
-    @media (min-width: 1940px) {
-        left: 0;
     }
 }

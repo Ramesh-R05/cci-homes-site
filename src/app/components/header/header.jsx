@@ -6,6 +6,7 @@ import pin from '@bxm/behaviour/lib/components/pin';
 import throttle from 'lodash/function/throttle';
 
 class Header extends Component {
+    static displayName = 'Header';
     static propTypes = {
         pinned: PropTypes.bool,
         pinOffset: PropTypes.number,
@@ -61,7 +62,6 @@ class Header extends Component {
             'header--side-menu-open': isSideMenuOpen,
             'header--fade-out': isNavBarHidden
         });
-
         const logoClassNames = classnames('header-logo__link-image', 'gtm-navbar-homes');
 
         return (
