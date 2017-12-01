@@ -27,6 +27,9 @@ class DefaultTemplate extends Component {
             tagsDetails: PropTypes.arrayOf(PropTypes.shape({ displayName: PropTypes.string }))
         }),
         contentErrorStatus: PropTypes.object,
+        currentNavigateError: PropTypes.shape({
+            statusCode: PropTypes.number.isRequired
+        }),
         isSideMenuOpen: PropTypes.bool,
         headerNavItems: PropTypes.array
     };
@@ -34,6 +37,7 @@ class DefaultTemplate extends Component {
     static defaultProps = {
         content: null,
         contentErrorStatus: null,
+        currentNavigateError: null,
         isSideMenuOpen: false,
         headerNavItems: []
     };
@@ -82,7 +86,7 @@ class DefaultTemplate extends Component {
                     />
                     : null
                 }
-                
+
                 <AdsWrapper>
                     <ContentHandler
                       brandConfig={brandConfig}
@@ -99,16 +103,15 @@ class DefaultTemplate extends Component {
     }
 
     getPageMetadata() {
-        const { content, contentErrorStatus } = this.props;
+        const { content, contentErrorStatus, currentNavigateError } = this.props;
 
-        if (contentErrorStatus) {
+        if (!content || contentErrorStatus) {
+            let errorStatus;
+            if (currentNavigateError) errorStatus = currentNavigateError.statusCode
+            if (contentErrorStatus) errorStatus = contentErrorStatus.status;
+
             return {
-                ContentHandler: ErrorHandlerBuilder(contentErrorStatus.status) || ErrorHandlerBuilder(500)
-            };
-        }
-        if (!content) {
-            return {
-                ContentHandler: ErrorHandlerBuilder(500)
+                ContentHandler: ErrorHandlerBuilder(errorStatus) || ErrorHandlerBuilder(500)
             };
         }
 

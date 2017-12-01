@@ -3,6 +3,7 @@ import { canUseDOM } from 'exenv';
 import { provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
 import GoogleFont from './html/googleFont';
+import DefaultTemplate from './templates/default';
 
 class Application extends Component {
 
@@ -24,12 +25,19 @@ class Application extends Component {
     }
 
     render() {
-        const Handler = this.props.currentRoute.handler;
+        let Handler;
+        if (this.props.currentRoute) {
+            Handler = this.props.currentRoute.handler;
+        } else {
+            Handler = DefaultTemplate;
+        }
         const className = canUseDOM ? '' : 'no-js';
         return (
             <div className={className}>
                 <GoogleFont />
-                <Handler />
+                <Handler
+                    currentNavigateError={this.props.currentNavigateError}
+                />
             </div>
         );
     }
