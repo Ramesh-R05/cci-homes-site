@@ -20,43 +20,69 @@ module.exports = function() {
 
     });
 
-    this.Given(/^I should see sticky MREC ad next to the top news feed on the brand page$/, function () {
+    this.Given(/^I should see sticky MREC ad next to the top news feed on "([^"]*)"$/, function (page) {
+        var ad_TopMrecRhs, mrecTopFeedSticky;
+
+        //Specify elements
+        switch(page) {
+            case 'homepage':
+                ad_TopMrecRhs = wn_ads.ad_TopMrecRhs_Homepage;
+                mrecTopFeedSticky = wn_ads.homepageMrecTopFeedSticky;
+                break;
+            case 'section':
+                ad_TopMrecRhs = wn_ads.ad_TopMrecRhs_Section;
+                mrecTopFeedSticky = wn_ads.sectionMrecTopFeedSticky;
+                break;
+            case 'brand':
+                ad_TopMrecRhs  = wn_ads.ad_TopMrecRhs_Brand;
+                mrecTopFeedSticky = wn_ads.mrecTopFeedSticky;
+                break;
+        }
+
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
-       browser.scroll(0,500);
-       //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs_Brand)).toBe(true);
+        browser.scroll(0,500);
+        //Verify the ad is appearing
+        expect(browser.isVisible(ad_TopMrecRhs)).toBe(true);
         //Verify the ad is a sticky ad after scrolling down
         browser.scroll(0,900);
         browser.scroll(0,1500);
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs_Brand)).toBe(true);
-        expect(browser.getAttribute(wn_ads.mrecTopFeedSticky, 'style')).toContain("fixed");
+        expect(browser.waitForVisible(ad_TopMrecRhs,5000)).toBe(true);
+        expect(browser.waitForVisible(mrecTopFeedSticky,5000)).toBe(true);
     });
 
-    this.Given(/^I should see sticky MREC ad next to the bottom news feed$/, function () {
+    this.Given(/^I should see sticky MREC ad next to the bottom news feed on "([^"]*)"$/, function (page) {
+        var ad_BottomMrecRhs, mrecBottomFeedSticky;
+
+        //Specify elements
+        switch(page) {
+            case 'homepage':
+                ad_BottomMrecRhs = wn_ads.ad_BottomMrecRhs;
+                mrecBottomFeedSticky = wn_ads.homepageMrecBottomFeedSticky;
+                break;
+            case 'section':
+                ad_BottomMrecRhs = wn_ads.ad_BottomMrecRhs;
+                mrecBottomFeedSticky = wn_ads.sectionMrecBottomFeedSticky;
+                break;
+            case 'brand':
+                ad_BottomMrecRhs  = wn_ads.ad_BottomMrecRhs;
+                mrecBottomFeedSticky = wn_ads.mrecBottomFeedSticky;
+                break;
+        }
+
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,2200);
         //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_BottomMrecRhs)).toBe(true);
+        expect(browser.isVisible(ad_BottomMrecRhs)).toBe(true);
         //Verify the ad is a sticky ad after scrolling down
         wait(3000);
         browser.scroll(0,2700);
         browser.scroll(0,3000);
-        expect(browser.isVisible(wn_ads.ad_BottomMrecRhs)).toBe(true);
-        expect(browser.isVisible(wn_ads.mrecBottomFeedSticky)).toBe(true);
+        expect(browser.waitForVisible(ad_BottomMrecRhs,5000)).toBe(true);
+        expect(browser.waitForVisible(mrecBottomFeedSticky,5000)).toBe(true);
     });
 
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
         var adSlots = browser.elements(wn_ads.mrec, 5000);
-        expect((adSlots.value.length.toString())).toEqual(slot_count);
-    });
-
-    this.Then(/^I should see (\d+) mrec ad slot beneath short teaser$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.ad_MrecUnderHeroImage, 5000);
-        expect((adSlots.value.length.toString())).toEqual(slot_count);
-    });
-
-    this.Then(/^I should see (\d+) mrec ad slot at the end of the body content$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.ad_MrecBeforeRecommendation, 5000);
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
 
@@ -66,10 +92,6 @@ module.exports = function() {
         expect((adSlots.value.length.toString())).toEqual(slot_count);
     });
 
-    this.Then(/^I should see (\d+) mrec ad slots in RHS feed$/, function (slot_count) {
-        var adSlots = browser.elements(wn_ads.articleRHSMrec, 6000);
-        expect((adSlots.value.length.toString())).toEqual(slot_count);
-    });
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
         browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
@@ -128,56 +150,6 @@ module.exports = function() {
 
     this.Then(/^I should "([^"]*)" the out of page ad slot on "([^"]*)"$/, function (visibility, page) {
         visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_OutOfPage, browser);
-    });
-
-    this.Given(/^I should see sticky MREC ad next to the top news feed on the homepage$/, function () {
-        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
-        browser.scroll(0,500);
-        //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs_Homepage)).toBe(true);
-        //Verify the ad is a sticky ad after scrolling down
-        browser.scroll(0,900);
-        browser.scroll(0,1500);
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs_Homepage)).toBe(true);
-        expect(browser.isVisible(wn_ads.homepageMrecTopFeedSticky)).toBe(true);
-    });
-
-    this.Given(/^I should see sticky MREC ad next to the bottom news feed on the homepage$/, function () {
-        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
-        browser.scroll(0,2200);
-        //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_BottomMrecRhs)).toBe(true);
-        //Verify the ad is a sticky ad after scrolling down
-        wait(3000);
-        browser.scroll(0,2700);
-        browser.scroll(0,3000);
-        expect(browser.isVisible(wn_ads.ad_BottomMrecRhs)).toBe(true);
-        expect(browser.isVisible(wn_ads.homepageMrecBottomFeedSticky)).toBe(true);
-    });
-
-    this.Then(/^I should see sticky MREC ad next to the top news feed on the section page$/, function () {
-        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
-        browser.scroll(0,500);
-        //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs_Section)).toBe(true);
-        //Verify the ad is a sticky ad after scrolling down
-        browser.scroll(0,900);
-        browser.scroll(0,1500);
-        expect(browser.waitForVisible(wn_ads.ad_TopMrecRhs_Section,5000)).toBe(true);
-        expect(browser.waitForVisible(wn_ads.sectionMrecTopFeedSticky,5000)).toBe(true);
-    });
-
-    this.Then(/^I should see sticky MREC ad next to the bottom news feed on the section page$/, function () {
-        //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
-        browser.scroll(0,2200);
-        //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_BottomMrecRhs)).toBe(true);
-        //Verify the ad is a sticky ad after scrolling down
-        wait(3000);
-        browser.scroll(0,2700);
-        browser.scroll(0,3000);
-        expect(browser.waitForVisible(wn_ads.ad_BottomMrecRhs,5000)).toBe(true);
-        expect(browser.isVisible(wn_ads.sectionMrecBottomFeedSticky)).toBe(true);
     });
 
     this.Then(/^I should see sticky MREC on the new feed$/, function () {

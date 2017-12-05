@@ -3,190 +3,102 @@ Feature: Ads
     As a user
     I should be able to see the relevant Ads on the site
 
-# -------- Homepage Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
-    @homepage
-    Scenario Outline: Ads on homepage in the <device> view
+#--------Index page ads (Homepage, Section, Brand)--------#
+    Scenario Outline: Ads on index page in the <device> view (Test on <page>)
         Given I switch to "<device>" view
-        And I am currently viewing the homepage
-        * I should see leaderboard ad slots at top middle and bottom
-        * I should see sticky MREC ad next to the top news feed on the homepage
-        * I should see sticky MREC ad next to the bottom news feed on the homepage
-        And I click on the Load More button
+        When I am currently viewing "<pageURL>"
+        Then I should see leaderboard ad slots at top middle and bottom
+        And I should see sticky MREC ad next to the top news feed on "<page>"
+        And I should see sticky MREC ad next to the bottom news feed on "<page>"
+        When I click on the Load More button
         Then I should see sticky MREC on the new feed
-        @high
+        And I should see <numberMrecLoadMore> mrec ad slots
+    @homepage @high
         Examples:
-            | device  |
-            | desktop |
-        @med
+            | device            | page     | pageURL                        | numberMrecLoadMore  |
+            | desktop           | homepage |                                | 3                   |
+    @section @med
         Examples:
-            | device            |
-            | tablet landscape  |
+            | device            | page     | pageURL                        | numberMrecLoadMore  |
+            | tablet landscape  | section  | real-homes                     | 3                   |
+    @brand @med
+        Examples:
+            | device            | page     | pageURL                        | numberMrecLoadMore  |
+            | desktop           | brand    | australian-house-and-garden    | 3                   |
 
-    @homepage
-    Scenario Outline: Ads on homepage in the <device> view
+    Scenario Outline: Ads on index page in the <device> view (Test on <page>)
         Given I switch to "<device>" view
-        And I am currently viewing the homepage
+        And I am currently viewing "<pageURL>"
         And I should see leaderboard ad slots at top middle and bottom
-        And I should see <number> mrec ad slots
+        And I should see <numberMrec> mrec ad slots
         And I click on the Load More button
-        And I should see <2ndCount> mrec ad slots
-        @med
+        And I should see <numberMrecLoadMore> mrec ad slots
+    @homepage @med
         Examples:
-            | device            | number | 2ndCount |
-            | mobile            | 2      | 3        |
-        @med
+            | device            | page     | pageURL                     | numberMrec | numberMrecLoadMore |
+            | mobile            | homepage |                             | 2          | 3                  |
+    @section @med
         Examples:
-            | device            | number | 2ndCount |
-            | tablet portrait   | 4      | 6        |
-#-------- Test ads on homepage end-----------#
-
-# -------- Section Page Ads on desktop and mobile are High as this are areas with Commercial Value ---------------
-    @section
-    Scenario Outline: Ads on section landing page in the <device> view
-        Given I switch to "<device>" view
-        When I am currently viewing "real-homes"
-        And I should see leaderboard ad slots at top middle and bottom
-        And I should see <number> mrec ad slots
-        When I click on the Load More button
-        And I should see <second count> mrec ad slots
-        @high
-        Examples:
-            | device            | number | second count |
-            | mobile            | 2      | 3            |
-        @med
-        Examples:
-            | device            | number | second count |
-            | tablet portrait   | 4      | 6            |
-
-    @section
-    Scenario Outline: Ads on section landing page in the <device> view
-        Given I switch to "<device>" view
-        When I am currently viewing "real-homes"
-        * I should see leaderboard ad slots at top middle and bottom
-        * I should see sticky MREC ad next to the top news feed on the section page
-        * I should see sticky MREC ad next to the bottom news feed on the section page
-        When I click on the Load More button
-        Then I should see <second count> mrec ad slots
-        @med
-        Examples:
-            | device        | second count |
-            | desktop       | 3            |
-        @med
-        Examples:
-            | device            | second count |
-            | tablet landscape  | 3            |
-#-------- Test ads on section end-----------#
-
-# -------- Brand Landing Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
-    @brand
-    Scenario Outline: Ads on brand landing page in the <device> view
-        Given I switch to "<device>" view
-        When I am currently viewing "australian-house-and-garden"
-        * I should see leaderboard ad slots at top middle and bottom
-        * I should see sticky MREC ad next to the top news feed on the brand page
-        * I should see sticky MREC ad next to the bottom news feed
-        @med
-        Examples:
-            | device  |
-            | desktop |
-        @med
-        Examples:
-            | device            |
-            | tablet landscape  |
-
+            | device            | page     | pageURL                     | numberMrec | numberMrecLoadMore |
+            | tablet portrait   | section  | real-homes                  | 4          | 6                  |
     @brand @med
-    Scenario: Ads on brand landing page in the <device> view
-        Given I switch to "mobile" view
-        When I am currently viewing "australian-house-and-garden"
-        And I should see leaderboard ad slots at top middle and bottom
-        And I should see 2 mrec ad slots
+        Examples:
+            | device            | page     | pageURL                     | numberMrec | numberMrecLoadMore |
+            | mobile            | brand    | australian-house-and-garden | 2          | 3                  |
+#--------Index page ads (Homepage, Section, Brand) end--------#
 
-    @brand @med
-    Scenario: Ads on brand landing page in the tablet portrait view
+#--------Content page ads (Article, Gallery)--------#
+
+    Scenario Outline: Ads on content page in the <device> view (Test on <page>)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageURL>"
+        * I should see the top leaderboard ad under navigation
+        * I should see the bottom leaderboard ad above the footer on article
+        * I should see four MREC ads in the RHR feed
+        * I should not see MREC ad under the hero image
+        * I should not see MREC ad above recommendation
+    @gallery @high
+        Examples:
+            | device            | page      | pageURL                       |
+            | desktop           | gallery   | automation-test-gallery-3201  |
+    @article @med
+        Examples:
+            | device            | page      | pageURL                                       |
+            | tablet landscape  | article   | automation-test-article-with-hero-image-3193  |
+
+    @gallery @med
+    Scenario: Ads on content page in the tablet portrait view (Test on gallery)
         Given I switch to "tablet portrait" view
-        When I am currently viewing "australian-house-and-garden"
-        And I should see leaderboard ad slots at top middle and bottom
-        And I should see 4 mrec ad slots
-#-------- Test ads on brand landing end-----------#
+        When I am currently viewing "automation-test-gallery-3201"
+        * I should see the top leaderboard ad under navigation
+        * I should see MREC ad above recommendation
+        * I should see the bottom leaderboard ad above the footer on article
+        * I should not see MREC ad under the hero image
+        * I should see MREC ad between images
 
-# -------- Gallery Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
+    @article @med
+    Scenario: Ads on content page in the mobile view (Test on article)
+        Given I switch to "mobile" view
+        When I am currently viewing "automation-test-article-with-hero-image-3193"
+        * I should see the top leaderboard ad under navigation
+        * I should see MREC ad under the hero image
+        * I should see MREC ad above recommendation
+        * I should see the bottom leaderboard ad above the footer on article
+
     @gallery
-    Scenario Outline: Ads on gallery page in the <device> view
+    Scenario Outline: Special ads in content body copy on gallery page in the <device> view
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-gallery-3201"
-        * I should see the top leaderboard ad under navigation
-        * I should see the bottom leaderboard ad above the footer on article
-        * I should see four MREC ads in the RHR feed
-        * I should not see MREC ad under the hero image
-        * I should not see MREC ad above recommendation
-        * I should see MREC ad between images
-        @high
+        And I should see MREC ad between images
+    @high
         Examples:
-            | device  |
-            | desktop |
-        @med
+            |device     |
+            |mobile     |
+    @med
         Examples:
-            | device            |
-            | tablet landscape  |
-
-    @gallery @med
-    Scenario: Ads on gallery page in the tablet portrait view
-        Given I switch to "tablet portrait" view
-        When I am currently viewing "automation-test-gallery-3201"
-        * I should see the top leaderboard ad under navigation
-        * I should see MREC ad above recommendation
-        * I should see the bottom leaderboard ad above the footer on article
-        * I should not see MREC ad under the hero image
-        * I should see MREC ad between images
-
-    @gallery @med
-    Scenario: Ads on gallery page in the mobile view
-        Given I switch to "mobile" view
-        When I am currently viewing "automation-test-gallery-3201"
-        * I should see the top leaderboard ad under navigation
-        * I should see MREC ad under the hero image
-        * I should see MREC ad above recommendation
-        * I should see the bottom leaderboard ad above the footer on article
-        * I should see MREC ad between images
-#-------- Test ads on gallery end-----------#
-
-# -------- Article Page Ads on desktop are High as this is an area with Commercial Value ---------------
-    @article
-    Scenario Outline: Ads on article page in the <device> view
-        Given I switch to "<device>" view
-        When I am currently viewing "automation-test-article-with-hero-image-3193"
-        * I should see the top leaderboard ad under navigation
-        * I should see the bottom leaderboard ad above the footer on article
-        * I should see four MREC ads in the RHR feed
-        * I should not see MREC ad under the hero image
-        * I should not see MREC ad above recommendation
-        @med
-        Examples:
-            |device             |
-            |desktop            |
-        @low
-        Examples:
-            |device             |
-            |tablet landscape   |
-
-    @article @low
-    Scenario: Ads on article page in the tablet portrait view
-        Given I switch to "tablet portrait" view
-        When I am currently viewing "automation-test-article-with-hero-image-3193"
-        * I should see the top leaderboard ad under navigation
-        * I should see MREC ad above recommendation
-        * I should see the bottom leaderboard ad above the footer on article
-        * I should not see MREC ad under the hero image
-
-    @article @high
-    Scenario: Ads on article page in the mobile view
-        Given I switch to "mobile" view
-        When I am currently viewing "automation-test-article-with-hero-image-3193"
-        * I should see the top leaderboard ad under navigation
-        * I should see MREC ad under the hero image
-        * I should see MREC ad above recommendation
-        * I should see the bottom leaderboard ad above the footer on article
-#-------- Test ads on article end-----------#
+            |device     |
+            |desktop    |
+#--------Content page ads (Article, Gallery) end--------#
 
 # -------- Wall Paper Ads are High as this is an area with Commercial Value ---------------
     @brand @med
@@ -215,160 +127,111 @@ Feature: Ads
 #            | tablet portrait    | brand      | real-living/   |
 #-------- Test Inskin Ads end-----------#
 
-
-#-------- Test Auto-refreshing Ads for MREC in RHR -----------#
+#--------Sticky and auto-refreshing MREC ad in RHS--------#
     @med
-    Scenario Outline: Sticky MREC ad in RHS will autorefresh on <page> in desktop view
+    Scenario Outline: Sticky MREC ad in RHS will autorefresh on content page in desktop view (Test on <page>)
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
         Then I can see last RHR ad is sticky
         And the "sticky MREC ad" will "auto" refresh every 30 seconds on "<page>" when is in View
         # And after 15 seconds the page will go idle and the add will no refresh anymore # This is tested manually
-        @article
+    @article
         Examples:
             |page     |pageUrl                                      |
             |article  |automation-test-article-with-hero-image-3193 |
-        @gallery
-        Examples:
-            |page     |pageUrl                                      |
-            |gallery  |automation-test-gallery-3201                 |
-#-------- Test Auto-refreshing ad for MREC end-----------#
+#--------Sticky and auto-refreshing MREC ad in RHS end--------#
 
-#-------- Test sticky bottom and top ads appear after eachother -----------#
+#--------Sticky top leaderboard ad and sticky bottom leaderboard-----------#
     @med
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing mobile banner on <page> in mobile view
+    Scenario Outline: Verify the sticky top leaderboard in mobile view (Test on <page>)
         Given I switch to "mobile" view
         When I am currently viewing "<pageUrl>"
         * I should "not see" bottom leaderboard ad sticky at the bottom of the "<page>" page
         * I should see sticky top leaderboard as I scroll down and "see" sticky bottom leaderboard once top disappears
-        @gallery
+    @gallery
         Examples:
             |page               |pageUrl                        |
             |gallery            |automation-test-gallery-3201   |
-        @section
+    @section
         Examples:
             |page               |pageUrl                        |
             |navigation section |real-homes                     |
-        @brand
-        Examples:
-            |page               |pageUrl                        |
-            |brand              |australian-house-and-garden    |
 
     @low
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet portrait view
+    Scenario Outline: Verify the sticky top leaderboard in tablet portrait view (Test on <page>)
         Given I switch to "tablet portrait" view
         When I am currently viewing "<pageUrl>"
         * I should "not see" bottom leaderboard ad sticky at the bottom of the "<page>" page
         * I should see sticky top leaderboard as I scroll down and "see" sticky bottom leaderboard once top disappears
-        @article
+    @tag
         Examples:
-            |page               |pageUrl                                               |
-            |article            |automation-test-article-with-hero-image-3193          |
-        @tag
-        Examples:
-            |page               |pageUrl                                               |
-            |tag section        |tags/luxury-home/                                     |
-        @homepage
-        Examples:
-            |page               |pageUrl                                               |
-            |homepage           |                                                      |
+            |page               |pageUrl                        |
+            |tag section        |tags/luxury-home/              |
 
     @low
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet landscape view
+    Scenario Outline: Verify the sticky top leaderboard in tablet landscape view (Test on <page>)
         Given I switch to "tablet landscape" view
         When I am currently viewing "<pageUrl>"
         * I should see sticky top leaderboard as I scroll down and "not see" sticky bottom leaderboard once top disappears
-        @gallery
-        Examples:
-            |page               |pageUrl                        |
-            |gallery            |automation-test-gallery-3201   |
-        @brand
+    @brand
         Examples:
             |page               |pageUrl                        |
             |brand              |australian-house-and-garden    |
-        @homepage
-        Examples:
-            |page               |pageUrl                        |
-            |homepage           |                               |
 
     @med
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in desktop view
+    Scenario Outline: Verify the sticky top leaderboard in desktop view (Test on <page>)
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
         * I should see sticky top leaderboard as I scroll down and "not see" sticky bottom leaderboard once top disappears
-        @article
+    @article
         Examples:
             |page               |pageUrl                                               |
             |article            |automation-test-article-with-hero-image-3193          |
-        @tag
+    @homepage
         Examples:
-            |page               |pageUrl                                               |
-            |tag section        |tags/luxury-home/                                     |
-        @brand
-        Examples:
-            |page               |pageUrl                                               |
-            |brand              |australian-house-and-garden                           |
-#-------- Test sticky bottom and top ads appear after eachother-----------#
+            |page               |pageUrl                        |
+            |homepage           |                               |
+#--------Sticky top leaderboard ad and sticky bottom leaderboard end-----------#
 
-#-------- Test auto-refreshing ads -----------#
+#--------Auto-refreshing mobile banner and bottom leaderboard ad--------#
     @med
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing mobile banner on <page> in mobile view
+    Scenario Outline: Verify the autorefreshing mobile banner in mobile view (Test on <page>)
         Given I switch to "mobile" view
         When I am currently viewing "<pageUrl>"
-        * I should see sticky top leaderboard as I scroll down and "see" sticky bottom leaderboard once top disappears
         * the "mobile banner ad" will "<auto>" refresh every 30 seconds on "<page>" when is in View
-        @article
+    @article
         Examples:
             |page               |auto        |pageUrl                                               |
             |article            |auto        |automation-test-article-with-hero-image-3193          |
-        @homepage
-        Examples:
-            |page               |auto        |pageUrl                                               |
-            |homepage           |not auto    |                                                      |
 
     @low
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet portrait view
+    Scenario Outline: Verify the autorefreshing bottom leaderboard in tablet portrait view (Test on <page>)
         Given I switch to "tablet portrait" view
         When I am currently viewing "<pageUrl>"
-        * I should see sticky top leaderboard as I scroll down and "see" sticky bottom leaderboard once top disappears
         * the "sticky bottom leaderboard ad" will "<auto>" refresh every 30 seconds on "<page>" when is in View
-        @gallery
-        Examples:
-            |page               |auto        |pageUrl                                               |
-            |gallery            |auto        |automation-test-gallery-3201                          |
-        @brand
+    @brand
         Examples:
             |page               |auto        |pageUrl                                               |
             |brand              |not auto    |australian-house-and-garden                           |
 
     @low
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in tablet landscape view
+    Scenario Outline: Verify the autorefreshing bottom leaderboard in tablet landscape view (Test on <page>)
         Given I switch to "tablet landscape" view
         When I am currently viewing "<pageUrl>"
-        * I should see sticky top leaderboard as I scroll down and "not see" sticky bottom leaderboard once top disappears
         * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
-        @article
-        Examples:
-            |page               |pageUrl                                               |
-            |article            |automation-test-article-with-hero-image-3193          |
-        @section
-        Examples:
-            |page               |pageUrl                                               |
-            |navigation section |real-homes                                            |
-
-    @med
-    Scenario Outline: Verify the sticky top leaderboard and the autorefreshing bottom leaderboard on <page> in desktop view
-        Given I switch to "desktop" view
-        When I am currently viewing "<pageUrl>"
-        * I should see sticky top leaderboard as I scroll down and "not see" sticky bottom leaderboard once top disappears
-        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
-        @gallery
+    @gallery
         Examples:
             |page               |pageUrl                                               |
             |gallery            |automation-test-gallery-3201                          |
-        @homepage
+
+    @med
+    Scenario Outline: Verify the autorefreshing bottom leaderboard in desktop view (Test on <page>)
+        Given I switch to "desktop" view
+        When I am currently viewing "<pageUrl>"
+        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
+    @homepage
         Examples:
             |page               |pageUrl                                               |
             |homepage           |                                                      |
-#-------- Test auto-refreshing end-----------#
+#--------Auto-refreshing mobile banner and bottom leaderboard ad end--------#
 
