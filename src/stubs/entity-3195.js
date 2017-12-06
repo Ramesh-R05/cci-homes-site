@@ -240,6 +240,13 @@ export default
             }
         },
         {
+            "type": "linklay",
+            "label": "Linklay",
+            "content": {
+                "url": "https://www.linklay.com/app/linklay/embed/linklay59151f750e2a94.81058944"
+            }
+        },
+        {
             "type": "image-revealer",
             "label": "image-revealer",
             "content": {

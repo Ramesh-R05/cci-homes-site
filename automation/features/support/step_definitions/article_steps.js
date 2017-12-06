@@ -61,7 +61,7 @@ module.exports = function() {
         var heroImgCaption = browser.getText(wn_article.heroImgCaption);
         expect(heroImgCaption).toContain(ImgCaption);
     });
-    this.When(/^I can see the LHR$/, function () {
+    this.When(/^I can see the RHR$/, function () {
         var lhrFeed = browser.isVisible(wn_article.lhrFeed);
         expect(lhrFeed).toBe(true);
     });
@@ -94,7 +94,7 @@ module.exports = function() {
         var shortTeaser = browser.getText(wn_article.shortTeaser);
         expect(shortTeaser).toContain(articleShortTeaser);
     });
-    this.Given(/^I can not see the short teaser "([^"]*)"$/, function (articleShortTeaser) {
+    this.Given(/^I can not see the short teaser$/, function () {
         var shortTeaser = browser.getCssProperty(wn_article.shortTeaser, 'display');
         expect(shortTeaser.value).toContain('none');
     });
@@ -111,22 +111,19 @@ module.exports = function() {
 
     this.Given(/^I can see the body related content$/, function () {
 
-            browser.scroll(wn_article.relatedContentHeading);
-            var rcHeading = browser.getText(wn_article.relatedContentHeading);
-            var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage, 'data-srcset');
-            var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
+        browser.scroll(wn_article.relatedContentHeading);
+        var rcHeading = browser.getText(wn_article.relatedContentHeading);
+        var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage, 'data-srcset');
+        var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
 
         //Validate the heading of Related
-            console.log(rcHeading);
             expect(rcHeading.toUpperCase()).toContain("RELATED");
 
         //Loop through the related items, and Validate the body related items' image and title
         for(var i=0; i<rcItemsTitle.length; i++) {
             var image = rcItemsImage[i];
             var title = rcItemsTitle[i];
-            console.log( i + ':' + image);
             expect(image === '').toBe(false);
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
     });
@@ -152,7 +149,6 @@ module.exports = function() {
     });
     this.Given(/^I can see the body image caption "([^"]*)"$/, function (ImgCaption) {
         var bodyImgCaption = browser.getText(wn_article.bodyImgCaption);
-        console.log(bodyImgCaption);
         expect(bodyImgCaption).toContain(ImgCaption);
     });
     this.Given(/^I can see the body gallery$/, function () {
@@ -214,6 +210,11 @@ module.exports = function() {
         browser.waitForVisible(wn_article.wirewaxEmb, 3000);
         var wirewaxEmb = browser.getAttribute(wn_article.wirewaxEmb, 'src');
         expect(wirewaxEmb).toEqual(wirewaxUrl);
+    });
+    this.Given(/^I can see the body Linklay embed "([^"]*)"$/, function (linklayUrl) {
+        browser.waitForVisible(wn_article.linklayEmb, 3000);
+        var linklayEmb = browser.getAttribute(wn_article.linklayEmb, 'src');
+        expect(linklayEmb).toEqual(linklayUrl);
     });
     this.Given(/^I can see the body Giphy embed "([^"]*)"$/, function (giphyId) {
         browser.waitForVisible(wn_article.giphyEmb, 3000);
