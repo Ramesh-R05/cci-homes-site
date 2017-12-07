@@ -33,7 +33,6 @@ module.exports = function() {
         // Below captures the array of menu items to validate against the table
         var brandTitle = browser.getAttribute(footer.footerLogosList, 'title');
         var brandHref = browser.getAttribute(footer.footerLogosList, 'href');
-        var brandGTM = browser.getAttribute(footer.footerLogosList, 'class');
         // End
 
         for (var i = 0; i < rows.length; ++i) {
@@ -41,7 +40,6 @@ module.exports = function() {
             // Validates position of menu base on Index including their url and gtm
             expect(brandTitle[i]).toEqual(row['title']);
             expect(brandHref[i]).toMatch(row['url']);
-            expect(brandGTM[i]).toEqual(row['gtm']);
         }
     });
 
