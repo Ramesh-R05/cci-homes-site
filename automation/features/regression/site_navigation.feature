@@ -28,14 +28,6 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
             | page      | pageURL                                       | device            |
             | gallery   | automation-test-gallery-3201                  | mobile portrait   |
 
-    @med @gallery
-    Scenario: As a Product Owner I want all of the navigation sections to have a gtm class
-        Given I switch to "desktop" view
-        When I am currently viewing "automation-test-gallery-3201"
-        Then all top navigation sections have "gtm-navigation-section"
-        And all hamburger sections have "gtm-hamburger-section"
-        And the navigation homes icon has "gtm-navbar-homes"
-
     @med @article
     Scenario: Mobile users menu will fade out as they scroll down the page
         Given I switch to "mobile portrait" view
@@ -47,12 +39,12 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can navigate to our network sites in the hamburger navigation menu
-            |title                      |url                                |gtm                  |
-            |Now To Love                |http://nowtolove.com.au/           |gtm-hamburger-now    |
-            |Food To Love               |http://foodtolove.com.au/          |gtm-hamburger-food   |
-            |Elle                       |http://elle.com.au/                |gtm-hamburger-elle   |
-            |Harper's Bazaar            |http://harpersbazaar.com.au/       |gtm-hamburger-hb     |
-            |Gourmet Traveller          |http://gourmettraveller.com.au/    |gtm-hamburger-gt     |
-            |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo  |
-            |Dolly                      |http://dolly.com.au/               |gtm-hamburger-dolly  |
-            |Beauty Heaven              |http://beautyheaven.com.au/        |gtm-hamburger-bh     |
+            |title                      |url                                |
+            |Now To Love                |http://nowtolove.com.au/           |
+            |Food To Love               |http://foodtolove.com.au/          |
+            |Elle                       |http://elle.com.au/                |
+            |Harper's Bazaar            |http://harpersbazaar.com.au/       |
+            |Gourmet Traveller          |http://gourmettraveller.com.au/    |
+            |Cosmopolitan               |http://cosmopolitan.com.au/        |
+            |Dolly                      |http://dolly.com.au/               |
+            |Beauty Heaven              |http://beautyheaven.com.au/        |

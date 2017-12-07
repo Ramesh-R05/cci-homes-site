@@ -14,7 +14,6 @@ module.exports = function() {
 
         var brandTitle = browser.getAttribute(uniheader.uniHeader, 'title');
         var brandHref = browser.getAttribute(uniheader.uniHeader, 'href');
-        var brandGTM = browser.getAttribute(uniheader.uniHeader, 'class');
         //end
 
         for (var i = 0; i < rows.length; ++i) {
@@ -22,7 +21,6 @@ module.exports = function() {
             //validates position of menu base on Index
             expect(brandTitle[i]).toEqual(row['title']);
             expect(brandHref[i]).toMatch(row['url']);
-            expect(brandGTM[i]).toEqual(row['gtm']);
         }
     });
 
@@ -41,7 +39,6 @@ module.exports = function() {
 
         var menuTitle = browser.getAttribute(site_nav.siteNavLogos, 'title');
         var menuhref = browser.getAttribute(site_nav.siteNavLogos, 'href');
-        var menuGTM = browser.getAttribute(site_nav.siteNavLogos, 'class');
         //end
 
         for (var i = 0; i < rows.length; ++i) {
@@ -49,39 +46,8 @@ module.exports = function() {
             //validates position of menu base on Index
             expect(menuTitle[i]).toEqual(row['title']);
             expect(menuhref[i]).toMatch(row['url']);
-            expect(menuGTM[i]).toEqual(row['gtm']);
         }
         browser.click(site_nav.siteHamburgerClose);
-    });
-
-    this.Then(/^all top navigation sections have "([^"]*)"$/, function (gtmClass) {
-        //main menu
-        var menuList = browser.getAttribute(site_nav.siteNavSectionDetail, 'class');
-        for (var i = 0; i < menuList.length; ++i) {
-        expect(menuList[i]).toEqual(gtmClass);
-        }
-        //sub headers
-        var subMenuList = browser.getAttribute(site_nav.siteNavSectionDetailSub, 'class');
-        for (var i = 0; i < subMenuList.length; ++i) {
-            expect(subMenuList[i]).toEqual(gtmClass);
-        }
-    });
-
-    this.Then(/^all hamburger sections have "([^"]*)"$/, function (gtmClass) {
-        var menuList = browser.getAttribute(site_nav.siteHamburgerDetail, 'class');
-        for (var i = 0; i < menuList.length; ++i) {
-            expect(menuList[i]).toEqual(gtmClass);
-        }
-        //sub headers
-        var subMenuList = browser.getAttribute(site_nav.siteHamburgerDetailSub, 'class');
-        for (var i = 0; i < subMenuList.length; ++i) {
-            expect(subMenuList[i]).toEqual(gtmClass);
-        }
-    });
-
-    this.Then(/^the navigation homes icon has "([^"]*)"$/, function (gtmClass) {
-        var menuClass = browser.getAttribute(site_nav.siteNavHeaderLogo, 'class');
-        expect(menuClass).toContain(gtmClass);
     });
 
     this.Then(/^the menu fades out as I scroll down the page$/, function () {

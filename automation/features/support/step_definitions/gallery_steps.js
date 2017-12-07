@@ -22,7 +22,6 @@ module.exports = function() {
         loadAllElements('gallery', browser);
 
         var img = browser.getAttribute(gallery.galleryImg, 'srcset');
-        console.log("IMAGE SRC =" + " " + img[0]);
         validateImageURL(img[0]);
     });
 
@@ -33,21 +32,9 @@ module.exports = function() {
         var sourceLogo = browser.getAttribute(gallery.gallerySourceImg,'src');
 
         //Validate the values
-        console.log(sourceHref);
         expect(sourceHref).not.toEqual('');
-        console.log(sourceGTM);
         expect(sourceGTM).toEqual(gtm);
-        console.log(sourceLogo);
         expect(sourceLogo).not.toEqual('');
-    });
-
-    this.Given(/^I can see the created date on the gallery "([^"]*)"$/, function(date) {
-        browser.waitForExist(gallery.galleryDate,5000);
-        browser.scroll(gallery.galleryDate);
-        var galleryDate = browser.getText(gallery.galleryDate);
-        console.log(galleryDate);
-        expect(galleryDate).toContain(date);
-        console.log('gallery date is:' + galleryDate)
     });
 
     this.Given(/^I can see the gallery title containing "([^"]*)"$/, function(longTitle) {
@@ -74,7 +61,6 @@ module.exports = function() {
 
     this.Given(/^I can see the image number "([^"]*)" on the gallery$/, function(num) {
         var imageCountIndex = browser.getText('.gallery__feed-item:nth-child(' + num +') .gallery__item-index');
-        console.log(imageCountIndex);
         expect(imageCountIndex).toEqual(num);
     });
 
@@ -82,7 +68,6 @@ module.exports = function() {
         browser.waitForVisible(gallery.imgCaption);
         var imgCaption = browser.getText(gallery.imgCaption);
         expect(imgCaption[0]).toMatch(caption);
-        console.log(imgCaption[0]);
     });
 
     this.When(/^I see the image no "([^"]*)" on the gallery$/, function(imgNum) {

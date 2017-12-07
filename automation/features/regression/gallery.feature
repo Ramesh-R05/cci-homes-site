@@ -17,7 +17,6 @@ Feature: Gallery
         When I switch to "mobile" view
         Given I am currently viewing "automation-test-gallery-3201"
         * I can see the gallery title containing "A luxurious bushland retreat"
-        * I can see an image appearing on the gallery
         * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "The pavilion-style renovation features"
 
@@ -33,13 +32,10 @@ Feature: Gallery
     Scenario: Verify a gallery page in desktop style on desktop view
         When I switch to "desktop" view
         Given I am currently viewing "automation-test-gallery-3201"
-        * I can see the logo on the gallery header
         * I can click the logo to go to homepage
         * I can see the gallery title containing "A luxurious bushland retreat"
-        * I can see an image appearing on the gallery
         * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-article"
         * I can see the gallery description of the gallery containing "Beauty inspo for school"
-        * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "The pavilion-style renovation features"
         When I see the video ID "5066382704001" on the gallery
         * I can see the play button and click on it
