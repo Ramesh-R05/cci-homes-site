@@ -6,10 +6,10 @@ Feature: Smoke test for HOMES
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "https://www.homestolove.com.au/homes-newsletter/" url and "gtm-subs-homepage" gtm in "mobile" view
+        Then I should see the sign up button containing "https://www.homestolove.com.au/homes-newsletter/" url in "mobile" view
         And The homepage hero image should be clickable to open its page
-        And I should see each top teaser containing its image and is clickable to open its page
-        And I should see each bottom teaser containing its title and is clickable to open its page
+        And I should see a "top" feed item containing its image and clickable to open its page
+        And I should see a "bottom" feed item containing its title and clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
@@ -17,10 +17,10 @@ Feature: Smoke test for HOMES
     Scenario Outline: Verify the <page> brand landing page
         Given I switch to "mobile" view
         When I am currently viewing "<page>"
-        Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm in "mobile" view
-        And the top teaser is a hero article or gallery curated from the CMS
-        And I should see each top teaser containing its image and is clickable to open its page
-        And I should see each bottom teaser containing its title and is clickable to open its page
+        Then I should see the sign up button containing "<link>" url in "mobile" view
+        And I should see the hero teaser
+        And I should see a "top" feed item containing its image and clickable to open its page
+        And I should see a "bottom" feed item containing its title and clickable to open its page
         Examples:
             | page                          | link                                                                   |
             | belle/                        | https://www.homestolove.com.au/belle-newsletter/                       |
@@ -31,7 +31,7 @@ Feature: Smoke test for HOMES
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
         When I am currently viewing "real-homes"
-        And the top teaser is a hero article or gallery curated from the CMS
+        And I should see the hero teaser
         And I should see 6 top teasers on the feed section page
         Then I should see 6 bottom teasers on the feed section page
         When I click on the Load More button
@@ -61,6 +61,6 @@ Feature: Smoke test for HOMES
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the error title as "Oops! We're sorry!"
-        * I should see the site header logo to open homepage and contain "gtm-navbar-homes" class name
+        * I should see the site header logo to open homepage
 
 

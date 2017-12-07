@@ -8,10 +8,13 @@ Feature: Brand Listing page
         Given I am currently viewing "australian-house-and-garden"
         * I should see the brand title logo on the brand landing page
         * I should see 12 teasers on the brand listing page
-        And the top teaser is a hero article or gallery curated from the CMS
-        * I should see each teaser containing its image and clickable to open its page
-        * I should see each teaser containing its title and clickable to open its page
-        * I should see each teaser containing its tag and clickable to open its page
+        * I should see the hero teaser
+        * I should see a "top" feed item containing its image and clickable to open its page
+        * I should see a "top" feed item containing its title and clickable to open its page
+        * I should see a "top" feed item containing its tag and clickable to open its page
+        * I should see a "bottom" feed item containing its image and clickable to open its page
+        * I should see a "bottom" feed item containing its title and clickable to open its page
+        * I should see a "bottom" feed item containing its tag and clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
         @med
@@ -25,28 +28,19 @@ Feature: Brand Listing page
             | tablet landscape  |
             | tablet portrait   |
 
-    @med
-    Scenario Outline: Verify the sign-up URL on <page> brand landing page in mobile view
-        Given I switch to "mobile" view
-        When I am currently viewing "<page>"
-        Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm in "mobile" view
-        Examples:
-            | page                          | link                                                             |
-            | belle/                        | //www.homestolove.com.au/belle-newsletter/                       |
-            | real-living/                  | //www.homestolove.com.au/real-living-newsletter/                 |
-            | homes-plus/                   | //www.homestolove.com.au/homes-plus-newsletter/                  |
-            | australian-house-and-garden/  | //www.homestolove.com.au/australian-house-and-garden-newsletter/ |
-
+# -------- Sign-up URL ---------------#
     Scenario Outline: Verify the sign-up URL on <page> brand landing page in <device> view
         Given I switch to "<device>" view
         When I am currently viewing "<page>"
-        Then I should see the sign up button containing "<link>" url and "gtm-subs-brand" gtm in "<device>" view
+        Then I should see the sign up button containing "<link>" url in "<device>" view
         @med
         Examples:
-            | device            | page         | link                                              |
-            | desktop           | belle/       | //www.homestolove.com.au/belle-newsletter/        |
+            | device            | page                          | link                                                             |
+            | mobile            | australian-house-and-garden/  | //www.homestolove.com.au/australian-house-and-garden-newsletter/ |
+            | desktop           | belle/                        | //www.homestolove.com.au/belle-newsletter/                       |
         @low
         Examples:
             | device            | page         | link                                              |
             | tablet landscape  | real-living/ | //www.homestolove.com.au/real-living-newsletter/  |
             | tablet portrait   | homes-plus/  | //www.homestolove.com.au/homes-plus-newsletter/   |
+# -------- Sign-up URL end  ---------------#

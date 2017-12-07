@@ -188,11 +188,35 @@ export default {
                 "HOMES-3220",
                 "HOMES-3218"
             ],
-            "tags": [],
+            "tags": [
+                "food:Building:Type:House",
+                "food:Homes navigation:Bedroom",
+                "food:Topic:Social media"
+            ],
             "source": "Belle",
             "sortOrder": "1",
             "contentTags": [],
             "contentYear": 2016,
+            "tagsDetails": [
+                {
+                    "name": "food:Topic:Social media",
+                    "urlName": "social-media",
+                    "fullName": "food_Topic_Social_media",
+                    "displayName": "Social media"
+                },
+                {
+                    "name": "food:Homes navigation:Bedroom",
+                    "urlName": "bedroom",
+                    "fullName": "food_Homes_navigation_Bedroom",
+                    "displayName": "Bedroom"
+                },
+                {
+                    "name": "food:Building:Type:House",
+                    "urlName": "house",
+                    "fullName": "food_Building_Type_House",
+                    "displayName": "House"
+                }
+            ],
             "sponsorName": "Myer Eat Live",
             "contentMonth": 12,
             "contentTitle": "Testing to check the editor",

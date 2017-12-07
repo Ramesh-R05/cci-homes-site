@@ -21,7 +21,6 @@ var brand_listing_widget = {
     brandStickyMobileBanner: '.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
     newsletterSignUpBtnDesktop: 'section > div > div > .carriage .newsletter-subscribe__button a',
     newsletterSignUpBtnMobile: '.hide-for-large-up .newsletter-subscribe__button a',
-
 };
 
 module.exports = brand_listing_widget;

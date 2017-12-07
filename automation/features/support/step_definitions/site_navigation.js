@@ -91,13 +91,10 @@ module.exports = function() {
         expect(browser.getAttribute(site_nav.menuHeader,'class')).toContain('fade-out');
     });
 
-    this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
+    this.Then(/^I should see the site header logo to open homepage$/, function () {
         browser.waitForExist(site_nav.smallIconlink, 3000);
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
         expect(headerLogoLink).toEqual(site_domain);
-        //Validate GTM
-        var headerLogoClass = browser.getAttribute(site_nav.smallIconlink,'class');
-        expect(headerLogoClass).toContain(gtm);
     });
 };

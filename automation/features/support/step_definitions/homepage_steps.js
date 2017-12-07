@@ -9,143 +9,129 @@ module.exports = function(){
     this.When(/^I should see the homepage hero element$/, function () {
         expect(browser.isVisible(home.heroElmt)).toBe(true);
     });
+
     this.When(/^I should see the homepage hero image$/, function () {
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'src');
         validateImageURL(heroImgUrl);
-        console.log(heroImgUrl);
     });
+
     this.When(/^The homepage hero image should be clickable to open its page$/, function () {
         var heroImgLink = browser.getAttribute(home.heroImgLink, 'href');
         expect(heroImgLink).not.toBeUndefined();
-        console.log(heroImgLink);
     });
-    this.When(/^I should see the homepage hero title$/, function () {
-        var heroImgTitle = browser.getText(home.heroTitle);
-        expect(heroImgTitle).not.toBeUndefined();
-        console.log(heroImgTitle);
-    });
+
     this.When(/^The homepage hero title should be clickable to open its page$/, function () {
         var heroTitleLink = browser.getAttribute(home.heroTitleLink, 'href');
         expect(heroTitleLink).not.toBeUndefined();
         var heroImgLink = browser.getAttribute(home.heroImgLink, 'href');
         expect(heroTitleLink).toEqual(heroImgLink);
-        console.log(heroTitleLink);
-    });
-    this.When(/^I should see the homepage hero short teaser$/, function () {
-        var herShortTeaser = browser.getText(home.heroShortTeaser);
-        expect(herShortTeaser).not.toBeUndefined();
-        console.log(herShortTeaser);
     });
 
     this.When(/^I should see the homepage hero containing its tag and clickable to open its page$/, function () {
         var heroTags = browser.getText(home.heroTag);
-        console.log("Hero image tags are "+heroTags.length + ": " + heroTags);
         expect(heroTags).not.toEqual('');
-        });
+    });
+
     this.When(/^I should see (\d+) top teasers on the homepage page$/, function (number) {
         var topTeasers = browser.getAttribute(home.topTeasers,'data-reactid');
-        console.log("top "+number+" teser Ids: "+'\n'+topTeasers);
         expect(topTeasers.length).toEqual(parseInt(number),10);
     });
-    this.When(/^I should see each top teaser containing its image and is clickable to open its page$/, function () {
-        var topTeaserImgsCount = browser.elements(home.topTeaserImgs).value.length;
-        console.log("Teaser images count: "+topTeaserImgsCount);
-        var topTeaserImgsUrl = browser.getAttribute(home.topTeaserImgs, 'data-srcset');
-        for(var i=0; i<topTeaserImgsUrl.length; i++){
-            validateImageURL(topTeaserImgsUrl[i]);
-            console.log("top 10 teaser urls are: "+'\n'+topTeaserImgsUrl[i]);
+
+    this.When(/^I should see (\d+) bottom teasers on the homepage page$/, function (number) {
+        var bottomTeasers = browser.getAttribute(home.bottomTeasers,'data-reactid');
+        expect(bottomTeasers.length).toEqual(parseInt(number),10);
+    });
+
+    this.When(/^I should see a "([^"]*)" feed item containing its image and clickable to open its page$/, function (part) {
+        var feedTeaserImg_element, feedTeaserImgLink_element, i;
+
+        switch(part) {
+            case 'top':
+                feedTeaserImg_element = home.topFeedTeaserImg;
+                feedTeaserImgLink_element = home.topFeedTeaserImgLink;
+                i = 4; //Test the 5th item which is array no.4
+                break;
+            case 'bottom':
+                feedTeaserImg_element = home.bottomFeedTeaserImg;
+                feedTeaserImgLink_element = home.bottomFeedTeaserImgLink;
+                i = 5; //Test the 6th item which is array no.5
+                break;
         }
+
+        //verify images of all teasers
+        var feedTeaserImgUrl = browser.getAttribute(feedTeaserImg_element,'data-srcset');
+        var feedTeaserImgLink = browser.getAttribute(feedTeaserImgLink_element,'href');
+        validateImageURL(feedTeaserImgUrl[i]);
+        expect(feedTeaserImgLink[i]).not.toEqual('');
     });
-    this.When(/^I should see each top teaser containing its title and is clickable to open its page$/, function () {
-        var topTeaserTitleCount = browser.elements(home.topTeaserTitles).value.length;
-        console.log("Teaser Titles count: "+topTeaserTitleCount);
-        var topTeaserTitles = browser.getText(home.topTeaserTitles);
-        console.log(topTeaserTitles);
-        var topTeaserTitleUrl = browser.getAttribute(home.topTeaserImgs, 'data-srcset');
-        for(var i=0; i<topTeaserTitleUrl.length; i++){
-            expect(topTeaserTitleUrl[i]).not.toBeUndefined();
-           }
-    });
-    this.When(/^I should see each top teaser containing its tag and is clickable to open its page$/, function () {
-        var topTeaserTags = browser.getText(home.topTeaserTags);
-        console.log("Teaser Tags are: "+topTeaserTags);
-        var topTeaserTagsUrl = browser.getAttribute(home.topTeaserTagLinks, 'href');
-        for(var i=0; i<topTeaserTagsUrl.length; i++){
-            expect(topTeaserTagsUrl[i]).not.toBeUndefined();
-            console.log(topTeaserTagsUrl[i]);
-            }
-    });
-    this.When(/^I should see each bottom teaser containing its image and is clickable to open its page$/, function () {
-        var topTeaserImgsCount = browser.elements(home.bottomTeaserImgs).value.length;
-        console.log("Teaser images count: "+topTeaserImgsCount);
-        var topTeaserImgsUrl = browser.getAttribute(home.bottomTeaserImgs, 'data-srcset');
-        for(var i=0; i<topTeaserImgsUrl.length; i++){
-            validateImageURL(topTeaserImgsUrl[i]);
-            console.log("top teaser urls are: "+'\n'+topTeaserImgsUrl[i]);
+
+    this.When(/^I should see a "([^"]*)" feed item containing its title and clickable to open its page$/, function (part) {
+        var feedTeaserTitle_element, i;
+
+        switch(part) {
+            case 'top':
+                feedTeaserTitle_element = home.topFeedTeaserTitle;
+                i = 4; //Test the 5th item which is array no.4
+                break;
+            case 'bottom':
+                feedTeaserTitle_element = home.bottomFeedTeaserTitle;
+                i = 5; //Test the 6th item which is array no.5
+                break;
         }
+
+        //verify titles of all teasers
+        var feedTeaserTitle = browser.getText(feedTeaserTitle_element);
+        var feedTeaserTitleLink = browser.getAttribute(feedTeaserTitle_element,'href');
+        expect(feedTeaserTitle[i]).not.toEqual('');
+        expect(feedTeaserTitleLink[i]).not.toEqual('');
     });
-    this.When(/^I should see each bottom teaser containing its title and is clickable to open its page$/, function () {
-        var topTeaserTitleCount = browser.elements(home.bottomTeaserTitles).value.length;
-        console.log("Teaser Titles count: "+topTeaserTitleCount);
-        var topTeaserTitles = browser.getText(home.bottomTeaserTitles);
-        console.log(topTeaserTitles);
-        var topTeaserTitleUrl = browser.getAttribute(home.bottomTeaserImgs, 'data-srcset');
-        for(var i=0; i<topTeaserTitleUrl.length; i++){
-            expect(topTeaserTitleUrl[i]).not.toBeUndefined();
+
+    this.When(/^I should see a "([^"]*)" feed item containing its tag and clickable to open its page$/, function (part) {
+        var feedTeaserTag_element, i;
+
+        switch(part) {
+            case 'top':
+                feedTeaserTag_element = home.topFeedTeaserTag;
+                i = 4; //Test the 5th item which is array no.4
+                break;
+            case 'bottom':
+                feedTeaserTag_element = home.bottomFeedTeaserTag;
+                i = 5; //Test the 6th item which is array no.5
+                break;
         }
+
+        //verify tag of a teaser
+        var feedTeaserTag = browser.getText(feedTeaserTag_element);
+        var feedTeaserTagLink = browser.getAttribute(feedTeaserTag_element,'href');
+        expect(feedTeaserTag[i]).not.toEqual('');
+        expect(feedTeaserTagLink[i]).not.toEqual('');
     });
-    this.When(/^I should see each bottom teaser containing its tag and is clickable to open its page$/, function () {
-        var topTeaserTags = browser.getText(home.bottomTeaserTags);
-        console.log("Teaser Tags are: "+topTeaserTags);
-        var topTeaserTagsUrl = browser.getAttribute(home.bottomTeaserTagLinks, 'href');
-        for(var i=0; i<topTeaserTagsUrl.length; i++){
-            expect(topTeaserTagsUrl[i]).not.toBeUndefined();
-            console.log(topTeaserTagsUrl[i]);
-        }
-    });
+
     this.Then(/^I should not see the homepage hero source$/, function () {
         var heroSource = browser.isVisible(home.heroSource);
         expect(heroSource).toBe(false);
-        console.log("homepage hero source has been removed");
     });
 
-
-    //-------------------
+    //------------------- for mobile
 
     this.When(/^I should see the homepage mobile hero element$/, function () {
         expect(browser.isVisible(home.mobHeroElmt)).toBe(true);
     });
-    this.When(/^I should see the homepage mobile hero image$/, function () {
-        var heroImgUrl = browser.getAttribute(home.mobHeroImgUrl, 'src');
-        expect(heroImgUrl).not.toBeUndefined();
-        console.log(heroImgUrl);
-    });
+
     this.When(/^The homepage mobile hero image should be clickable to open its page$/, function () {
         var heroImgLink = browser.getAttribute(home.mobHeroImgLink, 'href');
         expect(heroImgLink).not.toBeUndefined();
-        console.log(heroImgLink);
     });
-    this.When(/^I should see the homepage mobile hero title$/, function () {
-        var heroImgTitle = browser.getText(home.mobHeroTitle);
-        expect(heroImgTitle).not.toBeUndefined();
-        console.log(heroImgTitle);
-    });
+
     this.When(/^The homepage mobile hero title should be clickable to open its page$/, function () {
         var heroTitleLink = browser.getAttribute(home.mobHeroTitleLink, 'href');
         expect(heroTitleLink).not.toBeUndefined();
         var heroImgLink = browser.getAttribute(home.mobHeroImgLink, 'href');
         expect(heroTitleLink).toEqual(heroImgLink);
-        console.log(heroTitleLink);
-    });
-    this.When(/^I should see the homepage mobile hero short teaser$/, function () {
-        var herShortTeaser = browser.getText(home.mobHeroShortTeaser);
-        expect(herShortTeaser).not.toBeUndefined();
-        console.log(herShortTeaser);
     });
 
     this.When(/^I should see the homepage mobile hero containing its tag and clickable to open its page$/, function () {
         var heroTags = browser.getText(home.mobHeroTag);
-        console.log("Hero image tags are "+heroTags.length + ": " + heroTags);
         expect(heroTags).not.toEqual('');
     });
 
@@ -169,55 +155,13 @@ module.exports = function(){
         expect(sTagText).toEqual(tagTxt)
     });
 
-    this.Given(/^the below position top teasers are replaced with polar ads$/, function (table) {
-        browser.waitForExist('.teaser--polar', 5000);
-        var listOfItems = browser.getAttribute(home.topTeasers, 'class');
-        var rows = table.hashes();
-        for (var i = 0; i < rows.length; ++i) {
-            var row = rows[i];
-            // Validates position of standard page base on Index including their url
-            console.log(row['pos']);
-            console.log(listOfItems[row['pos']-1]);
-            expect(listOfItems[row['pos']-1]).toContain('polar');}
-    });
-
-    this.Given(/^the below position bottom teasers are replaced with polar ads$/, function (table) {
-        browser.waitForExist('.teaser--polar', 5000);
-        var listOfItems = browser.getAttribute(home.bottomTeasers, 'class');
-        console.log(listOfItems.length);
-        var rows = table.hashes();
-        for (var i = 0; i < rows.length; ++i) {
-            var row = rows[i];
-            // Validates position of standard page base on Index including their url
-            console.log(row['pos']);
-            console.log(listOfItems[row['pos']-1]);
-
-            expect(listOfItems[row['pos']-1]).toContain('polar');}
-    });
-
-    this.Given(/^the below position added more teasers are replaced with polar ads$/, function (table) {
-        browser.waitForExist('.teaser--polar', 5000);
-        var listOfItems = browser.getAttribute(home.loadMoreFeed, 'class');
-        console.log(listOfItems.length);
-        var rows = table.hashes();
-        for (var i = 0; i < rows.length; ++i) {
-            var row = rows[i];
-            // Validates position of standard page base on Index including their url
-            console.log(row['pos']);
-            console.log(listOfItems[row['pos']-1]);
-
-            expect(listOfItems[row['pos']-1]).toContain('polar');}
-    });
-
     this.Then(/^User will be provided with (\d+) "([^"]*)"$/, function (imageCount, sectionTitle) {
         //Validate the title is correct
         expect(browser.getText(home.latestHomeTitle)).toEqual(sectionTitle);
 
         //Validate that 4 latest real home teasers
         var latestHomeTeasers = browser.getAttribute(home.latestHomeTeasers,'class');
-        console.log("latesthome "+imageCount+" teser Ids: "+'\n'+latestHomeTeasers);
         expect(latestHomeTeasers.length).toEqual(parseInt(imageCount),10);
-
     });
 
     this.Then(/^each image will display text and be opaque when hover$/, function () {
@@ -241,7 +185,6 @@ module.exports = function(){
         //verify images of one teaser
         var loadMoreFeedTeaserImgUrl = browser.getAttribute(home.loadMoreFeedTeaserImg,'data-srcset');
         var loadMoreFeedTeaserImgLink = browser.getAttribute(home.loadMoreFeedTeaserImgLink,'href');
-        console.log(loadMoreFeedTeaserImgUrl + " => " + loadMoreFeedTeaserImgLink);
         validateImageURL(loadMoreFeedTeaserImgUrl);
         expect(loadMoreFeedTeaserImgLink).not.toEqual('');
     });

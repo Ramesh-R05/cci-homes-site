@@ -28,6 +28,16 @@ var homepage_widget = {
     mobPrimaryHeroTag: ".teaser--hero-img-top .tag-primary",
     mobSecondaryHeroTag: ".teaser--hero-img-top .tag-secondary",
 
+    //Feed
+    topFeedTeaserImg: 'article.teaser--img-top img',
+    topFeedTeaserImgLink: 'article.teaser--img-top a.teaser__image',
+    topFeedTeaserTitle: 'article.teaser--img-top .teaser__title a',
+    topFeedTeaserTag: "article.teaser--img-top .teaser__tags .tag-primary a",
+    bottomFeedTeaserImg: '.repeatable-component article.teaser--img-left img',
+    bottomFeedTeaserImgLink: '.repeatable-component article.teaser--img-left a.teaser__image',
+    bottomFeedTeaserTitle: '.repeatable-component article.teaser--img-left .teaser__title a',
+    bottomFeedTeaserTag: ".repeatable-component article.teaser--img-left .teaser__tags .tag-primary a",
+
     //Top feed
     topTeasers: 'section .teaser--img-top',
     topTeaserImgs: 'section .teaser--img-top img',
