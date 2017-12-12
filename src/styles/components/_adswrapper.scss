@@ -32,9 +32,17 @@
                 position: absolute;
                 top: $ad-wallpaper-top-unpinned-90;
             }
+            &-90-with-page-title .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-90-with-page-title;
+            }
             &-250 .ad--wallpaper-wrapper {
                 position: absolute;
                 top: $ad-wallpaper-top-unpinned-250;
+            }
+            &-250-with-page-title .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-250-with-page-title;
             }
         }
         &-pinned .ad--wallpaper-wrapper {
