@@ -88,11 +88,11 @@ resources:
     seed:
       interval: "0 19 * * *"
 
-  #"0 19 * * 2" is 7:00pm Tuesday which is Wednesday morning in Sydney
+  #"30 22 * * 2" is 10:30pm Tuesday which is Wednesday morning 9:30am daylight saving or 8:30am standard time in Sydney
   - name: homes-weekly-trigger
     type: time
     seed:
-      interval: "0 19 * * 2"
+      interval: "30 22 * * 2"
 
   ####################################
   # NON PROD environment configuration

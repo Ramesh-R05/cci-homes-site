@@ -241,3 +241,15 @@ jobs:
         - script: APP_KEY=homes-site npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
+  # iii. Import Homes live data to dev via migrate service
+  - name: homes-import-live-data-to-dev
+    type: runSh
+    always:
+      - NOTIFY: homes-qa-team-notifications
+    steps:
+     - IN: homes-weekly-trigger
+     - TASK:
+        - script: >
+            curl -H "Content-Type: application/json" -X POST -d '[{"fromEnv":"live", "fromSite":"homes", "number":"10", "toSite":"homes"}]' http://dev.migrate.services.bauer-media.internal/migrate
+            
