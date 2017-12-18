@@ -52,6 +52,7 @@ export default {
     },
 
     gtm: {
+        masthead: 'HOMES',
         id: 'GTM-KG7F8H'
     },
 
