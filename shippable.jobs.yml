@@ -98,8 +98,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -122,8 +122,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -146,8 +146,8 @@ jobs:
         - script: curl services.sit.bxm.internal/publishing-broker/
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -208,8 +208,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -232,8 +232,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
