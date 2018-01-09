@@ -397,7 +397,8 @@ module.exports = function() {
         var first_googleId;
         var second_googleId;
         var loopCount = 0;
-
+        adElement = `${adElement} > div`;
+        
         // check the iframe ID before change and ensure the value is not NULL
         do {
             browser.scroll(adElement);
@@ -406,7 +407,7 @@ module.exports = function() {
             console.log(loopCount, first_googleId);
             loopCount++;
         }
-        while (first_googleId === null && loopCount < 10); // to exist the loop if it does more than 10 times.
+        while (first_googleId === null && loopCount < 20); // to exist the loop if it does more than 20 times.
 
         // waiting for x seconds as it is a rule of ad auto refreshing.
         // 1050 is a better number to ensure it has passed x seconds. E.g. 6 seconds is going to be 6.05 seconds.

@@ -24,61 +24,61 @@ var ads_widget = {
     adWrapper_BottomLeaderboard_Content: '.site-wrapper .article-section + div .sticky-block', //homepage, index, brand, gallery, article
 
     //outside
-    ad_TopLeaderboard: '.section__heading .ad--section-top-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
-    ad_MiddleLeaderboard: '.site-wrapper .ad--section-middle-leaderboard [id^=gpt-slot-]', //homepage, index, brand, gallery, article
-    ad_BottomLeaderboard: '.site-wrapper .ad--section-bottom-leaderboard [id^=gpt-slot-]', //homepage, index, brand
-    ad_Teads: '.ad--slot-teads [id^=gpt-slot-]', //gallery, article
+    ad_TopLeaderboard: '.section__heading .ad--section-top-leaderboard [id^=ad-gpt-slot-]', //homepage, index, brand, gallery, article
+    ad_MiddleLeaderboard: '.site-wrapper .ad--section-middle-leaderboard [id^=ad-gpt-slot-]', //homepage, index, brand, gallery, article
+    ad_BottomLeaderboard: '.site-wrapper .ad--section-bottom-leaderboard [id^=ad-gpt-slot-]', //homepage, index, brand
+    ad_Teads: '.ad--slot-teads [id^=ad-gpt-slot-]', //gallery, article
 
     //RHS
-    ad_TopMrecRhs_Homepage: '.home-section--top .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //homepage
-    ad_TopMrecRhs_Section: '.container > .section__row:nth-child(1) .fixed-column--sticky  .ad--section-mrec [id^=gpt-slot-]', //navigation, tag
-    ad_TopMrecRhs_Brand: '.brand-section--top .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //brand
-    ad_BottomMrecRhs: '.repeatable-component .section__row .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //homepage, index, brand
-    ad_MrecRhs1: '.feed-ad:nth-child(3) [id^=gpt-slot-]', //gallery, article
-    ad_MrecRhs2: '.feed-ad:nth-child(9) [id^=gpt-slot-]', //gallery, article
-    ad_MrecRhs3: '.feed-ad:nth-child(15) [id^=gpt-slot-]', //gallery, article
-    ad_MrecRhs4: '.feed-ad:nth-child(21) [id^=gpt-slot-]', //gallery, article
-    ad_StickyMrecRhs: '.sticky-block.rhs-ads [id^=gpt-slot-]', //gallery
+    ad_TopMrecRhs_Homepage: '.home-section--top .fixed-column--sticky .ad--section-mrec [id^=ad-gpt-slot-]', //homepage
+    ad_TopMrecRhs_Section: '.container > .section__row:nth-child(1) .fixed-column--sticky  .ad--section-mrec [id^=ad-gpt-slot-]', //navigation, tag
+    ad_TopMrecRhs_Brand: '.brand-section--top .fixed-column--sticky .ad--section-mrec [id^=ad-gpt-slot-]', //brand
+    ad_BottomMrecRhs: '.repeatable-component .section__row .fixed-column--sticky .ad--section-mrec [id^=ad-gpt-slot-]', //homepage, index, brand
+    ad_MrecRhs1: '.feed-ad:nth-child(3) [id^=ad-gpt-slot-]', //gallery, article
+    ad_MrecRhs2: '.feed-ad:nth-child(9) [id^=ad-gpt-slot-]', //gallery, article
+    ad_MrecRhs3: '.feed-ad:nth-child(15) [id^=ad-gpt-slot-]', //gallery, article
+    ad_MrecRhs4: '.feed-ad:nth-child(21) [id^=ad-gpt-slot-]', //gallery, article
+    ad_StickyMrecRhs: '.sticky-block.rhs-ads [id^=ad-gpt-slot-]', //gallery
 
     //Additional
-    ad_OutOfPage: '.ad--out-of-page [id^=gpt-slot-]', //homepage, index, brand
-    ad_LeftSidePanel: '.ad--sidepanel-left [id^=gpt-slot-]', //homepage, index, brand
-    ad_RightSidePanel: '.ad--sidepanel-right [id^=gpt-slot-]', //homepage, index, brand
-    ad_Wallpaper: '.ad--wallpaper [id^=gpt-slot-]', //homepage, index, brand
+    ad_OutOfPage: '.ad--out-of-page [id^=ad-gpt-slot-]', //homepage, index, brand
+    ad_LeftSidePanel: '.ad--sidepanel-left [id^=ad-gpt-slot-]', //homepage, index, brand
+    ad_RightSidePanel: '.ad--sidepanel-right [id^=ad-gpt-slot-]', //homepage, index, brand
+    ad_Wallpaper: '.ad--wallpaper [id^=ad-gpt-slot-]', //homepage, index, brand
 
     //Polar
-    ad_PolarHomeTopTeaser1: '.top-teasers article:nth-child(4) .ad--bottom-label [id^=gpt-slot-]', //homepage 
-    ad_PolarHomeTopTeaser6: '.top-teasers article:nth-child(9) .ad--bottom-label [id^=gpt-slot-]', //homepage 
-    ad_PolarNavTopTeaser1: '.section__featured article:nth-child(2) .ad--bottom-label [id^=gpt-slot-]', //navigation section & tag
-    ad_PolarNavTopTeaser6: '.section__featured article:nth-child(8) .ad--bottom-label [id^=gpt-slot-]', //navigation section & tag
-    ad_PolarBrandTopTeaser1: '.brand-section--top-teasers li:nth-child(2) .ad--bottom-label [id^=gpt-slot-]',
-    ad_PolarBrandTopTeaser6: '.brand-section--top-teasers li:nth-child(7) .ad--bottom-label [id^=gpt-slot-]',
-    ad_PolarBottomTeaser2: '.repeatable-component .section__row:nth-child(1) article.teaser:nth-child(3) .ad--bottom-label [id^=gpt-slot-]', //homepage, section
-    ad_PolarBottomTeaser6: '.repeatable-component .section__row:nth-child(1) article.teaser:nth-child(7) .ad--bottom-label [id^=gpt-slot-]', //homepage, section
-    ad_PolarLoadMore2: '.repeatable-component .section__row:nth-child(2) article.teaser:nth-child(3) .ad--bottom-label [id^=gpt-slot-]', //homepage, section
-    ad_PolarLoadMore6: '.repeatable-component .section__row:nth-child(2) article.teaser:nth-child(7) .ad--bottom-label [id^=gpt-slot-]', //homepage, section
-    ad_PolarRHS2: '.feed__container .feed-item:nth-child(2) .ad--bottom-label [id^=gpt-slot-]', //gallery, article
-    ad_PolarRHS5: '.feed__container .feed-item:nth-child(6) .ad--bottom-label [id^=gpt-slot-]', //gallery, article
-    ad_PolarRHS9: '.feed__container .feed-item:nth-child(11) .ad--bottom-label [id^=gpt-slot-]', //gallery, article
-    ad_PolarRHS14: '.feed__container .feed-item:nth-child(17) .ad--bottom-label [id^=gpt-slot-]', //gallery, article
-    ad_PolarRelatedContentInBody: '.content-body-container .content-body__related-content .feed-item:nth-child(1) .ad--bottom-label [id^=gpt-slot-]', //gallery, article
-    ad_PolarRelatedContentAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .content-body__related-content .feed-item:nth-child(1) .ad--bottom-label [id^=gpt-slot-]', //gallery
+    ad_PolarHomeTopTeaser1: '.top-teasers article:nth-child(4) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage 
+    ad_PolarHomeTopTeaser6: '.top-teasers article:nth-child(9) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage 
+    ad_PolarNavTopTeaser1: '.section__featured article:nth-child(2) .ad--bottom-label [id^=ad-gpt-slot-]', //navigation section & tag
+    ad_PolarNavTopTeaser6: '.section__featured article:nth-child(8) .ad--bottom-label [id^=ad-gpt-slot-]', //navigation section & tag
+    ad_PolarBrandTopTeaser1: '.brand-section--top-teasers li:nth-child(2) .ad--bottom-label [id^=ad-gpt-slot-]',
+    ad_PolarBrandTopTeaser6: '.brand-section--top-teasers li:nth-child(7) .ad--bottom-label [id^=ad-gpt-slot-]',
+    ad_PolarBottomTeaser2: '.repeatable-component .section__row:nth-child(1) article.teaser:nth-child(3) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage, section
+    ad_PolarBottomTeaser6: '.repeatable-component .section__row:nth-child(1) article.teaser:nth-child(7) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage, section
+    ad_PolarLoadMore2: '.repeatable-component .section__row:nth-child(2) article.teaser:nth-child(3) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage, section
+    ad_PolarLoadMore6: '.repeatable-component .section__row:nth-child(2) article.teaser:nth-child(7) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage, section
+    ad_PolarRHS2: '.feed__container .feed-item:nth-child(2) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
+    ad_PolarRHS5: '.feed__container .feed-item:nth-child(6) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
+    ad_PolarRHS9: '.feed__container .feed-item:nth-child(11) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
+    ad_PolarRHS14: '.feed__container .feed-item:nth-child(17) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
+    ad_PolarRelatedContentInBody: '.content-body-container .content-body__related-content .feed-item:nth-child(1) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
+    ad_PolarRelatedContentAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .content-body__related-content .feed-item:nth-child(1) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery
 
     //After Load More
-    ad_LoadMoreMrecRhs: '.repeatable-component .section__row:nth-child(2) .fixed-column--sticky .ad--section-mrec [id^=gpt-slot-]', //homepage, index, brand
+    ad_LoadMoreMrecRhs: '.repeatable-component .section__row:nth-child(2) .fixed-column--sticky .ad--section-mrec [id^=ad-gpt-slot-]', //homepage, index, brand
 
     //Body
-    ad_MrecAfterSlide3: '.gallery__feed-item--ad:nth-child(4) .gallery__ad [id^=gpt-slot-]', //gallery
-    ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .gallery__ad [id^=gpt-slot-]', //gallery
+    ad_MrecAfterSlide3: '.gallery__feed-item--ad:nth-child(4) .gallery__ad [id^=ad-gpt-slot-]', //gallery
+    ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .gallery__ad [id^=ad-gpt-slot-]', //gallery
 
     //For Mobile
-    ad_MrecUnderHeroTeaser: '.top-teasers .ad--section-mrec [id^=gpt-slot-]', //mobile homepage
-    ad_MrecUnderHeroTeaser_Section: '.section__featured .ad--section-mrec [id^=gpt-slot-]', //mobile index
-    ad_MrecUnderHeroTeaser_Brand: '.ad--section-mrec-top-1 [id^=gpt-slot-]', //mobile brand
-    ad_MrecInBottomFeed: '.repeatable-component .ad--section-mrec [id^=gpt-slot-]', //mobile homepage, index, brand
-    ad_LoadMoreMrecInBottomFeed: '.repeatable-component .section__row:nth-child(2) .ad--section-mrec [id^=gpt-slot-]', //mobile homepage, index, brand
-    ad_MrecBeforeRecommendation: '.ad--article-before-recommendations [id^=gpt-slot-]', //mobile gallery
-    ad_MrecUnderHeroImage: '.ad--beneath-short-teaser [id^=gpt-slot-]', //mobile article
+    ad_MrecUnderHeroTeaser: '.top-teasers .ad--section-mrec [id^=ad-gpt-slot-]', //mobile homepage
+    ad_MrecUnderHeroTeaser_Section: '.section__featured .ad--section-mrec [id^=ad-gpt-slot-]', //mobile index
+    ad_MrecUnderHeroTeaser_Brand: '.ad--section-mrec-top-1 [id^=ad-gpt-slot-]', //mobile brand
+    ad_MrecInBottomFeed: '.repeatable-component .ad--section-mrec [id^=ad-gpt-slot-]', //mobile homepage, index, brand
+    ad_LoadMoreMrecInBottomFeed: '.repeatable-component .section__row:nth-child(2) .ad--section-mrec [id^=ad-gpt-slot-]', //mobile homepage, index, brand
+    ad_MrecBeforeRecommendation: '.ad--article-before-recommendations [id^=ad-gpt-slot-]', //mobile gallery
+    ad_MrecUnderHeroImage: '.ad--beneath-short-teaser [id^=ad-gpt-slot-]', //mobile article
 
     //--Non-ad element
     gallerySlide3: '.gallery__feed-item:nth-child(3)', //for 'I should see MREC ad between images'
@@ -86,7 +86,7 @@ var ads_widget = {
 
     // Vertical Gallery
     galleryNativeAd: '.ad--article-native',
-    galleryNativeAdDfp: '.ad--article-native [id^=gpt-slot-]',
+    galleryNativeAdDfp: '.ad--article-native [id^=ad-gpt-slot-]',
     //
     stickyTopBanner: '.sticky-block--at-top',
     stickyBottomBanner: '.sticky-block--at-bottom'
