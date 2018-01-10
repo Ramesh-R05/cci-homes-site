@@ -6,5 +6,5 @@
     "rerunPath": "./rerun",
     "chimpConfig": "chimp.shippable.js",
     "offline": false,
-    "tags": "@high"
+    "tags": ["@homes","~@manual"]
 }
