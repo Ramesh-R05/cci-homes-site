@@ -106,7 +106,7 @@ module.exports = function() {
         browser.scroll(wn_ads.ad_BottomLeaderboard);
         wait(1500);
         browser.scroll(wn_ads.ad_BottomLeaderboard); //move to the object again after the images on gallery are loaded from the first move.
-        expect(browser.isVisible(wn_ads.ad_BottomLeaderboard)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard, 5000)).toBe(true);
     });
 
     //BELOW ARE STEPS FOR GALLERY
@@ -398,7 +398,7 @@ module.exports = function() {
         var second_googleId;
         var loopCount = 0;
         adElement = `${adElement} > div`;
-        
+
         // check the iframe ID before change and ensure the value is not NULL
         do {
             browser.scroll(adElement);
@@ -436,10 +436,13 @@ module.exports = function() {
 
     this.Then(/^I can see the sticky ad when the top banner disappears from view$/, function () {
         //Scroll through the page to confirm is sticky
+        browser.scroll(0,0);
         expect(browser.isVisible(wn_ads.bottomSticky)).toBe(false);
+
         browser.scroll(0,1500);
         wait(3500);//the top ad will be sticky for 3.5sec
         expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
+
         browser.scroll(1500,2000);
         expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
     });
