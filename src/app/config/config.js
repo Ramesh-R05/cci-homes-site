@@ -218,7 +218,7 @@ export default {
 
     site: {
         host: 'http://homes-site-au.sit.bxm.net.au',
-        name: 'HOMES',
+        name: 'Homes To Love',
         shortName: 'Homes To Love',
         prefix: 'HOMES',
         network: 'wn',
