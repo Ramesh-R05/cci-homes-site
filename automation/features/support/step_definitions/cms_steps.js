@@ -193,6 +193,25 @@ module.exports = function() {
 
     });
 
+    this.Then(/^I should be able to add link in body paragraph to validate$/, function (dataTable) {
+        var row = dataTable.hashes();
+        var tabElement; //To ensure we find an element under that tab
+
+        for (var i = 1; i <= row.length; ++i) {
+            //Click the tab and record the tab no to use in the publishing step
+            tabNo = cmsGoToTab('Editorial', browser);
+            tabElement = '#body_TabView1_tab0' + tabNo + 'layer ';
+
+            //Find the field and insert value
+            browser.click(tabElement + cms.editorialBodyParagraphOption);
+            browser.click(tabElement + cms.editorialBodyAddButton);
+            var valueBodyParagraph = row[i-1]['link'];
+            browser.waitForVisible(tabElement + cms.editorialBodyParagraph, 2000);
+            browser.setValue(tabElement + '.content-body-component:nth-child(' + i + ') textarea.markdown-input' , valueBodyParagraph);
+            console.log(valueBodyParagraph);
+        }
+    });
+
     this.Then(/^I should be able to add specific value in the item$/, function (dataTable) {
         var row = dataTable.hashes();
         var tabElement; //To ensure we find an element under that tab

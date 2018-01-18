@@ -31,6 +31,30 @@ Feature: CMS Smoke Test
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
 
+    Scenario: Validate the link in the body paragraph
+        Given I am logging in CMS
+        When I am currently viewing the create form for "Homes Article"
+        * I should be able to select "Homes Article" doc type
+        * I should be able to add the name
+        * I should be able to click the create button
+        * I should see the item is created
+        When I am currently viewing "editContent.aspx?id=" of "Homes Article"
+        * I should be able to add content in the item
+            | field         | tab               |
+            | Long Title    | Editorial         |
+            | Created at    | Properties        |
+        * I should be able to add specific value in the item
+            | field         | tab                | value                            |
+            | Source        | Article:Gallery    | Belle                            |
+            | Tags          | Article:Gallery    | food:Topic:Organisation          |
+            | Tags          | Article:Gallery    | food:Homes navigation:Bedroom    |
+        * I should be able to add link in body paragraph to validate
+            | link                                                                       |
+            | [URL Only](https://www.google.com.au/)                                     |
+            | [URL with target only](http://www.google.com\|target="_blank")             |
+            | [URL with target and rel](http://test.com\|target="_blank"\|rel="nofollow")|
+#           | [URL with rel only](http://test.com\|rel="nofollow")                       | Will include this step scenario after the fix have been done as it is not allowing to publish in cms BXMA-1029
+        * I should be able to publish the item
 
     Scenario: Create, update and publish the Gallery item
         Given I am logging in CMS
