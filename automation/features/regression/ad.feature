@@ -91,13 +91,13 @@ Feature: Ads
         When I am currently viewing "automation-test-gallery-3201"
         And I should see MREC ad between images
     @high
-        Examples:
-            |device     |
-            |mobile     |
-    @med
-        Examples:
-            |device     |
-            |desktop    |
+    Examples:
+        |device         |
+        |mobile         |
+    @low
+    Examples:
+        |device         |
+        |tablet portrait|
 #--------Content page ads (Article, Gallery) end--------#
 
 # -------- Wall Paper Ads are High as this is an area with Commercial Value ---------------
@@ -215,14 +215,14 @@ Feature: Ads
             |brand              |not auto    |australian-house-and-garden                           |
 
     @low
-    Scenario Outline: Verify the autorefreshing bottom leaderboard in tablet landscape view (Test on <page>)
-        Given I switch to "tablet landscape" view
-        When I am currently viewing "<pageUrl>"
-        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
-    @gallery
-        Examples:
-            |page               |pageUrl                                               |
-            |gallery            |automation-test-gallery-3201                          |
+#    Scenario Outline: Verify the autorefreshing bottom leaderboard in tablet landscape view (Test on <page>)
+#        Given I switch to "tablet landscape" view
+#        When I am currently viewing "<pageUrl>"
+#        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
+#    @gallery
+#        Examples:
+#            |page               |pageUrl                                               |
+#            |gallery            |automation-test-gallery-3201                          |
 
     @med
     Scenario Outline: Verify the autorefreshing bottom leaderboard in desktop view (Test on <page>)
