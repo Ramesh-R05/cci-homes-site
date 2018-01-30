@@ -215,14 +215,14 @@ Feature: Ads
             |brand              |not auto    |australian-house-and-garden                           |
 
     @low
-#    Scenario Outline: Verify the autorefreshing bottom leaderboard in tablet landscape view (Test on <page>)
-#        Given I switch to "tablet landscape" view
-#        When I am currently viewing "<pageUrl>"
-#        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
-#    @gallery
-#        Examples:
-#            |page               |pageUrl                                               |
-#            |gallery            |automation-test-gallery-3201                          |
+    Scenario Outline: Verify the autorefreshing bottom leaderboard in tablet landscape view (Test on <page>)
+        Given I switch to "tablet landscape" view
+        When I am currently viewing "<pageUrl>"
+        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
+    @gallery
+        Examples:
+            |page               |pageUrl                                               |
+            |gallery            |automation-test-gallery-3201                          |
 
     @med
     Scenario Outline: Verify the autorefreshing bottom leaderboard in desktop view (Test on <page>)

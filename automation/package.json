@@ -27,6 +27,6 @@
     "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU\""
   },
   "dependencies": {
-    "@bxm/automation": "^6.0.0"
+    "@bxm/automation": "^6.1.0"
   }
 }
