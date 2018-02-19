@@ -1,5 +1,9 @@
 export default function loadPageContent(context, payload) {
-    const params = { ...payload.params, hostname: payload.navigate.hostname };
+    const params = {
+        ...payload.params,
+        hostname: payload.navigate.hostname,
+        url: payload.url
+    };
     params.pageNo = payload.query.pageNo;
     return context.getService('page').read(params).then(
         content => context.dispatch('LOAD_CONTENT', { ...content }),

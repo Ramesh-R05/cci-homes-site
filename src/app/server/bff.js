@@ -16,6 +16,7 @@ import listing from './bff/middleware/listing';
 import servicesStubs from './servicesStubs';
 import https from './bff/middleware/https';
 import assetProxy from './bff/middleware/assetProxy';
+import comScore from './bff/middleware/comScore';
 
 export default function bff(server) {
     if (process.env.APP_STUBBED === 'true' ||
@@ -38,6 +39,7 @@ export default function bff(server) {
     server.get(
         server.locals.config.services.endpoints.page, // Config set inside @bxm/server
         pageModules,
+        comScore,
         home,
         brand,
         page,

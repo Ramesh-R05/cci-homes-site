@@ -4,7 +4,8 @@ const PageStore = createReducerStore({
     storeName: 'PageStore',
     initialState: {
         error: null,
-        content: null
+        content: null,
+        comScoreSegmentIds: null
     },
     reducers: {
         LOAD_CONTENT: (state, payload) => {
@@ -15,7 +16,8 @@ const PageStore = createReducerStore({
                 headerNavigation,
                 galleries,
                 latestRealHomes,
-                list = []
+                list = [],
+                comScoreSegmentIds = null
             } = payload.body;
 
             if (entity) {
@@ -28,18 +30,23 @@ const PageStore = createReducerStore({
                     navigationTags: entity.navigationTags,
                     galleries,
                     latestRealHomes,
-                    list }
-            } return {};
+                    list,
+                    comScoreSegmentIds
+                };
+            }
+
+            return {};
         },
         LOAD_CONTENT_FAILED: (state, payload) => ({
-
             error: payload.response.error,
             hero: {},
             items: [],
             galleries: [],
             latestRealHomes: [],
             list: [],
-            content: null }),
+            content: null,
+            comScoreSegmentIds: payload.body.comScoreSegmentIds || null
+        }),
 
         LOAD_LIST: (state, payload) => ({
 
@@ -89,6 +96,10 @@ const PageStore = createReducerStore({
 
         getErrorStatus(state) {
             return state.error;
+        },
+
+        getComScoreSegmentIds(state) {
+            return state.comScoreSegmentIds;
         }
     }
 });
