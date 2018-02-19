@@ -45,7 +45,7 @@ const PageStore = createReducerStore({
             latestRealHomes: [],
             list: [],
             content: null,
-            comScoreSegmentIds: payload.body.comScoreSegmentIds || null
+            comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : null
         }),
 
         LOAD_LIST: (state, payload) => ({
