@@ -111,7 +111,7 @@ jobs:
       - NOTIFY: homes-deployment-notifications
 
   # 4b. Run compatibility regression test on TEST environment - Browser Stack
-  - name: homes-site-compabtibility-automation-test
+  - name: homes-site-compatibility-automation-test
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
@@ -132,6 +132,8 @@ jobs:
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: npm run test:mobile
         - script: npm run test:browser
+    on_failure:
+      - NOTIFY: homes-deployment-notifications
 
   # 4c. Smoke test
   - name: homes-site-smoke-test
@@ -164,6 +166,7 @@ jobs:
     steps:
       - IN: homes-site-smoke-test
       - IN: homes-site-automation-test
+      - IN: homes-site-compatibility-automation-test
       - IN: homes-site-man-master
         switch: off
       - IN: homes-site-version
