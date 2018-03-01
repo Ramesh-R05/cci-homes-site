@@ -72,6 +72,8 @@ jobs:
   # 3b. TEST deployment for MASTER - stubbed
   - name: homes-site-test-deploy-master
     type: deploy
+    always:
+      - NOTIFY: homes-slack-notifications
     steps:
       - IN: homes-site-replicas-non-prod #number of running tasks
       - IN: homes-site-man-master # for master - auto deploy to SIT
@@ -91,6 +93,7 @@ jobs:
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
+      - NOTIFY: homes-qa-team-notifications
     steps:
      - IN: homes-site-test-deploy-master
      - IN: homes-site-repo
@@ -115,6 +118,7 @@ jobs:
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
+      - NOTIFY: homes-qa-team-notifications
     steps:
      - IN: homes-site-test-deploy-master
      - IN: homes-site-repo
@@ -140,6 +144,7 @@ jobs:
     type: runSh
     always:
       - NOTIFY: homes-slack-notifications
+      - NOTIFY: homes-qa-team-notifications
     steps:
      - IN: homes-site-sit-deploy-master
      - IN: homes-site-repo
@@ -163,6 +168,8 @@ jobs:
   # 5. Package release for production release
   - name: homes-site-release-master
     type: release
+    always:
+      - NOTIFY: homes-slack-notifications
     steps:
       - IN: homes-site-smoke-test
       - IN: homes-site-automation-test
@@ -172,6 +179,8 @@ jobs:
       - IN: homes-site-version
       - TASK: managed
         bump: minor
+    on_success:
+      - NOTIFY: homes-deployment-notifications
 
   # 6. PROD deployment for MASTER with Region AU
   - name: homes-site-prod-deploy-master
