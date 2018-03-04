@@ -168,6 +168,7 @@ jobs:
   # 5. Package release for production release
   - name: homes-site-release-master
     type: release
+    dependencyMode: strict
     always:
       - NOTIFY: homes-slack-notifications
     steps:
