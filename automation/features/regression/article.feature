@@ -118,3 +118,10 @@ Feature: Article
             | tablet portrait   |
             | tablet landscape  |
 # -------- Article page on tablet landscape and tablet portrait end ---------------#
+
+# ---------Article page on mobile -------------------------------------------------#
+    @high
+    Scenario: Verify special elements for article mobile page
+    Given I switch to "mobile" view
+    When I am currently viewing "automation-test-article-with-hero-image-3193"
+    * I can see readmore carousel

@@ -1,4 +1,3 @@
-/* eslint-disable */
 var article_widget = {
 
     dateText: '.article__header .article__date-created',
@@ -15,8 +14,8 @@ var article_widget = {
     relatedContentItemsTitle_aww_wd: '.content-body__related-teaser',
     relatedContentItemsImage_food: '.content-body__related .teaser__image',
     relatedContentItemsTitle_food: '.content-body__related .teaser__body',
-    bodyGallery: '.content-body__gallery-link a',
-    bodyImgCaption: '.content-body__inline-image-caption',
+    bodyGallery:'.content-body__gallery-link a',
+    bodyImgCaption:'.content-body__inline-image-caption',
     heroVideo: '.article__main-hero video',
     heroVideoPlaylist: '.article__main-hero .video-playlist-container',
     heroVideoPlaylistItem: '.article__main-hero .vjs-playlist-loaded li',
@@ -66,7 +65,8 @@ var article_widget = {
     relatedPolarFeed: '.related-content-items > .polar-feed-item',
     imageRevealer: '.content-body .image-revealer',
     imageRevealerLeftImg: '.content-body .image-revealer__left img',
-    imageRevealerRightImg: '.content-body .image-revealer__right img'
+    imageRevealerRightImg: '.content-body .image-revealer__right img',
+    feedCoursel: '.content-body__feed-carousel-content'
 };
 
 module.exports = article_widget;

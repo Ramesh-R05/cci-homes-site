@@ -1,4 +1,3 @@
-/* eslint-disable */
 var lhr = require('../page_objects/lhr_widget');
 var wn_article = require('../page_objects/article_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
@@ -101,6 +100,7 @@ module.exports = function() {
     this.Given(/^I can see the body paragraph "([^"]*)"$/, function (articleBodyPara) {
         var bodyPara = browser.getText(wn_article.bodyParagraph);
         expect(bodyPara[0]).toContain(articleBodyPara);
+        //Validate the body paragraph
     });
 
     this.Given(/^I can see the body heading "([^"]*)"$/, function (articleBodyHeading) {
@@ -445,5 +445,9 @@ module.exports = function() {
         expect(rightImageSrc).not.toBeUndefined();
     });
 
+    this.Given(/^I can see readmore carousel$/, function() {
+       var feedCarousel = browser.elements(wn_article.feedCoursel);
+       expect(feedCarousel.value.length).toBe(1);
+    });
 };
 
