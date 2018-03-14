@@ -107,7 +107,7 @@ class DefaultTemplate extends Component {
 
         if (!content || contentErrorStatus) {
             let errorStatus;
-            if (currentNavigateError) errorStatus = currentNavigateError.statusCode
+            if (currentNavigateError) errorStatus = currentNavigateError.statusCode;
             if (contentErrorStatus) errorStatus = contentErrorStatus.status;
 
             return {

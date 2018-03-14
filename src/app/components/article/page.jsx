@@ -6,6 +6,13 @@ import VerticalGallery from '@bxm/article/lib/gallery';
 export default class Page extends Component {
     static displayName = 'ContentPage';
 
+    static propTypes = {
+        content: PropTypes.shape({
+            source: PropTypes.string.isRequired,
+            tagsDetails: PropTypes.array.isRequired,
+            nodeType: PropTypes.string.isRequired
+        }).isRequired
+    };
     static translationMap = {
         writer: { s: 'Writer', p: 'Writers' },
         photographer: { s: 'Photographer', p: 'Photographers' },
@@ -13,9 +20,7 @@ export default class Page extends Component {
         renovation_expert: { s: 'Renovation expert', p: 'Renovation experts' }
     };
 
-    getKingTag(tagObject) {
-        return tagObject.find(tag => tag.name.includes('Homes navigation'));
-    }
+    static getKingTag = tagObject => tagObject.find(tag => tag.name.includes('Homes navigation'));
 
     static articleContentBodyConfig = {
         disableAds: true,
@@ -40,7 +45,7 @@ export default class Page extends Component {
     render() {
         const { content } = this.props;
         const targets = { brand: content.source };
-        const kingtag = this.getKingTag(content.tagsDetails);
+        const kingtag = Page.getKingTag(content.tagsDetails);
         const kingtagDisplayName = kingtag && kingtag.displayName;
 
         if (kingtagDisplayName) targets.kingtag = kingtag;
@@ -53,13 +58,13 @@ export default class Page extends Component {
             }
         };
 
-        if (content.nodeType === "Gallery") {
+        if (content.nodeType === 'Gallery') {
             return (
-                <div className='content-wrapper'>
+                <div className="content-wrapper">
                     <VerticalGallery
                       {...this.props}
                       enableTeads
-                      articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', Ad]}
+                      articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'Hero', Ad]}
                       contentBodyConfig={Page.articleContentBodyConfig}
                       authorTranslationMap={Page.translationMap}
                       showFeedOnRight
@@ -73,11 +78,11 @@ export default class Page extends Component {
         }
 
         return (
-            <div className='content-wrapper'>
+            <div className="content-wrapper">
                 <Article
                   {...this.props}
                   enableTeads
-                  articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', Ad]}
+                  articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'Hero', Ad]}
                   contentBodyConfig={Page.articleContentBodyConfig}
                   authorTranslationMap={Page.translationMap}
                   showFeedOnRight

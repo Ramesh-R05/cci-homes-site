@@ -114,6 +114,9 @@
         }
 
         &__header {
+            text-align: center;
+            line-height: 15px;
+
             .article {
 
                 &__main-hero-image {
@@ -135,9 +138,11 @@
                 &__title {
                     padding: 0 15px;
                     margin: $standard-content-body-spacing auto;
+                    color: $color-grey-darker;
 
                     @media #{$medium-up} {
                         padding: 0;
+                        font-size: 28px;
                     }
                 }
 
@@ -408,11 +413,35 @@
             @include type-article-summary();
             margin: $standard-content-body-spacing auto;
             padding: 0 15px;
-            display: none;
+            font-size: 14px;
+            letter-spacing: normal;
 
             @media #{$medium-up} {
                 padding: 0;
                 display: block;
+                font-size: 16px;
+            }
+        }
+
+        &__header {
+            .article {
+                &__date-created,
+                &-header-author,
+                &__image-count {
+                    font: normal 11px/15px $font-family-sans-serif-primary;
+                    text-transform: uppercase;
+                    letter-spacing: 0.025em;
+                    color: $color-grey-light;
+                    display: inline-block;
+                }
+
+                &__date-created {
+                    margin-right: 7px;
+                    margin-bottom: 30px;
+                }
+                &-header-author {
+                    margin-right: 7px;
+                }
             }
         }
 

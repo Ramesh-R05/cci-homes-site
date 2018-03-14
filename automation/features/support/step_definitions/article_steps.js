@@ -1,3 +1,4 @@
+/* eslint-disable */
 var lhr = require('../page_objects/lhr_widget');
 var wn_article = require('../page_objects/article_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
@@ -76,7 +77,6 @@ module.exports = function() {
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
         var articleDate = browser.getText(wn_article.dateText);
         expect(articleDate.toString()).toEqual(date);
-        console.log('article date is:' + articleDate)
     });
     this.Given(/^I can see the hero video instead of the main image$/, function () {
         var heroVideo = browser.isVisible(wn_article.heroVideo);
@@ -85,23 +85,22 @@ module.exports = function() {
         expect(heroImg).toBe(false);
     });
     this.Given(/^I can see the hero video instead of the main image on Food$/, function () {
-        var heroVideo = browser.isVisible(wn_article.heroVideoFood);
-        expect(heroVideo).toBe(true);
-        var heroImg = browser.isVisible(wn_article.heroImgFood);
-        expect(heroImg).toBe(false);
+        var isHeroVideoVisible = browser.isVisible(wn_article.heroVideoFood);
+        var isHeroImgVisible = browser.isVisible(wn_article.heroImgFood);
+        expect(isHeroVideoVisible).toBe(true);
+        expect(isHeroImgVisible).toBe(false);
     });
     this.Given(/^I can see the short teaser "([^"]*)"$/, function (articleShortTeaser) {
         var shortTeaser = browser.getText(wn_article.shortTeaser);
         expect(shortTeaser).toContain(articleShortTeaser);
     });
-    this.Given(/^I can not see the short teaser$/, function () {
-        var shortTeaser = browser.getCssProperty(wn_article.shortTeaser, 'display');
-        expect(shortTeaser.value).toContain('none');
+    this.Given(/^I can see the short teaser$/, function () {
+        var isTeaserVisible = browser.isVisible(wn_article.shortTeaser);
+        expect(isTeaserVisible).toBe(true);
     });
     this.Given(/^I can see the body paragraph "([^"]*)"$/, function (articleBodyPara) {
         var bodyPara = browser.getText(wn_article.bodyParagraph);
         expect(bodyPara[0]).toContain(articleBodyPara);
-        //Validate the body paragraph
     });
 
     this.Given(/^I can see the body heading "([^"]*)"$/, function (articleBodyHeading) {

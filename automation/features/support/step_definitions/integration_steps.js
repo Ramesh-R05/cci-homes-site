@@ -11,7 +11,7 @@ var randomId = randomValue();
 
 module.exports = function() {
 
-    this.Given(/^Emily just published the "([^"]*)" doc type item$/, function (page) {
+    this.Given(/^Editor just published the "([^"]*)" doc type item$/, function (page) {
         var content_json;
         var documentPath;
 

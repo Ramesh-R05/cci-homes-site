@@ -48,12 +48,12 @@ Feature: Smoke test for HOMES
         And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: Verify the article page
-        Given Emily just published the "article" doc type item
+        Given Editor just published the "article" doc type item
         When I navigate to the "test-article" page
         Then our readers can enjoy the latest content
 
     Scenario: Verify the gallery page
-        Given Emily just published the "gallery" doc type item
+        Given Editor just published the "gallery" doc type item
         When I navigate to the "test-gallery" page
         Then our readers can enjoy the latest content
 

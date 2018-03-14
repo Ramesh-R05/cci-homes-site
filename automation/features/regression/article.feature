@@ -8,6 +8,7 @@ Feature: Article
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can see the long title "Long Title Long Title EOM"
+        * I can see the created date "NOV 09, 2016 11:46AM"
         * I can see the hero image
         * I should not see the hero image caption
         * I can see the body paragraph "Test body paragraph"
@@ -32,7 +33,7 @@ Feature: Article
     Scenario: Verify the short teaser on article page in mobile view
         Given I switch to "mobile portrait" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
-        * I can not see the short teaser
+        * I can see the short teaser
 
     @med
     Scenario: Verify the short teaser on article page in desktop view

@@ -1,3 +1,4 @@
+/* eslint-disable */
 var gallery = require('../page_objects/gallery_widget');
 var world = require('../world');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
