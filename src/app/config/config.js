@@ -93,6 +93,9 @@ export default {
         },
         sailthru: {
             enabled: true
+        },
+        feedCarousel: {
+            enabled: true
         }
     },
 

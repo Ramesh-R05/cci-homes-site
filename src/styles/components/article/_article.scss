@@ -44,8 +44,21 @@
                     }
                 }
 
-            }
+            }            
+        }
 
+        &-carousel-content {
+            h2 {
+                width: 50%;
+            }
+            .feed-item {
+
+                &__body {
+                    padding-left: 0px;
+                    padding-top: 5px;
+                }
+            }
+            
         }
 
         .polar-feed-item {
