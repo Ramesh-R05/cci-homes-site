@@ -76,7 +76,7 @@ module.exports = function() {
         });
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
         var articleDate = browser.getText(wn_article.dateText);
-        expect(articleDate.toString()).toEqual(date);
+        expect(articleDate.toString()).toContain(date);
     });
     this.Given(/^I can see the hero video instead of the main image$/, function () {
         var heroVideo = browser.isVisible(wn_article.heroVideo);
