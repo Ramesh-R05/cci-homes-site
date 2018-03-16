@@ -50,7 +50,7 @@
     "@bxm/react-script-loader": "^2.1.0",
     "@bxm/recommendations": "^4.0.0",
     "@bxm/rss-builder": "^1.1.4",
-    "@bxm/server": "^23.8.1",
+    "@bxm/server": "^23.20.0",
     "@bxm/site-header": "^7.0.1",
     "@bxm/social": "^2.0.0",
     "@bxm/tags": "^3.0.0",

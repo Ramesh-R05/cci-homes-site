@@ -124,6 +124,8 @@ export default {
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
 
+    nielsen: 'D8F7E7CC-324B-4FEA-A412-097B3CC98D0A',
+
     polar: {
         url: '//plugin.mediavoice.com/plugin.js',
         propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',
