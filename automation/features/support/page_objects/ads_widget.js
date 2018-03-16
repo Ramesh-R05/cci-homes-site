@@ -47,8 +47,8 @@ var ads_widget = {
     ad_Wallpaper: '.ad--wallpaper [id^=ad-gpt-slot-]', //homepage, index, brand
 
     //Polar
-    ad_PolarHomeTopTeaser1: '.top-teasers article:nth-child(4) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage 
-    ad_PolarHomeTopTeaser6: '.top-teasers article:nth-child(9) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage 
+    ad_PolarHomeTopTeaser1: '.top-teasers article:nth-child(4) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage
+    ad_PolarHomeTopTeaser6: '.top-teasers article:nth-child(9) .ad--bottom-label [id^=ad-gpt-slot-]', //homepage
     ad_PolarNavTopTeaser1: '.section__featured article:nth-child(2) .ad--bottom-label [id^=ad-gpt-slot-]', //navigation section & tag
     ad_PolarNavTopTeaser6: '.section__featured article:nth-child(8) .ad--bottom-label [id^=ad-gpt-slot-]', //navigation section & tag
     ad_PolarBrandTopTeaser1: '.brand-section--top-teasers li:nth-child(2) .ad--bottom-label [id^=ad-gpt-slot-]',
@@ -63,6 +63,7 @@ var ads_widget = {
     ad_PolarRHS14: '.feed__container .feed-item:nth-child(17) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
     ad_PolarRelatedContentInBody: '.content-body-container .content-body__related-content .feed-item:nth-child(1) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery, article
     ad_PolarRelatedContentAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .content-body__related-content .feed-item:nth-child(1) .ad--bottom-label [id^=ad-gpt-slot-]', //gallery
+    ad_PolarCarouselFeed: '.feed-carousel-content-items [id^=ad-gpt-slot-]', //gallery, article
 
     //After Load More
     ad_LoadMoreMrecRhs: '.repeatable-component .section__row:nth-child(2) .fixed-column--sticky .ad--section-mrec [id^=ad-gpt-slot-]', //homepage, index, brand

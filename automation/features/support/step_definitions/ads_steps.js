@@ -333,6 +333,9 @@ module.exports = function() {
                case 'Polar in Related Content After Slide 7':
                    adElement = wn_ads.ad_PolarRelatedContentAfterSlide7;
                    break;
+               case 'Polar in Carousel Feed':
+                   adElement = wn_ads.ad_PolarCarouselFeed;
+                   break;
                }
            var className = browser.getAttribute(adElement,'class');
            expect(className).toEqual(row['class-name']);
