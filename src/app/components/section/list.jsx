@@ -5,7 +5,7 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class List extends Component {
 
-    static displayName = "List"
+    static displayName = 'List'
 
     static propTypes = {
         items: PropTypes.array,

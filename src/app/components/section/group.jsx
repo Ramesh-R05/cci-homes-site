@@ -5,7 +5,7 @@ import get from 'lodash/object/get';
 
 export default class Group extends Component {
 
-    static displayName = "Group"
+    static displayName = 'Group'
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
@@ -29,13 +29,13 @@ export default class Group extends Component {
         const { polarAd, teaserModifier } = this.props;
 
         return this.props.articles.map((item, index) => {
-            const polar = get(polarAd, 'index') === index ? 
-                        {
-                            label: polarAd.label,
-                            targets: {
-                                  kw: polarAd.label
-                            } 
-                        } : false;
+            const polar = get(polarAd, 'index') === index ?
+            {
+                label: polarAd.label,
+                targets: {
+                    kw: polarAd.label
+                }
+            } : false;
 
             return <Teaser {...item} polar={polar} key={item.id} modifier={teaserModifier} />;
         });

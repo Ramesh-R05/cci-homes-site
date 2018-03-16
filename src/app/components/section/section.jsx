@@ -58,7 +58,7 @@ export default class Section extends Component {
                 billboard: ['billboard', 'leaderboard']
             },
             pageLocation: Ad.pos.outside,
-            lazyLoad:true
+            lazyLoad: true
         };
 
         return (

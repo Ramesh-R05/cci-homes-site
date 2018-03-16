@@ -1,20 +1,17 @@
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 let getModulesStub = () => {};
-let parseEntityStub = () => {};
+const parseEntityStub = () => {};
 let parseEntitiesStub = () => {};
 
 const pageModulesMiddleware = proxyquire('../../../../app/server/bff/middleware/pageModules', {
-     '../helper/parseEntity': {
-        parseEntity: (...args) => {
-            return parseEntityStub(...args)
-        },
-        parseEntities: (...args) => {
-            return parseEntitiesStub(...args)
-        }
+    '../helper/parseEntity': {
+        parseEntity: (...args) => parseEntityStub(...args),
+        parseEntities: (...args) => parseEntitiesStub(...args)
     },
-	'../api/module': () => { return getModulesStub() }
+    '../api/module': () => getModulesStub(),
+    '../../../../logger': { error() {} }
 });
 
 describe('PageModules middleware', () => {

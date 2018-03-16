@@ -45,7 +45,7 @@ export default class SectionFeatured extends Component {
                 billboard: ['billboard', 'leaderboard']
             },
             pageLocation: Ad.pos.outside,
-            lazyLoad:true
+            lazyLoad: true
         };
 
         let latestRealHomesComponent = null;

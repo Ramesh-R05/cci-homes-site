@@ -16,7 +16,9 @@ import listing from './bff/middleware/listing';
 import servicesStubs from './servicesStubs';
 import https from './bff/middleware/https';
 import assetProxy from './bff/middleware/assetProxy';
-//import comScore from './bff/middleware/comScore';
+import rss from './rss';
+import rssInfo from './rss/info';
+// import comScore from './bff/middleware/comScore';
 
 export default function bff(server) {
     if (process.env.APP_STUBBED === 'true' ||
@@ -26,6 +28,9 @@ export default function bff(server) {
     ) {
         server.use('/stub', servicesStubs);
     }
+    server.get('/rss/info', rssInfo);
+    server.get('/rss/summary/:section?', rss);
+    server.get('/rss/:section?', rss);
     server.get('/api/asset', assetProxy);
     server.get('/sitemap/:section?', sitemap, error);
     server.get(
@@ -39,7 +44,7 @@ export default function bff(server) {
     server.get(
         server.locals.config.services.endpoints.page, // Config set inside @bxm/server
         pageModules,
-        //comScore,
+        // comScore,
         home,
         brand,
         page,

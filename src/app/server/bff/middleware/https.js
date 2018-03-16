@@ -37,33 +37,33 @@ export default function https(req, res, next) {
 
         get(res, 'body.entity.body', []).forEach((item) => {
             switch (item.type) {
-                case 'image':
-                    httpsSet(item, 'content.url');
-                    break;
+            case 'image':
+                httpsSet(item, 'content.url');
+                break;
 
-                case 'whooshka':
-                    httpsSet(item, 'content.url');
-                    break;
+            case 'whooshka':
+                httpsSet(item, 'content.url');
+                break;
 
-                case 'image-revealer':
-                    httpsSet(item, 'content.left.url');
-                    httpsSet(item, 'content.right.url');
-                    break;
+            case 'image-revealer':
+                httpsSet(item, 'content.left.url');
+                httpsSet(item, 'content.right.url');
+                break;
 
-                case 'related-content':
-                    item.content.forEach((related) => {
-                        httpsSet(related, 'imageUrl');
-                    });
-                    break;
+            case 'related-content':
+                item.content.forEach((related) => {
+                    httpsSet(related, 'imageUrl');
+                });
+                break;
 
-                case 'portrait-image':
-                    httpsSet(item, 'content.url');
-                    break;
+            case 'portrait-image':
+                httpsSet(item, 'content.url');
+                break;
 
-                case 'gallery':
-                    httpsSet(item, 'content[0].imageUrl');
-                    break;
-                default:
+            case 'gallery':
+                httpsSet(item, 'content[0].imageUrl');
+                break;
+            default:
             }
         });
 

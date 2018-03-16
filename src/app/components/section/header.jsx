@@ -58,7 +58,7 @@ export default class Header extends Component {
                       minHeight={450}
                       stickyAtViewPort="xlargeRangeMax"
                       stickyDelay={2000}
-                      isStickyTemporary={true}
+                      isStickyTemporary
                       stickyDuration={3500}
                     />
                 </div>

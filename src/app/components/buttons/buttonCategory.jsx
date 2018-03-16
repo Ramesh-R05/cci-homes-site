@@ -11,7 +11,7 @@ export default class ButtonCategory extends Component {
         return (
             <Button {...this.props} modifier="category">
                 {this.props.children}
-                {/* Arrow icon*/}
+                {/* Arrow icon */}
                 <span
                   className="icon-arrow"
                   dangerouslySetInnerHTML={{ __html: `

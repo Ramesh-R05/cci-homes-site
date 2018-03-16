@@ -36,7 +36,7 @@ class Application extends Component {
             <div className={className}>
                 <GoogleFont />
                 <Handler
-                    currentNavigateError={this.props.currentNavigateError}
+                  currentNavigateError={this.props.currentNavigateError}
                 />
             </div>
         );

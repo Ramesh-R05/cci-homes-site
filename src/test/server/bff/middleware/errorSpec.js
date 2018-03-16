@@ -1,4 +1,10 @@
-import errorMiddleware from '../../../../app/server/bff/middleware/error';
+import proxyquire, { noCallThru } from 'proxyquire';
+
+noCallThru();
+
+const errorMiddleware = proxyquire('../../../../app/server/bff/middleware/error', {
+    '../../../../logger': { error() {} }
+});
 
 describe('Error middleware', () => {
     let next;

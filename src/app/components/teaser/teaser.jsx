@@ -31,10 +31,10 @@ class Teaser extends Component {
         gtmClass: PropTypes.string,
         polar: PropTypes.oneOfType([
             PropTypes.shape({
-               targets: PropTypes.shape({
-                   kw: PropTypes.string
-               }),
-               label: PropTypes.string
+                targets: PropTypes.shape({
+                    kw: PropTypes.string
+                }),
+                label: PropTypes.string
             }),
             PropTypes.bool
         ])
@@ -151,7 +151,7 @@ class Teaser extends Component {
         const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;
         const classNames = classnames('teaser', `teaser--${modifier}`, className);
         const imgSizes = Teaser.getImgSizes(sizes, modifier);
-        
+
         return (
             <article className={classNames}>
                 <Image
@@ -181,11 +181,11 @@ class Teaser extends Component {
 
                 {polar && (
                     <Ad
-                        nativeAd
-                        label={polar.label}
-                        targets={polar.targets}
-                        sizes={'nativeAdTeaser'}
-                        pageLocation={Ad.pos.body}
+                      nativeAd
+                      label={polar.label}
+                      targets={polar.targets}
+                      sizes={'nativeAdTeaser'}
+                      pageLocation={Ad.pos.body}
                     />
                 )}
             </article>

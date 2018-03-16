@@ -59,7 +59,7 @@ export default async function navSectionMiddleware(req, res, next) {
             hero: parseEntity((
                 heroModule &&
                 heroModule.moduleManualContent &&
-                heroModule.moduleManualContent.data[0]) || {}),
+                heroModule.moduleManualContent.data[0]) || {})
         };
 
         next();

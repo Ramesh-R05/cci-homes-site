@@ -9,7 +9,7 @@ export default class HomeHeader extends Component {
             className: 'ad--section-top-leaderboard',
             displayFor: ['small', 'medium', 'large', 'xlarge'],
             sizes: {
-                small: "banner",
+                small: 'banner',
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard']
             },
@@ -23,7 +23,7 @@ export default class HomeHeader extends Component {
                       minHeight={450}
                       stickyAtViewPort="xlargeRangeMax"
                       stickyDelay={2000}
-                      isStickyTemporary={true}
+                      isStickyTemporary
                       stickyDuration={3500}
                     />
                 </div>

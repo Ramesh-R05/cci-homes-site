@@ -124,3 +124,6 @@ automation/homes/artifacts
 screenshots/*.jpg
 .screenshots
 .vscode/
+
+# Sometimes devs run 'npm install' in this directory instead of the src directory
+package-lock.json

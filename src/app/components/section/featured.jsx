@@ -29,11 +29,11 @@ export default class Featured extends Component {
                     {
                         hero
                             ? <Teaser
-                                {...hero}
-                                gtmClass="gtm-hero-section"
-                                key={`${hero.id}-xl`}
-                                modifier="hero"
-                                sizes="home-hero"
+                              {...hero}
+                              gtmClass="gtm-hero-section"
+                              key={`${hero.id}-xl`}
+                              modifier="hero"
+                              sizes="home-hero"
                             />
                             : null
                     }
