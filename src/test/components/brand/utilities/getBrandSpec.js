@@ -16,8 +16,8 @@ describe('Get Brand Method', () => {
             "url": "/real-living/",
             "id" : "realliving",
             "urlName" : "real-living",
-            "imageUrl": "/assets/svgs/realliving_black.svg",
-            "logo": "/assets/svgs/realliving_black.svg",
+            "imageUrl": "/assets/images/brand-pages/headerlogos/realliving_black.svg",
+            "logo": "/assets/images/brand-pages/headerlogos/realliving_black.svg",
             "newsletterUrl": "//www.homestolove.com.au/real-living-newsletter/",
             "subscribe" :{
                 "image": "/assets/images/brand-pages/subscribe/real-living.jpg",

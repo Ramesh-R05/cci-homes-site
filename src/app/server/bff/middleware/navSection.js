@@ -38,7 +38,11 @@ export default async function navSectionMiddleware(req, res, next) {
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
         const heroModule = (heroResp && heroResp.data && heroResp.data[0]) || {};
-
+        const section = {
+            name: entityResponse.nodeName,
+            id: entityResponse.id,
+            urlName: entityResponse.urlName
+        }
         const list = {
             params: {
                 listName: navSection,
@@ -55,6 +59,7 @@ export default async function navSectionMiddleware(req, res, next) {
             entity: parseEntity(entityResponse),
             items: parseEntities(latestTeasers),
             list,
+            section,
             galleries: parseEntities(galleryListingResponse.data),
             hero: parseEntity((
                 heroModule &&

@@ -21,7 +21,7 @@ $header-logo-width-desktop: 100%;
     }
 
     &__link-image {
-        background-image: url('/assets/logo/homes-logo.svg');
+        background-image: url('/assets/logos/homes-logo.svg');
         background-repeat: no-repeat;
         display: inline-block;
         height: 28px;
@@ -31,7 +31,7 @@ $header-logo-width-desktop: 100%;
         margin: 14px 0;
 
         @media #{$medium-up} {
-            background-image: url('/assets/logo/homes-logo.svg');
+            background-image: url('/assets/logos/homes-logo.svg');
             height: 28px;
             background-repeat: no-repeat;
         }

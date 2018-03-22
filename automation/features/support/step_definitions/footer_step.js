@@ -5,7 +5,7 @@ module.exports = function() {
     this.Given(/^I can see the social logo in the footer$/, function () {
         // Validate the existence of the logo
         var socialLogo = browser.getCssProperty(footer.footerSocialLogo, 'background').value;
-        expect(socialLogo).toMatch("/assets/logo/follow-homes-to-love-logo.svg");
+        expect(socialLogo).toMatch("/assets/logos/follow-homes-to-love-logo.svg");
     });
 
     this.Given(/^I can see the social icons clickable to open its page in the footer$/, function (dataTable) {

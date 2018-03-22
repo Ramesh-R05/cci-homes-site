@@ -26,4 +26,3 @@ export default async function galleryMiddleware(req, res, next) {
         next(error);
     }
 }
-

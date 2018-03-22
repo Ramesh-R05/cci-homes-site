@@ -19,6 +19,7 @@ import assetProxy from './bff/middleware/assetProxy';
 import rss from './rss';
 import rssInfo from './rss/info';
 // import comScore from './bff/middleware/comScore';
+import amp from '@bxm/server/lib/middleware/amp';
 
 export default function bff(server) {
     if (process.env.APP_STUBBED === 'true' ||
@@ -57,6 +58,19 @@ export default function bff(server) {
         headerMeta,
         https,
         render,
+        error
+    );
+
+    server.get(
+        '/amp/:page-:id(\\d+)',
+        pageModules,
+        page,
+        article,
+        gallery,
+        campaign,
+        headerMeta,
+        https,
+        amp,
         error
     );
 }

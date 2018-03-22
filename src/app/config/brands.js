@@ -4,8 +4,8 @@ export default [
         url: '/belle/',
         id: 'belle',
         urlName: 'belle',
-        imageUrl: '/assets/svgs/belle.svg',
-        logo: '/assets/svgs/belle.svg',
+        imageUrl: '/assets/images/brand-pages/headerlogos/belle.svg',
+        logo: '/assets/images/brand-pages/headerlogos/belle.svg',
         newsletterUrl: '//www.homestolove.com.au/belle-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/belle.jpg',
@@ -23,8 +23,8 @@ export default [
         url: '/real-living/',
         id: 'realliving',
         urlName: 'real-living',
-        imageUrl: '/assets/svgs/realliving_black.svg',
-        logo: '/assets/svgs/realliving_black.svg',
+        imageUrl: '/assets/images/brand-pages/headerlogos/realliving_black.svg',
+        logo: '/assets/images/brand-pages/headerlogos/realliving_black.svg',
         newsletterUrl: '//www.homestolove.com.au/real-living-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/real-living.jpg',
@@ -42,8 +42,8 @@ export default [
         url: '/homes-plus/',
         id: 'homesplus',
         urlName: 'homes-plus',
-        imageUrl: '/assets/svgs/homesplus.svg',
-        logo: '/assets/svgs/homesplus.svg',
+        imageUrl: '/assets/images/brand-pages/headerlogos/homesplus.svg',
+        logo: '/assets/images/brand-pages/headerlogos/homesplus.svg',
         newsletterUrl: '//www.homestolove.com.au/homes-plus-newsletter/',
         subscribe: {
             image: '/assets/images/brand-pages/subscribe/homes.jpg',
@@ -60,8 +60,8 @@ export default [
         title: 'Australian House and Garden',
         url: '/australian-house-and-garden/',
         id: 'houseandgarden',
-        imageUrl: '/assets/svgs/housegarden.svg',
-        logo: '/assets/svgs/housegarden.svg',
+        imageUrl: '/assets/images/brand-pages/headerlogos/housegarden.svg',
+        logo: '/assets/images/brand-pages/headerlogos/housegarden.svg',
         urlName: 'australian-house-and-garden',
         newsletterUrl: '//www.homestolove.com.au/australian-house-and-garden-newsletter/',
         subscribe: {

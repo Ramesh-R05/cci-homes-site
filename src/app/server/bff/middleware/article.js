@@ -23,4 +23,3 @@ export default async function articleMiddleware(req, res, next) {
         next(error);
     }
 }
-

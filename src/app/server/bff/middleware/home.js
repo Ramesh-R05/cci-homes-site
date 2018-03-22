@@ -30,6 +30,11 @@ export default async function homeMiddleware(req, res, next) {
 
         const heroModule = (heroModuleResp.data && heroModuleResp.data[0]) || {};
         const hero = (heroModule.moduleManualContent && heroModule.moduleManualContent.data[0]) || {};
+        const section = {
+            name: pageData.nodeName,
+            id: pageData.id,
+            urlName: pageData.urlName
+        }
 
         const list = {
             params: {
@@ -48,7 +53,8 @@ export default async function homeMiddleware(req, res, next) {
             hero: parseEntity(hero),
             items: parseEntities(latestTeasers),
             latestRealHomes: parseEntities(latestRealHomes),
-            list
+            list,
+            section
         };
 
         next();

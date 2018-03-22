@@ -8,6 +8,8 @@ const accountId = '761709621001';
 const playerId = 'VkuyApojl';
 
 export default {
+    ga: { id: 'UA-57795117-2' },
+
     article: {
         sources: {
             belle: {
@@ -229,7 +231,8 @@ export default {
         prefix: 'HOMES',
         network: 'wn',
         prodDomain: 'www.homestolove.com.au',
-        dateTimeFormat: 'MMM DD, YYYY h:mma'
+        dateTimeFormat: 'MMM DD, YYYY h:mma',
+        adTaggingId: 'HomesToLove'
     },
 
     server: {

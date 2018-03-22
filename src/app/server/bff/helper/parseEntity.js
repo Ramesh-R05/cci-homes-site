@@ -35,7 +35,8 @@ const entityPropertyMap = {
     tagsDetails: 'tagsDetails',
     articleTags: 'tags',
     navigationTagsDetails: 'navigationTagsDetails',
-    kingtag: 'kingtag'
+    kingtag: 'kingtag',
+    enableAmp: 'enableAmp'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {

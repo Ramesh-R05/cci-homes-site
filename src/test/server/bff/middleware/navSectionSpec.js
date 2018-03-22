@@ -5,7 +5,7 @@ import listingsStubData from '../../../../stubs/listings-food-Homes-navigation-I
 import galleryStubData from '../../../../stubs/listings-gallery';
 import heroStubData from '../../../../stubs/module-interiorshero';
 
-const makeRequestStub = () => ({tagsDetails: entityStubData.tagsDetails});
+const makeRequestStub = () => entityStubData;
 const getLatestTeasersStub = () => listingsStubData;
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
@@ -41,6 +41,11 @@ const expectedBody = {
             pageSize: 12,
             filter: navSectionFilter
         }
+    },
+    "section": {
+        "id": entityStubData.id,
+        "name": entityStubData.nodeName,
+        "urlName": entityStubData.urlName
     },
     galleries: galleryStubData.data,
     hero: heroStubData.moduleManualContent.data[0]

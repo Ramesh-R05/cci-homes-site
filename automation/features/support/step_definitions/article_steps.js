@@ -98,8 +98,7 @@ module.exports = function() {
         expect(isTeaserVisible).toBe(true);
     });
     this.Given(/^I can see the body paragraph "([^"]*)"$/, function (articleBodyPara) {
-        var bodyPara = browser.getText(wn_article.bodyParagraph);
-        expect(bodyPara[0]).toContain(articleBodyPara);
+        expect(browser.element(wn_article.bodyParagraph).getText()).toContain(articleBodyPara);
         //Validate the body paragraph
     });
 
@@ -146,10 +145,12 @@ module.exports = function() {
         var bodyImg = browser.isVisible(wn_article.bodyImg);
         expect(bodyImg).toBe(true);
     });
+    
     this.Given(/^I can see the body image caption "([^"]*)"$/, function (ImgCaption) {
         var bodyImgCaption = browser.getText(wn_article.bodyImgCaption);
         expect(bodyImgCaption).toContain(ImgCaption);
     });
+
     this.Given(/^I can see the body gallery$/, function () {
        var bodyGallery = browser.getAttribute(wn_article.bodyGallery, 'href');
        for(var i=0; i<bodyGallery.length; i++){
@@ -157,77 +158,94 @@ module.exports = function() {
            expect(galleryItems == '').toBe(false);
          }
     });
+
     this.Given(/^I can see the body video$/, function () {
         var bodyVideo = browser.isVisible(wn_article.bodyVideo);
         expect(bodyVideo).toBe(true);
     });
+
     this.Given(/^I can see the body tips "([^"]*)"$/, function (articleBodyTips) {
         var bodyTips = browser.getText(wn_article.bodyTips);
         expect(bodyTips).toContain(articleBodyTips);
     });
+
     this.Given(/^I can see the body competition$/, function () {
         var competiton = browser.getAttribute(wn_article.Bodycomp,'src');
         expect(competiton).toMatch("engagesciences");
     });
+
     this.Given(/^I can see the body Twitter embed "([^"]*)"$/, function (twitterId) {
         browser.waitForVisible(wn_article.twitterEmb1, 3000);
         var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
         expect(twitEmbed).toEqual(twitterId);
        });
+
     this.Given(/^I can see the body Instagram embed with caption "([^"]*)"$/, function (instagramSrc) {
         var instagramEmbed = browser.getAttribute(wn_article.instagramEmb1, 'src');
         expect(instagramEmbed[0]).toMatch(instagramSrc);
     });
+
     this.Given(/^I can see the body Instagram embed without caption "([^"]*)"$/, function (instagramSrc) {
         var instagramEmbed = browser.getAttribute(wn_article.instagramEmb1, 'src');
         expect(instagramEmbed[1]).toMatch(instagramSrc);
         expect(instagramEmbed[1]).not.toMatch("captioned");
     });
+
     this.Given(/^I can see the body Facebook embed "([^"]*)"$/, function (facebookUrl) {
         browser.waitForVisible(wn_article.facebookEmb1, 3000);
         var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
         expect(facebookEmbed).toEqual(facebookUrl);
     });
+
     this.Given(/^I can see the body Playbuzz embed "([^"]*)"$/, function (playbuzzUrl) {
         var playbuzzEmbed = browser.getAttribute(wn_article.playbuzzEmb1, 'data-game');
         expect(playbuzzEmbed).toEqual(playbuzzUrl);
     });
+
     this.Given(/^I can see the body Youtube embed "([^"]*)"$/, function (youtubeUrl) {
         var videoEmbArry = browser.getAttribute(wn_article.videoEmbArry, 'src');
         expect(videoEmbArry[0]).toEqual(youtubeUrl);
     });
+
     this.Given(/^I can see the body Vimeo embed "([^"]*)"$/, function (vimeoUrl) {
         var videoEmbArry = browser.getAttribute(wn_article.videoEmbArry, 'src');
         expect(videoEmbArry[1]).toEqual(vimeoUrl);
     });
+
     this.Given(/^I can see the body Whooshka embed "([^"]*)"$/, function (whooshkaUrl) {
         browser.waitForVisible(wn_article.whooshkaEmb, 3000);
         var whooshkaEmb = browser.getAttribute(wn_article.whooshkaEmb, 'src');
         expect(whooshkaEmb).toEqual(whooshkaUrl);
     });
+
     this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
         browser.waitForVisible(wn_article.wirewaxEmb, 3000);
         var wirewaxEmb = browser.getAttribute(wn_article.wirewaxEmb, 'src');
         expect(wirewaxEmb).toEqual(wirewaxUrl);
     });
+
     this.Given(/^I can see the body Linklay embed "([^"]*)"$/, function (linklayUrl) {
         browser.waitForVisible(wn_article.linklayEmb, 3000);
         var linklayEmb = browser.getAttribute(wn_article.linklayEmb, 'src');
         expect(linklayEmb).toEqual(linklayUrl);
     });
+
     this.Given(/^I can see the body Giphy embed "([^"]*)"$/, function (giphyId) {
         browser.waitForVisible(wn_article.giphyEmb, 3000);
         var giphyEmb = browser.getAttribute(wn_article.giphyEmb, 'src');
         expect(giphyEmb).toEqual(giphyId);
     });
+
     this.Given(/^I can see the outbrain frame with "([^"]*)" template$/, function (templateName) {
         var outbrainTemplate = browser.getAttribute(wn_article.outbrain, 'data-ob-template');
         expect(outbrainTemplate).toEqual(templateName);
     });
+
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
         expect(relatedTags).toEqual(rTag.split("|"));
         });
+
     this.Given(/^I can see the author "([^"]*)"$/, function (authorName) {
       var author = browser.getText(wn_article.authorText);
         expect(author).toEqual(authorName);
@@ -251,12 +269,12 @@ module.exports = function() {
         expect(adPlacements.length).toEqual(2);
     });
 
-    this.Given(/^I can see the related tag "([^"]*)"$/, function (rTag) {
+    /*this.Given(/^I can see the related tag "([^"]*)"$/, function (rTag) {
         browser.waitForExist(wn_article.relatedWnTags,3000);
         browser.scroll(wn_article.relatedWnTags);
         var relatedTag = browser.getText(wn_article.relatedWnTags, 'href');
         expect(relatedTag[0]).toEqual(rTag);
-    });
+    });*/
 
     this.Given(/^I can see the author is "([^"]*)"$/, function (authorName) {
         var author = browser.getText(wn_article.authorWn);

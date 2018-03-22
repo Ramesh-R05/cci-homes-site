@@ -9,7 +9,9 @@ const parseEntitiesStub = sinon.stub();
 const getLatestTeasersStub = sinon.stub();
 
 const entityStubData = {
-    id: 'HOMES-123'
+    id: 'HOMES-123',
+    nodeName: "Kmart nursery furniture",
+    urlName: "kmart-nursery-furniture"
 };
 
 const latestRealHomesStubData = {...realHomesStubData};
@@ -32,6 +34,11 @@ const expectedBody = {
             pageSize: 12,
             filter: homeFilter
         }
+    },
+    section: {
+        id: 'HOMES-123',
+        name: "Kmart nursery furniture",
+        urlName: "kmart-nursery-furniture"
     }
 };
 
@@ -194,7 +201,6 @@ describe('home middleware', () => {
             it('should return all modules in the desired structure', (done)=> {
                 homeMiddleware(req, res, next).then(() => {
                     expect(res.body).to.deep.equal(expectedBody);
-
                     done();
                 }).catch(done);
             });

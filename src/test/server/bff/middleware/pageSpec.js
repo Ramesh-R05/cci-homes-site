@@ -64,7 +64,7 @@ describe('page middleware', () => {
             });
 
             after(()=>{
-                req.query.page = 'article-title';
+                req.query = page;
             });
 
             it('should not call service urls', (done) => {
