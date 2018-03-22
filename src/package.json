@@ -46,7 +46,7 @@
     "@bxm/nav": "^3.1.1",
     "@bxm/recommendations": "^4.0.0",
     "@bxm/rss-builder": "^1.1.4",
-    "@bxm/server": "^23.21.0",
+    "@bxm/server": "^23.21.1",
     "@bxm/site-header": "^7.0.1",
     "@bxm/tags": "^3.0.0",
     "@bxm/ui": "^17.1.0",
