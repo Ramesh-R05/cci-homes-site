@@ -10,8 +10,9 @@ Feature: Verify AMP page
         Given I am currently viewing "amp/amp-article-4100"
             * I can see the long title "Article Long Title - How to get black and white decorating right Long Title Long Title EOM"
             * I can see the short teaser "Short Teaser EOM"
-            * I can see the created date "NOV 09, 2016 11:46AM"
+            * I can see the created date "NOV 09, 2016"
             * I can see the amp hero image
+            * I can see the body paragraph "Test body paragraph"
             * I can see the amp body image
             * I can see the amp body image caption "This is inline image caption Pops"
             * I can see the amp body video
@@ -19,7 +20,6 @@ Feature: Verify AMP page
             * I can see the related tags "INTERIORS,|TREND,|PROFILE,|VILLA"
             * I can see the facebook share button on amp article page
             * I can see the pinterest share button on amp article page
-            * I can see the body paragraph "Test body paragraph"
             #* I can see the outbrain on amp article page
 
     @article @med
