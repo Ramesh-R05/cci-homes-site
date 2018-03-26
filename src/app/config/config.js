@@ -128,6 +128,8 @@ export default {
 
     nielsen: 'D8F7E7CC-324B-4FEA-A412-097B3CC98D0A',
 
+    rssListingQuery: 'nodeTypeAlias eq %27Article%27 or nodeTypeAlias eq %27HomesArticle%27 or nodeTypeAlias ne %27Gallery%27',
+
     polar: {
         url: '//plugin.mediavoice.com/plugin.js',
         propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',

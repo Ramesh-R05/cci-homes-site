@@ -16,8 +16,6 @@ import listing from './bff/middleware/listing';
 import servicesStubs from './servicesStubs';
 import https from './bff/middleware/https';
 import assetProxy from './bff/middleware/assetProxy';
-import rss from './rss';
-import rssInfo from './rss/info';
 // import comScore from './bff/middleware/comScore';
 import amp from '@bxm/server/lib/middleware/amp';
 
@@ -29,9 +27,6 @@ export default function bff(server) {
     ) {
         server.use('/stub', servicesStubs);
     }
-    server.get('/rss/info', rssInfo);
-    server.get('/rss/summary/:section?', rss);
-    server.get('/rss/:section?', rss);
     server.get('/api/asset', assetProxy);
     server.get('/sitemap/:section?', sitemap, error);
     server.get(
