@@ -16,7 +16,7 @@ module.exports = {
 
     // - - - - SELENIUM  - - - -
     user: 'bxmdeveloper1',
-    key: 'QmqNpg983H2ucStjNMu9',
+    key: '1kJpPSX3sEHzdWANDNqJ',
     port: 80,
     host: 'hub-cloud.browserstack.com',
 
