@@ -222,7 +222,15 @@ export default {
                     kw: 'article_related_1'
                 },
                 pos: 'body'
-            }
+            },
+            articleCarousel: {
+                index: 0,
+                label: 'article_mobilecarousel_1',
+                targets: {
+                    kw: 'article_mobilecarousel_1'
+                },
+                pos: 'body'
+            }    
         }
     },
 

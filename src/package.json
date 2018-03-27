@@ -35,7 +35,7 @@
   "homepage": "https://github.com/bauerxcelmedia/homes-site#readme",
   "dependencies": {
     "@bxm/ad": "^13.3.0",
-    "@bxm/article": "^25.30.1",
+    "@bxm/article": "^26.0.0",
     "@bxm/behaviour": "^1.4.0",
     "@bxm/datetime": "^3.1.0",
     "@bxm/flux": "^4.0.0",
