@@ -98,6 +98,9 @@ export default {
         },
         feedCarousel: {
             enabled: true
+        },
+        polar: {
+            enabled: true
         }
     },
 
