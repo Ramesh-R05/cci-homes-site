@@ -25,7 +25,6 @@ Feature: Smoke test for HOMES
             | page                          | link                                                                   |
             | belle/                        | https://www.homestolove.com.au/belle-newsletter/                       |
             | real-living/                  | https://www.homestolove.com.au/real-living-newsletter/                 |
-            | homes-plus/                   | https://www.homestolove.com.au/homes-plus-newsletter/                  |
             | australian-house-and-garden/  | https://www.homestolove.com.au/australian-house-and-garden-newsletter/ |
 
     Scenario: Verify the section landing page

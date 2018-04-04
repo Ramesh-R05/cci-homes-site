@@ -42,5 +42,4 @@ Feature: Brand Listing page
         Examples:
             | device            | page         | link                                              |
             | tablet landscape  | real-living/ | //www.homestolove.com.au/real-living-newsletter/  |
-            | tablet portrait   | homes-plus/  | //www.homestolove.com.au/homes-plus-newsletter/   |
 # -------- Sign-up URL end  ---------------#
