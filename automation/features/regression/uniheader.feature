@@ -11,5 +11,4 @@ Feature: Uniheader
             |title                          |url                            |
             |Belle                          |/belle                         |
             |real living                    |/real-living                   |
-            |homes+                         |/homes-plus                    |
             |Australian House and Garden    |/australian-house-and-garden   |

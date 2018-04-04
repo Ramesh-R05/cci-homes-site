@@ -19,7 +19,6 @@ Feature: Footer
             |title                          |url                            |
             |Belle                          |/belle                         |
             |real living                    |/real-living                   |
-            |homes+                         |/homes-plus                    |
             |Australian House and Garden    |/australian-house-and-garden   |
         * I can navigate to all standard pages in the footer
             |page           |url                                                            |

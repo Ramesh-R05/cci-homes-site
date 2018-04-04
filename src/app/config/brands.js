@@ -38,25 +38,6 @@ export default [
         }
     },
     {
-        title: 'homes+',
-        url: '/homes-plus/',
-        id: 'homesplus',
-        urlName: 'homes-plus',
-        imageUrl: '/assets/images/brand-pages/headerlogos/homesplus.svg',
-        logo: '/assets/images/brand-pages/headerlogos/homesplus.svg',
-        newsletterUrl: '//www.homestolove.com.au/homes-plus-newsletter/',
-        subscribe: {
-            image: '/assets/images/brand-pages/subscribe/homes.jpg',
-            link: 'https://www.magshop.com.au/store/homestolove'
-        },
-        social: {
-            facebook: 'https://www.facebook.com/Homesplusmag',
-            twitter: 'https://twitter.com/homesplusmag',
-            instagram: 'https://instagram.com/homesplusmag/',
-            pinterest: 'https://au.pinterest.com/Homesplusmag/'
-        }
-    },
-    {
         title: 'Australian House and Garden',
         url: '/australian-house-and-garden/',
         id: 'houseandgarden',
