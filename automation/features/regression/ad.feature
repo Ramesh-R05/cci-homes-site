@@ -104,7 +104,7 @@ Feature: Ads
     @brand @med
     Scenario: Wallpaper and side panel ad should appear on "brand" page in the desktop view
         Given I switch to "desktop" view
-        When I am currently viewing "homes-plus"
+        When I am currently viewing "australian-house-and-garden"
         * I should "see" the wallpaper ad slot on "brand"
         When I am currently viewing "belle"
         * I should "see" the left and right side ad slot on "brand"
