@@ -101,6 +101,16 @@ export default {
         },
         polar: {
             enabled: true
+        },
+        royMorganAmp: {
+            enabled: true,
+            id: 'm8frgflsxh',
+            pixels: [
+                { ca: '10034212', a: 'yp0d3p0a' }, // HTL pixel
+                { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
+                { ca: '20002302', a: '0j16fz4d' }, // To Love pixel
+                { ca: '20002304', a: '30tp4z58' }  // Women's sites pixel
+            ]
         }
     },
 
@@ -233,7 +243,7 @@ export default {
                     kw: 'article_mobilecarousel_1'
                 },
                 pos: 'body'
-            }    
+            }
         }
     },
 
