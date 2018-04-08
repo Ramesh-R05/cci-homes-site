@@ -91,6 +91,8 @@ jobs:
   # 4a. Run regression test on TEST environment
   - name: homes-site-automation-test
     type: runSh
+    runtime:
+      nodePool: custom__x86_64__Ubuntu_16_04
     always:
       - NOTIFY: homes-slack-notifications
       - NOTIFY: homes-qa-team-notifications
@@ -116,6 +118,8 @@ jobs:
   # 4b. Run compatibility regression test on TEST environment - Browser Stack
   - name: homes-site-compatibility-automation-test
     type: runSh
+    runtime:
+     nodePool: custom__x86_64__Ubuntu_16_04
     always:
       - NOTIFY: homes-slack-notifications
       - NOTIFY: homes-qa-team-notifications
@@ -142,6 +146,8 @@ jobs:
   # 4c. Smoke test
   - name: homes-site-smoke-test
     type: runSh
+    runtime:
+     nodePool: custom__x86_64__Ubuntu_16_04
     always:
       - NOTIFY: homes-slack-notifications
       - NOTIFY: homes-qa-team-notifications
@@ -211,6 +217,8 @@ jobs:
   # i. Full regression in TEST
   - name: FULL-homes-site-regression-test
     type: runSh
+    runtime:
+     nodePool: custom__x86_64__Ubuntu_16_04
     always:
       - NOTIFY: homes-qa-team-notifications
     steps:
@@ -235,6 +243,8 @@ jobs:
   # ii. Smoke Test in Homes Dev CMS
   - name: CMS-homes-smoke-test
     type: runSh
+    runtime:
+     nodePool: custom__x86_64__Ubuntu_16_04
     always:
       - NOTIFY: homes-qa-team-notifications
     steps:
