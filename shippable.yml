@@ -1,7 +1,10 @@
 # language setting
-build_environment: Ubuntu 12.04
+build_environment: Ubuntu 16.04
 language: node_js
 node_js: "8.9.1"
+
+runtime:
+  nodePool: custom__x86_64__Ubuntu_16_04
 
 env:
   global:
