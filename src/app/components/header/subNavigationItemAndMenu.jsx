@@ -18,8 +18,8 @@ export default class NavigationItem extends Component {
         items: PropTypes.array.isRequired,
         name: PropTypes.string.isRequired,
         linkClassName: PropTypes.string.isRequired,
-        showGroupLabel: PropTypes.bool,
-        viewportSize: PropTypes.number
+        viewportSize: PropTypes.number.isRequired,
+        showGroupLabel: PropTypes.bool
     };
 
     static defaultProps = {
@@ -65,8 +65,8 @@ export default class NavigationItem extends Component {
     };
 
     determineNavLabelWidth = () => {
-        if (ReactDOM.findDOMNode(this.refs.subnav)) {
-            const navLabelWidth = ReactDOM.findDOMNode(this.refs.subnav).getBoundingClientRect().width;
+        if (ReactDOM.findDOMNode(this.subnav)) {
+            const navLabelWidth = ReactDOM.findDOMNode(this.subnav).getBoundingClientRect().width;
 
             this.setState({
                 subNavStyles: {
@@ -77,25 +77,29 @@ export default class NavigationItem extends Component {
     };
 
     getSubNavMenu = () => {
-        const items = this.props.items;
-
-        const subNavItems = items.map((item, i) =>
-            <li key={i}><a className={this.props.linkClassName} href={`/${item.urlName}`}>{item.displayName}</a></li>
-        );
-
-        return subNavItems;
+        const { items, linkClassName } = this.props;
+        return items.map((item, i) => {
+            const key = `${item.urlName}-${i}`;
+            return (
+                <li key={key}>
+                    <a className={linkClassName} href={`/${item.urlName}`}>
+                        {item.displayName}
+                    </a>
+                </li>
+            );
+        });
     };
 
     calculateLeftOffsetForNavLabel = () => {
         const { width } = this.state.subNavStyles;
         const { SUB_NAV_WIDTH } = NavigationItem.constants;
         const maxNavLabelWidthForOffset = 150;
-        return width > maxNavLabelWidthForOffset || width == 0 ? 0 : -((SUB_NAV_WIDTH - width) / 2);
+        return width > maxNavLabelWidthForOffset || width === 0 ? 0 : -((SUB_NAV_WIDTH - width) / 2);
     };
 
-    handleClick() {
-        return false;
-    }
+    handleClick = (e) => {
+        e.preventDefault();
+    };
 
     render() {
         const { items, linkClassName, name, showGroupLabel } = this.props;
@@ -113,7 +117,7 @@ export default class NavigationItem extends Component {
         );
 
         return (
-            <div ref="subnav" className="header-sub-nav">
+            <div ref={(c) => { this.subnav = c; }} className="header-sub-nav">
                 {showGroupLabel ? groupLabel : null}
                 <ul className="sub-nav-list__dropdown" style={subNavStyles}>{this.getSubNavMenu()}</ul>
             </div>

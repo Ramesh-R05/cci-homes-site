@@ -79,12 +79,23 @@ $header-nav-link-padding: 15px;
                 opacity: 1;
                 transition: visibility 0s linear 0s, opacity 0s linear;
             }
+            .tl-icon-drop-menu:before {
+                border-top-color: $color-grey-darker;
+            }
+            span {
+                color: $color-grey-darker;
+            }
         }
 
         a {
             .tl-icon-drop-menu:before {
-                content: '\ea50';
-                margin-left: 5px;
+                // This creates a white triangle that points downwards
+                border: 5px solid transparent;
+                border-top: 8px solid $color-white;
+                content: '';
+                display: inline-block;
+                margin: 0 0 -4px 5px;
+                width: 0;
             }
 
             &:hover {
@@ -106,7 +117,7 @@ $header-nav-link-padding: 15px;
             background-color: $color-primary;
             list-style-type: none;
             padding: 15px;
-            left: 0px;
+            left: 0;
             top: 23px; // Distance from bottom of nav item to top of sub-nav drop-down
             width: 130px;
             text-align: center;
