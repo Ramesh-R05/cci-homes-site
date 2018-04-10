@@ -304,6 +304,9 @@ export default {
         NavigationSection: 3600,
         BrandSection: 3600,
         TagSection: 7200
-    }
+    },
 
+    urls: {
+        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5ky/signup-homestolove-article-iframe-bottom'
+    }
 };
