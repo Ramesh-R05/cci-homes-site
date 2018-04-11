@@ -17,7 +17,7 @@ export default [
             instagram: 'https://instagram.com/bellemagazineau/',
             pinterest: 'https://au.pinterest.com/bellemagazineau/'
         },
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5k6/signup-belle-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5k6/signup-belle-article-iframe-bottom'
     },
     {
         title: 'real living',
@@ -37,7 +37,7 @@ export default [
             instagram: 'https://instagram.com/reallivingmag/',
             pinterest: 'https://au.pinterest.com/reallivingmag/'
         },
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5l0/signup-realliving-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5l0/signup-realliving-article-iframe-bottom'
     },
     {
         title: 'Australian House and Garden',
@@ -57,6 +57,6 @@ export default [
             instagram: 'https://instagram.com/houseandgarden/',
             pinterest: 'https://www.pinterest.com/HOUSEnGARDEN/'
         },
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5kz/signup-houseandgarden-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kz/signup-houseandgarden-article-iframe-bottom'
     }
 ];

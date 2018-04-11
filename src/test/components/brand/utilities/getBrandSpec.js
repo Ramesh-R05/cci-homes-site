@@ -29,7 +29,7 @@ describe('Get Brand Method', () => {
                 "instagram": "https://instagram.com/reallivingmag/",
                 "pinterest": "https://au.pinterest.com/reallivingmag/"
             },
-            "newsletterSignupInBodyCopy": "http://cb.sailthru.com/join/5l0/signup-realliving-article-iframe-bottom"
+            "newsletterSignupInBodyCopy": "https://cb.sailthru.com/join/5l0/signup-realliving-article-iframe-bottom"
         };
         result = getBrand(config, brandTitle);
 

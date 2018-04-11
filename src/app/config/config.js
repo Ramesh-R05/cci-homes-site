@@ -307,6 +307,6 @@ export default {
     },
 
     urls: {
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5ky/signup-homestolove-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ky/signup-homestolove-article-iframe-bottom'
     }
 };
