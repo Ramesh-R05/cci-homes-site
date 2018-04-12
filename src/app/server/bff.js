@@ -57,7 +57,7 @@ export default function bff(server) {
     );
 
     server.get(
-        '/amp/:page-:id(\\d+)',
+        '(/:preview(preview))?/amp/:page-:id(\\d+)',
         pageModules,
         page,
         article,
@@ -69,3 +69,4 @@ export default function bff(server) {
         error
     );
 }
+

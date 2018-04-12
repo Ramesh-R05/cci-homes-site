@@ -4,10 +4,10 @@ import { parseEntity } from '../helper/parseEntity';
 export default async function pageMiddleware(req, res, next) {
     try {
         const { query, params } = req;
-        const { preview } = req.query;
+        const preview = query.preview || params.preview;
         const page = query.page || params.page;
         const id = query.id || params.id;
-        
+       
         if (!page) {
             next();
             return;
