@@ -47,6 +47,14 @@ resources:
       sourceName: bauerxcelmedia/homes-site
       branch: master
 
+  # Homes Github repo branch for lighthouse test only
+  - name: homes-site-repo-branch
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/homes-site
+      branch: feature/add-lighthouse-test
+
   # Slack connection
   - name: homes-slack-notifications
     type: notification                          #required
