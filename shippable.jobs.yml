@@ -264,15 +264,15 @@ jobs:
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
-  # iii. Run Performance Test on live environment
-  - name: homes-site-performance-test-live
+  # iii. Run Performance Test on live environment for troubleshooting feature/add-lighthouse-test
+  - name: homes-site-performance-test-live-troubleshooting
     type: runSh
     always:
       - NOTIFY: homes-qa-team-notifications
     steps:
      - IN: homes-site-repo-branch
        switch: off
-     - IN: homes-weekly-trigger
+     #- IN: homes-weekly-trigger
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
