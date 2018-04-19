@@ -45,7 +45,7 @@
     "@bxm/markdown": "^1.4.0",
     "@bxm/nav": "^3.1.1",
     "@bxm/recommendations": "^4.0.0",
-    "@bxm/server": "^23.30.2",
+    "@bxm/server": "^23.30.3",
     "@bxm/site-header": "^7.0.1",
     "@bxm/tags": "^3.0.0",
     "@bxm/ui": "^17.1.0",
