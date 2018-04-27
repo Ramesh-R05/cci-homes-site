@@ -26,7 +26,7 @@ Feature: Gallery
         When I switch to "mobile" view
         Given I am currently viewing "automation-test-gallery-3201"
         * I can see the gallery description of the gallery containing "Beauty inspo for school"
-        When I see the video ID "5066382704001" on the gallery
+        When I see the video item on the gallery
         * I can see the play button and click on it
 
     @med
@@ -38,7 +38,7 @@ Feature: Gallery
         * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-article"
         * I can see the gallery description of the gallery containing "Beauty inspo for school"
         * I can see the image caption on the gallery containing "The pavilion-style renovation features"
-        When I see the video ID "5066382704001" on the gallery
+        When I see the video item on the gallery
         * I can see the play button and click on it
 
     @low

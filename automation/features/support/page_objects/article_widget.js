@@ -16,7 +16,7 @@ var article_widget = {
     relatedContentItemsTitle_food: '.content-body__related .teaser__body',
     bodyGallery:'.content-body__gallery-link a',
     bodyImgCaption:'.content-body__inline-image-caption',
-    heroVideo: '.article__main-hero video',
+    heroVideo: '.article__main-hero-video',
     heroVideoPlaylist: '.article__main-hero .video-playlist-container',
     heroVideoPlaylistItem: '.article__main-hero .vjs-playlist-loaded li',
     heroVideoPlaylistThumbnail: '.article__main-hero .video-playlist-container .vjs-playlist-item img',

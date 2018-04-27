@@ -3,7 +3,6 @@ var gallery_widget = {
     headerLogo: '.header-logo a',
     galleryLongTitle: '.article__title',
     galleryDescription: '.content-body-container.article__body.article__body--top-border',
-    
     galleryImg: '.gallery__item-image img',
     galleryCustomLabel: '.gallery__subsection',
     gallerySource: '.article__header .article-header-source a',
@@ -11,7 +10,7 @@ var gallery_widget = {
     galleryDate: '.article__header > .article__date-created',
     galleryCaption: '.gallery__caption',
     imgCaption: '.gallery__caption',
-    videoWrapper: '.video-wrapper video',
+    videoWrapper: '.video-wrapper',
     videoPlayWrap: '.video-wrapper',
     videoAdPlay: '.vjs-ad-playing',
     videoId: 'data-video-id',
