@@ -40,7 +40,7 @@ export default {
         action: loadPageContent
     },
     navSection: {
-        path: '/:navSection',
+        path: '/:navSection*',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
