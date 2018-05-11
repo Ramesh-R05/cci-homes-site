@@ -13,7 +13,7 @@ Node chimp framework
 - cd automation
     - `export URL=` (or populate with local host)
     - `export APP_KEY=homes-site`
-    - `export APP_ENV=environment` (automation, dev, origin.prelive, origin)
+    - `export APP_ENV=environment` (test, sit, prod)
     - `npm run once` (runs all test cases once)
     or
     - `npm run watch` (runs any scenarios with @watch)
@@ -23,7 +23,7 @@ open git-bash
 - cd automation
     - `export URL=` (or populate with local host)
     - `export APP_KEY=homes-site`
-    - `export APP_ENV=environment` (automation, dev, origin.prelive, origin)
+    - `export APP_ENV=environment` (test, sit, prod)
     - `export HTTP_PROXY=` <= this will enable the selenium-standalone package to interact with selenium
     - `export HTTPS_PROXY=http://username:password@sydproxy.acp.net:8080` <= this will enable to download chrome selenium header
     - `npm run once` (runs all test cases once)
