@@ -17,12 +17,12 @@ module.exports = function() {
         } else {
             expect(ampBodyImg).toBe(true)
         }
-        
+
     });
 
     this.Given(/^I can see the amp body image caption "([^"]*)"$/, function (ImgCaption) {
         var ampBodyImgCaption = browser.getText(amp.ampBodyImgCaption);
-        expect(ampBodyImgCaption).toContain(ImgCaption); 
+        expect(ampBodyImgCaption).toContain(ImgCaption);
     });
 
     this.Given(/^I can see the amp body video$/, function () {
@@ -78,7 +78,10 @@ module.exports = function() {
     });
 
     this.Given(/^I can see the amp body Youtube embed "([^"]*)"$/, function (youtubeUrl) {
-        browser.waitForVisible(amp.ampYoutubeEmb, 3000);
+        // Iframe inside element lazy loads once in viewport
+        browser.waitForVisible(amp.ampYoutube,  3000);
+        browser.scroll(amp.ampYoutube);
+        browser.waitForVisible(amp.ampYoutubeEmb,  3000);
         var ampYoutubeEmb = browser.getAttribute(amp.ampYoutubeEmb, 'src');
         console.log(ampYoutubeEmb);
         expect(ampYoutubeEmb).toContain(youtubeUrl);
