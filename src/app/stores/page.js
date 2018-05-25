@@ -1,12 +1,13 @@
 import { createReducerStore } from 'fluxible-reducer-store';
 
+const initialState = {
+    error: null,
+    content: null,
+    comScoreSegmentIds: ''
+};
 const PageStore = createReducerStore({
     storeName: 'PageStore',
-    initialState: {
-        error: null,
-        content: null,
-        comScoreSegmentIds: null
-    },
+    initialState,
     reducers: {
         LOAD_CONTENT: (state, payload) => {
             const {
@@ -17,7 +18,7 @@ const PageStore = createReducerStore({
                 galleries,
                 latestRealHomes,
                 list = [],
-                comScoreSegmentIds = null
+                comScoreSegmentIds = initialState.comScoreSegmentIds
             } = payload.body;
 
             if (entity) {
@@ -45,7 +46,7 @@ const PageStore = createReducerStore({
             latestRealHomes: [],
             list: [],
             content: null,
-            comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : null
+            comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
         }),
 
         LOAD_LIST: (state, payload) => ({

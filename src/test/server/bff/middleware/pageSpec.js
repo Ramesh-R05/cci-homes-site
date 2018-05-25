@@ -14,7 +14,7 @@ const makeRequestSpy = sinon.spy(makeRequestStub);
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 
 const expectedBrand = brands.find((brand)=>{
-    return brand.title == entityStubData.articleSource;
+    return brand.title === entityStubData.articleSource;
 });
 
 const expectedBody = {
