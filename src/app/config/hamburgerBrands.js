@@ -1,6 +1,6 @@
 export default [
     {
-        imageUrl: '/assets/images/menulogos/now-logo-white.svg',
+        imageUrl: '/assets/images/menulogos/NTL-logo.svg',
         url: 'http://nowtolove.com.au/',
         title: 'Now To Love',
         id: 'now'

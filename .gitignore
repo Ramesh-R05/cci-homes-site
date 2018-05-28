@@ -127,3 +127,5 @@ screenshots/*.jpg
 
 # Sometimes devs run 'npm install' in this directory instead of the src directory
 package-lock.json
+
+shippable/
