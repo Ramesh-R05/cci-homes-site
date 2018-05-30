@@ -11,7 +11,7 @@ var propertiesTabElement = {}; //Global variable for the element of the properti
 var idElement; //Global variable for the element of a selected item in LHR
 var page; //Global variable for the page name
 var previewUrl; //Global variable for the preview URL
-var liveUrl; //Global variable for the live URL
+var liveUrl = {}; //Global variable for the live URL
 var videoId; //global variable for video id
 var tabElement; //To ensure we find an element under that tab
 
@@ -22,7 +22,7 @@ module.exports = function() {
         //To ensure this smoke test won't be run on live url
         expect(world.Urls.home_page).not.toContain('live');
 
-        browser.url(world.Urls.home_page);
+        browser.url(world.Urls.home_page + 'Login.aspx');
         browser.setValue(cms.loginUsername, 'admin');
         browser.setValue(cms.loginPassword, 'ACPd3vPASS!');
         browser.click(cms.loginButton);
@@ -163,6 +163,10 @@ module.exports = function() {
                     var valuePropertiesCreatedAt = '2017-01-02 08:00';
                     browser.setValue(tabElement + cms.propertiesCreatedAt, valuePropertiesCreatedAt);
                     break;
+                case 'Disable AMP':
+                    browser.waitForVisible(tabElement + cms.ampDisableBox, 1000);
+                    browser.click(tabElement + cms.ampDisableBox);
+                    break;
                 case 'Video':
                     var valueSearchVideo = 'Football';
                     browser.setValue(tabElement + cms.editorialSearchVideo, valueSearchVideo);
@@ -210,6 +214,21 @@ module.exports = function() {
             browser.setValue(tabElement + '.content-body-component:nth-child(' + i + ') textarea.markdown-input' , valueBodyParagraph);
             console.log(valueBodyParagraph);
         }
+    });
+
+    this.Then(/^I should be able to visit the live URL$/, function () {
+        console.log(liveUrl[docType]);
+        browser.url(liveUrl[docType]);
+    });
+
+    this.Then(/^I should see the amp page is active$/, function () {
+        var enableamphtml = browser.getAttribute(cms.ampHtml, 'href');
+        console.log(enableamphtml);
+        expect(enableamphtml).toContain('/amp/');
+    });
+
+    this.Then(/^I should see the amp page is inactive$/, function () {
+        expect(browser.isExisting(cms.ampHtml)).toBe(false);
     });
 
     this.Then(/^I should be able to add specific value in the item$/, function (dataTable) {
@@ -297,10 +316,10 @@ module.exports = function() {
                 expect(previewUrl).toContain(nodeId[docType]);
                 break;
             case 'live':
-                liveUrl = browser.getAttribute('.document-link .propertyItem:nth-child(2) .propertyItemContent a', 'href');
-                console.log(liveUrl);
-                expect(liveUrl).not.toContain('/preview/');
-                expect(liveUrl).toContain(nodeId[docType]);
+                liveUrl[docType] = browser.getAttribute('.document-link .propertyItem:nth-child(2) .propertyItemContent a', 'href');
+                console.log(liveUrl[docType]);
+                expect(liveUrl[docType]).not.toContain('/preview/');
+                expect(liveUrl[docType]).toContain(nodeId[docType]);
                 break;
         }
     });

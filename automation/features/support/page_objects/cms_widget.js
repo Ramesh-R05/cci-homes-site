@@ -18,6 +18,8 @@ var cms_widget = {
     editorialBodyAddButton: 'button[ng-click="addComponent()"]',
     editorialBodyParagraph: 'textarea.markdown-input',
     editorialBodyHeading: '.content-body-editor .form-control.one-half.ng-pristine.ng-valid',
+    ampDisableBox: '[ng-init="init(\'disableAmp\')"] div.col-xs-10 > input',
+    ampHtml: 'link[rel=amphtml]',
     searchAndSocialPageTitle: 'div[module-id="pageTitle"] input',
     searchBox: '#umbSearchField',
     searchResult: '.ac_results',

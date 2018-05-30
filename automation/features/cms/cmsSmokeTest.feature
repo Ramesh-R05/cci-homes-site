@@ -20,6 +20,7 @@ Feature: CMS Smoke Test
             | Body Heading  | Editorial         |
             | Page Title    | Search and Social |
             | Created at    | Properties        |
+#           | Disable AMP   | Search and Social |  #We want to test the page with amp so we don't need to set this field.
             | Video         | Editorial         |
             | Body Video    | Editorial         |
         * I should be able to add specific value in the item
@@ -30,6 +31,8 @@ Feature: CMS Smoke Test
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
+        * I should be able to visit the live URL
+        * I should see the amp page is active
 
     Scenario: Validate the link in the body paragraph
         Given I am logging in CMS
@@ -53,7 +56,6 @@ Feature: CMS Smoke Test
             | [URL Only](https://www.google.com.au/)                                     |
             | [URL with target only](http://www.google.com\|target="_blank")             |
             | [URL with target and rel](http://test.com\|target="_blank"\|rel="nofollow")|
-#           | [URL with rel only](http://test.com\|rel="nofollow")                       | Will include this step scenario after the fix have been done as it is not allowing to publish in cms BXMA-1029
         * I should be able to publish the item
 
     Scenario: Create, update and publish the Gallery item
@@ -81,7 +83,8 @@ Feature: CMS Smoke Test
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
-
+        * I should be able to visit the live URL
+        * I should see the amp page is inactive
 
     #This scenario won't be run in phantomjs because we haven't found a solution to work with the alert popup
     @manual
