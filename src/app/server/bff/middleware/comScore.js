@@ -29,6 +29,12 @@ export default function comScore(req, res, next) {
         timeout: 1000
     };
 
+    /*
+     * Local Bauer network blocks the port used for the ComScore API.
+     * For dev environments running locally, just let the request fail (ESOCKETTIMEDOUT)
+     * Don't pass the error along to next middleware
+     */
+
     request.get(options, (err, response, body) => {
         if (!err && response.statusCode === 200) {
             /*
@@ -38,8 +44,7 @@ export default function comScore(req, res, next) {
             * or
             *
             * {“scope”: ”page”, “segments”: [“300003", “110000", “110005", "tzvs7j"]}
-            *
-            * */
+            */
 
             const isJson = body.startsWith('{');
 
@@ -62,12 +67,17 @@ export default function comScore(req, res, next) {
                 res.body.comScoreSegmentIds = segmentIds.join(',');
             }
             if (debug) {
-                console.log(`comscore: received segments from remote for ${req.query.url} in ${Date.now() - start}ms`);
-                console.log(`comscore: segments: ${res.body.comScoreSegmentIds}`);
+                console.log(`comscore: received segments from remote for ${req.query.url} in ${Date.now() - start}ms`, req.data.comScoreSegmentIds);
             }
-            next();
-        } else {
-            next(err);
+        } else if (debug) {
+            let message = 'Unknown error';
+            if (err) {
+                message = err.message;
+            } else if (response && response.statusCode) {
+                message = `Response code: ${response.statusCode}`;
+            }
+            console.log(`comscore error: ${message}`);
         }
+        next();
     });
 }
