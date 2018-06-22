@@ -42,7 +42,7 @@ module.exports = function() {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,500);
         //Verify the ad is appearing
-        expect(browser.isVisible(ad_TopMrecRhs)).toBe(true);
+        expect(browser.waitForVisible(ad_TopMrecRhs,5000)).toBe(true);
         //Verify the ad is a sticky ad after scrolling down
         browser.scroll(0,900);
         browser.scroll(0,1500);
@@ -72,7 +72,7 @@ module.exports = function() {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,2200);
         //Verify the ad is appearing
-        expect(browser.isVisible(ad_BottomMrecRhs)).toBe(true);
+        expect(browser.waitForVisible(ad_BottomMrecRhs,5000)).toBe(true);
         //Verify the ad is a sticky ad after scrolling down
         wait(3000);
         browser.scroll(0,2700);
@@ -95,7 +95,7 @@ module.exports = function() {
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
         browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
-        expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.ad_MrecBeforeRecommendation,5000)).toBe(true);
     });
 
     this.Then(/^I should not see MREC ad above recommendation$/, function () {
@@ -123,11 +123,30 @@ module.exports = function() {
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
     });
 
-    this.Then(/^I should see four MREC ads in the RHR feed$/, function () {
-        browser.scroll(wn_ads.ad_MrecRhs1);
-        browser.scroll(wn_ads.ad_MrecRhs2);
-        browser.scroll(wn_ads.ad_MrecRhs3);
-        browser.scroll(wn_ads.ad_MrecRhs4);
+    this.Then(/^I should see (\d+) MREC ads in the RHR feed$/, function (number) {
+        var ad_MrecRhsElement;
+        var i;
+
+        for(i=1; i <= number; i++){
+            switch(i) {
+                case 1:
+                    ad_MrecRhsElement = wn_ads.ad_MrecRhs1;
+                    break;
+                case 2:
+                    ad_MrecRhsElement = wn_ads.ad_MrecRhs2;
+                    break;
+                case 3:
+                    ad_MrecRhsElement = wn_ads.ad_MrecRhs3;
+                    break;
+                case 4:
+                    ad_MrecRhsElement = wn_ads.ad_MrecRhs4;
+                    break;
+            }
+            browser.scroll(ad_MrecRhsElement);
+            wait(1000);
+            browser.scroll(ad_MrecRhsElement); //Double scroll to ensure the ad element is still on the page after the ad loading.
+            expect(browser.waitForVisible(ad_MrecRhsElement,5000)).toBe(true);
+        }
     });
 
     this.Then(/^I should not see MREC ad under the hero image$/, function () {

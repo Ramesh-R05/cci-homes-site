@@ -48,13 +48,12 @@ Feature: Ads
 #--------Index page ads (Homepage, Section, Brand) end--------#
 
 #--------Content page ads (Article, Gallery)--------#
-
     Scenario Outline: Ads on content page in the <device> view (Test on <page>)
         Given I switch to "<device>" view
         When I am currently viewing "<pageURL>"
         * I should see the top leaderboard ad under navigation
         * I should see the bottom leaderboard ad above the footer on article
-        * I should see four MREC ads in the RHR feed
+        * I should see 4 MREC ads in the RHR feed
         * I should not see MREC ad under the hero image
         * I should not see MREC ad above recommendation
     @gallery @high
