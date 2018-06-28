@@ -2,23 +2,28 @@ import React, { PropTypes, Component } from 'react';
 
 class SideMenuLogo extends Component {
 
+    static displayName = 'SideMenuLogo';
+
     static propTypes = {
-        key: PropTypes.array.isRequired,
         logoItem: PropTypes.object.isRequired,
-        openInNewTab: PropTypes.bool,
-        logoClassName: PropTypes.string,
-        logoClassNameGTMPrefix: PropTypes.string
+        logoClassName: PropTypes.string.isRequired,
+        logoClassNameGTMPrefix: PropTypes.string.isRequired,
+        openInNewTab: PropTypes.bool
+    };
+
+    static defaultProps = {
+        openInNewTab: false
     };
 
     render() {
-        const { key, logoClassName, logoClassNameGTMPrefix } = this.props;
-        const { id, title, url, imageUrl } = this.props.logoItem;
+        const { logoClassName, logoClassNameGTMPrefix, openInNewTab, logoItem } = this.props;
+        const { id, title, url, imageUrl } = logoItem;
 
         return (
-            <li key={key}>
+            <li key={url}>
                 <a
                   href={url}
-                  target={this.props.openInNewTab ? '_blank' : '_self'}
+                  target={openInNewTab ? '_blank' : '_self'}
                   title={title}
                   className={`${logoClassNameGTMPrefix}${id}`}
                 >

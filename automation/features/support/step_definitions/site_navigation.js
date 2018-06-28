@@ -61,6 +61,9 @@ module.exports = function() {
         browser.waitForExist(site_nav.smallIconlink, 3000);
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
+        if (headerLogoLink.endsWith('/')) {
+            headerLogoLink = headerLogoLink.substr(0, headerLogoLink.length - 1);
+        }
         expect(headerLogoLink).toEqual(site_domain);
     });
 };

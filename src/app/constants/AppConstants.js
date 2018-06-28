@@ -5,6 +5,7 @@ module.exports = {
         LOAD_CONTENT: null,
         RECEIVE_GALLERIES: null,
         RECEIVE_GALLERIES_LINK_INFO: null,
-        RECEIVE_GALLERIES_TEASERS: null
+        RECEIVE_GALLERIES_TEASERS: null,
+        LOAD_SEARCH: null
     })
 };

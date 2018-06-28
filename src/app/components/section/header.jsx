@@ -9,11 +9,19 @@ export default class Header extends Component {
 
     static propTypes = {
         children: PropTypes.any,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        splitTitle: PropTypes.bool,
+        sponsorName: PropTypes.string
+    };
+
+    static defaultProps = {
+        children: null,
+        splitTitle: true,
+        sponsorName: null
     };
 
     render() {
-        const { title } = this.props;
+        const { title, splitTitle, sponsorName } = this.props;
         if (!title) {
             return null;
         }
@@ -21,7 +29,7 @@ export default class Header extends Component {
         let htmlHeading;
         const words = title.match(/\S+/g);
 
-        if (words.length === 1) {
+        if (!splitTitle || words.length === 1) {
             htmlHeading = <h1><b>{title}</b></h1>;
         } else {
             htmlHeading = (
@@ -64,12 +72,15 @@ export default class Header extends Component {
                 </div>
 
                 <div className="section__heading__title">
-                    <SponsorHeader
-                      id={this.props.sponsorName}
-                      title={<b>{title}</b>}
-                    >
-                        {htmlHeading}
-                    </SponsorHeader>
+                    {
+                        !sponsorName ? htmlHeading :
+                        <SponsorHeader
+                          id={this.props.sponsorName}
+                          title={<b>{title}</b>}
+                        >
+                            {htmlHeading}
+                        </SponsorHeader>
+                    }
                 </div>
 
             </div>

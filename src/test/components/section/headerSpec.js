@@ -62,7 +62,7 @@ describe('SectionHeader', () => {
         let heading;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} />);
+            reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} sponsorName="ExampleSponsor" />);
             sponsorHeader = TestUtils.findRenderedComponentWithType(reactModule, SponsorHeaderStub);
             heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
         });

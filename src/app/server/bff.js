@@ -18,6 +18,7 @@ import https from './bff/middleware/https';
 import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
 import amp from '@bxm/server/lib/middleware/amp';
+import search from './bff/middleware/search';
 
 export default function bff(server) {
     if (process.env.APP_STUBBED === 'true' ||
@@ -55,7 +56,16 @@ export default function bff(server) {
         render,
         error
     );
-
+    server.get(
+        server.locals.config.services.endpoints.search,
+        pageModules,
+        comScore,
+        headerMeta,
+        search,
+        https,
+        render,
+        error
+    );
     server.get(
         '(/:preview(preview))?/amp/:page-:id(\\d+)',
         pageModules,

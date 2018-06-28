@@ -5,12 +5,13 @@ export default class SocialLinks extends Component {
 
     static propTypes = {
         links: PropTypes.array.isRequired,
-        nodeType: PropTypes.string.isRequired,
+        nodeType: PropTypes.string,
         title: PropTypes.string
     };
 
     static defaultProps = {
-        links: []
+        nodeType: null,
+        title: ''
     };
 
     render() {

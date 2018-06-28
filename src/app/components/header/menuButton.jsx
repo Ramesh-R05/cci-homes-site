@@ -6,15 +6,12 @@ export default class MenuButton extends Component {
         executeAction: PropTypes.func
     };
 
-    constructor(...args) {
-        super(...args);
-    }
-
     activateSideMenu = () => {
         this.context.executeAction(MenuActions.activateSideMenu);
     };
 
     render() {
+        /* eslint-disable react/no-danger, max-len */
         return (
             <div className="header-menu">
                 <button

@@ -10,7 +10,8 @@ export default {
             listings: 'http://localhost:3001/stub/listings-service',
             module: 'http://localhost:3001/stub/module-service',
             sitemap: 'http://localhost:3001/stub/sitemap-service',
-            tag: 'http://localhost:3001/stub/tag-service'
+            tag: 'http://localhost:3001/stub/tag-service',
+            search: 'http://localhost:3001/stub/search-service'
         }
     },
     site: {

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Teaser from '../teaser/teaser';
+import SearchBar from '../search/searchBar';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class Featured extends Component {
@@ -9,22 +10,37 @@ export default class Featured extends Component {
     static propTypes = {
         articles: PropTypes.array.isRequired,
         polarTargets: PropTypes.array,
-        hero: PropTypes.object
+        hero: PropTypes.object,
+        showSearchBar: PropTypes.bool
     };
 
     static defaultProps = {
         polarTargets: [],
-        hero: {}
+        hero: {},
+        showSearchBar: false
     };
 
     render() {
-        const { articles, polarTargets, hero } = this.props;
+        const { articles, polarTargets, hero, showSearchBar } = this.props;
+        const className = 'section__featured gtm-topteaserlist-index';
 
-        if (articles.length === 0) return null;
+        if (articles.length === 0 && showSearchBar) {
+            return (
+                <section className={className}>
+                    <SearchBar />
+                </section>
+            );
+        }
         const item = articles[0];
+        const teaserProps = {
+            sizes: 'brand-list',
+            modifier: 'img-top',
+            gtmClass: 'gtm-topteaserlist-index'
+        };
 
         return (
-            <section className="section__featured gtm-topteaserlist-index">
+            <section className={className}>
+                { showSearchBar && <SearchBar /> }
                 <div>
                     {
                         hero
@@ -46,7 +62,12 @@ export default class Featured extends Component {
                       label={{ active: false }}
                       pageLocation={Ad.pos.body}
                     />
-                    <Teaser {...item} key={item.id} polar={polarTargets[0]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />
+                    <Teaser
+                      {...item}
+                      {...teaserProps}
+                      key={item.id}
+                      polar={polarTargets[0]}
+                    />
                     <Ad
                       className="ad--section-mrec"
                       displayFor="small"
@@ -55,11 +76,19 @@ export default class Featured extends Component {
                       label={{ active: false }}
                       pageLocation={Ad.pos.body}
                     />
-                    {articles.slice(1, 6).map((item, i) => {
+                    {articles.slice(1, 6).map((article, i) => {
+                        const polarProps = {};
                         if (i === 4) {
-                            return <Teaser {...item} key={item.id} polar={polarTargets[1]} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />;
+                            polarProps.polar = polarTargets[1];
                         }
-                        return <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-index" />;
+                        return (
+                            <Teaser
+                              {...article}
+                              {...teaserProps}
+                              {...polarProps}
+                              key={article.id}
+                            />
+                        );
                     })}
                     <Ad
                       className="ad--section-mrec teaser"

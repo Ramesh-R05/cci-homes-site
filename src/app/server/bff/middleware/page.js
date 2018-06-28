@@ -7,7 +7,7 @@ export default async function pageMiddleware(req, res, next) {
         const preview = query.preview || params.preview;
         const page = query.page || params.page;
         const id = query.id || params.id;
-       
+
         if (!page) {
             next();
             return;
@@ -32,7 +32,7 @@ export default async function pageMiddleware(req, res, next) {
             name: sectionEntityResponse.nodeName,
             id: sectionEntityResponse.id,
             urlName: sectionEntityResponse.urlName
-        }
+        };
 
         next();
     } catch (error) {

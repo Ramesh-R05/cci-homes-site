@@ -18,9 +18,8 @@ const codeMessages = {
 };
 
 export default code => class ErrorHandler extends Component {
-    constructor(...args) {
-        super(...args);
-    }
+    static displayName = 'ErrorHandler';
+    static DEFAULT_CODE = 500;
 
     render() {
         if (!has(codeMessages, code)) return null;

@@ -42,7 +42,7 @@ export default async function navSectionMiddleware(req, res, next) {
             name: entityResponse.nodeName,
             id: entityResponse.id,
             urlName: entityResponse.urlName
-        }
+        };
         const list = {
             params: {
                 listName: navSection,

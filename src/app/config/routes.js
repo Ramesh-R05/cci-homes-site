@@ -1,6 +1,8 @@
 import defaultTemplate from '../components/templates/default';
 import loadPageContent from '../actions/loadPageContent';
 import pageNotFound from '../actions/pageNotFound';
+import loadSearch from '../../app/actions/loadSearch';
+import SearchPage from '../../app/components/section/search/section';
 
 export default {
     home: {
@@ -20,6 +22,12 @@ export default {
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
+    },
+    search: {
+        path: '/search/:query',
+        method: 'get',
+        handler: SearchPage,
+        action: loadSearch
     },
     preview: {
         path: '/:preview(preview)/:page(.*-):id([0-9]+)',

@@ -3,12 +3,15 @@ $header-menu-width: 20px;
 .header-menu {
     display: inline-block;
     vertical-align: top;
-    margin-top: 15px;
-    float: left;
-    text-align: left;
+    position: absolute;
+    top: 15px;
+    left: 0;
 
-    @media #{$small-up} {
-        display: inline-block;
+    @media #{$medium-up} {
+        position: static;
+        margin-top: 15px;
+        float: left;
+        text-align: left;
     }
 
     &__button-menu {

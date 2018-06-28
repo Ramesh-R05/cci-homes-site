@@ -6,17 +6,19 @@ import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 
 export default class FooterSection extends Component {
 
+    static displayName = 'FooterSection';
+
     static propTypes = {
         modifier: PropTypes.string
     };
 
-    static contextTypes = {
-        config: PropTypes.object
+    static defaultProps = {
+        modifier: ''
     };
 
-    constructor(...args) {
-        super(...args);
-    }
+    static contextTypes = {
+        config: PropTypes.object.isRequired
+    };
 
     render() {
         const { modifier } = this.props;

@@ -35,7 +35,8 @@ export default {
             listings: 'http://services.prod.bxm.internal/listing/v1/homes',
             module: 'http://services.prod.bxm.internal/module/v1/homes',
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/homes',
-            tag: 'http://services.prod.bxm.internal/tag/v1'
+            tag: 'http://services.prod.bxm.internal/tag/v1',
+            search: 'http://services.prod.bxm.internal/es-search/v1/homes'
         },
         redirect: {
             url: 'http://services.prod.bxm.internal/redirect/v1/homes/301'

@@ -22,10 +22,10 @@ Feature: Smoke test for HOMES
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its title and clickable to open its page
         Examples:
-            | page                          | link                                                                   |
-            | belle/                        | https://www.homestolove.com.au/belle-newsletter/                       |
-            | real-living/                  | https://www.homestolove.com.au/real-living-newsletter/                 |
-            | australian-house-and-garden/  | https://www.homestolove.com.au/australian-house-and-garden-newsletter/ |
+            | page                          | link                                                                         |
+            | belle/                        | https://www.homestolove.com.au/belle-newsletter/                             |
+            | real-living/                  | https://www.homestolove.com.au/real-living-newsletter/                       |
+            | australian-house-and-garden/  | https://www.homestolove.com.au/australian-house-and-garden-newsletter/       |
 
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
@@ -76,3 +76,43 @@ Feature: Smoke test for HOMES
         * I should see "title" tag containing a value
         When I am currently viewing "rss/info"
         * I should see "rss/summary/realliving" in json
+
+    Scenario Outline: Verify the search feature on <page> in <device> (Mobile style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should see the search icon in the navigation bar
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        * I should not see the search bar on the search result page in mobile version
+        Examples:
+        |device             |page       |pageUrl                                            |
+        |mobile             |homepage   |                                                   |
+
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should see the search icon in the navigation bar
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        * I should be able to search a keyword "home" on "search result page" and see the result page
+        Examples:
+        |device             |page       |pageUrl                                            |
+        |desktop            |homepage   |                                                   |
+
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        Examples:
+        |device             |page       |pageUrl                                            |
+        |tablet landscape   |section    |real-homes                                               |
+
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        Examples:
+        |device             |page        |pageUrl                                                         |
+        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |

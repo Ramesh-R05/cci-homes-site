@@ -1,7 +1,5 @@
 import { Flux, servicesPlugin } from '@bxm/flux';
 import AppComponent from './components/app';
-import pageService from './services/page';
-import listService from './services/list';
 import AdStore from '@bxm/ad/lib/google/stores/ad';
 import ArticleStore from '@bxm/article/lib/stores/articleStore';
 import GalleryPageStore from '@bxm/gallery/lib/stores/galleryPage';
@@ -14,6 +12,10 @@ import RouteStore from './stores/route';
 import TrackingStore from './stores/tracking';
 import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
 import NavigationStore from '@bxm/site-header/lib/stores/navigation';
+import SearchStore from './stores/search';
+import pageService from './services/page';
+import listService from './services/list';
+import searchService from './services/search';
 
 const app = new Flux({
     component: AppComponent,
@@ -31,13 +33,15 @@ const app = new Flux({
         PolarAdStore,
         RouteStore,
         TrackingStore,
-        NavigationStore
+        NavigationStore,
+        SearchStore
     ]
 });
 
 const servicePlugin = servicesPlugin();
 servicePlugin.registerService(pageService);
 servicePlugin.registerService(listService);
+servicePlugin.registerService(searchService);
 app.plug(servicePlugin);
 
 export default app;

@@ -111,6 +111,9 @@ export default {
                 { ca: '20002302', a: '0j16fz4d' }, // To Love pixel
                 { ca: '20002304', a: '30tp4z58' }  // Women's sites pixel
             ]
+        },
+        search: {
+            enabled: true
         }
     },
 
@@ -269,11 +272,13 @@ export default {
             listings: 'http://services.sit.bxm.internal/listing/v1/homes',
             module: 'http://services.sit.bxm.internal/module/v1/homes',
             sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/homes',
-            tag: 'http://services.sit.bxm.internal/tag/v1'
+            tag: 'http://services.sit.bxm.internal/tag/v1',
+            search: 'http://services.sit.bxm.internal/es-search/v1/homes'
         },
         endpoints: {
             page: '/api/getPageContent',
-            list: '/api/list'
+            list: '/api/list',
+            search: '/api/search'
         },
 
         header: {

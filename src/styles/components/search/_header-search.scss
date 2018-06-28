@@ -1,0 +1,185 @@
+$container-height: 54px;
+$icon-height: 20px;
+
+.page--home {
+    .header-search {
+
+        &--icon-container {
+            top: 26px;
+            height: 105px;
+
+            @media #{$medium-up} {
+                top: 0;
+                height: 59px;
+            }
+        }
+
+        &--icon {
+            @media #{$medium-up} {
+                top: 4px;
+            }
+        }
+    }
+}
+
+.header-search {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+
+    @media #{$medium-up} {
+        position: relative;
+        margin-left: 5px;
+
+        &__open {
+            .header-search--icon-container {
+                background-color: $color-black-origin;
+            }
+            .header-search--icon {
+                path {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+
+    &--icon-container {
+        width: 55px;
+        height: $container-height;
+        display: block;
+        text-align: center;
+        position: relative;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+
+        @media #{$medium-up} {
+            width: 58px;
+            height: 58px;
+            top: -15px;
+            right: -1px;
+        }
+
+        @media #{$large-up} {
+            right: 0;
+        }
+    }
+
+    &--icon {
+        font-size: 0;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        top: calc((#{$container-height} - #{$icon-height}) / 2);
+        right: 0;
+        position: relative;
+        border: 0;
+        background-color: transparent;
+        vertical-align: middle;
+
+        @media #{$medium-up} {
+            top: calc((32px / 2) + 5px);
+            right: 0;
+        }
+
+        path {
+            fill: $color-black-origin;
+        }
+    }
+
+    &--input {
+        height: 56px;
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        border: 1px solid $color-black-origin;
+        background-color: $color-white;
+        color: $color-black-origin;
+
+        @media #{$medium-up} {
+            height: 61px;
+            width: 468px;
+            margin-top: -15px;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: $color-black-origin;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: $color-black-origin;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+            color: $color-black-origin;
+        }
+        :-moz-placeholder { /* Firefox 18- */
+            color: $color-black-origin;
+        }
+
+        input {
+            &[type='text'] {
+                height: 53px;
+                width: calc(100% - 54px);
+                padding: 0 10px;
+                font-size: 16px;
+                font-weight: bold;
+                border: none;
+                background-color: $color-white;
+                margin-left: -54px;
+
+                @media #{$medium-up} {
+                    height: 58px;
+                    width: 468px;
+                    font-size: 14px;
+                    margin-left: 0;
+                }
+            }
+
+            &[type='image'] {
+                border-radius: 0;
+            }
+        }
+    }
+
+    &--submit {
+        position: absolute;
+        right: 0;
+        width: 54px;
+        height: 54px;
+
+        @media #{$medium-up} {
+            width: 60px;
+            height: 60px;
+            right: -2px;
+        }
+
+        @media #{$large-up} {
+            right: -1px;
+        }
+    }
+}
+
+.header-search__open {
+    overflow: visible !important;
+}
+.header-search--icon path {
+    fill: $search-icon;
+}
+
+.header-search__open .header-search--icon path {
+    fill: $color-primary;
+}
+
+.header-search__open .header-search--icon-container {
+    background-color: $search-icon;
+}
+
+.header-search--input {
+    input {
+        &[type='text'] {
+            color: $color-black-origin;
+            font-family: $font-family-sans-serif-primary;
+            text-transform: uppercase;
+        }
+    }
+}

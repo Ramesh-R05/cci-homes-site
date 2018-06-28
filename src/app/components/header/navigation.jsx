@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import NavigationItem from './navigationItem';
 
 export default class Navigation extends Component {
+    static displayName = 'Navigation';
     static propTypes = {
         items: PropTypes.array.isRequired,
         className: PropTypes.string,
@@ -11,20 +12,22 @@ export default class Navigation extends Component {
 
     static defaultProps = {
         className: '',
-        linkClassName: ''
+        linkClassName: '',
+        showGroupLabel: true
     };
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
-        if (!Array.isArray(this.props.items) || this.props.items.length === 0) return null;
+        const { items, className, linkClassName, showGroupLabel } = this.props;
+        if (!Array.isArray(items) || items.length === 0) return null;
+        const navItems = items.map((item, i) => {
+            const key = `nav-${i}`;
+            return <NavigationItem {...item} linkClassName={linkClassName} key={key} showGroupLabel={showGroupLabel} />;
+        });
 
         return (
-            <div className={this.props.className}>
-                <nav className={`${this.props.className}__nav`}>
-                    {this.props.items.map((item, i) => <NavigationItem {...item} linkClassName={this.props.linkClassName} key={`nav-${i}`} showGroupLabel={this.props.showGroupLabel} />)}
+            <div className={className}>
+                <nav className={`${className}__nav`}>
+                    {navItems}
                 </nav>
             </div>
         );

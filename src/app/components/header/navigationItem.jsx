@@ -3,12 +3,18 @@ import SubNavigationItemAndMenu from './subNavigationItemAndMenu';
 import { canUseDOM } from 'exenv';
 
 export default class NavigationItem extends Component {
+    static displayName = 'NavigationItem';
     static propTypes = {
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
-        tagsDetails: PropTypes.array.isRequired,
         linkClassName: PropTypes.string.isRequired,
-        showGroupLabel: PropTypes.bool
+        showGroupLabel: PropTypes.bool,
+        tagsDetails: PropTypes.array
+    };
+
+    static defaultProps = {
+        showGroupLabel: true,
+        tagsDetails: []
     };
 
     constructor(...args) {

@@ -8,7 +8,18 @@ import DefaultTemplate from './templates/default';
 class Application extends Component {
 
     static propTypes = {
-        currentRoute: PropTypes.object
+        currentRoute: PropTypes.shape({
+            handler: PropTypes.func
+        }),
+        // eslint-disable-next-line react/no-unused-prop-types
+        pageTitle: PropTypes.string,
+        currentNavigateError: PropTypes.object
+    };
+
+    static defaultProps = {
+        currentRoute: null,
+        pageTitle: null,
+        currentNavigateError: null
     };
 
     static contextTypes = {
@@ -17,27 +28,20 @@ class Application extends Component {
     };
 
     componentDidUpdate(prevProps) {
-        const newProps = this.props;
-        if (newProps.pageTitle === prevProps.pageTitle) {
-            return;
+        const { pageTitle } = this.props;
+        if (pageTitle !== prevProps.pageTitle) {
+            document.title = pageTitle;
         }
-        document.title = newProps.pageTitle;
     }
 
     render() {
-        let Handler;
-        if (this.props.currentRoute) {
-            Handler = this.props.currentRoute.handler;
-        } else {
-            Handler = DefaultTemplate;
-        }
+        const { currentRoute, currentNavigateError } = this.props;
+        const Handler = currentRoute ? currentRoute.handler : DefaultTemplate;
         const className = canUseDOM ? '' : 'no-js';
         return (
             <div className={className}>
                 <GoogleFont />
-                <Handler
-                  currentNavigateError={this.props.currentNavigateError}
-                />
+                <Handler currentNavigateError={currentNavigateError} />
             </div>
         );
     }

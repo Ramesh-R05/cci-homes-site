@@ -1,18 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import ReactDOM from 'react-dom';
 import { canUseDOM } from 'exenv';
 
-const isArray = Array.isArray;
+export default class SubNavigationItemAndMenu extends Component {
 
-export default class NavigationItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            subNavStyles: {
-                width: 0
-            }
-        };
-    }
+    static displayName = 'SubNavigationItemAndMenu';
 
     static propTypes = {
         items: PropTypes.array.isRequired,
@@ -31,6 +22,15 @@ export default class NavigationItem extends Component {
         SUB_NAV_WIDTH: 165
     };
 
+    constructor(...args) {
+        super(...args);
+        this.state = {
+            subNavStyles: {
+                width: 0
+            }
+        };
+    }
+
     componentWillMount() {
         if (canUseDOM) {
             this.setState({ viewportSize: this.props.viewportSize });
@@ -39,9 +39,8 @@ export default class NavigationItem extends Component {
 
     componentDidMount() {
         if (canUseDOM) {
-            this.setState({ viewportSize: window.innerWidth });
             window.addEventListener('resize', this.processResizeEvent, false);
-            this.determineNavLabelWidth();
+            this.processResizeEvent();
         }
     }
 
@@ -59,15 +58,14 @@ export default class NavigationItem extends Component {
     checkViewportSizeOnResize = () => {
         const { viewportSize } = this.state;
         const { innerWidth } = window;
-        const { BREAKPOINT_LARGE_MIN } = NavigationItem.constants;
-        return viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN ||
-            viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN;
+        const { BREAKPOINT_LARGE_MIN } = SubNavigationItemAndMenu.constants;
+        return (viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN) ||
+            (viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN);
     };
 
     determineNavLabelWidth = () => {
-        if (ReactDOM.findDOMNode(this.subnav)) {
-            const navLabelWidth = ReactDOM.findDOMNode(this.subnav).getBoundingClientRect().width;
-
+        if (this.subnav) {
+            const navLabelWidth = this.subnav.getBoundingClientRect().width;
             this.setState({
                 subNavStyles: {
                     width: navLabelWidth
@@ -92,7 +90,7 @@ export default class NavigationItem extends Component {
 
     calculateLeftOffsetForNavLabel = () => {
         const { width } = this.state.subNavStyles;
-        const { SUB_NAV_WIDTH } = NavigationItem.constants;
+        const { SUB_NAV_WIDTH } = SubNavigationItemAndMenu.constants;
         const maxNavLabelWidthForOffset = 150;
         return width > maxNavLabelWidthForOffset || width === 0 ? 0 : -((SUB_NAV_WIDTH - width) / 2);
     };
@@ -108,7 +106,7 @@ export default class NavigationItem extends Component {
             left: this.calculateLeftOffsetForNavLabel()
         };
 
-        if (!isArray(items) || items.length === 0) return null;
+        if (!Array.isArray(items) || items.length === 0) return null;
 
         const groupLabel = (
             <a className={linkClassName} onClick={this.handleClick}>{name}

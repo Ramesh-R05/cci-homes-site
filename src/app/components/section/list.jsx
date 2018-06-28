@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import get from 'lodash.get';
 import Teaser from '../teaser/teaser';
 import Rail from './rail';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class List extends Component {
 
-    static displayName = 'List'
+    static displayName = 'List';
 
     static propTypes = {
         items: PropTypes.array,
@@ -39,10 +40,8 @@ export default class List extends Component {
                     />
                     {items.map((item, i) => {
                         const polarDetails = polarTargets.find(slot => slot.index === i);
-
                         const sections = ['navigationsection', 'campaign', 'tagsection'];
-                        const lc = content.nodeType.toLowerCase();
-
+                        const lc = get(content, 'nodeType', '').toLowerCase();
                         let section = null;
 
                         switch (lc) {
@@ -50,13 +49,23 @@ export default class List extends Component {
                             section = 'brand';
                             break;
                         case 'homepage':
+                        case 'search':
                             section = lc;
                             break;
                         default:
                             section = sections.indexOf(lc) > -1 ? 'index' : null;
                         }
 
-                        return <Teaser polar={polarDetails} {...item} key={item.id} sizes="brand-list" modifier="img-left" gtmClass={`gtm-bottomteaserlist-${section}`} />;
+                        return (
+                            <Teaser
+                              {...item}
+                              polar={polarDetails}
+                              key={item.id}
+                              sizes="brand-list"
+                              modifier="img-left"
+                              gtmClass={`gtm-bottomteaserlist-${section}`}
+                            />
+                        );
                     })}
 
                     <Ad
@@ -76,7 +85,6 @@ export default class List extends Component {
                 />
 
             </div>
-
 
         );
     }

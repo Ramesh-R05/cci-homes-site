@@ -3,12 +3,18 @@ import classNames from 'classnames';
 
 export default class Repeatable extends Component {
 
+    static displayName = 'Repeatable';
+
     static propTypes = {
         component: PropTypes.instanceOf(Component).isRequired,
         action: PropTypes.func.isRequired,
         dataSource: PropTypes.object.isRequired,
         nextParams: PropTypes.object.isRequired,
         gtmClass: PropTypes.string
+    };
+
+    static defaultProps = {
+        gtmClass: null
     };
 
     static contextTypes = {
@@ -43,7 +49,7 @@ export default class Repeatable extends Component {
 
         const items = dataSource.items;
 
-        if (!items || items.length == 0) return null;
+        if (!items || items.length === 0) return null;
 
         const repeatableComponents = items.map((item, i) => (
             <ChildComponent key={item.id || i} index={i} items={item} {...otherProps} />

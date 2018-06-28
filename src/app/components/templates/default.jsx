@@ -44,7 +44,7 @@ class DefaultTemplate extends Component {
 
     static contextTypes = {
         executeAction: PropTypes.func.isRequired,
-        config: PropTypes.object
+        config: PropTypes.object.isRequired
     };
 
     render() {
@@ -55,27 +55,19 @@ class DefaultTemplate extends Component {
             contentHeaderTitle = get(content, 'tagsDetails[0].displayName', content.title);
             brandConfig = getBrand(this.context.config, content.source);
         }
-        const { ContentHeaderHandler, ContentHandler, hideFooter, hideHeader } = this.getPageMetadata();
-        const localeData = this.context.config.get('localeData');
+        const { ContentHeaderHandler, ContentHandler } = this.getPageMetadata();
 
         return (
             <div className="default-template">
 
                 { content && content.url === '/' ? <Uniheader /> : null }
 
-                { hideHeader
-                    ? null
-                    : <SiteHeader
-                      isSideMenuOpen={isSideMenuOpen}
-                      navItems={headerNavItems}
-                    />
-                }
-
-                <SideMenu
-                  open={isSideMenuOpen}
+                <SiteHeader
+                  isSideMenuOpen={isSideMenuOpen}
                   navItems={headerNavItems}
-                  data={localeData}
                 />
+
+                <SideMenu open={isSideMenuOpen} navItems={headerNavItems} />
 
                 { ContentHeaderHandler
                     ? <ContentHeaderHandler
@@ -95,8 +87,7 @@ class DefaultTemplate extends Component {
                     />
                 </AdsWrapper>
 
-
-                { hideFooter ? null : <SiteFooter config={localeData} /> }
+                <SiteFooter />
 
             </div>
         );
@@ -105,13 +96,15 @@ class DefaultTemplate extends Component {
     getPageMetadata() {
         const { content, contentErrorStatus, currentNavigateError } = this.props;
 
-        if (!content || contentErrorStatus) {
-            let errorStatus;
-            if (currentNavigateError) errorStatus = currentNavigateError.statusCode;
-            if (contentErrorStatus) errorStatus = contentErrorStatus.status;
-
+        if (!content || currentNavigateError || contentErrorStatus) {
+            let errorStatus = ErrorHandlerBuilder.DEFAULT_CODE;
+            if (currentNavigateError) {
+                errorStatus = currentNavigateError.statusCode;
+            } else if (contentErrorStatus) {
+                errorStatus = contentErrorStatus.status;
+            }
             return {
-                ContentHandler: ErrorHandlerBuilder(errorStatus) || ErrorHandlerBuilder(500)
+                ContentHandler: ErrorHandlerBuilder(errorStatus)
             };
         }
 

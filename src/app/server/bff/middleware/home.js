@@ -34,7 +34,7 @@ export default async function homeMiddleware(req, res, next) {
             name: pageData.nodeName,
             id: pageData.id,
             urlName: pageData.urlName
-        }
+        };
 
         const list = {
             params: {

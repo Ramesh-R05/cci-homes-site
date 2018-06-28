@@ -37,8 +37,11 @@ const Error500Stub = Context.createStubComponent();
 
 function mockErrorHandlerBuilder(code) {
     switch (code) {
-        case 404: return Error404Stub;
-        case 500: return Error500Stub;
+    case 404:
+        return Error404Stub;
+    case 500:
+    default:
+        return Error500Stub;
     }
 }
 
@@ -53,7 +56,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../home/home': HomePageStub,
     '../article/page': ArticleStub,
     '../section/tag/section': TagStub,
-    '../header/uniheader' : UniHeaderStub,
+    '../header/uniheader': UniHeaderStub,
     '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}}, // TODO - deprecated??
     '../section/navigationTag/section': NavSectionStub,
     '../brand/section': BrandStub,
@@ -69,6 +72,21 @@ const Default = proxyquire('../../../app/components/templates/default', {
     'picturefill': {}
 });
 
+const headerNavItems = [
+    { name: 'Real Homes', url: '/real-homes' },
+    { name: 'Bedroom', url: '/bedroom' },
+    { name: 'Kitchen', url: '/kitchen' },
+    { name: 'DIY', url: '/diy' }
+];
+
+function getDefaultContent() {
+    const content = clone(entity);
+    content.urlName = 'belle';
+    content.title = 'Belle';
+    content.tagsDetails = undefined;
+    return content;
+}
+
 const defaultStoreData = {
     MenuStore: {
         sideMenuOpen: false
@@ -82,21 +100,6 @@ const defaultStoreData = {
 };
 
 let storeData = defaultStoreData;
-
-const headerNavItems = [
-    { name: 'Real Homes', url: '/real-homes' },
-    { name: 'Bedroom', url: '/bedroom' },
-    { name: 'Kitchen', url: '/kitchen' },
-    { name: 'DIY', url: '/diy' }
-];
-
-function getDefaultContent() {
-    let content = clone(entity);
-    content.urlName = 'belle';
-    content.title = 'Belle';
-    content.tagsDetails = undefined;
-    return content;
-}
 
 function resetStoreData() {
     storeData = cloneDeep(defaultStoreData);
@@ -148,7 +151,7 @@ describe('Default Component template', () => {
     };
 
     const configToStub = {
-        get: function(){ return localeData; },
+        get: () => localeData,
         brands: {
             section: sectionBrandsDataStub
         }
@@ -235,12 +238,8 @@ describe('Default Component template', () => {
             expect(sideMenu.props.navItems).to.eql(headerNavItems);
         });
 
-        it(`sets SideMenu 'data' prop properly`, () => {
-            expect(sideMenu.props.data).to.eql(localeData);
-        });
-
-        it(`sets Footer 'config' prop properly`, () => {
-            expect(footer.props.config).to.eql(localeData);
+        it(`shows the footer`, () => {
+            expect(ReactDOM.findDOMNode(footer)).to.exist;
         });
     });
 
@@ -276,58 +275,40 @@ describe('Default Component template', () => {
         forOwn({
             'Homepage': {
                 ContentHeaderHandler: HomeHeader,
-                ContentHandler: HomePageStub,
-                hideHeader: false,
-                hideFooter: false
+                ContentHandler: HomePageStub
             },
             'HomesArticle': {
                 ContentHeaderHandler: HomeHeader,
-                ContentHandler: ArticleStub,
-                hideHeader: false,
-                hideFooter: true
+                ContentHandler: ArticleStub
             },
             'NavigationSection': {
                 ContentHeaderHandler: SectionHeader,
-                ContentHandler: NavSectionStub,
-                hideHeader: false,
-                hideFooter: false
+                ContentHandler: NavSectionStub
             },
             'TagSection': {
                 ContentHeaderHandler: SectionHeader,
-                ContentHandler: TagStub,
-                hideHeader: false,
-                hideFooter: false
+                ContentHandler: TagStub
             },
             'BrandSection': {
                 ContentHeaderHandler: BrandHeader,
-                ContentHandler: BrandStub,
-                hideHeader: false,
-                hideFooter: false
+                ContentHandler: BrandStub
             },
             'Campaign': {
                 ContentHeaderHandler: SectionHeader,
-                ContentHandler: CampaignStub,
-                hideHeader: false,
-                hideFooter: false
+                ContentHandler: CampaignStub
             },
             'Gallery': {
-                ContentHandler: ArticleStub,
-                hideHeader: false,
-                hideFooter: false
+                ContentHandler: ArticleStub
             }
         }, (metadata, nodeType) => {
-            const {ContentHeaderHandler, ContentHandler, hideFooter, hideHeader} = metadata;
+            const {ContentHeaderHandler, ContentHandler} = metadata;
 
             describe(`for nodeType "${nodeType}"`, () => {
                 before(() => {
                     storeData.PageStore.content.nodeType = nodeType;
                     reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-                    if (!hideHeader) {
-                        header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
-                    }
-                    if (!hideFooter) {
-                        footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
-                    }
+                    header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
+                    footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
                 });
 
                 it('returns the correct Header Handler title for Navigation, Tag, and Campaign Section node types', () => {
@@ -348,16 +329,6 @@ describe('Default Component template', () => {
                         template = TestUtils.findRenderedComponentWithType(reactModule, ContentHandler);
                     }
                 });
-
-                if (!hideFooter) {
-                    it(`${hideFooter ? 'hides' : 'shows'} the footer`, () => {
-                        if (hideFooter) {
-                            expect(ReactDOM.findDOMNode(footer)).not.to.exist;
-                        } else {
-                            expect(ReactDOM.findDOMNode(footer)).to.exist;
-                        }
-                    });
-                }
             });
         });
     });
