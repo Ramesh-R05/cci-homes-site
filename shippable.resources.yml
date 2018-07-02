@@ -47,14 +47,6 @@ resources:
       sourceName: bauerxcelmedia/homes-site
       branch: master
 
-  # Homes Github repo - branch for troubleshooting purpose
-  - name: homes-site-repo-branch-compatibility
-    type: gitRepo
-    integration: production-github
-    pointer:
-      sourceName: bauerxcelmedia/homes-site
-      branch: fix/automation-compatibility-test
-
   # Homes Github repo branch for lighthouse test only
   - name: homes-site-repo-branch
     type: gitRepo
