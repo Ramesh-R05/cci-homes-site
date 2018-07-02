@@ -2,12 +2,17 @@ var wn_ads = require('../page_objects/ads_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var visibilityFunctions = require('../../../node_modules/@bxm/automation/lib/utils/visibilityFunctions');
 var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
+var world = require('../world');
+var isBrowserStack = world.Urls.isBrowserStack;
+var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
 module.exports = function() {
 
     this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
-        browser.waitForVisible(wn_ads.ad_TopLeaderboard, 15000); // long wait due to browser stack load times over the cloud
-        expect(browser.isVisible(wn_ads.ad_TopLeaderboard)).toBe(true);
+        if (isBrowserStack == false) {
+            browser.scroll(0,0);
+        }
+        expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true);
     });
 
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
@@ -94,7 +99,9 @@ module.exports = function() {
 
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
-        browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
+        scrolling(browser,wn_ads.ad_MrecBeforeRecommendation,isBrowserStack);
+        wait(1000);
+        scrolling(browser,wn_ads.ad_MrecBeforeRecommendation,isBrowserStack); //Double scroll to ensure the ad element is still on the page after the ad loading.
         expect(browser.waitForVisible(wn_ads.ad_MrecBeforeRecommendation,5000)).toBe(true);
     });
 
@@ -102,11 +109,18 @@ module.exports = function() {
         expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(false);
     });
 
-    this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-        browser.scroll(wn_ads.ad_BottomLeaderboard);
+    this.Then(/^I should see the bottom leaderboard ad slot above the footer$/, function () {
+        scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack);
         wait(1500);
-        browser.scroll(wn_ads.ad_BottomLeaderboard); //move to the object again after the images on gallery are loaded from the first move.
-        expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard, 5000)).toBe(true);
+        scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack); //move to the object again after the images on gallery are loaded from the first move.
+        expect(browser.isExisting(wn_ads.ad_BottomLeaderboard)).toBe(true);
+    });
+
+    this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
+        scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack);
+        wait(1500);
+        scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack); //move to the object again after the images on gallery are loaded from the first move.
+        expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard, 10000)).toBe(true);
     });
 
     //BELOW ARE STEPS FOR GALLERY
@@ -457,15 +471,8 @@ module.exports = function() {
 
 
     this.Then(/^I can see the sticky ad when the top banner disappears from view$/, function () {
-        //Scroll through the page to confirm is sticky
-        browser.scroll(0,0);
-        expect(browser.isVisible(wn_ads.bottomSticky)).toBe(false);
-
-        browser.scroll(0,1500);
+        scrolling(browser,wn_ads.articleFooter,isBrowserStack);
         wait(3500);//the top ad will be sticky for 3.5sec
-        expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
-
-        browser.scroll(1500,2000);
         expect(browser.waitForVisible(wn_ads.bottomSticky,2000)).toBe(true);
     });
 

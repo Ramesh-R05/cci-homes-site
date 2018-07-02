@@ -14,6 +14,9 @@ var ads_widget = {
     articleLeaderBoard: 'div.ad.ad--section-top-leaderboard.ad--bottom-label.hide-for-print',
     articleRHSMrec: '.feed-ad',
 
+    //Other elements to support the test
+    articleFooter: '.article__footer',
+
  // =======For Ads Location
 
     // For ad wrapper

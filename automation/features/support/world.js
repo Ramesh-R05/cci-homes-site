@@ -6,6 +6,7 @@ var run_env = nconf.get('APP_ENV');
 var site_domain = nconf.get('APP_KEY');
 var baseUrl = nconf.get('URL');
 var domain_sufx = null;
+let isBrowserStack = false;
 
 if (typeof baseUrl === 'string' && baseUrl !== ''){
     // Ensure valid URL path has been specified
@@ -31,9 +32,17 @@ if (wn_flag === 'true') {
 baseUrl === '' && (baseUrl = 'http://' + run_env + '.' + site_domain + domain_sufx);
 console.log('running on url :: ' + baseUrl);
 
+//To identify if this test is on Browser Stack to decide to user browser.getLocationInView instead of browser.scroll
+if (site_domain != null){
+    if (site_domain.includes('-mobile') || site_domain.includes('-browser')) {
+        isBrowserStack = true;
+    }
+}
+
 module.exports = {
     Urls: {
         'home_page': baseUrl,
-        'site': site_domain
+        'site': site_domain,
+        'isBrowserStack': isBrowserStack
     }
 };
