@@ -132,7 +132,10 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo-branch-compatibility/gitRepo/automation
+        - script: cd ./IN/homes-site-repo-branch-compatibility/gitRepo/src
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+        - script: npm install babel-plugin-transform-decorators-legacy
+        - script: cd ../automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
