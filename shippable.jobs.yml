@@ -183,6 +183,7 @@ jobs:
     steps:
       - IN: homes-site-smoke-test
       - IN: homes-site-automation-test
+      - IN: homes-site-compatibility-automation-test
       - IN: homes-site-man-master
         switch: off
       - IN: homes-site-version
