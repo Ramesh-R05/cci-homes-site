@@ -8,7 +8,7 @@ export default {
     serviceName: 'search',
 
     read(deferred, params) {
-        superagent.get(`${host}/api/search`).query(params).end((error, response) => {
+        superagent.get(`${host}/api/search`).query({ params: params.params }).end((error, response) => {
             if (error) deferred.reject(error);
             else deferred.resolve(response);
         });
