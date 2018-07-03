@@ -1,13 +1,15 @@
 import get from 'lodash.get';
 import set from 'lodash.set';
 
+const CLOUDFRONT = 'd3lp4xedbqa8a5.cloudfront.net';
+const COUGAR = 'cdn.assets.cougar.bauer-media.net.au';
+
 export const httpsSet = (obj, path) => {
     let url = get(obj, path);
-    if (typeof url !== 'string' || url.startsWith('https') || url.startsWith('/api/asset?url=')) return;
-    url = url.replace('http://d3lp4xedbqa8a5.cloudfront.net', 'https://d3lp4xedbqa8a5.cloudfront.net');
-    url = url.replace('http://cdn.assets.cougar.bauer-media.net.au', 'https://d3lp4xedbqa8a5.cloudfront.net');
-    if (url.startsWith('https')) set(obj, path, url);
-    else set(obj, path, `/api/asset?url=${encodeURIComponent(url)}`);
+    if (typeof url === 'string' && !url.startsWith('https') && !url.startsWith('/api/asset?url=')) {
+        url = url.replace(new RegExp(`http://(${CLOUDFRONT}|${COUGAR})`, 'ig'), `https://${CLOUDFRONT}`);
+        set(obj, path, url.startsWith('https') ? url : `/api/asset?url=${encodeURIComponent(url)}`);
+    }
 };
 
 const itemLists = [
@@ -79,6 +81,18 @@ export default function https(req, res, next) {
             item.forEach((listItem) => {
                 httpsSet(listItem, 'imageUrl');
             });
+        });
+
+        get(res, 'body.latestTeasers', []).forEach((item) => {
+            httpsSet(item, 'imageUrl');
+        });
+
+        ['current', 'previous', 'next'].forEach((item) => {
+            const name = `body.list.${item}.url`;
+            const value = get(res, name, '');
+            if (value !== '') {
+                set(res, name, value.replace('http://', 'https://'));
+            }
         });
 
         next();
