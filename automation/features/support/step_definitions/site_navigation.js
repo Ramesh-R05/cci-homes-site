@@ -64,6 +64,6 @@ module.exports = function() {
         if (headerLogoLink.endsWith('/')) {
             headerLogoLink = headerLogoLink.substr(0, headerLogoLink.length - 1);
         }
-        expect(headerLogoLink).toEqual(site_domain);
+        expect(site_domain).toContain(headerLogoLink);
     });
 };
