@@ -83,6 +83,42 @@
                         }
                     }
                 }
+
+                &-insideout {
+                    img, svg {
+                        height: 33.6px;
+                        width: 112px;
+
+                        @media #{$medium-up} {
+                            height: 45.6px;
+                            width: 152px;
+                        }
+                    }
+                }
+
+                &-countrystyle {
+                    img, svg {
+                        height: 24.3px;
+                        width: 132px;
+
+                        @media #{$medium-up} {
+                            height: 35.4px;
+                            width: 192px;
+                        }
+                    }
+                }
+
+                &-homelife {
+                    img, svg {
+                        height: 21.6px;
+                        width: 140px;
+
+                        @media #{$medium-up} {
+                            height: 28px;
+                            width: 182px;
+                        }
+                    }
+                }
             }
         }
 

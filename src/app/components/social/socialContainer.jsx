@@ -24,7 +24,8 @@ export default class SocialContainer extends Component {
     };
 
     render() {
-        const { facebook, twitter, instagram, pinterest, nodeType, title } = this.props.socialUrls;
+        const { facebook, twitter, instagram, pinterest } = this.props.socialUrls;
+        const { nodeType, title } = this.props;
         const links = [
             {
                 name: 'facebook',

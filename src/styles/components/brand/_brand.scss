@@ -22,6 +22,24 @@
             background: $color-house-and-garden;
         }
     }
+
+    &--inside-out {
+        .button {
+            background: $color-inside-out;
+        }
+    }
+
+    &--country-style {
+        .button {
+            background: $color-country-style;
+        }
+    }
+
+    &--homelife {
+        .button {
+            background: $color-homelife;
+        }
+    }
 }
 
 .brand__wrapper {

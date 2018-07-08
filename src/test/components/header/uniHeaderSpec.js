@@ -22,11 +22,6 @@ describe('Brand Header', () => {
                 "title": "real living",
                 "id" : "realliving"
             }, {
-                "imageUrl": "/assets/svgs/homesplus.svg",
-                "url": "/homes-plus/",
-                "title": "homes+",
-                "id" : "homesplus"
-            }, {
                 "imageUrl": "/assets/svgs/housegarden.svg",
                 "url": "/australian-house-and-garden/",
                 "title": "Australian House and Garden",

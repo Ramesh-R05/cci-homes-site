@@ -42,7 +42,7 @@ export default {
         action: loadPageContent
     },
     brand: {
-        path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden)',
+        path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden|inside-out|country-style|homelife)',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent

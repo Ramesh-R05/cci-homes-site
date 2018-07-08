@@ -58,5 +58,64 @@ export default [
             pinterest: 'https://www.pinterest.com/HOUSEnGARDEN/'
         },
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kz/signup-houseandgarden-article-iframe-bottom'
-    }
+    },
+    {
+        title: 'Inside Out',
+        url: '/inside-out/',
+        id: 'insideout',
+        urlName: 'inside-out',
+        imageUrl: '/assets/images/brand-pages/headerlogos/insideout.svg',
+        logo: '/assets/images/brand-pages/headerlogos/insideout.svg',
+        newsletterUrl: 'http://www.homestolove.com.au/homes-newsletter/',
+        subscribe: {
+            image: '',
+            link: 'https://www.magshop.com.au/store/homestolove'
+        },
+        social: {
+            facebook: 'https://www.facebook.com/Inside.Out.magazine.au/',
+            twitter: 'https://twitter.com/insideoutmag',
+            instagram: 'https://www.instagram.com/insideoutmag/',
+            pinterest: 'https://www.pinterest.com.au/insideoutpins/'
+        },
+        newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
+    },
+    {
+        title: 'Country Style',
+        url: '/country-style/',
+        id: 'countrystyle',
+        urlName: 'country-style',
+        imageUrl: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
+        logo: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
+        newsletterUrl: 'http://www.homestolove.com.au/homes-newsletter/',
+        subscribe: {
+            image: '',
+            link: 'https://www.magshop.com.au/store/homestolove'
+        },
+        social: {
+            facebook: 'https://www.facebook.com/CountryStyleMagazine/',
+            instagram: 'https://www.instagram.com/countrystylemag/',
+            pinterest: 'https://www.pinterest.com.au/countrystylemag/'
+        },
+        newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
+    },
+    {
+        title: 'Homelife',
+        url: '/homelife/',
+        id: 'homelife',
+        urlName: 'homelife',
+        imageUrl: '/assets/images/brand-pages/headerlogos/homelife.svg',
+        logo: '/assets/images/brand-pages/headerlogos/homelife.svg',
+        newsletterUrl: 'http://www.homestolove.com.au/homes-newsletter/',
+        subscribe: {
+            image: '',
+            link: 'https://www.magshop.com.au/store/homestolove'
+        },
+        social: {
+            facebook: 'https://www.facebook.com/homelife.com.au/',
+            twitter: 'https://www.pinterest.com.au/homelifecomau/',
+            instagram: 'https://www.instagram.com/homelife.com.au/',
+            pinterest: 'https://twitter.com/homelifecomau'
+        },
+        newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
+    },
 ];

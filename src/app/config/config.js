@@ -31,7 +31,19 @@ export default {
             'homes to love': {
                 path: '/',
                 logo: 'homes-to-love.svg'
-            }
+            },
+            'inside out': {
+                path: '/inside-out',
+                logo: 'inside-out.svg'
+            },
+            'country style': {
+                path: '/country-style',
+                logo: 'country-style.svg'
+            },
+            'homelife': {
+                path: '/homelife',
+                logo: 'homelife.svg'
+            },
         },
         siteBrand: 'homes to love',
         videoIconSVG: `
