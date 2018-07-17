@@ -27,7 +27,7 @@ describe(`FooterBrandLinks`, () => {
     });
 
     it('should render correct number of links accounting for each brand', () => {
-        expect(links.length).to.eq(3);
+        expect(links.length).to.eq(4);
     });
 
     it('should open each link in the same window', () => {
