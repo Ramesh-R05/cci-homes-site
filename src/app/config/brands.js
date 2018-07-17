@@ -66,7 +66,7 @@ export default [
         urlName: 'inside-out',
         imageUrl: '/assets/images/brand-pages/headerlogos/insideout.svg',
         logo: '/assets/images/brand-pages/headerlogos/insideout.svg',
-        newsletterUrl: 'http://www.homestolove.com.au/homes-newsletter/',
+        newsletterUrl: '//www.homestolove.com.au/homes-newsletter/',
         subscribe: {
             image: '',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -86,7 +86,7 @@ export default [
         urlName: 'country-style',
         imageUrl: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
         logo: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
-        newsletterUrl: 'http://www.homestolove.com.au/homes-newsletter/',
+        newsletterUrl: '//www.homestolove.com.au/homes-newsletter/',
         subscribe: {
             image: '',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -105,7 +105,7 @@ export default [
         urlName: 'homelife',
         imageUrl: '/assets/images/brand-pages/headerlogos/homelife.svg',
         logo: '/assets/images/brand-pages/headerlogos/homelife.svg',
-        newsletterUrl: 'http://www.homestolove.com.au/homes-newsletter/',
+        newsletterUrl: '//www.homestolove.com.au/homes-newsletter/',
         subscribe: {
             image: '',
             link: 'https://www.magshop.com.au/store/homestolove'
