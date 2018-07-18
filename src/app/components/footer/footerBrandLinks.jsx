@@ -14,7 +14,7 @@ export default class FooterBrandLinks extends Component {
 
         const { footerBrands, className: footerOuterClass } = this.props;
         // TODO - remove slice when new brands go live
-        const footerLogos = footerBrands.slice(0, 4).map(
+        const footerLogos = footerBrands.slice(0, 6).map(
             (item, i) => {
                 const { id, title, url, imageUrl } = item;
                 const image = <img src={imageUrl} alt={title} className={`footer__logos-${id}`} />;

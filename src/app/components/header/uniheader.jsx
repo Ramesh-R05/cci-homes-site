@@ -17,7 +17,7 @@ export default class Uniheader extends Component {
         const uniheaderOuterClasses = cx(uniheaderClassName, 'show-for-medium-up');
         const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, 'container');
         // TODO - remove slice when new brands go live
-        const uniheaderLogos = uniheaderBrands.slice(0, 4).map(
+        const uniheaderLogos = uniheaderBrands.slice(0, 6).map(
             (item, i) => {
                 const { id, title, url, imageUrl } = item;
                 return (
