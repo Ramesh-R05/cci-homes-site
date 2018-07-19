@@ -7,7 +7,6 @@ screenshots/*.jpg
 screenshots/*.png
 cucumber.json
 @rerun.txt
-package-lock.json
 
 #Include
 !reports/template.html
