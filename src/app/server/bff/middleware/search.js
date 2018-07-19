@@ -13,14 +13,10 @@ function capitalizeFirstLetter(string) {
 
 export default async function searchMiddleware(req, res, next) {
     try {
-        let pageNo = 1;
-        if (req.query) {
-            pageNo = parseInt(req.query.pageNo || pageNo, 10);
-        }
-        const query = req.query.params ? get(req, 'query.params.query', '') : get(req, 'query.q', '');
+        const pageNo = parseInt(get(req, 'query.pageNo', 1), 10);
+        const query = get(req, 'query.q', null);
         const from = (pageNo - 1) * searchCount;
         const searchDataResp = await getSearchResults(searchCount, from, query);
-
         const basePath = `/search/${query}`;
 
         let previousPage = null;

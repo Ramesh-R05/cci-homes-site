@@ -56,22 +56,23 @@ export default class Repeatable extends Component {
             ));
 
         const prevUrl = dataSource.previous && dataSource.previous.path;
-        const prevProps = {
-            href: prevUrl,
-            className: classNames('button button--link', {
-                disabled: prevUrl == null
-            })
-        };
         const nextUrl = dataSource.next && dataSource.next.path;
-        const nextProps = {
-            href: nextUrl,
-            className: classNames('button button--link', {
-                disabled: nextUrl == null
-            })
-        };
-
+        const prevProps = {};
+        const nextProps = {};
         let loadMore = null;
+
+        if (prevUrl) {
+            prevProps.href = prevUrl;
+            prevProps.className = classNames('button button--link', {
+                disabled: prevUrl === null
+            });
+        }
+
         if (nextUrl) {
+            nextProps.href = prevUrl;
+            nextProps.className = classNames('button button--link', {
+                disabled: nextUrl === null
+            });
             loadMore = (
                 <div className="load-more">
                     <button className="button gtm-loadmore-button" onClick={this.onLoadMore}>
@@ -88,8 +89,8 @@ export default class Repeatable extends Component {
                     <div className="row">
                         {loadMore}
                         <div className="pagination">
-                            <a {...prevProps}>Previous</a>
-                            <a {...nextProps}>Next</a>
+                            { prevUrl && <a {...prevProps}>Previous</a> }
+                            { nextUrl && <a {...nextProps}>Next</a> }
                         </div>
                     </div>
                 </div>

@@ -133,7 +133,7 @@ const SearchStore = createReducerStore({
         },
 
         getSearchListNextParams(state) {
-            const pageNo = get(state, 'list.params.pageNo', 1);
+            const pageNo = parseInt(get(state, 'list.params.pageNo', 1), 10);
             const listParams = get(state, 'list.params', {});
 
             return {
