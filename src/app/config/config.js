@@ -145,8 +145,7 @@ export default {
 
     ads: {
         targets: { env: 'test' },
-        disabledGalleryChangeRefresh: true,
-        iasAds: true
+        disabledGalleryChangeRefresh: true
     },
 
     outbrain: {
