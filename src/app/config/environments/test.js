@@ -18,7 +18,6 @@ export default {
         host: 'http://homes-site.test.bxm.net.au'
     },
     ads: {
-        targets: { env: 'test3' },
-        iasAds: false
+        targets: { env: 'test' }
     }
 };
