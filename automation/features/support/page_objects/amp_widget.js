@@ -1,6 +1,7 @@
 var amp_widget = {
 
     ampHeroImage: 'amp-img.hero-amp-img img',
+    ampBodyContainer: '.content-body-container',
     ampBodyImg: '.content-body__inline-image amp-img',
     ampBodyImgCaption: '.content-body__inline-image figcaption',
     ampBodyVideo: 'amp-brightcove.i-amphtml-element',
@@ -9,6 +10,7 @@ var amp_widget = {
     relatedContentHeading: '.related-content .related-content__heading',
     ampRelatedContentItemsImage: '.related-content li amp-img',
     ampRelatedContentItemsTitle: '.related-content li.feed-item',
+    ampArticleFooter: 'footer.article__footer',
     ampTwitterEmb: 'amp-twitter',
     ampFacebookEmb: 'amp-facebook',
     ampYoutube: 'amp-youtube',

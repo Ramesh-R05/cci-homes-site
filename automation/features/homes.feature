@@ -49,21 +49,24 @@ Feature: Smoke test for HOMES
         Then I should see extra 12 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
 
-    Scenario: Verify the article page
-        Given Editor just published the "article" doc type item
-        When I navigate to the "test-article" page
-        Then our readers can enjoy the latest content
-
-    Scenario: Verify the gallery page
-        Given Editor just published the "gallery" doc type item
-        When I navigate to the "test-gallery" page
-        Then our readers can enjoy the latest content
-
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the error title as "Oops! We're sorry!"
         * I should see the site header logo to open homepage
+
+    Scenario: Verify all the doc type items
+        Given I switch to "mobile" view
+        Given Editor just published the "article" doc type item
+        When I navigate to the "article" page
+        Then our readers can enjoy the created "article" page
+        Given Editor just published the "gallery" doc type item
+        When I navigate to the "gallery" page
+        Then our readers can enjoy the created "gallery" page
+        When I navigate to the "amp article" page
+        Then our readers can enjoy the created "amp article" page
+        When I navigate to the "amp gallery" page
+        Then our readers can enjoy the created "amp gallery" page
 
     Scenario: Verify the RSS feed
         Given I am currently viewing "rss"

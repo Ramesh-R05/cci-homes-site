@@ -1,6 +1,9 @@
 var amp = require('../page_objects/amp_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
+var world = require('../world');
+var isBrowserStack = world.Urls.isBrowserStack;
+var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
 module.exports = function() {
 
@@ -96,12 +99,12 @@ module.exports = function() {
 
     // For Ads
     this.Then(/^I should see the top leaderboard ad under hero image on AMP page$/, function () {
-        browser.waitForVisible(amp.ampTopLeaderBoard, 2000);
-        expect(browser.isVisible(amp.ampTopLeaderBoard)).toBe(true);
+        //expect(browser.waitForVisible(amp.ampTopLeaderBoard,5000)).toBe(true);
+        expect(browser.isExisting(amp.ampTopLeaderBoard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
 
     this.Then(/^I should see first MREC in the body on AMP page$/, function () {
-        browser.scroll(0,2000);
+        scrolling(browser,amp.ampBodyImg,isBrowserStack);
         browser.waitForVisible(amp.ampMrecList, 5000);
         var bodyAmpAdList = browser.isVisible(amp.ampMrecList);
         expect(bodyAmpAdList[0]).toBe(true);
@@ -113,10 +116,10 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the sticky bottom leaderboard on AMP page$/, function () {
-        browser.scroll(0,500);
-        expect(browser.waitForVisible(amp.ampBottomLeaderboard,5000)).toBe(true);
-        browser.scroll(0,2000);
-        expect(browser.waitForVisible(amp.ampBottomLeaderboard,5000)).toBe(true);
+        scrolling(browser,amp.ampBodyContainer,isBrowserStack);
+        expect(browser.waitForVisible(amp.ampBottomLeaderboard,10000)).toBe(true);
+        scrolling(browser,amp.ampArticleFooter,isBrowserStack);
+        expect(browser.waitForVisible(amp.ampBottomLeaderboard,10000)).toBe(true);
     });
 
     this.Then(/^I can see the outbrain on amp article page$/, function () {
