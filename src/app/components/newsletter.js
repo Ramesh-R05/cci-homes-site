@@ -28,12 +28,8 @@ export default class Newsletter extends Component {
 
         return (
             <div className="newsletter-subscribe">
-                <div className="newsletter-subscribe__title">
-Get the newsletter
-                </div>
-                <p className="newsletter-subscribe__text">
-The latest news delivered to your inbox
-                </p>
+                <div className="newsletter-subscribe__title">Get the newsletter</div>
+                <p className="newsletter-subscribe__text">The latest news delivered to your inbox</p>
                 <div className="newsletter-subscribe__button">
                     <a href={`${newsletterUrl}`} className={`button button--link ${gtmClass}`} target="_blank">
                         Sign Up

@@ -87,9 +87,7 @@ class Header extends Component {
     };
 
     render() {
-        const {
-            pinned, isSideMenuOpen, pinOffset, navItems
-        } = this.props;
+        const { pinned, isSideMenuOpen, pinOffset, navItems } = this.props;
         const { isNavBarHidden, isSearchOpen } = this.state;
         const { config } = this.context;
 
@@ -108,10 +106,12 @@ class Header extends Component {
         return (
             <div className="header-wrapper">
                 <header
-                  ref={(c) => { this.header = c; }}
-                  className={className}
-                  role="banner"
-                  style={{ top: pinned ? `${pinOffset}px` : 'auto' }}
+                    ref={c => {
+                        this.header = c;
+                    }}
+                    className={className}
+                    role="banner"
+                    style={{ top: pinned ? `${pinOffset}px` : 'auto' }}
                 >
                     <div>
                         <div className="header__sections container">
@@ -119,26 +119,15 @@ class Header extends Component {
 
                             <div className="header-logo">
                                 <a href="/" className={logoClassNames}>
-Homes to Love
+                                    Homes to Love
                                 </a>
                             </div>
 
-                            <Navigation
-                              className="header-nav"
-                              items={navItems}
-                              linkClassName="gtm-navigation-section"
-                            />
+                            <Navigation className="header-nav" items={navItems} linkClassName="gtm-navigation-section" />
 
-                            {
-                                searchEnabled
-                                && (
-                                <HeaderSearch
-                                  onSearchClick={this.toggleSearchBar}
-                                  isSearchOpen={isSearchOpen}
-                                  hasNavItems={hasNavItems}
-                                />
-)
-                            }
+                            {searchEnabled && (
+                                <HeaderSearch onSearchClick={this.toggleSearchBar} isSearchOpen={isSearchOpen} hasNavItems={hasNavItems} />
+                            )}
                         </div>
                     </div>
                 </header>
@@ -148,7 +137,7 @@ Homes to Love
 }
 
 /* eslint-disable no-unused-vars */
-export default pin(Header, (props) => {
+export default pin(Header, props => {
     const { UNIHEADER_HEIGHT } = Header.constants;
     return {
         small: { pinPoint: 0 },

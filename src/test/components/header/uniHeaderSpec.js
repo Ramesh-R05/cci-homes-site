@@ -1,10 +1,10 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const Uniheader = proxyquire('../../../app/components/header/uniheader', {
-    'react': React
+    react: React
 });
 
 describe('Brand Header', () => {
@@ -12,22 +12,25 @@ describe('Brand Header', () => {
     const brandDataStub = {
         uniheader: [
             {
-                "imageUrl": "/assets/svgs/belle.svg",
-                "url": "/belle/",
-                "title": "Belle",
-                "id" : "belle"
-            }, {
-                "imageUrl": "/assets/svgs/realliving_black.svg",
-                "url": "/real-living/",
-                "title": "real living",
-                "id" : "realliving"
-            }, {
-                "imageUrl": "/assets/svgs/housegarden.svg",
-                "url": "/australian-house-and-garden/",
-                "title": "Australian House and Garden",
-                "id" : "houseandgarden"
+                imageUrl: '/assets/svgs/belle.svg',
+                url: '/belle/',
+                title: 'Belle',
+                id: 'belle'
+            },
+            {
+                imageUrl: '/assets/svgs/realliving_black.svg',
+                url: '/real-living/',
+                title: 'real living',
+                id: 'realliving'
+            },
+            {
+                imageUrl: '/assets/svgs/housegarden.svg',
+                url: '/australian-house-and-garden/',
+                title: 'Australian House and Garden',
+                id: 'houseandgarden'
             }
-        ]};
+        ]
+    };
 
     const contextConfigStub = {
         key: 'config',
@@ -38,7 +41,7 @@ describe('Brand Header', () => {
     };
 
     describe('Rendering the Uniheader', () => {
-        before(()=> {
+        before(() => {
             reactModule = Context.mountComponent(Uniheader, {}, [contextConfigStub]);
         });
 

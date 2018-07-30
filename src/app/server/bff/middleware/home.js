@@ -5,9 +5,7 @@ import getLatestTeasers from '../api/listing';
 export default async function homeMiddleware(req, res, next) {
     try {
         const itemsCount = 6;
-        const {
-            brand, navSection, tag, page, campaign
-        } = req.query;
+        const { brand, navSection, tag, page, campaign } = req.query;
         if (brand || navSection || tag || page || campaign) {
             next();
             return;
@@ -17,9 +15,10 @@ export default async function homeMiddleware(req, res, next) {
         const pageNo = parseInt(req.query.pageNo || 1, 10);
         const skip = (pageNo - 1) * pageSize;
 
-        const filter = 'nodeTypeAlias eq \'HomesArticle\' or nodeTypeAlias eq \'Gallery\'';
+        const filter = "nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'";
         // eslint-disable-next-line max-len
-        const realHomesFilter = '(nodeTypeAlias eq \'HomesArticle\' or nodeTypeAlias eq \'Gallery\') and tagsDetails/fullName eq \'food_Homes_navigation_Real_Homes\'';
+        const realHomesFilter =
+            "(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'";
         const [pageData, latestTeasersResp, latestRealHomesResp, heroModuleResp] = await Promise.all([
             makeRequest(`${req.app.locals.config.services.remote.entity}/homepage`),
             getLatestTeasers(itemsCount, skip, filter),

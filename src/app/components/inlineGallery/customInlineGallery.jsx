@@ -35,17 +35,15 @@ export default class CustomInlineGallery extends Component {
     render() {
         const { galleries } = this.props;
 
-        if (!this.context.config.isFeatureEnabled('galleryOfGalleries')
-            || isUndefined(galleries)
-            || !Array.isArray(galleries)
-            || !galleries.length) return null;
+        if (!this.context.config.isFeatureEnabled('galleryOfGalleries') || isUndefined(galleries) || !Array.isArray(galleries) || !galleries.length)
+            return null;
 
         return (
             <InlineGallery
-              breakpoints={breakpoints}
-              galleries={galleries}
-              imageSizes={CustomInlineGallery.imageSizes}
-              renderSlide={CustomInlineGallery.renderSlide}
+                breakpoints={breakpoints}
+                galleries={galleries}
+                imageSizes={CustomInlineGallery.imageSizes}
+                renderSlide={CustomInlineGallery.renderSlide}
             />
         );
     }

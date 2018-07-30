@@ -15,27 +15,21 @@ export default class Uniheader extends Component {
         const uniheaderOuterClasses = cx(uniheaderClassName, 'show-for-medium-up');
         const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, 'container');
         // TODO - remove slice when new brands go live
-        const uniheaderLogos = uniheaderBrands.slice(0, 6).map(
-            (item, i) => {
-                const {
-                    id, title, url, imageUrl
-                } = item;
-                const key = `uniheader-item-${i}`;
-                return (
-                    <li key={key}>
-                        <a href={url} title={title} className={`gtm-uniheader-${id}`}>
-                            <img src={imageUrl} alt={title} className={`uniheader__logo--${id}`} />
-                        </a>
-                    </li>
-                );
-            }
-        );
+        const uniheaderLogos = uniheaderBrands.slice(0, 6).map((item, i) => {
+            const { id, title, url, imageUrl } = item;
+            const key = `uniheader-item-${i}`;
+            return (
+                <li key={key}>
+                    <a href={url} title={title} className={`gtm-uniheader-${id}`}>
+                        <img src={imageUrl} alt={title} className={`uniheader__logo--${id}`} />
+                    </a>
+                </li>
+            );
+        });
 
         return (
             <header className={uniheaderOuterClasses}>
-                <nav className={uniheaderContainerClasses}>
-                    {uniheaderLogos}
-                </nav>
+                <nav className={uniheaderContainerClasses}>{uniheaderLogos}</nav>
             </header>
         );
     }

@@ -65,13 +65,17 @@ class GallerySection extends Component {
     componentDidMount() {
         window.addEventListener('popstate', this.onPop, false);
 
-        this.galleryBody.addEventListener('touchstart', (e) => {
-            const { isAdViewed, isAdSlideItem } = this.props;
+        this.galleryBody.addEventListener(
+            'touchstart',
+            e => {
+                const { isAdViewed, isAdSlideItem } = this.props;
 
-            if (!isAdViewed && isAdSlideItem) {
-                e.stopPropagation();
-            }
-        }, true);
+                if (!isAdViewed && isAdSlideItem) {
+                    e.stopPropagation();
+                }
+            },
+            true
+        );
     }
 
     componentWillUnmount() {
@@ -93,14 +97,14 @@ class GallerySection extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         const { galleryHeight } = this.state;
-        const {
-            galleryItems, isGalleryCompletedItemActive, activeGalleryItem
-        } = this.props;
+        const { galleryItems, isGalleryCompletedItemActive, activeGalleryItem } = this.props;
 
-        return nextState.galleryHeight !== galleryHeight
-            || nextProps.isGalleryCompletedItemActive !== isGalleryCompletedItemActive
-            || nextProps.galleryItems !== galleryItems
-            || nextProps.activeGalleryItem !== activeGalleryItem;
+        return (
+            nextState.galleryHeight !== galleryHeight ||
+            nextProps.isGalleryCompletedItemActive !== isGalleryCompletedItemActive ||
+            nextProps.galleryItems !== galleryItems ||
+            nextProps.activeGalleryItem !== activeGalleryItem
+        );
     }
 
     componentWillReceiveProps(nextProps) {
@@ -147,7 +151,7 @@ class GallerySection extends Component {
 
         if (!gallery) return null;
 
-        const shareDescription = (gallery.summary || gallery.title || '');
+        const shareDescription = gallery.summary || gallery.title || '';
         const keyword = getKeywordsFromTags(gallery.contentTags);
         const kingtag = getFirstTagNameForCategory(gallery.contentTags, 'Homes navigation');
         const targets = {
@@ -165,37 +169,36 @@ class GallerySection extends Component {
 
                     <div>
                         <Ad
-                          className="gallery__mobile-ad row"
-                          label={{ active: false }}
-                          reloadOnResourceChange={activeGalleryItemIndex}
-                          sizes={{
-                              small: 'banner',
-                              leaderboard: 'leaderboard',
-                              billboard: ['leaderboard', 'billboard']
-                          }}
-                          targets={targets}
+                            className="gallery__mobile-ad row"
+                            label={{ active: false }}
+                            reloadOnResourceChange={activeGalleryItemIndex}
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['leaderboard', 'billboard']
+                            }}
+                            targets={targets}
                         />
                     </div>
 
                     <AdsWrapper>
-                        <section className="gallery__body row" style={{ height: galleryHeight }} ref={(c) => { this.galleryBody = c; }}>
+                        <section
+                            className="gallery__body row"
+                            style={{ height: galleryHeight }}
+                            ref={c => {
+                                this.galleryBody = c;
+                            }}
+                        >
                             <GalleryDetailMain
-                              {...this.props}
-                              keyword={keyword}
-                              onNextGalleryClick={this.onNextGalleryClick}
-                              kingtag={kingtag}
-                              showFooterAd={false}
-                              alwaysDisplayTitle
+                                {...this.props}
+                                keyword={keyword}
+                                onNextGalleryClick={this.onNextGalleryClick}
+                                kingtag={kingtag}
+                                showFooterAd={false}
+                                alwaysDisplayTitle
                             />
 
-                            <GalleryDetailAside
-                              {...this.props}
-                              showAuthor
-                              showSourceLogo
-                              keyword={keyword}
-                              kingtag={kingtag}
-                              showSocialShare
-                            />
+                            <GalleryDetailAside {...this.props} showAuthor showSourceLogo keyword={keyword} kingtag={kingtag} showSocialShare />
                         </section>
                     </AdsWrapper>
                 </section>
@@ -204,7 +207,7 @@ class GallerySection extends Component {
     }
 }
 
-export default connectToStores(resizeViewport(GallerySection), [GalleryStore, GalleryPageStore, AdStore], (context) => {
+export default connectToStores(resizeViewport(GallerySection), [GalleryStore, GalleryPageStore, AdStore], context => {
     const { getStore } = context;
     const theAdStore = getStore(AdStore);
     const ads = theAdStore.getAds();

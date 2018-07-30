@@ -1,25 +1,26 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 /* the createStubComponent() function doesn't set this.props correctly. To test HOC correctly,I need to get stubComponent to have this.props set in order to test access to 'themeAttribute' */
-let stubComponent = (props) => class extends React.Component{
-    constructor(props){
-        super(props);
-    }
-    render(){
-        const {className} = this.props;
-        return <div className={className} />;
-    }
-};
+let stubComponent = props =>
+    class extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+        render() {
+            const { className } = this.props;
+            return <div className={className} />;
+        }
+    };
 
 const proxyquire = require('proxyquire').noCallThru();
-const themeData = {'themeAttribute' : 'green'};
+const themeData = { themeAttribute: 'green' };
 const themeClass = 'theme-green';
 const ComponentStubWithNoThemeProperty = stubComponent();
 const ComponentStubWithThemeProperty = stubComponent(themeData);
 const theme = proxyquire('../../../app/components/helpers/theme', {
-    'react': React
+    react: React
 });
 
 describe(`Theme Helper`, () => {

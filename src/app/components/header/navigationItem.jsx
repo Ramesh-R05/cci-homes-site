@@ -29,7 +29,7 @@ export default class NavigationItem extends Component {
         }
     }
 
-    hasSubMenuItemsToShow = () => (this.props.tagsDetails && this.props.tagsDetails.length > 1);
+    hasSubMenuItemsToShow = () => this.props.tagsDetails && this.props.tagsDetails.length > 1;
 
     render() {
         if (!this.props.name || !this.props.url) return null;
@@ -44,11 +44,11 @@ export default class NavigationItem extends Component {
 
         return (
             <SubNavigationItemAndMenu
-              items={this.props.tagsDetails}
-              name={this.props.name}
-              linkClassName={this.props.linkClassName}
-              showGroupLabel={this.props.showGroupLabel}
-              viewportSize={this.state.viewportSize}
+                items={this.props.tagsDetails}
+                name={this.props.name}
+                linkClassName={this.props.linkClassName}
+                showGroupLabel={this.props.showGroupLabel}
+                viewportSize={this.state.viewportSize}
             />
         );
     }

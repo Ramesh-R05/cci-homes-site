@@ -12,15 +12,14 @@ const module1 = {
                 url: '/module1/111',
                 contentTitle: 'Module 1 Title 1',
                 nodeTypeAlias: 'Gallery',
-                contentSummary: "some content 111",
-
+                contentSummary: 'some content 111'
             },
             {
                 id: 'module1-222',
                 url: '/module1/222',
                 contentTitle: 'Module 1 Title 2',
                 nodeTypeAlias: 'Article',
-                contentSummary: "some content 222",
+                contentSummary: 'some content 222'
             }
         ]
     }
@@ -37,22 +36,21 @@ const module2 = {
                 url: '/module2/111',
                 contentTitle: 'Module 2 Title 1',
                 nodeTypeAlias: 'Gallery',
-                contentSummary: "some more content 111",
-
+                contentSummary: 'some more content 111'
             },
             {
                 id: 'module2-222',
                 url: '/module2/222',
                 contentTitle: 'Module 2 Title 2',
                 nodeTypeAlias: 'Article',
-                contentSummary: "some more content 222",
+                contentSummary: 'some more content 222'
             },
             {
                 id: 'module2-333',
                 url: '/module2/333',
                 contentTitle: 'Module 2 Title 3',
                 nodeTypeAlias: 'Article',
-                contentSummary: "some more content 333",
+                contentSummary: 'some more content 333'
             }
         ]
     }
@@ -60,10 +58,7 @@ const module2 = {
 
 const moduleInput = {
     totalCount: 2,
-    data: [
-        module1,
-        module2
-    ]
+    data: [module1, module2]
 };
 
 const exptedModules = {
@@ -88,20 +83,20 @@ describe('#parseModules', () => {
 
     describe(`when passing an empty object`, () => {
         before(() => {
-            modules = parseModules({})
+            modules = parseModules({});
         });
 
-        it('should return all modules in the desired structure', ()=> {
+        it('should return all modules in the desired structure', () => {
             expect(modules).to.deep.equal({});
         });
     });
 
     describe(`when passing a module response object`, () => {
         before(() => {
-            modules = parseModules(moduleInput)
+            modules = parseModules(moduleInput);
         });
 
-        it('should return all modules in the desired structure', ()=> {
+        it('should return all modules in the desired structure', () => {
             expect(modules).to.deep.equal(exptedModules);
         });
     });

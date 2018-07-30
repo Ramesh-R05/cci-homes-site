@@ -1,8 +1,8 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SponsorHeaderStub = Context.createStubComponentWithChildren();
@@ -10,7 +10,7 @@ const AdStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponent();
 
 const Header = proxyquire('../../../app/components/section/header', {
-    'react': React,
+    react: React,
     '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
@@ -26,7 +26,6 @@ AdStub.pos = {
 };
 
 describe('SectionHeader', () => {
-
     afterEach(Context.cleanup);
 
     const singleWordHeading = 'Section';

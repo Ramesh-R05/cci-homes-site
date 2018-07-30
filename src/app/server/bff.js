@@ -21,23 +21,17 @@ import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 
 export default function bff(server) {
-    if (process.env.APP_STUBBED === 'true'
-        || process.env.APP_ENV === 'test'
-        || process.env.NODE_ENV === 'stubbed'
-        || process.env.NODE_ENV === 'automation'
+    if (
+        process.env.APP_STUBBED === 'true' ||
+        process.env.APP_ENV === 'test' ||
+        process.env.NODE_ENV === 'stubbed' ||
+        process.env.NODE_ENV === 'automation'
     ) {
         server.use('/stub', servicesStubs);
     }
     server.get('/api/asset', assetProxy);
     server.get('/sitemap/:section?', sitemap, error);
-    server.get(
-        server.locals.config.services.endpoints.list,
-        list,
-        listing,
-        https,
-        render,
-        error
-    );
+    server.get(server.locals.config.services.endpoints.list, list, listing, https, render, error);
     server.get(
         server.locals.config.services.endpoints.page, // Config set inside @bxm/server
         pageModules,
@@ -56,27 +50,6 @@ export default function bff(server) {
         render,
         error
     );
-    server.get(
-        server.locals.config.services.endpoints.search,
-        pageModules,
-        comScore,
-        headerMeta,
-        search,
-        https,
-        render,
-        error
-    );
-    server.get(
-        '(/:preview(preview))?/amp/:page-:id(\\d+)',
-        pageModules,
-        comScore,
-        page,
-        article,
-        gallery,
-        campaign,
-        headerMeta,
-        https,
-        amp,
-        error
-    );
+    server.get(server.locals.config.services.endpoints.search, pageModules, comScore, headerMeta, search, https, render, error);
+    server.get('(/:preview(preview))?/amp/:page-:id(\\d+)', pageModules, comScore, page, article, gallery, campaign, headerMeta, https, amp, error);
 }

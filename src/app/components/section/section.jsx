@@ -32,9 +32,7 @@ export default class Section extends Component {
     };
 
     render() {
-        const {
-            articles, list, content, listNextParams, isSideMenuOpen, hero
-        } = this.props;
+        const { articles, list, content, listNextParams, isSideMenuOpen, hero } = this.props;
         const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
         if (!articles.length) return null;
@@ -61,45 +59,34 @@ export default class Section extends Component {
                 <div className="container">
                     <div className="section__row">
                         <Featured articles={articles} polarTargets={sectionTopFeed} hero={hero} />
-                        <Rail
-                          adPosition={1}
-                          marginBottom={60}
-                          yPosition={95}
-                        />
+                        <Rail adPosition={1} marginBottom={60} yPosition={95} />
                     </div>
 
                     <div className="section__row section__middle">
                         <Ad
-                          className="ad--section-middle-leaderboard section__ad"
-                          sizes={{
-                              small: 'banner',
-                              leaderboard: 'leaderboard',
-                              billboard: ['billboard', 'leaderboard']
-                          }}
-                          label={{ active: false }}
-                          pageLocation={Ad.pos.outside}
+                            className="ad--section-middle-leaderboard section__ad"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            label={{ active: false }}
+                            pageLocation={Ad.pos.outside}
                         />
                     </div>
                     <div className="section__row">
                         <Repeatable
-                          component={List}
-                          action={loadList}
-                          dataSource={list}
-                          nextParams={listNextParams}
-                          className="news-feed bottom-news-feed"
-                          content={content}
-                          polarTargets={sectionBottomFeed}
+                            component={List}
+                            action={loadList}
+                            dataSource={list}
+                            nextParams={listNextParams}
+                            className="news-feed bottom-news-feed"
+                            content={content}
+                            polarTargets={sectionBottomFeed}
                         />
-
                     </div>
 
-                    <StickyAd
-                      adProps={stickyAdProps}
-                      minHeight={450}
-                      stickyAtViewPort="mediumRangeMax"
-                      stickyDelay={5500}
-                    />
-
+                    <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
                 </div>
             </div>
         );

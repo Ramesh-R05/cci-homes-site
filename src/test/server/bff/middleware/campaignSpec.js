@@ -1,4 +1,4 @@
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-nodetypealias-campaign-urlname-myer-eat-live';
 import listingsStubData from '../../../../stubs/listings-campaign-myer-eat-live';
@@ -8,7 +8,7 @@ const getLatestTeasersStub = () => listingsStubData;
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
-makeRequestStub.onFirstCall().returns({sponsorName: entityStubData.sponsorName});
+makeRequestStub.onFirstCall().returns({ sponsorName: entityStubData.sponsorName });
 makeRequestStub.onSecondCall().returns(listingsStubData);
 
 const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
@@ -69,56 +69,57 @@ describe('campaign middleware', () => {
         }
     };
     const res = {};
-    const next = ()=>{};
+    const next = () => {};
 
     describe(`when receiving data`, () => {
-
         describe(`and campaign query is not defined`, () => {
-            before(()=>{
+            before(() => {
                 req.query = {};
             });
 
-            after(()=>{
+            after(() => {
                 req.query.campaign = campaign;
             });
 
-            it('should not call service urls', (done)=> {
-                campaignMiddleware(req, res, next).then(() => {
-                    expect(makeRequestStub.called).to.be.false;
+            it('should not call service urls', done => {
+                campaignMiddleware(req, res, next)
+                    .then(() => {
+                        expect(makeRequestStub.called).to.be.false;
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
-
         });
 
         describe(`and campaign query is defined`, () => {
-
-            it('should return all modules in the desired structure', (done)=> {
-
-                campaignMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
-                    done();
-                }).catch(done);
+            it('should return all modules in the desired structure', done => {
+                campaignMiddleware(req, res, next)
+                    .then(() => {
+                        expect(res.body).to.deep.equal(expectedBody);
+                        done();
+                    })
+                    .catch(done);
             });
 
-            it('should use the required config values for content service urls for the request', (done)=> {
-                campaignMiddleware(req, res, next).then(() => {
-                    const entityServiceUrl = `${entityServiceMockUrl}/?nodeTypeAlias=Campaign&urlName=${req.query.campaign}`;
+            it('should use the required config values for content service urls for the request', done => {
+                campaignMiddleware(req, res, next)
+                    .then(() => {
+                        const entityServiceUrl = `${entityServiceMockUrl}/?nodeTypeAlias=Campaign&urlName=${req.query.campaign}`;
 
-                    const makeRequestStubFirstCall = makeRequestStub.getCall(0);
-                    const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
+                        const makeRequestStubFirstCall = makeRequestStub.getCall(0);
+                        const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
 
-                    expect(makeRequestStubFirstCall.args[0]).to.equal(entityServiceUrl);
+                        expect(makeRequestStubFirstCall.args[0]).to.equal(entityServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
-                    expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(campaignFilter);
+                        expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
+                        expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(campaignFilter);
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });
-
 });

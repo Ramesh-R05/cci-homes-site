@@ -52,9 +52,11 @@ const config = {
                         loader: 'postcss-loader',
                         options: {
                             sourceMap: false,
-                            plugins: () => [autoprefixer({
-                                browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
-                            })]
+                            plugins: () => [
+                                autoprefixer({
+                                    browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
+                                })
+                            ]
                         }
                     },
                     'resolve-url-loader',
@@ -87,15 +89,17 @@ const config = {
 };
 
 if (production) {
-    config.plugins.push(new UglifyJsPlugin({
-        sourceMap: false, // Enabling this will add around 8 seconds to build time
-        parallel: true,
-        uglifyOptions: {
-            beautify: false,
-            mangle: false, // Enabling this will add around 3 seconds to build time
-            compress: false // Enabling this will add around 20 seconds to build time
-        }
-    }));
+    config.plugins.push(
+        new UglifyJsPlugin({
+            sourceMap: false, // Enabling this will add around 8 seconds to build time
+            parallel: true,
+            uglifyOptions: {
+                beautify: false,
+                mangle: false, // Enabling this will add around 3 seconds to build time
+                compress: false // Enabling this will add around 20 seconds to build time
+            }
+        })
+    );
     config.plugins.push(
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')

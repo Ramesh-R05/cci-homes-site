@@ -32,7 +32,7 @@ export default class Button extends Component {
         this.state = { active: props.active };
     }
 
-    onClick = (e) => {
+    onClick = e => {
         const { persistActiveState, value, onClick } = this.props;
         const { active } = this.state;
         const newState = !active;
@@ -45,9 +45,7 @@ export default class Button extends Component {
     };
 
     render() {
-        const {
-            modifier, disabled, type, value, children
-        } = this.props;
+        const { modifier, disabled, type, value, children } = this.props;
         const { active } = this.state;
         let classNameModifier;
 
@@ -55,13 +53,7 @@ export default class Button extends Component {
         const classNames = classnames('button', classNameModifier, { active });
 
         return (
-            <button
-              className={classNames}
-              disabled={disabled}
-              onClick={this.onClick}
-              type={type}
-              value={value}
-            >
+            <button className={classNames} disabled={disabled} onClick={this.onClick} type={type} value={value}>
                 {children}
             </button>
         );

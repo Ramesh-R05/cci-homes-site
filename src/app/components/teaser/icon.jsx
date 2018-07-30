@@ -43,11 +43,6 @@ export default class Icon extends Component {
         }
 
         /* eslint-disable react/no-danger */
-        return (
-            <div
-              className="teaser__icon"
-              dangerouslySetInnerHTML={{ __html: iconHtml }}
-            />
-        );
+        return <div className="teaser__icon" dangerouslySetInnerHTML={{ __html: iconHtml }} />;
     }
 }

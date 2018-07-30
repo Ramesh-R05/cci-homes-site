@@ -67,9 +67,7 @@ export default async function listingMiddleware(req, res, next) {
                     pageNo,
                     pageSize
                 },
-                items: [
-                    parseEntities(latestTeasers)
-                ],
+                items: [parseEntities(latestTeasers)],
                 previous: previousPage,
                 current: currentPage,
                 next: nextPage

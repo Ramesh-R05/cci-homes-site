@@ -1,13 +1,13 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SocialIconStub = Context.createStubComponent();
 const Social = proxyquire('../../../app/components/brand/social', {
-    'react': React,
+    react: React,
     './socialIcon': SocialIconStub
 });
 
@@ -25,9 +25,7 @@ describe('Brand Social', () => {
 
     describe('with all props', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <Social brand={brand} social={social} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<Social brand={brand} social={social} />);
             icons = TestUtils.scryRenderedComponentsWithType(reactModule, SocialIconStub);
             followText = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'p');
         });
@@ -71,9 +69,7 @@ describe('Brand Social', () => {
             delete social.facebook;
             delete social.twitter;
 
-            reactModule = TestUtils.renderIntoDocument(
-                <Social brand={brand} social={social} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<Social brand={brand} social={social} />);
             icons = TestUtils.scryRenderedComponentsWithType(reactModule, SocialIconStub);
         });
 

@@ -1,6 +1,6 @@
-import {Component, PropTypes} from 'react';
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../../mock/articles';
+import { Component, PropTypes } from 'react';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../../mock/articles';
 import merge from 'lodash/object/merge';
 
 const ComponentContext = betterMockComponentContext();
@@ -11,17 +11,17 @@ const proxyquire = require('proxyquire').noCallThru();
 const GenericSectionStub = ComponentContext.createStubComponentWithChildren();
 
 const Section = proxyquire('../../../../app/components/section/tag/section', {
-    'react': React,
+    react: React,
     '../section': GenericSectionStub
 });
 
 const tags = ['luxury-home'];
 const mockEntity = {
-    title: "Luxury home",
-    urlName: "luxury-home",
-    nodeType: "TagSection",
-    pageTitle: "Luxury home",
-    pageMetaDescription: "Luxury home"
+    title: 'Luxury home',
+    urlName: 'luxury-home',
+    nodeType: 'TagSection',
+    pageTitle: 'Luxury home',
+    pageMetaDescription: 'Luxury home'
 };
 
 ComponentContext.addStore('PageStore', {
@@ -57,6 +57,4 @@ describe(`TagSection`, () => {
     it(`should pass down the isSideMenuOpen prop to the GenericSection component`, () => {
         expect(genericSection.props.isSideMenuOpen).to.be.false;
     });
-
 });
-

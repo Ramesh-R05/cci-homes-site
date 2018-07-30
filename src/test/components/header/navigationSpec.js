@@ -1,21 +1,17 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const NavigationItemStub = Context.createStubComponent();
 const Navigation = proxyquire('../../../app/components/header/navigation', {
-    'react': React,
+    react: React,
     './navigationItem': NavigationItemStub
 });
 
 describe(`Navigation Component`, () => {
-    const navItems = [
-        { name: 'Section 1', url: '/section-1' },
-        { name: 'Section 2', url: '/section-2' },
-        { name: 'Section 3', url: '/section-3' }
-    ];
+    const navItems = [{ name: 'Section 1', url: '/section-1' }, { name: 'Section 2', url: '/section-2' }, { name: 'Section 3', url: '/section-3' }];
 
     let reactModule;
     let container;
@@ -24,8 +20,7 @@ describe(`Navigation Component`, () => {
 
     describe('render and class names', () => {
         const navClassName = 'foo-nav';
-        const linkClass = "gtm-navigation-section";
-
+        const linkClass = 'gtm-navigation-section';
 
         before(() => {
             reactModule = Context.mountComponent(Navigation, {

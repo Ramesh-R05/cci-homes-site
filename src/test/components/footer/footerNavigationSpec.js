@@ -5,7 +5,7 @@ const { React } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const FooterNavigation = proxyquire('../../../app/components/footer/footerNavigation', {
-    'react': React
+    react: React
 });
 
 describe(`FooterNavigation`, () => {
@@ -21,7 +21,7 @@ describe(`FooterNavigation`, () => {
     });
 
     it(`should render the correct anchor attributes for ${anchorClassNames.join(',')}`, () => {
-        anchorClassNames.forEach((item) => {
+        anchorClassNames.forEach(item => {
             const a = reactModule.find(`a.gtm-footer-${item}`);
             expect(a).to.have.length(1);
             const node = a.getDOMNode();

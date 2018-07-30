@@ -1,6 +1,5 @@
 import BaseContentStore from '../../app/stores/baseContentStore';
-import {articles as articlesMock, articlesPage2 as articlesMock2} from '../mock/articles';
-
+import { articles as articlesMock, articlesPage2 as articlesMock2 } from '../mock/articles';
 
 describe('BaseContentStore', () => {
     let store;
@@ -66,7 +65,7 @@ describe('BaseContentStore', () => {
 
     describe('after creating a store without a name', () => {
         it('should throw an error', () => {
-            const fn = () => store = new BaseContentStore();
+            const fn = () => (store = new BaseContentStore());
             expect(fn).to.throw(Error);
         });
     });
@@ -115,5 +114,4 @@ describe('BaseContentStore', () => {
             });
         });
     });
-
 });

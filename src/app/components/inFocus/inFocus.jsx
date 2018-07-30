@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import Teaser from '../teaser/teaser';
 
-
 export default class InFocus extends Component {
     static propTypes = {
         articles: PropTypes.array,

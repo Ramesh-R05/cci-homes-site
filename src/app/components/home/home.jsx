@@ -40,7 +40,7 @@ class Home extends Component {
     }
 }
 
-export default connectToStores(Home, ['PageStore'], (context) => {
+export default connectToStores(Home, ['PageStore'], context => {
     const { getStore } = context;
     const pageStore = getStore('PageStore');
 

@@ -8,7 +8,7 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const sandbox = sinon.createSandbox();
 const MenuButton = proxyquire('../../../app/components/header/menuButton', {
-    'react': React
+    react: React
 });
 
 function getCallsForAction(action) {

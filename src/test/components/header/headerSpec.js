@@ -1,7 +1,7 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const MenuButtonStub = Context.createStubComponent();
@@ -10,7 +10,7 @@ const NavigationStub = Context.createStubComponent();
 const sandbox = sinon.createSandbox();
 const pinStub = sandbox.stub().returnsArg(0);
 const Header = proxyquire('../../../app/components/header/header', {
-    'react': React,
+    react: React,
     './menuButton': MenuButtonStub,
     './navigation': NavigationStub,
     '@bxm/behaviour/lib/components/pin': pinStub // stub the HOC

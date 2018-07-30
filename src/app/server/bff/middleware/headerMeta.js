@@ -22,7 +22,7 @@ export default function headerMetaMiddleware(req, res, next) {
             entity.pageTitle = (entity.pageTitle || entity.title) + (currentPageNo > 1 ? ` - Page ${currentPageNo}` : '');
 
             if (entity.pageMetaDescription) {
-                entity.pageMetaDescription += (currentPageNo > 1 ? ` - Page ${currentPageNo}` : '');
+                entity.pageMetaDescription += currentPageNo > 1 ? ` - Page ${currentPageNo}` : '';
             } else {
                 entity.pageMetaDescription = entity.pageTitle + (entity.summary ? `, ${entity.summary}` : '');
             }

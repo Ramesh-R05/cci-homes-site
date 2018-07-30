@@ -24,9 +24,7 @@ export default class ArticleSource extends Component {
         const imageUrl = `${LOGO_PATH}/${sourceLogo}`;
         return (
             <div className="article__source">
-                <span>
-Article By
-                </span>
+                <span>Article By</span>
                 <BrandLink source={source}>
                     <img src={imageUrl} alt={source} />
                 </BrandLink>

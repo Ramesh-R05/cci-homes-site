@@ -1,7 +1,6 @@
 import SearchStore, { initialState, reducer } from '../../app/stores/search';
 
 describe(`loadSearch Store`, () => {
-
     const DEFAULT_MAGCOVER = {
         moduleImageUrl: '/path/to/magCover.jpg',
         moduleTitle: 'Subscribe Now'
@@ -24,9 +23,7 @@ describe(`loadSearch Store`, () => {
                     resultsList: [1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 list: {
-                    items: [
-                        [5, 6, 7, 8]
-                    ],
+                    items: [[5, 6, 7, 8]],
                     params: {
                         pageNo: 1
                     }
@@ -55,12 +52,9 @@ describe(`loadSearch Store`, () => {
                         resultsList: [1, 2, 3, 4, 5, 6, 7, 8]
                     },
                     list: {
-                        items: [
-                            [5, 6, 7, 8]
-                        ]
+                        items: [[5, 6, 7, 8]]
                     }
                 });
-
             });
         });
 

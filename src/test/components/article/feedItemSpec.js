@@ -1,7 +1,7 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const FeedItemStub = Context.createStubComponent();
 const themeSpy = sinon.spy();
 noCallThru();

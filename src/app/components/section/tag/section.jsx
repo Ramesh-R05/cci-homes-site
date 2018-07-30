@@ -19,15 +19,11 @@ class Section extends Component {
     };
 
     render() {
-        return (
-            <GenericSection
-              {...this.props}
-            />
-        );
+        return <GenericSection {...this.props} />;
     }
 }
 
-export default connectToStores(Section, ['PageStore'], (context) => {
+export default connectToStores(Section, ['PageStore'], context => {
     const { getStore } = context;
     const pageStore = getStore('PageStore');
 

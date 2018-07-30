@@ -1,8 +1,8 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import Tags from '../../../app/components/teaser/tags';
 
 const ComponentContext = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = ComponentContext;
+const { React, ReactDOM, TestUtils } = ComponentContext;
 
 describe('TeaserTags', () => {
     let reactModule;
@@ -15,18 +15,20 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags including one from the topic category in the first position', () => {
-        const tagsDetails = [{
-            name: 'homes:Topic:Gardening',
-            urlName: 'gardening',
-            fullName: 'food_Topic_Gardening',
-            displayName: 'Gardening'
-        },
-        {
-            name: 'homes:Renovating:Materials:Bamboo',
-            urlName: 'renovating',
-            fullName: 'food_Topic_Renovating',
-            displayName: 'Renovating'
-        }];
+        const tagsDetails = [
+            {
+                name: 'homes:Topic:Gardening',
+                urlName: 'gardening',
+                fullName: 'food_Topic_Gardening',
+                displayName: 'Gardening'
+            },
+            {
+                name: 'homes:Renovating:Materials:Bamboo',
+                urlName: 'renovating',
+                fullName: 'food_Topic_Renovating',
+                displayName: 'Renovating'
+            }
+        ];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
@@ -52,7 +54,8 @@ describe('TeaserTags', () => {
     });
 
     describe('with three tags', () => {
-        const tagsDetails = [{
+        const tagsDetails = [
+            {
                 name: 'homes:Topic:Gardening',
                 urlName: 'gardening',
                 fullName: 'food_Topic_Gardening',
@@ -69,7 +72,8 @@ describe('TeaserTags', () => {
                 urlName: 'something-else',
                 fullName: 'food_Topic_Renovating',
                 displayName: 'Wood'
-            }];
+            }
+        ];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
@@ -89,7 +93,8 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags from the Topic category', () => {
-        const tagsDetails = [{
+        const tagsDetails = [
+            {
                 name: 'homes:Topic:Gardening',
                 urlName: 'gardening',
                 fullName: 'food_Topic_Gardening',
@@ -100,7 +105,8 @@ describe('TeaserTags', () => {
                 urlName: 'something-else',
                 fullName: 'food_Topic_Renovating',
                 displayName: 'Timber'
-            }];
+            }
+        ];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
@@ -120,7 +126,8 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags including one from the topic category and one from the Homes navigation category', () => {
-        const tagsDetails = [{
+        const tagsDetails = [
+            {
                 name: 'homes:Topic:Gardening',
                 urlName: 'gardening',
                 fullName: 'food_Topic_Gardening',
@@ -131,7 +138,8 @@ describe('TeaserTags', () => {
                 urlName: 'renovating',
                 fullName: 'food_Topic_Renovating',
                 displayName: 'Real Homes'
-            }];
+            }
+        ];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
@@ -149,12 +157,7 @@ describe('TeaserTags', () => {
     });
 
     describe('with two tags without one from the topic category', () => {
-
-        const tagsDetails =  [
-            {name:'homes:DIY and craft:DIY and craft tools:Tape measure',},
-            {name:'homes:Renovating:Materials:Bamboo'}
-        ]
-
+        const tagsDetails = [{ name: 'homes:DIY and craft:DIY and craft tools:Tape measure' }, { name: 'homes:Renovating:Materials:Bamboo' }];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
@@ -166,13 +169,14 @@ describe('TeaserTags', () => {
     });
 
     describe('with the topic tag only', () => {
-
-        const tagsDetails = [{
-            name: 'homes:Topic:Gardening',
-            urlName: 'gardening',
-            fullName: 'food_Topic_Gardening',
-            displayName: 'Gardening'
-        }];
+        const tagsDetails = [
+            {
+                name: 'homes:Topic:Gardening',
+                urlName: 'gardening',
+                fullName: 'food_Topic_Gardening',
+                displayName: 'Gardening'
+            }
+        ];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tagsDetails={tagsDetails} />);
@@ -191,10 +195,7 @@ describe('TeaserTags', () => {
     });
 
     describe('with invalid tags', () => {
-        const tags = [
-            'Tape measure',
-            'Bamboo'
-        ];
+        const tags = ['Tape measure', 'Bamboo'];
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Tags tags={tags} />);

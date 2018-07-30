@@ -28,12 +28,7 @@ export const initialState = {
 };
 
 const LOAD_SEARCH = (state, payload) => {
-    const {
-        search,
-        footer = {},
-        headerNavigation,
-        comScoreSegmentIds = initialState.comScoreSegmentIds
-    } = payload.body;
+    const { search, footer = {}, headerNavigation, comScoreSegmentIds = initialState.comScoreSegmentIds } = payload.body;
     const magCover = get(payload, 'body.magCover', {});
 
     if (!search) return state;
@@ -48,10 +43,7 @@ const LOAD_SEARCH = (state, payload) => {
         latestTeasers: payload.body.list.params.pageNo === 1 ? payload.body.latestTeasers : state.latestTeasers,
         list: {
             ...payload.body.list,
-            items: [
-                ...state.list.items,
-                ...payload.body.list.items
-            ]
+            items: [...state.list.items, ...payload.body.list.items]
         },
         search: {
             total: search.total,
@@ -95,12 +87,12 @@ const LOAD_SEARCH_FAILED = (state, payload) => {
 // This is mainly used for tests
 export const reducer = (state, payload, eventName) => {
     switch (eventName) {
-    case 'LOAD_SEARCH':
-        return LOAD_SEARCH(state, payload);
-    case 'LOAD_SEARCH_FAILED':
-        return LOAD_SEARCH_FAILED(state, payload);
-    default:
-        return initialState;
+        case 'LOAD_SEARCH':
+            return LOAD_SEARCH(state, payload);
+        case 'LOAD_SEARCH_FAILED':
+            return LOAD_SEARCH_FAILED(state, payload);
+        default:
+            return initialState;
     }
 };
 

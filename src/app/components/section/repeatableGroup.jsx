@@ -34,14 +34,14 @@ export default class RepeatableGroup extends Component {
                         topAd = (
                             <div className="section-heading">
                                 <Ad
-                                  className="ad--section-middle-leaderboard"
-                                  sizes={{
-                                      small: 'banner',
-                                      leaderboard: 'leaderboard',
-                                      billboard: ['billboard', 'leaderboard']
-                                  }}
-                                  targets={adTargets}
-                                  pageLocation={Ad.pos.outside}
+                                    className="ad--section-middle-leaderboard"
+                                    sizes={{
+                                        small: 'banner',
+                                        leaderboard: 'leaderboard',
+                                        billboard: ['billboard', 'leaderboard']
+                                    }}
+                                    targets={adTargets}
+                                    pageLocation={Ad.pos.outside}
                                 />
                             </div>
                         );
@@ -57,33 +57,28 @@ export default class RepeatableGroup extends Component {
                                 <Teaser {...groupArticles[0]} key={groupArticles[0].id} />
 
                                 <Teaser
-                                  {...groupArticles[1]}
-                                  polar={{
-                                      label: polarAdLabel,
-                                      targets: {
-                                          kw: polarAdLabel
-                                      }
-                                  }}
+                                    {...groupArticles[1]}
+                                    polar={{
+                                        label: polarAdLabel,
+                                        targets: {
+                                            kw: polarAdLabel
+                                        }
+                                    }}
                                 />
 
-                                <Ad
-                                  className="ad--section-mrec"
-                                  displayFor="large"
-                                  sizes="mrec"
-                                  targets={adTargets}
-                                />
+                                <Ad className="ad--section-mrec" displayFor="large" sizes="mrec" targets={adTargets} />
 
                                 {groupArticles.slice(2, 3).map(item => <Teaser {...item} key={item.id} />)}
 
                                 <Ad
-                                  className="ad--section-mrec"
-                                  displayFor={['small', 'medium', 'xlarge']}
-                                  sizes={{
-                                      small: 'mrec',
-                                      xlarge: ['double-mrec', 'mrec']
-                                  }}
-                                  targets={adTargets}
-                                  pageLocation={Ad.pos.body}
+                                    className="ad--section-mrec"
+                                    displayFor={['small', 'medium', 'xlarge']}
+                                    sizes={{
+                                        small: 'mrec',
+                                        xlarge: ['double-mrec', 'mrec']
+                                    }}
+                                    targets={adTargets}
+                                    pageLocation={Ad.pos.body}
                                 />
 
                                 {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}

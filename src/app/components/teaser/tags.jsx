@@ -30,12 +30,7 @@ export default class Tags extends Component {
         let secondaryTagHtml = null;
 
         if (secondaryTag && secondaryTag.displayName) {
-            separator = (
-                <span className="tag-separator">
-,
-                    {' '}
-                </span>
-            );
+            separator = <span className="tag-separator">, </span>;
             secondaryTagHtml = (
                 <span className="tag-secondary">
                     <TagLink name={secondaryTag.displayName} />

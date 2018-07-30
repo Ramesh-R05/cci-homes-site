@@ -21,15 +21,13 @@ class Item extends Component {
     };
 
     render() {
-        const {
-            tagsDetails, imageAltText, imageUrl, source, title, url
-        } = this.props;
+        const { tagsDetails, imageAltText, imageUrl, source, title, url } = this.props;
 
         if (!imageUrl || !url) return null;
 
         let topic = '';
 
-        tagsDetails.every((item) => {
+        tagsDetails.every(item => {
             let result = true;
             if (item.name.includes('Topic')) {
                 topic = item.displayName;
@@ -48,12 +46,8 @@ class Item extends Component {
                 <a className="gallery-item__link" href={url} title={imageAltText}>
                     <img className="gallery-item__image" src={imageUrl} alt={imageAltText} />
                     <div className={metaClass}>
-                        <span className={topicClass}>
-                            {topic}
-                        </span>
-                        <span className="gallery-item__title">
-                            {title}
-                        </span>
+                        <span className={topicClass}>{topic}</span>
+                        <span className="gallery-item__title">{title}</span>
                     </div>
                 </a>
             </div>

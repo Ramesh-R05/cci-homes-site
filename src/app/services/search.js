@@ -5,22 +5,19 @@ import get from 'lodash.get';
 const host = canUseDOM ? '' : 'http://127.0.0.1:3001';
 
 export default {
-
     serviceName: 'search',
 
     read(deferred, params) {
         const pageNo = parseInt(get(params, 'pageNo', get(params, 'params.pageNo', 1)), 10);
         const keyword = get(params, 'q', get(params, 'params.query', ''));
 
-        superagent
-            .get(`${host}/api/search?q=${keyword}&pageNo=${pageNo}`)
-            .end((error, response) => {
-                if (error) {
-                    deferred.reject(error);
-                } else {
-                    deferred.resolve(response);
-                }
-            });
+        superagent.get(`${host}/api/search?q=${keyword}&pageNo=${pageNo}`).end((error, response) => {
+            if (error) {
+                deferred.reject(error);
+            } else {
+                deferred.resolve(response);
+            }
+        });
         return deferred.promise;
     }
 
@@ -35,5 +32,4 @@ export default {
     //         error => error
     //     );
     // }
-
 };

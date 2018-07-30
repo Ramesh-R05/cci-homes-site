@@ -1,8 +1,8 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 import Input from '../../../app/components/form/input';
-import {radio1 as inputRadioMock} from '../../mock/input';
+import { radio1 as inputRadioMock } from '../../mock/input';
 
 describe('Input', () => {
     let reactModule;
@@ -29,7 +29,7 @@ describe('Input', () => {
         });
 
         it(`should have the input id equal to '${props.id}'`, () => {
-            reactModule.setState({here: 'to'});
+            reactModule.setState({ here: 'to' });
             expect(ReactDOM.findDOMNode(input).id).to.equal(props.id);
         });
 
@@ -58,7 +58,7 @@ describe('Input', () => {
         });
 
         it('should call the onChange method with the value as a parameter when selecting the radio button', () => {
-            TestUtils.Simulate.change(input, {target: {checked: true}});
+            TestUtils.Simulate.change(input, { target: { checked: true } });
             expect(onChangeSpy.withArgs(props.value).calledOnce).to.be.true;
         });
     });
@@ -67,24 +67,24 @@ describe('Input', () => {
         afterEach(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
                 let domElement = ReactDOM.findDOMNode(reactModule);
-                if(domElement) React.unmountComponentAtNode(domElement.parentElement);
+                if (domElement) React.unmountComponentAtNode(domElement.parentElement);
             }
         });
 
-        it('should not be rendered if the id prop isn\'t provided', () => {
-            const props = {name: 'size', value: 'small'};
+        it("should not be rendered if the id prop isn't provided", () => {
+            const props = { name: 'size', value: 'small' };
             reactModule = TestUtils.renderIntoDocument(<Input {...props}>{labelText}</Input>);
             expect(ReactDOM.findDOMNode(reactModule)).to.be.null;
         });
 
-        it('should not be rendered if the name prop isn\'t provided', () => {
-            const props = {id: 'size__1', value: 'small'};
+        it("should not be rendered if the name prop isn't provided", () => {
+            const props = { id: 'size__1', value: 'small' };
             reactModule = TestUtils.renderIntoDocument(<Input {...props}>{labelText}</Input>);
             expect(ReactDOM.findDOMNode(reactModule)).to.be.null;
         });
 
-        it('should not be rendered if the value prop isn\'t provided', () => {
-            const props = {name: 'size', value: 'small'};
+        it("should not be rendered if the value prop isn't provided", () => {
+            const props = { name: 'size', value: 'small' };
             reactModule = TestUtils.renderIntoDocument(<Input {...props}>{labelText}</Input>);
             expect(ReactDOM.findDOMNode(reactModule)).to.be.null;
         });

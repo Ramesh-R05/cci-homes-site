@@ -1,11 +1,11 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const SubNavigationItemAndMenu = proxyquire('../../../app/components/header/subNavigationItemAndMenu', {
-    'react': React
+    react: React
 });
 
 describe(`SubNavigationItemAndMenu Component`, () => {
@@ -14,28 +14,28 @@ describe(`SubNavigationItemAndMenu Component`, () => {
 
     const items = [
         {
-            "name": "food:Homes navigation:Home Tours",
-            "urlName": "home-tours",
-            "fullName": "food_Homes_navigation_Home_Tours",
-            "displayName": "Home Tours"
+            name: 'food:Homes navigation:Home Tours',
+            urlName: 'home-tours',
+            fullName: 'food_Homes_navigation_Home_Tours',
+            displayName: 'Home Tours'
         },
         {
-            "name": "food:Homes navigation:Bedroom",
-            "urlName": "bedroom",
-            "fullName": "food_Homes_navigation_Bedroom",
-            "displayName": "Bedroom"
+            name: 'food:Homes navigation:Bedroom',
+            urlName: 'bedroom',
+            fullName: 'food_Homes_navigation_Bedroom',
+            displayName: 'Bedroom'
         },
         {
-            "name": "food:Homes navigation:Living",
-            "urlName": "living",
-            "fullName": "food_Homes_navigation_Living",
-            "displayName": "Living"
+            name: 'food:Homes navigation:Living',
+            urlName: 'living',
+            fullName: 'food_Homes_navigation_Living',
+            displayName: 'Living'
         },
         {
-            "name": "food:Homes navigation:Kitchen",
-            "urlName": "kitchen",
-            "fullName": "food_Homes_navigation_Kitchen",
-            "displayName": "Kitchen"
+            name: 'food:Homes navigation:Kitchen',
+            urlName: 'kitchen',
+            fullName: 'food_Homes_navigation_Kitchen',
+            displayName: 'Kitchen'
         }
     ];
 
@@ -44,13 +44,11 @@ describe(`SubNavigationItemAndMenu Component`, () => {
     let firstSubLink;
 
     describe('with all props.', () => {
-
         before(() => {
             reactModule = Context.mountComponent(SubNavigationItemAndMenu, { items, name, linkClassName });
         });
 
         describe('Check first display name / non link', () => {
-
             before(() => {
                 a = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a')[0];
             });
@@ -70,11 +68,9 @@ describe(`SubNavigationItemAndMenu Component`, () => {
             it(`sets the link "class" to "${linkClassName}"`, () => {
                 expect(a.props.className).to.eq(linkClassName);
             });
-
         });
 
         describe('Check first link in the sub nav menu', () => {
-
             before(() => {
                 a = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a')[1];
                 firstSubLink = items[0];
@@ -101,7 +97,6 @@ describe(`SubNavigationItemAndMenu Component`, () => {
             });
         });
     });
-
 
     describe('invalid sub nav items', () => {
         it('does not render if there are no items', () => {

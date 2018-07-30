@@ -29,19 +29,11 @@ export default class Subscribe extends Component {
         }
 
         const cssClass = classNames('brand-subscribe', className);
-        const summary = 'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,'
-            + ' decorating, food and travel stories.';
+        const summary = 'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,' + ' decorating, food and travel stories.';
 
         return (
             <div className={cssClass}>
-                <Teaser
-                  id="brand-subscribe"
-                  modifier="img-top"
-                  title="Subscribe now"
-                  url={link}
-                  summary={summary}
-                  imageUrl={image}
-                />
+                <Teaser id="brand-subscribe" modifier="img-top" title="Subscribe now" url={link} summary={summary} imageUrl={image} />
             </div>
         );
     }

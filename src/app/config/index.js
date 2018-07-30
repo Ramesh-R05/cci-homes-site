@@ -7,7 +7,7 @@ const environment = (process.env.APP_ENV || process.env.NODE_ENV || 'local').toL
 const region = (process.env.APP_REGION || process.env.NODE_REGION || 'au').toLowerCase();
 const configApi = {
     get(path, defaultValue = '') {
-        return path.split('.').reduce((prev, curr) => prev ? prev[curr] : undefined, this) || defaultValue;
+        return path.split('.').reduce((prev, curr) => (prev ? prev[curr] : undefined), this) || defaultValue;
     },
     isFeatureEnabled(feature) {
         return this.get(`features.${feature}.enabled`, false);
@@ -60,7 +60,7 @@ const mergedConfig = mergeWith(
     regionConfig,
     regionEnvironmentConfig,
     stubbedConfig,
-    (objValue, srcValue) => Array.isArray(objValue) ? srcValue : undefined
+    (objValue, srcValue) => (Array.isArray(objValue) ? srcValue : undefined)
 );
 
 export default mergedConfig;

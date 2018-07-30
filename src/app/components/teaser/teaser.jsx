@@ -138,7 +138,8 @@ class Teaser extends Component {
     static getImgSizes(sizes, modifier) {
         if (Teaser.imageSizes[sizes]) {
             return Teaser.imageSizes[sizes];
-        } if (Teaser.imageSizes[modifier]) {
+        }
+        if (Teaser.imageSizes[modifier]) {
             return Teaser.imageSizes[modifier];
         }
         return Teaser.imageSizes.base;
@@ -147,9 +148,7 @@ class Teaser extends Component {
     render() {
         if (!this.props.id) return null;
 
-        const {
-            url, modifier, sizes, className, lazyload, polar
-        } = this.props;
+        const { url, modifier, sizes, className, lazyload, polar } = this.props;
         const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;
         const classNames = classnames('teaser', `teaser--${modifier}`, className);
         const imgSizes = Teaser.getImgSizes(sizes, modifier);
@@ -157,39 +156,27 @@ class Teaser extends Component {
         return (
             <article className={classNames}>
                 <Image
-                  alt={this.props.imageAltText}
-                  breakpoints={breakpoints}
-                  gtmClass={gtmClass}
-                  imageUrl={this.props.imageUrl}
-                  imageSizes={imgSizes}
-                  link={url}
-                  responsiveConfig={Teaser.imageConfig}
-                  quality={Teaser.imageQuality}
-                  lazyload={lazyload}
-                  className={gtmClass}
+                    alt={this.props.imageAltText}
+                    breakpoints={breakpoints}
+                    gtmClass={gtmClass}
+                    imageUrl={this.props.imageUrl}
+                    imageSizes={imgSizes}
+                    link={url}
+                    responsiveConfig={Teaser.imageConfig}
+                    quality={Teaser.imageQuality}
+                    lazyload={lazyload}
+                    className={gtmClass}
                 >
                     <Icon {...this.props} />
                 </Image>
                 <div className="teaser__content">
                     <Tags tagsDetails={this.props.tagsDetails} />
-                    <Title
-                      gtmClass={gtmClass}
-                      title={this.props.title}
-                      url={url}
-                    />
+                    <Title gtmClass={gtmClass} title={this.props.title} url={url} />
                     <Summary summary={this.props.summary} />
                     <Source source={this.props.source} />
                 </div>
 
-                {polar && (
-                    <Ad
-                      nativeAd
-                      label={polar.label}
-                      targets={polar.targets}
-                      sizes="nativeAdTeaser"
-                      pageLocation={Ad.pos.body}
-                    />
-                )}
+                {polar && <Ad nativeAd label={polar.label} targets={polar.targets} sizes="nativeAdTeaser" pageLocation={Ad.pos.body} />}
             </article>
         );
     }

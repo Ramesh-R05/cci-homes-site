@@ -18,9 +18,7 @@ export default class Navigation extends Component {
     };
 
     render() {
-        const {
-            items, className, linkClassName, showGroupLabel
-        } = this.props;
+        const { items, className, linkClassName, showGroupLabel } = this.props;
         if (!Array.isArray(items) || items.length === 0) return null;
         const navItems = items.map((item, i) => {
             const key = `nav-${i}`;
@@ -29,9 +27,7 @@ export default class Navigation extends Component {
 
         return (
             <div className={className}>
-                <nav className={`${className}__nav`}>
-                    {navItems}
-                </nav>
+                <nav className={`${className}__nav`}>{navItems}</nav>
             </div>
         );
     }

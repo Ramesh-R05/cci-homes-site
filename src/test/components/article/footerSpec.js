@@ -1,17 +1,17 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const MainFooterStub = Context.createStubComponent();
 
 const ArticleFooter = proxyquire('../../../app/components/article/footer', {
-    'react': React,
+    react: React,
     '../footer/footer': MainFooterStub
 });
 
 describe('ArticleFooter', () => {
-    const localData = {data: ''};
+    const localData = { data: '' };
     const contextConfigStub = {
         key: 'config',
         type: '',

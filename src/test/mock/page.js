@@ -10,12 +10,10 @@ export default {
     section: {
         body: {
             entity: {
-                navigationTags: [
-                    "food:Homes navigation:Home Inspiration"
-                ],
+                navigationTags: ['food:Homes navigation:Home Inspiration'],
                 nodeType: 'NavigationSection',
                 title: 'Test Section'
             }
         }
     }
-}
+};

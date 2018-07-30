@@ -72,9 +72,7 @@ export default async function searchMiddleware(req, res, next) {
                     size: searchCount,
                     pageNo
                 },
-                items: [
-                    pageNo > 1 ? parseEntities(searchDataResp.results) : parseEntities(searchDataResp.results.slice(searchResultTeaserCount))
-                ],
+                items: [pageNo > 1 ? parseEntities(searchDataResp.results) : parseEntities(searchDataResp.results.slice(searchResultTeaserCount))],
                 previous: previousPage,
                 current: currentPage,
                 next: nextPage

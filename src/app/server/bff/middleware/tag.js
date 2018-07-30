@@ -15,7 +15,8 @@ export default async function tagMiddleware(req, res, next) {
         // TODO: temporary solution to fix old `/tag/<tag>` urls
         // this will be fixed when the site uses tagsDetails.urlName for tag urls
         tag = decodeURIComponent(tag.toLowerCase());
-        tag = tag.replace(/\s*-\s*/g, '-')
+        tag = tag
+            .replace(/\s*-\s*/g, '-')
             .replace(/\s*\/\s*/g, '-')
             .replace(/"|'|,|\$/g, '')
             .replace(/(\d+)\s*\+.*/g, 'more-than-$1')
@@ -26,11 +27,7 @@ export default async function tagMiddleware(req, res, next) {
         const tagData = await makeRequest(`${req.app.locals.config.services.remote.tag}/tags/?urlName=${tag}`)
             .then(({ data }) => {
                 if (!data.length) return {};
-                const {
-                    displayName: title,
-                    urlName,
-                    createdAt: dateCreated
-                } = data[0];
+                const { displayName: title, urlName, createdAt: dateCreated } = data[0];
                 return {
                     title,
                     urlName,

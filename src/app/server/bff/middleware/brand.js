@@ -43,10 +43,7 @@ export default async function brandMiddleware(req, res, next) {
         res.body = {
             ...res.body,
             entity: parseEntity(entityResponse),
-            hero: parseEntity((
-                heroModule &&
-                heroModule.moduleManualContent &&
-                heroModule.moduleManualContent.data[0]) || {}),
+            hero: parseEntity((heroModule && heroModule.moduleManualContent && heroModule.moduleManualContent.data[0]) || {}),
             items: parseEntities(listingResponse.data),
             list
         };

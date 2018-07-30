@@ -30,16 +30,18 @@ describe('PageModules middleware', () => {
             req = {};
         });
 
-        it('should set `req.data.headernavigation` to equal the response', (done) => {
-            pageModulesMiddleware(req, res, next).then(() => {
-                expect(req.data).to.deep.eq({ headernavigation: module });
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should set `req.data.headernavigation` to equal the response', done => {
+            pageModulesMiddleware(req, res, next)
+                .then(() => {
+                    expect(req.data).to.deep.eq({ headernavigation: module });
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
     });
 
-	describe('when data contains `headernavigation`', () => {
+    describe('when data contains `headernavigation`', () => {
         const headernavigation = ['Nav item 1', 'Nav Item 2'];
         let req = {
             data: {
@@ -52,16 +54,17 @@ describe('PageModules middleware', () => {
         before(() => {
             next = sinon.spy();
             parseEntitiesStub = sinon.stub().returns(headernavigation);
-			getModulesStub = sinon.stub().resolves({ headernavigation });
+            getModulesStub = sinon.stub().resolves({ headernavigation });
         });
 
-        it('should set `res.body.headerNavigation`', (done)=> {
-			 pageModulesMiddleware(req, res, next).then(() => {
-			        expect(parseEntitiesStub).to.have.been.calledWith(headernavigation, { contentTitle: 'name' });
-					expect(res.body.headerNavigation).to.deep.equal({ items: headernavigation });
-                done();
-            }).catch(done);
-
+        it('should set `res.body.headerNavigation`', done => {
+            pageModulesMiddleware(req, res, next)
+                .then(() => {
+                    expect(parseEntitiesStub).to.have.been.calledWith(headernavigation, { contentTitle: 'name' });
+                    expect(res.body.headerNavigation).to.deep.equal({ items: headernavigation });
+                    done();
+                })
+                .catch(done);
         });
     });
 });

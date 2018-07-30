@@ -17,7 +17,6 @@ class HomesFeedItems extends FeedItem {
             tagName = HomesFeedItems.getTagName(item.tagsDetails).displayName;
         }
 
-
         return (
             <span className="feed-item__body-source">
                 <TagLink name={tagName} className="feed-item__body-source" />

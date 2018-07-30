@@ -50,14 +50,10 @@ const PageStore = createReducerStore({
         }),
 
         LOAD_LIST: (state, payload) => ({
-
             ...state,
             list: {
                 ...payload.body.list,
-                items: [
-                    ...state.list.items,
-                    ...payload.body.list.items
-                ]
+                items: [...state.list.items, ...payload.body.list.items]
             }
         })
     },
@@ -78,7 +74,7 @@ const PageStore = createReducerStore({
 
         getListNextParams: state => ({
             ...state.list.params,
-            pageNo: (state.list.params.pageNo + 1)
+            pageNo: state.list.params.pageNo + 1
         }),
 
         getModuleItems: (state, module) => {

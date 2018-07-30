@@ -19,17 +19,13 @@ export default class SocialLinks extends Component {
         return (
             <section className="get-social">
                 <div className="get-social__links">
-                    {
-                        !nodeType && (nodeType !== 'Homepage' && nodeType !== 'BrandSection')
-                            ? null
-                            : <p className="social-links__text">{`Follow ${title}`}</p>
-                    }
-                    {
-                        links.map((link, i) => {
-                            const key = `social-links-${i}`;
-                            return <SocialIcons key={key} {...link} {...this.props} />;
-                        })
-                    }
+                    {!nodeType && (nodeType !== 'Homepage' && nodeType !== 'BrandSection') ? null : (
+                        <p className="social-links__text">{`Follow ${title}`}</p>
+                    )}
+                    {links.map((link, i) => {
+                        const key = `social-links-${i}`;
+                        return <SocialIcons key={key} {...link} {...this.props} />;
+                    })}
                 </div>
             </section>
         );

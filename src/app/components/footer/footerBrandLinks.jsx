@@ -19,34 +19,20 @@ export default class FooterBrandLinks extends Component {
         if (!footerBrands || footerBrands.length <= 0) return null;
 
         // TODO - remove slice when new brands go live
-        const footerLogos = footerBrands.slice(0, 6).map(
-            (item, i) => {
-                const {
-                    id, title, url, imageUrl
-                } = item;
-                const image = <img src={imageUrl} alt={title} className={`footer__logos-${id}`} />;
-                const inlineSvg = (
-                    <InlineSVG src={imageUrl}>
-                        { image }
-                    </InlineSVG>
-                );
-                const key = `footer-logo-item-${i}`;
-                return (
-                    <li className="footer__logos-list-item" key={key}>
-                        <a href={url} title={title} className="gtm-footer-brand">
-                            <span className={`${footerOuterClass}-icon-${id}`}>
-                                { canUseDOM ? inlineSvg : image }
-                            </span>
-                        </a>
-                    </li>
-                );
-            }
-        );
+        const footerLogos = footerBrands.slice(0, 6).map((item, i) => {
+            const { id, title, url, imageUrl } = item;
+            const image = <img src={imageUrl} alt={title} className={`footer__logos-${id}`} />;
+            const inlineSvg = <InlineSVG src={imageUrl}>{image}</InlineSVG>;
+            const key = `footer-logo-item-${i}`;
+            return (
+                <li className="footer__logos-list-item" key={key}>
+                    <a href={url} title={title} className="gtm-footer-brand">
+                        <span className={`${footerOuterClass}-icon-${id}`}>{canUseDOM ? inlineSvg : image}</span>
+                    </a>
+                </li>
+            );
+        });
 
-        return (
-            <ul className={footerOuterClass}>
-                { footerLogos }
-            </ul>
-        );
+        return <ul className={footerOuterClass}>{footerLogos}</ul>;
     }
 }

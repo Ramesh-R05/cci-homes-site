@@ -1,12 +1,12 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import brandsMock from '../../mock/brands';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const InlineSVGStub = Context.createStubComponent();
 
 const FooterBrandLinks = proxyquire('../../../app/components/footer/footerBrandLinks', {
-    'react': React,
+    react: React,
     'react-inlinesvg': InlineSVGStub
 });
 
@@ -16,7 +16,7 @@ describe(`FooterBrandLinks`, () => {
     const footerDataStub = brandsMock;
     const testProps = {
         footerBrands: footerDataStub,
-        className: "footer__logos-list"
+        className: 'footer__logos-list'
     };
     const trackClickSpy = { push: sinon.spy() };
 
@@ -31,14 +31,14 @@ describe(`FooterBrandLinks`, () => {
     });
 
     it('should open each link in the same window', () => {
-        links.forEach((link) => {
+        links.forEach(link => {
             expect(ReactDOM.findDOMNode(link).getAttribute('target')).to.be.null;
         });
     });
 
     describe(`GTM Classnames correct`, () => {
         it('should have link set with common GTM className', () => {
-            links.forEach((link) => {
+            links.forEach(link => {
                 expect(link.props.className).to.contain('gtm-footer-brand');
             });
         });

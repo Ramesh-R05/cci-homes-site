@@ -1,11 +1,11 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const RadioButton = proxyquire('../../../app/components/form/radioButton', {
     './input': React.createClass({
-        render: function () {
-            return React.createElement('input', {type: this.props.type});
+        render: function() {
+            return React.createElement('input', { type: this.props.type });
         }
     })
 });

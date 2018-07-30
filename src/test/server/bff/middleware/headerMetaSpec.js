@@ -1,6 +1,6 @@
 import get from 'lodash/object/get';
 import headerMetaMiddleware from '../../../../app/server/bff/middleware/headerMeta';
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 describe('HeaderMeta middleware', () => {
@@ -32,8 +32,7 @@ describe('HeaderMeta middleware', () => {
         next = sinon.spy();
     });
 
-    describe(`when there is no NODE_ENV set and is not on prod domain` , () => {
-
+    describe(`when there is no NODE_ENV set and is not on prod domain`, () => {
         beforeEach(() => {
             process.env.NODE_ENV = '';
             res = { body: {} };
@@ -48,7 +47,8 @@ describe('HeaderMeta middleware', () => {
                 beforeEach(() => {
                     res.body.entity = {
                         ...baseEntityInput,
-                        summary, title
+                        summary,
+                        title
                     };
                     headerMetaMiddleware(req, res, next);
                 });
@@ -89,7 +89,10 @@ describe('HeaderMeta middleware', () => {
             beforeEach(() => {
                 res.body.entity = {
                     ...baseEntityInput,
-                    summary, title, pageTitle, pageMetaDescription
+                    summary,
+                    title,
+                    pageTitle,
+                    pageMetaDescription
                 };
                 headerMetaMiddleware(req, res, next);
             });
@@ -120,16 +123,21 @@ describe('HeaderMeta middleware', () => {
         });
     });
 
-    describe(`when NODE_ENV equals to 'production' and is not on prod domain` , () => {
-        const pageMetaDescription = "page meta desc";
-        const pageTitle = "a page title";
+    describe(`when NODE_ENV equals to 'production' and is not on prod domain`, () => {
+        const pageMetaDescription = 'page meta desc';
+        const pageTitle = 'a page title';
 
         beforeEach(() => {
             process.env.NODE_ENV = 'production';
-            res = { body: { entity: {
-                ...baseEntityInput,
-                pageMetaDescription, pageTitle
-            } } };
+            res = {
+                body: {
+                    entity: {
+                        ...baseEntityInput,
+                        pageMetaDescription,
+                        pageTitle
+                    }
+                }
+            };
             req.query = { hostname: 'prelive.url.com' };
             headerMetaMiddleware(req, res, next);
         });
@@ -138,7 +146,8 @@ describe('HeaderMeta middleware', () => {
             expect(res.body).to.deep.eq({
                 entity: {
                     ...baseEntityInput,
-                    pageMetaDescription, pageTitle
+                    pageMetaDescription,
+                    pageTitle
                 },
                 headerMetaData: {
                     ...baseHeaderMetaDataOutput,
@@ -156,17 +165,22 @@ describe('HeaderMeta middleware', () => {
         });
     });
 
-    describe(`when NODE_ENV equals to 'production' and is on prod domain` , () => {
-        const pageMetaDescription = "page meta desc";
-        const pageTitle = "a page title";
+    describe(`when NODE_ENV equals to 'production' and is on prod domain`, () => {
+        const pageMetaDescription = 'page meta desc';
+        const pageTitle = 'a page title';
 
-        describe(`and is not the preview site` , () => {
+        describe(`and is not the preview site`, () => {
             beforeEach(() => {
                 process.env.NODE_ENV = 'production';
-                res = { body: { entity: {
-                    ...baseEntityInput,
-                    pageMetaDescription, pageTitle
-                } } };
+                res = {
+                    body: {
+                        entity: {
+                            ...baseEntityInput,
+                            pageMetaDescription,
+                            pageTitle
+                        }
+                    }
+                };
                 req.query = { hostname: configStub.site.prodDomain };
                 headerMetaMiddleware(req, res, next);
             });
@@ -175,7 +189,8 @@ describe('HeaderMeta middleware', () => {
                 expect(res.body).to.deep.eq({
                     entity: {
                         ...baseEntityInput,
-                        pageMetaDescription, pageTitle
+                        pageMetaDescription,
+                        pageTitle
                     },
                     headerMetaData: {
                         ...baseHeaderMetaDataOutput,
@@ -193,7 +208,7 @@ describe('HeaderMeta middleware', () => {
             });
         });
 
-        describe(`and is the preview site` , () => {
+        describe(`and is the preview site`, () => {
             beforeEach(() => {
                 process.env.NODE_ENV = 'production';
                 req.query = { hostname: configStub.site.prodDomain, preview: 'preview' };

@@ -1,14 +1,14 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const AdStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponent();
 const Header = proxyquire('../../../app/components/brand/header', {
-    'react': React,
+    react: React,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
 });
@@ -33,9 +33,7 @@ describe('Brand Header', () => {
 
     describe('with all prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <Header title={title} logo={logoUrl} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<Header title={title} logo={logoUrl} />);
             logo = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'brand__logo');
             logoImage = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'img');
             stickyAd = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
@@ -82,5 +80,4 @@ describe('Brand Header', () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
-
 });

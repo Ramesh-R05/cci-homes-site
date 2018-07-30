@@ -1,4 +1,4 @@
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-interiors';
 import listingsStubData from '../../../../stubs/listings-food-Homes-navigation-Interiors';
@@ -10,8 +10,8 @@ const getLatestTeasersStub = () => listingsStubData;
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
-const navigationTag = (entityStubData.tagsDetails || []).find((tag) => {
-    return tag.name.includes('Homes navigation')
+const navigationTag = (entityStubData.tagsDetails || []).find(tag => {
+    return tag.name.includes('Homes navigation');
 });
 entityStubData.kingtag = (navigationTag && navigationTag.urlName) || '';
 
@@ -42,10 +42,10 @@ const expectedBody = {
             filter: navSectionFilter
         }
     },
-    "section": {
-        "id": entityStubData.id,
-        "name": entityStubData.nodeName,
-        "urlName": entityStubData.urlName
+    section: {
+        id: entityStubData.id,
+        name: entityStubData.nodeName,
+        urlName: entityStubData.urlName
     },
     galleries: galleryStubData.data,
     hero: heroStubData.moduleManualContent.data[0]
@@ -82,59 +82,61 @@ describe('navigation section middleware', () => {
         }
     };
     const res = {};
-    const next = ()=>{};
+    const next = () => {};
 
     describe(`when receiving data`, () => {
-
         describe(`and navSection query is not defined`, () => {
-            before(()=>{
+            before(() => {
                 req.query = {};
             });
 
-            after(()=>{
+            after(() => {
                 req.query.navSection = navSection;
             });
 
-            it('should not call service urls', (done)=> {
-                navSectionMiddleware(req, res, next).then(() => {
-                    expect(makeRequestSpy.called).to.be.false;
-                    expect(getLatestTeasersSpy.called).to.be.false;
+            it('should not call service urls', done => {
+                navSectionMiddleware(req, res, next)
+                    .then(() => {
+                        expect(makeRequestSpy.called).to.be.false;
+                        expect(getLatestTeasersSpy.called).to.be.false;
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
-
         });
 
         describe(`and navigation section query is defined`, () => {
-
-            it('should return all modules in the desired structure', (done)=> {
-                navSectionMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
-                    done();
-                }).catch(done);
+            it('should return all modules in the desired structure', done => {
+                navSectionMiddleware(req, res, next)
+                    .then(() => {
+                        expect(res.body).to.deep.equal(expectedBody);
+                        done();
+                    })
+                    .catch(done);
             });
 
-            it('should use the required config values for content service urls for the request', (done)=> {
-                navSectionMiddleware(req, res, next).then(() => {
-                    const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.navSection}`;
-                    const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${navSectionFilter}&$orderby=pageDateCreated desc&$top=5`;
+            it('should use the required config values for content service urls for the request', done => {
+                navSectionMiddleware(req, res, next)
+                    .then(() => {
+                        const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.navSection}`;
+                        const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${navSectionFilter}&$orderby=pageDateCreated desc&$top=5`;
 
-                    const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
-                    const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
-                    const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
+                        const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
+                        const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
+                        const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
 
-                    expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
-                    expect(makeRequestSpySecondCall.args[0]).to.equal(galleryServiceUrl);
+                        expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
+                        expect(makeRequestSpySecondCall.args[0]).to.equal(galleryServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
-                    expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(navSectionFilter);
+                        expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
+                        expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(navSectionFilter);
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });
-
 });

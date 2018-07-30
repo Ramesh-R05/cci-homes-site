@@ -58,8 +58,10 @@ export default class SubNavigationItemAndMenu extends Component {
         const { viewportSize } = this.state;
         const { innerWidth } = window;
         const { BREAKPOINT_LARGE_MIN } = SubNavigationItemAndMenu.constants;
-        return (viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN)
-            || (viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN);
+        return (
+            (viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN) ||
+            (viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN)
+        );
     };
 
     determineNavLabelWidth = () => {
@@ -94,14 +96,12 @@ export default class SubNavigationItemAndMenu extends Component {
         return width > maxNavLabelWidthForOffset || width === 0 ? 0 : -((SUB_NAV_WIDTH - width) / 2);
     };
 
-    handleClick = (e) => {
+    handleClick = e => {
         e.preventDefault();
     };
 
     render() {
-        const {
-            items, linkClassName, name, showGroupLabel
-        } = this.props;
+        const { items, linkClassName, name, showGroupLabel } = this.props;
 
         const subNavStyles = {
             left: this.calculateLeftOffsetForNavLabel()
@@ -118,7 +118,12 @@ export default class SubNavigationItemAndMenu extends Component {
         );
 
         return (
-            <div ref={(c) => { this.subnav = c; }} className="header-sub-nav">
+            <div
+                ref={c => {
+                    this.subnav = c;
+                }}
+                className="header-sub-nav"
+            >
                 {showGroupLabel ? groupLabel : null}
                 <ul className="sub-nav-list__dropdown" style={subNavStyles}>
                     {this.getSubNavMenu()}

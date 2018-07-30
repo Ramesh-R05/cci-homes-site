@@ -1,18 +1,17 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
 const InFocus = proxyquire('../../../app/components/inFocus/inFocus', {
-    'react': React,
+    react: React,
     '../teaser/teaser': TeaserStub
 });
 
 describe('InFocus', () => {
-
     describe('with 3 articles', () => {
         let section;
         let reactModule;
@@ -66,9 +65,7 @@ describe('InFocus', () => {
         const expectedClassname = `section-in-focus--${modifier}`;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <InFocus articles={articlesMock} modifier={modifier} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<InFocus articles={articlesMock} modifier={modifier} />);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, expectedClassname);
         });
 
@@ -100,6 +97,4 @@ describe('InFocus', () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
-
-
 });

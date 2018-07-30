@@ -1,6 +1,6 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import each from 'lodash/collection/each';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 import get from 'lodash.get';
 
 const Context = betterMockComponentContext();
@@ -18,7 +18,7 @@ describe(`Source Component`, () => {
     const config = {
         article: {
             sources: {
-                'belle': {
+                belle: {
                     logo: 'belle.svg'
                 },
                 'real living': {
@@ -55,7 +55,7 @@ describe(`Source Component`, () => {
         const imgPath = `/assets/images/source`;
 
         before(`rendering component`, () => {
-            reactModule = mount(<Source source={source}/>, { context: { config: contextConfigStub.value } });
+            reactModule = mount(<Source source={source} />, { context: { config: contextConfigStub.value } });
         });
 
         it(`should render the component with class "${className}"`, () => {

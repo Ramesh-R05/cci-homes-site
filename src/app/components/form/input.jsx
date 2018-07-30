@@ -29,9 +29,7 @@ export default class Input extends Component {
     };
 
     render() {
-        const {
-            checked, id, name, value, type, children
-        } = this.props;
+        const { checked, id, name, value, type, children } = this.props;
 
         if (!id || !name || !value) return null;
 
@@ -39,18 +37,16 @@ export default class Input extends Component {
         return (
             <span>
                 <input
-                  className="custom-input"
-                  defaultChecked={checked}
-                  id={id}
-                  key={id}
-                  name={name}
-                  onChange={this.onChange}
-                  type={type}
-                  value={value}
+                    className="custom-input"
+                    defaultChecked={checked}
+                    id={id}
+                    key={id}
+                    name={name}
+                    onChange={this.onChange}
+                    type={type}
+                    value={value}
                 />
-                <label htmlFor={id}>
-                    {children}
-                </label>
+                <label htmlFor={id}>{children}</label>
             </span>
         );
     }

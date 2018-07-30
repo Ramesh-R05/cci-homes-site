@@ -19,9 +19,7 @@ export default class List extends Component {
     };
 
     render() {
-        const {
-            items, content, polarTargets
-        } = this.props;
+        const { items, content, polarTargets } = this.props;
 
         if (items.length === 0) return null;
 
@@ -29,14 +27,14 @@ export default class List extends Component {
             <div className="section__row">
                 <section className="section__list">
                     <Ad
-                      className="ad--section-mrec teaser"
-                      displayFor={['small', 'medium']}
-                      sizes={{
-                          small: 'mrec',
-                          medium: 'mrec'
-                      }}
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.body}
+                        className="ad--section-mrec teaser"
+                        displayFor={['small', 'medium']}
+                        sizes={{
+                            small: 'mrec',
+                            medium: 'mrec'
+                        }}
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.body}
                     />
                     {items.map((item, i) => {
                         const polarDetails = polarTargets.find(slot => slot.index === i);
@@ -45,47 +43,42 @@ export default class List extends Component {
                         let section = null;
 
                         switch (lc) {
-                        case 'brandsection':
-                            section = 'brand';
-                            break;
-                        case 'homepage':
-                        case 'search':
-                            section = lc;
-                            break;
-                        default:
-                            section = sections.indexOf(lc) > -1 ? 'index' : null;
+                            case 'brandsection':
+                                section = 'brand';
+                                break;
+                            case 'homepage':
+                            case 'search':
+                                section = lc;
+                                break;
+                            default:
+                                section = sections.indexOf(lc) > -1 ? 'index' : null;
                         }
 
                         return (
                             <Teaser
-                              {...item}
-                              polar={polarDetails}
-                              key={item.id}
-                              sizes="brand-list"
-                              modifier="img-left"
-                              gtmClass={`gtm-bottomteaserlist-${section}`}
+                                {...item}
+                                polar={polarDetails}
+                                key={item.id}
+                                sizes="brand-list"
+                                modifier="img-left"
+                                gtmClass={`gtm-bottomteaserlist-${section}`}
                             />
                         );
                     })}
 
                     <Ad
-                      className="ad--section-mrec teaser"
-                      displayFor="medium"
-                      sizes={{
-                          medium: 'mrec'
-                      }}
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.body}
+                        className="ad--section-mrec teaser"
+                        displayFor="medium"
+                        sizes={{
+                            medium: 'mrec'
+                        }}
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.body}
                     />
                 </section>
 
-                <Rail
-                  marginBottom={70}
-                  yPosition={95}
-                />
-
+                <Rail marginBottom={70} yPosition={95} />
             </div>
-
         );
     }
 }

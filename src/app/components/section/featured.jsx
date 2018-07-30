@@ -20,9 +20,7 @@ export default class Featured extends Component {
     };
 
     render() {
-        const {
-            articles, polarTargets, hero, showSearchBar
-        } = this.props;
+        const { articles, polarTargets, hero, showSearchBar } = this.props;
         const className = 'section__featured gtm-topteaserlist-index';
 
         if (articles.length === 0 && showSearchBar) {
@@ -41,66 +39,40 @@ export default class Featured extends Component {
 
         return (
             <section className={className}>
-                { showSearchBar && <SearchBar /> }
-                <div>
-                    {
-                        hero
-                            ? (
-                                <Teaser
-                                  {...hero}
-                                  gtmClass="gtm-hero-section"
-                                  key={`${hero.id}-xl`}
-                                  modifier="hero"
-                                  sizes="home-hero"
-                                />
-)
-                            : null
-                    }
-                </div>
+                {showSearchBar && <SearchBar />}
+                <div>{hero ? <Teaser {...hero} gtmClass="gtm-hero-section" key={`${hero.id}-xl`} modifier="hero" sizes="home-hero" /> : null}</div>
                 <div>
                     <Ad
-                      className="ad--section-mrec teaser"
-                      displayFor="medium"
-                      sizes={['double-mrec', 'mrec']}
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.body}
+                        className="ad--section-mrec teaser"
+                        displayFor="medium"
+                        sizes={['double-mrec', 'mrec']}
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.body}
                     />
-                    <Teaser
-                      {...item}
-                      {...teaserProps}
-                      key={item.id}
-                      polar={polarTargets[0]}
-                    />
+                    <Teaser {...item} {...teaserProps} key={item.id} polar={polarTargets[0]} />
                     <Ad
-                      className="ad--section-mrec"
-                      displayFor="small"
-                      sizes={['double-mrec', 'mrec']}
-                      updatePageOffset
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.body}
+                        className="ad--section-mrec"
+                        displayFor="small"
+                        sizes={['double-mrec', 'mrec']}
+                        updatePageOffset
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.body}
                     />
                     {articles.slice(1, 6).map((article, i) => {
                         const polarProps = {};
                         if (i === 4) {
                             polarProps.polar = polarTargets[1];
                         }
-                        return (
-                            <Teaser
-                              {...article}
-                              {...teaserProps}
-                              {...polarProps}
-                              key={article.id}
-                            />
-                        );
+                        return <Teaser {...article} {...teaserProps} {...polarProps} key={article.id} />;
                     })}
                     <Ad
-                      className="ad--section-mrec teaser"
-                      displayFor="medium"
-                      sizes={{
-                          medium: 'mrec'
-                      }}
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.body}
+                        className="ad--section-mrec teaser"
+                        displayFor="medium"
+                        sizes={{
+                            medium: 'mrec'
+                        }}
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.body}
                     />
                 </div>
             </section>

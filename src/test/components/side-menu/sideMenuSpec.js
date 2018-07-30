@@ -1,18 +1,18 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import findWhere from 'lodash/collection/findWhere';
 import remove from 'lodash/array/remove';
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
-import {localeData} from '../../mock/config';
+import { localeData } from '../../mock/config';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const activateSideMenu = () => {};
 const NavigationStub = Context.createStubComponent();
 const SideMenuLogoStub = Context.createStubComponent();
 const SideMenu = proxyquire('../../../app/components/side-menu/sideMenu', {
-    'react': React,
+    react: React,
     '../header/navigation': NavigationStub,
     './sideMenuLogo': SideMenuLogoStub,
     '../../actions/menuActions': { activateSideMenu }
@@ -39,20 +39,20 @@ describe(`SideMenu Component`, () => {
         key: 'config',
         type: '',
         value: {
-            hamburgerBrands: [{
-                "imageUrl": "/assets/images/menulogos/NTL-logo.svg",
-                "url": "http://nowtolove.com.au/",
-                "title": "Now To Love",
-                "id": "now"
-            }]
+            hamburgerBrands: [
+                {
+                    imageUrl: '/assets/images/menulogos/NTL-logo.svg',
+                    url: 'http://nowtolove.com.au/',
+                    title: 'Now To Love',
+                    id: 'now'
+                }
+            ]
         }
     };
 
-
     describe('render and class names', () => {
-
-        before ( () => {
-            reactModule = Context.mountComponent(SideMenu, {navItems: navItems, data: localeData}, [contextConfigStub]);
+        before(() => {
+            reactModule = Context.mountComponent(SideMenu, { navItems: navItems, data: localeData }, [contextConfigStub]);
             bar = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__bar');
             container = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__container');
             closeButton = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__close');
@@ -121,8 +121,8 @@ describe(`SideMenu Component`, () => {
     });
 
     describe('navigation', () => {
-        before ( () => {
-            reactModule = Context.mountComponent(SideMenu, {navItems: navItems, data: localeData}, [contextConfigStub]);
+        before(() => {
+            reactModule = Context.mountComponent(SideMenu, { navItems: navItems, data: localeData }, [contextConfigStub]);
         });
 
         it('passes the proper nav items to the navigation component', () => {
@@ -132,7 +132,7 @@ describe(`SideMenu Component`, () => {
                 { name: 'Interiors', url: '/interiors' },
                 { name: 'Outdoor', url: '/outdoor' },
                 { name: 'Renovate', url: '/renovate' }
-            ])
+            ]);
         });
     });
 

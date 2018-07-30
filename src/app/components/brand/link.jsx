@@ -29,19 +29,11 @@ export default class BrandLink extends Component {
         if (!Children.count(children)) return null;
 
         if (!source || !BrandLink.sources[source.toLowerCase()] || (!linkSiteBrand && source.toLowerCase() === BrandLink.siteBrand)) {
-            return (
-                <span>
-                    {children}
-                </span>
-            );
+            return <span>{children}</span>;
         }
 
         const url = BrandLink.sources[source.toLowerCase()];
 
-        return (
-            <a href={url}>
-                {children}
-            </a>
-        );
+        return <a href={url}>{children}</a>;
     }
 }

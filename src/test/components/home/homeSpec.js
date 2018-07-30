@@ -1,11 +1,11 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
-import {entity, articles as homeArticlesMock} from '../../mock/articles';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { entity, articles as homeArticlesMock } from '../../mock/articles';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
@@ -23,20 +23,20 @@ const contextConfigStub = {
     key: 'config',
     type: '',
     value: {
-        polar : {
+        polar: {
             details: {
                 sectionTopFeed: [
                     {
                         index: 0,
                         label: 'section_top_feed_1',
-                        targets: {kw:'section_top_feed_1'}
+                        targets: { kw: 'section_top_feed_1' }
                     }
                 ],
                 sectionBottomFeed: [
                     {
                         index: 1,
                         label: 'section_bottom_feed_1',
-                        targets: {kw:'section_bottom_feed_1'}
+                        targets: { kw: 'section_bottom_feed_1' }
                     }
                 ]
             }
@@ -45,7 +45,7 @@ const contextConfigStub = {
 };
 
 const Home = proxyquire('../../../app/components/home/home', {
-    'react': React,
+    react: React,
     './sectionFeatured': SectionFeatured,
     '@bxm/ad/lib/google/components/ad': AdStub
 });
@@ -107,10 +107,9 @@ describe('Home', () => {
         });
 
         it(`should open when isSideMenuOpen is true`, () => {
-            reactModule = Context.mountComponent(Home, {isSideMenuOpen: true}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Home, { isSideMenuOpen: true }, [contextConfigStub]);
             domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
             expect(domNode).to.contain('side-menu-slider--side-menu-open');
         });
     });
-
 });

@@ -1,14 +1,14 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponentWithChildren();
 const RepeatableGroup = proxyquire('../../../app/components/section/repeatableGroup', {
-    'react': React,
+    react: React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub
 });
@@ -23,7 +23,6 @@ AdStub.pos = {
 };
 
 describe('RepeatableGroup', () => {
-
     describe('with 9 articles', () => {
         let section;
         let reactModule;
@@ -31,9 +30,7 @@ describe('RepeatableGroup', () => {
         let ads;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <RepeatableGroup items={articlesMock.slice(1, 10)} adTargets={{ position: 2 }} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={articlesMock.slice(1, 10)} adTargets={{ position: 2 }} />);
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -108,7 +105,6 @@ describe('RepeatableGroup', () => {
                 expect(ads[1].props.displayFor).to.deep.equal(expectedDisplayFor);
             });
         });
-
     });
 
     describe('with 10 articles', () => {
@@ -118,9 +114,7 @@ describe('RepeatableGroup', () => {
         let ads;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <RepeatableGroup items={articlesMock.slice(0, 10)} adTargets={{ position: 2 }} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={articlesMock.slice(0, 10)} adTargets={{ position: 2 }} />);
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -148,7 +142,7 @@ describe('RepeatableGroup', () => {
             });
 
             it(`should be at position 2`, () => {
-                expect(ads[2].props.targets).to.deep.equal({position: 2});
+                expect(ads[2].props.targets).to.deep.equal({ position: 2 });
             });
 
             const expectedSizes = {
@@ -179,7 +173,7 @@ describe('RepeatableGroup', () => {
             });
 
             it(`should be at position 2`, () => {
-                expect(ads[3].props.targets).to.deep.equal({position: 2});
+                expect(ads[3].props.targets).to.deep.equal({ position: 2 });
             });
         });
 
@@ -203,10 +197,9 @@ describe('RepeatableGroup', () => {
             });
 
             it(`should be at position 2`, () => {
-                expect(ads[4].props.targets).to.deep.equal({position: 2});
+                expect(ads[4].props.targets).to.deep.equal({ position: 2 });
             });
         });
-
     });
 
     describe('without the articles prop as an empty array', () => {
@@ -232,5 +225,4 @@ describe('RepeatableGroup', () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
-
 });

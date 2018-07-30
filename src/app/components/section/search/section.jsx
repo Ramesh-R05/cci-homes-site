@@ -49,8 +49,16 @@ class Section extends Component {
 
     render() {
         const {
-            articles, list, content, listNextParams, isSideMenuOpen,
-            searchTotal, title, headerNavItems, contentErrorStatus, currentNavigateError
+            articles,
+            list,
+            content,
+            listNextParams,
+            isSideMenuOpen,
+            searchTotal,
+            title,
+            headerNavItems,
+            contentErrorStatus,
+            currentNavigateError
         } = this.props;
         const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
         const sectionClassName = cx('section__landing', 'side-menu-slider', {
@@ -88,72 +96,56 @@ class Section extends Component {
                 <SiteHeader isSideMenuOpen={isSideMenuOpen} navItems={navItems} />
                 <SideMenu open={isSideMenuOpen} navItems={navItems} />
 
-                <SectionHeader
-                  {...headerProps}
-                  title={`${searchTotal} ${title} results`}
-                  splitTitle={false}
-                />
+                <SectionHeader {...headerProps} title={`${searchTotal} ${title} results`} splitTitle={false} />
 
                 <AdsWrapper>
-
-                    { ErrorElement ? <ErrorElement />
-                    : (
+                    {ErrorElement ? (
+                        <ErrorElement />
+                    ) : (
                         <div className={sectionClassName}>
                             <div className="container">
                                 <div className="section__row">
                                     <Featured articles={articles} polarTargets={sectionTopFeed} showSearchBar />
-                                    <Rail
-                                      adPosition={1}
-                                      marginBottom={60}
-                                      yPosition={95}
-                                    />
+                                    <Rail adPosition={1} marginBottom={60} yPosition={95} />
                                 </div>
 
                                 <div className="section__row section__middle">
                                     <Ad
-                                      className="ad--section-middle-leaderboard section__ad"
-                                      sizes={{
-                                      small: 'banner',
-                                      leaderboard: 'leaderboard',
-                                      billboard: ['billboard', 'leaderboard']
-                                  }}
-                                      label={{ active: false }}
-                                      pageLocation={Ad.pos.outside}
+                                        className="ad--section-middle-leaderboard section__ad"
+                                        sizes={{
+                                            small: 'banner',
+                                            leaderboard: 'leaderboard',
+                                            billboard: ['billboard', 'leaderboard']
+                                        }}
+                                        label={{ active: false }}
+                                        pageLocation={Ad.pos.outside}
                                     />
                                 </div>
                                 <div className="section__row">
                                     <Repeatable
-                                      component={List}
-                                      action={loadSearch}
-                                      dataSource={list}
-                                      nextParams={listNextParams}
-                                      className="news-feed bottom-news-feed"
-                                      content={content}
-                                      polarTargets={sectionBottomFeed}
+                                        component={List}
+                                        action={loadSearch}
+                                        dataSource={list}
+                                        nextParams={listNextParams}
+                                        className="news-feed bottom-news-feed"
+                                        content={content}
+                                        polarTargets={sectionBottomFeed}
                                     />
-
                                 </div>
 
-                                <StickyAd
-                                  adProps={stickyAdProps}
-                                  minHeight={450}
-                                  stickyAtViewPort="mediumRangeMax"
-                                  stickyDelay={5500}
-                                />
-
+                                <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
                             </div>
                         </div>
-) }
+                    )}
                 </AdsWrapper>
 
                 <SiteFooter />
-
             </div>
         );
     }
 }
 
-export default connectToStores(Section, ['SearchStore', MenuStore], (context) => {
+export default connectToStores(Section, ['SearchStore', MenuStore], context => {
     const searchStore = context.getStore('SearchStore');
     const menuStore = context.getStore(MenuStore);
 

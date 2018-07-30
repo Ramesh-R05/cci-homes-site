@@ -28,10 +28,7 @@ const body = [
     },
     {
         type: 'related-content',
-        content: [
-            { imageUrl: 'http://test.com/image.jpg' },
-            { imageUrl: 'http://test.com/image.jpg' }
-        ]
+        content: [{ imageUrl: 'http://test.com/image.jpg' }, { imageUrl: 'http://test.com/image.jpg' }]
     },
     {
         type: 'whooshka',
@@ -125,17 +122,14 @@ describe('https middleware', () => {
         const res = {
             body: {
                 list: {
-                    items: [
-                        JSON.parse(JSON.stringify(dataListItems)),
-                        JSON.parse(JSON.stringify(dataListItems))
-                    ]
+                    items: [JSON.parse(JSON.stringify(dataListItems)), JSON.parse(JSON.stringify(dataListItems))]
                 }
             }
         };
         const next = sinon.spy();
         httpsMiddleware(req, res, next);
-        expect(res.body.list.items[0][0].imageUrl).to.equal(dataListItems[0].imageUrl.replace('http://','https://'));
-        expect(res.body.list.items[1][1].imageUrl).to.equal(dataListItems[1].imageUrl.replace('http://','https://'));
+        expect(res.body.list.items[0][0].imageUrl).to.equal(dataListItems[0].imageUrl.replace('http://', 'https://'));
+        expect(res.body.list.items[1][1].imageUrl).to.equal(dataListItems[1].imageUrl.replace('http://', 'https://'));
         expect(next).to.be.called;
     });
 });

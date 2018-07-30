@@ -1,4 +1,4 @@
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import listingsStubData from '../../../../stubs/listings-luxury-home';
 import tagStubData from '../../../../stubs/tag-luxury-home';
@@ -23,7 +23,7 @@ const tagFilter = `tagsDetails/urlName eq '${tagSection}'`;
 const expectedTagData = {
     title: tagStubData.data[0].displayName,
     urlName: tagStubData.data[0].urlName,
-    nodeType: "TagSection",
+    nodeType: 'TagSection',
     dateCreated: tagStubData.data[0].createdAt, //"2016-02-16T23:15:11.480Z"
     kingtag: tagStubData.data[0].urlName
 };
@@ -73,56 +73,57 @@ describe('tag section middleware', () => {
         }
     };
     const res = {};
-    const next = ()=>{};
+    const next = () => {};
 
     describe(`when receiving data`, () => {
-
         describe(`and tag query is not defined`, () => {
-            before(()=>{
+            before(() => {
                 req.query = {};
             });
 
-            after(()=>{
+            after(() => {
                 req.query.tag = tagSection;
             });
 
-            it('should not call service urls', (done)=> {
-                tagSectionMiddleware(req, res, next).then(() => {
-                    expect(makeRequestSpy.called).to.be.false;
-                    expect(getLatestTeasersSpy.called).to.be.false;
+            it('should not call service urls', done => {
+                tagSectionMiddleware(req, res, next)
+                    .then(() => {
+                        expect(makeRequestSpy.called).to.be.false;
+                        expect(getLatestTeasersSpy.called).to.be.false;
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
-
         });
 
         describe(`and tag section query is defined`, () => {
-
-            it('should return all modules in the desired structure', (done)=> {
-
-                tagSectionMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
-                    done();
-                }).catch(done);
+            it('should return all modules in the desired structure', done => {
+                tagSectionMiddleware(req, res, next)
+                    .then(() => {
+                        expect(res.body).to.deep.equal(expectedBody);
+                        done();
+                    })
+                    .catch(done);
             });
 
-            it('should use the required config values for content service urls for the request', (done)=> {
-                tagSectionMiddleware(req, res, next).then(() => {
-                    const tagServiceUrl = `${tagServiceMockUrl}/tags/?urlName=${tagSection}`;
-                    const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
-                    const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
+            it('should use the required config values for content service urls for the request', done => {
+                tagSectionMiddleware(req, res, next)
+                    .then(() => {
+                        const tagServiceUrl = `${tagServiceMockUrl}/tags/?urlName=${tagSection}`;
+                        const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
+                        const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
 
-                    expect(makeRequestSpyFirstCall.args[0]).to.equal(tagServiceUrl);
+                        expect(makeRequestSpyFirstCall.args[0]).to.equal(tagServiceUrl);
 
-                    expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
-                    expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(tagFilter);
+                        expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
+                        expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(tagFilter);
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });
-
 });

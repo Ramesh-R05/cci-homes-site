@@ -1,14 +1,14 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import forOwn from 'lodash/object/forOwn';
 import cloneDeep from 'lodash/lang/cloneDeep';
-import {localeData} from '../../mock/config';
-import {entity} from '../../mock/articles';
+import { localeData } from '../../mock/config';
+import { entity } from '../../mock/articles';
 import clone from 'lodash/lang/clone';
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const config = {
     get: () => {}
 };
@@ -37,27 +37,27 @@ const Error500Stub = Context.createStubComponent();
 
 function mockErrorHandlerBuilder(code) {
     switch (code) {
-    case 404:
-        return Error404Stub;
-    case 500:
-    default:
-        return Error500Stub;
+        case 404:
+            return Error404Stub;
+        case 500:
+        default:
+            return Error500Stub;
     }
 }
 
 const getBrandStub = () => {
- return {"logo": "/assets/svgs/belle.svg"}
+    return { logo: '/assets/svgs/belle.svg' };
 };
 
 const Default = proxyquire('../../../app/components/templates/default', {
-    'react': React,
+    react: React,
     '../header/header': SiteHeaderStub,
     '../side-menu/sideMenu': SideMenuStub,
     '../home/home': HomePageStub,
     '../article/page': ArticleStub,
     '../section/tag/section': TagStub,
     '../header/uniheader': UniHeaderStub,
-    '@bxm/article/lib/bridgeUtils/partsFactory': {initalizeParts(){}}, // TODO - deprecated??
+    '@bxm/article/lib/bridgeUtils/partsFactory': { initalizeParts() {} }, // TODO - deprecated??
     '../section/navigationTag/section': NavSectionStub,
     '../brand/section': BrandStub,
     '../section/sponsorTag/section': CampaignStub,
@@ -69,7 +69,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': AdsWrapper,
     '../error/errorHandlerBuilder': mockErrorHandlerBuilder,
     '../brand/utilities/getBrand': getBrandStub,
-    'picturefill': {}
+    picturefill: {}
 });
 
 const headerNavItems = [
@@ -136,16 +136,16 @@ describe('Default Component template', () => {
     let data;
 
     const sectionBrandsDataStub = {
-        "belle": {
-            "subscribe": {
-                "image": "/assets/images/brand-pages/subscribe/belle.jpg",
-                "link": "https://www.magshop.com.au/store/homestolove"
+        belle: {
+            subscribe: {
+                image: '/assets/images/brand-pages/subscribe/belle.jpg',
+                link: 'https://www.magshop.com.au/store/homestolove'
             },
-            "logo": "/assets/svgs/belle.svg",
-            "social": {
-                "facebook": "https://www.facebook.com/BelleMagazineAu",
-                "twitter": "https://twitter.com/BelleMagazineAu",
-                "instagram": "https://instagram.com/bellemagazineau/?hl=en"
+            logo: '/assets/svgs/belle.svg',
+            social: {
+                facebook: 'https://www.facebook.com/BelleMagazineAu',
+                twitter: 'https://twitter.com/BelleMagazineAu',
+                instagram: 'https://instagram.com/bellemagazineau/?hl=en'
             }
         }
     };
@@ -163,24 +163,23 @@ describe('Default Component template', () => {
         value: configToStub
     };
 
-    before( () => {
+    before(() => {
         // data = sinon.stub(config, 'get').returns(localeData);
     });
 
-    beforeEach( () => {
+    beforeEach(() => {
         resetStoreData();
     });
 
-    after( () => {
+    after(() => {
         // data.restore();
     });
 
-    afterEach( () => {
+    afterEach(() => {
         Context.cleanup;
     });
 
     describe('Error Handling', () => {
-
         it('shows 500 error if content is not specified', () => {
             storeData.PageStore.content = null;
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
@@ -188,7 +187,7 @@ describe('Default Component template', () => {
         });
 
         it('shows 500 error if content is not known', () => {
-            storeData.PageStore.content = {nodeType: 'UnknownHomepage'};
+            storeData.PageStore.content = { nodeType: 'UnknownHomepage' };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
@@ -247,7 +246,7 @@ describe('Default Component template', () => {
         const totalDOMChildrenAtHomePage = 6;
 
         describe('when on home page', () => {
-            before( () => {
+            before(() => {
                 resetStoreData();
                 storeData.PageStore.content = { nodeType: 'Homepage', url: '/' };
                 reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
@@ -259,7 +258,7 @@ describe('Default Component template', () => {
         });
 
         describe('when not on home page', () => {
-            before( () => {
+            before(() => {
                 resetStoreData();
                 storeData.PageStore.content = { nodeType: 'NavigationSection', url: '/real-living/' };
                 reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
@@ -272,65 +271,68 @@ describe('Default Component template', () => {
     });
 
     describe('header and footer visibility', () => {
-        forOwn({
-            'Homepage': {
-                ContentHeaderHandler: HomeHeader,
-                ContentHandler: HomePageStub
+        forOwn(
+            {
+                Homepage: {
+                    ContentHeaderHandler: HomeHeader,
+                    ContentHandler: HomePageStub
+                },
+                HomesArticle: {
+                    ContentHeaderHandler: HomeHeader,
+                    ContentHandler: ArticleStub
+                },
+                NavigationSection: {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: NavSectionStub
+                },
+                TagSection: {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: TagStub
+                },
+                BrandSection: {
+                    ContentHeaderHandler: BrandHeader,
+                    ContentHandler: BrandStub
+                },
+                Campaign: {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: CampaignStub
+                },
+                Gallery: {
+                    ContentHandler: ArticleStub
+                }
             },
-            'HomesArticle': {
-                ContentHeaderHandler: HomeHeader,
-                ContentHandler: ArticleStub
-            },
-            'NavigationSection': {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: NavSectionStub
-            },
-            'TagSection': {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: TagStub
-            },
-            'BrandSection': {
-                ContentHeaderHandler: BrandHeader,
-                ContentHandler: BrandStub
-            },
-            'Campaign': {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: CampaignStub
-            },
-            'Gallery': {
-                ContentHandler: ArticleStub
+            (metadata, nodeType) => {
+                const { ContentHeaderHandler, ContentHandler } = metadata;
+
+                describe(`for nodeType "${nodeType}"`, () => {
+                    before(() => {
+                        storeData.PageStore.content.nodeType = nodeType;
+                        reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                        header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
+                        footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
+                    });
+
+                    it('returns the correct Header Handler title for Navigation, Tag, and Campaign Section node types', () => {
+                        storeData.PageStore.content.nodeType = nodeType;
+                        storeData.PageStore.content.title = 'My Section Header';
+                        reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                        if (nodeType === 'NavigationSection' || nodeType === 'TagSection' || nodeType === 'Campaign') {
+                            sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
+                            expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
+                        }
+                    });
+
+                    it('returns the correct handler', () => {
+                        if (nodeType === 'Homepage' || nodeType === 'BrandSection') {
+                            wrapper = TestUtils.findRenderedComponentWithType(reactModule, AdsWrapper);
+                            template = TestUtils.findRenderedComponentWithType(wrapper, ContentHandler);
+                        } else {
+                            template = TestUtils.findRenderedComponentWithType(reactModule, ContentHandler);
+                        }
+                    });
+                });
             }
-        }, (metadata, nodeType) => {
-            const {ContentHeaderHandler, ContentHandler} = metadata;
-
-            describe(`for nodeType "${nodeType}"`, () => {
-                before(() => {
-                    storeData.PageStore.content.nodeType = nodeType;
-                    reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-                    header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
-                    footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
-                });
-
-                it('returns the correct Header Handler title for Navigation, Tag, and Campaign Section node types', () => {
-                    storeData.PageStore.content.nodeType = nodeType;
-                    storeData.PageStore.content.title = "My Section Header";
-                    reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-                    if (nodeType === 'NavigationSection' || nodeType === 'TagSection' || nodeType === 'Campaign') {
-                        sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
-                        expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
-                    }
-                });
-
-                it('returns the correct handler', () => {
-                    if (nodeType === 'Homepage' || nodeType === 'BrandSection') {
-                        wrapper = TestUtils.findRenderedComponentWithType(reactModule, AdsWrapper);
-                        template = TestUtils.findRenderedComponentWithType(wrapper, ContentHandler);
-                    } else {
-                        template = TestUtils.findRenderedComponentWithType(reactModule, ContentHandler);
-                    }
-                });
-            });
-        });
+        );
     });
 
     describe(`with NavSectionHeader and Tag Details`, () => {
@@ -345,9 +347,7 @@ describe('Default Component template', () => {
 
         it(`when defined tagsDetails should use tagsDetails displayName instead of title prop in the ContentHeadingHandler component`, () => {
             storeData.PageStore.content.nodeType = 'NavigationSection';
-            storeData.PageStore.content.tagsDetails = [
-                { displayName: 'My Display Name' }
-            ];
+            storeData.PageStore.content.tagsDetails = [{ displayName: 'My Display Name' }];
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
             expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.tagsDetails[0].displayName);

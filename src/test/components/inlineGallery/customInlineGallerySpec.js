@@ -1,9 +1,9 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {items as gogMock} from '../../mock/galleryOfGalleries';
+import { betterMockComponentContext } from '@bxm/flux';
+import { items as gogMock } from '../../mock/galleryOfGalleries';
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const InlineGalleryStub = Context.createStubComponent();
 const breakPoints = {
@@ -12,7 +12,7 @@ const breakPoints = {
     largeRangeMax: 1400
 };
 const CustomInlineGallery = proxyquire('../../../app/components/inlineGallery/customInlineGallery', {
-    'react': React,
+    react: React,
     '../../breakpoints': breakPoints,
     '@bxm/gallery/lib/components/inlineGallery': InlineGalleryStub
 });
@@ -38,9 +38,13 @@ describe('CustomInlineGallery', () => {
         let inlineGallery;
 
         before(() => {
-            reactModule = Context.mountComponent(CustomInlineGallery, {
-                galleries: gogMock
-            }, [contextConfigStub]);
+            reactModule = Context.mountComponent(
+                CustomInlineGallery,
+                {
+                    galleries: gogMock
+                },
+                [contextConfigStub]
+            );
             inlineGallery = TestUtils.findRenderedComponentWithType(reactModule, InlineGalleryStub);
         });
 
@@ -68,7 +72,7 @@ describe('CustomInlineGallery', () => {
                 const imageUrl = 'IMAGE URL';
                 const itemMock = gogMock[0];
                 const component = CustomInlineGallery.renderSlide(itemMock, 1, imageUrl);
-                let cloneProps = {...itemMock};
+                let cloneProps = { ...itemMock };
                 cloneProps.imageUrl = imageUrl;
                 expect(component.props).to.deep.eq(cloneProps);
             });
@@ -89,9 +93,13 @@ describe('CustomInlineGallery', () => {
     describe(`with galleries and galleryOfGalleries feature is toggled off`, () => {
         before(() => {
             isGOGEnabled = false;
-            reactModule = Context.mountComponent(CustomInlineGallery, {
-                galleries: gogMock
-            }, [contextConfigStub]);
+            reactModule = Context.mountComponent(
+                CustomInlineGallery,
+                {
+                    galleries: gogMock
+                },
+                [contextConfigStub]
+            );
         });
 
         after(() => {

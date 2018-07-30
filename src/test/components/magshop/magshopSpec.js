@@ -1,13 +1,13 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {localeData} from '../../mock/config';
+import { betterMockComponentContext } from '@bxm/flux';
+import { localeData } from '../../mock/config';
 
 const proxyquire = require('proxyquire').noCallThru();
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const MagShop = proxyquire('../../../app/components/magshop/magshop', {
-    'react': React
+    react: React
 });
 
 const dataLayerStub = {
@@ -28,7 +28,7 @@ describe(`MagShop`, () => {
         window.dataLayer = dataLayerStub;
     });
 
-    beforeEach( () => {
+    beforeEach(() => {
         reactModule = Context.mountComponent(MagShop, {
             content: magShopData
         });
@@ -56,11 +56,11 @@ describe(`MagShop`, () => {
         expect(magshopLink.getAttribute('target')).to.equal('_blank');
 
         expect(magshopImage.getAttribute('src')).to.equal('/assets/images/magazines.png');
-        expect(magshopImage.getAttribute('alt')).to.equal('Women\'s Weekly Cookbooks');
+        expect(magshopImage.getAttribute('alt')).to.equal("Women's Weekly Cookbooks");
     });
 
     describe('Given the Magshop component appears in the side navigation', () => {
-        beforeEach( () => {
+        beforeEach(() => {
             reactModule = Context.mountComponent(MagShop, {
                 inSideNav: true,
                 content: magShopData
@@ -83,12 +83,12 @@ describe(`MagShop`, () => {
             magshopImage = domElement.querySelector('.magshop img');
 
             TestUtils.Simulate.click(magshopImage);
-            expect(dataLayerStub.push).to.have.been.calledWith({event: 'subscribe.click'});
+            expect(dataLayerStub.push).to.have.been.calledWith({ event: 'subscribe.click' });
         });
 
         it(`pushes subscription on clicking Subscribe btn`, () => {
             TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(reactModule, `button--subscribe`));
-            expect(dataLayerStub.push).to.have.been.calledWith({event: 'subscribe.click'});
+            expect(dataLayerStub.push).to.have.been.calledWith({ event: 'subscribe.click' });
         });
     });
 });

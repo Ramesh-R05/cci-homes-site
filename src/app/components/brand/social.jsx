@@ -28,15 +28,9 @@ export default class Social extends Component {
         return (
             <section className="brand-social">
                 <p>
-                    Follow
-                    {' '}
-                    <b>
-                        {brand}
-                    </b>
+                    Follow <b>{brand}</b>
                 </p>
-                <div className="brand-social__links">
-                    {Social.getSocialIcons(social)}
-                </div>
+                <div className="brand-social__links">{Social.getSocialIcons(social)}</div>
             </section>
         );
     }

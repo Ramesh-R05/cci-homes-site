@@ -33,9 +33,7 @@ export default class FooterSection extends Component {
                         <SocialContainer gtmClass="gtm-footer-social" />
                     </div>
                     <div className="footer__logos">
-                        <span className="footer__logos-title">
-CONTENT SUPPORTED BY
-                        </span>
+                        <span className="footer__logos-title">CONTENT SUPPORTED BY</span>
                         <br />
                         <nav className="footer__logos-nav">
                             <FooterBrandLinks className="footer__logos-list" footerBrands={footerBrands} />
@@ -43,9 +41,7 @@ CONTENT SUPPORTED BY
                     </div>
                     <FooterNavigation />
                     <div className="footer__copyright">
-                        <span>
-&copy; copyright bauer media pty ltd all rights reserved
-                        </span>
+                        <span>&copy; copyright bauer media pty ltd all rights reserved</span>
                     </div>
                 </footer>
                 <BackToTop className="button" />

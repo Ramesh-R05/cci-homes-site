@@ -10,7 +10,7 @@ export default async function galleryMiddleware(req, res, next) {
             return;
         }
 
-        const galleryItems = await getLatestTeasers(10, 0, 'nodeTypeAlias eq \'Gallery\'');
+        const galleryItems = await getLatestTeasers(10, 0, "nodeTypeAlias eq 'Gallery'");
         res.body.moreGalleries = parseEntities(galleryItems.data);
 
         if (entity.tags) {

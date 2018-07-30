@@ -20,11 +20,13 @@ servicesStubs.use((req, res, next) => {
 servicesStubs.get('/entity-service/', (req, res) => {
     const { query } = req;
 
-    let queryPath = '';
-    for (const [key, value] of Object.entries(query)) { // eslint-disable-line no-restricted-syntax
-        queryPath += `${key.toLowerCase()}-${value.toLowerCase()}-`;
-    }
-    queryPath = queryPath.replace(/-$/, '');
+    const queryPath = Object.entries(query)
+        .reduce((string, [key, value]) => {
+            let newString = string;
+            newString += `${key.toLowerCase()}-${value.toLowerCase()}-`;
+            return newString;
+        }, '')
+        .replace(/-$/, '');
 
     const entityPath = require(`${cwd}/stubs/entity-${queryPath}`);
     res.json(entityPath);
@@ -48,12 +50,13 @@ servicesStubs.get('/entity-service/:page', (req, res) => {
 
 servicesStubs.get('/listings-service/teasers', (req, res) => {
     const { $filter, $top } = req.query;
-    const homepageMatch = ($filter === 'nodeTypeAlias eq \'HomesArticle\' or nodeTypeAlias eq \'Gallery\'');
+    const homepageMatch = $filter === "nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'";
     const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
     const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
     const campaignMatch = $filter.match(/^\(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'\) and sponsorName eq '([^']+)'$/i);
-    const latestRealHomesMatch = ($filter === '(nodeTypeAlias eq \'HomesArticle\' or nodeTypeAlias eq \'Gallery\') and tagsDetails/fullName eq \'food_Homes_navigation_Real_Homes\'');
+    const latestRealHomesMatch =
+        $filter === "(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'";
 
     let teaserResponse = {
         totalCount: 0,

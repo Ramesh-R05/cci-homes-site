@@ -15,21 +15,12 @@ class SideMenuLogo extends Component {
     };
 
     render() {
-        const {
-            logoClassName, logoClassNameGTMPrefix, openInNewTab, logoItem
-        } = this.props;
-        const {
-            id, title, url, imageUrl
-        } = logoItem;
+        const { logoClassName, logoClassNameGTMPrefix, openInNewTab, logoItem } = this.props;
+        const { id, title, url, imageUrl } = logoItem;
 
         return (
             <li key={url}>
-                <a
-                  href={url}
-                  target={openInNewTab ? '_blank' : '_self'}
-                  title={title}
-                  className={`${logoClassNameGTMPrefix}${id}`}
-                >
+                <a href={url} target={openInNewTab ? '_blank' : '_self'} title={title} className={`${logoClassNameGTMPrefix}${id}`}>
                     <img src={imageUrl} alt={title} className={`${logoClassName}__logo--${id}`} />
                 </a>
             </li>

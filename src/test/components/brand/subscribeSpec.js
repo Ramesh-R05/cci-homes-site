@@ -1,13 +1,13 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponent();
 const Subscribe = proxyquire('../../../app/components/brand/subscribe', {
-    'react': React,
+    react: React,
     '../teaser/teaser': TeaserStub
 });
 
@@ -30,9 +30,15 @@ describe('Brand Subscribe', () => {
 
     describe('with all props', () => {
         before(() => {
-            reactModule = Context.mountComponent(Subscribe,{
-                className, image, link
-            }, [contextConfigStub]);
+            reactModule = Context.mountComponent(
+                Subscribe,
+                {
+                    className,
+                    image,
+                    link
+                },
+                [contextConfigStub]
+            );
             teaser = TestUtils.findRenderedComponentWithType(reactModule, TeaserStub);
         });
 
@@ -44,8 +50,8 @@ describe('Brand Subscribe', () => {
         });
 
         it(`should render the teaser component with relevant props`, () => {
-            const summary = 'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,' +
-                ' decorating, food and travel stories.';
+            const summary =
+                'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,' + ' decorating, food and travel stories.';
 
             expect(teaser.props.id).to.equal(`brand-subscribe`);
             expect(teaser.props.modifier).to.equal(`img-top`);
@@ -60,7 +66,7 @@ describe('Brand Subscribe', () => {
         let reactModule;
 
         before(() => {
-            reactModule = Context.mountComponent(Subscribe,{}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Subscribe, {}, [contextConfigStub]);
             teaser = TestUtils.findRenderedComponentWithType(reactModule, TeaserStub);
         });
 
@@ -72,8 +78,8 @@ describe('Brand Subscribe', () => {
         });
 
         it(`should render the teaser component with relevant props`, () => {
-            const summary = 'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,' +
-                ' decorating, food and travel stories.';
+            const summary =
+                'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,' + ' decorating, food and travel stories.';
 
             expect(teaser.props.id).to.equal(`brand-subscribe`);
             expect(teaser.props.modifier).to.equal(`img-top`);
@@ -83,5 +89,4 @@ describe('Brand Subscribe', () => {
             expect(teaser.props.imageUrl).to.be.undefined;
         });
     });
-
 });

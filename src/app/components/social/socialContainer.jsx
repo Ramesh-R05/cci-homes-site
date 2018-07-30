@@ -25,9 +25,7 @@ export default class SocialContainer extends Component {
 
     render() {
         const { nodeType, title, socialUrls } = this.props;
-        const {
-            facebook, twitter, instagram, pinterest
-        } = socialUrls;
+        const { facebook, twitter, instagram, pinterest } = socialUrls;
         const links = [
             {
                 name: 'facebook',
@@ -47,6 +45,6 @@ export default class SocialContainer extends Component {
             }
         ];
 
-        return (<SocialLinks links={links} nodeType={nodeType} title={title} {...this.props} />);
+        return <SocialLinks links={links} nodeType={nodeType} title={title} {...this.props} />;
     }
 }

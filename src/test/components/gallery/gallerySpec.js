@@ -9,21 +9,22 @@ const MainStub = Context.createStubComponent();
 const AsideStub = Context.createStubComponent();
 
 let reactModuleInstance;
-let expectedKeywords = ["Toronto",  "Nav Item"];
+let expectedKeywords = ['Toronto', 'Nav Item'];
 
-
-const ViewportStub = (CompositeComponent) => {
+const ViewportStub = CompositeComponent => {
     return class extends React.Component {
         render() {
             reactModuleInstance = CompositeComponent;
-            return <CompositeComponent { ...this.props } />;
+            return <CompositeComponent {...this.props} />;
         }
-    }
+    };
 };
 
 let initializeStub = () => {};
 let nextGalleryStub = () => {};
-let getKeywordsFromTagsStub = () => { return expectedKeywords};
+let getKeywordsFromTagsStub = () => {
+    return expectedKeywords;
+};
 let getFirstTagNameForCategoryStub = () => {};
 let adsWrapperStub = Context.createStubComponentWithChildren();
 
@@ -37,7 +38,7 @@ const GalleryActionsStub = {
 };
 
 const GallerySection = proxyquire('../../../app/components/gallery/gallery', {
-    'react': React,
+    react: React,
     '@bxm/gallery/lib/components/page/main': MainStub,
     '@bxm/gallery/lib/components/page/aside': AsideStub,
     '@bxm/gallery/lib/actions/gallery': GalleryActionsStub,
@@ -45,24 +46,27 @@ const GallerySection = proxyquire('../../../app/components/gallery/gallery', {
     '@bxm/ad/lib/utils/tagsUtils': {
         getKeywordsFromTags: getKeywordsFromTagsStub
     },
-    '@bxm/tags/lib/utils' : {
+    '@bxm/tags/lib/utils': {
         getFirstTagNameForCategory: getFirstTagNameForCategoryStub
     },
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '@bxm/ad/lib/google/components/standardPageAdsWrapper' : adsWrapperStub
+    '@bxm/ad/lib/google/components/standardPageAdsWrapper': adsWrapperStub
 });
 
 const gallery = {
     summary: 'Gallery Summary',
     title: 'Gallery Title',
     name: 'GalleryName',
-    tagsDetails: [{
-        name: 'location:citytown:Toronto',
-        fullName: 'Toronto'
-    }, {
-        name: 'location:Homes navigation:Nav Item',
-        fullName: 'Nav Item'
-    }],
+    tagsDetails: [
+        {
+            name: 'location:citytown:Toronto',
+            fullName: 'Toronto'
+        },
+        {
+            name: 'location:Homes navigation:Nav Item',
+            fullName: 'Nav Item'
+        }
+    ],
     imageUrl: 'http://image.com/image.jpg',
     dateCreated: '1/1/2000',
     siteUrl: 'http://homestolove.com.au',
@@ -143,8 +147,8 @@ describe('GallerySection', () => {
         it('should render the ad', () => {
             expect(ad.props).to.deep.eq({
                 reloadOnResourceChange: 0,
-                className: "gallery__mobile-ad row",
-                label: {active: false},
+                className: 'gallery__mobile-ad row',
+                label: { active: false },
                 sizes: {
                     small: 'banner',
                     leaderboard: 'leaderboard',
@@ -296,7 +300,7 @@ describe('GallerySection', () => {
             });
 
             it('should not call the reload and hide the body element', () => {
-                expect(document.body.style.display).to.eq('')
+                expect(document.body.style.display).to.eq('');
                 expect(reloadStub).to.not.have.been.called;
                 galleryComp.onPop();
                 expect(document.body.style.display).to.eq('none');

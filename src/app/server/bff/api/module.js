@@ -12,7 +12,7 @@ export default async function getModules(...args) {
         const modules = await makeRequest(`${config.services.remote.module}/${moduleNames}`);
         const moduleList = {};
 
-        args.forEach((arg) => {
+        args.forEach(arg => {
             const moduleConfig = find(modules.data, { moduleName: arg });
             if (arg === 'footer') {
                 moduleList[arg] = moduleConfig || {};

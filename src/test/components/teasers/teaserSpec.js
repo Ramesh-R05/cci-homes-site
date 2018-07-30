@@ -1,10 +1,10 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
 import intersection from 'lodash/array/intersection';
 import extend from 'lodash/object/extend';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const ImageStub = Context.createStubComponentWithChildren();
@@ -13,7 +13,7 @@ const SummaryStub = Context.createStubComponentWithChildren();
 const SourceStub = Context.createStubComponentWithChildren();
 const TagsStub = Context.createStubComponentWithChildren();
 const Teaser = proxyquire('../../../app/components/teaser/teaser', {
-    'react': React,
+    react: React,
     '@bxm/article/lib/components/teaser/title': TitleStub,
     '@bxm/article/lib/components/teaser/image': ImageStub,
     '@bxm/article/lib/components/teaser/summary': SummaryStub,
@@ -23,10 +23,7 @@ const Teaser = proxyquire('../../../app/components/teaser/teaser', {
 });
 const props = articlesMock.basic;
 
-
-
 describe('Teaser', () => {
-
     const allowedThemeClasses = ['theme-australian_house_and_garden', 'theme-real_living', 'theme-homes_', 'theme-belle'];
 
     describe('with correct article data', () => {
@@ -133,7 +130,7 @@ describe('Teaser', () => {
         let Image;
 
         let propWithLazyload = Object.assign({}, props, {
-            Lazyload : false
+            Lazyload: false
         });
 
         before(() => {
@@ -168,7 +165,6 @@ describe('Teaser', () => {
             const component = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedClassName);
             expect(component.length).to.equal(1);
         });
-
     });
 
     describe('with sizes prop', () => {
@@ -192,10 +188,10 @@ describe('Teaser', () => {
 
             it(`should set the Image sizes prop to`, () => {
                 expect(image.props.imageSizes).to.deep.eq({
-                    s: {w: 640, h: 341},
-                    m: {w: 640, h: 341},
-                    l: {w: 400, h: 213},
-                    xl: {w: 300, h: 160}
+                    s: { w: 640, h: 341 },
+                    m: { w: 640, h: 341 },
+                    l: { w: 400, h: 213 },
+                    xl: { w: 300, h: 160 }
                 });
             });
         });
@@ -209,10 +205,10 @@ describe('Teaser', () => {
 
             it(`should set the Image sizes prop to`, () => {
                 expect(image.props.imageSizes).to.deep.eq({
-                    s: {w: 690, h: 575},
-                    m: {w: 963, h: 809},
-                    l: {w: 633, h: 527},
-                    xl: {w: 633, h: 527}
+                    s: { w: 690, h: 575 },
+                    m: { w: 963, h: 809 },
+                    l: { w: 633, h: 527 },
+                    xl: { w: 633, h: 527 }
                 });
             });
         });
@@ -226,10 +222,10 @@ describe('Teaser', () => {
 
             it(`should set the Image sizes prop to`, () => {
                 expect(image.props.imageSizes).to.deep.eq({
-                    s: {w: 690, h: 569},
-                    m: {w: 467, h: 385},
-                    l: {w: 301, h: 250},
-                    xl: {w: 301, h: 250}
+                    s: { w: 690, h: 569 },
+                    m: { w: 467, h: 385 },
+                    l: { w: 301, h: 250 },
+                    xl: { w: 301, h: 250 }
                 });
             });
         });
@@ -253,5 +249,4 @@ describe('Teaser', () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
-
 });

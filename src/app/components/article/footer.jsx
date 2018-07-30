@@ -9,12 +9,6 @@ export default class Footer extends Component {
     };
 
     render() {
-        return (
-            <MainFooter
-              config={this.context.config.get('localeData')}
-              iframeKey="articlefooter"
-              modifier="article"
-            />
-        );
+        return <MainFooter config={this.context.config.get('localeData')} iframeKey="articlefooter" modifier="article" />;
     }
 }

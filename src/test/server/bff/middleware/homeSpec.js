@@ -1,4 +1,4 @@
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 import heroStubData from '../../../../stubs/module-homepagehero';
 import itemsStubData from '../../../../stubs/listings-homepage';
 import realHomesStubData from '../../../../stubs/listings-food-Homes-navigation-Real-Homes';
@@ -10,11 +10,11 @@ const getLatestTeasersStub = sinon.stub();
 
 const entityStubData = {
     id: 'HOMES-123',
-    nodeName: "Kmart nursery furniture",
-    urlName: "kmart-nursery-furniture"
+    nodeName: 'Kmart nursery furniture',
+    urlName: 'kmart-nursery-furniture'
 };
 
-const latestRealHomesStubData = {...realHomesStubData};
+const latestRealHomesStubData = { ...realHomesStubData };
 latestRealHomesStubData.data.splice(4);
 
 const homeFilter = `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`;
@@ -37,16 +37,14 @@ const expectedBody = {
     },
     section: {
         id: 'HOMES-123',
-        name: "Kmart nursery furniture",
-        urlName: "kmart-nursery-furniture"
+        name: 'Kmart nursery furniture',
+        urlName: 'kmart-nursery-furniture'
     }
 };
 
 let heroStubDataWrapper = {
     totalCount: 1,
-    data: [
-        heroStubData
-    ]
+    data: [heroStubData]
 };
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
@@ -54,10 +52,9 @@ const moduleServiceMockUrl = 'http://modulesUrl.com';
 const entityServiceMockUrlForHomepage = `${entityServiceMockUrl}/homepage`;
 const moduleServiceMockUrlForHomepageHero = `${moduleServiceMockUrl}/homepagehero`;
 
-getLatestTeasersStub.returns({data: {}});
+getLatestTeasersStub.returns({ data: {} });
 
-let makeRequestStub = (requestUrl) => {
-
+let makeRequestStub = requestUrl => {
     if (requestUrl.includes(entityServiceMockUrlForHomepage)) {
         return entityStubData;
     } else if (requestUrl.includes(moduleServiceMockUrlForHomepageHero)) {
@@ -98,84 +95,87 @@ describe('home middleware', () => {
         }
     };
     const res = {};
-    const next = ()=>{};
+    const next = () => {};
 
     describe(`when receiving data`, () => {
-
         describe(`and brand query is defined`, () => {
-            before(()=>{
-                req.query = { brand: 'belle'};
+            before(() => {
+                req.query = { brand: 'belle' };
             });
 
-            after(()=>{
+            after(() => {
                 req.query = {};
             });
 
-            it('should not call service urls', (done)=> {
-                homeMiddleware(req, res, next).then(() => {
-                    expect(makeRequestSpy.called).to.be.false;
+            it('should not call service urls', done => {
+                homeMiddleware(req, res, next)
+                    .then(() => {
+                        expect(makeRequestSpy.called).to.be.false;
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
-
         });
 
         describe(`and brand query is not defined`, () => {
             const nextSpy = sinon.spy();
 
-            it('should return all modules in the desired structure', (done)=> {
-                homeMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
-                    done();
-                }).catch(done);
+            it('should return all modules in the desired structure', done => {
+                homeMiddleware(req, res, next)
+                    .then(() => {
+                        expect(res.body).to.deep.equal(expectedBody);
+                        done();
+                    })
+                    .catch(done);
             });
 
-            it('should use the required config values for content service urls for the request', (done)=> {
-
+            it('should use the required config values for content service urls for the request', done => {
                 before(() => {
                     heroStubDataWrapper = {
                         totalCount: 1,
-                        data: [
-                            heroStubData
-                        ]
-                    }
+                        data: [heroStubData]
+                    };
                 });
 
-                homeMiddleware(req, res, next).then(() => {
-                    const entityServiceUrl = `${entityServiceMockUrl}/homepage`;
-                    const heroModuleServiceUrl = `${moduleServiceMockUrl}/homepagehero`;
+                homeMiddleware(req, res, next)
+                    .then(() => {
+                        const entityServiceUrl = `${entityServiceMockUrl}/homepage`;
+                        const heroModuleServiceUrl = `${moduleServiceMockUrl}/homepagehero`;
 
-                    const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
-                    const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
-                    const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
-                    const getLatestTeasersStubSecondCall = getLatestTeasersStub.getCall(1);
+                        const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
+                        const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
+                        const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
+                        const getLatestTeasersStubSecondCall = getLatestTeasersStub.getCall(1);
 
-                    expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
-                    expect(makeRequestSpySecondCall.args[0]).to.equal(heroModuleServiceUrl);
+                        expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
+                        expect(makeRequestSpySecondCall.args[0]).to.equal(heroModuleServiceUrl);
 
-                    expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
-                    expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersStubFirstCall.args[2]).to.equal(homeFilter);
+                        expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
+                        expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersStubFirstCall.args[2]).to.equal(homeFilter);
 
-                    expect(getLatestTeasersStubSecondCall.args[0]).to.equal(4);
-                    expect(getLatestTeasersStubSecondCall.args[1]).to.equal(0);
-                    expect(getLatestTeasersStubSecondCall.args[2]).to.equal(latestRealHomesFilter);
+                        expect(getLatestTeasersStubSecondCall.args[0]).to.equal(4);
+                        expect(getLatestTeasersStubSecondCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersStubSecondCall.args[2]).to.equal(latestRealHomesFilter);
 
-                    done();
-                }).catch(done);
+                        done();
+                    })
+                    .catch(done);
             });
 
             describe(`when module response is empty`, () => {
-                before(()=>{
+                before(() => {
                     heroStubDataWrapper = {};
                 });
 
-                it('should not be an error', (done)=> {
-                    homeMiddleware(req, res, nextSpy).then(() => {
-                        expect(nextSpy.args[0][0]).not.to.be.instanceOf(Error);
-                        done();
-                    }).catch(done);
+                it('should not be an error', done => {
+                    homeMiddleware(req, res, nextSpy)
+                        .then(() => {
+                            expect(nextSpy.args[0][0]).not.to.be.instanceOf(Error);
+                            done();
+                        })
+                        .catch(done);
                 });
             });
 
@@ -184,17 +184,18 @@ describe('home middleware', () => {
                     heroStubDataWrapper = {
                         totalCount: 0,
                         data: []
-                    }
+                    };
                 });
 
-                it('should not throw an error)', (done)=> {
-                    homeMiddleware(req, res, nextSpy).then(() => {
-                        expect(nextSpy.args[0][0]).not.to.be.instanceOf(Error);
-                        done();
-                    }).catch(done);
+                it('should not throw an error)', done => {
+                    homeMiddleware(req, res, nextSpy)
+                        .then(() => {
+                            expect(nextSpy.args[0][0]).not.to.be.instanceOf(Error);
+                            done();
+                        })
+                        .catch(done);
                 });
             });
         });
     });
-
 });

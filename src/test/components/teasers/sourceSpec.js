@@ -1,10 +1,10 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const LinkStub = Context.createStubComponentWithChildren();
 const proxyquire = require('proxyquire').noCallThru();
 const Source = proxyquire('../../../app/components/teaser/source', {
-    'react': React,
+    react: React,
     '../brand/link': LinkStub
 });
 
@@ -21,11 +21,11 @@ describe('TeaserSource', () => {
             reactModule = TestUtils.renderIntoDocument(<Source source={sourceValue} />);
             link = TestUtils.findRenderedComponentWithType(reactModule, LinkStub);
             svg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'icon-source');
-            source  = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'teaser__source');
+            source = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'teaser__source');
         });
 
         it(`should have the source text equal to '${sourceValue}'`, () => {
-            expect(ReactDOM.findDOMNode(source).textContent.replace(/(\n|\s)/g,'')).to.equal(sourceValue);
+            expect(ReactDOM.findDOMNode(source).textContent.replace(/(\n|\s)/g, '')).to.equal(sourceValue);
         });
 
         it('should render the icon', () => {
@@ -42,7 +42,7 @@ describe('TeaserSource', () => {
             const linkSVG = TestUtils.findRenderedDOMComponentWithClass(link, 'icon-source');
 
             expect(linkSVG).to.deep.eq(svg);
-            expect(ReactDOM.findDOMNode(link).textContent.replace(/(\n|\s)/g,'')).to.equal(sourceValue);
+            expect(ReactDOM.findDOMNode(link).textContent.replace(/(\n|\s)/g, '')).to.equal(sourceValue);
         });
     });
 

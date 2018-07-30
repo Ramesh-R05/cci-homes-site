@@ -25,14 +25,14 @@ export default async function navSectionMiddleware(req, res, next) {
         const filter = `tagsDetails/fullName eq '${sectionTag.fullName}'`;
         const heroModuleName = `${navSection.replace(/-/g, '')}hero`;
 
-        const [
-            latestTeasersResp,
-            galleryListingResponse,
-            heroResp
-        ] = await Promise.all([
+        const [latestTeasersResp, galleryListingResponse, heroResp] = await Promise.all([
             getLatestTeasers(itemsCount, skip, filter),
             // eslint-disable-next-line max-len
-            makeRequest(`${req.app.locals.config.services.remote.listings}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`),
+            makeRequest(
+                `${
+                    req.app.locals.config.services.remote.listings
+                }/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${filter}&$orderby=pageDateCreated desc&$top=5`
+            ),
             makeRequest(`${req.app.locals.config.services.remote.module}/${heroModuleName}`)
         ]);
 
@@ -61,10 +61,7 @@ export default async function navSectionMiddleware(req, res, next) {
             list,
             section,
             galleries: parseEntities(galleryListingResponse.data),
-            hero: parseEntity((
-                heroModule
-                && heroModule.moduleManualContent
-                && heroModule.moduleManualContent.data[0]) || {})
+            hero: parseEntity((heroModule && heroModule.moduleManualContent && heroModule.moduleManualContent.data[0]) || {})
         };
 
         next();

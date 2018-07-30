@@ -10,7 +10,7 @@ const StickyAdStub = Context.createStubComponent();
 noCallThru();
 
 const Home = proxyquire('../../../app/components/home/header', {
-    'react': React,
+    react: React,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
 });

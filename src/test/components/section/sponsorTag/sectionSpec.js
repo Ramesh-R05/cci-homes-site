@@ -8,17 +8,17 @@ const proxyquire = require('proxyquire').noCallThru();
 const GenericSectionStub = Context.createStubComponentWithChildren();
 
 const Section = proxyquire('../../../../app/components/section/sponsorTag/section', {
-    'react': React,
+    react: React,
     '../section': GenericSectionStub
 });
 
 const tags = 'title';
 const sponsorsMock = [
     {
-        'Campain': 'test'
+        Campain: 'test'
     },
     {
-        'Campain': 'test2'
+        Campain: 'test2'
     }
 ];
 
@@ -26,7 +26,7 @@ Context.addStore('PageStore', {
     getContent: () => {
         return {
             title: tags
-        }
+        };
     },
 
     getItems: () => sponsorsMock,

@@ -34,12 +34,12 @@ export default class Header extends Component {
             <div className="section__heading">
                 <div className="section__heading__ad">
                     <StickyAd
-                      adProps={stickyAdProps}
-                      minHeight={450}
-                      stickyAtViewPort="xlargeRangeMax"
-                      stickyDelay={2000}
-                      isStickyTemporary
-                      stickyDuration={3500}
+                        adProps={stickyAdProps}
+                        minHeight={450}
+                        stickyAtViewPort="xlargeRangeMax"
+                        stickyDelay={2000}
+                        isStickyTemporary
+                        stickyDuration={3500}
                     />
                 </div>
                 <div className="brand__wrapper">

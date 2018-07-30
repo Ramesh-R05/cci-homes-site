@@ -20,17 +20,17 @@ export default class Rail extends Component {
 
         return (
             <StickyBlock
-              breakpoints={['large', 'xlarge']}
-              containerClasses="section__rail"
-              containerMarginBottom={marginBottom}
-              carriageYPosition={yPosition}
+                breakpoints={['large', 'xlarge']}
+                containerClasses="section__rail"
+                containerMarginBottom={marginBottom}
+                carriageYPosition={yPosition}
             >
                 <Ad
-                  className="ad--section-mrec"
-                  displayFor={['large', 'xlarge']}
-                  sizes={['double-mrec', 'mrec']}
-                  label={{ active: false }}
-                  pageLocation={Ad.pos.aside}
+                    className="ad--section-mrec"
+                    displayFor={['large', 'xlarge']}
+                    sizes={['double-mrec', 'mrec']}
+                    label={{ active: false }}
+                    pageLocation={Ad.pos.aside}
                 />
             </StickyBlock>
         );

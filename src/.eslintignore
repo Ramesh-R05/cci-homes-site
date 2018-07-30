@@ -1,0 +1,6 @@
+dist
+node_modules
+automation/**
+test/**
+coverage/**
+perf/**

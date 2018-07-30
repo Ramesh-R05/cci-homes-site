@@ -1,12 +1,12 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
-import {home as articlesMock} from '../../mock/articles';
-import {items as gogMock} from '../../mock/galleryOfGalleries';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { home as articlesMock } from '../../mock/articles';
+import { items as gogMock } from '../../mock/galleryOfGalleries';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const InlineGalleryStub = Context.createStubComponent();
 const TeaserStub = Context.createStubComponentWithChildren();
@@ -18,14 +18,14 @@ const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const StickyMobileAdStub = Context.createStubComponent();
 
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
-    'react': React,
+    react: React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyAdStub,
     '../repeatable': repeatableStub,
     '../section/list': listStub,
     '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
-    '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
+    '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub
 });
 
 AdStub.pos = {
@@ -38,16 +38,17 @@ AdStub.pos = {
 };
 
 const polarTargetsStub = [
-    [{index: 0},{index:5}],
-    [{
-        index: 5,
-        label: 'section_bottom_feed_1',
-        targets: {kw:'section_bottom_feed_1'}
-    }]
+    [{ index: 0 }, { index: 5 }],
+    [
+        {
+            index: 5,
+            label: 'section_bottom_feed_1',
+            targets: { kw: 'section_bottom_feed_1' }
+        }
+    ]
 ];
 
 describe('SectionFeatured', () => {
-
     afterEach(Context.cleanup);
 
     describe(`with articles`, () => {
@@ -59,12 +60,11 @@ describe('SectionFeatured', () => {
         let stickyMobile;
 
         before(() => {
-
             reactModule = Context.mountComponent(SectionFeatured, {
                 hero: heroMock,
                 articles: articlesMock,
                 polarTargets: polarTargetsStub,
-                content: {nodeType: 'homePage'}
+                content: { nodeType: 'homePage' }
             });
 
             domElements = ReactDOM.findDOMNode(reactModule);
@@ -72,7 +72,7 @@ describe('SectionFeatured', () => {
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             stickies = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
-            stickyMobile = TestUtils.scryRenderedComponentsWithType(reactModule, StickyMobileAdStub)
+            stickyMobile = TestUtils.scryRenderedComponentsWithType(reactModule, StickyMobileAdStub);
         });
 
         const expectedNumTeasers = 8;
@@ -92,7 +92,6 @@ describe('SectionFeatured', () => {
         });
 
         describe(`Top section`, () => {
-
             describe(`Top MREC ad`, () => {
                 it(`should display only single mrec in small and medium sizes`, () => {
                     const expectedSizes = {
@@ -133,7 +132,6 @@ describe('SectionFeatured', () => {
                 };
                 expect(ads[3].props.sizes).to.deep.equal(expectedSizes);
             });
-
         });
 
         describe(`Hero for sm/md viewports`, () => {
@@ -151,7 +149,6 @@ describe('SectionFeatured', () => {
                 expect(teasers[0].props.modifier).to.not.equal(nonExpectedModifier);
             });
         });
-
     });
 
     describe(`without articles`, () => {

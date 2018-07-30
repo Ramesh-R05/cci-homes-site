@@ -1,7 +1,7 @@
-import {Component, PropTypes} from 'react';
-import {betterMockComponentContext} from '@bxm/flux';
-import {entity, articles as articlesMock} from '../../../mock/articles';
-import {items as gogMock} from '../../../mock/galleryOfGalleries';
+import { Component, PropTypes } from 'react';
+import { betterMockComponentContext } from '@bxm/flux';
+import { entity, articles as articlesMock } from '../../../mock/articles';
+import { items as gogMock } from '../../../mock/galleryOfGalleries';
 
 const ComponentContext = betterMockComponentContext();
 const React = ComponentContext.React;
@@ -12,7 +12,7 @@ const GenericSectionStub = ComponentContext.createStubComponentWithChildren();
 const InlineGalleryStub = ComponentContext.createStubComponent();
 
 const Section = proxyquire('../../../../app/components/section/navigationTag/section', {
-    'react': React,
+    react: React,
     '../section': GenericSectionStub,
     '../../inlineGallery/customInlineGallery': InlineGalleryStub
 });
@@ -53,4 +53,3 @@ describe(`NavigationTagSection`, () => {
         expect(genericSection.props.isSideMenuOpen).to.be.false;
     });
 });
-

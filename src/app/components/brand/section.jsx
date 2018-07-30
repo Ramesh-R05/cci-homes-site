@@ -33,9 +33,7 @@ class Section extends Component {
     };
 
     render() {
-        const {
-            hero, articles, content, list, listNextParams, isSideMenuOpen
-        } = this.props;
+        const { hero, articles, content, list, listNextParams, isSideMenuOpen } = this.props;
         const { config } = this.context;
         const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
 
@@ -60,56 +58,43 @@ class Section extends Component {
             <div className={menuSliderClassName}>
                 <div className="brand__body container">
                     <div className="row">
-
-                        <Featured
-                          hero={hero}
-                          articles={slice(articles, 0, 6)}
-                          content={content}
-                          polarTargets={sectionTopFeed}
-                        />
+                        <Featured hero={hero} articles={slice(articles, 0, 6)} content={content} polarTargets={sectionTopFeed} />
                     </div>
                 </div>
 
                 <div className="row-fullwidth brand__body--fullwidth-ad">
                     <Ad
-                      className="ad--section-middle-leaderboard"
-                      sizes={{
-                          small: 'banner',
-                          leaderboard: 'leaderboard',
-                          billboard: ['billboard', 'leaderboard']
-                      }}
-                      label={{ active: false }}
-                      pageLocation={Ad.pos.outside}
+                        className="ad--section-middle-leaderboard"
+                        sizes={{
+                            small: 'banner',
+                            leaderboard: 'leaderboard',
+                            billboard: ['billboard', 'leaderboard']
+                        }}
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.outside}
                     />
                 </div>
 
                 <div className="brand__body brand__body--bottom">
                     <Repeatable
-                      component={List}
-                      action={loadList}
-                      dataSource={list}
-                      nextParams={listNextParams}
-                      className="news-feed bottom-news-feed"
-                      adTargets={{ position: 2 }}
-                      content={content}
-                      polarTargets={sectionBottomFeed}
+                        component={List}
+                        action={loadList}
+                        dataSource={list}
+                        nextParams={listNextParams}
+                        className="news-feed bottom-news-feed"
+                        adTargets={{ position: 2 }}
+                        content={content}
+                        polarTargets={sectionBottomFeed}
                     />
                 </div>
 
-                <StickyAd
-                  adProps={stickyAdProps}
-                  minHeight={450}
-                  stickyAtViewPort="mediumRangeMax"
-                  stickyDelay={5500}
-                />
-
+                <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
             </div>
         );
     }
 }
 
-
-export default connectToStores(Section, ['PageStore'], (context) => {
+export default connectToStores(Section, ['PageStore'], context => {
     const { getStore } = context;
     const pageStore = getStore('PageStore');
 

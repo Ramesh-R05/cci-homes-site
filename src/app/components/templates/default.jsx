@@ -58,38 +58,26 @@ class DefaultTemplate extends Component {
 
         return (
             <div className="default-template">
+                {content && content.url === '/' ? <Uniheader /> : null}
 
-                { content && content.url === '/' ? <Uniheader /> : null }
-
-                <SiteHeader
-                  isSideMenuOpen={isSideMenuOpen}
-                  navItems={headerNavItems}
-                />
+                <SiteHeader isSideMenuOpen={isSideMenuOpen} navItems={headerNavItems} />
 
                 <SideMenu open={isSideMenuOpen} navItems={headerNavItems} />
 
-                { ContentHeaderHandler
-                    ? (
-                        <ContentHeaderHandler
-                          {...this.props}
-                          title={contentHeaderTitle}
-                          logo={brandConfig.logo}
-                          sponsorName={content.sponsor || 'homes_sponsor'}
-                        />
-)
-                    : null
-                }
+                {ContentHeaderHandler ? (
+                    <ContentHeaderHandler
+                        {...this.props}
+                        title={contentHeaderTitle}
+                        logo={brandConfig.logo}
+                        sponsorName={content.sponsor || 'homes_sponsor'}
+                    />
+                ) : null}
 
                 <AdsWrapper>
-                    <ContentHandler
-                      brandConfig={brandConfig}
-                      content={content}
-                      isSideMenuOpen={isSideMenuOpen}
-                    />
+                    <ContentHandler brandConfig={brandConfig} content={content} isSideMenuOpen={isSideMenuOpen} />
                 </AdsWrapper>
 
                 <SiteFooter />
-
             </div>
         );
     }
@@ -110,55 +98,53 @@ class DefaultTemplate extends Component {
         }
 
         switch (content.nodeType.toLowerCase()) {
-        case 'homepage':
-            return {
-                ContentHeaderHandler: HomeHeader,
-                ContentHandler: HomePage
-            };
-        case 'homesarticle':
-            return {
-                ContentHeaderHandler: HomeHeader,
-                ContentHandler: Article
-            };
-        case 'navigationsection':
-            return {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: NavSection
-            };
-        case 'tagsection':
-            return {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: Tag
-            };
-        case 'brandsection':
-            return {
-                ContentHeaderHandler: BrandHeader,
-                ContentHandler: Brand
-            };
-        case 'campaign':
-            return {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: Campaign
-            };
-        case 'gallery':
-            return {
-                ContentHeaderHandler: HomeHeader,
-                ContentHandler: Article
-            };
-        default:
-            this.context.executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
-            return {
-                ContentHandler: ErrorHandlerBuilder(500)
-            };
+            case 'homepage':
+                return {
+                    ContentHeaderHandler: HomeHeader,
+                    ContentHandler: HomePage
+                };
+            case 'homesarticle':
+                return {
+                    ContentHeaderHandler: HomeHeader,
+                    ContentHandler: Article
+                };
+            case 'navigationsection':
+                return {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: NavSection
+                };
+            case 'tagsection':
+                return {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: Tag
+                };
+            case 'brandsection':
+                return {
+                    ContentHeaderHandler: BrandHeader,
+                    ContentHandler: Brand
+                };
+            case 'campaign':
+                return {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: Campaign
+                };
+            case 'gallery':
+                return {
+                    ContentHeaderHandler: HomeHeader,
+                    ContentHandler: Article
+                };
+            default:
+                this.context.executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
+                return {
+                    ContentHandler: ErrorHandlerBuilder(500)
+                };
         }
     }
 }
 
 export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], context => ({
-
     content: context.getStore('PageStore').getContent(),
     contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
     isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
     headerNavItems: context.getStore('PageStore').getHeaderItems()
-
 }));

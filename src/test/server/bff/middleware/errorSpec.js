@@ -16,10 +16,12 @@ describe('Error middleware', () => {
     describe('when an unhandled exception occurs', () => {
         let err = {};
         let res = {};
-        let req = { };
+        let req = {};
         let statusStub;
         let jsonStub;
-        res.status = () => { return {json: () => {}}};
+        res.status = () => {
+            return { json: () => {} };
+        };
 
         before(() => {
             err = {
@@ -39,7 +41,7 @@ describe('Error middleware', () => {
         });
 
         it('should set response status to 404', () => {
-            const err404 = {...err};
+            const err404 = { ...err };
             err404.status = 404;
 
             errorMiddleware(err404, req, res, next);

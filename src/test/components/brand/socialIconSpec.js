@@ -1,26 +1,24 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const SocialIcon = proxyquire('../../../app/components/brand/socialIcon', {
-    'react': React
+    react: React
 });
 
 describe('Brand SocialIcon', () => {
     let reactModule;
     let link;
     let svg;
-    let name = "facebook";
+    let name = 'facebook';
     const url = 'http://link.com';
 
     describe('with name prop equal to facebook and a url prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name={name} url={url} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon name={name} url={url} />);
             link = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'a');
             svg = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'svg');
         });
@@ -41,9 +39,7 @@ describe('Brand SocialIcon', () => {
     describe('with name prop equal to twitter and a url prop', () => {
         before(() => {
             name = 'twitter';
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name={name} url={url}/>
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon name={name} url={url} />);
             svg = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'svg');
         });
 
@@ -59,9 +55,7 @@ describe('Brand SocialIcon', () => {
     describe('with name prop equal to instagram and a url prop', () => {
         before(() => {
             name = 'instagram';
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name={name} url={url}/>
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon name={name} url={url} />);
             svg = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'svg');
         });
 
@@ -77,9 +71,7 @@ describe('Brand SocialIcon', () => {
     describe('with name prop equal to pinterest and a url prop', () => {
         before(() => {
             name = 'pinterest';
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name={name} url={url}/>
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon name={name} url={url} />);
             svg = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'svg');
         });
 
@@ -95,9 +87,7 @@ describe('Brand SocialIcon', () => {
     describe('with name prop equal to random and a url prop', () => {
         before(() => {
             name = 'random';
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name={name} url={url}/>
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon name={name} url={url} />);
         });
 
         it(`should render the component`, () => {
@@ -107,9 +97,7 @@ describe('Brand SocialIcon', () => {
 
     describe('without the name prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon url={url}/>
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon url={url} />);
         });
 
         it(`should render the component`, () => {
@@ -119,14 +107,11 @@ describe('Brand SocialIcon', () => {
 
     describe('without the url prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name="facebook"/>
-            );
+            reactModule = TestUtils.renderIntoDocument(<SocialIcon name="facebook" />);
         });
 
         it(`should render the component`, () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
         });
     });
-
 });

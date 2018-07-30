@@ -1,11 +1,11 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import brandsMock from '../../mock/brands';
-import {localeData} from '../../mock/config';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { localeData } from '../../mock/config';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const config = {
     get: () => {}
 };
@@ -16,9 +16,9 @@ const FooterNavigationStub = Context.createStubComponentWithChildren();
 const BackToTopStub = Context.createStubComponent();
 
 const Footer = proxyquire('../../../app/components/footer/footer', {
-    'react': React,
+    react: React,
     '../social/socialContainer': FooterSocialContainerStub,
-    "./footerBrandLinks": FooterBrandLinksStub,
+    './footerBrandLinks': FooterBrandLinksStub,
     './footerNavigation': FooterNavigationStub,
     '@bxm/ui/lib/back-to-top/backToTop': BackToTopStub
 });
@@ -43,11 +43,11 @@ describe(`Footer`, () => {
         }
     };
 
-    before( () => {
+    before(() => {
         data = sinon.stub(config, 'get').returns(localeData);
     });
 
-    after( () => {
+    after(() => {
         data.restore();
     });
 
@@ -87,10 +87,14 @@ describe(`Footer`, () => {
         let footer;
 
         before(() => {
-            reactModule = Context.mountComponent(Footer, {
-                config: localeData,
-                modifier: modifier
-            }, [contextConfigStub]);
+            reactModule = Context.mountComponent(
+                Footer,
+                {
+                    config: localeData,
+                    modifier: modifier
+                },
+                [contextConfigStub]
+            );
             footer = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'footer');
         });
 

@@ -63,16 +63,16 @@ export default class Page extends Component {
             return (
                 <div className="content-wrapper">
                     <VerticalGallery
-                      {...this.props}
-                      enableTeads
-                      articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'Hero', Ad]}
-                      contentBodyConfig={Page.articleContentBodyConfig}
-                      authorTranslationMap={Page.translationMap}
-                      showFeedOnRight
-                      showAdBeforeRecommendations
-                      adSpacing={6}
-                      footerMetaClass={Source}
-                      footerComponentClass={null}
+                        {...this.props}
+                        enableTeads
+                        articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'Hero', Ad]}
+                        contentBodyConfig={Page.articleContentBodyConfig}
+                        authorTranslationMap={Page.translationMap}
+                        showFeedOnRight
+                        showAdBeforeRecommendations
+                        adSpacing={6}
+                        footerMetaClass={Source}
+                        footerComponentClass={null}
                     />
                 </div>
             );
@@ -81,16 +81,16 @@ export default class Page extends Component {
         return (
             <div className="content-wrapper">
                 <Article
-                  {...this.props}
-                  enableTeads
-                  articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'Hero', Ad]}
-                  contentBodyConfig={Page.articleContentBodyConfig}
-                  authorTranslationMap={Page.translationMap}
-                  showFeedOnRight
-                  showAdBeforeRecommendations
-                  adSpacing={6}
-                  footerMetaClass={Source}
-                  footerComponentClass={null}
+                    {...this.props}
+                    enableTeads
+                    articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'Hero', Ad]}
+                    contentBodyConfig={Page.articleContentBodyConfig}
+                    authorTranslationMap={Page.translationMap}
+                    showFeedOnRight
+                    showAdBeforeRecommendations
+                    adSpacing={6}
+                    footerMetaClass={Source}
+                    footerComponentClass={null}
                 />
             </div>
         );

@@ -1,8 +1,8 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import proxyquire, {noCallThru} from 'proxyquire';
+import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const ArticleStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 const SourceStub = Context.createStubComponent();
@@ -10,7 +10,7 @@ const AdStub = Context.createStubComponent();
 const GalleryStub = Context.createStubComponent();
 
 const ArticlePage = proxyquire('../../../app/components/article/page', {
-    'react': React,
+    react: React,
     './section': ArticleStub,
     './footer': FooterStub,
     './source': SourceStub,
@@ -26,14 +26,13 @@ describe('ArticlePage', () => {
             source: 'test',
             tagsDetails: [
                 {
-                    displayName : "Interiors",
-                    fullName : "food_Homes_navigation_Interiors",
-                    name : "food:Homes navigation:Interiors",
-                    urlName : "interiors"
+                    displayName: 'Interiors',
+                    fullName: 'food_Homes_navigation_Interiors',
+                    name: 'food:Homes navigation:Interiors',
+                    urlName: 'interiors'
                 }
             ]
         }
-
     };
 
     let reactModule;

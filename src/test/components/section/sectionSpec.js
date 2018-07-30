@@ -1,10 +1,10 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {entity, articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { entity, articles as articlesMock } from '../../mock/articles';
 import exposeProps from '../../test-util/exposeProps';
 import cloneDeep from 'lodash/lang/cloneDeep';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const RepeatableStub = Context.createStubComponent();
@@ -16,13 +16,13 @@ const NavigationTagListStub = Context.createStubComponent();
 const StickyMobileAdStub = Context.createStubComponent();
 
 const Section = proxyquire('../../../app/components/section/section', {
-    'react': React,
-	'../repeatable': RepeatableStub,
-	'./featured': NavigationTagFeaturedStub,
-	'./rail': NavigationTagRailStub,
-	'./list': NavigationTagListStub,
+    react: React,
+    '../repeatable': RepeatableStub,
+    './featured': NavigationTagFeaturedStub,
+    './rail': NavigationTagRailStub,
+    './list': NavigationTagListStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
+    '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub
 });
 
 AdStub.pos = {
@@ -48,14 +48,14 @@ const contextConfigStub = {
                     {
                         index: 0,
                         label: 'section_top_feed_1',
-                        targets: {kw:'section_top_feed_1'}
+                        targets: { kw: 'section_top_feed_1' }
                     }
                 ],
                 sectionBottomFeed: [
                     {
                         index: 1,
                         label: 'section_bottom_feed_1',
-                        targets: {kw:'section_bottom_feed_1'}
+                        targets: { kw: 'section_bottom_feed_1' }
                     }
                 ]
             }
@@ -68,11 +68,9 @@ const defaultProps = {
     content: {
         nodeType: 'Homepage',
         id: 'HOMES-1158',
-        tagsDetails: [
-            { displayName: 'Section Heading with Tags Details' }
-        ]
+        tagsDetails: [{ displayName: 'Section Heading with Tags Details' }]
     },
-    isSideMenuOpen: false,
+    isSideMenuOpen: false
 };
 
 let customProps;
@@ -98,19 +96,19 @@ describe(`Section`, () => {
                             {
                                 index: 0,
                                 label: 'section_top_feed_1',
-                                targets: {kw:'section_top_feed_1'}
+                                targets: { kw: 'section_top_feed_1' }
                             }
                         ],
                         sectionBottomFeed: [
                             {
                                 index: 1,
                                 label: 'section_bottom_feed_1',
-                                targets: {kw:'section_bottom_feed_1'}
+                                targets: { kw: 'section_bottom_feed_1' }
                             }
                         ]
                     }
                 }
-            },
+            }
         };
         let section;
         let ads;
@@ -124,7 +122,6 @@ describe(`Section`, () => {
         it(`should render the Section component on the page`, () => {
             expect(ReactDOM.findDOMNode(section)).to.exist;
         });
-
 
         describe(`Number of AdStubs`, () => {
             const numberOfAds = 1;
@@ -140,15 +137,14 @@ describe(`Section`, () => {
             });
 
             const expectedSizes = {
-				small: 'banner',
-				leaderboard: 'leaderboard',
-				billboard: ['billboard', 'leaderboard']
-			};
+                small: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard']
+            };
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
                 expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
             });
         });
-
     });
 
     describe(`with the side menu closed`, () => {
@@ -156,13 +152,13 @@ describe(`Section`, () => {
             reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
         });
 
-        const expectedClassName = "side-menu-slider";
+        const expectedClassName = 'side-menu-slider';
         it(`should have class name "${expectedClassName}"`, () => {
             const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedClassName);
             expect(section).to.have.length(1);
         });
 
-        const expectedOpenClassName = "side-menu-slider--side-menu-open";
+        const expectedOpenClassName = 'side-menu-slider--side-menu-open';
         it(`should default to closed state`, () => {
             const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedOpenClassName);
             expect(section).to.have.length(0);
@@ -175,11 +171,10 @@ describe(`Section`, () => {
             reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
         });
 
-        const expectedOpenClassName = "side-menu-slider--side-menu-open";
+        const expectedOpenClassName = 'side-menu-slider--side-menu-open';
         it(`should open when isSideMenuOpen is true`, () => {
             const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedOpenClassName);
             expect(section).to.have.length(1);
         });
     });
-
 });

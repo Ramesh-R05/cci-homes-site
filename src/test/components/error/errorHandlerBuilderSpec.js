@@ -1,11 +1,11 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
 const ErrorHandlerBuilder = proxyquire('../../../app/components/error/errorHandlerBuilder', {
-    'react': React,
+    react: React
 });
 
 describe('ErrorHandlerBuilder', () => {
@@ -33,16 +33,14 @@ describe('ErrorHandlerBuilder', () => {
         });
 
         it('contains the 500 page error title', () => {
-            expect(ReactDOM.findDOMNode(title).textContent)
-                .to.eq(`Oh no! Something has gone wrong.`)
+            expect(ReactDOM.findDOMNode(title).textContent).to.eq(`Oh no! Something has gone wrong.`);
         });
 
         it('contains the 500 page body items', () => {
-            expect(bodyItems.map(i => ReactDOM.findDOMNode(i).textContent))
-                .to.deep.eq([
-                    `It seems the page you were trying to view is temporarily unavailable.`,
-                    `Please try again shortly.`
-                ]);
+            expect(bodyItems.map(i => ReactDOM.findDOMNode(i).textContent)).to.deep.eq([
+                `It seems the page you were trying to view is temporarily unavailable.`,
+                `Please try again shortly.`
+            ]);
         });
 
         it('links to the home page', () => {
@@ -59,15 +57,11 @@ describe('ErrorHandlerBuilder', () => {
         });
 
         it('contains the 500 page error title', () => {
-            expect(ReactDOM.findDOMNode(title).textContent)
-                .to.eq(`Oops! We're sorry!`)
+            expect(ReactDOM.findDOMNode(title).textContent).to.eq(`Oops! We're sorry!`);
         });
 
         it('contains the 500 page body items', () => {
-            expect(bodyItems.map(i => ReactDOM.findDOMNode(i).textContent))
-                .to.deep.eq([
-                    `We could not find the page you were looking for.`
-                ]);
+            expect(bodyItems.map(i => ReactDOM.findDOMNode(i).textContent)).to.deep.eq([`We could not find the page you were looking for.`]);
         });
 
         it('links to the home page', () => {

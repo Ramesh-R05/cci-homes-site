@@ -27,23 +27,12 @@ export default class SocialIcons extends Component {
 
         const src = `/assets/icons/social/${name}.svg`;
         const image = <img src={src} alt="" />;
-        const inlineSvg = (
-            <InlineSVG src={src}>
-                { image }
-            </InlineSVG>
-        );
+        const inlineSvg = <InlineSVG src={src}>{image}</InlineSVG>;
 
         return (
             <span className={`social-link social-link--${name}`}>
-                <a
-                  href={url}
-                  className={gtmClass}
-                  target="_blank"
-                  onClick={this.fireEvent}
-                >
-                    <span className="social-link__icon">
-                        { canUseDOM ? inlineSvg : image }
-                    </span>
+                <a href={url} className={gtmClass} target="_blank" onClick={this.fireEvent}>
+                    <span className="social-link__icon">{canUseDOM ? inlineSvg : image}</span>
                 </a>
             </span>
         );

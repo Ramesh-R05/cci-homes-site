@@ -1,12 +1,12 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
-import {entity, articles as articlesMock} from '../../mock/articles';
+import { entity, articles as articlesMock } from '../../mock/articles';
 import exposeProps from '../../test-util/exposeProps';
 import clone from 'lodash/lang/clone';
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const FeaturedStub = Context.createStubComponent();
 const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
@@ -27,20 +27,20 @@ const contextConfigStub = {
     key: 'config',
     type: '',
     value: {
-        polar : {
+        polar: {
             details: {
                 sectionTopFeed: [
                     {
                         index: 0,
                         label: 'section_top_feed_1',
-                        targets: {kw:'section_top_feed_1'}
+                        targets: { kw: 'section_top_feed_1' }
                     }
                 ],
                 sectionBottomFeed: [
                     {
                         index: 1,
                         label: 'section_bottom_feed_1',
-                        targets: {kw:'section_bottom_feed_1'}
+                        targets: { kw: 'section_bottom_feed_1' }
                     }
                 ]
             }
@@ -49,13 +49,13 @@ const contextConfigStub = {
 };
 
 const Section = proxyquire('../../../app/components/brand/section', {
-    'react': React,
+    react: React,
     './featured': FeaturedStub,
     '../repeatable': repeatableStub,
     '../section/list': listStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/behaviour/lib/components/sticky': StickyStub,
-    '@bxm/ad/lib/google/components/stickyAd' : StickyMobileAdStub
+    '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub
 });
 
 let brandHeroStore = heroMock;
@@ -84,14 +84,14 @@ describe(`Brand Section`, () => {
     const sectionBrandsConfigStub = {
         belle: {
             subscribe: {
-                "image": "/assets/images/brand-pages/subscribe/belle.jpg",
-                "link": "https://www.magshop.com.au/store/homestolove"
+                image: '/assets/images/brand-pages/subscribe/belle.jpg',
+                link: 'https://www.magshop.com.au/store/homestolove'
             },
-            logo: "/assets/svgs/belle.svg",
+            logo: '/assets/svgs/belle.svg',
             social: {
-                "facebook": "https://www.facebook.com/BelleMagazineAu",
-                "twitter": "https://twitter.com/BelleMagazineAu",
-                "instagram": "https://instagram.com/bellemagazineau/?hl=en"
+                facebook: 'https://www.facebook.com/BelleMagazineAu',
+                twitter: 'https://twitter.com/BelleMagazineAu',
+                instagram: 'https://instagram.com/bellemagazineau/?hl=en'
             }
         }
     };
@@ -145,9 +145,7 @@ describe(`Brand Section`, () => {
                 };
                 expect(ads[0].props.sizes).to.deep.equal(size);
             });
-
         });
-
     });
 
     describe(`side menu behavior`, () => {

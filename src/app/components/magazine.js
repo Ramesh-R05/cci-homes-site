@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 
-const Magazine = (props) => {
+const Magazine = props => {
     const { content } = props;
     const imageSrc = imageResize.url({
         url: content.imageUrl,

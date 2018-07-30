@@ -41,19 +41,19 @@ export default class SearchBar extends Component {
                 <div className="search-bar--input">
                     <form onSubmit={this.handleSubmit}>
                         <input
-                          type="text"
-                          name="searchTerm"
-                          placeholder="Search..."
-                          value={this.state.searchTerm}
-                          onChange={this.handleInputChange}
+                            type="text"
+                            name="searchTerm"
+                            placeholder="Search..."
+                            value={this.state.searchTerm}
+                            onChange={this.handleInputChange}
                         />
                         <input
-                          type="image"
-                          name="submit"
-                          className="search-bar--submit"
-                          src="/assets/images/search-btn.png"
-                          alt="Search"
-                          onClick={this.handleSubmit}
+                            type="image"
+                            name="submit"
+                            className="search-bar--submit"
+                            src="/assets/images/search-btn.png"
+                            alt="Search"
+                            onClick={this.handleSubmit}
                         />
                     </form>
                 </div>

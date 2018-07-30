@@ -29,9 +29,7 @@ export default class Header extends Component {
         if (!splitTitle || words.length === 1) {
             htmlHeading = (
                 <h1>
-                    <b>
-                        {title}
-                    </b>
+                    <b>{title}</b>
                 </h1>
             );
         } else {
@@ -40,19 +38,9 @@ export default class Header extends Component {
                     {words.map((word, i) => {
                         const key = `heading-word-${i}`;
                         if (i % 2 === 0) {
-                            return (
-                                <span key={key}>
-                                    {word}
-                                </span>
-);
+                            return <span key={key}>{word}</span>;
                         }
-                        return (
-                            <b key={key}>
-                                {' '}
-                                {word}
-                                {' '}
-                            </b>
-);
+                        return <b key={key}> {word} </b>;
                     })}
                 </h1>
             );
@@ -72,36 +60,26 @@ export default class Header extends Component {
 
         return (
             <div className="section__heading">
-
                 <div className="section__heading__ad">
                     <StickyAd
-                      adProps={stickyAdProps}
-                      minHeight={450}
-                      stickyAtViewPort="xlargeRangeMax"
-                      stickyDelay={2000}
-                      isStickyTemporary
-                      stickyDuration={3500}
+                        adProps={stickyAdProps}
+                        minHeight={450}
+                        stickyAtViewPort="xlargeRangeMax"
+                        stickyDelay={2000}
+                        isStickyTemporary
+                        stickyDuration={3500}
                     />
                 </div>
 
                 <div className="section__heading__title">
-                    {
-                        !sponsorName ? htmlHeading
-                        : (
-                            <SponsorHeader
-                              id={this.props.sponsorName}
-                              title={(
-                                  <b>
-                                      {title}
-                                  </b>
-)}
-                            >
-                                {htmlHeading}
-                            </SponsorHeader>
-)
-                    }
+                    {!sponsorName ? (
+                        htmlHeading
+                    ) : (
+                        <SponsorHeader id={this.props.sponsorName} title={<b>{title}</b>}>
+                            {htmlHeading}
+                        </SponsorHeader>
+                    )}
                 </div>
-
             </div>
         );
     }

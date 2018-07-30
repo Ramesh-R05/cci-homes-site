@@ -1,13 +1,13 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import {articles as articlesMock} from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
+import { articles as articlesMock } from '../../mock/articles';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const TeaserStub = Context.createStubComponentWithChildren();
 const SectionHero = proxyquire('../../../app/components/section/hero', {
-    'react': React,
+    react: React,
     '../teaser/teaser': TeaserStub
 });
 
@@ -33,16 +33,13 @@ describe('GroupHero', () => {
             expect(teasers[0].props.lazyload).to.equal(false);
             expect(teasers[1].props.lazyload).to.equal(undefined);
         });
-
     });
 
     describe('with only firstHero defined', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <SectionHero firstHero={articlesMock.slice(0, 1)[0]} />
-            );
+            reactModule = TestUtils.renderIntoDocument(<SectionHero firstHero={articlesMock.slice(0, 1)[0]} />);
         });
 
         it(`should render`, () => {
@@ -54,14 +51,11 @@ describe('GroupHero', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(
-                <SectionHero />
-            );
+            reactModule = TestUtils.renderIntoDocument(<SectionHero />);
         });
 
         it(`should not render`, () => {
             expect(ReactDOM.findDOMNode(reactModule)).not.to.exist;
         });
     });
-
 });

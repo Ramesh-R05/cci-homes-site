@@ -1,8 +1,8 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 import Button from '../../../app/components/buttons/button';
-import {buttonMock1, buttonMock2} from '../../mock/button';
+import { buttonMock1, buttonMock2 } from '../../mock/button';
 
 describe('Button', () => {
     let reactModule;
@@ -38,14 +38,12 @@ describe('Button', () => {
         });
 
         it(`should have the default class equal to '${defaultClass}'`, () => {
-            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, defaultClass).length)
-                .to.equal(1);
+            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, defaultClass).length).to.equal(1);
         });
 
         const modifierClass = `${defaultClass}--${props.modifier}`;
         it(`should have the modifier class equal to ${modifierClass}`, () => {
-            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, modifierClass).length)
-                .to.equal(1);
+            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, modifierClass).length).to.equal(1);
         });
 
         it('should not be disabled', () => {
@@ -70,8 +68,7 @@ describe('Button', () => {
         });
 
         it(`should have the ${activeClass} class after clicking on it`, () => {
-            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, activeClass).length)
-                .to.equal(1);
+            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, activeClass).length).to.equal(1);
         });
 
         it(`should persist the state after clicking on it`, () => {
@@ -99,8 +96,7 @@ describe('Button', () => {
 
         it(`should not have the ${activeClass} class after clicking on it`, () => {
             TestUtils.Simulate.click(button);
-            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, activeClass).length)
-                .to.equal(0);
+            expect(TestUtils.scryRenderedDOMComponentsWithClass(reactModule, activeClass).length).to.equal(0);
         });
 
         it(`should not persist the state after clicking on it`, () => {
@@ -119,7 +115,5 @@ describe('Button', () => {
         it('should be disabled', () => {
             expect(ReactDOM.findDOMNode(button).disabled).to.be.true;
         });
-
     });
-
 });
