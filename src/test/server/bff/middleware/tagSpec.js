@@ -99,8 +99,12 @@ describe('tag section middleware', () => {
 
         describe(`and tag section query is defined`, () => {
 
-            beforeEach(()=> {
-                parseEntitiesStub.reset();
+            it('should return all modules in the desired structure', (done)=> {
+
+                tagSectionMiddleware(req, res, next).then(() => {
+                    expect(res.body).to.deep.equal(expectedBody);
+                    done();
+                }).catch(done);
             });
 
             it('should use the required config values for content service urls for the request', (done)=> {
@@ -115,14 +119,6 @@ describe('tag section middleware', () => {
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
                     expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(tagFilter);
 
-                    done();
-                }).catch(done);
-            });
-
-            it('should return all modules in the desired structure', (done)=> {
-
-                tagSectionMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
                     done();
                 }).catch(done);
             });

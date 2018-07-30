@@ -2,10 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import SocialLinks from './socialLinks';
 
 export default class SocialContainer extends Component {
-
     static displayName = 'Social';
 
-    static PropTypes = {
+    static propTypes = {
         socialUrls: PropTypes.object,
         title: PropTypes.string,
         gtmClass: PropTypes.string,
@@ -20,12 +19,15 @@ export default class SocialContainer extends Component {
             pinterest: 'https://www.pinterest.com/homestoloveau'
         },
         title: 'Homes To Love',
-        gtmClass: 'gtm-follow-homepage'
+        gtmClass: 'gtm-follow-homepage',
+        nodeType: null
     };
 
     render() {
-        const { facebook, twitter, instagram, pinterest } = this.props.socialUrls;
-        const { nodeType, title } = this.props;
+        const { nodeType, title, socialUrls } = this.props;
+        const {
+            facebook, twitter, instagram, pinterest
+        } = socialUrls;
         const links = [
             {
                 name: 'facebook',

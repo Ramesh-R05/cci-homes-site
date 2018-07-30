@@ -3,14 +3,13 @@ import { connectToStores } from '@bxm/flux';
 import GenericSection from '../section';
 
 class Section extends Component {
-
     static displayName = 'TagSection';
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         content: PropTypes.object.isRequired,
         isSideMenuOpen: PropTypes.bool,
-        navigationTags: PropTypes.array.isRequired
+        navigationTags: PropTypes.array
     };
 
     static defaultProps = {
@@ -18,10 +17,6 @@ class Section extends Component {
         isSideMenuOpen: false,
         navigationTags: []
     };
-
-    constructor() {
-        super();
-    }
 
     render() {
         return (
@@ -33,7 +28,8 @@ class Section extends Component {
 }
 
 export default connectToStores(Section, ['PageStore'], (context) => {
-    const pageStore = context.getStore('PageStore');
+    const { getStore } = context;
+    const pageStore = getStore('PageStore');
 
     return {
         content: pageStore.getContent(),

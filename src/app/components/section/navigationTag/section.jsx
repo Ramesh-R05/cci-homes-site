@@ -1,14 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
-import CustomInlineGallery from '../../inlineGallery/customInlineGallery';
 import GenericSection from '../section';
 
 class Section extends Component {
-
     static displayName = 'NavigationTagSection';
 
     static propTypes = {
-        articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+        articles: PropTypes.arrayOf(PropTypes.object),
         content: PropTypes.object.isRequired,
         galleries: PropTypes.array,
         isSideMenuOpen: PropTypes.bool,
@@ -21,10 +19,6 @@ class Section extends Component {
         isSideMenuOpen: false,
         hero: {}
     };
-
-    constructor() {
-        super();
-    }
 
     render() {
         return (

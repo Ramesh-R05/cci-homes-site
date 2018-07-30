@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import Teaser from '../teaser/teaser';
 import size from 'lodash/collection/size';
+import Teaser from '../teaser/teaser';
 
 export default class SectionHero extends Component {
+    static displayName = 'SectionHero';
 
     static propTypes = {
-        firstHero: PropTypes.object.isRequired,
-        secondHero: PropTypes.object.isRequired
+        firstHero: PropTypes.object,
+        secondHero: PropTypes.object
     };
 
     static defaultProps = {

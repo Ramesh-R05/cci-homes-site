@@ -6,7 +6,6 @@ import React, { Component, PropTypes } from 'react';
 import noop from 'lodash/utility/noop';
 
 export default class Input extends Component {
-
     static propTypes = {
         checked: PropTypes.bool,
         children: PropTypes.any,
@@ -20,22 +19,23 @@ export default class Input extends Component {
     static defaultProps = {
         checked: false,
         type: 'checkbox',
-        onChange: noop
+        onChange: noop,
+        children: []
     };
 
-    constructor(props) {
-        super(props);
-    }
-
-    onChange() {
-        this.props.onChange(this.props.value);
-    }
+    onChange = () => {
+        const { value, onChange } = this.props;
+        onChange(value);
+    };
 
     render() {
-        const { checked, id, name, value } = this.props;
+        const {
+            checked, id, name, value, type, children
+        } = this.props;
 
         if (!id || !name || !value) return null;
 
+        /* eslint-disable jsx-a11y/label-has-for */
         return (
             <span>
                 <input
@@ -44,12 +44,12 @@ export default class Input extends Component {
                   id={id}
                   key={id}
                   name={name}
-                  onChange={this.onChange.bind(this)}
-                  type={this.props.type}
+                  onChange={this.onChange}
+                  type={type}
                   value={value}
                 />
-                <label htmlFor={this.props.id}>
-                    {this.props.children}
+                <label htmlFor={id}>
+                    {children}
                 </label>
             </span>
         );

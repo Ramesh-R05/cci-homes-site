@@ -3,6 +3,7 @@ import noop from 'lodash/utility/noop';
 import classnames from 'classnames';
 
 export default class Button extends Component {
+    static displayName = 'Button';
 
     static propTypes = {
         active: PropTypes.bool,
@@ -21,7 +22,9 @@ export default class Button extends Component {
         onClick: noop,
         persistActiveState: false,
         type: 'button',
-        value: ''
+        value: '',
+        children: [],
+        modifier: null
     };
 
     constructor(props) {
@@ -29,30 +32,37 @@ export default class Button extends Component {
         this.state = { active: props.active };
     }
 
-    onClick(e) {
-        const newState = !this.state.active;
-        if (this.props.persistActiveState) {
+    onClick = (e) => {
+        const { persistActiveState, value, onClick } = this.props;
+        const { active } = this.state;
+        const newState = !active;
+
+        if (persistActiveState) {
             this.setState({ active: newState });
         }
 
-        this.props.onClick(e, this.props.value, newState);
-    }
+        onClick(e, value, newState);
+    };
 
     render() {
-        const { modifier } = this.props;
+        const {
+            modifier, disabled, type, value, children
+        } = this.props;
+        const { active } = this.state;
         let classNameModifier;
+
         if (modifier) classNameModifier = `button--${modifier}`;
-        const classNames = classnames('button', classNameModifier, { active: this.state.active });
+        const classNames = classnames('button', classNameModifier, { active });
 
         return (
             <button
               className={classNames}
-              disabled={this.props.disabled}
-              onClick={this.onClick.bind(this)}
-              type={this.props.type}
-              value={this.props.value}
+              disabled={disabled}
+              onClick={this.onClick}
+              type={type}
+              value={value}
             >
-                {this.props.children}
+                {children}
             </button>
         );
     }

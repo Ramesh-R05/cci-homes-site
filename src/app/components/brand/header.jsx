@@ -3,10 +3,15 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 export default class Header extends Component {
+    static displayName = 'Header';
 
     static propTypes = {
         title: PropTypes.string,
         logo: PropTypes.string.isRequired
+    };
+
+    static defaultProps = {
+        title: ''
     };
 
     render() {

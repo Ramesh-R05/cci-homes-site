@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 import SocialContainer from '../social/socialContainer';
 import FooterBrandLinks from './footerBrandLinks';
 import FooterNavigation from './footerNavigation';
-import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 
 export default class FooterSection extends Component {
-
     static displayName = 'FooterSection';
 
     static propTypes = {
@@ -34,14 +33,19 @@ export default class FooterSection extends Component {
                         <SocialContainer gtmClass="gtm-footer-social" />
                     </div>
                     <div className="footer__logos">
-                        <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br />
+                        <span className="footer__logos-title">
+CONTENT SUPPORTED BY
+                        </span>
+                        <br />
                         <nav className="footer__logos-nav">
                             <FooterBrandLinks className="footer__logos-list" footerBrands={footerBrands} />
                         </nav>
                     </div>
                     <FooterNavigation />
                     <div className="footer__copyright">
-                        <span>&copy; copyright bauer media pty ltd all rights reserved</span>
+                        <span>
+&copy; copyright bauer media pty ltd all rights reserved
+                        </span>
                     </div>
                 </footer>
                 <BackToTop className="button" />

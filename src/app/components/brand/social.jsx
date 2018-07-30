@@ -2,31 +2,22 @@ import React, { Component, PropTypes } from 'react';
 import SocialIcon from './socialIcon';
 
 export default class Social extends Component {
+    static displayName = 'Social';
+
     static propTypes = {
         brand: PropTypes.string.isRequired,
-        social: PropTypes.object.isRequired
+        social: PropTypes.object
     };
 
     static defaultProps = {
         social: {}
     };
 
-    constructor(...args) {
-        super(...args);
-    }
-
-    getSocialIcons(social) {
-        const icons = [];
-        let key;
-
-        for (key in social) {
-            if (social.hasOwnProperty(key)) {
-                const icon = <SocialIcon key={key} name={key} url={social[key]} />;
-                icons.push(icon);
-            }
-        }
-
-        return icons;
+    static getSocialIcons(social) {
+        return Object.keys(social).map((item, i) => {
+            const key = `social-${i}-${social[item]}`;
+            return <SocialIcon key={key} name={item} url={social[item]} />;
+        });
     }
 
     render() {
@@ -37,10 +28,14 @@ export default class Social extends Component {
         return (
             <section className="brand-social">
                 <p>
-                    Follow <b>{brand}</b>
+                    Follow
+                    {' '}
+                    <b>
+                        {brand}
+                    </b>
                 </p>
                 <div className="brand-social__links">
-                    {this.getSocialIcons(social)}
+                    {Social.getSocialIcons(social)}
                 </div>
             </section>
         );

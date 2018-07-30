@@ -2,31 +2,29 @@ import React, { Component, PropTypes } from 'react';
 import slice from 'lodash/array/slice';
 import { connectToStores } from '@bxm/flux';
 import cx from 'classnames';
-import Featured from './featured';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import Featured from './featured';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
-import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 class Section extends Component {
-
     static displayName = 'BrandSection';
 
     static propTypes = {
-        brandConfig: PropTypes.object.isRequired,
         hero: PropTypes.object,
-        articles: PropTypes.array.isRequired,
-        content: PropTypes.object.isRequired,
+        articles: PropTypes.array,
+        content: PropTypes.object,
         isSideMenuOpen: PropTypes.bool,
-        moduleConfig: PropTypes.object
+        list: PropTypes.object.isRequired,
+        listNextParams: PropTypes.object.isRequired
     };
 
     static defaultProps = {
-        brandConfig: {},
+        hero: {},
         articles: [],
         content: {},
-        moduleConfig: {},
         isSideMenuOpen: false
     };
 
@@ -34,17 +32,16 @@ class Section extends Component {
         config: PropTypes.object
     };
 
-    constructor(...args) {
-        super(...args);
-    }
-
     render() {
-        const { brandConfig, hero, articles, content, list, listNextParams } = this.props;
-        const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
+        const {
+            hero, articles, content, list, listNextParams, isSideMenuOpen
+        } = this.props;
+        const { config } = this.context;
+        const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
 
         const { urlName } = content;
         const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
-            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+            'side-menu-slider--side-menu-open': isSideMenuOpen
         });
 
         const stickyAdProps = {
@@ -68,8 +65,6 @@ class Section extends Component {
                           hero={hero}
                           articles={slice(articles, 0, 6)}
                           content={content}
-                          brand={content.title}
-                          brandConfig={brandConfig}
                           polarTargets={sectionTopFeed}
                         />
                     </div>
@@ -115,7 +110,8 @@ class Section extends Component {
 
 
 export default connectToStores(Section, ['PageStore'], (context) => {
-    const pageStore = context.getStore('PageStore');
+    const { getStore } = context;
+    const pageStore = getStore('PageStore');
 
     return {
         hero: pageStore.getHeroItem(),

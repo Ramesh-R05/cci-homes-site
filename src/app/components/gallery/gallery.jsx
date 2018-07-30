@@ -13,7 +13,32 @@ import GalleryPageStore from '@bxm/gallery/lib/stores/galleryPage';
 import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 
 class GallerySection extends Component {
+    static displayName = 'GallerySection';
+
     static headerHeight = 65;
+
+    static propTypes = {
+        gallery: PropTypes.object.isRequired,
+        galleryItems: PropTypes.array,
+        isAdViewed: PropTypes.bool,
+        isAdSlideItem: PropTypes.bool,
+        isGalleryCompletedItemActive: PropTypes.bool,
+        activeGalleryItem: PropTypes.object,
+        activeGalleryItemIndex: PropTypes.number,
+        nextGallery: PropTypes.object,
+        viewport: PropTypes.object
+    };
+
+    static defaultProps = {
+        galleryItems: [],
+        isAdViewed: false,
+        isAdSlideItem: false,
+        isGalleryCompletedItemActive: false,
+        activeGalleryItem: {},
+        activeGalleryItemIndex: 0,
+        nextGallery: {},
+        viewport: {}
+    };
 
     static contextTypes = {
         config: PropTypes.object,
@@ -28,17 +53,20 @@ class GallerySection extends Component {
             galleryHeight: 'auto'
         };
 
-        this.context.executeAction(GalleryActions.initialize, {
-            galleryTitle: this.props.gallery.title,
-            items: this.props.galleryItems
+        const { executeAction } = this.context;
+        const { gallery, galleryItems } = this.props;
+
+        executeAction(GalleryActions.initialize, {
+            galleryTitle: gallery.title,
+            items: galleryItems
         });
     }
 
     componentDidMount() {
         window.addEventListener('popstate', this.onPop, false);
 
-        this.refs.galleryBody.addEventListener('touchstart', (e) => {
-            const { ads, isAdViewed, isAdSlideItem } = this.props;
+        this.galleryBody.addEventListener('touchstart', (e) => {
+            const { isAdViewed, isAdSlideItem } = this.props;
 
             if (!isAdViewed && isAdSlideItem) {
                 e.stopPropagation();
@@ -51,8 +79,11 @@ class GallerySection extends Component {
     }
 
     componentWillUpdate(nextProps) {
-        if (nextProps.galleryItems !== this.props.galleryItems) {
-            this.context.executeAction(GalleryActions.initialize, {
+        const { galleryItems } = this.props;
+        const { executeAction } = this.context;
+
+        if (nextProps.galleryItems !== galleryItems) {
+            executeAction(GalleryActions.initialize, {
                 galleryId: nextProps.gallery.id,
                 galleryTitle: nextProps.gallery.title,
                 items: nextProps.galleryItems
@@ -61,16 +92,21 @@ class GallerySection extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextState.galleryHeight !== this.state.galleryHeight ||
-            nextProps.isGalleryCompletedItemActive !== this.props.isGalleryCompletedItemActive ||
-            nextProps.galleryItems !== this.props.galleryItems ||
-            nextProps.activeGalleryItem !== this.props.activeGalleryItem ||
-            nextProps.menuClasses !== this.props.menuClasses;
+        const { galleryHeight } = this.state;
+        const {
+            galleryItems, isGalleryCompletedItemActive, activeGalleryItem
+        } = this.props;
+
+        return nextState.galleryHeight !== galleryHeight
+            || nextProps.isGalleryCompletedItemActive !== isGalleryCompletedItemActive
+            || nextProps.galleryItems !== galleryItems
+            || nextProps.activeGalleryItem !== activeGalleryItem;
     }
 
     componentWillReceiveProps(nextProps) {
+        const { config } = this.context;
         const { width: winWidth, height: winHeight } = nextProps.viewport;
-        const breakpoints = this.context.config.global.breakpoints;
+        const { breakpoints } = config.global;
         const largeBreakpointRangeMin = parseInt(breakpoints.largeRangeMin, 10);
 
         this.setState({
@@ -79,7 +115,8 @@ class GallerySection extends Component {
     }
 
     onPop = () => {
-        const thisGalleryUrl = this.props.gallery.url;
+        const { gallery } = this.props;
+        const thisGalleryUrl = gallery.url;
         const actualUrl = document.location.pathname;
 
         if (thisGalleryUrl !== actualUrl) {
@@ -89,10 +126,11 @@ class GallerySection extends Component {
     };
 
     onNextGalleryClick = () => {
+        const { executeAction } = this.context;
         const { nextGallery } = this.props;
         const galleryItems = nextGallery.galleryItems || [];
 
-        this.context.executeAction(GalleryActions.nextGallery, {
+        executeAction(GalleryActions.nextGallery, {
             galleryTitle: nextGallery.title,
             gallery: nextGallery,
             items: galleryItems,
@@ -103,14 +141,15 @@ class GallerySection extends Component {
     };
 
     render() {
-        const { gallery } = this.props;
+        const { gallery, activeGalleryItemIndex } = this.props;
+        const { config } = this.context;
+        const { galleryHeight } = this.state;
+
         if (!gallery) return null;
 
         const shareDescription = (gallery.summary || gallery.title || '');
         const keyword = getKeywordsFromTags(gallery.contentTags);
         const kingtag = getFirstTagNameForCategory(gallery.contentTags, 'Homes navigation');
-        const config = this.context.config;
-
         const targets = {
             keyword,
             position: 1
@@ -128,7 +167,7 @@ class GallerySection extends Component {
                         <Ad
                           className="gallery__mobile-ad row"
                           label={{ active: false }}
-                          reloadOnResourceChange={this.props.activeGalleryItemIndex || 0}
+                          reloadOnResourceChange={activeGalleryItemIndex}
                           sizes={{
                               small: 'banner',
                               leaderboard: 'leaderboard',
@@ -139,7 +178,7 @@ class GallerySection extends Component {
                     </div>
 
                     <AdsWrapper>
-                        <section className="gallery__body row" style={{ height: this.state.galleryHeight }} ref="galleryBody">
+                        <section className="gallery__body row" style={{ height: galleryHeight }} ref={(c) => { this.galleryBody = c; }}>
                             <GalleryDetailMain
                               {...this.props}
                               keyword={keyword}
@@ -166,11 +205,12 @@ class GallerySection extends Component {
 }
 
 export default connectToStores(resizeViewport(GallerySection), [GalleryStore, GalleryPageStore, AdStore], (context) => {
-    const theAdStore = context.getStore(AdStore);
+    const { getStore } = context;
+    const theAdStore = getStore(AdStore);
     const ads = theAdStore.getAds();
     const viewed = ads[`gpt-slot-${theAdStore.getCurrentSlideAd()}`] && ads[`gpt-slot-${theAdStore.getCurrentSlideAd()}`].viewed;
-    const galleryPageStore = context.getStore(GalleryPageStore);
-    const galleryStore = context.getStore(GalleryStore);
+    const galleryPageStore = getStore(GalleryPageStore);
+    const galleryStore = getStore(GalleryStore);
 
     return {
         gallery: galleryPageStore.getGallery(),

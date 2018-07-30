@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from 'react';
 import { canUseDOM } from 'exenv';
 
 export default class SubNavigationItemAndMenu extends Component {
-
     static displayName = 'SubNavigationItemAndMenu';
 
     static propTypes = {
@@ -59,8 +58,8 @@ export default class SubNavigationItemAndMenu extends Component {
         const { viewportSize } = this.state;
         const { innerWidth } = window;
         const { BREAKPOINT_LARGE_MIN } = SubNavigationItemAndMenu.constants;
-        return (viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN) ||
-            (viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN);
+        return (viewportSize >= BREAKPOINT_LARGE_MIN && innerWidth < BREAKPOINT_LARGE_MIN)
+            || (viewportSize < BREAKPOINT_LARGE_MIN && innerWidth > BREAKPOINT_LARGE_MIN);
     };
 
     determineNavLabelWidth = () => {
@@ -100,7 +99,9 @@ export default class SubNavigationItemAndMenu extends Component {
     };
 
     render() {
-        const { items, linkClassName, name, showGroupLabel } = this.props;
+        const {
+            items, linkClassName, name, showGroupLabel
+        } = this.props;
 
         const subNavStyles = {
             left: this.calculateLeftOffsetForNavLabel()
@@ -108,8 +109,10 @@ export default class SubNavigationItemAndMenu extends Component {
 
         if (!Array.isArray(items) || items.length === 0) return null;
 
+        /* eslint-disable jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events */
         const groupLabel = (
-            <a className={linkClassName} onClick={this.handleClick}>{name}
+            <a className={linkClassName} onClick={this.handleClick}>
+                {name}
                 <i className="tl-icon-drop-menu" />
             </a>
         );
@@ -117,7 +120,9 @@ export default class SubNavigationItemAndMenu extends Component {
         return (
             <div ref={(c) => { this.subnav = c; }} className="header-sub-nav">
                 {showGroupLabel ? groupLabel : null}
-                <ul className="sub-nav-list__dropdown" style={subNavStyles}>{this.getSubNavMenu()}</ul>
+                <ul className="sub-nav-list__dropdown" style={subNavStyles}>
+                    {this.getSubNavMenu()}
+                </ul>
             </div>
         );
     }

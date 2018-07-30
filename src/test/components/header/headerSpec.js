@@ -7,7 +7,7 @@ const proxyquire = require('proxyquire').noCallThru();
 const MenuButtonStub = Context.createStubComponent();
 const NavigationStub = Context.createStubComponent();
 
-const sandbox = sinon.sandbox.create();
+const sandbox = sinon.createSandbox();
 const pinStub = sandbox.stub().returnsArg(0);
 const Header = proxyquire('../../../app/components/header/header', {
     'react': React,

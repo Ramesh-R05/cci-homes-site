@@ -4,7 +4,6 @@ import TagLink from '@bxm/tags/lib/components/link';
 import theme from '../helpers/theme';
 
 class HomesFeedItems extends FeedItem {
-
     static getTagName(tagObject) {
         const tag = tagObject.find(t => t.name.includes('Topic'));
         return tag || {};

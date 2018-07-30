@@ -117,5 +117,5 @@ export default [
             pinterest: 'https://twitter.com/homelifecomau'
         },
         newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
-    },
+    }
 ];

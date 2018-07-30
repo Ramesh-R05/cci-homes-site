@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import VerticalGallery from '@bxm/article/lib/gallery';
 import Article from './section';
 import Source from './source';
-import VerticalGallery from '@bxm/article/lib/gallery';
 
 export default class Page extends Component {
     static displayName = 'ContentPage';
@@ -13,6 +13,7 @@ export default class Page extends Component {
             nodeType: PropTypes.string.isRequired
         }).isRequired
     };
+
     static translationMap = {
         writer: { s: 'Writer', p: 'Writers' },
         photographer: { s: 'Photographer', p: 'Photographers' },

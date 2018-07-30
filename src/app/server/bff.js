@@ -1,3 +1,4 @@
+import amp from '@bxm/server/lib/middleware/amp';
 import pageModules from './bff/middleware/pageModules';
 import home from './bff/middleware/home';
 import brand from './bff/middleware/brand';
@@ -17,14 +18,13 @@ import servicesStubs from './servicesStubs';
 import https from './bff/middleware/https';
 import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
-import amp from '@bxm/server/lib/middleware/amp';
 import search from './bff/middleware/search';
 
 export default function bff(server) {
-    if (process.env.APP_STUBBED === 'true' ||
-        process.env.APP_ENV === 'test' ||
-        process.env.NODE_ENV === 'stubbed' ||
-        process.env.NODE_ENV === 'automation'
+    if (process.env.APP_STUBBED === 'true'
+        || process.env.APP_ENV === 'test'
+        || process.env.NODE_ENV === 'stubbed'
+        || process.env.NODE_ENV === 'automation'
     ) {
         server.use('/stub', servicesStubs);
     }
@@ -80,4 +80,3 @@ export default function bff(server) {
         error
     );
 }
-

@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
-import SectionFeatured from './sectionFeatured';
 import cx from 'classnames';
+import SectionFeatured from './sectionFeatured';
 
 class Home extends Component {
+    static displayName = 'Home';
+
     static propTypes = {
         content: PropTypes.object,
         hero: PropTypes.object,
@@ -13,21 +15,21 @@ class Home extends Component {
 
     static defaultProps = {
         articles: [],
-        isSideMenuOpen: false
+        isSideMenuOpen: false,
+        content: {},
+        hero: {}
     };
 
     static contextTypes = {
         config: PropTypes.object
     };
 
-    constructor(...args) {
-        super(...args);
-    }
-
     render() {
-        const { homeTopFeed, homeBottomFeed } = this.context.config.polar.details;
+        const { config } = this.context;
+        const { isSideMenuOpen } = this.props;
+        const { homeTopFeed, homeBottomFeed } = config.polar.details;
         const menuSliderClassName = cx('homepage side-menu-slider', {
-            'side-menu-slider--side-menu-open': this.props.isSideMenuOpen
+            'side-menu-slider--side-menu-open': isSideMenuOpen
         });
 
         return (
@@ -39,7 +41,8 @@ class Home extends Component {
 }
 
 export default connectToStores(Home, ['PageStore'], (context) => {
-    const pageStore = context.getStore('PageStore');
+    const { getStore } = context;
+    const pageStore = getStore('PageStore');
 
     return {
         hero: pageStore.getHeroItem(),

@@ -4,19 +4,20 @@ import Teaser from '../teaser/teaser';
 
 
 export default class InFocus extends Component {
-
     static propTypes = {
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         children: PropTypes.any,
         modifier: PropTypes.string
     };
 
     static defaultProps = {
-        articles: []
+        articles: [],
+        modifier: null,
+        children: null
     };
 
     render() {
-        const { articles, modifier } = this.props;
+        const { articles, modifier, children } = this.props;
 
         if (!articles.length) return null;
 
@@ -29,9 +30,11 @@ export default class InFocus extends Component {
 
         return (
             <section className={classNames}>
-                <h2 className="type-composite">In <b>Focus</b></h2>
+                <h2 className="type-composite">
+                    In <b>Focus</b>
+                </h2>
                 {articles.map(item => <Teaser {...item} key={item.id} modifier="narrow" />)}
-                {this.props.children}
+                {children}
             </section>
         );
     }

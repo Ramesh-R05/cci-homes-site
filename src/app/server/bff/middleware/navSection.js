@@ -62,9 +62,9 @@ export default async function navSectionMiddleware(req, res, next) {
             section,
             galleries: parseEntities(galleryListingResponse.data),
             hero: parseEntity((
-                heroModule &&
-                heroModule.moduleManualContent &&
-                heroModule.moduleManualContent.data[0]) || {})
+                heroModule
+                && heroModule.moduleManualContent
+                && heroModule.moduleManualContent.data[0]) || {})
         };
 
         next();

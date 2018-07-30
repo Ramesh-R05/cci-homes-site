@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import breakpoints from '../../breakpoints';
 import classnames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 // Components
@@ -7,10 +6,11 @@ import Title from '@bxm/article/lib/components/teaser/title';
 import Image from '@bxm/article/lib/components/teaser/image';
 import Summary from '@bxm/article/lib/components/teaser/summary';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import breakpoints from '../../breakpoints';
 import Tags from './tags';
 import Source from './source';
 import Icon from './icon';
-import theme from './../helpers/theme';
+import theme from '../helpers/theme';
 
 class Teaser extends Component {
     static displayName = 'Teaser';
@@ -138,7 +138,7 @@ class Teaser extends Component {
     static getImgSizes(sizes, modifier) {
         if (Teaser.imageSizes[sizes]) {
             return Teaser.imageSizes[sizes];
-        } else if (Teaser.imageSizes[modifier]) {
+        } if (Teaser.imageSizes[modifier]) {
             return Teaser.imageSizes[modifier];
         }
         return Teaser.imageSizes.base;
@@ -147,7 +147,9 @@ class Teaser extends Component {
     render() {
         if (!this.props.id) return null;
 
-        const { url, modifier, sizes, className, lazyload, polar } = this.props;
+        const {
+            url, modifier, sizes, className, lazyload, polar
+        } = this.props;
         const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;
         const classNames = classnames('teaser', `teaser--${modifier}`, className);
         const imgSizes = Teaser.getImgSizes(sizes, modifier);
@@ -184,7 +186,7 @@ class Teaser extends Component {
                       nativeAd
                       label={polar.label}
                       targets={polar.targets}
-                      sizes={'nativeAdTeaser'}
+                      sizes="nativeAdTeaser"
                       pageLocation={Ad.pos.body}
                     />
                 )}

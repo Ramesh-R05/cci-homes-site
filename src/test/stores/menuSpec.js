@@ -2,7 +2,7 @@ import cloneDeep from 'lodash/lang/cloneDeep';
 import extend from 'lodash/object/extend';
 import MenuStore from '../../app/stores/menu';
 
-const sandbox = sinon.sandbox.create();
+const sandbox = sinon.createSandbox();
 
 describe('Menu store', () => {
     let store;

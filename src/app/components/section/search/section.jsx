@@ -2,29 +2,28 @@ import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import Repeatable from '../../repeatable';
 import loadSearch from '../../../actions/loadSearch';
-import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import Featured from '../featured';
 import Rail from '../rail';
 import List from '../list';
-import SiteHeader from '../../../components/header/header';
-import SiteFooter from '../../../components/footer/footer';
-import SideMenu from '../../../components/side-menu/sideMenu';
-import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
-import SectionHeader from '../../../components/section/header';
+import SiteHeader from '../../header/header';
+import SiteFooter from '../../footer/footer';
+import SideMenu from '../../side-menu/sideMenu';
+import SectionHeader from '../header';
 import MenuStore from '../../../stores/menu';
 import ErrorHandlerBuilder from '../../error/errorHandlerBuilder';
 
 class Section extends Component {
-
     static displayName = 'SearchSection';
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         content: PropTypes.object.isRequired,
         isSideMenuOpen: PropTypes.bool,
-        list: PropTypes.object.isRequired,
+        list: PropTypes.object,
         listNextParams: PropTypes.object.isRequired,
         contentErrorStatus: PropTypes.object,
         currentNavigateError: PropTypes.shape({
@@ -39,8 +38,6 @@ class Section extends Component {
         articles: [],
         isSideMenuOpen: false,
         list: {},
-        hero: {},
-        inlineGalleries: null,
         contentErrorStatus: null,
         currentNavigateError: null,
         headerNavItems: []
@@ -49,18 +46,6 @@ class Section extends Component {
     static contextTypes = {
         config: PropTypes.object
     };
-
-    state = {
-        bottomElm: null,
-        topElm: null
-    };
-
-    componentDidMount() {
-        this.setState({ // eslint-disable-line react/no-did-mount-set-state
-            bottomElm: this.bottom,
-            topElm: this.top
-        });
-    }
 
     render() {
         const {
@@ -111,52 +96,54 @@ class Section extends Component {
 
                 <AdsWrapper>
 
-                    { ErrorElement ? <ErrorElement /> :
-                    <div className={sectionClassName}>
-                        <div className="container">
-                            <div className="section__row">
-                                <Featured articles={articles} polarTargets={sectionTopFeed} showSearchBar />
-                                <Rail
-                                  adPosition={1}
-                                  marginBottom={60}
-                                  yPosition={95}
-                                />
-                            </div>
+                    { ErrorElement ? <ErrorElement />
+                    : (
+                        <div className={sectionClassName}>
+                            <div className="container">
+                                <div className="section__row">
+                                    <Featured articles={articles} polarTargets={sectionTopFeed} showSearchBar />
+                                    <Rail
+                                      adPosition={1}
+                                      marginBottom={60}
+                                      yPosition={95}
+                                    />
+                                </div>
 
-                            <div className="section__row section__middle">
-                                <Ad
-                                  className="ad--section-middle-leaderboard section__ad"
-                                  sizes={{
+                                <div className="section__row section__middle">
+                                    <Ad
+                                      className="ad--section-middle-leaderboard section__ad"
+                                      sizes={{
                                       small: 'banner',
                                       leaderboard: 'leaderboard',
                                       billboard: ['billboard', 'leaderboard']
                                   }}
-                                  label={{ active: false }}
-                                  pageLocation={Ad.pos.outside}
+                                      label={{ active: false }}
+                                      pageLocation={Ad.pos.outside}
+                                    />
+                                </div>
+                                <div className="section__row">
+                                    <Repeatable
+                                      component={List}
+                                      action={loadSearch}
+                                      dataSource={list}
+                                      nextParams={listNextParams}
+                                      className="news-feed bottom-news-feed"
+                                      content={content}
+                                      polarTargets={sectionBottomFeed}
+                                    />
+
+                                </div>
+
+                                <StickyAd
+                                  adProps={stickyAdProps}
+                                  minHeight={450}
+                                  stickyAtViewPort="mediumRangeMax"
+                                  stickyDelay={5500}
                                 />
-                            </div>
-                            <div className="section__row">
-                                <Repeatable
-                                  component={List}
-                                  action={loadSearch}
-                                  dataSource={list}
-                                  nextParams={listNextParams}
-                                  className="news-feed bottom-news-feed"
-                                  content={content}
-                                  polarTargets={sectionBottomFeed}
-                                />
 
                             </div>
-
-                            <StickyAd
-                              adProps={stickyAdProps}
-                              minHeight={450}
-                              stickyAtViewPort="mediumRangeMax"
-                              stickyDelay={5500}
-                            />
-
                         </div>
-                    </div> }
+) }
                 </AdsWrapper>
 
                 <SiteFooter />
@@ -164,7 +151,6 @@ class Section extends Component {
             </div>
         );
     }
-
 }
 
 export default connectToStores(Section, ['SearchStore', MenuStore], (context) => {

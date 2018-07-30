@@ -1,16 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import get from 'lodash.get';
+import Ad from '@bxm/ad/lib/google/components/ad';
 import Teaser from '../teaser/teaser';
 import Rail from './rail';
-import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class List extends Component {
-
     static displayName = 'List';
 
     static propTypes = {
         items: PropTypes.array,
-        index: PropTypes.number,
         content: PropTypes.object.isRequired,
         polarTargets: PropTypes.array
     };
@@ -21,7 +19,9 @@ export default class List extends Component {
     };
 
     render() {
-        const { items, index, content, polarTargets } = this.props;
+        const {
+            items, content, polarTargets
+        } = this.props;
 
         if (items.length === 0) return null;
 

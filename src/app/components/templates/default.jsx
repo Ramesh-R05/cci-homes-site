@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
+import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
+import get from 'lodash.get';
 import MenuStore from '../../stores/menu';
 import Uniheader from '../header/uniheader';
 import SiteHeader from '../header/header';
@@ -8,7 +10,6 @@ import SideMenu from '../side-menu/sideMenu';
 import HomeHeader from '../home/header';
 import BrandHeader from '../brand/header';
 import SectionHeader from '../section/header';
-import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import HomePage from '../home/home';
 import Article from '../article/page';
 import Brand from '../brand/section';
@@ -18,10 +19,8 @@ import Campaign from '../section/sponsorTag/section';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import getBrand from '../brand/utilities/getBrand';
 import defaultRenderFailed from '../../actions/defaultRenderFailed';
-import get from 'lodash.get';
 
 class DefaultTemplate extends Component {
-
     static propTypes = {
         content: PropTypes.shape({
             tagsDetails: PropTypes.arrayOf(PropTypes.shape({ displayName: PropTypes.string }))
@@ -70,12 +69,14 @@ class DefaultTemplate extends Component {
                 <SideMenu open={isSideMenuOpen} navItems={headerNavItems} />
 
                 { ContentHeaderHandler
-                    ? <ContentHeaderHandler
-                      {...this.props}
-                      title={contentHeaderTitle}
-                      logo={brandConfig.logo}
-                      sponsorName={content.sponsor || 'homes_sponsor'}
-                    />
+                    ? (
+                        <ContentHeaderHandler
+                          {...this.props}
+                          title={contentHeaderTitle}
+                          logo={brandConfig.logo}
+                          sponsorName={content.sponsor || 'homes_sponsor'}
+                        />
+)
                     : null
                 }
 

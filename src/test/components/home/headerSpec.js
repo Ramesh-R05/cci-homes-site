@@ -1,12 +1,13 @@
-import {betterMockComponentContext} from '@bxm/flux';
-import proxyquire, {noCallThru} from 'proxyquire';
-noCallThru();
+import { betterMockComponentContext } from '@bxm/flux';
+import { mount } from 'enzyme';
+import proxyquire, { noCallThru } from 'proxyquire';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-
+const { React } = Context;
 const AdStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponent();
+
+noCallThru();
 
 const Home = proxyquire('../../../app/components/home/header', {
     'react': React,
@@ -24,27 +25,26 @@ AdStub.pos = {
 };
 
 describe('Home Header with Top banner/leaderboard/billboard ad', () => {
+    const expectedClassname = 'ad--section-top-leaderboard';
+    const expectedSizes = {
+        small: 'banner',
+        leaderboard: 'leaderboard',
+        billboard: ['billboard', 'leaderboard']
+    };
     let reactModule;
     let stickyAd;
-    afterEach(Context.cleanup);
 
     before(() => {
-        reactModule = Context.mountComponent(Home);
-        stickyAd = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
+        reactModule = mount(<Home />);
+        stickyAd = reactModule.find(StickyAdStub);
     });
 
     it(`should render the Sticky Ad component with correct position and sizes`, () => {
-        expect(stickyAd).to.exist;
-        const expectedSizes = {
-            small: 'banner',
-            leaderboard: 'leaderboard',
-            billboard: ['billboard', 'leaderboard']
-        };
-        expect(stickyAd[0].props.adProps.sizes).to.deep.equal(expectedSizes);
+        expect(stickyAd).to.have.length(1);
+        expect(stickyAd.prop('adProps').sizes).to.deep.eq(expectedSizes);
     });
 
-    const expectedClassname = 'ad--section-top-leaderboard';
     it(`should have the classname prop equal to ${expectedClassname}`, () => {
-        expect(stickyAd[0].props.adProps.className).to.equal(expectedClassname);
+        expect(stickyAd.prop('adProps').className).to.eq(expectedClassname);
     });
 });

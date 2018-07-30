@@ -75,9 +75,7 @@ parseEntitiesStub.onSecondCall().returns(latestRealHomesStubData);
 const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', {
     '../../makeRequest': makeRequestSpy,
     '../helper/parseEntity': {
-        parseEntity: () => {
-            return parseEntityStub()
-        },
+        parseEntity: () => parseEntityStub(),
         parseEntities: parseEntitiesStub
     },
     '../api/listing': getLatestTeasersStub
@@ -126,12 +124,11 @@ describe('home middleware', () => {
         describe(`and brand query is not defined`, () => {
             const nextSpy = sinon.spy();
 
-            beforeEach(()=> {
-                nextSpy.reset();
-                makeRequestSpy.reset();
-                parseEntityStub.reset();
-                parseEntitiesStub.reset();
-                getLatestTeasersStub.reset();
+            it('should return all modules in the desired structure', (done)=> {
+                homeMiddleware(req, res, next).then(() => {
+                    expect(res.body).to.deep.equal(expectedBody);
+                    done();
+                }).catch(done);
             });
 
             it('should use the required config values for content service urls for the request', (done)=> {
@@ -196,13 +193,6 @@ describe('home middleware', () => {
                         done();
                     }).catch(done);
                 });
-            });
-
-            it('should return all modules in the desired structure', (done)=> {
-                homeMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
-                    done();
-                }).catch(done);
             });
         });
     });

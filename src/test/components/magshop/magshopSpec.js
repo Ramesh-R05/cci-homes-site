@@ -76,7 +76,7 @@ describe(`MagShop`, () => {
 
     describe(`data layer interaction`, () => {
         beforeEach(() => {
-            dataLayerStub.push.reset();
+            dataLayerStub.push.resetHistory();
         });
 
         it(`pushes subscription on clicking cover image`, () => {

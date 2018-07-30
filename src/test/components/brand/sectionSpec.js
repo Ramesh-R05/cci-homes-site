@@ -130,11 +130,6 @@ describe(`Brand Section`, () => {
             expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 6));
         });
 
-        it(`should pass down the brand and section brandConfig`, () => {
-            expect(featured.props.brand).to.equal('Belle');
-            expect(featured.props.brandConfig).to.deep.equal(sectionBrandsConfigStub);
-        });
-
         // Ads
         describe(`Ads`, () => {
             const numberOfAds = 1;

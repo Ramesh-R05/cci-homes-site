@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import Teaser from '../teaser/teaser';
 import chunk from 'lodash/array/chunk';
+import Teaser from '../teaser/teaser';
 
 export default class RepeatableGroup extends Component {
+    static displayName = 'RepeatableGroup';
 
     static propTypes = {
-        items: PropTypes.array.isRequired,
+        items: PropTypes.array,
         className: PropTypes.string,
         adTargets: PropTypes.object
     };
@@ -46,11 +47,13 @@ export default class RepeatableGroup extends Component {
                         );
                     }
 
+                    const key1 = `div-repeat-${index}`;
+                    const key2 = `div-section-repeat-${index}`;
                     return (
-                        <div key={index}>
+                        <div key={key1}>
                             {topAd}
 
-                            <section key={index} className="section--9-items">
+                            <section key={key2} className="section--9-items">
                                 <Teaser {...groupArticles[0]} key={groupArticles[0].id} />
 
                                 <Teaser

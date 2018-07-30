@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Icon extends Component {
-
     static displayName = 'TeaserIcon';
 
     static propTypes = {
@@ -12,7 +11,8 @@ export default class Icon extends Component {
 
     static defaultProps = {
         icon: '',
-        nodeType: ''
+        nodeType: '',
+        video: null
     };
 
     static videoIconSvg = `
@@ -30,10 +30,6 @@ export default class Icon extends Component {
         C21.6,19.9,18.6,23,15,23z M15,11c-2.6,0-4.7,2.2-4.7,5c0,2.8,2.1,5,4.7,5s4.7-2.2,4.7-5C19.7,13.2,17.6,11,15,11z"/>
     </svg>`;
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
         const { icon, nodeType, video } = this.props;
         let iconHtml;
@@ -46,6 +42,7 @@ export default class Icon extends Component {
             return null;
         }
 
+        /* eslint-disable react/no-danger */
         return (
             <div
               className="teaser__icon"

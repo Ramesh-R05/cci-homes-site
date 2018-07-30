@@ -34,12 +34,9 @@ let makeRequestStub = (requestUrl) => {
         return heroStubDataWrapper;
     }
 };
-
 const makeRequestSpy = sinon.spy(makeRequestStub);
-
 const brand = 'belle';
 const brandFilter = `source eq '${entityStubData.articleSource}'`;
-
 const expectedBody = {
     entity: entityStubData,
     hero: heroStubData,
@@ -87,10 +84,8 @@ describe('brand middleware', () => {
         }
     };
     const res = {};
-    const next = ()=>{};
-    const expectedBrand = brands.find((brand)=>{
-        return brand.title == entityStubData.articleSource;
-    });
+    const next = () => {};
+    const expectedBrand = brands.find(item => item.title === entityStubData.articleSource);
     const expectedHeroModuleName = `${expectedBrand.id}hero`;
 
     describe(`when receiving data`, () => {
@@ -118,10 +113,11 @@ describe('brand middleware', () => {
 
         describe(`and brand query is defined`, () => {
 
-            beforeEach(()=> {
-                getLatestTeasersStub.reset();
-                parseEntityStub.reset();
-                parseEntitiesStub.reset();
+            it('should return all modules in the desired structure', (done) => {
+                brandMiddleware(req, res, next).then(() => {
+                    expect(res.body).to.deep.equal(expectedBody);
+                    done();
+                }).catch(done);
             });
 
             it('should use the required config values for content service urls for the request', (done)=> {
@@ -131,7 +127,7 @@ describe('brand middleware', () => {
                         data: [
                             heroStubData
                         ]
-                    }
+                    };
                 });
 
                 brandMiddleware(req, res, next).then(() => {
@@ -176,7 +172,7 @@ describe('brand middleware', () => {
                     heroStubDataWrapper = {
                         totalCount: 0,
                         data: []
-                    }
+                    };
                 });
 
                 it('should not throw an error)', (done)=> {
@@ -185,14 +181,6 @@ describe('brand middleware', () => {
                         done();
                     }).catch(done);
                 });
-            });
-
-            it('should return all modules in the desired structure', (done) => {
-                brandMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
-
-                    done();
-                }).catch(done);
             });
         });
     });

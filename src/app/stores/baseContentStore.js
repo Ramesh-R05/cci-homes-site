@@ -3,7 +3,6 @@ import uniq from 'lodash/array/uniq';
 import has from 'lodash/object/has';
 
 export default class BaseContentStore extends BaseStore {
-
     static storeName = 'BaseContentStore';
 
     static handlers = {
@@ -49,5 +48,4 @@ export default class BaseContentStore extends BaseStore {
         this.items = state.items;
         this.name = state.name;
     }
-
 }

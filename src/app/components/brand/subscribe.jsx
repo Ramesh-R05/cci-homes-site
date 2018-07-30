@@ -1,32 +1,36 @@
 import React, { Component, PropTypes } from 'react';
-import Teaser from '../teaser/teaser';
 import classNames from 'classnames';
+import Teaser from '../teaser/teaser';
 
 export default class Subscribe extends Component {
+    static displayName = 'Subscribe';
+
     static propTypes = {
         className: PropTypes.string,
         image: PropTypes.string.isRequired,
         link: PropTypes.string.isRequired
     };
 
+    static defaultProps = {
+        className: ''
+    };
+
     static contextTypes = {
         config: PropTypes.object
     };
 
-    constructor(...args) {
-        super(...args);
-    }
-
     render() {
-        let { className, image, link } = this.props;
+        const { config } = this.context;
+        const { className, image } = this.props;
+        let { link } = this.props;
 
         if (!link) {
-            link = this.context.config.get('localeData.magShop.magshopUrl') || '';
+            link = config.get('localeData.magShop.magshopUrl') || '';
         }
 
         const cssClass = classNames('brand-subscribe', className);
-        const summary = 'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,' +
-            ' decorating, food and travel stories.';
+        const summary = 'Subscribe to get your hands on more inspiring homes and gardens, plus renovating,'
+            + ' decorating, food and travel stories.';
 
         return (
             <div className={cssClass}>

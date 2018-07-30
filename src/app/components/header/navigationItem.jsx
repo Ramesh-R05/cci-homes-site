@@ -1,9 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-import SubNavigationItemAndMenu from './subNavigationItemAndMenu';
 import { canUseDOM } from 'exenv';
+import SubNavigationItemAndMenu from './subNavigationItemAndMenu';
 
 export default class NavigationItem extends Component {
     static displayName = 'NavigationItem';
+
     static propTypes = {
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
@@ -34,7 +35,11 @@ export default class NavigationItem extends Component {
         if (!this.props.name || !this.props.url) return null;
 
         if (!this.hasSubMenuItemsToShow()) {
-            return <a className={this.props.linkClassName} href={this.props.url}>{this.props.name}</a>;
+            return (
+                <a className={this.props.linkClassName} href={this.props.url}>
+                    {this.props.name}
+                </a>
+            );
         }
 
         return (

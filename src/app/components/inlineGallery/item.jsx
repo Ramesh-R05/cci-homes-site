@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
 class Item extends Component {
+    static displayName = 'Item';
+
     static propTypes = {
         tagsDetails: PropTypes.arrayOf(PropTypes.object),
         imageAltText: PropTypes.string,
@@ -11,21 +13,29 @@ class Item extends Component {
         url: PropTypes.string.isRequired
     };
 
-    constructor(props, context) {
-        super(props, context);
-    }
+    static defaultProps = {
+        tagsDetails: [],
+        imageAltText: '',
+        source: '',
+        title: ''
+    };
 
     render() {
-        const { tagsDetails, imageAltText, imageUrl, source, title, url } = this.props;
+        const {
+            tagsDetails, imageAltText, imageUrl, source, title, url
+        } = this.props;
 
         if (!imageUrl || !url) return null;
 
-        let topic;
+        let topic = '';
 
-        tagsDetails && tagsDetails.forEach((item) => {
+        tagsDetails.every((item) => {
+            let result = true;
             if (item.name.includes('Topic')) {
                 topic = item.displayName;
+                result = false;
             }
+            return result;
         });
 
         const sourceClass = source ? `gallery-item--${source.replace(/[^a-z]/gi, '_').toLowerCase()}` : '';
@@ -38,8 +48,12 @@ class Item extends Component {
                 <a className="gallery-item__link" href={url} title={imageAltText}>
                     <img className="gallery-item__image" src={imageUrl} alt={imageAltText} />
                     <div className={metaClass}>
-                        <span className={topicClass}>{topic}</span>
-                        <span className="gallery-item__title">{title}</span>
+                        <span className={topicClass}>
+                            {topic}
+                        </span>
+                        <span className="gallery-item__title">
+                            {title}
+                        </span>
                     </div>
                 </a>
             </div>

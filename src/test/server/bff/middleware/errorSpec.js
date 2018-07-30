@@ -25,7 +25,7 @@ describe('Error middleware', () => {
             err = {
                 message: 'this is a fake unhandled exception message'
             };
-            statusStub = sinon.stub(res, 'status', () => {
+            statusStub = sinon.stub(res, 'status').callsFake(() => {
                 jsonStub = sinon.stub();
                 return {
                     json: jsonStub

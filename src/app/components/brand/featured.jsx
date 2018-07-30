@@ -1,26 +1,23 @@
 import React, { Component, PropTypes } from 'react';
-import Teaser from '../teaser/teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+import Teaser from '../teaser/teaser';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
 
 export default class Featured extends Component {
-
     static displayName = 'Featured';
 
     static propTypes = {
         hero: PropTypes.object,
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         content: PropTypes.object.isRequired,
-        brand: PropTypes.string.isRequired,
-        brandConfig: PropTypes.object.isRequired,
         polarTargets: PropTypes.array
     };
 
     static defaultProps = {
         articles: [],
-        brandConfig: {},
-        polarTargets: []
+        polarTargets: [],
+        hero: null
     };
 
     static contextTypes = {
@@ -28,7 +25,9 @@ export default class Featured extends Component {
     };
 
     render() {
-        const { hero, articles, content, brandConfig, brand, polarTargets } = this.props;
+        const {
+            hero, articles, content, polarTargets
+        } = this.props;
 
         if (articles.length === 0) return null;
 
@@ -38,13 +37,15 @@ export default class Featured extends Component {
                     <div className="brand-section--top-teasers columns small-12 medium-12 large-8 xlarge-8">
                         {
                             hero
-                            ? <Teaser
-                              {...hero}
-                              gtmClass="gtm-hero-brand"
-                              key={`${hero.id}-xl`}
-                              modifier="hero"
-                              sizes="home-hero"
-                            />
+                            ? (
+                                <Teaser
+                                  {...hero}
+                                  gtmClass="gtm-hero-brand"
+                                  key={`${hero.id}-xl`}
+                                  modifier="hero"
+                                  sizes="home-hero"
+                                />
+)
                             : null
                         }
                         <div className="hide-for-large-up">
@@ -64,7 +65,18 @@ export default class Featured extends Component {
 
                             {articles.slice(0, 6).map((item, i) => {
                                 const polarDetails = polarTargets.find(slot => slot.index === i) || false;
-                                return <li><Teaser {...item} key={item.id} polar={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" /></li>;
+                                return (
+                                    <li>
+                                        <Teaser
+                                          {...item}
+                                          key={item.id}
+                                          polar={polarDetails}
+                                          sizes="brand-list"
+                                          modifier="img-top"
+                                          gtmClass="gtm-topteaserlist-brand"
+                                        />
+                                    </li>
+);
                             })}
 
                             <li className="ad--section-mrec-top-2">

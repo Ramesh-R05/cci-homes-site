@@ -50,7 +50,9 @@ describe('CustomInlineGallery', () => {
         });
 
         it(`should pass the renderSlide prop to the InlineGallery component`, () => {
-            expect(inlineGallery.props.renderSlide).to.equal(reactModule.renderSlide);
+            const ela = inlineGallery.props.renderSlide;
+            const ela2 = reactModule.renderSlide;
+            expect(inlineGallery.props.renderSlide).to.equal(CustomInlineGallery.renderSlide);
         });
 
         it(`should pass the imageSizes prop to the InlineGallery component`, () => {
@@ -65,20 +67,20 @@ describe('CustomInlineGallery', () => {
             it('should render a GallerySlide Component with relevant props', () => {
                 const imageUrl = 'IMAGE URL';
                 const itemMock = gogMock[0];
-                const component = reactModule.renderSlide(itemMock, 1, imageUrl);
+                const component = CustomInlineGallery.renderSlide(itemMock, 1, imageUrl);
                 let cloneProps = {...itemMock};
                 cloneProps.imageUrl = imageUrl;
                 expect(component.props).to.deep.eq(cloneProps);
             });
 
             it('should return null when no args passed', () => {
-                const component = reactModule.renderSlide();
+                const component = CustomInlineGallery.renderSlide();
                 expect(component).to.eq(null);
             });
 
             it('should render null when image is not passed', () => {
                 const itemMock = gogMock[0];
-                const component = reactModule.renderSlide(itemMock, 0);
+                const component = CustomInlineGallery.renderSlide(itemMock, 0);
                 expect(component).to.eq(null);
             });
         });

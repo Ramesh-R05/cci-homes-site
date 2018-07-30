@@ -10,7 +10,7 @@
 
     &:checked + label {
         &:before {
-            background-image: url('../../assets/svgs/check.svg');
+            background-image: url('/assets/svgs/check.svg');
         }
     }
 }

@@ -6,7 +6,6 @@ import GoogleFont from './html/googleFont';
 import DefaultTemplate from './templates/default';
 
 class Application extends Component {
-
     static propTypes = {
         currentRoute: PropTypes.shape({
             handler: PropTypes.func

@@ -1,6 +1,6 @@
 import merge from 'lodash/object/merge';
-import breakpoints from '../breakpoints';
 import adConfig from '@bxm/ad/lib/google/config';
+import breakpoints from '../breakpoints';
 
 export default {
     init() {

@@ -1,5 +1,5 @@
-import logger from '../../logger';
 import mergeWith from 'lodash.mergewith';
+import logger from '../../logger';
 
 logger.info(`loading config for ${process.env.APP_KEY}`);
 

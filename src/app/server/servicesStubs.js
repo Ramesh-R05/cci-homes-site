@@ -1,8 +1,8 @@
 /* eslint-disable global-require, import/no-dynamic-require, max-len */
 
-import logger from '../../logger';
 import express from 'express';
 import get from 'lodash/object/get';
+import logger from '../../logger';
 
 const servicesStubs = express.Router();
 const cwd = process.cwd();

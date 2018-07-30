@@ -2,9 +2,9 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createElementWithContext } from 'fluxible-addons-react';
-import app from './app';
 import fluxibleConfigPlugin from 'fluxible-plugin-context-config';
 import batchedUpdatePlugin from 'fluxible-addons-react/batchedUpdatePlugin';
+import app from './app';
 import adConfig from './config/ads';
 
 window.React = React; // For chrome dev tool support

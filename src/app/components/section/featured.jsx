@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import Ad from '@bxm/ad/lib/google/components/ad';
 import Teaser from '../teaser/teaser';
 import SearchBar from '../search/searchBar';
-import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class Featured extends Component {
-
     static displayName = 'Featured';
 
     static propTypes = {
@@ -21,7 +20,9 @@ export default class Featured extends Component {
     };
 
     render() {
-        const { articles, polarTargets, hero, showSearchBar } = this.props;
+        const {
+            articles, polarTargets, hero, showSearchBar
+        } = this.props;
         const className = 'section__featured gtm-topteaserlist-index';
 
         if (articles.length === 0 && showSearchBar) {
@@ -44,13 +45,15 @@ export default class Featured extends Component {
                 <div>
                     {
                         hero
-                            ? <Teaser
-                              {...hero}
-                              gtmClass="gtm-hero-section"
-                              key={`${hero.id}-xl`}
-                              modifier="hero"
-                              sizes="home-hero"
-                            />
+                            ? (
+                                <Teaser
+                                  {...hero}
+                                  gtmClass="gtm-hero-section"
+                                  key={`${hero.id}-xl`}
+                                  modifier="hero"
+                                  sizes="home-hero"
+                                />
+)
                             : null
                     }
                 </div>

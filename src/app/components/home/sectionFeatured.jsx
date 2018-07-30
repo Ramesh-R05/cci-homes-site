@@ -1,38 +1,43 @@
 import React, { Component, PropTypes } from 'react';
-import Teaser from '../teaser/teaser';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import Teaser from '../teaser/teaser';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
-import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
 
     static propTypes = {
         hero: PropTypes.object,
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         content: PropTypes.object.isRequired,
         children: PropTypes.any,
         className: PropTypes.string,
-        polarTargets: PropTypes.array
+        polarTargets: PropTypes.array,
+        latestRealHomes: PropTypes.array,
+        list: PropTypes.object,
+        listNextParams: PropTypes.object
     };
 
     static defaultProps = {
         articles: [],
         className: '',
         children: [],
-        polarTargets: [[], []]
+        polarTargets: [[], []],
+        hero: {},
+        latestRealHomes: [],
+        list: {},
+        listNextParams: {}
     };
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
-        const { hero, articles, latestRealHomes, list, listNextParams, content, polarTargets } = this.props;
+        const {
+            hero, articles, latestRealHomes, list, listNextParams, content, polarTargets, className
+        } = this.props;
 
         if (articles.length === 0) return null;
 
@@ -54,7 +59,9 @@ export default class SectionFeatured extends Component {
                 <div className="row show-for-large-up">
                     <div className="latest-real-homes">
                         <div className="latest-real-homes__title-container">
-                            <span className="latest-real-homes__title">Latest Real Homes</span>
+                            <span className="latest-real-homes__title">
+Latest Real Homes
+                            </span>
                         </div>
                         <div>
                             {latestRealHomes.map((item, i) => {
@@ -82,7 +89,7 @@ export default class SectionFeatured extends Component {
         }
 
         return (
-            <div className={this.props.className}>
+            <div className={className}>
                 <div className="home-section">
                     {latestRealHomesComponent}
                     <div className="row">
@@ -132,9 +139,17 @@ export default class SectionFeatured extends Component {
 
                                     {articles.slice(0, 6).map((item, i) => {
                                         const polarDetails = polarTargets[0].find(slot => slot.index === i) || false;
-                                        return <Teaser {...item} key={item.id} polar={polarDetails} sizes="brand-list" modifier="img-top" gtmClass="gtm-topteaserlist-brand" />;
-                                    }
-                                    )}
+                                        return (
+                                            <Teaser
+                                              {...item}
+                                              key={item.id}
+                                              polar={polarDetails}
+                                              sizes="brand-list"
+                                              modifier="img-top"
+                                              gtmClass="gtm-topteaserlist-brand"
+                                            />
+                                        );
+                                    })}
 
                                     <Ad
                                       className="ad--section-mrec home-section-top-mrec-2"

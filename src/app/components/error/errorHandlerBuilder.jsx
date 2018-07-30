@@ -19,6 +19,7 @@ const codeMessages = {
 
 export default code => class ErrorHandler extends Component {
     static displayName = 'ErrorHandler';
+
     static DEFAULT_CODE = 500;
 
     render() {
@@ -27,10 +28,17 @@ export default code => class ErrorHandler extends Component {
         const { title, content } = codeMessages[code];
         return (
             <section className="error-page container">
-                <h1 className="error-page__title">{title}</h1>
-                {content.map((item, i) => (
-                    <p key={i} className="error-page__body-item">{item}</p>
-                ))}
+                <h1 className="error-page__title">
+                    {title}
+                </h1>
+                {content.map((item, i) => {
+                    const key = `error-message-${i}`;
+                    return (
+                        <p key={key} className="error-page__body-item">
+                            {item}
+                        </p>
+                    );
+                })}
                 <p className="error-page__footer">
                     <a href="/" className="error-page__homepage-link">
                         Return to homepage

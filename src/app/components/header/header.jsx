@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import get from 'lodash.get';
-import MenuButton from './menuButton';
-import Navigation from './navigation';
 import pin from '@bxm/behaviour/lib/components/pin';
 import throttle from 'lodash/function/throttle';
+import MenuButton from './menuButton';
+import Navigation from './navigation';
 import HeaderSearch from './headerSearch';
 
 class Header extends Component {
     static displayName = 'Header';
+
     static propTypes = {
         pinned: PropTypes.bool,
         pinOffset: PropTypes.number,
@@ -86,7 +87,9 @@ class Header extends Component {
     };
 
     render() {
-        const { pinned, isSideMenuOpen, pinOffset, navItems } = this.props;
+        const {
+            pinned, isSideMenuOpen, pinOffset, navItems
+        } = this.props;
         const { isNavBarHidden, isSearchOpen } = this.state;
         const { config } = this.context;
 
@@ -115,7 +118,9 @@ class Header extends Component {
                             <MenuButton />
 
                             <div className="header-logo">
-                                <a href="/" className={logoClassNames}>Homes to Love</a>
+                                <a href="/" className={logoClassNames}>
+Homes to Love
+                                </a>
                             </div>
 
                             <Navigation
@@ -125,12 +130,14 @@ class Header extends Component {
                             />
 
                             {
-                                searchEnabled &&
+                                searchEnabled
+                                && (
                                 <HeaderSearch
                                   onSearchClick={this.toggleSearchBar}
                                   isSearchOpen={isSearchOpen}
                                   hasNavItems={hasNavItems}
                                 />
+)
                             }
                         </div>
                     </div>

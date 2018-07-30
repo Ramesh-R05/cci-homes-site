@@ -3,6 +3,7 @@ import NavigationItem from './navigationItem';
 
 export default class Navigation extends Component {
     static displayName = 'Navigation';
+
     static propTypes = {
         items: PropTypes.array.isRequired,
         className: PropTypes.string,
@@ -17,7 +18,9 @@ export default class Navigation extends Component {
     };
 
     render() {
-        const { items, className, linkClassName, showGroupLabel } = this.props;
+        const {
+            items, className, linkClassName, showGroupLabel
+        } = this.props;
         if (!Array.isArray(items) || items.length === 0) return null;
         const navItems = items.map((item, i) => {
             const key = `nav-${i}`;

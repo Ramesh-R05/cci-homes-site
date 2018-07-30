@@ -108,8 +108,11 @@ describe('navigation section middleware', () => {
 
         describe(`and navigation section query is defined`, () => {
 
-            beforeEach(()=> {
-                parseEntitiesStub.reset();
+            it('should return all modules in the desired structure', (done)=> {
+                navSectionMiddleware(req, res, next).then(() => {
+                    expect(res.body).to.deep.equal(expectedBody);
+                    done();
+                }).catch(done);
             });
 
             it('should use the required config values for content service urls for the request', (done)=> {
@@ -128,13 +131,6 @@ describe('navigation section middleware', () => {
                     expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
                     expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(navSectionFilter);
 
-                    done();
-                }).catch(done);
-            });
-
-            it('should return all modules in the desired structure', (done)=> {
-                navSectionMiddleware(req, res, next).then(() => {
-                    expect(res.body).to.deep.equal(expectedBody);
                     done();
                 }).catch(done);
             });

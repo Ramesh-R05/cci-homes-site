@@ -1,14 +1,19 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ManifestPlugin = require('webpack-manifest-plugin');
-var WebpackMd5Hash = require('webpack-md5-hash');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const production = process.env.NODE_ENV === 'production';
+const isDebug = process.env.APP_DEBUG === 'true';
 
-var production = (process.env.NODE_ENV === 'production');
+if (isDebug) {
+    process.traceDeprecation = true;
+}
 
-var config = {
+const config = {
     bail: true,
+    cache: false,
     devtool: 'source-map',
     entry: ['./app/client.js', './styles/main.scss'],
     output: {
@@ -34,27 +39,33 @@ var config = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        { loader: 'css-loader', options: { sourceMap: true, minimize: (process.env.NODE_ENV === 'production') } },
-                        { loader: 'postcss-loader',
-                            options: {
-                                sourceMap: true,
-                                plugins: () => [autoprefixer({
-                                    browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
-                                })]
-                            }
-                        },
-                        'resolve-url-loader',
-                        { loader: 'sass-loader',
-                            options: {
-                                sourceMap: true,
-                                outputStyle: 'compressed'
-                            }
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: false, // Enabling this adds around 30 seconds to build time
+                            minimize: production
                         }
-                    ]
-                })
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: false,
+                            plugins: () => [autoprefixer({
+                                browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
+                            })]
+                        }
+                    },
+                    'resolve-url-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: false, // Enabling this adds around 40 seconds to build time
+                            outputStyle: 'compressed'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -66,25 +77,25 @@ var config = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin(`[name]${production ? '-[chunkhash]' : ''}.css`),
-        new ManifestPlugin()
+        new MiniCssExtractPlugin({
+            fileName: `[name]${production ? '-[contenthash]' : ''}.css`
+        }),
+        new ManifestPlugin({
+            publicPath: '' // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
+        })
     ]
 };
 
 if (production) {
-    config.plugins.push(new WebpackMd5Hash());
-    config.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+    config.plugins.push(new UglifyJsPlugin({
+        sourceMap: false, // Enabling this will add around 8 seconds to build time
+        parallel: true,
+        uglifyOptions: {
             beautify: false,
-            comments: false,
-            compress: {
-                warnings: false,
-                comparisons: false,
-                screw_ie8: true
-            }
-        })
-    );
+            mangle: false, // Enabling this will add around 3 seconds to build time
+            compress: false // Enabling this will add around 20 seconds to build time
+        }
+    }));
     config.plugins.push(
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')

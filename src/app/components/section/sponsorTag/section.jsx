@@ -12,7 +12,7 @@ class Section extends Component {
     };
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         isSideMenuOpen: PropTypes.bool,
         content: PropTypes.object.isRequired
     };
@@ -21,10 +21,6 @@ class Section extends Component {
         articles: [],
         isSideMenuOpen: false
     };
-
-    constructor(...args) {
-        super(...args);
-    }
 
     render() {
         return (<GenericSection
@@ -35,7 +31,8 @@ class Section extends Component {
 }
 
 export default connectToStores(Section, ['PageStore'], (context) => {
-    const pageStore = context.getStore('PageStore');
+    const { getStore } = context;
+    const pageStore = getStore('PageStore');
 
     return {
         articles: pageStore.getItems(),

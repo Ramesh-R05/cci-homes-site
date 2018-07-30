@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import BrandLink from '../brand/link';
 
 export default class Source extends Component {
-
     static displayName = 'TeaserSource';
 
     static propTypes = {

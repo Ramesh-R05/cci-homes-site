@@ -5,7 +5,6 @@ import SocialContainer from './social/socialContainer';
 import getBrand from './brand/utilities/getBrand';
 
 export default class SocialAndSubscribeLinks extends Component {
-
     static propTypes = {
         content: PropTypes.object.isRequired
     };
@@ -29,17 +28,20 @@ export default class SocialAndSubscribeLinks extends Component {
                 {content.nodeType === 'BrandSection' && <Magazine {...this.props} />}
                 <Newsletter content={content} />
 
-                { brand ?
-                    <SocialContainer
-                      socialUrls={brand.social}
-                      title={brand.title}
-                      gtmClass={brand.gtmClass}
-                      nodeType={content.nodeType}
-                    />
-                    :
-                    <SocialContainer
-                      nodeType={content.nodeType}
-                    />
+                { brand
+                    ? (
+                        <SocialContainer
+                          socialUrls={brand.social}
+                          title={brand.title}
+                          gtmClass={brand.gtmClass}
+                          nodeType={content.nodeType}
+                        />
+)
+                    : (
+                        <SocialContainer
+                          nodeType={content.nodeType}
+                        />
+)
                 }
 
             </div>

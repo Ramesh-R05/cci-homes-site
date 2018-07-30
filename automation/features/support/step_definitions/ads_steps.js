@@ -9,7 +9,7 @@ var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolli
 module.exports = function() {
 
     this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
-        if (isBrowserStack == false) {
+        if (!isBrowserStack) {
             browser.scroll(0,0);
         }
         expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true);

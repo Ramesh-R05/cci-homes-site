@@ -1,15 +1,19 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import filter from 'lodash/collection/filter';
-import * as MenuActions from '../../../app/actions/menuActions';
+import activateSideMenu from '../../../app/actions/menuActions';
 
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 
-const sandbox = sinon.sandbox.create();
+const sandbox = sinon.createSandbox();
 const MenuButton = proxyquire('../../../app/components/header/menuButton', {
-    'react': React,
+    'react': React
 });
+
+function getCallsForAction(action) {
+    return filter(Context.instanceContext.executeActionCalls, call => call.action === action);
+}
 
 describe(`MenuButton Component`, () => {
     let reactModule;
@@ -65,16 +69,12 @@ describe(`MenuButton Component`, () => {
             let calls;
 
             TestUtils.Simulate.click(button);
-            calls = getCallsForAction(MenuActions.activateSideMenu);
+            calls = getCallsForAction(activateSideMenu);
             expect(calls).to.have.length(1);
 
             TestUtils.Simulate.click(button);
-            calls = getCallsForAction(MenuActions.activateSideMenu);
+            calls = getCallsForAction(activateSideMenu);
             expect(calls).to.have.length(2);
         });
     });
-
-    function getCallsForAction(action) {
-        return filter(Context.instanceContext.executeActionCalls, call => call.action == action);
-    }
 });

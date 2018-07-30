@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import breakpoints from '../../breakpoints';
 import isUndefined from 'lodash/lang/isUndefined';
 import InlineGallery from '@bxm/gallery/lib/components/inlineGallery';
+import breakpoints from '../../breakpoints';
 import InlineGallerySlide from './item';
 
 export default class CustomInlineGallery extends Component {
+    static displayName = 'CustomInlineGallery';
 
     static propTypes = {
-        galleries: PropTypes.array.isRequired
+        galleries: PropTypes.array
     };
 
     static defaultProps = {
@@ -25,14 +26,10 @@ export default class CustomInlineGallery extends Component {
         config: PropTypes.object
     };
 
-    renderSlide(item, i, image) {
+    static renderSlide(item, i, image) {
         if (!item || !image) return null;
 
         return <InlineGallerySlide key={i} {...item} imageUrl={image} />;
-    }
-
-    constructor(props, context) {
-        super(props, context);
     }
 
     render() {
@@ -48,7 +45,7 @@ export default class CustomInlineGallery extends Component {
               breakpoints={breakpoints}
               galleries={galleries}
               imageSizes={CustomInlineGallery.imageSizes}
-              renderSlide={this.renderSlide}
+              renderSlide={CustomInlineGallery.renderSlide}
             />
         );
     }

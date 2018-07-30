@@ -5,7 +5,9 @@ import getLatestTeasers from '../api/listing';
 export default async function homeMiddleware(req, res, next) {
     try {
         const itemsCount = 6;
-        const { brand, navSection, tag, page, campaign } = req.query;
+        const {
+            brand, navSection, tag, page, campaign
+        } = req.query;
         if (brand || navSection || tag || page || campaign) {
             next();
             return;

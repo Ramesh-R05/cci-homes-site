@@ -19,7 +19,7 @@ describe('Brand SocialIcon', () => {
     describe('with name prop equal to facebook and a url prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <SocialIcon name={name} url={url}/>
+                <SocialIcon name={name} url={url} />
             );
             link = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'a');
             svg = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'svg');

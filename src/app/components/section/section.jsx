@@ -1,15 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
+import Ad from '@bxm/ad/lib/google/components/ad';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
-import Ad from '@bxm/ad/lib/google/components/ad';
 import Featured from './featured';
 import Rail from './rail';
 import List from './list';
-import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 export default class Section extends Component {
-
     static displayName = 'GenericSection';
 
     static contextTypes = {
@@ -17,11 +16,10 @@ export default class Section extends Component {
     };
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.array,
         content: PropTypes.object.isRequired,
-        inlineGalleries: PropTypes.element,
         isSideMenuOpen: PropTypes.bool,
-        list: PropTypes.object.isRequired,
+        list: PropTypes.object,
         listNextParams: PropTypes.object.isRequired,
         hero: PropTypes.object
     };
@@ -34,7 +32,9 @@ export default class Section extends Component {
     };
 
     render() {
-        const { articles, list, content, listNextParams, isSideMenuOpen, hero } = this.props;
+        const {
+            articles, list, content, listNextParams, isSideMenuOpen, hero
+        } = this.props;
         const { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
         if (!articles.length) return null;
@@ -43,11 +43,6 @@ export default class Section extends Component {
         const sectionClassName = cx('section__landing', 'side-menu-slider', {
             'side-menu-slider--side-menu-open': isSideMenuOpen
         });
-
-        let title = content.title;
-        if (content.tagsDetails && content.tagsDetails.length > 0) {
-            title = content.tagsDetails[0].displayName;
-        }
 
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',

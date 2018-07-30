@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
 class SideMenuLogo extends Component {
-
     static displayName = 'SideMenuLogo';
 
     static propTypes = {
@@ -16,8 +15,12 @@ class SideMenuLogo extends Component {
     };
 
     render() {
-        const { logoClassName, logoClassNameGTMPrefix, openInNewTab, logoItem } = this.props;
-        const { id, title, url, imageUrl } = logoItem;
+        const {
+            logoClassName, logoClassNameGTMPrefix, openInNewTab, logoItem
+        } = this.props;
+        const {
+            id, title, url, imageUrl
+        } = logoItem;
 
         return (
             <li key={url}>

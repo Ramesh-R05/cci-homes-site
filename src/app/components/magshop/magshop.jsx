@@ -1,22 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class MagShop extends Component {
+    static displayName = 'MagShop';
+
     static propTypes = {
         content: PropTypes.object.isRequired,
         inSideNav: PropTypes.bool
-    }
+    };
 
     static defaultProps = {
         inSideNav: false
-    }
-
-    constructor(props, context) {
-        super(props, context);
-    }
+    };
 
     fireEvent = () => {
         window.dataLayer.push({ event: 'subscribe.click' });
-    }
+    };
 
     render() {
         const { inSideNav, content } = this.props;
@@ -27,12 +25,14 @@ export default class MagShop extends Component {
         const magshopCoverAltText = content.magshopCoverAltText;
 
         /* eslint-disable quotes */
-        const magshop = (!inSideNav) ?
-            (<div className="xlarge-6 columns show-for-xlarge">
-                <a href={magshopUrl} target="_blank" onClick={this.fireEvent}>
-                    <img src={`/assets/images/${magshopCoverImage}`} alt={magshopCoverAltText} />
-                </a>
-            </div>) : null;
+        const magshop = (!inSideNav)
+            ? (
+                <div className="xlarge-6 columns show-for-xlarge">
+                    <a href={magshopUrl} target="_blank" onClick={this.fireEvent}>
+                        <img src={`/assets/images/${magshopCoverImage}`} alt={magshopCoverAltText} />
+                    </a>
+                </div>
+            ) : null;
         /* eslint-enable quotes */
 
         const xLargeGridClass = (!inSideNav) ? 'xlarge-6' : '';
@@ -43,7 +43,9 @@ export default class MagShop extends Component {
                     {magshop}
                     <div className={`small-12 ${xLargeGridClass} columns`}>
                         <div className="magshop__subscribe">
-                            <h4 className="magshop__heading">{magshopHeading}</h4>
+                            <h4 className="magshop__heading">
+                                {magshopHeading}
+                            </h4>
                             <p className="magshop__content">
                                 {magshopText}
                             </p>

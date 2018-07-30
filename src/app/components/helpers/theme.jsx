@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import get from 'lodash/object/get';
 import isString from 'lodash/lang/isString';
@@ -18,6 +18,15 @@ import isUndefined from 'lodash/lang/isUndefined';
  */
 
 export default (Component, sourcePropName) => class Theme extends React.Component {
+    static displayName = 'Theme';
+
+    static propTypes = {
+        className: PropTypes.string
+    };
+
+    static defaultProps = {
+        className: ''
+    };
 
     constructor(props, context) {
         super(props, context);
