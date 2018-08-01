@@ -19,7 +19,7 @@ export default async function pageMiddleware(req, res, next) {
         const brandSource = pageEntity.articleSource || pageEntity.source;
         const brandConfig = req.app.locals.config.brands.uniheader.find(brand => brand.title === brandSource);
 
-        const navigationTag = (pageEntity.tagsDetails || []).find(tag => tag.name.includes('Homes navigation'));
+        let navigationTag = (pageEntity.tagsDetails || []).find(tag => tag.name.includes('Homes navigation'));
 
         pageEntity.kingtag = (navigationTag && navigationTag.urlName) || '';
         pageEntity.brand = (brandConfig && brandConfig.id) || '';
@@ -27,7 +27,8 @@ export default async function pageMiddleware(req, res, next) {
         res.body = res.body || {};
         res.body.entity = parseEntity(pageEntity);
 
-        const sectionEntityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${navigationTag.urlName}`);
+        const tagEntityName = (navigationTag && navigationTag.urlName) || pageEntity.tagsDetails[0].urlName;
+        const sectionEntityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${tagEntityName}`);
         res.body.section = {
             name: sectionEntityResponse.nodeName,
             id: sectionEntityResponse.id,
