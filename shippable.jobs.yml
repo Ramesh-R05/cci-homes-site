@@ -143,7 +143,7 @@ jobs:
         - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: npm run test:mobile
-        - script: npm run test:browser
+        - script: npm run test:desktop
 #    on_failure:
 #      - NOTIFY: homes-deployment-notifications
 
