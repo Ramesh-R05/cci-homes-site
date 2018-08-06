@@ -34,7 +34,7 @@ console.log('running on url :: ' + baseUrl);
 
 //To identify if this test is on Browser Stack to decide to user browser.getLocationInView instead of browser.scroll
 if (site_domain != null){
-    if (site_domain.includes('-mobile') || site_domain.includes('-browser')) {
+    if (site_domain.includes('-mobile') || site_domain.includes('-desktop')) {
         isBrowserStack = true;
     }
 }

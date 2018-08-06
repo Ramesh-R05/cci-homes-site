@@ -8,7 +8,7 @@ var run_osversion = nconf.get('BrowserOsVersion');
 module.exports = {
 
     featurePath: './features/compatibility',
-    tags: '@browser',
+    tags: '@desktop',
     offline: false,
     screenshotsOnError: false,
     captureAllStepScreenshots: false,
