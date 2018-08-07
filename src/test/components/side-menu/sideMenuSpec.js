@@ -15,7 +15,7 @@ const SideMenu = proxyquire('../../../app/components/side-menu/sideMenu', {
     react: React,
     '../header/navigation': NavigationStub,
     './sideMenuLogo': SideMenuLogoStub,
-    '../../actions/menuActions': { activateSideMenu }
+    '../../actions/menuActions': activateSideMenu
 });
 
 describe(`SideMenu Component`, () => {
@@ -52,7 +52,7 @@ describe(`SideMenu Component`, () => {
 
     describe('render and class names', () => {
         before(() => {
-            reactModule = Context.mountComponent(SideMenu, { navItems: navItems, data: localeData }, [contextConfigStub]);
+            reactModule = Context.mountComponent(SideMenu, { navItems, data: localeData }, [contextConfigStub]);
             bar = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__bar');
             container = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__container');
             closeButton = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'side-menu__close');
@@ -141,8 +141,8 @@ describe(`SideMenu Component`, () => {
 
         before(() => {
             reactModule = Context.mountComponent(SideMenu, { open: true, navItems, data: localeData }, [contextConfigStub]);
-            closeButton = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__close')[0];
-            overlay = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__overlay')[0];
+            [closeButton] = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__close');
+            [overlay] = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'side-menu__overlay');
         });
 
         beforeEach(() => {

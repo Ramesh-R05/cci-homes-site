@@ -9,7 +9,7 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "prepush": "run-p  test",
+    "prepush": "run-p lint test",
     "start": "node ./start.js",
     "test": "babel-node ./node_modules/babel-istanbul/lib/cli cover --root ./app --include-all-sources --report teamcity --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",
     "test:debug": "babel-node $NODE_DEBUG_OPTION ./node_modules/babel-istanbul/lib/cli cover --root ./app --include-all-sources --report teamcity --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",

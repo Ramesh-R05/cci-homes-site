@@ -4,7 +4,7 @@ import clone from 'lodash/lang/clone';
 import get from 'lodash.get';
 import Navigation from '../header/navigation';
 import SideMenuLogo from './sideMenuLogo';
-import * as MenuActions from '../../actions/menuActions';
+import activateSideMenu from '../../actions/menuActions';
 
 export default class SideMenu extends Component {
     static displayName = 'SideMenu';
@@ -24,7 +24,7 @@ export default class SideMenu extends Component {
     };
 
     activateSideMenu = () => {
-        this.context.executeAction(MenuActions.activateSideMenu);
+        this.context.executeAction(activateSideMenu);
     };
 
     render() {

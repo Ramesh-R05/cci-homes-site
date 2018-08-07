@@ -19,7 +19,7 @@ export default async function pageMiddleware(req, res, next) {
         const brandSource = pageEntity.articleSource || pageEntity.source;
         const brandConfig = req.app.locals.config.brands.uniheader.find(brand => brand.title === brandSource);
 
-        let navigationTag = (pageEntity.tagsDetails || []).find(tag => tag.name.includes('Homes navigation'));
+        const navigationTag = (pageEntity.tagsDetails || []).find(tag => tag.name.includes('Homes navigation'));
 
         pageEntity.kingtag = (navigationTag && navigationTag.urlName) || '';
         pageEntity.brand = (brandConfig && brandConfig.id) || '';
