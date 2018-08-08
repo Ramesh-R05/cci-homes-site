@@ -16,7 +16,7 @@ export default class Newsletter extends Component {
 
         if (!content) return null;
 
-        let newsletterUrl = '//www.homestolove.com.au/homes-newsletter/';
+        let newsletterUrl = 'https://www.homestolove.com.au/homes-newsletter/';
         let gtmClass = 'gtm-subs-homepage';
         if (content.nodeType !== 'Homepage') {
             const brand = getBrand(config, content.source);
