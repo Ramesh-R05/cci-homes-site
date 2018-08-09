@@ -220,7 +220,6 @@ jobs:
   # Schedule jobs - not attached to the pipeline
   ##############################################
 
-
   # i. Full regression in TEST
   - name: FULL-homes-site-regression-test
     type: runSh
@@ -298,3 +297,28 @@ jobs:
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
         - script: npm run test:perflive
+
+  # iv. live testing
+  - name: homes-site-live-test
+    type: runSh
+    always:
+      - NOTIFY: homes-qa-team-notifications
+    steps:
+     - IN: homes-site-repo-branch-2
+       switch: off
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
+        - script: cd ./IN/homes-site-repo-branch-2/gitRepo/src
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+        - script: npm install babel-plugin-transform-decorators-legacy
+        - script: cd ../automation
+        - script: npm install
+        - script: export URL=https://www.homestolove.com.au/
+        - script: export APP_KEY=homes-site
+        - script: npm run test:live || true
+        - script: node rerun.combine.js
+        - script: actualsize=$(wc -c <"@rerun.txt")
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
