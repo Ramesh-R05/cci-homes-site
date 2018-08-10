@@ -244,7 +244,6 @@ jobs:
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: export APP_KEY=homes-site
         - script: APP_KEY=homes-site npm run test:phantom || true
-        - script: node rerun.combine.js
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
@@ -319,6 +318,5 @@ jobs:
         - script: export URL=https://www.homestolove.com.au/
         - script: export APP_KEY=homes-site
         - script: npm run test:live || true
-        - script: node rerun.combine.js
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
