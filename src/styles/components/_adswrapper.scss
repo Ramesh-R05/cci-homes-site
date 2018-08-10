@@ -20,10 +20,6 @@
         z-index: $z-index-minus-1;
         position: fixed;
         top: $ad-wallpaper-top-mobile;
-
-        @media (min-width: 1940px) {
-            left: 0;
-        }
     }
 
     @media #{$medium-up} {
@@ -45,9 +41,16 @@
                 top: $ad-wallpaper-top-unpinned-250-with-page-title;
             }
         }
+        
         &-pinned .ad--wallpaper-wrapper {
             position: fixed;
             top: $ad-wallpaper-top-pinned;
+        }
+    }
+
+    @media #{$large-up} {
+        &-pinned .ad--wallpaper-wrapper {
+            left: 0;
         }
     }
 }
