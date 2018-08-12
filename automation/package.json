@@ -8,8 +8,8 @@
     "once": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=~@manual --browser=phantomjs --format=rerun:@rerun.txt\"",
     "test:mobile": "bash -c \"APP_KEY=homes-mobile node runner.js --tags=@mobile --pMode=mobile\"",
     "test:desktop": "bash -c \"APP_KEY=homes-desktop node runner.js --tags=@desktop\"",
-    "test:tags": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=$0\"",
-    "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@high\"",
+    "test:tags": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=$0 --tags=~@live\"",
+    "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@high --tags=~@live\"",
     "test:rerun": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs @rerun.txt \"",
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
@@ -19,10 +19,11 @@
     "homes:automation": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run test:high\"",
     "homes:watch": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run ghost:watch\"",
     "homes:stubbed": "bash -c \"export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=test && npm run once\"",
-    "all:test": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@homes --tags=~@cms --tags=~@manual\"",
-    "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms --tags=~@manual\"",
-    "test:cmsprelive": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cmsprelive --tags=~@manual\"",
-    "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU\""
+    "all:test": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@homes --tags=~@cms --tags=~@manual --tags=~@live\"",
+    "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms --tags=~@manual --tags=~@live\"",
+    "test:cmsprelive": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cmsprelive --tags=~@manual --tags=~@live\"",
+    "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU --tags=~@live\"",
+    "test:live": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@live\""
   },
   "dependencies": {
     "@bxm/automation": "^6.6.0"

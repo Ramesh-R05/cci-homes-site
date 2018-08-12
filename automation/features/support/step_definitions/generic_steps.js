@@ -34,17 +34,18 @@ module.exports = function() {
     });
 
     this.When(/^I click on the Load More button$/, function () {
-        //static wait due to elements loading move the laod more button and creates error in the script
+        browser.scroll(loadMore.loadMoreButton);
+        //static wait due to elements loading move the lood more button and creates error in the script
         wait(3000);
-
+        browser.scroll(loadMore.loadMoreButton);
         //scroll to element and a few pixels up to center the button on the screen
         var x = browser.getLocation(loadMore.loadMoreButton, 'x');
         var y = browser.getLocation(loadMore.loadMoreButton, 'y');
-        browser.scroll(x-50,y-50);
-        browser.waitForVisible(loadMore.loadMoreButton,3000);
+        browser.scroll(0,y-50);
+        browser.waitForVisible(loadMore.loadMoreButton,5000);
         browser.click(loadMore.loadMoreButton);
 
-        //static wait due to elements loading move the laod more button and creates error in the script
+        //static wait due to elements loading move the load more button and creates error in the script
         wait(5000);
     });
 };
