@@ -21,7 +21,7 @@ export default class Page extends Component {
         renovation_expert: { s: 'Renovation expert', p: 'Renovation experts' }
     };
 
-    static getKingTag = tagObject => tagObject.find(tag => tag.name.includes('Homes navigation'));
+    static getKingTag = tagObject => (Array.isArray(tagObject) ? tagObject.find(tag => tag.name.includes('Homes navigation')) : {});
 
     static articleContentBodyConfig = {
         disableAds: true,
@@ -46,10 +46,12 @@ export default class Page extends Component {
     render() {
         const { content } = this.props;
         const targets = { brand: content.source };
-        const kingtag = Page.getKingTag(content.tagsDetails);
+        const kingtag = Page.getKingTag(content.tagsDetails || []);
         const kingtagDisplayName = kingtag && kingtag.displayName;
 
-        if (kingtagDisplayName) targets.kingtag = kingtag;
+        if (kingtagDisplayName) {
+            targets.kingtag = kingtag;
+        }
 
         const Ad = {
             type: 'Ad',

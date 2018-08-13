@@ -19,39 +19,63 @@ const ArticlePage = proxyquire('../../../app/components/article/page', {
 });
 
 describe('ArticlePage', () => {
-    const testProps = {
-        random: 'test',
-        props: 'hello',
-        content: {
-            source: 'test',
-            tagsDetails: [
-                {
-                    displayName: 'Interiors',
-                    fullName: 'food_Homes_navigation_Interiors',
-                    name: 'food:Homes navigation:Interiors',
-                    urlName: 'interiors'
-                }
-            ]
-        }
-    };
+    describe('with all props', () => {
+        const testProps = {
+            random: 'test',
+            props: 'hello',
+            content: {
+                source: 'test',
+                tagsDetails: [
+                    {
+                        displayName: 'Interiors',
+                        fullName: 'food_Homes_navigation_Interiors',
+                        name: 'food:Homes navigation:Interiors',
+                        urlName: 'interiors'
+                    }
+                ]
+            }
+        };
 
-    let reactModule;
-    let articleComponent;
+        let reactModule;
+        let articleComponent;
 
-    before(() => {
-        reactModule = Context.mountComponent(ArticlePage, testProps);
-        articleComponent = TestUtils.findRenderedComponentWithType(reactModule, ArticleStub);
+        before(() => {
+            reactModule = Context.mountComponent(ArticlePage, testProps);
+            articleComponent = TestUtils.findRenderedComponentWithType(reactModule, ArticleStub);
+        });
+
+        it('should pass the Source Class to the Article', () => {
+            expect(articleComponent.props.footerMetaClass).to.eq(SourceStub);
+        });
+
+        it('should not pass the Footer Class to the Article', () => {
+            expect(articleComponent.props.footerComponentClass).to.eq(null);
+        });
+
+        it('should pass all other props through', () => {
+            expect(testProps).to.deep.contain(reactModule.props);
+        });
     });
 
-    it('should pass the Source Class to the Article', () => {
-        expect(articleComponent.props.footerMetaClass).to.eq(SourceStub);
-    });
+    describe('with content.tagsDetails property missing', () => {
+        const testProps = {
+            random: 'test',
+            props: 'hello',
+            content: {
+                source: 'test'
+            }
+        };
 
-    it('should not pass the Footer Class to the Article', () => {
-        expect(articleComponent.props.footerComponentClass).to.eq(null);
-    });
+        let reactModule;
+        let articleComponent;
 
-    it('should pass all other props through', () => {
-        expect(testProps).to.deep.contain(reactModule.props);
+        before(() => {
+            reactModule = Context.mountComponent(ArticlePage, testProps);
+            articleComponent = TestUtils.findRenderedComponentWithType(reactModule, ArticleStub);
+        });
+
+        it('should render the article component', () => {
+            expect(articleComponent).to.exist;
+        });
     });
 });
