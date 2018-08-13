@@ -15,6 +15,7 @@ const PageStore = createReducerStore({
                 hero,
                 items,
                 headerNavigation,
+                hamburgerNavigation,
                 galleries,
                 latestRealHomes,
                 list = [],
@@ -28,6 +29,7 @@ const PageStore = createReducerStore({
                     hero,
                     items,
                     headerNavigation,
+                    hamburgerNavigation,
                     navigationTags: entity.navigationTags,
                     galleries,
                     latestRealHomes,
@@ -89,6 +91,11 @@ const PageStore = createReducerStore({
         getHeaderItems(state) {
             if (!state.headerNavigation) return [];
             return state.headerNavigation.items || [];
+        },
+
+        getHamburgerNavItems(state) {
+            if (!state.hamburgerNavigation) return [];
+            return state.hamburgerNavigation.items || [];
         },
 
         getErrorStatus(state) {

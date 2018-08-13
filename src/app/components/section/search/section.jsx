@@ -158,6 +158,7 @@ export default connectToStores(Section, ['SearchStore', MenuStore], context => {
         content: { nodeType: 'search' },
         isSideMenuOpen: menuStore.isSideMenuOpen(),
         headerNavItems: searchStore.getHeaderItems(),
+        hamburgerNavItems: searchStore.getHamburgerItems(),
         contentErrorStatus: searchStore.getErrorStatus()
     };
 });

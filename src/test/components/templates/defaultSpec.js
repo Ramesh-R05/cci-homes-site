@@ -79,6 +79,13 @@ const headerNavItems = [
     { name: 'DIY', url: '/diy' }
 ];
 
+const hamburgerNavItems = [
+    { name: 'Lifestyle', url: '/lifestyle' },
+    { name: 'Beer', url: '/beer' },
+    { name: 'Luxury Homes', url: '/luxury-homes' },
+    { name: 'Win', url: '/win' }
+];
+
 function getDefaultContent() {
     const content = clone(entity);
     content.urlName = 'belle';
@@ -114,6 +121,9 @@ Context.addStore('PageStore', {
     },
     getHeaderItems() {
         return headerNavItems;
+    },
+    getHamburgerNavItems() {
+        return hamburgerNavItems;
     }
 });
 
@@ -234,7 +244,7 @@ describe('Default Component template', () => {
         });
 
         it(`sets SideMenu 'items' prop to array`, () => {
-            expect(sideMenu.props.navItems).to.eql(headerNavItems);
+            expect(sideMenu.props.navItems).to.eql(hamburgerNavItems);
         });
 
         it(`shows the footer`, () => {

@@ -14,6 +14,10 @@
         "node": true,
         "phantomjs": true
     },
+    "globals": {
+        "expect": true,
+        "sinon": true
+    },
     "plugins": [
         "prettier"
     ],

@@ -68,8 +68,9 @@ class Header extends Component {
     hideNavBar = throttle(() => {
         const { BREAKPOINT_SMALL_MAX, SCROLL_TOP_BOUNCE_ALLOWANCE } = Header.constants;
         const { scrollY, outerWidth } = window;
+        const { isSearchOpen } = this.state;
 
-        if (scrollY === 0 || this.state.isSearchOpen) {
+        if (scrollY === 0 || isSearchOpen) {
             this.setState({ isNavBarHidden: false });
         } else if (outerWidth < BREAKPOINT_SMALL_MAX && scrollY > SCROLL_TOP_BOUNCE_ALLOWANCE && scrollY > this.prevScrollY) {
             this.setState({ isNavBarHidden: true });

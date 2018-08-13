@@ -30,7 +30,8 @@ class DefaultTemplate extends Component {
             statusCode: PropTypes.number.isRequired
         }),
         isSideMenuOpen: PropTypes.bool,
-        headerNavItems: PropTypes.array
+        headerNavItems: PropTypes.array,
+        hamburgerNavItems: PropTypes.array
     };
 
     static defaultProps = {
@@ -38,7 +39,8 @@ class DefaultTemplate extends Component {
         contentErrorStatus: null,
         currentNavigateError: null,
         isSideMenuOpen: false,
-        headerNavItems: []
+        headerNavItems: [],
+        hamburgerNavItems: []
     };
 
     static contextTypes = {
@@ -47,7 +49,7 @@ class DefaultTemplate extends Component {
     };
 
     render() {
-        const { content, isSideMenuOpen, headerNavItems } = this.props;
+        const { content, isSideMenuOpen, headerNavItems, hamburgerNavItems } = this.props;
         let brandConfig = {};
         let contentHeaderTitle = '';
         if (content) {
@@ -62,7 +64,7 @@ class DefaultTemplate extends Component {
 
                 <SiteHeader isSideMenuOpen={isSideMenuOpen} navItems={headerNavItems} />
 
-                <SideMenu open={isSideMenuOpen} navItems={headerNavItems} />
+                <SideMenu open={isSideMenuOpen} navItems={hamburgerNavItems} />
 
                 {ContentHeaderHandler ? (
                     <ContentHeaderHandler
@@ -146,5 +148,6 @@ export default connectToStores(DefaultTemplate, ['PageStore', MenuStore], contex
     content: context.getStore('PageStore').getContent(),
     contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
     isSideMenuOpen: context.getStore(MenuStore).isSideMenuOpen(),
-    headerNavItems: context.getStore('PageStore').getHeaderItems()
+    headerNavItems: context.getStore('PageStore').getHeaderItems(),
+    hamburgerNavItems: context.getStore('PageStore').getHamburgerNavItems()
 }));

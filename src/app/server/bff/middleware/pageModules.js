@@ -1,4 +1,3 @@
-import has from 'lodash/object/has';
 import logger from '../../../../logger';
 import getModules from '../api/module';
 import { parseEntities } from '../helper/parseEntity';
@@ -6,18 +5,37 @@ import { parseEntities } from '../helper/parseEntity';
 export default async function pageModulesMiddleware(req, res, next) {
     try {
         req.data = {};
-        req.data = await getModules('headernavigation');
-        let headerNavigation = {};
+        req.data = await getModules('hamburgernavigation', 'headernavigation');
 
-        if (has(req, 'data.headernavigation')) {
-            headerNavigation = {
-                items: parseEntities(req.data.headernavigation, { contentTitle: 'name' })
-            };
-        }
+        const processedModules = Object.keys(req.data).reduce((allModules, moduleName) => {
+            let accumulatedModules;
+
+            switch (moduleName) {
+                case 'headernavigation':
+                    accumulatedModules = {
+                        ...allModules,
+                        headerNavigation: {
+                            items: parseEntities(req.data[moduleName], { contentTitle: 'name' })
+                        }
+                    };
+                    break;
+                case 'hamburgernavigation':
+                    accumulatedModules = {
+                        ...allModules,
+                        hamburgerNavigation: {
+                            items: parseEntities(req.data[moduleName], { contentTitle: 'name' })
+                        }
+                    };
+                    break;
+                default:
+                    return accumulatedModules;
+            }
+            return accumulatedModules;
+        }, {});
 
         res.body = {
             ...res.body,
-            headerNavigation
+            ...processedModules
         };
     } catch (error) {
         logger.error(error);
