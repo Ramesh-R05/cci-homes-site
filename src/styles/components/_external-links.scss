@@ -1,0 +1,95 @@
+$external-links-space: 10px;
+$external-links-logo-width: 150px;
+
+.external-links {
+    margin-bottom: $external-links-space;
+    padding: {
+        left: $column-gutter / 2;
+        right: $column-gutter / 2;
+    }
+
+    &__site-logo,
+    &__connect {
+       text-align: center;
+       display: inline-block;
+       vertical-align: middle;
+    }
+
+    &__button {
+        width: 100%;
+        min-height: auto;
+        margin-top: $external-links-space;
+        padding: {
+            top: 12px;
+            bottom: 12px;
+        }
+    }
+
+    &__site-logo {
+        width: $external-links-logo-width;
+        &__img {
+            max-width: auto;
+        }
+    }
+
+    &__connect {
+        width: 100%;
+        display: inline-block;
+        margin-top: $external-links-space;
+        &__inner {
+            border: 1px solid $color-primary;
+            padding: $external-links-space;
+            display: inline-block;
+            vertical-align: middle;
+
+            .social-link {
+                padding-top: 0;
+                vertical-align: middle;
+                width: 42px;
+
+                @media #{$medium-up} {
+                    width: 55px;
+                }
+            }
+
+            .social-link__icon {
+                display: inline-block;
+                margin: 0;
+                svg {
+                    margin: 0;
+                    fill: $color-primary;
+                }
+            }
+
+            &:before {
+                content: 'connect';
+                display: inline-block;
+                text-transform: capitalize;
+                vertical-align: middle;
+                margin-right: $external-links-space;
+                margin-left: $external-links-space;
+            }
+
+            @media #{$medium-up} {
+                width: calc( 100% - #{2 * $external-links-space} );
+                margin-right: -2 * $external-links-space;
+                padding: {
+                    top: 2.5 * $external-links-space;
+                    bottom: 2.5 * $external-links-space;
+                }
+            }
+        }
+
+        @media #{$medium-up} {
+            width: calc( 100% - #{$external-links-logo-width} );
+            
+        }
+    }
+
+    @media #{$large-up} {
+        padding: {
+            left: 0;
+            right: 0;
+        }
+    }
+}

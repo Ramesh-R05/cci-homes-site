@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import VerticalGallery from '@bxm/article/lib/gallery';
 import Article from './section';
 import Source from './source';
+import ExternalLinks from '../externalLinks';
 
 export default class Page extends Component {
     static displayName = 'ContentPage';
@@ -48,6 +49,8 @@ export default class Page extends Component {
         const targets = { brand: content.source };
         const kingtag = Page.getKingTag(content.tagsDetails || []);
         const kingtagDisplayName = kingtag && kingtag.displayName;
+        const directoryLogoUrl = content.directoryLogoUrl;
+        const externalLinks = content.externalLinks;
 
         if (kingtagDisplayName) {
             targets.kingtag = kingtag;
@@ -85,7 +88,16 @@ export default class Page extends Component {
                 <Article
                     {...this.props}
                     enableTeads
-                    articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'Hero', Ad]}
+                    articleHeaderOrder={[
+                        'Source',
+                        'Title',
+                        'Summary',
+                        'Date',
+                        'Author',
+                        'Hero',
+                        <ExternalLinks {...{ directoryLogoUrl, externalLinks }} />,
+                        Ad
+                    ]}
                     contentBodyConfig={Page.articleContentBodyConfig}
                     authorTranslationMap={Page.translationMap}
                     showFeedOnRight

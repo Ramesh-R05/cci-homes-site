@@ -37,7 +37,9 @@ const entityPropertyMap = {
     navigationTagsDetails: 'navigationTagsDetails',
     kingtag: 'kingtag',
     disableAmp: 'disableAmp',
-    isAllAmpCompatible: 'isAllAmpCompatible'
+    isAllAmpCompatible: 'isAllAmpCompatible',
+    directoryLogoUrl: 'directoryLogoUrl',
+    externalLinks: 'externalLinks'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {
