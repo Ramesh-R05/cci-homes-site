@@ -95,11 +95,10 @@ module.exports = function() {
             browser.refresh();
             browser.url(pageURL);
             if(browser.isExisting(elementOnPage) == true){
-                console.log("Page Loaded Successfully : ID-" + docTypeID[docType]);
+                console.log("Page Loaded Successfully : ID-" + docTypeID[docType] + ": " + pageURL);
                 break;
             } else {
-                var page_url = browser.getUrl();
-                console.log("Page not created yet, current page url is : " + page_url);
+                console.log("Page not created yet, current page url is : " + browser.getUrl());
                 wait(2000);
             }
         }

@@ -70,10 +70,12 @@ module.exports = function() {
         expect(lhrFeed).toBe(false);
     });
     this.Given(/^I can see the long title "([^"]*)"$/, function (articleTitle) {
-           var longTitle = browser.getText(wn_article.longTitle);
-           expect(longTitle).toContain(articleTitle);
-        });
+        browser.waitForVisible(wn_article.longTitle,10000);
+        var longTitle = browser.getText(wn_article.longTitle);
+        expect(longTitle).toContain(articleTitle);
+    });
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
+        browser.waitForVisible(wn_article.dateText,10000);
         var articleDate = browser.getText(wn_article.dateText);
         expect(articleDate.toString()).toContain(date);
     });
@@ -90,6 +92,7 @@ module.exports = function() {
         expect(isHeroImgVisible).toBe(false);
     });
     this.Given(/^I can see the short teaser "([^"]*)"$/, function (articleShortTeaser) {
+        browser.waitForVisible(wn_article.shortTeaser,10000);
         var shortTeaser = browser.getText(wn_article.shortTeaser);
         expect(shortTeaser).toContain(articleShortTeaser);
     });
@@ -103,8 +106,8 @@ module.exports = function() {
     });
 
     this.Given(/^I can see the body heading "([^"]*)"$/, function (articleBodyHeading) {
-    var bodyHeading = browser.getText(wn_article.bodyHeading);
-       expect(bodyHeading).toContain(articleBodyHeading);
+        var bodyHeading = browser.getText(wn_article.bodyHeading);
+        expect(bodyHeading).toContain(articleBodyHeading);
     });
 
     this.Given(/^I can see the body related content$/, function () {
@@ -115,7 +118,7 @@ module.exports = function() {
         var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
 
         //Validate the heading of Related
-            expect(rcHeading.toUpperCase()).toContain("RELATED");
+        expect(rcHeading.toUpperCase()).toContain("RELATED");
 
         //Loop through the related items, and Validate the body related items' image and title
         for(var i=0; i<rcItemsTitle.length; i++) {
@@ -145,18 +148,18 @@ module.exports = function() {
         var bodyImg = browser.isVisible(wn_article.bodyImg);
         expect(bodyImg).toBe(true);
     });
-    
+
     this.Given(/^I can see the body image caption "([^"]*)"$/, function (ImgCaption) {
         var bodyImgCaption = browser.getText(wn_article.bodyImgCaption);
         expect(bodyImgCaption).toContain(ImgCaption);
     });
 
     this.Given(/^I can see the body gallery$/, function () {
-       var bodyGallery = browser.getAttribute(wn_article.bodyGallery, 'href');
-       for(var i=0; i<bodyGallery.length; i++){
-           var galleryItems = bodyGallery[i];
-           expect(galleryItems == '').toBe(false);
-         }
+        var bodyGallery = browser.getAttribute(wn_article.bodyGallery, 'href');
+        for(var i=0; i<bodyGallery.length; i++){
+            var galleryItems = bodyGallery[i];
+            expect(galleryItems == '').toBe(false);
+        }
     });
 
     this.Given(/^I can see the body video$/, function () {
@@ -178,7 +181,7 @@ module.exports = function() {
         browser.waitForVisible(wn_article.twitterEmb1, 3000);
         var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
         expect(twitEmbed).toEqual(twitterId);
-       });
+    });
 
     this.Given(/^I can see the body Instagram embed with caption "([^"]*)"$/, function (instagramSrc) {
         var instagramEmbed = browser.getAttribute(wn_article.instagramEmb1, 'src');
@@ -244,10 +247,10 @@ module.exports = function() {
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
         expect(relatedTags).toEqual(rTag.split("|"));
-        });
+    });
 
     this.Given(/^I can see the author "([^"]*)"$/, function (authorName) {
-      var author = browser.getText(wn_article.authorText);
+        var author = browser.getText(wn_article.authorText);
         expect(author).toEqual(authorName);
     });
 
@@ -270,11 +273,11 @@ module.exports = function() {
     });
 
     /*this.Given(/^I can see the related tag "([^"]*)"$/, function (rTag) {
-        browser.waitForExist(wn_article.relatedWnTags,3000);
-        browser.scroll(wn_article.relatedWnTags);
-        var relatedTag = browser.getText(wn_article.relatedWnTags, 'href');
-        expect(relatedTag[0]).toEqual(rTag);
-    });*/
+     browser.waitForExist(wn_article.relatedWnTags,3000);
+     browser.scroll(wn_article.relatedWnTags);
+     var relatedTag = browser.getText(wn_article.relatedWnTags, 'href');
+     expect(relatedTag[0]).toEqual(rTag);
+     });*/
 
     this.Given(/^I can see the author is "([^"]*)"$/, function (authorName) {
         var author = browser.getText(wn_article.authorWn);
@@ -435,7 +438,7 @@ module.exports = function() {
             console.log('Date is :'+ FeedDate);
             expect(FeedDate === '').toBe(false);
         }
-        });
+    });
 
     this.Then(/^the below position are replaced with Polar ads$/, function (table) {
         var listOfItems = browser.getAttribute(wn_article.lhrFeedItems, 'class');
@@ -464,8 +467,8 @@ module.exports = function() {
     });
 
     this.Given(/^I can see readmore carousel$/, function() {
-       var feedCarousel = browser.elements(wn_article.feedCoursel);
-       expect(feedCarousel.value.length).toBe(1);
+        var feedCarousel = browser.elements(wn_article.feedCoursel);
+        expect(feedCarousel.value.length).toBe(1);
     });
 };
 
