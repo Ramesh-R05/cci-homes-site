@@ -41,14 +41,14 @@
                 top: $ad-wallpaper-top-unpinned-250-with-page-title;
             }
         }
-        
+
         &-pinned .ad--wallpaper-wrapper {
             position: fixed;
             top: $ad-wallpaper-top-pinned;
         }
     }
 
-    @media #{$large-up} {
+    @media only screen and (min-width: 1940px) {
         &-pinned .ad--wallpaper-wrapper {
             left: 0;
         }
