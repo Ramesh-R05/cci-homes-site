@@ -11,6 +11,7 @@ export const initialState = {
         moduleImageUrl: ''
     },
     headerNavigation: [],
+    hamburgerNavigation: [],
     headerMetaData: {
         title: ''
     },
@@ -28,7 +29,7 @@ export const initialState = {
 };
 
 const LOAD_SEARCH = (state, payload) => {
-    const { search, footer = {}, headerNavigation, comScoreSegmentIds = initialState.comScoreSegmentIds } = payload.body;
+    const { search, footer = {}, headerNavigation, hamburgerNavigation, comScoreSegmentIds = initialState.comScoreSegmentIds } = payload.body;
     const magCover = get(payload, 'body.magCover', {});
 
     if (!search) return state;
@@ -51,7 +52,8 @@ const LOAD_SEARCH = (state, payload) => {
             resultsList: payload.body.list
         },
         comScoreSegmentIds,
-        headerNavigation
+        headerNavigation,
+        hamburgerNavigation
     };
 };
 const LOAD_SEARCH_FAILED = (state, payload) => {
@@ -61,6 +63,7 @@ const LOAD_SEARCH_FAILED = (state, payload) => {
     const magCover = body.magCover || {};
     const comScoreSegmentIds = get(payload, 'body.comScoreSegmentIds', initialState.comScoreSegmentIds);
     const headerNavigation = get(payload, 'body.headerNavigation', initialState.headerNavigation);
+    const hamburgerNavigation = get(payload, 'body.hamburgerNavigation', initialState.hamburgerNavigation);
 
     response.status = response.status || 400;
 
@@ -81,7 +84,8 @@ const LOAD_SEARCH_FAILED = (state, payload) => {
             resultsList: []
         },
         comScoreSegmentIds,
-        headerNavigation
+        headerNavigation,
+        hamburgerNavigation
     };
 };
 // This is mainly used for tests
@@ -137,6 +141,11 @@ const SearchStore = createReducerStore({
         getHeaderItems(state) {
             if (!state.headerNavigation) return [];
             return state.headerNavigation.items ? state.headerNavigation.items : state.headerNavigation;
+        },
+
+        getHamburgerNavItems(state) {
+            if (!state.hamburgerNavigation) return [];
+            return state.hamburgerNavigation.items || [];
         },
 
         getErrorStatus(state) {

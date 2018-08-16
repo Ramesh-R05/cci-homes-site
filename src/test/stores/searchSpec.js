@@ -107,7 +107,8 @@ describe(`loadSearch Store`, () => {
                     resultsList: []
                 },
                 comScoreSegmentIds: '',
-                headerNavigation: []
+                headerNavigation: [],
+                hamburgerNavigation: []
             });
         });
 
@@ -133,7 +134,8 @@ describe(`loadSearch Store`, () => {
                     resultsList: []
                 },
                 comScoreSegmentIds: '',
-                headerNavigation: []
+                headerNavigation: [],
+                hamburgerNavigation: []
             });
         });
     });
