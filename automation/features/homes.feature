@@ -115,10 +115,11 @@ Feature: Smoke test for HOMES
         |device             |page       |pageUrl                                            |
         |tablet landscape   |section    |real-homes                                               |
 
-    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
-        Given I switch to "<device>" view
-        When I am currently viewing "<pageUrl>"
-        * I should be able to search a keyword "house" on "navigation bar" and see the result page
-        Examples:
-        |device             |page        |pageUrl                                                         |
-        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
+##Enable this case once we work on a ticket to improve the search icon with many menus in the navigation bar
+#    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+#        Given I switch to "<device>" view
+#        When I am currently viewing "<pageUrl>"
+#        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+#        Examples:
+#        |device             |page        |pageUrl                                                         |
+#        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
