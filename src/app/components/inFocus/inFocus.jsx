@@ -32,7 +32,9 @@ export default class InFocus extends Component {
                 <h2 className="type-composite">
                     In <b>Focus</b>
                 </h2>
-                {articles.map(item => <Teaser {...item} key={item.id} modifier="narrow" />)}
+                {articles.map(item => (
+                    <Teaser {...item} key={item.id} modifier="narrow" />
+                ))}
                 {children}
             </section>
         );

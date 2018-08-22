@@ -68,7 +68,9 @@ export default class RepeatableGroup extends Component {
 
                                 <Ad className="ad--section-mrec" displayFor="large" sizes="mrec" targets={adTargets} />
 
-                                {groupArticles.slice(2, 3).map(item => <Teaser {...item} key={item.id} />)}
+                                {groupArticles.slice(2, 3).map(item => (
+                                    <Teaser {...item} key={item.id} />
+                                ))}
 
                                 <Ad
                                     className="ad--section-mrec"
@@ -81,9 +83,13 @@ export default class RepeatableGroup extends Component {
                                     pageLocation={Ad.pos.body}
                                 />
 
-                                {groupArticles.slice(3, 7).map(item => <Teaser {...item} key={item.id} modifier="img-top" />)}
+                                {groupArticles.slice(3, 7).map(item => (
+                                    <Teaser {...item} key={item.id} modifier="img-top" />
+                                ))}
 
-                                {groupArticles.slice(7, 9).map(item => <Teaser {...item} key={item.id} modifier="img-top" sizes="small-hero" />)}
+                                {groupArticles.slice(7, 9).map(item => (
+                                    <Teaser {...item} key={item.id} modifier="img-top" sizes="small-hero" />
+                                ))}
                             </section>
                         </div>
                     );
