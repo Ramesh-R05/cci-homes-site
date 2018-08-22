@@ -40,7 +40,7 @@ export default class ExternalLinks extends Component {
             .map(link => ({ name: link, url: externalLinks[link] }));
 
         return (
-            connectLinks.length && (
+            !!connectLinks.length && (
                 <div className="external-links__connect">
                     <div className="external-links__connect__inner">
                         {connectLinks.map((link, i) => {
