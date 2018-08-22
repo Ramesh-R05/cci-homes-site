@@ -72,7 +72,7 @@ export default [
             link: 'https://www.magshop.com.au/store/homestolove'
         },
         social: {
-            facebook: 'https://www.facebook.com/Inside.Out.magazine.au/',
+            facebook: 'https://www.facebook.com/InsideOutAu',
             twitter: 'https://twitter.com/insideoutmag',
             instagram: 'https://www.instagram.com/insideoutmag/',
             pinterest: 'https://www.pinterest.com.au/insideoutpins/'
