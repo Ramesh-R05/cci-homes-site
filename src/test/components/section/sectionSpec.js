@@ -66,9 +66,21 @@ const contextConfigStub = {
 const defaultProps = {
     articles: articlesMock,
     content: {
-        nodeType: 'Homepage',
+        nodeType: 'NavigationSection',
         id: 'HOMES-1158',
-        tagsDetails: [{ displayName: 'Section Heading with Tags Details' }]
+        tagsDetails: [{ displayName: 'Section Heading with Tags Details' }],
+        title: 'Home Tours'
+    },
+    isSideMenuOpen: false
+};
+
+const directoriesProps = {
+    articles: articlesMock,
+    content: {
+        nodeType: 'NavigationSection',
+        id: 'HOMES-1160',
+        tagsDetails: [{ displayName: 'Section Heading with Tags Details' }],
+        title: 'Directories'
     },
     isSideMenuOpen: false
 };
@@ -83,7 +95,7 @@ describe(`Section`, () => {
 
     afterEach(Context.cleanup);
 
-    describe(``, () => {
+    describe(`SectionNavigation nodeType with Home Tours title`, () => {
         const sectionClassName = 'section__landing';
         const contextConfigStubEnabled = {
             key: 'config',
@@ -112,11 +124,15 @@ describe(`Section`, () => {
         };
         let section;
         let ads;
+        let navigationTagFeaturedComponent;
+        let repeatableComponent;
 
         before(() => {
             reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStubEnabled]);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
+            navigationTagFeaturedComponent = TestUtils.findRenderedComponentWithType(reactModule, NavigationTagFeaturedStub);
+            repeatableComponent = TestUtils.findRenderedComponentWithType(reactModule, RepeatableStub);
         });
 
         it(`should render the Section component on the page`, () => {
@@ -144,6 +160,59 @@ describe(`Section`, () => {
             it(`should have the sizes prop equal to ${expectedSizes}`, () => {
                 expect(ads[0].props.sizes).to.deep.equal(expectedSizes);
             });
+        });
+
+        it('should render a featured component with the correct nativeAdConfig prop', () => {
+            expect(navigationTagFeaturedComponent.props.polarTargets[0].label).to.eq('section_top_feed_1');
+        });
+
+        it('should render a repeatable component with the correct nativeAdConfig prop', () => {
+            expect(repeatableComponent.props.polarTargets[0].label).to.eq('section_bottom_feed_1');
+        });
+    });
+
+    describe(`SectionNavigation nodeType with Directories title`, () => {
+        const sectionClassName = 'section__landing';
+        const contextConfigStubEnabled = {
+            key: 'config',
+            type: '',
+            value: {
+                isFeatureEnabled: () => true,
+                polar: {
+                    details: {
+                        sectionTopFeed: [
+                            {
+                                index: 0,
+                                label: 'section_top_feed_1',
+                                targets: { kw: 'section_top_feed_1' }
+                            }
+                        ],
+                        sectionBottomFeed: [
+                            {
+                                index: 1,
+                                label: 'section_bottom_feed_1',
+                                targets: { kw: 'section_bottom_feed_1' }
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+        let navigationTagFeaturedComponent;
+        let repeatableComponent;
+
+        before(() => {
+            reactModule = Context.mountComponent(Section, directoriesProps, [contextConfigStubEnabled]);
+            navigationTagFeaturedComponent = TestUtils.findRenderedComponentWithType(reactModule, NavigationTagFeaturedStub);
+            repeatableComponent = TestUtils.findRenderedComponentWithType(reactModule, RepeatableStub);
+        });
+
+        it('should render a featured component with the correct nativeAdConfig prop', () => {
+            expect(navigationTagFeaturedComponent.props.polarTargets.length).to.eq(0);
+        });
+
+        it('should render a repeatable component with the correct nativeAdConfig prop', () => {
+            expect(repeatableComponent.props.polarTargets.length).to.eq(0);
         });
     });
 

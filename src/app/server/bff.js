@@ -35,7 +35,7 @@ export default function bff(server) {
             case 'insideout.com.au':
             case 'www.insideout.com.au':
             case 'www2.insideout.com.au': {
-                if (req.path === '' || req.path ==='/') {
+                if (req.path === '' || req.path === '/') {
                     res.redirect(301, `https://www.homestolove.com.au/inside-out`);
                 } else {
                     res.redirect(301, `https://www.homestolove.com.au${req.originalUrl}`);
