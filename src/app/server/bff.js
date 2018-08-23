@@ -29,6 +29,24 @@ export default function bff(server) {
     ) {
         server.use('/stub', servicesStubs);
     }
+    server.get('*', (req, res, next) => {
+        console.log(req.path);
+        switch (req.hostname) {
+            case 'insideout.com.au':
+            case 'www.insideout.com.au':
+            case 'www2.insideout.com.au': {
+                if (req.path === '' || req.path ==='/') {
+                    res.redirect(301, `https://www.homestolove.com.au/inside-out`);
+                } else {
+                    res.redirect(301, `https://www.homestolove.com.au${req.originalUrl}`);
+                }
+                break;
+            }
+            default: {
+                next();
+            }
+        }
+    });
     server.get('/api/asset', assetProxy);
     server.get('/sitemap/:section?', sitemap, error);
     server.get(server.locals.config.services.endpoints.list, list, listing, https, render, error);
