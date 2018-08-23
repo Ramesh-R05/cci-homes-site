@@ -17,7 +17,7 @@ module.exports = function() {
 
     this.Then(/^I should still see the search box after scrolling the page down$/, function () {
             browser.scroll(0,1500);
-            wait(2000);
+            wait(5000); //To ensure the sticky top leaderboard is hidden before going to next step
             var searchBox = browser.isVisible(search.searchNavBox);
             expect(searchBox).toBe(true);
 

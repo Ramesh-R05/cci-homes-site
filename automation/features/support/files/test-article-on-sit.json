@@ -5,7 +5,7 @@
     "id": "------ THIS IS UPDATED RANDOMLY ------",
     "parentID": "1394",
     "level": "5",
-    "creatorID": "4",
+    "creatorID": "0",
     "sortOrder": "19",
     "createDate": "2015-07-17T16:35:39",
     "updateDate": "2017-09-26T11:43:52",
@@ -14,7 +14,7 @@
     "path": "------ THIS IS UPDATED RANDOMLY ------",
     "isDoc": "",
     "nodeType": "1168",
-    "creatorName": "editor",
+    "creatorName": "admin",
     "writerName": "admin",
     "writerID": "0",
     "template": "1097",
@@ -29,7 +29,6 @@
     "contentImageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2015/08/03/1445/Article-HERO.jpg",
     "contentImageAltText": "Modern cottage extension",
     "contentImageCaption": "“We love being right in the middle of the city,” says homeowner Imogen. “We have a garden and lots of space, and yet everything is within walking distance – cafes, shops and restaurants.” Photo: Jody D’Arcy",
-    "contentPhotoCredit": "Jody D'Arcy",
     "contentVideo": "{\"videoId\":null}",
     "navIsHidden": "0",
     "navRedirect": "{\"Title\":\"\",\"Mode\":2,\"NodeId\":null,\"Url\":null,\"NewWindow\":false}",
@@ -38,8 +37,7 @@
     "contentFacebookImageUrl": "{\"tags\":[],\"source\":\"\",\"credits\":[]}",
     "contentBody": "[{\"type\":\"paragraph\",\"label\":\"Paragraph\",\"content\":\"When Imogen Scanlan and Grant Paterson bought their Federation-era cottage they knew they would need to renovate. Situated in Perth’s Italian quarter, the house’s front yard was paved in concrete, the entrance guarded by lion statues and out the back was a vegie garden.\"},{\"type\":\"gallery\",\"label\":\"Gallery\",\"content\":[]},{\"type\":\"quote\",\"label\":\"Quote\",\"content\":\"“We wanted a modern extension to an old house. We wanted to retain the story of its evolution, as well as see where the new part began.”\"},{\"type\":\"heading\",\"label\":\"Heading\",\"content\":\"New addition\"},{\"type\":\"paragraph\",\"label\":\"Paragraph\",\"content\":\"To transform the modest cottage into a spacious family home, they hired Sam Klopper and Matt Davis of [Klopper & Davis Architects](http://www.kada.com.au/|target=\\\"_blank\\\"). Sam and Matt focused on creating additional living space, designing a modern two-storey extension at the rear of the house. \\n\\nThe ground floor contains an open-plan kitchen/dining/living area that opens to a north-facing garden complete with alfresco dining area and plunge pool. The first floor is given over to the main bedroom suite.\"},{\"type\":\"heading\",\"label\":\"Heading\",\"content\":\"Australian fusion\"},{\"type\":\"paragraph\",\"label\":\"Paragraph\",\"content\":\"Affectionately known as “The Fediterranean House”, the home’s fusion of turn-of-the-century and Italian-Australian styles was Sam’s strongest design inspiration. The couple wanted to pay homage to the character and Italian migrant history of the neighbourhood, so finishes such as marble, concrete and coloured glass come into play. \\n\\nOut front, clusters of steel poles (mimicking columns) support the flat concrete canopy – as opposed to the traditional bullnose verandah. Exposed brick mimics the ceramic tiles and dark-brick additions seen elsewhere in the neighbourhood, while the zesty colour palette references the citrus trees planted by previous owners.\"},{\"type\":\"heading\",\"label\":\"Heading\",\"content\":\"Rooftop terrace\"},{\"type\":\"paragraph\",\"label\":\"Paragraph\",\"content\":\"“Somewhere to have a barbecue and a few drinks with his mates was high on Grant’s wish list,” says Sam. A rooftop terrace was the ideal solution space-wise, with the bonus that it affords magnificent views of the city skyline. \\n\\nFor Imogen, the biggest success is the open-plan living area. Light and cheerful, it features jolts of sunshine yellow and an easy transition between indoors and out. \\n\\n“I couldn’t be happier with the way the home has turned out,” she says. “I feel very relaxed here. I love the way the house looks and the way it makes me feel.”\"}]",
     "contentAuthor": "[]",
-    "articleTags": "[\"food:Location and setting:Australia:Western Australia:Perth\",\"food:Topic:Feature home\",\"tv:tv_subject:Renovation\",\"food:Renovating:Renovation type:Extension\",\"food:Building:Building style:Cottage\",\"food:Building:Type:House\",\"food:Building:Building style:Federation\",\"food:Homes navigation:Real Homes\"]",
-    "articleSource": "Australian House and Garden",
-    "contentCampaign": "[]"
+    "articleTags": "[\"food:Topic:Feature home\",\"food:Renovating:Renovation type:Extension\",\"food:Building:Building style:Cottage\",\"food:Building:Type:House\",\"food:Building:Building style:Federation\",\"food:Homes navigation:Home Tours\"]",
+    "articleSource": "Australian House and Garden"
   }
 }
