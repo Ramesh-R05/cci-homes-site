@@ -29,7 +29,7 @@ export default function bff(server) {
     ) {
         server.use('/stub', servicesStubs);
     }
-    server.get('*', (req, res, next) => {
+    server.use((req, res, next) => {
         switch (req.hostname) {
             case 'insideout.com.au':
             case 'www.insideout.com.au':
