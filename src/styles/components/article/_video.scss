@@ -1,3 +1,13 @@
 cite.vjs-playlist-name {
     font-family: $body-font-family;
 }
+
+.vjs-big-play-button {
+    .vjs-icon-placeholder {
+        &:before {
+            @media #{$xlarge-up} {
+                line-height: 140px;
+            }
+        }
+    }
+}
