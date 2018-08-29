@@ -125,3 +125,4 @@ Feature: Article
     Given I switch to "mobile" view
     When I am currently viewing "automation-test-article-with-hero-image-3193"
     * I can see readmore carousel
+
