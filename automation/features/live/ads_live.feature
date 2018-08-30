@@ -31,7 +31,7 @@ Feature: Ads on live
     @section
         Examples:
             |page               |pageUrl                        |
-            |navigation section |real-homes                     |
+            |navigation section |home-tours                    |
 
     @low
     Scenario Outline: Verify the sticky top leaderboard in tablet portrait view (Test on <page>)
