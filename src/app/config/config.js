@@ -114,6 +114,9 @@ export default {
         polar: {
             enabled: true
         },
+        viPlayer: {
+            enabled: true
+        },
         royMorganAmp: {
             enabled: true,
             id: 'm8frgflsxh',
