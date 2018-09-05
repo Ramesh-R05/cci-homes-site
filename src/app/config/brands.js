@@ -77,7 +77,7 @@ export default [
             instagram: 'https://www.instagram.com/insideoutmag/',
             pinterest: 'https://www.pinterest.com.au/insideoutpins/'
         },
-        newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vq/signup-insideout'
     },
     {
         title: 'Country Style',
@@ -116,6 +116,6 @@ export default [
             instagram: 'https://www.instagram.com/homelife.com.au/',
             pinterest: 'https://twitter.com/homelifecomau'
         },
-        newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vo/signup-homelife'
     }
 ];
