@@ -66,7 +66,7 @@ export default [
         urlName: 'inside-out',
         imageUrl: '/assets/images/brand-pages/headerlogos/insideout.svg',
         logo: '/assets/images/brand-pages/headerlogos/insideout.svg',
-        newsletterUrl: 'https://www.homestolove.com.au/homes-newsletter/',
+        newsletterUrl: 'https://www.homestolove.com.au/insideout-newsletter/',
         subscribe: {
             image: '',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -77,7 +77,7 @@ export default [
             instagram: 'https://www.instagram.com/insideoutmag/',
             pinterest: 'https://www.pinterest.com.au/insideoutpins/'
         },
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vq/signup-insideout'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vq/signup-insideout-article-iframe-bottom'
     },
     {
         title: 'Country Style',
@@ -105,7 +105,7 @@ export default [
         urlName: 'homelife',
         imageUrl: '/assets/images/brand-pages/headerlogos/homelife.svg',
         logo: '/assets/images/brand-pages/headerlogos/homelife.svg',
-        newsletterUrl: 'https://www.homestolove.com.au/homes-newsletter/',
+        newsletterUrl: 'https://www.homestolove.com.au/homelife-newsletter/',
         subscribe: {
             image: '',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -116,6 +116,6 @@ export default [
             instagram: 'https://www.instagram.com/homelife.com.au/',
             pinterest: 'https://twitter.com/homelifecomau'
         },
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vo/signup-homelife'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vo/signup-homelife-article-iframe-bottom'
     }
 ];
