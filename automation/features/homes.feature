@@ -26,8 +26,8 @@ Feature: Smoke test for HOMES
             | belle/                        | https://www.homestolove.com.au/belle-newsletter/                             |
             | real-living/                  | https://www.homestolove.com.au/real-living-newsletter/                       |
             | australian-house-and-garden/  | https://www.homestolove.com.au/australian-house-and-garden-newsletter/       |
-            | inside-out/                   | https://www.homestolove.com.au/homes-newsletter/                             |
-            | homelife/                     | https://www.homestolove.com.au/homes-newsletter/                             |
+            | inside-out/                   | https://www.homestolove.com.au/insideout-newsletter/                         |
+            | homelife/                     | https://www.homestolove.com.au/homelife-newsletter/                          |
             | country-style/                | https://www.homestolove.com.au/homes-newsletter/                             |
 
     Scenario: Verify the section landing page
