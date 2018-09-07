@@ -43,6 +43,7 @@ export default {
         }
     },
     site: {
-        host: 'http://www.homestolove.com.au'
+        host: 'http://www.homestolove.com.au',
+        protocol: 'https'
     }
 };
