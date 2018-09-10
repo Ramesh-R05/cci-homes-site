@@ -16,12 +16,9 @@ export default async function articleMiddleware(req, res, next) {
             if (navTags) {
                 const relatedArticles = await getLatestTeasers(20, 0, `tags eq '${navTags}'`);
                 res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };
-
-                if (['/laundry-solutions-6711', '/how-often-to-wash-clothes-6748'].includes(entity.url)) {
-                    res.body.leftHandSide.items = res.body.leftHandSide.items.filter(item => item.url !== '/win-a-miele-laundry-package-6649');
-                }
             }
         }
+        
         /**
          * Following code is for find out the site logo img url and external links for directory page
          * 1. From the returned content body, logoImg url always be the first element of contentbody array
