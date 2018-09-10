@@ -45,7 +45,8 @@ logger.info(
         `APP_REGION=${process.env.APP_REGION}`,
         `APP_DEBUG=${process.env.APP_DEBUG}`,
         `APP_STUBBED=${process.env.APP_STUBBED}`,
-        `APP_ENV=${process.env.APP_ENV}`
+        `APP_ENV=${process.env.APP_ENV}`,
+        `ADS_DEBUG=${process.env.ADS_DEBUG}`
     ].join(' ')
 );
 
