@@ -187,6 +187,5 @@ module.exports = function(){
         var loadMoreFeedTeaserImgLink = browser.getAttribute(home.loadMoreFeedTeaserImgLink,'href');
         validateImageURL(loadMoreFeedTeaserImgUrl);
         expect(loadMoreFeedTeaserImgLink).not.toEqual('');
-    });
-
+    });    
 };

@@ -22,7 +22,11 @@ var section_page = {
     sectionLoadMoreFeed: '.repeatable-component .section__row:nth-child(2) .teaser--img-left',
 
     //Sticky Mobile banner
-    sectionStickyMobileBanner: '.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view'
+    sectionStickyMobileBanner: '.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
 
+    // custom masthead
+    customMastHead: '.header .header-banner',
+    customMastHeadMobile: '.header--expanded > .header__inner'    
 };
+
 module.exports = section_page;

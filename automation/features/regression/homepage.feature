@@ -90,3 +90,4 @@ Feature: Homepage
         And I should see a "bottom" feed item containing its title and clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
+        

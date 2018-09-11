@@ -29,12 +29,6 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
             | gallery   | automation-test-gallery-3201                  | mobile portrait   |
 
     @med @article
-    Scenario: Mobile users menu will fade out as they scroll down the page
-        Given I switch to "mobile portrait" view
-        When I am currently viewing "automation-test-article-with-hero-image-3193"
-        Then the menu fades out as I scroll down the page
-
-    @med @article
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"

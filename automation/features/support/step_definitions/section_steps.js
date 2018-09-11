@@ -35,5 +35,17 @@ module.exports = function(){
         expect(extraTeasers).toEqual(parseInt(teaserCount),10);
     });
 
+    this.Then(/^I should see the custom masthead appearing on top of the section page$/, function () {
+        var customMastHead = browser.getAttribute(sectionPage.customMastHead, 'style');
+        console.log(customMastHead);
+        expect(customMastHead).toContain('background-image');
+    });
+    
+     this.Then(/^I should see the custom masthead appearing on top of the section page in mobile$/, function () {
+        var customMastHeadMobile = browser.getAttribute(sectionPage.customMastHeadMobile, 'style');
+        console.log(customMastHeadMobile);
+        expect(customMastHeadMobile).toContain('background-image');
+    });
+
 };
 

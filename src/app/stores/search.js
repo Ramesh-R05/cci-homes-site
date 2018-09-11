@@ -140,7 +140,7 @@ const SearchStore = createReducerStore({
 
         getHeaderItems(state) {
             if (!state.headerNavigation) return [];
-            return state.headerNavigation.items ? state.headerNavigation.items : state.headerNavigation;
+            return state.headerNavigation.items || [];
         },
 
         getHamburgerNavItems(state) {

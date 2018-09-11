@@ -47,6 +47,10 @@ $header-height-small: 54px;
 $header-height-medium-up: 58px;
 $header-height-desktop: 58px;
 $header-banner-logo-height: 190px;
+$header-logo-aspect-ratio: 12; // (width / height)
+$header-banner-height-mobile: 105px;
+$header-banner-height-medium-up: 175px;
+$header-banner-height-large-up: 185px;
 
 $page-title-height: 148px;
 $ad-wallpaper-top-mobile: $header-height-medium-up;
@@ -56,10 +60,14 @@ $ad-wallpaper-top-unpinned-250: -323px; // top leaderBoard has 250 height
 $ad-wallpaper-top-unpinned-90-with-page-title: $ad-wallpaper-top-unpinned-90 + -$page-title-height;
 $ad-wallpaper-top-unpinned-250-with-page-title: $ad-wallpaper-top-unpinned-250 + -$page-title-height;
 
-// Side menu
+// offcanvas (@bxm/nav)
 $offcanvas-width: 255px;
 $offcanvas-tablet-width: 450px;
-$offcanvas-desktop-width: 615px;
+$offcanvas-desktop-width: 450px;
+$offcanvas-gutter-width: 0;
+$offcanvas-background-color: $color-grey-darker;
+
+// side-menu (legacy)
 $side-menu-width: 255px;
 $side-menu-width-small: $side-menu-width;
 $side-menu-width-big: 450px;

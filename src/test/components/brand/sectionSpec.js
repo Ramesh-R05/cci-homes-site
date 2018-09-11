@@ -102,7 +102,7 @@ describe(`Brand Section`, () => {
 
     afterEach(Context.cleanup);
 
-    describe(`Without sideMenu prop and 12 articles`, () => {
+    describe(`and 12 articles`, () => {
         const sectionClassName = 'container';
         let section;
         let featured;
@@ -145,29 +145,6 @@ describe(`Brand Section`, () => {
                 };
                 expect(ads[0].props.sizes).to.deep.equal(size);
             });
-        });
-    });
-
-    describe(`side menu behavior`, () => {
-        let domNode;
-
-        before(() => {
-            reactModule = Context.mountComponent(exposeProps(Section), {}, [contextConfigStub]);
-            domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
-        });
-
-        it(`should have class name "side-menu-slider"`, () => {
-            expect(domNode).to.contain('side-menu-slider');
-        });
-
-        it(`should default to closed state`, () => {
-            expect(domNode).to.not.contain('side-menu-slider--side-menu-open');
-        });
-
-        it(`should open when isSideMenuOpen is true`, () => {
-            reactModule.setProps({ isSideMenuOpen: true });
-            domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
-            expect(domNode).to.contain('side-menu-slider--side-menu-open');
         });
     });
 });

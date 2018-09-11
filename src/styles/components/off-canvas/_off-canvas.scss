@@ -1,0 +1,43 @@
+.off-canvas {
+  position: relative;
+  padding: 0;
+  background-color: $color-grey-darker;
+  overflow: scroll;
+  height: 5px;
+
+  &__content-wrapper {
+    position: fixed;
+    padding: $column-gutter / 2;
+    pointer-events: inherit;
+
+    @media #{$medium-up} {
+      height: 100%;
+      overflow: auto;
+      width: $offcanvas-tablet-width;
+      padding: 52px 58px;
+    }
+  }
+
+  &__overlay {
+    background-color: rgba(255,255,255,0.8);
+  }
+
+  .close-btn {
+    @include flat-button;
+    background-color: transparent;
+    line-height: 44px;
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    width: 44px;
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    path {
+        fill: $color-primary;
+    }
+  }
+}

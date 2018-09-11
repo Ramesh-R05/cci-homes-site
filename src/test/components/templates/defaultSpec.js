@@ -4,19 +4,17 @@ import cloneDeep from 'lodash/lang/cloneDeep';
 import { localeData } from '../../mock/config';
 import { entity } from '../../mock/articles';
 import clone from 'lodash/lang/clone';
+import { shallow } from 'enzyme';
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-const config = {
-    get: () => {}
-};
 
 const UniHeaderStub = Context.createStubComponent();
-const SiteHeaderStub = Context.createStubComponent();
+const HeaderStub = Context.createStubComponent();
 const SiteFooterStub = Context.createStubComponentWithChildren();
-const SideMenuStub = Context.createStubComponent();
+const offCanvasStub = Context.createStubComponent();
 
 const HomeHeader = Context.createStubComponent();
 const BrandHeader = Context.createStubComponent();
@@ -35,6 +33,10 @@ const GalleryStub = Context.createStubComponent();
 const Error404Stub = Context.createStubComponent();
 const Error500Stub = Context.createStubComponent();
 
+const toggleMenuStub = sinon.stub();
+
+let reactModuleInstance;
+
 function mockErrorHandlerBuilder(code) {
     switch (code) {
         case 404:
@@ -51,13 +53,20 @@ const getBrandStub = () => {
 
 const Default = proxyquire('../../../app/components/templates/default', {
     react: React,
-    '../header/header': SiteHeaderStub,
-    '../side-menu/sideMenu': SideMenuStub,
+    '@bxm/nav/lib/components/hamburgerWrapper': Component => {
+        return class extends React.Component {
+            render() {
+                reactModuleInstance = Component;
+                return <Component {...this.props} toggleSideMenu={toggleMenuStub} />;
+            }
+        };
+    },
+    '@bxm/site-header': HeaderStub,
     '../home/home': HomePageStub,
     '../article/page': ArticleStub,
     '../section/tag/section': TagStub,
     '../header/uniheader': UniHeaderStub,
-    '@bxm/article/lib/bridgeUtils/partsFactory': { initalizeParts() {} }, // TODO - deprecated??
+    '../off-canvas/offCanvas': offCanvasStub,
     '../section/navigationTag/section': NavSectionStub,
     '../brand/section': BrandStub,
     '../section/sponsorTag/section': CampaignStub,
@@ -95,10 +104,6 @@ function getDefaultContent() {
 }
 
 const defaultStoreData = {
-    MenuStore: {
-        sideMenuOpen: false
-    },
-
     PageStore: {
         headerNavItems,
         content: getDefaultContent(),
@@ -116,25 +121,26 @@ Context.addStore('PageStore', {
     getContent() {
         return storeData.PageStore.content;
     },
+    getTheme() {
+        return {};
+    },
     getErrorStatus() {
         return storeData.PageStore.error;
-    },
-    getHeaderItems() {
-        return headerNavItems;
-    },
-    getHamburgerNavItems() {
-        return hamburgerNavItems;
     }
 });
 
-Context.addStore('MenuStore', {
-    isSideMenuOpen() {
-        return storeData.MenuStore.sideMenuOpen;
+Context.addStore('NavigationStore', {
+    getHeaderItems() {
+        return headerNavItems;
+    },
+    getHamburgerItems() {
+        return hamburgerNavItems;
     }
 });
 
 describe('Default Component template', () => {
     let reactModule;
+    let currentInstance;
     let renderedDOM;
     let wrapper;
     let template;
@@ -143,7 +149,6 @@ describe('Default Component template', () => {
     let sectionHeader;
     let sideMenu;
     let footer;
-    let data;
 
     const sectionBrandsDataStub = {
         belle: {
@@ -164,6 +169,9 @@ describe('Default Component template', () => {
         get: () => localeData,
         brands: {
             section: sectionBrandsDataStub
+        },
+        site: {
+            name: 'homes to love'
         }
     };
 
@@ -173,16 +181,8 @@ describe('Default Component template', () => {
         value: configToStub
     };
 
-    before(() => {
-        // data = sinon.stub(config, 'get').returns(localeData);
-    });
-
     beforeEach(() => {
         resetStoreData();
-    });
-
-    after(() => {
-        // data.restore();
     });
 
     afterEach(() => {
@@ -224,23 +224,17 @@ describe('Default Component template', () => {
 
     describe('Home Page', () => {
         beforeEach(() => {
-            storeData.PageStore.content = { nodeType: 'Homepage' };
+            storeData.PageStore.content = { nodeType: 'Homepage', url: '/' };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-            sideMenu = TestUtils.findRenderedComponentWithType(reactModule, SideMenuStub);
-            header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
+            currentInstance = TestUtils.findRenderedComponentWithType(reactModule, reactModuleInstance);
+            sideMenu = TestUtils.findRenderedComponentWithType(reactModule, offCanvasStub);
+            header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
-        });
-
-        it(`sets Header 'isSideMenuOpen' prop to 'false'`, () => {
-            expect(header.props.isSideMenuOpen).to.be.false;
+            uniheader = TestUtils.findRenderedComponentWithType(reactModule, UniHeaderStub);
         });
 
         it(`sets Header 'navItems' prop correctly to array`, () => {
             expect(header.props.navItems).to.eql(headerNavItems);
-        });
-
-        it(`sets SideMenu 'open' prop to 'false'`, () => {
-            expect(sideMenu.props.open).to.be.false;
         });
 
         it(`sets SideMenu 'items' prop to array`, () => {
@@ -250,33 +244,13 @@ describe('Default Component template', () => {
         it(`shows the footer`, () => {
             expect(ReactDOM.findDOMNode(footer)).to.exist;
         });
-    });
 
-    describe('Uniheader', () => {
-        const totalDOMChildrenAtHomePage = 6;
-
-        describe('when on home page', () => {
-            before(() => {
-                resetStoreData();
-                storeData.PageStore.content = { nodeType: 'Homepage', url: '/' };
-                reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-                renderedDOM = ReactDOM.findDOMNode(reactModule);
-            });
-            it('should render the uniheader', () => {
-                expect(renderedDOM.children.length).to.eq(totalDOMChildrenAtHomePage);
-            });
+        it('sets the toggleMenu prop on Header to be toggleMenu instance method', () => {
+            expect(header.props.toggleMenu).to.eq(currentInstance.toggleMenu);
         });
 
-        describe('when not on home page', () => {
-            before(() => {
-                resetStoreData();
-                storeData.PageStore.content = { nodeType: 'NavigationSection', url: '/real-living/' };
-                reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-                renderedDOM = ReactDOM.findDOMNode(reactModule);
-            });
-            it('should not render the uniheader', () => {
-                expect(renderedDOM.children.length).to.eq(totalDOMChildrenAtHomePage - 1);
-            });
+        it('renders the UniHeader', () => {
+            expect(ReactDOM.findDOMNode(uniheader)).to.exist;
         });
     });
 
@@ -318,7 +292,7 @@ describe('Default Component template', () => {
                     before(() => {
                         storeData.PageStore.content.nodeType = nodeType;
                         reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-                        header = TestUtils.findRenderedComponentWithType(reactModule, SiteHeaderStub);
+                        header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
                         footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
                     });
 
@@ -345,30 +319,116 @@ describe('Default Component template', () => {
         );
     });
 
-    describe(`with NavSectionHeader and Tag Details`, () => {
-        let reactModule;
-        let sectionHeader;
+    describe('with NavSectionHeader and TagsDetails', () => {
+        describe('when tagsDetails is defined', () => {
+            before(() => {
+                resetStoreData();
+            });
+            after(() => {
+                Context.cleanup;
+            });
 
-        beforeEach(() => {
-            resetStoreData();
+            it('ContentHeadingHandler should use displayName from tagsDetails as title prop', () => {
+                storeData.PageStore.content.nodeType = 'NavigationSection';
+                storeData.PageStore.content.tagsDetails = [{ displayName: 'My Display Name' }];
+                reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
+                expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.tagsDetails[0].displayName);
+            });
         });
 
-        afterEach(Context.cleanup);
-
-        it(`when defined tagsDetails should use tagsDetails displayName instead of title prop in the ContentHeadingHandler component`, () => {
-            storeData.PageStore.content.nodeType = 'NavigationSection';
-            storeData.PageStore.content.tagsDetails = [{ displayName: 'My Display Name' }];
-            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-            sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
-            expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.tagsDetails[0].displayName);
+        describe('when tagsDetails is undefined', () => {
+            before(() => {
+                resetStoreData();
+                storeData.PageStore.content.nodeType = 'NavigationSection';
+                storeData.PageStore.content.tagDetails = undefined;
+                reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
+                sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
+            });
+            after(() => {
+                Context.cleanup;
+            });
+            it('ContentHeadingHandler should use the default value as a title prop ', () => {
+                expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
+            });
         });
+    });
 
-        it(`when undefined tagsDetails should pass down the title prop to the ContentHeadingHandler component`, () => {
-            storeData.PageStore.content.nodeType = 'NavigationSection';
-            storeData.PageStore.content.tagDetails = undefined;
-            reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-            sectionHeader = TestUtils.findRenderedComponentWithType(reactModule, SectionHeader);
-            expect(sectionHeader.props.title).to.deep.equal(storeData.PageStore.content.title);
+    describe('with theme', () => {
+        const mockTheme = {
+            headerSmallBackground: 'url',
+            headerMediumBackground: 'url',
+            headerLargeBackground: 'url;'
+        };
+
+        describe('when theme is active for nodeType', () => {
+            before(() => {
+                wrapper = shallow(<Default />, {
+                    context: {
+                        ...contextConfigStub,
+                        config: { site: { name: 'homes' } },
+                        getStore() {
+                            return {
+                                getContent: () => {},
+                                getTheme: () => mockTheme,
+                                getHeaderItems: () => {},
+                                getHamburgerItems: () => {},
+                                getErrorStatus: () => {}
+                            };
+                        }
+                    }
+                });
+            });
+            it('passes the theme to the Header component', () => {
+                const headerComponentWrapper = wrapper
+                    .dive()
+                    .dive()
+                    .find(HeaderStub);
+
+                expect(headerComponentWrapper.prop('theme')).to.eq(mockTheme);
+            });
+            it('sets the isExpanded prop on the Header component to true', () => {
+                const headerComponentWrapper = wrapper
+                    .dive()
+                    .dive()
+                    .find(HeaderStub);
+                expect(headerComponentWrapper.prop('isExpanded')).to.be.true;
+            });
+        });
+    });
+
+    describe('component methods', () => {
+        describe('toggleMenu', () => {
+            let wrapper;
+
+            before(() => {
+                wrapper = shallow(<Default />, {
+                    context: {
+                        ...contextConfigStub,
+                        config: { site: { name: 'homes' } },
+                        getStore() {
+                            return {
+                                getContent: () => {},
+                                getTheme: () => {},
+                                getHeaderItems: () => {},
+                                getHamburgerItems: () => {},
+                                getErrorStatus: () => {}
+                            };
+                        }
+                    }
+                });
+            });
+
+            it('should call the toggleSideMenu prop as a function', () => {
+                wrapper
+                    .dive()
+                    .dive()
+                    .instance()
+                    .toggleMenu();
+
+                expect(toggleMenuStub.calledOnce).to.be.true;
+                expect(toggleMenuStub.calledWith('left')).to.be.true;
+            });
         });
     });
 });

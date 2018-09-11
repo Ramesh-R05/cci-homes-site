@@ -15,8 +15,13 @@
     }
 
     &__heading {
-        max-width: 1024px;
+        max-width: 1024px;        
         margin: 0 auto;
+        padding-top: ($header-height-small + 16px);
+        
+        @media #{$medium-up} {
+            padding-top: ($header-height-desktop + 16px);
+        }        
 
         &__title {
             position: relative;
@@ -24,12 +29,13 @@
             background: $color-white;
 
             @media #{$large-up} {
+                
                 padding: {
                     top: 10px;
                     left: $column-gutter/2;
                     bottom: 55px;
-                    right: $column-gutter/2;
-                };
+                    right: $column-gutter/2;                    
+                };                
             }
 
             h1 {

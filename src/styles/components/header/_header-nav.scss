@@ -1,33 +1,14 @@
 $custom-medium-only: '#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width: 890px)' !default;
 $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width: 1215px)' !default;
-$header-nav-link-padding: 15px;
 
 
 .header-nav {
     display: none;
     transition: width $transition-duration;
-    margin-left: 0px;
-
-    &:before {
-        content: '';
-        display: inline-block;
-    }
+    margin-left: 0;
 
     @media #{$medium-up} {
-        display: inline-block;
-
-        &:before {
-            margin-left: 10px;
-            border-left: 1px solid $color-white;
-            height: 24px;
-            right: 10px;
-            top: 7px;
-            position: relative;
-        }
-    }
-
-    @media #{$large-up} {
-        margin-left: 20px;
+        display: flex;
     }
 
     nav {
@@ -44,7 +25,7 @@ $header-nav-link-padding: 15px;
         @include type-header;
         color: $color-white;
         display: none;
-        padding: 0 $header-nav-link-padding;
+        padding: 0 15px;
         position: relative;
         line-height: 10px;
 
@@ -107,7 +88,7 @@ $header-nav-link-padding: 15px;
             }
         }
 
-        .sub-nav-list__dropdown {
+        .sub-nav-list__dropdown {            
             display: block;
             visibility: hidden;
             opacity: 0;
@@ -118,7 +99,7 @@ $header-nav-link-padding: 15px;
             list-style-type: none;
             padding: 15px;
             left: 0;
-            top: 23px; // Distance from bottom of nav item to top of sub-nav drop-down
+            top: 20px; // Distance from bottom of nav item to top of sub-nav drop-down
             width: 130px;
             text-align: center;
             white-space: normal;
@@ -175,18 +156,7 @@ $header-nav-link-padding: 15px;
                 font-size: 80%;
             }
         }
-
-        @media #{$medium-up} {
-            nav {
-                margin: 17px 50%;
-                transform: translate(-50%, 0);
-            }
-
-            a {
-                display: inline-block;
-            }
-        }
-
+                
         a:first-child:before {
             opacity: 0;
         }

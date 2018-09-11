@@ -43,3 +43,23 @@ Feature: Section Landing page (Navigation Section)
             | device           |
             | tablet portrait  |
             | tablet landscape |
+
+@custommasthead
+    Scenario Outline: Verfiy that that the custom masthead appear in "<device>" view
+        Given I am currently viewing "real-homes"
+        When I switch to "<device>" view
+        * I should see the custom masthead appearing on top of the section page
+    @high
+        Examples:
+            |device     |
+            |desktop    |
+    @low
+        Examples:
+            |device             |
+            |tablet landscape   |
+            |tablet portrait    |
+     @custommastehead @high
+    Scenario: Verfiy that that the custom mastehead appear in mobile view
+        Given I am currently viewing "real-homes"
+        When I switch to "mobile" view
+        * I should see the custom masthead appearing on top of the section page in mobile

@@ -49,7 +49,6 @@ export default async function searchMiddleware(req, res, next) {
 
         const decodedQuery = decodeURI(query);
         const formattedQuery = capitalizeFirstLetter(decodedQuery);
-        const headerNavigation = req.data.headernavigation;
 
         req.data.entity = {
             contentTitle: formattedQuery,
@@ -59,6 +58,7 @@ export default async function searchMiddleware(req, res, next) {
         };
 
         res.body = {
+            ...res.body,
             search: {
                 total: searchDataResp.total
             },
@@ -76,8 +76,7 @@ export default async function searchMiddleware(req, res, next) {
                 previous: previousPage,
                 current: currentPage,
                 next: nextPage
-            },
-            headerNavigation
+            }
         };
 
         // Custom robots for Search Results page

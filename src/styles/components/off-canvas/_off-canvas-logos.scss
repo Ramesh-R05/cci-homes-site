@@ -1,0 +1,124 @@
+.off-canvas-logos {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  margin: 34px 0px 16px;
+      
+  &:before {    
+    content: 'MORE FROM THE TO LOVE NETWORK';
+    width: 100%;
+    display: block;
+    font-family: proxima-nova, sans-serif;
+    position: relative;
+    background-color: transparent;
+    color: $color-grey-light;
+    font-size: 11px;
+    margin: 34px 0px 16px;  
+    padding-bottom: 30px;
+    left: 0;
+    height: 0px;
+  
+    @media #{$medium-up} {
+      font-size: 13px;
+      margin: 30px 0px 20px;
+    }    
+  }
+
+  &__logo-wrapper {
+    margin-bottom: 30px;
+  }
+
+  &__anchor {
+    display: block;
+  }
+  
+  &__logo {
+
+    &--now {
+      width: 170px;
+      height: auto;
+
+      @media #{$medium-up} {        
+        width: 210px;
+        height: 20px;
+      }
+    }
+
+    &--food {      
+      width: 80px;
+      height: 32px;
+      
+      @media #{$medium-up} {        
+        width: 90px;
+        height: 36px;
+      }
+    }
+
+    &--elle {
+      width: 63px;
+      height: 26px;
+
+      @media #{$medium-up} {
+        width: 72px;
+        height: 29px;
+      }
+    }
+
+    &--hb {
+      width: 88px;
+      height: 30px;      
+
+      @media #{$medium-up} {
+        width: 100px;
+        height: 30px;  
+      }
+    }
+
+    &--gt {
+      width: 88px;
+      height: 28px;
+
+      @media #{$medium-up} {
+        width: 99px;
+        height: 31px;
+        padding-top: 2px;        
+      }
+    }
+
+    &--cosmo {      
+      width: 115px;
+      height: 22px;
+
+      @media #{$medium-up} {        
+        width: 130px;
+        height: 24px;
+      }
+    }
+
+    &--dolly {      
+      width: 94px;
+      height: 22px;
+
+      @media #{$medium-up} {
+        width: 113px;
+        height: 25px;
+      }
+    }
+
+    &--bh {      
+      width: 94px;
+      height: 27px;
+
+      @media #{$medium-up} {
+        width: 113px;
+        height: 32px;
+      }
+    }
+  
+    &:not(:hover) {
+      filter: brightness(0) invert(1);
+    }
+  }
+}

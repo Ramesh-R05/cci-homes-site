@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import cx from 'classnames';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import loadList from '../../actions/loadList';
@@ -18,7 +17,6 @@ export default class Section extends Component {
     static propTypes = {
         articles: PropTypes.array,
         content: PropTypes.object.isRequired,
-        isSideMenuOpen: PropTypes.bool,
         list: PropTypes.object,
         listNextParams: PropTypes.object.isRequired,
         hero: PropTypes.object
@@ -26,13 +24,12 @@ export default class Section extends Component {
 
     static defaultProps = {
         articles: [],
-        isSideMenuOpen: false,
         list: {},
         hero: {}
     };
 
     render() {
-        const { articles, list, content, listNextParams, isSideMenuOpen, hero } = this.props;
+        const { articles, list, content, listNextParams, hero } = this.props;
         let { sectionTopFeed, sectionBottomFeed } = this.context.config.polar.details;
 
         // There is paid content in this section so we don't want to override it with Polar Ads
@@ -43,10 +40,6 @@ export default class Section extends Component {
 
         if (!articles.length) return null;
         if (!list && !list.items && !list.items.length) return null;
-
-        const sectionClassName = cx('section__landing', 'side-menu-slider', {
-            'side-menu-slider--side-menu-open': isSideMenuOpen
-        });
 
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -61,7 +54,7 @@ export default class Section extends Component {
         };
 
         return (
-            <div className={sectionClassName}>
+            <div className="section__landing">
                 <div className="container">
                     <div className="section__row">
                         <Featured articles={articles} polarTargets={sectionTopFeed} hero={hero} />

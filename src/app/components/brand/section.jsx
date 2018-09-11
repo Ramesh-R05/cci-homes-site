@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import slice from 'lodash/array/slice';
+import classNames from 'classnames';
 import { connectToStores } from '@bxm/flux';
-import cx from 'classnames';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import Featured from './featured';
@@ -16,7 +16,6 @@ class Section extends Component {
         hero: PropTypes.object,
         articles: PropTypes.array,
         content: PropTypes.object,
-        isSideMenuOpen: PropTypes.bool,
         list: PropTypes.object.isRequired,
         listNextParams: PropTypes.object.isRequired
     };
@@ -24,8 +23,7 @@ class Section extends Component {
     static defaultProps = {
         hero: {},
         articles: [],
-        content: {},
-        isSideMenuOpen: false
+        content: {}
     };
 
     static contextTypes = {
@@ -33,14 +31,9 @@ class Section extends Component {
     };
 
     render() {
-        const { hero, articles, content, list, listNextParams, isSideMenuOpen } = this.props;
+        const { hero, articles, content, list, listNextParams } = this.props;
         const { config } = this.context;
         const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
-
-        const { urlName } = content;
-        const menuSliderClassName = cx('brand', `brand--${urlName}`, 'side-menu-slider', {
-            'side-menu-slider--side-menu-open': isSideMenuOpen
-        });
 
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -54,8 +47,11 @@ class Section extends Component {
             lazyLoad: true
         };
 
+        const { urlName } = content;
+        const brandSectionClassName = classNames({ brand: true, [`brand--${urlName}`]: true });
+
         return (
-            <div className={menuSliderClassName}>
+            <div className={brandSectionClassName}>
                 <div className="brand__body container">
                     <div className="row">
                         <Featured hero={hero} articles={slice(articles, 0, 6)} content={content} polarTargets={sectionTopFeed} />

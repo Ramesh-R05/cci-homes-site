@@ -215,35 +215,4 @@ describe(`Section`, () => {
             expect(repeatableComponent.props.polarTargets.length).to.eq(0);
         });
     });
-
-    describe(`with the side menu closed`, () => {
-        before(() => {
-            reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
-        });
-
-        const expectedClassName = 'side-menu-slider';
-        it(`should have class name "${expectedClassName}"`, () => {
-            const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedClassName);
-            expect(section).to.have.length(1);
-        });
-
-        const expectedOpenClassName = 'side-menu-slider--side-menu-open';
-        it(`should default to closed state`, () => {
-            const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedOpenClassName);
-            expect(section).to.have.length(0);
-        });
-    });
-
-    describe(`with the side menu opened`, () => {
-        before(() => {
-            defaultProps.isSideMenuOpen = true;
-            reactModule = Context.mountComponent(Section, defaultProps, [contextConfigStub]);
-        });
-
-        const expectedOpenClassName = 'side-menu-slider--side-menu-open';
-        it(`should open when isSideMenuOpen is true`, () => {
-            const section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, expectedOpenClassName);
-            expect(section).to.have.length(1);
-        });
-    });
 });

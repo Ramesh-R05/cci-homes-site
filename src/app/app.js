@@ -7,7 +7,6 @@ import HtmlStore from '@bxm/server/lib/stores/html';
 import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
 import NavigationStore from '@bxm/site-header/lib/stores/navigation';
-import MenuStore from './stores/menu';
 import PageStore from './stores/page';
 import RouteStore from './stores/route';
 import TrackingStore from './stores/tracking';
@@ -28,7 +27,6 @@ const app = new Flux({
         VerticalGalleryStore,
         PolarAdStore,
         RouteStore,
-        MenuStore,
         PageStore,
         PolarAdStore,
         RouteStore,

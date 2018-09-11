@@ -160,8 +160,8 @@ class GallerySection extends Component {
         };
 
         return (
-            <div className="side-menu-slider gallery">
-                <section className="gallery__container side-menu__push" itemType="http://schema.org/Article">
+            <div className="gallery">
+                <section className="gallery__container" itemType="http://schema.org/Article">
                     <meta itemProp="image" content={`${gallery.imageUrl}?width=960&height=600&mode=crop&quality=75`} />
                     <meta itemProp="description" content={shareDescription} />
                     <meta itemProp="datePublished" content={gallery.dateCreated} />

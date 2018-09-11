@@ -21,7 +21,7 @@ ComponentContext.addStore('PageStore', {
     getContent: () => entity,
     getModuleItems: () => gogMock,
     getItems: () => articlesMock,
-    getNavigationTags: () => tags,
+    getNavigationTags: () => [],
     getList: () => articlesMock,
     getListNextParams: () => articlesMock,
     getHeroItem: () => {}
@@ -47,9 +47,5 @@ describe(`NavigationTagSection`, () => {
 
     it(`should pass down the content prop to the GenericSection component`, () => {
         expect(genericSection.props.content).to.deep.equal(entity);
-    });
-
-    it(`should pass down the isSideMenuOpen prop to the GenericSection component`, () => {
-        expect(genericSection.props.isSideMenuOpen).to.be.false;
     });
 });

@@ -33,7 +33,6 @@ module.exports = function() {
 
     this.Then(/^I can navigate to our network sites in the hamburger navigation menu/, function(dataTable){
         browser.click(site_nav.siteHamburger);
-        browser.waitForVisible(site_nav.siteHamburgerDetail, 3000);
         wait(500); // ensure it waits for transition effect to complete
         var rows = dataTable.hashes();
 
@@ -48,14 +47,7 @@ module.exports = function() {
             expect(menuhref[i]).toMatch(row['url']);
         }
         browser.click(site_nav.siteHamburgerClose);
-    });
-
-    this.Then(/^the menu fades out as I scroll down the page$/, function () {
-        expect(browser.isVisible(site_nav.menuHeader)).toBe(true);
-        browser.scroll(0,1000);
-        wait(500);
-        expect(browser.getAttribute(site_nav.menuHeader,'class')).toContain('fade-out');
-    });
+    });    
 
     this.Then(/^I should see the site header logo to open homepage$/, function () {
         browser.waitForExist(site_nav.smallIconlink, 3000);

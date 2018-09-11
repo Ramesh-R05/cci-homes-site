@@ -50,8 +50,4 @@ describe('SponsorTagSection', () => {
     it('should have pass down the sponsors', () => {
         expect(genericSection.props.articles).to.deep.equal(sponsorsMock);
     });
-
-    it(`should pass down the isSideMenuOpen prop to the GenericSection component`, () => {
-        expect(genericSection.props.isSideMenuOpen).to.be.false;
-    });
 });

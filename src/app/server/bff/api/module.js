@@ -16,6 +16,8 @@ export default async function getModules(...args) {
             const moduleConfig = find(modules.data, { moduleName: arg });
             if (arg === 'footer') {
                 moduleList[arg] = moduleConfig || {};
+            } else if (arg.endsWith('theme')) {
+                moduleList[arg] = moduleConfig || {};
             } else {
                 moduleList[arg] = get(moduleConfig, 'moduleManualContent.data', []);
             }

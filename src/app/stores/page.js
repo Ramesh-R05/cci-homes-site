@@ -14,8 +14,7 @@ const PageStore = createReducerStore({
                 entity,
                 hero,
                 items,
-                headerNavigation,
-                hamburgerNavigation,
+                theme,
                 galleries,
                 latestRealHomes,
                 list = [],
@@ -28,8 +27,7 @@ const PageStore = createReducerStore({
                     content: entity,
                     hero,
                     items,
-                    headerNavigation,
-                    hamburgerNavigation,
+                    theme,
                     navigationTags: entity.navigationTags,
                     galleries,
                     latestRealHomes,
@@ -88,22 +86,16 @@ const PageStore = createReducerStore({
             return state.latestRealHomes || [];
         },
 
-        getHeaderItems(state) {
-            if (!state.headerNavigation) return [];
-            return state.headerNavigation.items || [];
-        },
-
-        getHamburgerNavItems(state) {
-            if (!state.hamburgerNavigation) return [];
-            return state.hamburgerNavigation.items || [];
-        },
-
         getErrorStatus(state) {
             return state.error;
         },
 
         getComScoreSegmentIds(state) {
             return state.comScoreSegmentIds;
+        },
+
+        getTheme(state) {
+            return state.theme || null;
         }
     }
 });

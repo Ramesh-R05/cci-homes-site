@@ -89,27 +89,4 @@ describe('Home', () => {
     it(`should pass down the articles to the SectionFeatured component`, () => {
         expect(sectionFeatured.props.articles).to.deep.equal(homeArticlesMock);
     });
-
-    describe(`side menu behavior`, () => {
-        let domNode;
-
-        before(() => {
-            reactModule = Context.mountComponent(Home, {}, [contextConfigStub]);
-            domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
-        });
-
-        it(`should have class name "side-menu-slider"`, () => {
-            expect(domNode).to.contain('side-menu-slider');
-        });
-
-        it(`should default to closed state`, () => {
-            expect(domNode).to.not.contain('side-menu-slider--side-menu-open');
-        });
-
-        it(`should open when isSideMenuOpen is true`, () => {
-            reactModule = Context.mountComponent(Home, { isSideMenuOpen: true }, [contextConfigStub]);
-            domNode = ReactDOM.findDOMNode(reactModule).getAttribute('class');
-            expect(domNode).to.contain('side-menu-slider--side-menu-open');
-        });
-    });
 });

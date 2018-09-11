@@ -1,0 +1,34 @@
+.mobile-menu {
+
+  &:after {
+    content: '';
+    display: block;
+    background-color: $color-primary;
+    height: 3px;
+    width: 60px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 38px;
+  }
+
+  .nav-item {
+    @include type-side-menu-link;
+    display: block;
+    margin-bottom: 13px;
+
+    &:hover {
+        color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+
+    &:focus {        
+      color: $color-primary;
+    }
+  }
+}

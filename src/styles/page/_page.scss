@@ -15,5 +15,39 @@
 .default-template {
     overflow-x: hidden;
     position: relative;
-    width: 100%;
+    width: 100%;    
+
+    &--homepage {
+        .header:not(.header--expanded) {
+            @media #{$medium-up} {
+                margin-top: 48px;
+            }            
+        }    
+        
+        .header--pinned:not(.header--expanded) {
+            margin-top: 0;
+        }
+            
+        .section__heading {
+            @media #{$medium-up} {
+                padding-top: 130px
+            }
+        }
+    }
+
+    &--theme-active {
+        .section__heading {
+            padding-top: 110px;
+
+            @media #{$medium-up} {
+                padding-top: $header-height-desktop + $header-banner-height-medium-up;
+            }
+
+            @media #{$large-up} {
+                padding-top: $header-height-desktop + $header-banner-height-large-up + 30px;
+            }
+        }
+    }
 }
+
+

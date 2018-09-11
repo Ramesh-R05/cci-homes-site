@@ -13,13 +13,11 @@ class Section extends Component {
 
     static propTypes = {
         articles: PropTypes.array,
-        isSideMenuOpen: PropTypes.bool,
         content: PropTypes.object.isRequired
     };
 
     static defaultProps = {
-        articles: [],
-        isSideMenuOpen: false
+        articles: []
     };
 
     render() {

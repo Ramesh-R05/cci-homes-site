@@ -1,43 +1,35 @@
-$header-logo-width-desktop: 100%;
-
-.header-logo {
-    display: inline-block;
-    overflow: hidden;
+.header-logo {   
     text-align: center;
-    vertical-align: top;
-    width: 240px;
-    padding-left: 0;
-
-    @media #{$medium-up} {
-        text-align: left;
-    }
-
-    @media #{$large-up} {
-        padding-left: 15px;
-    }
-
-    @media #{$medium-only} {
-        width: 240px;
-    }
+    flex: 1 0 auto;
+    display: flex;
 
     &__link-image {
-        background-image: url('/assets/logos/homes-logo.svg');
-        background-repeat: no-repeat;
-        display: inline-block;
-        height: 28px;
-        vertical-align: middle;
-        font-size: 0;
-        width: 100%;
-        margin: 14px 0;
-
+        background-image: none;
+        display: block;
+        height: 100%;
+        width: auto;
+       
         @media #{$medium-up} {
-            background-image: url('/assets/logos/homes-logo.svg');
-            height: 28px;
-            background-repeat: no-repeat;
+           margin-left: 0;
+           padding: 0;
+       }
+        
+    &:hover {
+           opacity: 0.75;
         }
 
-        @media #{$medium-only} {
-            height: 26px;
+    }
+
+    .icon-logo {
+        color: #fff !important;
+        font-size: 27px;
+        line-height: 32px;    
+        margin-left: 15px;
+            
+        @media #{$medium-up} {
+            margin-left: 30px;
+            font-size: 27px;
+            line-height: 25px;
         }
     }
 }

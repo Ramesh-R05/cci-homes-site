@@ -1,6 +1,9 @@
 .uniheader {
     background-color: #F9F9F9;
     margin: 0 auto;
+    position: absolute;
+    width: 100%;
+    z-index: $z-index--header;
 
     &__nav {
         max-width: 1024px;

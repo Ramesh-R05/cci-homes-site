@@ -22,8 +22,8 @@ class Application extends Component {
     };
 
     static contextTypes = {
-        getStore: React.PropTypes.func,
-        executeAction: React.PropTypes.func
+        getStore: PropTypes.func,
+        executeAction: PropTypes.func
     };
 
     componentDidUpdate(prevProps) {
@@ -37,10 +37,11 @@ class Application extends Component {
         const { currentRoute, currentNavigateError } = this.props;
         const Handler = currentRoute ? currentRoute.handler : DefaultTemplate;
         const className = canUseDOM ? '' : 'no-js';
+
         return (
             <div className={className}>
                 <GoogleFont />
-                <Handler currentNavigateError={currentNavigateError} />
+                <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute.url} />
             </div>
         );
     }

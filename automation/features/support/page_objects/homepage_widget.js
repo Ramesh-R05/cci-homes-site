@@ -60,7 +60,6 @@ var homepage_widget = {
     loadMoreFeedTeaserImgLink: '.repeatable-component div:nth-child(2) article:nth-child(2) .teaser__image',
 
     // RHR
-    newsletterSignUpBtn: '.newsletter-subscribe__button .button--link'
-
+    newsletterSignUpBtn: '.newsletter-subscribe__button .button--link',
 };
 module.exports = homepage_widget;

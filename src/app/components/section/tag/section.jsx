@@ -8,13 +8,11 @@ class Section extends Component {
     static propTypes = {
         articles: PropTypes.array,
         content: PropTypes.object.isRequired,
-        isSideMenuOpen: PropTypes.bool,
         navigationTags: PropTypes.array
     };
 
     static defaultProps = {
         articles: [],
-        isSideMenuOpen: false,
         navigationTags: []
     };
 

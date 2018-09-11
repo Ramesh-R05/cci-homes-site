@@ -1,11 +1,15 @@
 import logger from '../../../../logger';
 import getModules from '../api/module';
 import { parseEntities } from '../helper/parseEntity';
+import getThemeModuleForQuery from '../helper/getThemeModuleForQuery';
 
 export default async function pageModulesMiddleware(req, res, next) {
     try {
+        const { query } = req;
+        const themeModule = getThemeModuleForQuery(query);
+
         req.data = {};
-        req.data = await getModules('hamburgernavigation', 'headernavigation');
+        req.data = await getModules('hamburgernavigation', 'headernavigation', themeModule);
 
         const processedModules = Object.keys(req.data).reduce((allModules, moduleName) => {
             let accumulatedModules;
@@ -15,7 +19,18 @@ export default async function pageModulesMiddleware(req, res, next) {
                     accumulatedModules = {
                         ...allModules,
                         headerNavigation: {
-                            items: parseEntities(req.data[moduleName], { contentTitle: 'name' })
+                            items: parseEntities(req.data[moduleName], { contentTitle: 'name' }).map(
+                                item =>
+                                    item.tagsDetails && item.tagsDetails.length > 1
+                                        ? {
+                                              ...item,
+                                              subsections: item.tagsDetails.map(tag => ({
+                                                  contentTitle: tag.displayName,
+                                                  url: tag.urlName
+                                              }))
+                                          }
+                                        : item
+                            )
                         }
                     };
                     break;
@@ -23,8 +38,14 @@ export default async function pageModulesMiddleware(req, res, next) {
                     accumulatedModules = {
                         ...allModules,
                         hamburgerNavigation: {
-                            items: parseEntities(req.data[moduleName], { contentTitle: 'name' })
+                            items: [{ name: 'Home', url: '/' }, ...parseEntities(req.data[moduleName], { contentTitle: 'name' })]
                         }
+                    };
+                    break;
+                case themeModule:
+                    accumulatedModules = {
+                        ...allModules,
+                        theme: req.data[moduleName]
                     };
                     break;
                 default:

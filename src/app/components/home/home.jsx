@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
-import cx from 'classnames';
 import SectionFeatured from './sectionFeatured';
 
 class Home extends Component {
@@ -9,13 +8,11 @@ class Home extends Component {
     static propTypes = {
         content: PropTypes.object,
         hero: PropTypes.object,
-        articles: PropTypes.array,
-        isSideMenuOpen: PropTypes.bool
+        articles: PropTypes.array
     };
 
     static defaultProps = {
         articles: [],
-        isSideMenuOpen: false,
         content: {},
         hero: {}
     };
@@ -26,14 +23,10 @@ class Home extends Component {
 
     render() {
         const { config } = this.context;
-        const { isSideMenuOpen } = this.props;
         const { homeTopFeed, homeBottomFeed } = config.polar.details;
-        const menuSliderClassName = cx('homepage side-menu-slider', {
-            'side-menu-slider--side-menu-open': isSideMenuOpen
-        });
 
         return (
-            <div className={menuSliderClassName}>
+            <div className="homepage">
                 <SectionFeatured {...this.props} className="home__body" polarTargets={[homeTopFeed, homeBottomFeed]} />
             </div>
         );

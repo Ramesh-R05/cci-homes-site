@@ -117,6 +117,9 @@ export default {
         viPlayer: {
             enabled: true
         },
+        headerExpanded: {
+            enabled: true
+        },
         royMorganAmp: {
             enabled: true,
             id: 'm8frgflsxh',
@@ -128,6 +131,9 @@ export default {
             ]
         },
         search: {
+            enabled: true
+        },
+        navigationSubSectionDropdown: {
             enabled: true
         }
     },

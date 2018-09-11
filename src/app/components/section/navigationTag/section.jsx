@@ -9,14 +9,12 @@ class Section extends Component {
         articles: PropTypes.arrayOf(PropTypes.object),
         content: PropTypes.object.isRequired,
         galleries: PropTypes.array,
-        isSideMenuOpen: PropTypes.bool,
         hero: PropTypes.object
     };
 
     static defaultProps = {
         articles: [],
         galleries: [],
-        isSideMenuOpen: false,
         hero: {}
     };
 
