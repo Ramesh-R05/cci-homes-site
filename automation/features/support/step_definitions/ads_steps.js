@@ -5,6 +5,7 @@ var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/l
 var world = require('../world');
 var isBrowserStack = world.Urls.isBrowserStack;
 var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
+var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function() {
 
@@ -199,7 +200,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see sticky MREC on the new feed$/, function () {
-        browser.scroll(wn_ads.ad_LoadMoreMrecInBottomFeed);
+        browser.scroll(loadMore.loadMoreButton);
         expect(browser.waitForVisible(wn_ads.ad_LoadMoreMrecInBottomFeed,5000)).toBe(true);
     });
 
