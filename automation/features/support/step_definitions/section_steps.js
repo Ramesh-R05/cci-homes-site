@@ -36,14 +36,14 @@ module.exports = function(){
     });
 
     this.Then(/^I should see the custom masthead appearing on top of the section page$/, function () {
+        browser.waitForVisible(sectionPage.customMastHead,5000);
         var customMastHead = browser.getAttribute(sectionPage.customMastHead, 'style');
-        console.log(customMastHead);
         expect(customMastHead).toContain('background-image');
     });
-    
+
      this.Then(/^I should see the custom masthead appearing on top of the section page in mobile$/, function () {
+        browser.waitForVisible(sectionPage.customMastHeadMobile,5000);
         var customMastHeadMobile = browser.getAttribute(sectionPage.customMastHeadMobile, 'style');
-        console.log(customMastHeadMobile);
         expect(customMastHeadMobile).toContain('background-image');
     });
 
