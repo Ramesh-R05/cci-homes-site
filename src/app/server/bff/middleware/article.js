@@ -18,7 +18,7 @@ export default async function articleMiddleware(req, res, next) {
                 res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };
             }
         }
-        
+
         /**
          * Following code is for find out the site logo img url and external links for directory page
          * 1. From the returned content body, logoImg url always be the first element of contentbody array

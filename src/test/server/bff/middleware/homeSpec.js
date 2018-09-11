@@ -13,12 +13,13 @@ const entityStubData = {
     nodeName: 'Kmart nursery furniture',
     urlName: 'kmart-nursery-furniture'
 };
+const liveCmsHomeDirectoryNodeId = 'HOMES-14509';
 
 const latestRealHomesStubData = { ...realHomesStubData };
 latestRealHomesStubData.data.splice(4);
 
-const homeFilter = `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`;
-const latestRealHomesFilter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'`;
+const homeFilter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and path ne '${liveCmsHomeDirectoryNodeId}'`;
+const latestRealHomesFilter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes' and path ne '${liveCmsHomeDirectoryNodeId}'`;
 
 const expectedBody = {
     entity: entityStubData,

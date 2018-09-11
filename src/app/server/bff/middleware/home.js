@@ -14,11 +14,11 @@ export default async function homeMiddleware(req, res, next) {
         const pageSize = 12;
         const pageNo = parseInt(req.query.pageNo || 1, 10);
         const skip = (pageNo - 1) * pageSize;
+        const liveCmsHomeDirectoryNodeId = 'HOMES-14509';
 
-        const filter = "nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'";
-        // eslint-disable-next-line max-len
-        const realHomesFilter =
-            "(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'";
+        const filter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and path ne '${liveCmsHomeDirectoryNodeId}'`;
+        // eslint-disable-next-line max-len, prettier/prettier
+        const realHomesFilter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes' and path ne '${liveCmsHomeDirectoryNodeId}'`;
         const [pageData, latestTeasersResp, latestRealHomesResp, heroModuleResp] = await Promise.all([
             makeRequest(`${req.app.locals.config.services.remote.entity}/homepage`),
             getLatestTeasers(itemsCount, skip, filter),
