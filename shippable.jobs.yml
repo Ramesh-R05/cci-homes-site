@@ -314,7 +314,7 @@ jobs:
         - script: nvm use "8.9.1"
         - script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install babel-plugin-transform-decorators-legacy
+        #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
         - script: npm install
         - script: export URL=https://www.homestolove.com.au/
