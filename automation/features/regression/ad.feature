@@ -11,7 +11,6 @@ Feature: Ads
         And I should see sticky MREC ad next to the top news feed on "<page>"
         And I should see sticky MREC ad next to the bottom news feed on "<page>"
         When I click on the Load More button
-        Then I should see sticky MREC on the new feed
         And I should see <numberMrecLoadMore> mrec ad slots
     @homepage @high
         Examples:

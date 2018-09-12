@@ -201,7 +201,7 @@ module.exports = function() {
 
     this.Then(/^I should see sticky MREC on the new feed$/, function () {
         browser.scroll(loadMore.loadMoreButton);
-        expect(browser.waitForVisible(wn_ads.ad_LoadMoreMrecInBottomFeed,5000)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.ad_LoadMoreMrecInBottomFeed,10000)).toBe(true);
     });
 
     this.Then(/^I should see each outside ad slot element containing proper class name$/, function (dataTable) {

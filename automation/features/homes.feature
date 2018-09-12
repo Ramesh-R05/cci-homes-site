@@ -107,20 +107,25 @@ Feature: Smoke test for HOMES
         |device             |page       |pageUrl                                            |
         |desktop            |homepage   |                                                   |
 
-##Enable this case once we work on a ticket to improve the search icon with many menus in the navigation bar
-    #Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
-    #   Given I switch to "<device>" view
-    #   When I am currently viewing "<pageUrl>"
-    #   * I should be able to search a keyword "house" on "navigation bar" and see the result page
-    #   Examples:
-    #   |device             |page       |pageUrl                                            |
-    #   |tablet landscape   |section    |real-homes                                               |
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+       Given I switch to "<device>" view
+       When I am currently viewing "<pageUrl>"
+       * I should be able to search a keyword "house" on "navigation bar" and see the result page
+       Examples:
+       |device             |page       |pageUrl                                            |
+       |tablet landscape   |section    |real-homes                                         |
 
-##Enable this case once we work on a ticket to improve the search icon with many menus in the navigation bar
-#    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
-#        Given I switch to "<device>" view
-#        When I am currently viewing "<pageUrl>"
-#        * I should be able to search a keyword "house" on "navigation bar" and see the result page
-#        Examples:
-#        |device             |page        |pageUrl                                                         |
-#        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        Examples:
+        |device             |page        |pageUrl                                                         |
+        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
+
+#----Below is the high scenario that we moved from the regression test because its result is unstable in the Test environment---=#
+    Scenario: Verify the sticky MREC ad in the load more feed (Desktop)
+        Given I switch to "desktop" view
+        When I am currently viewing the homepage
+        And I click on the Load More button
+        Then I should see sticky MREC on the new feed
