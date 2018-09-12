@@ -105,9 +105,9 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo/gitRepo/src
+        #- script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install babel-plugin-transform-decorators-legacy
+        #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
         - script: npm install
         - script: export URL=http://homes-site.test.bxm.net.au/
@@ -134,9 +134,9 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo/gitRepo/src
+        #- script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install babel-plugin-transform-decorators-legacy
+        #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
         - script: npm install
         - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
@@ -165,9 +165,9 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo/gitRepo/src
+        #- script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install babel-plugin-transform-decorators-legacy
+        #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
         - script: npm install
         - script: export URL=https://www.sit.homestolove.com.au/
@@ -236,9 +236,9 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo/gitRepo/src
+        #- script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install babel-plugin-transform-decorators-legacy
+        #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
         - script: npm install
         - script: export URL=http://homes-site.test.bxm.net.au/
@@ -264,9 +264,9 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo/gitRepo/src
+        #- script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install babel-plugin-transform-decorators-legacy
+        #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
         - script: npm install
         - script: export URL=http://cms.dev.homes.wn.bauer-media.net.au/cms/umbraco/
@@ -312,7 +312,7 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo/gitRepo/src
+        #- script: cd ./IN/homes-site-repo/gitRepo/src
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         #- script: npm install babel-plugin-transform-decorators-legacy
         - script: cd ../automation
