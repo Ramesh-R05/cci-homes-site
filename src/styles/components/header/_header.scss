@@ -1,7 +1,7 @@
 
 %expanded-search-placement {
     .header-search {
-        top: 0;
+        top: 22px;
         
         @media #{$medium-up} {
             top: $header-height-desktop;
@@ -72,6 +72,14 @@
             margin-bottom: $header-banner-height-large-up;
         }
 
+        .header-menu {
+            position: absolute;
+
+            @media #{$medium-up} {
+                position: static;
+            }
+        }
+
         .header-logo {
             @media #{$medium-up} {
                 overflow: hidden;
@@ -80,7 +88,7 @@
         }
 
         .header-logo__link-image {
-            margin-left: 45px;
+            margin: 0 auto;
             
             @media #{$medium-up} { 
                 margin: initial;
@@ -127,7 +135,7 @@
             }
 
             .header-logo__link-image {
-                margin-left: 45px;
+                margin: 0 auto;
 
                 @media #{$medium-up} {
                     margin: initial;
