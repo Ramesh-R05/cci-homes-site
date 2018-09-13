@@ -337,5 +337,8 @@ export default {
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ky/signup-homestolove-article-iframe-bottom'
     },
 
-    useBrandTitleSuffix: true
+    useBrandTitleSuffix: true,
+    homepageFilter: {
+        excludedNodeIds: ['HOMES-10958'] // Home Directories (dev)
+    }
 };

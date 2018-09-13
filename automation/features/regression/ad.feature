@@ -52,7 +52,6 @@ Feature: Ads
         When I am currently viewing "<pageURL>"
         * I should see the top leaderboard ad under navigation
         * I should see the bottom leaderboard ad above the footer on article
-        * I should see 4 MREC ads in the RHR feed
         * I should not see MREC ad under the hero image
         * I should not see MREC ad above recommendation
     @gallery @high

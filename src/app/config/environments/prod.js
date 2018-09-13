@@ -45,5 +45,8 @@ export default {
     site: {
         host: 'http://www.homestolove.com.au',
         protocol: 'https'
+    },
+    homepageFilter: {
+        excludedNodeIds: ['HOMES-14059'] // Home Directories (live)
     }
 };
