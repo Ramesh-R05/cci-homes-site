@@ -52,8 +52,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     const { $filter, $top } = req.query;
 
     // eslint-disable-next-line prettier/prettier
-    const homepageMatch =
-        $filter === `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and path ne 'HOMES-10958'`;
+    const homepageMatch = $filter === `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and path ne 'HOMES-10958'`;
     const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
     const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);

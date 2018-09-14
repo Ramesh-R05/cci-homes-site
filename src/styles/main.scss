@@ -53,9 +53,6 @@
 @import 'components/header/header-logo';
 @import 'components/header/header-nav';
 @import 'components/header/header-banner';
-@import 'components/off-canvas/off-canvas';
-@import 'components/off-canvas/mobile-menu';
-@import 'components/off-canvas/off-canvas-logos';
 @import 'components/header/uniheader.scss';
 @import 'components/section/sections';
 @import 'components/section/sponsor-header';
@@ -104,3 +101,8 @@
 @import 'components/article/feedItem';
 @import 'components/article/theme';
 @import 'components/article/article';
+
+//off-canvas
+@import 'components/off-canvas/off-canvas';
+@import 'components/off-canvas/mobile-menu';
+@import 'components/off-canvas/off-canvas-logos';

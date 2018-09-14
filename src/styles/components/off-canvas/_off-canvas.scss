@@ -2,13 +2,14 @@
   position: relative;
   padding: 0;
   background-color: $color-grey-darker;
-  overflow: scroll;
-  height: 5px;
-
+  
   &__content-wrapper {
-    position: fixed;
-    padding: $column-gutter / 2;
     pointer-events: inherit;
+    padding: $column-gutter / 2;
+    overflow: scroll;
+    height: 100%;
+    position: absolute; 
+    -webkit-overflow-scrolling: touch;
 
     @media #{$medium-up} {
       height: 100%;
@@ -39,5 +40,10 @@
     path {
         fill: $color-primary;
     }
+  }
+
+  &-wrapper {
+    position: fixed;
+    top: 0;
   }
 }
