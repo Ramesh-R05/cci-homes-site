@@ -35,7 +35,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         * I can navigate to our network sites in the hamburger navigation menu
             |title                      |url                                |
             |Now To Love                |http://nowtolove.com.au/           |
-            |Food To Love               |http://foodtolove.com.au/          |
+            |Womens Weekly Food         |http://womensweeklyfood.com.au/    |
             |Elle                       |http://elle.com.au/                |
             |Harper's Bazaar            |http://harpersbazaar.com.au/       |
             |Gourmet Traveller          |http://gourmettraveller.com.au/    |
