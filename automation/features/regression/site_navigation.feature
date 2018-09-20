@@ -33,12 +33,12 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Given I switch to "mobile" view
         When I am currently viewing "automation-test-article-with-hero-image-3193"
         * I can navigate to our network sites in the hamburger navigation menu
-            |title                      |url                                |
-            |Now To Love                |http://nowtolove.com.au/           |
-            |Womens Weekly Food         |http://womensweeklyfood.com.au/    |
-            |Elle                       |http://elle.com.au/                |
-            |Harper's Bazaar            |http://harpersbazaar.com.au/       |
-            |Gourmet Traveller          |http://gourmettraveller.com.au/    |
-            |Cosmopolitan               |http://cosmopolitan.com.au/        |
-            |Dolly                      |http://dolly.com.au/               |
-            |Beauty Heaven              |http://beautyheaven.com.au/        |
+            |title                      |url                                     |
+            |Now To Love                |https://www.nowtolove.com.au/           |
+            |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |
+            |Elle                       |https://www.elle.com.au/                |
+            |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |
+            |Gourmet Traveller          |https://www.gourmettraveller.com.au/    |
+            |Cosmopolitan               |https://www.cosmopolitan.com.au/        |
+            |Dolly                      |http://www.dolly.com.au/                |
+            |Beauty Heaven              |https://www.beautyheaven.com.au/        |
