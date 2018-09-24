@@ -69,14 +69,20 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
         }
 
         a {
-            .tl-icon-drop-menu:before {
-                // This creates a white triangle that points downwards
-                border: 5px solid transparent;
-                border-top: 8px solid $color-white;
-                content: '';
-                display: inline-block;
-                margin: 0 0 -4px 5px;
-                width: 0;
+            .tl-icon-drop-menu {
+                color: $color-white;
+
+                &:before {
+                    // This creates a white triangle that points downwards
+                    border: 5px solid transparent;
+                    border-top: 8px;
+                    border-top-color: inherit;
+                    border-top-style: solid;
+                    content: '';
+                    display: inline-block;
+                    margin: 0 0 -4px 5px;
+                    width: 0;
+                }
             }
 
             &:hover {
@@ -88,7 +94,7 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
             }
         }
 
-        .sub-nav-list__dropdown {            
+        .sub-nav-list__dropdown {
             display: block;
             visibility: hidden;
             opacity: 0;
@@ -156,7 +162,7 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
                 font-size: 80%;
             }
         }
-                
+
         a:first-child:before {
             opacity: 0;
         }

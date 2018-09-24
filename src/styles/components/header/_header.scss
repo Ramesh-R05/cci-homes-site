@@ -2,11 +2,11 @@
 %expanded-search-placement {
     .header-search {
         top: 22px;
-        
+
         @media #{$medium-up} {
             top: $header-height-desktop;
-        }        
-    }    
+        }
+    }
 
     .header-search--is-open {
         top: $header-banner-height-mobile;
@@ -22,7 +22,7 @@
     position: absolute;
     z-index: $z-index--header;
     height: 0;
-    width: 100%;    
+    width: 100%;
     margin-bottom: 0;
     background: $color-primary;
 
@@ -31,7 +31,7 @@
     }
 
     &__inner {
-        width: 100%;        
+        width: 100%;
         background-color: $color-primary;
         position: relative;
         height: $header-height-small;
@@ -40,14 +40,14 @@
             height: auto;
         }
     }
-    
+
     &__sections {
         align-items: center;
         display: flex;
-        height: 100%;                 
+        height: 100%;
         justify-content: space-between;
         margin: 0 auto;
-        max-width: 1024px;        
+        max-width: 1024px;
         padding: 0 $column-gutter/2;
         white-space: nowrap;
 
@@ -89,8 +89,8 @@
 
         .header-logo__link-image {
             margin: 0 auto;
-            
-            @media #{$medium-up} { 
+
+            @media #{$medium-up} {
                 margin: initial;
                 transform: translateX(-299px);
             }
@@ -113,7 +113,7 @@
             top: 232px;
         }
 
-        //header expanded and pinned but not yet hidden 
+        //header expanded and pinned but not yet hidden
         &#{$self}--pinned:not(#{$self}--hidden) {
             @extend %expanded-search-placement;
             position: fixed;
@@ -121,7 +121,7 @@
             #{$self}__container {
                 height: auto;
             }
-            
+
             .header-banner {
                 display: none;
             }
@@ -143,41 +143,41 @@
                 }
             }
         }
-        
+
         //header expanded and pinned
         &#{$self}--hidden#{$self}--pinned {
             @extend %expanded-search-placement;
             position: fixed;
-            width: 100%;            
-            
-            #{$self}__inner {                 
+            width: 100%;
+
+            #{$self}__inner {
                 top: 0;
-                position: fixed;        
+                position: fixed;
                 margin-bottom: auto;
-            }        
-    
+            }
+
             .header-banner {
                 display: none;
             }
-    
+
             .header-logo {
                 @media #{$medium-up} {
                     position: static;
                 }
             }
-            
+
             .header-nav {
                 margin-left: 0;
             }
-    
+
             .header-logo__link-image {
                 @media #{$medium-up} {
                     transition: all .2s ease-in;
-                    transform: translateX(0);    
+                    transform: translateX(0);
                 }
-            }                
+            }
         }
-    }    
+    }
 
     // pinned states
     &--pinned {
@@ -192,5 +192,5 @@
         &#{$self}--hidden {
             margin: 0;
         }
-    }    
+    }
 }
