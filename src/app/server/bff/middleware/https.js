@@ -78,6 +78,14 @@ export default function https(req, res, next) {
             httpsSet(item, 'imageUrl');
         });
 
+        get(res, 'body.topDirectories', []).forEach(item => {
+            httpsSet(item, 'imageUrl');
+        });
+
+        get(res, 'body.remainingDirectories', []).forEach(item => {
+            httpsSet(item, 'imageUrl');
+        });
+
         ['current', 'previous', 'next'].forEach(item => {
             const name = `body.list.${item}.url`;
             const value = get(res, name, '');
