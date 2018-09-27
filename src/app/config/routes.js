@@ -49,7 +49,7 @@ export default {
         action: loadPageContent
     },
     directories: {
-        path: '/directories*',
+        path: '/directories',
         method: 'get',
         handler: defaultTemplate,
         action: loadDirectoriesContent

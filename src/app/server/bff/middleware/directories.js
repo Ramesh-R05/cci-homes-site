@@ -4,7 +4,10 @@ import getLatestTeasers from '../api/listing';
 import getDirectoryFilters from '../api/directoryFilters';
 
 export default async function directoriesMiddleware(req, res, next) {
-    const baseDirectoriesQuery = `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
+    const baseDirectoriesQuery =
+        process.env.APP_ENV === 'prod'
+            ? `tagsDetails/fullName eq 'food_Homes_navigation_Directories'`
+            : `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
 
     try {
         let filterString = baseDirectoriesQuery;
@@ -21,6 +24,7 @@ export default async function directoriesMiddleware(req, res, next) {
 
         const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/directories`);
         const filteredDirectoriesResponse = await getLatestTeasers(100, 0, filterString);
+
         const directoryItems = (filteredDirectoriesResponse && filteredDirectoriesResponse.data) || [];
         const directoryFilters = getDirectoryFilters();
 
