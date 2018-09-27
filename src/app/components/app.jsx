@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { canUseDOM } from 'exenv';
 import { provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
+import AdManager from '@bxm/ad/lib/google/components/adManager';
 import GoogleFont from './html/googleFont';
 import DefaultTemplate from './templates/default';
 
@@ -47,6 +48,6 @@ class Application extends Component {
     }
 }
 
-export default provideContext(handleHistory(Application), {
+export default provideContext(handleHistory(AdManager(Application)), {
     config: PropTypes.object
 });

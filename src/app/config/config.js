@@ -135,6 +135,10 @@ export default {
         },
         navigationSubSectionDropdown: {
             enabled: true
+        },
+        ias: {
+            enabled: true,
+            id: 926929
         }
     },
 
