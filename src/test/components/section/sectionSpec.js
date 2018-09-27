@@ -1,6 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
 import { entity, articles as articlesMock } from '../../mock/articles';
-import exposeProps from '../../test-util/exposeProps';
 import cloneDeep from 'lodash/lang/cloneDeep';
 
 const Context = betterMockComponentContext();

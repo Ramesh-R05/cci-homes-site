@@ -299,7 +299,8 @@ export default {
         endpoints: {
             page: '/api/getPageContent',
             list: '/api/list',
-            search: '/api/search'
+            search: '/api/search',
+            directories: '/api/directories'
         },
 
         header: {

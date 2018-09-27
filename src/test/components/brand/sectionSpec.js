@@ -1,7 +1,6 @@
 import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
 import { entity, articles as articlesMock } from '../../mock/articles';
-import exposeProps from '../../test-util/exposeProps';
 import clone from 'lodash/lang/clone';
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();

@@ -55,6 +55,7 @@
 @import 'components/header/header-banner';
 @import 'components/header/uniheader.scss';
 @import 'components/section/sections';
+@import 'components/section/directories';
 @import 'components/section/sponsor-header';
 @import '../node_modules/@bxm/gallery/styles/page';
 @import 'components/gallery/gallery';
@@ -78,6 +79,8 @@
 @import 'components/search/search-bar';
 @import 'components/search/header-search';
 @import 'components/external-links';
+@import 'components/directories/directory-filters';
+@import 'components/form/dropdown-select';
 
 // @bxm
 @import '../node_modules/@bxm/ui/lib/to-love/settings';

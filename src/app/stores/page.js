@@ -3,7 +3,12 @@ import { createReducerStore } from 'fluxible-reducer-store';
 const initialState = {
     error: null,
     content: null,
-    comScoreSegmentIds: ''
+    comScoreSegmentIds: '',
+    list: {
+        params: {
+            pageNo: 0
+        }
+    }
 };
 const PageStore = createReducerStore({
     storeName: 'PageStore',

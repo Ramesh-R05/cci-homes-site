@@ -51,7 +51,6 @@ servicesStubs.get('/entity-service/:page', (req, res) => {
 servicesStubs.get('/listings-service/teasers', (req, res) => {
     const { $filter, $top } = req.query;
 
-    // eslint-disable-next-line prettier/prettier
     const homepageMatch = $filter === `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and path ne 'HOMES-10958'`;
     const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
     const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
@@ -59,11 +58,17 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     const campaignMatch = $filter.match(/^\(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'\) and sponsorName eq '([^']+)'$/i);
     const latestRealHomesMatch =
         $filter === "(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'";
+    const baseDirectoriesMatch = $filter === `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
 
     let teaserResponse = {
         totalCount: 0,
         data: []
     };
+
+    if (baseDirectoriesMatch) {
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-directories`);
+        teaserResponse = teaserData;
+    }
 
     if (homepageMatch) {
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-homepage`);

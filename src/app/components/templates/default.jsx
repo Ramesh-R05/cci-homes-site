@@ -16,6 +16,7 @@ import Article from '../article/page';
 import Brand from '../brand/section';
 import NavSection from '../section/navigationTag/section';
 import Tag from '../section/tag/section';
+import ConnectedDirectories from '../section/directories';
 import Campaign from '../section/sponsorTag/section';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import getBrand from '../brand/utilities/getBrand';
@@ -83,6 +84,13 @@ class DefaultTemplate extends Component {
             }
             return {
                 ContentHandler: ErrorHandlerBuilder(errorStatus)
+            };
+        }
+
+        if (content.title.toLowerCase() === 'directories') {
+            return {
+                ContentHeaderHandler: SectionHeader,
+                ContentHandler: ConnectedDirectories
             };
         }
 
@@ -191,10 +199,16 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore'], context => ({
-    content: context.getStore('PageStore').getContent(),
-    theme: context.getStore('PageStore').getTheme(),
-    contentErrorStatus: context.getStore('PageStore').getErrorStatus(),
-    headerNavItems: context.getStore('NavigationStore').getHeaderItems(),
-    hamburgerNavItems: context.getStore('NavigationStore').getHamburgerItems()
-}));
+export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoriesStore'], context => {
+    const PageStore = context.getStore('PageStore');
+    const DirectoriesStore = context.getStore('DirectoriesStore');
+    const NavigationStore = context.getStore('NavigationStore');
+
+    return {
+        content: PageStore.getContent() || DirectoriesStore.getContent(),
+        theme: PageStore.getTheme(),
+        contentErrorStatus: PageStore.getErrorStatus() || DirectoriesStore.getErrorStatus(),
+        headerNavItems: NavigationStore.getHeaderItems().length ? NavigationStore.getHeaderItems() : DirectoriesStore.getHeaderItems(),
+        hamburgerNavItems: NavigationStore.getHamburgerItems().length ? NavigationStore.getHamburgerItems() : DirectoriesStore.getHamburgerItems()
+    };
+});

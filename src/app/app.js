@@ -12,9 +12,11 @@ import RouteStore from './stores/route';
 import TrackingStore from './stores/tracking';
 import AppComponent from './components/app';
 import SearchStore from './stores/search';
+import DirectoriesStore from './stores/directories';
 import pageService from './services/page';
 import listService from './services/list';
 import searchService from './services/search';
+import directoriesService from './services/directories';
 
 const app = new Flux({
     component: AppComponent,
@@ -32,7 +34,8 @@ const app = new Flux({
         RouteStore,
         TrackingStore,
         NavigationStore,
-        SearchStore
+        SearchStore,
+        DirectoriesStore
     ]
 });
 
@@ -40,6 +43,7 @@ const servicePlugin = servicesPlugin();
 servicePlugin.registerService(pageService);
 servicePlugin.registerService(listService);
 servicePlugin.registerService(searchService);
+servicePlugin.registerService(directoriesService);
 app.plug(servicePlugin);
 
 export default app;

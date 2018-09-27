@@ -1,0 +1,32 @@
+.directories {
+  &__top-items {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;    
+
+    @media #{$large-up} {
+      flex-direction: row;
+      min-height: 400px;
+    }
+  }
+
+  &__no-results {
+    flex: 1 0 auto;
+    padding: 0 15px;
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left;
+    }
+  }
+
+  &__no-results-text {    
+    text-transform: uppercase;
+    font-family: $font-family-sans-serif-primary;
+    color: $color-grey-darker;    
+  }  
+  
+  &__remaining-items {
+    margin: 30px 0;
+  }
+}

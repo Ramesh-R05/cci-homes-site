@@ -34,7 +34,7 @@ export default function headerMetaMiddleware(req, res, next) {
             googleTagManagerEnvironment: env,
             googleTagManagerMasthead: config.gtm.masthead,
             robots: `${robotsIndex},${robotsFollow}`,
-            pageName: entity.nodeName,
+            pageName: entity.nodeName || entity.pageTitle,
             title: entity.pageTitle || entity.title,
             canonicalUrl: entity.pageCanonicalUrl || '',
             pageDescription: entity.pageMetaDescription || '',

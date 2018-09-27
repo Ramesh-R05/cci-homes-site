@@ -15,7 +15,7 @@ export default class Featured extends Component {
 
     static defaultProps = {
         polarTargets: [],
-        hero: {},
+        hero: null,
         showSearchBar: false
     };
 
@@ -49,7 +49,7 @@ export default class Featured extends Component {
                         label={{ active: false }}
                         pageLocation={Ad.pos.body}
                     />
-                    <Teaser {...item} {...teaserProps} key={item.id} polar={polarTargets[0]} />
+                    <Teaser key={item.id} {...item} {...teaserProps} polar={polarTargets[0]} />
                     <Ad
                         className="ad--section-mrec"
                         displayFor="small"

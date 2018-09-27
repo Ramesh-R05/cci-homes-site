@@ -138,6 +138,21 @@ Context.addStore('NavigationStore', {
     }
 });
 
+Context.addStore('DirectoriesStore', {
+    getContent() {
+        return storeData.PageStore.content;
+    },
+    getHeaderItems() {
+        return headerNavItems;
+    },
+    getHamburgerItems() {
+        return hamburgerNavItems;
+    },
+    getErrorStatus() {
+        return storeData.PageStore.error;
+    }
+});
+
 describe('Default Component template', () => {
     let reactModule;
     let currentInstance;
@@ -178,7 +193,8 @@ describe('Default Component template', () => {
     const contextConfigStub = {
         key: 'config',
         type: '',
-        value: configToStub
+        value: configToStub,
+        executeAction: () => {}
     };
 
     beforeEach(() => {
@@ -197,7 +213,7 @@ describe('Default Component template', () => {
         });
 
         it('shows 500 error if content is not known', () => {
-            storeData.PageStore.content = { nodeType: 'UnknownHomepage' };
+            storeData.PageStore.content = { nodeType: 'UnknownHomepage', title: 'UnknownHomepage' };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             expect(TestUtils.findRenderedComponentWithType(reactModule, Error500Stub)).to.exist;
         });
@@ -224,7 +240,7 @@ describe('Default Component template', () => {
 
     describe('Home Page', () => {
         beforeEach(() => {
-            storeData.PageStore.content = { nodeType: 'Homepage', url: '/' };
+            storeData.PageStore.content = { nodeType: 'Homepage', title: 'something else', url: '/' };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
             currentInstance = TestUtils.findRenderedComponentWithType(reactModule, reactModuleInstance);
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, offCanvasStub);
@@ -371,8 +387,8 @@ describe('Default Component template', () => {
                             return {
                                 getContent: () => {},
                                 getTheme: () => mockTheme,
-                                getHeaderItems: () => {},
-                                getHamburgerItems: () => {},
+                                getHeaderItems: () => [],
+                                getHamburgerItems: () => [],
                                 getErrorStatus: () => {}
                             };
                         }
@@ -410,8 +426,8 @@ describe('Default Component template', () => {
                             return {
                                 getContent: () => {},
                                 getTheme: () => {},
-                                getHeaderItems: () => {},
-                                getHamburgerItems: () => {},
+                                getHeaderItems: () => [],
+                                getHamburgerItems: () => [],
                                 getErrorStatus: () => {}
                             };
                         }
