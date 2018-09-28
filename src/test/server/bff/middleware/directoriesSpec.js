@@ -17,7 +17,7 @@ const getDirectoryFiltersSpy = sinon.spy(getDirectoryFiltersStub);
 // constants
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 const urlNameMock = 'directories';
-const baseDirectoriesQueryMock = `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
+const baseDirectoriesQueryMock = `tagsDetails/fullName eq 'food_Homes_navigation_Directories'`;
 
 const getMockListingResponse = count => Array.from(Array(count), (x, i) => ({ name: `name ${i}` }));
 
@@ -149,30 +149,59 @@ describe('directories middleware', () => {
     });
 
     describe('with filters in the request', () => {
-        const req = { ...getBaseRequest(), query: { filters: 'tag_1,tag_2' } };
-        const res = {};
-        const next = sinon.spy();
+        describe('without includeOnline', () => {
+            const req = { ...getBaseRequest(), query: { filters: 'tag_1,tag_2', includeOnline: false } };
+            const res = {};
+            const next = sinon.spy();
 
-        beforeEach(() => {
-            makeRequestStub.resolves({ ...getMockEntity() });
+            beforeEach(() => {
+                makeRequestStub.resolves({ ...getMockEntity() });
+            });
+
+            afterEach(() => {
+                resetStubsAndSpies();
+            });
+
+            it('should make a request for the filtered directory items', done => {
+                directoriesMiddleware(req, res, next)
+                    .then(() => {
+                        expect(getLatestTeasersSpy).to.be.called;
+                        expect(getLatestTeasersSpy.getCall(0).args).to.deep.eq([
+                            100,
+                            0,
+                            `${baseDirectoriesQueryMock} and tagsDetails/fullName eq 'tag_1' and tagsDetails/fullName eq 'tag_2'`
+                        ]);
+                        done();
+                    })
+                    .catch(done);
+            });
         });
+        describe('with includeOnline', () => {
+            const req = { ...getBaseRequest(), query: { filters: 'tag_1', includeOnline: true } };
+            const res = {};
+            const next = sinon.spy();
 
-        afterEach(() => {
-            resetStubsAndSpies();
-        });
+            beforeEach(() => {
+                makeRequestStub.resolves({ ...getMockEntity() });
+            });
 
-        it('should make a request for the filtered directory items', done => {
-            directoriesMiddleware(req, res, next)
-                .then(() => {
-                    expect(getLatestTeasersSpy).to.be.called;
-                    expect(getLatestTeasersSpy.getCall(0).args).to.deep.eq([
-                        100,
-                        0,
-                        `${baseDirectoriesQueryMock} and tagsDetails/fullName eq 'tag_1' and tagsDetails/fullName eq 'tag_2'`
-                    ]);
-                    done();
-                })
-                .catch(done);
+            afterEach(() => {
+                resetStubsAndSpies();
+            });
+
+            it('should make a request for the filtered directory items', done => {
+                directoriesMiddleware(req, res, next)
+                    .then(() => {
+                        expect(getLatestTeasersSpy).to.be.called;
+                        expect(getLatestTeasersSpy.getCall(0).args).to.deep.eq([
+                            100,
+                            0,
+                            `${baseDirectoriesQueryMock} and (tagsDetails/fullName eq 'tag_1' or tagsDetails/fullName eq 'location_online')`
+                        ]);
+                        done();
+                    })
+                    .catch(done);
+            });
         });
     });
 

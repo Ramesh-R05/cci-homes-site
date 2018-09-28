@@ -111,9 +111,18 @@ export class Directories extends Component {
         const { executeAction } = this.context;
         const { activeFilters } = this.state;
         const filters = this.getFilterParamsFromState(activeFilters);
+        const includeOnline =
+            !activeFilters.category &&
+            activeFilters.location &&
+            (activeFilters.location.startsWith('location_australian_state') || activeFilters.location.startsWith('location_australian_territory'));
+
+        const apiQuery = {
+            filters,
+            includeOnline
+        };
 
         executeAction(loadDirectoriesContent, {
-            query: { filters }
+            query: { ...apiQuery }
         });
     };
 

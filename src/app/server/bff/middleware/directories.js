@@ -4,22 +4,24 @@ import getLatestTeasers from '../api/listing';
 import getDirectoryFilters from '../api/directoryFilters';
 
 export default async function directoriesMiddleware(req, res, next) {
-    const baseDirectoriesQuery =
-        process.env.APP_ENV === 'prod'
-            ? `tagsDetails/fullName eq 'food_Homes_navigation_Directories'`
-            : `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
+    const baseDirectoriesQuery = "tagsDetails/fullName eq 'food_Homes_navigation_Directories'";
 
     try {
         let filterString = baseDirectoriesQuery;
         let topItems = null;
         let remainingItems = [];
 
-        const { filters } = req.query;
+        const { filters, includeOnline } = req.query;
 
         if (filters) {
-            filterString += filters
-                .split(',')
-                .reduce((accumFilterString, currentFilterString) => `${accumFilterString} and tagsDetails/fullName eq '${currentFilterString}'`, '');
+            filterString = includeOnline
+                ? `${baseDirectoriesQuery} and (tagsDetails/fullName eq '${filters}' or tagsDetails/fullName eq 'location_online')`
+                : `${baseDirectoriesQuery}${filters
+                      .split(',')
+                      .reduce(
+                          (accumFilterString, currentFilterString) => `${accumFilterString} and tagsDetails/fullName eq '${currentFilterString}'`,
+                          ''
+                      )}`;
         }
 
         const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/directories`);

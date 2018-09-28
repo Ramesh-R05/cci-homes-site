@@ -298,25 +298,73 @@ describe('Directories component', () => {
         });
 
         describe('getUpdatedDirectories', () => {
-            let wrapper;
-            let getFilterParamsFromStateStub;
-            const mockQuery = 'test-tag-1,test-tag-2';
+            describe('with both activeFilters populated', () => {
+                let wrapper;
+                let getFilterParamsFromStateStub;
+                const mockQuery = 'test-tag-1,test-tag-2';
 
-            beforeEach(() => {
-                wrapper = testWrapper({ ...mockProps }, mockContext);
-                wrapper.setState({ activeFilters: { category: 'test-category', location: 'test-location' } });
-                getFilterParamsFromStateStub = sinon.stub(wrapper.instance(), 'getFilterParamsFromState').returns(mockQuery);
+                beforeEach(() => {
+                    wrapper = testWrapper({ ...mockProps }, mockContext);
+                    wrapper.setState({ activeFilters: { category: 'test-category', location: 'test-location' } });
+                    getFilterParamsFromStateStub = sinon.stub(wrapper.instance(), 'getFilterParamsFromState').returns(mockQuery);
+                });
+
+                it('calls getFilterParamsFromState with the state.activeFilters', () => {
+                    wrapper.instance().getUpdatedDirectories();
+                    expect(getFilterParamsFromStateStub).to.be.calledWith(wrapper.state().activeFilters);
+                });
+
+                it('calls executeAction with correct arguments', () => {
+                    executeActionStub.reset();
+                    wrapper.instance().getUpdatedDirectories();
+                    expect(executeActionStub).to.be.calledWith(loadDirectoriesContentStub, { query: { filters: mockQuery, includeOnline: false } });
+                });
             });
 
-            it('calls getFilterParamsFromState with the state.activeFilters', () => {
-                wrapper.instance().getUpdatedDirectories();
-                expect(getFilterParamsFromStateStub).to.be.calledWith(wrapper.state().activeFilters);
+            describe('with the selected location filter as an australian state and no category filter set', () => {
+                let wrapper;
+                let getFilterParamsFromStateStub;
+                const mockQuery = 'test-tag-1,test-tag-2';
+
+                beforeEach(() => {
+                    wrapper = testWrapper({ ...mockProps }, mockContext);
+                    wrapper.setState({ activeFilters: { category: null, location: 'location_australian_state_foobar' } });
+                    getFilterParamsFromStateStub = sinon.stub(wrapper.instance(), 'getFilterParamsFromState').returns(mockQuery);
+                });
+
+                it('calls getFilterParamsFromState with the state.activeFilters', () => {
+                    wrapper.instance().getUpdatedDirectories();
+                    expect(getFilterParamsFromStateStub).to.be.calledWith(wrapper.state().activeFilters);
+                });
+
+                it('calls executeAction with includeOnline set to true', () => {
+                    executeActionStub.reset();
+                    wrapper.instance().getUpdatedDirectories();
+                    expect(executeActionStub).to.be.calledWith(loadDirectoriesContentStub, { query: { filters: mockQuery, includeOnline: true } });
+                });
             });
 
-            it('calls executeAction with correct arguments', () => {
-                executeActionStub.reset();
-                wrapper.instance().getUpdatedDirectories();
-                expect(executeActionStub).to.be.calledWith(loadDirectoriesContentStub, { query: { filters: mockQuery } });
+            describe('with the selected location filter as an australian territory and no category filter set', () => {
+                let wrapper;
+                let getFilterParamsFromStateStub;
+                const mockQuery = 'test-tag-1,test-tag-2';
+
+                beforeEach(() => {
+                    wrapper = testWrapper({ ...mockProps }, mockContext);
+                    wrapper.setState({ activeFilters: { category: null, location: 'location_australian_territory_foobar' } });
+                    getFilterParamsFromStateStub = sinon.stub(wrapper.instance(), 'getFilterParamsFromState').returns(mockQuery);
+                });
+
+                it('calls getFilterParamsFromState with the state.activeFilters', () => {
+                    wrapper.instance().getUpdatedDirectories();
+                    expect(getFilterParamsFromStateStub).to.be.calledWith(wrapper.state().activeFilters);
+                });
+
+                it('calls executeAction with includeOnline set to true', () => {
+                    executeActionStub.reset();
+                    wrapper.instance().getUpdatedDirectories();
+                    expect(executeActionStub).to.be.calledWith(loadDirectoriesContentStub, { query: { filters: mockQuery, includeOnline: true } });
+                });
             });
         });
 
