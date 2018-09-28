@@ -18,7 +18,28 @@ Feature: Directories
             | desktop           |
     @low
         Examples:
-            | device                |
-            | tablet landscape      |
-            | tablet portrait       |
+            | device            |
+            | tablet landscape  |
+            | tablet portrait   |
+
+    Scenario Outline: Users can see the directories landing page in <device> view
+        Given I switch to "<device>" view
+        Then I am currently viewing "directories"
+        * I can see the directory filters
+        * I can see the directory "top" feed
+        * I can see the directory "bottom" feed
+
+    @high
+        Examples:
+            | device            |
+            | mobile            |
+    @med
+        Examples:
+            | device            |
+            | desktop           |
+    @low
+        Examples:
+            | device            |
+            | tablet landscape  |
+            | tablet portrait   |
 

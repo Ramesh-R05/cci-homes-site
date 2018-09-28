@@ -4,7 +4,15 @@ var directories_widget = {
     siteButton: 'article .external-links__button',
     externalLinksFacebook: 'article .external-links__connect .social-link--facebook a',
     externalLinksInstagram: 'article .external-links__connect .social-link--instagram a',
-    externalLinksPinterest: 'article .external-links__connect .social-link--pinterest a'
+    externalLinksPinterest: 'article .external-links__connect .social-link--pinterest a',
+    sectionTitle: '.section__heading__title',
+    nativeAd: '.native-hub__sponsor',
+    filterTitle: '.directory-filters__title',
+    filterSelectCategory: '.directory-filters__form .dropdown-select:nth-child(1) .dropdown-select__input-root',
+    filterSelectLocation: '.directory-filters__form .dropdown-select:nth-child(2) .dropdown-select__input-root',
+    filterSubmitButton: '.directory-filters__submit-button',
+    topFeedTeaserTitle: 'article.teaser--img-top:nth-child(2) .teaser__title a',
+    bottomFeedTeaserTitle: '.section__list article:nth-child(2) .teaser__title a'
 
 };
 

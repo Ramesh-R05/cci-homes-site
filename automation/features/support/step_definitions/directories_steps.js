@@ -25,5 +25,52 @@ module.exports = function() {
         expect(pinterestLink).toContain('www.pinterest.com');
     });
 
+    this.When(/^I can see the directory filters$/, function () {
+        browser.scroll(0,0);
+
+        //Below will be removed once we remove the polar ad around the section title
+        wait(3000); //wait for 3 seconds to allow ads loaded
+        if (browser.isExisting(directories.nativeAd)) {
+            browser.scroll(directories.nativeAd);
+        } else {
+            browser.scroll(directories.sectionTitle);
+        }
+
+        //check the filter title
+        expect(browser.waitForVisible(directories.filterTitle,5000)).toBe(true);
+        expect(browser.getText(directories.filterTitle)).not.toBe('');
+
+        //check the drop down fields
+        browser.scroll(directories.filterTitle);
+        expect(browser.waitForExist(directories.filterSelectCategory,5000)).toBe(true);
+        expect(browser.waitForExist(directories.filterSelectLocation,5000)).toBe(true);
+
+        //check the submit button
+        browser.scroll(directories.sectionTitle);
+        expect(browser.waitForExist(directories.filterSubmitButton,5000)).toBe(true);
+    });
+
+
+
+    this.When(/^I can see the directory "([^"]*)" feed$/, function (part) {
+        var feedTeaserTitle_element;
+
+        switch(part) {
+            case 'top':
+                feedTeaserTitle_element = directories.topFeedTeaserTitle;
+                break;
+            case 'bottom':
+                feedTeaserTitle_element = directories.bottomFeedTeaserTitle;
+                break;
+        }
+
+        //verify titles of all teasers
+        var feedTeaserTitle = browser.getText(feedTeaserTitle_element);
+        var feedTeaserTitleLink = browser.getAttribute(feedTeaserTitle_element,'href');
+        expect(feedTeaserTitle).not.toEqual('');
+        expect(feedTeaserTitleLink).not.toEqual('');
+    });
+
+
 };
 
