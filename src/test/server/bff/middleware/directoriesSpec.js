@@ -150,7 +150,7 @@ describe('directories middleware', () => {
 
     describe('with filters in the request', () => {
         describe('without includeOnline', () => {
-            const req = { ...getBaseRequest(), query: { filters: 'tag_1,tag_2', includeOnline: false } };
+            const req = { ...getBaseRequest(), query: { filters: 'tag_1,tag_2', includeOnline: 'false' } };
             const res = {};
             const next = sinon.spy();
 
@@ -177,7 +177,7 @@ describe('directories middleware', () => {
             });
         });
         describe('with includeOnline', () => {
-            const req = { ...getBaseRequest(), query: { filters: 'tag_1', includeOnline: true } };
+            const req = { ...getBaseRequest(), query: { filters: 'tag_1', includeOnline: 'true' } };
             const res = {};
             const next = sinon.spy();
 

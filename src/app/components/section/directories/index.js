@@ -114,7 +114,10 @@ export class Directories extends Component {
         const includeOnline =
             !activeFilters.category &&
             activeFilters.location &&
-            (activeFilters.location.startsWith('location_australian_state') || activeFilters.location.startsWith('location_australian_territory'));
+            (activeFilters.location.startsWith('location_australian_state') ||
+                activeFilters.location.startsWith('location_australianstate') ||
+                activeFilters.location.startsWith('location_australian_territory') ||
+                activeFilters.location.startsWith('location_australianterritory'));
 
         const apiQuery = {
             filters,

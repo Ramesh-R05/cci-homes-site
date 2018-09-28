@@ -12,9 +12,10 @@ export default async function directoriesMiddleware(req, res, next) {
         let remainingItems = [];
 
         const { filters, includeOnline } = req.query;
+        const includeOnlineAsBool = (includeOnline === 'true' && true) || false;
 
         if (filters) {
-            filterString = includeOnline
+            filterString = includeOnlineAsBool
                 ? `${baseDirectoriesQuery} and (tagsDetails/fullName eq '${filters}' or tagsDetails/fullName eq 'location_online')`
                 : `${baseDirectoriesQuery}${filters
                       .split(',')
