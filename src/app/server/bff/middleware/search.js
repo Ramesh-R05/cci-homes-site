@@ -2,7 +2,6 @@ import get from 'lodash/object/get';
 import { parseEntities } from '../helper/parseEntity';
 import parseHeaderMetaData from '../helper/parseHeaderMetaData';
 import getSearchResults from '../api/search';
-import parseModule from '../helper/parseModule';
 
 const searchResultTeaserCount = 6;
 const searchCount = 14;
@@ -50,7 +49,7 @@ export default async function searchMiddleware(req, res, next) {
         const decodedQuery = decodeURI(query);
         const formattedQuery = capitalizeFirstLetter(decodedQuery);
 
-        req.data.entity = {
+        const entity = {
             contentTitle: formattedQuery,
             url: currentPage.url,
             pageTitle: capitalizeFirstLetter(formattedQuery),
@@ -62,7 +61,7 @@ export default async function searchMiddleware(req, res, next) {
             search: {
                 total: searchDataResp.total
             },
-            headerMetaData: parseHeaderMetaData(req.data.entity, get(req, 'data.headerMetaData', {})),
+            headerMetaData: { ...parseHeaderMetaData(entity, get(res, 'body.headerMetaData', {})), robots: 'NOINDEX,FOLLOW' },
             latestTeasers: pageNo > 1 ? [] : parseEntities(searchDataResp.results.slice(0, searchResultTeaserCount)),
             list: {
                 listName: 'search',
@@ -78,24 +77,6 @@ export default async function searchMiddleware(req, res, next) {
                 next: nextPage
             }
         };
-
-        // Custom robots for Search Results page
-        res.body.headerMetaData = {
-            ...res.body.headerMetaData,
-            robots: 'NOINDEX,FOLLOW'
-        };
-
-        if (get(req, 'data.theme')) {
-            res.body.theme = req.data.theme;
-        }
-
-        if (get(req, 'data.magcover')) {
-            res.body.magCover = req.data.magcover;
-        }
-
-        if (get(req, 'data.footer')) {
-            res.body.footer = parseModule(req.data.footer);
-        }
 
         next();
     } catch (error) {

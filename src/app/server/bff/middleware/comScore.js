@@ -69,7 +69,7 @@ export default function comScore(req, res, next) {
                 res.body.comScoreSegmentIds = segmentIds.join(',');
             }
             if (debug) {
-                console.log(`comscore: received segments from remote for ${req.query.url} in ${Date.now() - start}ms`, req.data.comScoreSegmentIds);
+                console.log(`comscore: received segments from remote for ${req.query.url} in ${Date.now() - start}ms`, res.body.comScoreSegmentIds);
             }
         } else if (debug) {
             let message = 'Unknown error';
