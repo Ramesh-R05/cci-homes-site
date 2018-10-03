@@ -1,268 +1,210 @@
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
-let getModulesStub = () => {};
-const parseEntityStub = () => {};
-let parseEntitiesStub = () => {};
-const getThemeModuleForQueryStub = () => 'hometheme';
+const getModulesStub = sinon.stub();
+const getThemeModuleForQueryStub = sinon.stub();
+const processModulesStub = sinon.stub();
+const loggerStub = { error: sinon.stub() };
+const nextSpy = sinon.spy();
 
 const pageModulesMiddleware = proxyquire('../../../../app/server/bff/middleware/pageModules', {
-    '../helper/parseEntity': {
-        parseEntity: (...args) => parseEntityStub(...args),
-        parseEntities: (...args) => parseEntitiesStub(...args)
-    },
+    '../helper/processModules': processModulesStub,
     '../helper/getThemeModuleForQuery': getThemeModuleForQueryStub,
-    '../api/module': () => getModulesStub(),
-    '../../../../logger': { error() {} }
+    '../api/module': getModulesStub,
+    '../../../../logger': loggerStub
 });
 
-describe('PageModules middleware', () => {
-    let res = {};
-    const module = [];
-    let req = {};
-    let next;
+const requestMock = () => ({
+    query: {}
+});
 
-    describe('when the response is valid', () => {
-        before(() => {
-            next = sinon.spy();
-            getModulesStub = sinon.stub().resolves({ headernavigation: module });
+const getModulesResponseMock = () => ({
+    headerNavigation: {
+        name: 'headernavigation'
+    },
+    hamburgerNavigation: {
+        name: 'headernavigation'
+    }
+});
+
+const getModulesDefaultArgs = ['hamburgernavigation', 'headernavigation'];
+
+function resetStubsAndSpies() {
+    getModulesStub.reset();
+    getThemeModuleForQueryStub.reset();
+    processModulesStub.reset();
+    loggerStub.error.reset();
+    nextSpy.reset;
+}
+
+describe('pageModulesMiddleware', () => {
+    describe('when there is module data returned from getModules', () => {
+        const req = requestMock();
+        const res = {};
+        const themeModuleNameMock = 'theme';
+        const moduleResposeMock = getModulesResponseMock();
+
+        beforeEach(() => {
+            getThemeModuleForQueryStub.withArgs(req.query).returns(themeModuleNameMock);
+            getModulesStub.withArgs(...getModulesDefaultArgs, themeModuleNameMock).returns(moduleResposeMock);
+            processModulesStub.withArgs(moduleResposeMock, themeModuleNameMock).returns(moduleResposeMock);
         });
 
-        after(() => {
-            req = {};
-            res = {};
+        afterEach(() => {
+            resetStubsAndSpies();
         });
 
-        it('should set `req.data.headernavigation` to equal the response', done => {
-            pageModulesMiddleware(req, res, next)
+        it('should call getThemeModuleForQuery with the request query', done => {
+            pageModulesMiddleware(req, res, nextSpy)
                 .then(() => {
-                    expect(req.data).to.deep.eq({ headernavigation: module });
-                    expect(next).to.be.called;
+                    expect(getThemeModuleForQueryStub).to.be.calledWith(req.query);
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('should call getModules with the hard-coded argumnents and the value returned from getThemeModuleForQuery', done => {
+            pageModulesMiddleware(req, res, nextSpy)
+                .then(() => {
+                    expect(getModulesStub).to.be.calledWith(...getModulesDefaultArgs, themeModuleNameMock);
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('should call processModules with the response from getModules & the response from getThemeModuleForQuery', done => {
+            pageModulesMiddleware(req, res, nextSpy)
+                .then(() => {
+                    expect(processModulesStub).to.be.calledWith(moduleResposeMock, themeModuleNameMock);
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('adds the modules to the repsonse body', done => {
+            pageModulesMiddleware(req, res, nextSpy)
+                .then(() => {
+                    expect(res.body).to.deep.equal({
+                        ...moduleResposeMock
+                    });
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('calls the next middleware in the chain', done => {
+            pageModulesMiddleware(req, res, nextSpy)
+                .then(() => {
+                    expect(nextSpy).to.have.been.called;
                     done();
                 })
                 .catch(done);
         });
     });
+    describe('error handling', () => {
+        describe('when getThemeModuleForQuery throws an error', () => {
+            let req;
+            const res = {};
+            const exception = new Error('getThemeModule error');
 
-    describe('processing module data', () => {
-        describe('when data contains `headernavigation`', () => {
-            const headernavigation = ['Nav item 1', 'Nav Item 2'];
-            before(() => {
-                req = {
-                    data: {
-                        headernavigation
-                    }
-                };
-                res = {};
-
-                next = sinon.spy();
-                parseEntitiesStub = sinon.stub().returns(headernavigation);
-                getModulesStub = sinon.stub().resolves({ headernavigation });
+            beforeEach(() => {
+                req = requestMock();
+                getThemeModuleForQueryStub.throws(exception);
             });
 
-            after(() => {
-                res = {};
-                req = {};
+            afterEach(() => {
+                resetStubsAndSpies();
             });
 
-            it('should set `res.body.headerNavigation`', done => {
-                pageModulesMiddleware(req, res, next)
+            it('should pass the error to the logger', done => {
+                pageModulesMiddleware(req, res, nextSpy)
                     .then(() => {
-                        expect(parseEntitiesStub).to.have.been.calledWith(headernavigation, { contentTitle: 'name' });
-                        expect(res.body.headerNavigation).to.deep.equal({ items: headernavigation });
-                        done();
-                    })
-                    .catch(done);
-            });
-            describe('when an item has more than 1 tag', () => {
-                let mockModuleContent;
-                let req;
-                let res;
-
-                before(() => {
-                    req = {
-                        data: {
-                            headernavigation
-                        }
-                    };
-                    res = {};
-
-                    mockModuleContent = [
-                        {
-                            tagsDetails: [
-                                {
-                                    displayName: 'testTag foo 1',
-                                    urlName: 'test tag foo qux'
-                                }
-                            ]
-                        },
-                        {
-                            tagsDetails: [
-                                {
-                                    displayName: 'couches',
-                                    urlName: '/couches'
-                                },
-                                {
-                                    displayName: 'driveways',
-                                    urlName: '/driveways'
-                                },
-                                {
-                                    displayName: 'homes',
-                                    urlName: '/homes'
-                                },
-                                {
-                                    displayName: 'kitchen',
-                                    urlName: '/kitchen'
-                                }
-                            ]
-                        }
-                    ];
-                    next = sinon.spy();
-                    parseEntitiesStub = sinon.stub().returns(mockModuleContent);
-                    getModulesStub = sinon.stub().resolves({ headernavigation });
-                });
-
-                after(() => {
-                    res = {};
-                    req = {};
-                });
-
-                it('adds a subsections key to res.body.headerNavigation', done => {
-                    const expectedResult = [
-                        mockModuleContent[0],
-                        {
-                            ...mockModuleContent[1],
-                            subsections: [
-                                {
-                                    contentTitle: 'couches',
-                                    url: '/couches'
-                                },
-                                {
-                                    contentTitle: 'driveways',
-                                    url: '/driveways'
-                                },
-                                {
-                                    contentTitle: 'homes',
-                                    url: '/homes'
-                                },
-                                {
-                                    contentTitle: 'kitchen',
-                                    url: '/kitchen'
-                                }
-                            ]
-                        }
-                    ];
-
-                    pageModulesMiddleware(req, res, next)
-                        .then(() => {
-                            expect(parseEntitiesStub).to.have.been.calledWith(headernavigation, { contentTitle: 'name' });
-                            expect(res.body.headerNavigation).to.deep.equal({ items: expectedResult });
-                            done();
-                        })
-                        .catch(done);
-                });
-            });
-        });
-        describe('when data contains `hamburgernavigation`', () => {
-            const homeRoute = { name: 'Home', url: '/' };
-            const hamburgernavigation = ['Nav item 1', 'Nav Item 2'];
-
-            before(() => {
-                req = {
-                    data: {
-                        hamburgernavigation
-                    },
-                    query: {
-                        url: '/'
-                    }
-                };
-                res = {};
-                next = sinon.spy();
-                parseEntitiesStub = sinon.stub().returns(hamburgernavigation);
-                getModulesStub = sinon.stub().resolves({ hamburgernavigation });
-            });
-
-            after(() => {
-                res = {};
-                req = {};
-            });
-
-            it('should set `res.body.hamburgernavigation`', done => {
-                const expectedItems = [homeRoute, ...hamburgernavigation];
-                pageModulesMiddleware(req, res, next)
-                    .then(() => {
-                        expect(parseEntitiesStub).to.have.been.calledWith(hamburgernavigation, { contentTitle: 'name' });
-                        expect(res.body.hamburgerNavigation).to.deep.equal({ items: expectedItems });
-                        expect(next).to.be.called;
+                        expect(loggerStub.error.calledWith(exception)).to.be.true;
                         done();
                     })
                     .catch(done);
             });
 
-            it('should prepend the home route to the hamburgernavigation items', done => {
-                pageModulesMiddleware(req, res, next)
+            it('should not call any subsequent methods', done => {
+                pageModulesMiddleware(req, res, nextSpy)
                     .then(() => {
-                        expect(parseEntitiesStub).to.have.been.calledWith(hamburgernavigation, { contentTitle: 'name' });
-                        expect(res.body.hamburgerNavigation.items[0]).to.deep.equal(homeRoute);
-                        expect(next).to.be.called;
+                        expect(getModulesStub).to.not.be.called;
+                        expect(processModulesStub).to.not.be.called;
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('should call the next middleware in the chain', done => {
+                pageModulesMiddleware(req, res, nextSpy)
+                    .then(() => {
+                        expect(nextSpy.called).to.be.true;
                         done();
                     })
                     .catch(done);
             });
         });
-
-        describe('when there is a theme module', () => {
-            const hometheme = { name: 'homeTheme' };
-
-            before(() => {
-                req = {
-                    data: {
-                        hometheme
-                    }
-                };
-                res = {};
-                next = sinon.spy();
-                getModulesStub = sinon.stub().resolves({ hometheme });
-            });
-
-            after(() => {
-                res = {};
-                req = {};
-            });
-
-            it('sets a theme property on the response body', done => {
-                pageModulesMiddleware(req, res, next)
-                    .then(() => {
-                        expect(res.body.theme).to.deep.equal(hometheme);
-                        expect(next).to.be.called;
-                        done();
-                    })
-                    .catch(done);
-            });
-        });
-
         describe('when getModules response is empty', () => {
-            before(() => {
-                next = sinon.spy();
-                getModulesStub = sinon.stub().resolves({});
-                parseEntitiesStub = sinon.stub();
+            let req;
+            const res = {};
+            const mockTheme = 'mocktheme';
+            const moduleResponse = {};
+
+            beforeEach(() => {
+                req = requestMock();
+                getThemeModuleForQueryStub.returns(mockTheme);
+                getModulesStub.resolves(moduleResponse);
             });
 
-            after(() => {
-                res = {};
-                req = {};
+            afterEach(() => {
+                resetStubsAndSpies();
             });
 
-            it('should not add any new properties to `res.body`', done => {
-                const expected = {
-                    body: {}
-                };
-
-                pageModulesMiddleware(req, res, next)
+            it('should call processModules with the empty response', done => {
+                pageModulesMiddleware(req, res, nextSpy)
                     .then(() => {
-                        expect(parseEntitiesStub).to.have.not.be.called;
-                        expect(res).to.deep.equal(expected);
-                        expect(next).to.be.called;
+                        expect(processModulesStub).to.be.calledWith(moduleResponse, mockTheme);
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('should call the next middleware in the chain', done => {
+                pageModulesMiddleware(req, res, nextSpy)
+                    .then(() => {
+                        expect(nextSpy.called).to.be.true;
+                        done();
+                    })
+                    .catch(done);
+            });
+        });
+        describe('when processModules throws an error', () => {
+            let req;
+            const res = {};
+            const exception = new Error('processModulesStub error');
+
+            beforeEach(() => {
+                req = requestMock();
+                processModulesStub.throws(exception);
+            });
+
+            afterEach(() => {
+                resetStubsAndSpies();
+            });
+
+            it('should pass the error to the logger', done => {
+                pageModulesMiddleware(req, res, nextSpy)
+                    .then(() => {
+                        expect(loggerStub.error.calledWith(exception)).to.be.true;
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('should call the next middleware in the chain', done => {
+                pageModulesMiddleware(req, res, nextSpy)
+                    .then(() => {
+                        expect(nextSpy.called).to.be.true;
                         done();
                     })
                     .catch(done);

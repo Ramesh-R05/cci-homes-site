@@ -110,14 +110,17 @@ export class Directories extends Component {
     getUpdatedDirectories = () => {
         const { executeAction } = this.context;
         const { activeFilters } = this.state;
+
+        const stateAndTerriroryTagPrefixes = [
+            'location_australian_state',
+            'location_australianstate',
+            'location_australian_territory',
+            'location_australianterritory'
+        ];
+
         const filters = this.getFilterParamsFromState(activeFilters);
         const includeOnline =
-            !activeFilters.category &&
-            activeFilters.location &&
-            (activeFilters.location.startsWith('location_australian_state') ||
-                activeFilters.location.startsWith('location_australianstate') ||
-                activeFilters.location.startsWith('location_australian_territory') ||
-                activeFilters.location.startsWith('location_australianterritory'));
+            !activeFilters.category && activeFilters.location && stateAndTerriroryTagPrefixes.some(tag => activeFilters.location.startsWith(tag));
 
         const apiQuery = {
             filters,
