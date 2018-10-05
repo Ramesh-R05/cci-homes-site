@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import 'picturefill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createElementWithContext } from 'fluxible-addons-react';
