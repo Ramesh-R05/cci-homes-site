@@ -18,25 +18,27 @@ import listService from './services/list';
 import searchService from './services/search';
 import directoriesService from './services/directories';
 
+export const stores = [
+    AdStore,
+    ArticleStore,
+    GalleryPageStore,
+    GalleryStore,
+    HtmlStore,
+    VerticalGalleryStore,
+    PolarAdStore,
+    RouteStore,
+    PageStore,
+    PolarAdStore,
+    RouteStore,
+    TrackingStore,
+    NavigationStore,
+    SearchStore,
+    DirectoriesStore
+];
+
 const app = new Flux({
     component: AppComponent,
-    stores: [
-        AdStore,
-        ArticleStore,
-        GalleryPageStore,
-        GalleryStore,
-        HtmlStore,
-        VerticalGalleryStore,
-        PolarAdStore,
-        RouteStore,
-        PageStore,
-        PolarAdStore,
-        RouteStore,
-        TrackingStore,
-        NavigationStore,
-        SearchStore,
-        DirectoriesStore
-    ]
+    stores
 });
 
 const servicePlugin = servicesPlugin();

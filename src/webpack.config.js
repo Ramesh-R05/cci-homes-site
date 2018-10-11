@@ -22,7 +22,14 @@ const config = {
         filename: `[name]${production ? '-[chunkhash]' : ''}.js`
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias: {
+            /* 
+                ensure there is only one instance of react when resolving modules 
+                this helps with symlinks
+            */
+            react: path.join(__dirname, 'node_modules/react')
+        }
     },
     module: {
         rules: [
