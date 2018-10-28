@@ -1,0 +1,30 @@
+#template for the performance test jobs
+templates: &template-lighthouse-csv-report
+  - echo "Using template-lighthouse-csv-report"
+  - cat result.txt
+  - aws s3 ls 's3://test-result-s3/'
+  - grep "testing for" result.txt > temp.txt
+  - grep -v ")" temp.txt > pageLine.txt
+  - echo ",Page" > pageName.txt
+  - "sed -e 's/^.*for //' -e 's/ : .*//' pageLine.txt >> pageName.txt"
+  - echo "Date, Job ID" > pageUrl.txt
+  - "sed -e 's/^.*: //' pageLine.txt >> pageUrl.txt"
+  - export S3_path=s3://test-result-s3/$JOB_NAME.csv
+  - if [ -z "$(aws s3 ls $S3_path)"]; then
+        echo "In progress to add header";
+        paste -d, -s pageName.txt > $JOB_NAME.csv;
+        echo "In progress to add url";
+        paste -d, -s pageUrl.txt >> $JOB_NAME.csv;
+    else
+        aws s3 cp $S3_path $JOB_NAME.csv;
+    fi
+  - grep "maximum score\|) \"before each" result.txt > temp.txt
+  - date > maxScore.txt
+  - echo $BUILD_NUMBER >> maxScore.txt
+  - "sed -e 's/^.*is //' -e 's/^.*\"//' temp.txt >> maxScore.txt"
+  - paste -d, -s maxScore.txt >> $JOB_NAME.csv
+  - shipctl copy_file_to_state $JOB_NAME.csv
+  - cat $JOB_STATE/$JOB_NAME.csv
+  - aws s3 cp $JOB_STATE/$JOB_NAME.csv 's3://test-result-s3/'
+
+
