@@ -176,7 +176,7 @@ jobs:
     type: runSh
     steps:
       - IN: homes-site-test-deploy-master
-      - IN: test-result-s3-param
+      - IN: test-result-s3-param-homes
       - IN: homes-site-repo
         switch: off
       - TASK:

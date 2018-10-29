@@ -23,6 +23,14 @@ resources:
           awslogs-region: "ap-southeast-2"
           awslogs-stream-prefix: "app-homes-site"
 
+  # AWS S3 bucket for storing test result files
+  - name: test-result-s3-param-homes
+    type: params
+    versionTemplate:
+      params:
+        AWS_S3_BUCKET: "s3://test-result-s3/"
+        secure: eLFlf9nWSWJbMdNziICYW5J6aHjIKLsuK5qU/IXyCLXlWyMuaw3HZrPqoL5nqyJYudHYI1se56UVw2AFytKPI11kloH4J7vx/CHz3Lp2AcdBAq/w4ZTWiWVKmq15MUjlUAegOwX2TEBgD4IDnIbdeDgC15kPavRTqtqKEYAi9DgPTgqW02tvsu2Q+xiJFtihqSOD126M2xz1JGEM2dMwZYJSZiMA2CHSSlXhVNZBtonC3PTYwfwKt1o26IrIcVXfy17J/5/6Dme9l8fJLP4bxxCUa8PEpNUqeAt5mDpMPged6sFz+g6mX4kWMLjM6wimpy+tLdHXM+4OhzKfcbT5UA==
+
   # MASTER Docker Image for the homes-site
   - name: homes-site-img-master
     type: image
