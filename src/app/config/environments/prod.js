@@ -13,6 +13,9 @@ export default {
         },
         socialShareBlock: {
             enabled: true
+        },
+        lipstick: {
+            enabled: false
         }
     },
     gigya: {
