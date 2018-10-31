@@ -139,6 +139,9 @@ export default {
         ias: {
             enabled: true,
             id: 926929
+        },
+        lipstick: {
+            enabled: true
         }
     },
 

@@ -68,7 +68,8 @@ Context.addStore('PageStore', {
     },
 
     getList: () => homeArticlesMock,
-    getListNextParams: () => {}
+    getListNextParams: () => {},
+    getLatestVideos: () => []
 });
 
 describe('Home', () => {

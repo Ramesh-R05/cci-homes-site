@@ -315,10 +315,11 @@
     }
 
     &__title {
+
         @include type-xsmall-teaser-title;
         margin-bottom: 7px;
 
-        a {
+        a { 
             color: $color-black;
             text-decoration: none;
             transition: color .1s ease-in;
@@ -332,6 +333,7 @@
         @media #{$medium-up} {
             margin-bottom: 5px;
         }
+
     }
 
     &__summary {
@@ -347,7 +349,6 @@
         @include type-tags;
         line-height: 2;
     }
-
 
     // ---------------------------------------------------- img left
     &--img-left {
@@ -389,5 +390,4 @@
             color: $color-grey-dark;
         }
     }
-
 }

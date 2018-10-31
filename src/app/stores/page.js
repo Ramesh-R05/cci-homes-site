@@ -22,6 +22,7 @@ const PageStore = createReducerStore({
                 theme,
                 galleries,
                 latestRealHomes,
+                latestVideos,
                 list = [],
                 comScoreSegmentIds = initialState.comScoreSegmentIds
             } = payload.body;
@@ -36,6 +37,7 @@ const PageStore = createReducerStore({
                     navigationTags: entity.navigationTags,
                     galleries,
                     latestRealHomes,
+                    latestVideos,
                     list,
                     comScoreSegmentIds
                 };
@@ -101,6 +103,10 @@ const PageStore = createReducerStore({
 
         getTheme(state) {
             return state.theme || null;
+        },
+
+        getLatestVideos(state) {
+            return state.latestVideos || [];
         }
     }
 });

@@ -7,6 +7,7 @@ import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
+import LatestVideos from './latestVideos';
 
 export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
@@ -19,6 +20,7 @@ export default class SectionFeatured extends Component {
         className: PropTypes.string,
         polarTargets: PropTypes.array,
         latestRealHomes: PropTypes.array,
+        latestVideos: PropTypes.array,
         list: PropTypes.object,
         listNextParams: PropTypes.object
     };
@@ -30,12 +32,19 @@ export default class SectionFeatured extends Component {
         polarTargets: [[], []],
         hero: {},
         latestRealHomes: [],
+        latestVideos: [],
         list: {},
         listNextParams: {}
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     render() {
-        const { hero, articles, latestRealHomes, list, listNextParams, content, polarTargets, className } = this.props;
+        const { hero, articles, latestRealHomes, list, listNextParams, content, polarTargets, className, latestVideos } = this.props;
+        const { config } = this.context;
+        const isLipstickEnabled = config.isFeatureEnabled('lipstick');
 
         if (articles.length === 0) return null;
 
@@ -52,6 +61,16 @@ export default class SectionFeatured extends Component {
         };
 
         let latestRealHomesComponent = null;
+        let latestVideosComponent = null;
+
+        if (latestVideos && latestVideos.length && isLipstickEnabled) {
+            latestVideosComponent = (
+                <div className="row">
+                    <LatestVideos videoList={latestVideos} title="Latest Videos" />
+                </div>
+            );
+        }
+
         if (latestRealHomes && latestRealHomes.length > 0) {
             latestRealHomesComponent = (
                 <div className="row show-for-large-up">
@@ -88,6 +107,7 @@ export default class SectionFeatured extends Component {
             <div className={className}>
                 <div className="home-section">
                     {latestRealHomesComponent}
+
                     <div className="row">
                         <section className="home-section--top columns small-12">
                             <div className="row">
@@ -174,6 +194,8 @@ export default class SectionFeatured extends Component {
                             </div>
                         </section>
                     </div>
+
+                    {latestVideosComponent}
 
                     <div className="row">
                         <div className="columns small-12">

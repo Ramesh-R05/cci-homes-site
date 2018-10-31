@@ -52,6 +52,7 @@
     "@bxm/server": "^25.1.1",
     "@bxm/site-header": "^7.10.0",
     "@bxm/tags": "^3.0.0",
+    "@bxm/teaser": "^6.4.0",
     "@bxm/ui": "^17.1.0",
     "@bxm/video": "^5.0.0",
     "@bxm/winston-logger": "^1.1.0",

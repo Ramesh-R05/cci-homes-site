@@ -43,6 +43,7 @@ export default connectToStores(Home, ['PageStore'], context => {
         content: pageStore.getContent(),
         latestRealHomes: pageStore.getModuleItems('latestRealHomes'),
         list: pageStore.getList(),
-        listNextParams: pageStore.getListNextParams()
+        listNextParams: pageStore.getListNextParams(),
+        latestVideos: pageStore.getLatestVideos()
     };
 });

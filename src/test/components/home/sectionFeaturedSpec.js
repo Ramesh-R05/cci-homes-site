@@ -3,6 +3,7 @@ import heroMock from '../../mock/article';
 import { home as articlesMock } from '../../mock/articles';
 import { items as gogMock } from '../../mock/galleryOfGalleries';
 import proxyquire, { noCallThru } from 'proxyquire';
+import latestVideoStubData from '../../../stubs/latest-videos';
 noCallThru();
 
 const Context = betterMockComponentContext();
@@ -16,6 +17,7 @@ const repeatableStub = Context.createStubComponent();
 const listStub = Context.createStubComponent();
 const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const StickyMobileAdStub = Context.createStubComponent();
+const latestVideoModuleStub = Context.createStubComponent();
 
 const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured', {
     react: React,
@@ -25,7 +27,8 @@ const SectionFeatured = proxyquire('../../../app/components/home/sectionFeatured
     '../repeatable': repeatableStub,
     '../section/list': listStub,
     '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
-    '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub
+    '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub,
+    './latestVideos': latestVideoModuleStub
 });
 
 AdStub.pos = {
@@ -48,6 +51,14 @@ const polarTargetsStub = [
     ]
 ];
 
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        isFeatureEnabled: () => true
+    }
+};
+
 describe('SectionFeatured', () => {
     afterEach(Context.cleanup);
 
@@ -60,12 +71,16 @@ describe('SectionFeatured', () => {
         let stickyMobile;
 
         before(() => {
-            reactModule = Context.mountComponent(SectionFeatured, {
-                hero: heroMock,
-                articles: articlesMock,
-                polarTargets: polarTargetsStub,
-                content: { nodeType: 'homePage' }
-            });
+            reactModule = Context.mountComponent(
+                SectionFeatured,
+                {
+                    hero: heroMock,
+                    articles: articlesMock,
+                    polarTargets: polarTargetsStub,
+                    content: { nodeType: 'homePage' }
+                },
+                [contextConfigStub]
+            );
 
             domElements = ReactDOM.findDOMNode(reactModule);
 
@@ -155,11 +170,25 @@ describe('SectionFeatured', () => {
         let reactModule;
 
         before(() => {
-            reactModule = Context.mountComponent(SectionFeatured, {});
+            reactModule = Context.mountComponent(SectionFeatured, {}, [contextConfigStub]);
         });
 
         it('should not be rendered', () => {
             expect(ReactDOM.findDOMNode(reactModule)).to.not.exist;
+        });
+    });
+
+    describe(`Latest video module`, () => {
+        let reactModule;
+        let latestVideos;
+
+        before(() => {
+            reactModule = Context.mountComponent(SectionFeatured, { articles: articlesMock, latestVideos: latestVideoStubData }, [contextConfigStub]);
+            latestVideos = TestUtils.scryRenderedComponentsWithType(reactModule, latestVideoModuleStub);
+        });
+
+        it('should be rendered', () => {
+            expect(latestVideos.length).to.equal(1);
         });
     });
 });
