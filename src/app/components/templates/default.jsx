@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import { hot } from 'react-hot-loader';
 import { connectToStores } from '@bxm/flux';
 import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
@@ -199,7 +200,7 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoriesStore'], context => {
+const wrappedComponent = connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoriesStore'], context => {
     const PageStore = context.getStore('PageStore');
     const DirectoriesStore = context.getStore('DirectoriesStore');
     const NavigationStore = context.getStore('NavigationStore');
@@ -212,3 +213,5 @@ export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore',
         hamburgerNavItems: NavigationStore.getHamburgerItems().length ? NavigationStore.getHamburgerItems() : DirectoriesStore.getHamburgerItems()
     };
 });
+
+export default hot(module)(wrappedComponent);

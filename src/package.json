@@ -23,7 +23,7 @@
     "dev": "npm run clean && webpack --bail --debug --display-error-details --hide-modules --progress --watch --mode development & npm run serve",
     "dev:debug": "npm run clean && webpack --bail --debug --display-error-details --hide-modules --progress --watch --mode development & npm run serve:debug",
     "dev:prod": "run-p build start:debug",
-    "serve": "nodemon --watch app --ext js ./start.js",
+    "serve": "nodemon --watch app/server --ext js ./start.js",
     "serve:debug": "nodemon $NODE_DEBUG_OPTION --watch app --ext js ./start.js",
     "lint:scss": "sass-lint --config .sass-lint.yml --ignore './**/vendor/**' --no-exit --verbose './app*/styles/**/*.scss'",
     "fmt:js": "prettier --write './*.js' 'app/**/*.js' 'test/**/*.js' 'automation/**/*.js' 'stubs/**/*.js'",
@@ -85,11 +85,13 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-dropdown": "^1.6.2",
+    "react-hot-loader": "^4.0.0-beta.13",
     "react-inlinesvg": "^0.5.3",
     "request": "^2.55.0",
     "serialize-javascript": "^1.0.0",
     "superagent": "^3.6.3",
-    "superagent-proxy": "^1.0.2"
+    "superagent-proxy": "^1.0.2",
+    "webpack-hot-middleware": "^2.24.3"
   },
   "devDependencies": {
     "autoprefixer": "^9.0.0",
@@ -99,6 +101,7 @@
     "babel-loader": "^7.1.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "chai": "^4.1.2",
+    "css-hot-loader": "^1.4.2",
     "css-loader": "^1.0.0",
     "enzyme": "^2.8.2",
     "eslint": "^4.19.1",

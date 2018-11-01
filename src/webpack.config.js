@@ -15,11 +15,18 @@ const config = {
     bail: true,
     cache: false,
     devtool: 'source-map',
-    entry: ['./app/client.js', './styles/main.scss'],
+    entry: [
+        'react-hot-loader/patch',
+        'webpack-hot-middleware/client?path=http://localhost:3001/__webpack_hmr',
+        './app/client.js',
+        './styles/main.scss'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: 'dist/',
-        filename: `[name]${production ? '-[chunkhash]' : ''}.js`
+        filename: `[name]${production ? '-[chunkhash]' : ''}.js`,
+        hotUpdateChunkFilename: '[id].[hash].hot-update.js',
+        hotUpdateMainFilename: '[hash].hot-update.json'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -47,6 +54,9 @@ const config = {
             {
                 test: /\.scss$/,
                 use: [
+                    {
+                        loader: 'css-hot-loader'
+                    },
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
@@ -90,8 +100,11 @@ const config = {
             fileName: `[name]${production ? '-[contenthash]' : ''}.css`
         }),
         new ManifestPlugin({
-            publicPath: '' // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
-        })
+            publicPath: '',
+            writeToFileEmit: true // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin()
     ]
 };
 
