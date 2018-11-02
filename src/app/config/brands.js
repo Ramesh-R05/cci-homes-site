@@ -86,7 +86,7 @@ export default [
         urlName: 'country-style',
         imageUrl: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
         logo: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
-        newsletterUrl: 'https://www.homestolove.com.au/homes-newsletter/',
+        newsletterUrl: 'https://www.homestolove.com.au/countrystyle-newsletter/',
         subscribe: {
             image: '',
             link: 'https://www.magshop.com.au/store/homestolove'
@@ -96,7 +96,7 @@ export default [
             instagram: 'https://www.instagram.com/countrystylemag/',
             pinterest: 'https://www.pinterest.com.au/countrystylemag/'
         },
-        newsletterSignupInBodyCopy: 'http://homestolove.e.bauer-media.com.au/join/5ky/signup-homestolove-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vp/signup-countrystyle-article-iframe-bottom'
     },
     {
         title: 'Homelife',
