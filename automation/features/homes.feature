@@ -28,7 +28,7 @@ Feature: Smoke test for HOMES
             | australian-house-and-garden/  | https://www.homestolove.com.au/australian-house-and-garden-newsletter/       |
             | inside-out/                   | https://www.homestolove.com.au/insideout-newsletter/                         |
             | homelife/                     | https://www.homestolove.com.au/homelife-newsletter/                          |
-            | country-style/                | https://www.homestolove.com.au/homes-newsletter/                             |
+            | country-style/                | https://www.homestolove.com.au/countrystyle-newsletter/                      |
 
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
