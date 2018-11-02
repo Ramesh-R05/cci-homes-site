@@ -1,4 +1,5 @@
 import amp from '@bxm/server/lib/middleware/amp';
+import emailLinkTracking from '@bxm/server/lib/middleware/emailLinkTracking';
 import pageModules from './bff/middleware/pageModules';
 import home from './bff/middleware/home';
 import brand from './bff/middleware/brand';
@@ -52,6 +53,7 @@ export default function bff(server) {
     server.get(server.locals.config.services.endpoints.list, list, listing, https, render, error);
     server.get(
         server.locals.config.services.endpoints.page, // Config set inside @bxm/server
+        emailLinkTracking,
         pageModules,
         comScore,
         home,

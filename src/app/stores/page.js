@@ -8,7 +8,8 @@ const initialState = {
         params: {
             pageNo: 0
         }
-    }
+    },
+    emailLinkTrackingData: null
 };
 const PageStore = createReducerStore({
     storeName: 'PageStore',
@@ -24,7 +25,8 @@ const PageStore = createReducerStore({
                 latestRealHomes,
                 latestVideos,
                 list = [],
-                comScoreSegmentIds = initialState.comScoreSegmentIds
+                comScoreSegmentIds = initialState.comScoreSegmentIds,
+                emailLinkTrackingData
             } = payload.body;
 
             if (entity) {
@@ -39,7 +41,8 @@ const PageStore = createReducerStore({
                     latestRealHomes,
                     latestVideos,
                     list,
-                    comScoreSegmentIds
+                    comScoreSegmentIds,
+                    emailLinkTrackingData
                 };
             }
 
@@ -107,6 +110,10 @@ const PageStore = createReducerStore({
 
         getLatestVideos(state) {
             return state.latestVideos || [];
+        },
+
+        getEmailLinkTrackingData(state) {
+            return state.emailLinkTrackingData;
         }
     }
 });

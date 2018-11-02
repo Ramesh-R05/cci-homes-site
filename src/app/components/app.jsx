@@ -11,7 +11,6 @@ class Application extends Component {
         currentRoute: PropTypes.shape({
             handler: PropTypes.func
         }),
-        // eslint-disable-next-line react/no-unused-prop-types
         pageTitle: PropTypes.string,
         currentNavigateError: PropTypes.object
     };
@@ -26,6 +25,15 @@ class Application extends Component {
         getStore: PropTypes.func,
         executeAction: PropTypes.func
     };
+
+    componentDidMount() {
+        const { getStore } = this.context;
+        const emailLinkTrackingData = getStore('PageStore').getEmailLinkTrackingData();
+
+        if (emailLinkTrackingData) {
+            window.dataLayer.push(emailLinkTrackingData);
+        }
+    }
 
     componentDidUpdate(prevProps) {
         const { pageTitle } = this.props;

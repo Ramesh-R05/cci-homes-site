@@ -1,6 +1,7 @@
 export default function loadPageContent(context, payload) {
     const params = {
         ...payload.params,
+        ...payload.query,
         hostname: payload.navigate.hostname,
         url: payload.url
     };

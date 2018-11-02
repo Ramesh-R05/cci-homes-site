@@ -301,13 +301,15 @@ export default {
             module: 'http://services.sit.bxm.internal/module/v1/homes',
             sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/homes',
             tag: 'http://services.sit.bxm.internal/tag/v1',
-            search: 'http://services.sit.bxm.internal/es-search/v1/homes'
+            search: 'http://services.sit.bxm.internal/es-search/v1/homes',
+            identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
         },
         endpoints: {
             page: '/api/getPageContent',
             list: '/api/list',
             search: '/api/search',
-            directories: '/api/directories'
+            directories: '/api/directories',
+            identity: '/api/identity'
         },
 
         header: {
