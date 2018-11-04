@@ -152,6 +152,8 @@ resources:
         APP_ENV: "sit"          # this is to start APP using sit config
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
         APP_DEBUG: true
+         # EMAIL_HASH_SERVICE_SECRET_KEY
+        secure: oVyEE7T+g+VsVQhrAt36xQz8NQOHvz3kNhIWYxZ5IsMusszkrfcwb7hoQk5lL1tM4wuHNciLF6AakZhe/bj7o9b+U+bKzsU3j/VUYlrB8zWUaPgjPlBGtbWV2TyT4/EfCReFOD4LDI8Jb+NEiaYBrnZVEt1/rI77rGYG7hmJYrA03GvtCBkV1Cck9JpMmtZSrFqL7klidbNRe0GWvIN0gkgvjJCZtltX5+v1+f/wArzw4mcLOX2WPZ5ESZE3Cee/W6CbNnRcrdFNfgWJm+QBGdxVJL5v0Jd1ijivNGwCGMw1B/Nf6kCTMgWroAO4miESEBODWOTmobGGLnUDR8bCOg==
 
   # TEST Parameter
   - name: homes-site-params-test
@@ -199,6 +201,8 @@ resources:
         NODE_ENV: "production"                                # this is to start APP with development version of react
         APP_ENV: "prod"                                 # this is to start APP using production config
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"   # New relic key
+        # EMAIL_HASH_SERVICE_SECRET_KEY
+        secure: YTSUblTEQb4LrMM/28/vshr3sTBx7YMBOGjHg945LpMV5zPaIp7aWWI4R3YAxz3hC2j9NoJUy2rZb5yEKoKDVVvZHGa00YDKpntRlxmiMuY1AveWduTw/N71RPh2V16KnAVBcBSQRDRUNhp2qNIVo8dmPTUUNLfZKgAgckYOO267qNQlV9y6GjtCl00Jalp1ItVT3eLeSGqO8Fw1/148T3xvR4DzG/0NKZllpz8jHm42SHk/OUhjnai9/SYUGYx+n7EZgYlyEMdrRY59WTPkVITYLEwCY7nMXsTI/NKOQv96AHILwGPIyKFHOkSUh5HTT3Ur9/NCcYoZHL7iAqNiIg==
 
   # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
