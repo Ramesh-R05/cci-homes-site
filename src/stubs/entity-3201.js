@@ -121,16 +121,9 @@ export default {
             mediaType: 'image'
         },
         {
-            url: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/05/51410/resized.jpg',
-            open: false,
-            tags: [],
-            title: 'SJB - White House (12).jpg',
-            valid: true,
-            source: '',
-            caption:
-                'Painting by Matthew Johnson. Zanotta ‘Edizioni Zeus’ table and Vitra ‘Cork’ stool, both from [Space](http://www.spacefurniture.com.au/|target="_blank"|rel="nofollow").',
-            credits: [],
-            mediaType: 'image'
+            url: "https://www.youtube.com/embed/6jB0Hi9pZRc",
+            open: true,
+            mediaType: "youtube"
         },
         {
             open: false,

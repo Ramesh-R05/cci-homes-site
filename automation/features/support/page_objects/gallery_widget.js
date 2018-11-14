@@ -10,6 +10,7 @@ var gallery_widget = {
     galleryDate: '.article__header > .article__date-created',
     galleryCaption: '.gallery__caption',
     imgCaption: '.gallery__caption',
+    youtubeItem: '.gallery__item-youtube',
     videoWrapper: '.video-wrapper',
     videoPlayWrap: '.video-wrapper',
     videoAdPlay: '.vjs-ad-playing',

@@ -76,6 +76,10 @@ module.exports = function() {
         expect(browser.getText(gallery.currentImgNum)).toMatch(imgNum);
     });
 
+    this.When(/^I can see the youtube item in the gallery$/, function() {
+        expect(browser.waitForVisible(gallery.youtubeItem, 5000)).toEqual(true);
+    });
+
     this.When(/^I see the video item on the gallery$/, function() {
         expect(browser.waitForVisible(gallery.videoWrapper, 5000)).toEqual(true);
     });

@@ -26,6 +26,7 @@ Feature: Gallery
         When I switch to "mobile" view
         Given I am currently viewing "automation-test-gallery-3201"
         * I can see the gallery description of the gallery containing "Beauty inspo for school"
+        * I can see the youtube item in the gallery
         When I see the video item on the gallery
         * I can see the play button and click on it
 
