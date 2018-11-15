@@ -27,6 +27,7 @@ const entityPropertyMap = {
     urlName: 'urlName',
     location: 'url',
     parentName: 'parentName',
+    siteName: 'siteName',
     parentUrl: 'parentUrl',
     contentVideo: 'video',
     contentGallery: 'galleryItems',
