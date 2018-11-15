@@ -24,6 +24,7 @@ const PageStore = createReducerStore({
                 galleries,
                 latestRealHomes,
                 latestVideos,
+                latestBrandItems,
                 list = [],
                 comScoreSegmentIds = initialState.comScoreSegmentIds,
                 emailLinkTrackingData
@@ -40,6 +41,7 @@ const PageStore = createReducerStore({
                     galleries,
                     latestRealHomes,
                     latestVideos,
+                    latestBrandItems,
                     list,
                     comScoreSegmentIds,
                     emailLinkTrackingData
@@ -54,6 +56,7 @@ const PageStore = createReducerStore({
             items: [],
             galleries: [],
             latestRealHomes: [],
+            latestBrandItems: [],
             list: [],
             content: null,
             comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
@@ -114,6 +117,10 @@ const PageStore = createReducerStore({
 
         getEmailLinkTrackingData(state) {
             return state.emailLinkTrackingData;
+        },
+
+        getlatestBrandItems(state) {
+            return state.latestBrandItems || [];
         }
     }
 });

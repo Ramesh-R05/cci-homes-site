@@ -21,6 +21,7 @@ import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 import directories from './bff/middleware/directories';
+import latestBrandItems from './bff/middleware/latestBrandItems';
 
 export default function bff(server) {
     if (
@@ -57,6 +58,7 @@ export default function bff(server) {
         pageModules,
         comScore,
         home,
+        latestBrandItems,
         brand,
         page,
         navSection,
