@@ -40,13 +40,13 @@ export default function comScore(req, res, next) {
     request.get(options, (err, response, body) => {
         if (!err && response.statusCode === 200) {
             /*
-            * Example responses:
-            * var pxSegmentIDs = "300003,210000,110000,110006";
-            *
-            * or
-            *
-            * {“scope”: ”page”, “segments”: [“300003", “110000", “110005", "tzvs7j"]}
-            */
+             * Example responses:
+             * var pxSegmentIDs = "300003,210000,110000,110006";
+             *
+             * or
+             *
+             * {“scope”: ”page”, “segments”: [“300003", “110000", “110005", "tzvs7j"]}
+             */
 
             const isJson = body.startsWith('{');
 

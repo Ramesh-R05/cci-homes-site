@@ -1,0 +1,52 @@
+export default {
+    id: 'HOMES-4233',
+    url: '/homelife',
+    path: ['HOMES--1', 'HOMES-1158', 'HOMES-4233'],
+    level: 2,
+    nodeId: 'HOMES-4233',
+    status: 'published',
+    siteUrl: 'http://homes-site-au.sit.bxm.net.au',
+    urlName: 'homelife',
+    nodeName: 'Homelife',
+    parentID: 'HOMES-1158',
+    siteCode: '56421E16-B4AB-417C-9645-A6A89644D4B4',
+    siteName: 'homes',
+    pageTitle: 'Homelife',
+    sortOrder: 32,
+    contentYear: 2018,
+    navIsHidden: 0,
+    navRedirect: {
+        Url: null,
+        Mode: 2,
+        Title: '',
+        NodeId: null,
+        NewWindow: false
+    },
+    contentMonth: 7,
+    contentTitle: 'Homelife',
+    contentVideo: '',
+    ampPreviewUrl: 'http://homes-site-au.sit.bxm.net.au/preview/amp/homelife',
+    articleSource: 'Homelife',
+    nodeTypeAlias: 'BrandSection',
+    moduleParentId: 'HOMES-4233',
+    contentHasVideo: false,
+    contentImageUrl: 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/homes/2018/07/18/4233/HLS0818CoverHR_resize.jpg',
+    nodeDateIndexed: '2018-08-17T11:39:31.71Z',
+    pageDateCreated: '2018-07-05T00:01:51.00Z',
+    contentImageSize: {
+        type: 'jpg',
+        width: 170,
+        height: 230
+    },
+    nodeTypeAliasPath: ['Page', 'Sections', 'Section', 'BrandSection'],
+    contentAccessLevels: -1,
+    pageMetaDescription: 'Everyday home solutions. Over 10,000 hacks and advice to help you declutter, decorate and budget.',
+    pageExcludeFromSitemap: 0,
+    contentFacebookImageUrl: {
+        tags: [],
+        source: '',
+        credits: []
+    },
+    pageExcludeDescendantsFromSitemap: 0,
+    updated_at: '2018-08-17T11:39:32.272Z'
+};
