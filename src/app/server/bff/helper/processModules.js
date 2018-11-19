@@ -26,7 +26,7 @@ export default function processModules(moduleResponse, themeModule = '') {
                         hamburgerNavigation: hamburgerNavigation(moduleResponse[moduleName])
                     };
                     break;
-                
+
                 case 'featuredbrand':
                     accumulatedModules = {
                         ...allModules,
