@@ -27,7 +27,7 @@ const getModulesResponseMock = () => ({
     }
 });
 
-const getModulesDefaultArgs = ['hamburgernavigation', 'headernavigation'];
+const getModulesDefaultArgs = ['hamburgernavigation', 'headernavigation', 'featuredbrand'];
 
 function resetStubsAndSpies() {
     getModulesStub.reset();
