@@ -22,6 +22,7 @@ import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 import directories from './bff/middleware/directories';
 import latestBrandItems from './bff/middleware/latestBrandItems';
+import latestBrandVideos from './bff/middleware/getLatestBrandVideos';
 
 export default function bff(server) {
     if (
@@ -60,6 +61,7 @@ export default function bff(server) {
         home,
         latestBrandItems,
         brand,
+        latestBrandVideos,
         page,
         navSection,
         tag,
