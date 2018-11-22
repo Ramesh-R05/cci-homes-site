@@ -10,7 +10,12 @@ export default async function latestBrandItems(req, res, next) {
         const brandContentRes = await Promise.all(brandContentPromises);
 
         if (Array.isArray(brandContentRes) && brandContentRes.length) {
-            res.body.latestBrandItems = brandContentRes;
+            res.body.latestBrandItems = brandContentRes.reduce((obj, item) => {
+                const newObj = { ...obj };
+                const [key, value] = Object.entries(item)[0];
+                newObj[key] = value;
+                return newObj;
+            }, {});
         }
         next();
     } catch (e) {

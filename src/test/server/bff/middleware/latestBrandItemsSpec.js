@@ -26,17 +26,11 @@ const latestBrandItemsMiddlewareFunc = isError =>
         '../api/listing': isError ? getLatestTeasersRejectStub : getLatestTeasersStub
     });
 
-const expectLatestBrandItems = [
-    {
-        brand1: ['brandItem1', 'brandItem2', 'brandItem3']
-    },
-    {
-        brand2: ['brandItem1', 'brandItem2', 'brandItem3']
-    },
-    {
-        brand3: ['brandItem1', 'brandItem2', 'brandItem3']
-    }
-];
+const expectLatestBrandItems = {
+    brand1: ['brandItem1', 'brandItem2', 'brandItem3'],
+    brand2: ['brandItem1', 'brandItem2', 'brandItem3'],
+    brand3: ['brandItem1', 'brandItem2', 'brandItem3']
+};
 
 describe('latestBrandItemsMiddleware', () => {
     let LatestBrandItemsMiddleware;
