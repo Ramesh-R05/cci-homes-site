@@ -12,17 +12,21 @@ module.exports = function() {
     });
 
     this.Given(/^I am currently viewing the homepage$/, function () {
-        browser.url(world.Urls.home_page);
+        var pageUrl = world.Urls.home_page;
+        console.log('    ' + pageUrl);
+        browser.url(pageUrl);
         browser.waitUntil(function () {
-            return browser.getUrl() === world.Urls.home_page;
+            return browser.getUrl() === pageUrl;
         }, 20000, 1000);
     });
 
     this.Given(/^I am currently viewing "([^"]*)"$/, function (pagename) {
-        browser.url(world.Urls.home_page+pagename);
+        var pageUrl = world.Urls.home_page + pagename;
+        console.log('    ' + pageUrl);
+        browser.url(pageUrl);
         browser.waitUntil(function () {
-            return browser.getUrl() === world.Urls.home_page+pagename;
-        }, 20000, 1000);
+            return browser.getUrl() === pageUrl;
+        }, 20000, 10000);
     });
 
     this.When(/^I scroll the page down$/, function () {
