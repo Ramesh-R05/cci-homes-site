@@ -12,7 +12,7 @@ export const httpsSet = (obj, path) => {
     }
 };
 
-const itemLists = ['body.items', 'body.latestRealHomes', 'body.leftHandSide.items'];
+const itemLists = ['body.items', 'body.latestRealHomes', 'body.leftHandSide.items', 'body.latestVideos'];
 
 const imageUrls = ['body.entity.imageUrl', 'body.entity.imageFacebookUrl.url', 'data.magcover.moduleImageUrl', 'body.hero.imageUrl'];
 
