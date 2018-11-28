@@ -1,4 +1,5 @@
 import { parseEntities } from '../helper/parseEntity';
+import addSubsectionsToNavItem from '../helper/addSubsectionsToNavItem';
 import logger from '../../../../logger';
 
 export default function hamburgerNavigation(moduleData) {
@@ -8,7 +9,10 @@ export default function hamburgerNavigation(moduleData) {
         }
 
         return {
-            items: [{ name: 'Home', url: '/' }, ...parseEntities(moduleData, { contentTitle: 'name' })]
+            items: [
+                { name: 'Home', url: '/', id: 'HOMES-INDEX' },
+                ...parseEntities(moduleData, { contentTitle: 'name' }).map(item => addSubsectionsToNavItem(item, false))
+            ]
         };
     } catch (error) {
         logger.error(error);

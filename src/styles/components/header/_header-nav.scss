@@ -21,7 +21,7 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
         }
     }
 
-    a {
+    a, span {
         @include type-header;
         color: $color-white;
         display: none;

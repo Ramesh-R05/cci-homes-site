@@ -9,7 +9,7 @@ export default function headerNavigation(moduleData) {
         }
 
         return {
-            items: parseEntities(moduleData, { contentTitle: 'name' }).map(item => addSubsectionsToNavItem(item))
+            items: parseEntities(moduleData, { contentTitle: 'name' }).map(item => addSubsectionsToNavItem(item, false))
         };
     } catch (error) {
         logger.error(error);

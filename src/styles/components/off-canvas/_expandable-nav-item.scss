@@ -1,0 +1,50 @@
+%clear-button-style {
+  padding: 0;
+  margin-bottom: 0;
+  border: 0;
+  background: none;
+  outline: none;
+}
+
+.expandable-nav-item {  
+  margin-bottom: 13px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__button {
+    @extend %clear-button-style;   
+    @include type-side-menu-link;
+    margin-bottom: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+
+    &:focus {        
+      color: $color-primary;
+    }
+  }
+
+  &__dropdown-button {
+    @extend %clear-button-style;
+    display: flex;
+    height: 18px;
+    margin-left: auto;
+  }
+
+  &__dropdown-svg {
+    fill: $color-primary;
+  } 
+}
