@@ -10,11 +10,12 @@
     color: $color-primary;
   }
 
-  &:focus {        
+  &:focus {
     color: $color-primary;
   }
-  
+
   &--subsection {
+    line-height: 1.8;
     font-size: 16px;
     font-weight: 100;
   }
