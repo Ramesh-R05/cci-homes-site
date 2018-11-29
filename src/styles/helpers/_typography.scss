@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: 'Muli';
+    src: url('https://fonts.googleapis.com/css?family=Muli:400,800');
+}
+
+@font-face {
     font-family: 'icomoon';
     src: url('/assets/fonts/icomoon.eot?vej2zt');
     src: url('/assets/fonts/icomoon.eot?vej2zt#iefix') format('embedded-opentype'),
@@ -52,6 +57,7 @@ $small-text-light-font: 'Proxima Nova light', sans-serif;
 
 //Google font
 $font-family-serif-primary: 'Libre Baskerville', serif;
+$font-family-muli: 'Muli', sans-serif;
 $to-love-font-family-sans-serif: $font-family-sans-serif-secondary;
 
 // ---------------------------------------------------- base elements

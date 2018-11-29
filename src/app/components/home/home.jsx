@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
 import SectionFeatured from './sectionFeatured';
+import FeaturedBrandsSection from '../featuredBrandsSection/featuredBrandsSection';
 
 class Home extends Component {
     static displayName = 'Home';
@@ -24,10 +25,14 @@ class Home extends Component {
     render() {
         const { config } = this.context;
         const { homeTopFeed, homeBottomFeed } = config.polar.details;
+        const { featuredBrands, latestBrandItems } = this.props;
 
         return (
             <div className="homepage">
                 <SectionFeatured {...this.props} className="home__body" polarTargets={[homeTopFeed, homeBottomFeed]} />
+                {config.features.lipstick.enabled && (
+                    <FeaturedBrandsSection featuredBrands={featuredBrands} latestBrandItems={latestBrandItems} className="home__body" />
+                )}
             </div>
         );
     }
@@ -45,6 +50,7 @@ export default connectToStores(Home, ['PageStore'], context => {
         list: pageStore.getList(),
         listNextParams: pageStore.getListNextParams(),
         latestVideos: pageStore.getLatestVideos(),
-        latestBrandItems: pageStore.getlatestBrandItems()
+        latestBrandItems: pageStore.getlatestBrandItems(),
+        featuredBrands: pageStore.getFeaturedBrands()
     };
 });

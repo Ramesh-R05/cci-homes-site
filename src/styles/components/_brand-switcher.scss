@@ -1,0 +1,19 @@
+.brand-switcher {
+   &__list {
+       display: flex;
+       justify-content: space-between;
+    }
+
+    &__list-item {
+        display: block;
+        flex: 0 0 auto;
+   }
+
+   &__img {
+       height: 40px;
+   }
+}
+.brand-logo--button {
+    border: none;
+    background: none;
+}

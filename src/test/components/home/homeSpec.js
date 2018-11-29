@@ -9,6 +9,7 @@ const { React, ReactDOM, TestUtils } = Context;
 
 const SectionFeatured = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
+const featuredBrandsSection = Context.createStubComponent();
 
 AdStub.pos = {
     aside: 'rhs',
@@ -40,6 +41,11 @@ const contextConfigStub = {
                     }
                 ]
             }
+        },
+        features: {
+            lipstick: {
+                enabled: true
+            }
         }
     }
 };
@@ -47,7 +53,8 @@ const contextConfigStub = {
 const Home = proxyquire('../../../app/components/home/home', {
     react: React,
     './sectionFeatured': SectionFeatured,
-    '@bxm/ad/lib/google/components/ad': AdStub
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '../featuredBrandsSection/featuredBrandsSection': featuredBrandsSection
 });
 
 Context.addStore('PageStore', {
@@ -70,6 +77,7 @@ Context.addStore('PageStore', {
     getList: () => homeArticlesMock,
     getListNextParams: () => {},
     getLatestVideos: () => [],
+    getFeaturedBrands: () => [],
     getlatestBrandItems: () => []
 });
 

@@ -25,6 +25,7 @@ const PageStore = createReducerStore({
                 latestRealHomes,
                 latestVideos,
                 latestBrandVideos,
+                featuredBrand,
                 latestBrandItems,
                 list = [],
                 comScoreSegmentIds = initialState.comScoreSegmentIds,
@@ -41,6 +42,7 @@ const PageStore = createReducerStore({
                     navigationTags: entity.navigationTags,
                     galleries,
                     latestRealHomes,
+                    featuredBrand,
                     latestVideos,
                     latestBrandVideos,
                     latestBrandItems,
@@ -128,6 +130,10 @@ const PageStore = createReducerStore({
 
         getLatestBrandVideos(state) {
             return state.latestBrandVideos || [];
+        },
+
+        getFeaturedBrands(state) {
+            return state.featuredBrand || null;
         }
     }
 });
