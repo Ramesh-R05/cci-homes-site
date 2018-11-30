@@ -135,15 +135,15 @@ Feature: Smoke test for HOMES
 #        When I am currently viewing "ikea-collaborates-with-louis-vuitton-designer-4197"
 #        Then I should see 4 MREC ads in the RHR feed
 
-#----Scenarios for the lipstick project----#
-    Scenario Outline: Verify the latest video element on homepage in "<device>"
-        Given I switch to "<device>" view
-        When I am currently viewing the homepage
-        Then I should see the latest video element
-        And I should see 3 video items
-        Examples:
-        | device            |
-        | mobile            |
-        | desktop           |
-        | tablet portrait   |
-        | tablet landscape  |
+##----Scenarios for the lipstick project----#
+#    Scenario Outline: Verify the latest video element on homepage in "<device>"
+#        Given I switch to "<device>" view
+#        When I am currently viewing the homepage
+#        Then I should see the latest video element
+#        And I should see 3 video items
+#        Examples:
+#        | device            |
+#        | mobile            |
+#        | desktop           |
+#        | tablet portrait   |
+#        | tablet landscape  |
