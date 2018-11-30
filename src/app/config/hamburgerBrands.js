@@ -30,12 +30,6 @@ export default [
         id: 'gt'
     },
     {
-        imageUrl: '/assets/images/menulogos/COSMO-logo.svg',
-        url: 'https://www.cosmopolitan.com.au/',
-        title: 'Cosmopolitan',
-        id: 'cosmo'
-    },
-    {
         imageUrl: '/assets/images/menulogos/DOLLY-logo.svg',
         url: 'http://www.dolly.com.au/',
         title: 'Dolly',
