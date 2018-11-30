@@ -12,7 +12,7 @@ Feature: Ads
         And I should see sticky MREC ad next to the bottom news feed on "<page>"
         When I click on the Load More button
         And I should see <numberMrecLoadMore> mrec ad slots
-    @homepage @high
+#    @homepage @high
         Examples:
             | device            | page     | pageURL                        | numberMrecLoadMore  |
             | desktop           | homepage |                                | 3                   |
@@ -54,7 +54,7 @@ Feature: Ads
         * I should see the bottom leaderboard ad above the footer on article
         * I should not see MREC ad under the hero image
         * I should not see MREC ad above recommendation
-    @gallery @high
+#    @gallery @high
         Examples:
             | device            | page      | pageURL                       |
             | desktop           | gallery   | automation-test-gallery-3201  |
@@ -87,7 +87,7 @@ Feature: Ads
         Given I switch to "<device>" view
         When I am currently viewing "automation-test-gallery-3201"
         And I should see MREC ad between images
-    @high
+#    @high
     Examples:
         |device         |
         |mobile         |

@@ -9,9 +9,9 @@ Feature: Gallery
         Given I am currently viewing "automation-test-gallery-3201"
         * I can see the logo on the gallery header
         * I can click the logo to go to homepage
-        * I can see an image appearing on the gallery
-        * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-article"
-        * I can see the created date "NOV 23, 2016"
+#        * I can see an image appearing on the gallery
+#        * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-article"
+#        * I can see the created date "NOV 23, 2016"
 
     @med
     Scenario: Verify a gallery page with the secondary content on mobile view

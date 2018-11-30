@@ -16,8 +16,8 @@ Feature: Section Landing page (Navigation Section)
         And I should see a "bottom" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its title and clickable to open its page
         And I should see a "bottom" feed item containing its tag and clickable to open its page
-        When I click on the Load More button
-        Then I should see extra 12 teasers after loading more
+#        When I click on the Load More button
+#        Then I should see extra 12 teasers after loading more
         @high
         Examples:
             | device    |
@@ -59,7 +59,7 @@ Feature: Section Landing page (Navigation Section)
             |tablet landscape   |
             |tablet portrait    |
 
-    @custommastehead @high
+#    @custommastehead @high
     Scenario: Verfiy that that the custom mastehead appear in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "real-homes"
