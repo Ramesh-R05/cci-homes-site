@@ -141,7 +141,7 @@ export default {
             id: 926929
         },
         lipstick: {
-            enabled: false
+            enabled: true
         }
     },
 

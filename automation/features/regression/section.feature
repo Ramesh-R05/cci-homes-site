@@ -49,7 +49,7 @@ Feature: Section Landing page (Navigation Section)
         Given I switch to "<device>" view
         When I am currently viewing "real-homes"
         * I should see the custom masthead appearing on top of the section page
-    @high
+#    @high
         Examples:
             |device     |
             |desktop    |
