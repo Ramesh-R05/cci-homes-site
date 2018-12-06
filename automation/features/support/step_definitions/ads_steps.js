@@ -13,8 +13,8 @@ module.exports = function() {
         if (!isBrowserStack) {
             browser.scroll(0,0);
         }
-        expect(browser.isVisible(wn_ads.ad_TopLeaderboard)).toBe(true);
-        //expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+        //expect(browser.isVisible(wn_ads.ad_TopLeaderboard)).toBe(true);
+        expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
 
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {

@@ -10,9 +10,9 @@ Feature: Smoke test for HOMES
         And The homepage hero image should be clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its title and clickable to open its page
-#        When I click on the Load More button
-#        Then I should see extra 12 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 12 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario Outline: Verify the <page> brand landing page
         Given I switch to "mobile" view
@@ -36,18 +36,18 @@ Feature: Smoke test for HOMES
         And I should see the hero teaser
         And I should see 6 top teasers on the feed section page
         Then I should see 6 bottom teasers on the feed section page
-#        When I click on the Load More button
-#        Then I should see extra 12 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 12 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: Verify the tag landing page
         Given I switch to "mobile" view
         When I am currently viewing "tags/renovation"
         And I should see 6 top teasers on the feed section page
         Then I should see 6 bottom teasers on the feed section page
-#        When I click on the Load More button
-#        Then I should see extra 12 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 12 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
@@ -87,10 +87,10 @@ Feature: Smoke test for HOMES
         Given I switch to "<device>" view
         When I am currently viewing "<pageUrl>"
         * I should see the search icon in the navigation bar
-#        * I should see the search box after clicking the icon
-#        * I should still see the search box after scrolling the page down
-#        * I should be able to search a keyword "house" on "navigation bar" and see the result page
-#        * I should not see the search bar on the search result page in mobile version
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        * I should not see the search bar on the search result page in mobile version
         Examples:
         |device             |page       |pageUrl                                            |
         |mobile             |homepage   |                                                   |
@@ -99,51 +99,51 @@ Feature: Smoke test for HOMES
         Given I switch to "<device>" view
         When I am currently viewing "<pageUrl>"
         * I should see the search icon in the navigation bar
-#        * I should see the search box after clicking the icon
-#        * I should still see the search box after scrolling the page down
-#        * I should be able to search a keyword "house" on "navigation bar" and see the result page
-#        * I should be able to search a keyword "home" on "search result page" and see the result page
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        * I should be able to search a keyword "home" on "search result page" and see the result page
         Examples:
         |device             |page       |pageUrl                                            |
         |desktop            |homepage   |                                                   |
 
-#    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
-#       Given I switch to "<device>" view
-#       When I am currently viewing "<pageUrl>"
-#       * I should be able to search a keyword "house" on "navigation bar" and see the result page
-#       Examples:
-#       |device             |page       |pageUrl                                            |
-#       |tablet landscape   |section    |real-homes                                         |
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+       Given I switch to "<device>" view
+       When I am currently viewing "<pageUrl>"
+       * I should be able to search a keyword "house" on "navigation bar" and see the result page
+       Examples:
+       |device             |page       |pageUrl                                            |
+       |tablet landscape   |section    |real-homes                                         |
 
-#    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
-#        Given I switch to "<device>" view
-#        When I am currently viewing "<pageUrl>"
-#        * I should be able to search a keyword "house" on "navigation bar" and see the result page
-#        Examples:
-#        |device             |page        |pageUrl                                                         |
-#        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should be able to search a keyword "house" on "navigation bar" and see the result page
+        Examples:
+        |device             |page        |pageUrl                                                         |
+        |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
 
-##----Below is the high scenario that we moved from the regression test because its result is unstable in the Test environment---=#
-#    Scenario: Verify the sticky MREC ad in the load more feed (Desktop)
-#        Given I switch to "desktop" view
-#        When I am currently viewing the homepage
-#        And I click on the Load More button
-#        Then I should see sticky MREC on the new feed
-#
-#    Scenario: Verify the four MREC ads in the RHR feed (Desktop)
-#        Given I switch to "desktop" view
-#        When I am currently viewing "ikea-collaborates-with-louis-vuitton-designer-4197"
-#        Then I should see 4 MREC ads in the RHR feed
+#----Below is the high scenario that we moved from the regression test because its result is unstable in the Test environment---=#
+    Scenario: Verify the sticky MREC ad in the load more feed (Desktop)
+        Given I switch to "desktop" view
+        When I am currently viewing the homepage
+        And I click on the Load More button
+        Then I should see sticky MREC on the new feed
 
-##----Scenarios for the lipstick project----#
-#    Scenario Outline: Verify the latest video element on homepage in "<device>"
-#        Given I switch to "<device>" view
-#        When I am currently viewing the homepage
-#        Then I should see the latest video element
-#        And I should see 3 video items
-#        Examples:
-#        | device            |
-#        | mobile            |
-#        | desktop           |
-#        | tablet portrait   |
-#        | tablet landscape  |
+    Scenario: Verify the four MREC ads in the RHR feed (Desktop)
+        Given I switch to "desktop" view
+        When I am currently viewing "ikea-collaborates-with-louis-vuitton-designer-4197"
+        Then I should see 4 MREC ads in the RHR feed
+
+#----Scenarios for the lipstick project----#
+    Scenario Outline: Verify the latest video element on homepage in "<device>"
+        Given I switch to "<device>" view
+        When I am currently viewing the homepage
+        Then I should see the latest video element
+        And I should see 3 video items
+        Examples:
+        | device            |
+        | mobile            |
+        | desktop           |
+        | tablet portrait   |
+        | tablet landscape  |
