@@ -2,7 +2,7 @@ import proxyquire, { noCallThru } from 'proxyquire';
 import heroStubData from '../../../../stubs/module-homepagehero';
 import itemsStubData from '../../../../stubs/listings-homepage';
 import realHomesStubData from '../../../../stubs/listings-food-Homes-navigation-Real-Homes';
-import latestVideoStubData from '../../../../stubs/latest-videos';
+import latestVideoStubData from '../../../../stubs/bff-latest-videos';
 noCallThru();
 
 const parseEntityStub = sinon.stub();

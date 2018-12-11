@@ -39,12 +39,11 @@ var homepage_widget = {
     bottomFeedTeaserTag: ".repeatable-component article.teaser--img-left .teaser__tags .tag-primary a",
 
     //Top feed
-    topTeasers: 'section .teaser--img-top',
+    topTeasers: 'section.home-section--top .teaser--img-top',
     topTeaserImgs: 'section .teaser--img-top img',
     topTeaserTitles: 'section .teaser--img-top .teaser__title',
     topTeaserTags: "section .teaser--img-top .teaser__tags [class^='tag-']",
     topTeaserTagLinks: "section .teaser--img-top .teaser__tags [class^='tag-'] a",
-
 
     //Bottom feed
     bottomTeasers: '.repeatable-component .section__row:nth-child(1) .teaser--img-left',

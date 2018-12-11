@@ -3,7 +3,7 @@ import heroMock from '../../mock/article';
 import { home as articlesMock } from '../../mock/articles';
 import { items as gogMock } from '../../mock/galleryOfGalleries';
 import proxyquire, { noCallThru } from 'proxyquire';
-import latestVideoStubData from '../../../stubs/latest-videos';
+import latestVideoStubData from '../../../stubs/bff-latest-videos';
 noCallThru();
 
 const Context = betterMockComponentContext();

@@ -19,7 +19,6 @@ servicesStubs.use((req, res, next) => {
 
 servicesStubs.get('/entity-service/', (req, res) => {
     const { query } = req;
-
     const queryPath = Object.entries(query)
         .reduce((string, [key, value]) => {
             let newString = string;
@@ -59,11 +58,18 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     const latestRealHomesMatch =
         $filter === "(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'";
     const baseDirectoriesMatch = $filter === `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
+    const latestVideos = $filter === `(nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true')`;
 
     let teaserResponse = {
         totalCount: 0,
         data: []
     };
+
+    if (latestVideos) {
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-latest-videos`);
+        if ($top) teaserData.data.splice($top);
+        teaserResponse = teaserData;
+    }
 
     if (baseDirectoriesMatch) {
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-directories`);
