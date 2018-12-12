@@ -36,6 +36,11 @@ servicesStubs.get('/entity-service/homepage', (req, res) => {
     res.json(home);
 });
 
+servicesStubs.get('/entity-service/alltagsections', (req, res) => {
+    const alltagsections = require(`${cwd}/stubs/entity-alltagsections`);
+    res.json(alltagsections);
+});
+
 servicesStubs.get('/entity-service/section/:section', (req, res) => {
     const section = require(`${cwd}/stubs/entity-${req.params.section.toLowerCase()}`);
     res.json(section);

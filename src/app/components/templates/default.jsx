@@ -110,6 +110,11 @@ class DefaultTemplate extends Component {
                     ContentHeaderHandler: SectionHeader,
                     ContentHandler: NavSection
                 };
+            case 'commercialtagsection':
+                return {
+                    ContentHeaderHandler: SectionHeader,
+                    ContentHandler: NavSection
+                };
             case 'tagsection':
                 return {
                     ContentHeaderHandler: SectionHeader,
@@ -147,7 +152,8 @@ class DefaultTemplate extends Component {
         let contentHeaderTitle = '';
 
         if (content) {
-            contentHeaderTitle = get(content, 'tagsDetails[0].displayName', content.title);
+            const headerTitleProperty = content.nodeType.toLowerCase() === 'commercialtagsection' ? 'contentTitle' : 'tagsDetails[0].displayName';
+            contentHeaderTitle = get(content, headerTitleProperty, content.title);
             brandConfig = getBrand(config, content.source);
         }
 
