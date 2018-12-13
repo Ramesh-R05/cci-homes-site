@@ -59,7 +59,7 @@ const allTagSections = [
         siteName: 'homes',
         dateStart: '2018-12-01T13:00:00.00Z',
         sortOrder: 47,
-        contentTags: ['food:Homes navigation:Renovating', 'food:Building:Type:House'],
+        contentTags: ['food:Homes navigation:Renovating', 'food:Building:Building style:Cottage'],
         contentYear: 2018,
         navIsHidden: 0,
         navRedirect: {
@@ -77,10 +77,10 @@ const allTagSections = [
                 displayName: 'Renovating'
             },
             {
-                name: 'food:Building:Type:House',
-                urlName: 'house',
-                fullName: 'food_Building_Type_House',
-                displayName: 'House'
+                name: 'food:Building:Building style:Cottage',
+                urlName: 'cottage',
+                fullName: 'food_Building_Building_style_Cottage',
+                displayName: 'Cottage'
             }
         ],
         contentMonth: 11,
@@ -90,7 +90,7 @@ const allTagSections = [
         nodeTypeAlias: 'CommercialTagSection',
         contentSummary: 'We wish you a Commercial Tag Test We wish you a Commercial Tag Test We wish you a Commercial Tag Test and a Happy New Year',
         moduleParentId: 'HOMES-15969',
-        pageSearchTags: ['Renovating', 'renovating', 'House', 'house'],
+        pageSearchTags: ['Renovating', 'renovating', 'Cottage', 'cottage'],
         contentHasVideo: false,
         nodeDateIndexed: '2018-12-03T04:40:31.99Z',
         pageDateCreated: '2018-11-30T02:57:41.00Z',

@@ -28,7 +28,7 @@ const listingsServiceMockUrl = 'http://listingsUrl.com';
 const siteMockHost = 'http://siteHost.com';
 
 const navSection = 'interiors';
-const navSectionFilter = `tagsDetails/fullName eq 'food_Homes_navigation_Interiors' and tagsDetails/fullName%20ne%20%27food_Homes_navigation_renovating,food_Building_Type_House%27`;
+const navSectionFilter = `tagsDetails/fullName eq 'food_Homes_navigation_Interiors' and tagsDetails/fullName%20ne%20%27food_Homes_navigation_renovating,food_Building_Building_style_Cottage%27`;
 
 const expectedBody = {
     entity: entityStubData,

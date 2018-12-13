@@ -13,13 +13,6 @@ Feature: Homepage
             | desktop           |
             | mobile            |
 
-    @low
-    Scenario: Users can see the latest real homes on homepage
-        Given I switch to "desktop" view
-        When I am currently viewing the homepage
-        Then User will be provided with 4 "LATEST REAL HOMES"
-        And each image will display text and be opaque when hover
-
     Scenario Outline: Verify Homes to Love homepage has a hero content on "<device>"
         Given I switch to "<device>" view
         And I am currently viewing the homepage
