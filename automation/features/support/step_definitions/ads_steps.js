@@ -171,7 +171,7 @@ module.exports = function() {
             browser.scroll(ad_MrecRhsElement);
             wait(1000);
             browser.scroll(ad_MrecRhsElement); //Double scroll to ensure the ad element is still on the page after the ad loading.
-            expect(browser.waitForVisible(ad_MrecRhsElement,5000)).toBe(true);
+            expect(browser.waitForExist(ad_MrecRhsElement,5000)).toBe(true);
         }
     });
 
