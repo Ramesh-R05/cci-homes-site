@@ -82,16 +82,16 @@ module.exports = function() {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,2200);
         //Verify the ad is appearing
-        expect(browser.waitForVisible(ad_BottomMrecRhs,5000)).toBe(true);
-        //expect(browser.waitForExist(ad_BottomMrecRhs,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+        //expect(browser.waitForVisible(ad_BottomMrecRhs,5000)).toBe(true);
+        expect(browser.waitForExist(ad_BottomMrecRhs,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
         //Verify the ad is a sticky ad after scrolling down
         wait(3000);
         browser.scroll(0,2700);
         browser.scroll(0,3000);
-        expect(browser.waitForVisible(ad_BottomMrecRhs,5000)).toBe(true);
-        //expect(browser.waitForExist(ad_BottomMrecRhs,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
-        expect(browser.waitForVisible(mrecBottomFeedSticky,5000)).toBe(true);
-        //expect(browser.waitForExist(mrecBottomFeedSticky,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+        //expect(browser.waitForVisible(ad_BottomMrecRhs,5000)).toBe(true);
+        expect(browser.waitForExist(ad_BottomMrecRhs,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+        //expect(browser.waitForVisible(mrecBottomFeedSticky,5000)).toBe(true);
+        expect(browser.waitForExist(mrecBottomFeedSticky,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
 
     this.Then(/^I should see (\d+) mrec ad slots$/, function (slot_count) {
