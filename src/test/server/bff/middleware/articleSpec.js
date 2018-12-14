@@ -2,12 +2,8 @@ import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import itemsStubData from '../../../../stubs/listings-food-Homes-navigation-DIY';
 
-const getLatestTeasersStub = () => ({ data: {} });
-const parseEntitiesStub = sinon.stub();
-
-parseEntitiesStub.returns(itemsStubData);
-
-const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
+const getLatestTeasersStub = sinon.stub().resolves({ data: {} });
+const parseEntitiesStub = sinon.stub().returns(itemsStubData);
 
 const expectedBody = {
     entity: {
@@ -26,69 +22,149 @@ const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/arti
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersSpy
+    '../api/listing': getLatestTeasersStub
+});
+
+function resetStubsAndSpies() {
+    getLatestTeasersStub.reset();
+}
+
+const getMockEntity = () => ({
+    nodeType: 'HomesArticle',
+    tags: [
+        'food:Garden/Outdoor:Garden style:Tropical garden',
+        'food:Garden/Outdoor:Garden style:Coastal garden',
+        'food:Homes navigation:DIY',
+        'food:Topic:In focus'
+    ]
 });
 
 describe('article middleware', () => {
-    let res = {
-        body: {
-            entity: {
-                nodeType: 'HomesArticle',
-                tags: [
-                    'food:Garden/Outdoor:Garden style:Tropical garden',
-                    'food:Garden/Outdoor:Garden style:Coastal garden',
-                    'food:Homes navigation:DIY',
-                    'food:Topic:In focus'
-                ]
-            }
-        }
-    };
-
     const req = {};
-
     const next = () => {};
+    const navQueryTag = 'food:Homes navigation:DIY';
 
-    describe(`when receiving data`, () => {
-        describe(`and nodeType is not HomesArticle`, () => {
-            before(() => {
-                res.body.entity.nodeType = '';
+    describe('when there is an entity', () => {
+        describe('and entity is of nodetype homes article', () => {
+            describe('and entity has tags', () => {
+                describe(`when tags are of type navigation`, () => {
+                    let res;
+
+                    beforeEach(() => {
+                        res = {
+                            body: {
+                                entity: {
+                                    ...getMockEntity()
+                                },
+                                leftHandSide: { items: itemsStubData }
+                            }
+                        };
+                    });
+
+                    afterEach(() => {
+                        resetStubsAndSpies();
+                    });
+
+                    it('should get the 20 latest homes articles matching the navigation tag', done => {
+                        articleMiddleware(req, res, next)
+                            .then(() => {
+                                expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `tags eq '${navQueryTag}'`)).to.be.true;
+                                done();
+                            })
+                            .catch(done);
+                    });
+                    it('should set the left hand side data using the tags from the entity', done => {
+                        articleMiddleware(req, res, next)
+                            .then(() => {
+                                expect(res.body.leftHandSide).to.deep.equal(expectedBody.leftHandSide);
+                                done();
+                            })
+                            .catch(done);
+                    });
+                });
+                describe('when tags are not of type navigation', () => {
+                    let res;
+
+                    before(() => {
+                        res = {
+                            body: {
+                                entity: {
+                                    ...getMockEntity(),
+                                    tags: ['food:Topic:In focus']
+                                }
+                            }
+                        };
+                    });
+
+                    after(() => {
+                        resetStubsAndSpies();
+                    });
+
+                    it('should get the 20 latest homes articles or galleries', done => {
+                        articleMiddleware(req, res, next)
+                            .then(() => {
+                                expect(
+                                    getLatestTeasersStub.firstCall.calledWith(20, 0, `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`)
+                                ).to.be.true;
+                                done();
+                            })
+                            .catch(done);
+                    });
+                });
             });
+            describe('and entity has no tags', () => {
+                let res = {};
 
-            after(() => {
-                res.body.entity.nodeType = 'HomesArticle';
-            });
+                before(() => {
+                    res = {
+                        body: {
+                            entity: {
+                                ...getMockEntity(),
+                                tags: []
+                            }
+                        }
+                    };
+                });
 
-            it('should not call service urls', done => {
-                articleMiddleware(req, res, next)
-                    .then(() => {
-                        expect(getLatestTeasersSpy.called).to.be.false;
+                after(() => {
+                    resetStubsAndSpies();
+                });
 
-                        done();
-                    })
-                    .catch(done);
+                it('should get the 20 latest homes articles or galleries', done => {
+                    articleMiddleware(req, res, next)
+                        .then(() => {
+                            expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`))
+                                .to.be.true;
+                            done();
+                        })
+                        .catch(done);
+                });
             });
         });
 
-        describe(`and nodeType is HomesArticle`, () => {
-            it('should use the tags from the response object to call getLatestTeasers', done => {
-                articleMiddleware(req, res, next)
-                    .then(() => {
-                        let queryTags = 'food:Homes navigation:DIY';
+        describe('and entity is of of another nodetype', () => {
+            let res = {};
 
-                        expect(getLatestTeasersSpy.firstCall.calledWith(20, 0, `tags eq '${queryTags}'`)).to.be.true;
-
-                        done();
-                    })
-                    .catch(done);
+            before(() => {
+                res = {
+                    body: {
+                        entity: {
+                            ...getMockEntity(),
+                            nodeType: 'Something',
+                            tags: ['food:Topic:In focus']
+                        }
+                    }
+                };
             });
 
-            it('should return all modules in the desired structure', done => {
+            after(() => {
+                resetStubsAndSpies();
+            });
+
+            it('should not get the latest teasers', done => {
                 articleMiddleware(req, res, next)
                     .then(() => {
-                        let queryTags = 'food:Homes navigation:DIY';
-
-                        expect(getLatestTeasersSpy.firstCall.calledWith(20, 0, `tags eq '${queryTags}'`)).to.be.true;
-                        expect(res.body).to.deep.equal(expectedBody);
+                        expect(getLatestTeasersStub.called).to.be.false;
                         done();
                     })
                     .catch(done);

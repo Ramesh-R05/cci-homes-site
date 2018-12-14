@@ -11,13 +11,18 @@ export default async function articleMiddleware(req, res, next) {
             return;
         }
 
-        if (entity.tags) {
-            const navTags = entity.tags.find(tag => tag.includes('navigation'));
+        const entityTags = entity.tags;
+        let teaserQuery = `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`;
+
+        if (entityTags && Array.isArray(entityTags) && entityTags.length) {
+            const navTags = entityTags.find(tag => tag.includes('navigation'));
             if (navTags) {
-                const relatedArticles = await getLatestTeasers(20, 0, `tags eq '${navTags}'`);
-                res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };
+                teaserQuery = `tags eq '${navTags}'`;
             }
         }
+
+        const relatedArticles = await getLatestTeasers(20, 0, teaserQuery);
+        res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };
 
         /**
          * Following code is for find out the site logo img url and external links for directory page

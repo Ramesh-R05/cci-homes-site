@@ -129,7 +129,7 @@ export default {
                 nodeTypeAlias: 'Section',
                 contentHasVideo: false,
                 pageDateCreated: '2018-05-29T06:04:19.00Z',
-                subsections: [ ]
+                subsections: []
             },
             {
                 id: 'HOMES-4215',

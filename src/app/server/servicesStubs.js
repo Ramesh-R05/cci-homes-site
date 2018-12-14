@@ -61,7 +61,8 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
     const campaignMatch = $filter.match(/^\(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'\) and sponsorName eq '([^']+)'$/i);
     const latestRealHomesMatch =
-        $filter === `tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes' and tagsDetails/fullName ne 'food_Homes_navigation_renovating,food_Building_Building_style_Cottage'`;
+        $filter ===
+        `tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes' and tagsDetails/fullName ne 'food_Homes_navigation_renovating,food_Building_Building_style_Cottage'`;
     const baseDirectoriesMatch = $filter === `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
     const latestVideos = $filter === `(nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true')`;
 

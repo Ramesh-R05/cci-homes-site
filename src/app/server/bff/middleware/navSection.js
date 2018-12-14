@@ -43,8 +43,8 @@ export default async function navSectionMiddleware(req, res, next) {
             const newFullNames = tagsDetails.map(t => t.fullName);
             return [...fullNameList, ...newFullNames];
         }, []);
-
         const excludedTagQuery = tagsToQuery(tagsToExclude);
+
         if (nodeTypeAlias === 'CommercialTagSection') {
             const isEmptyTagsDetails = !Array.isArray(entityResponse.tagsDetails) || !entityResponse.tagsDetails.length;
 

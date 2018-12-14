@@ -28,6 +28,7 @@ export default async function pageMiddleware(req, res, next) {
         res.body.entity = parseEntity(pageEntity);
 
         const tagEntityName = (navigationTag && navigationTag.urlName) || '';
+
         if (tagEntityName) {
             const sectionEntityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${tagEntityName}`);
             res.body.section = {
