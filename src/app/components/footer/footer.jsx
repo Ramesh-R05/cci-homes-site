@@ -23,7 +23,10 @@ export default class FooterSection extends Component {
         const { modifier } = this.props;
         const footerBrands = this.context.config.brands.footer;
         let classNames = 'footer';
-        if (modifier) classNames += ` footer--${modifier}`;
+
+        if (modifier) {
+            classNames += ` footer--${modifier}`;
+        }
 
         return (
             <div className="footer__wrapper">

@@ -26,7 +26,9 @@ export default class BrandLink extends Component {
     render() {
         const { children, linkSiteBrand, source } = this.props;
 
-        if (!Children.count(children)) return null;
+        if (!Children.count(children)) {
+            return null;
+        }
 
         if (!source || !BrandLink.sources[source.toLowerCase()] || (!linkSiteBrand && source.toLowerCase() === BrandLink.siteBrand)) {
             return <span>{children}</span>;

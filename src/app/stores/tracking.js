@@ -44,6 +44,7 @@ function trackGalleryItemChanged(action) {
     // next item index is null
     const newItemIndex = action.newItemIndex;
     const totalItems = action.totalItems;
+
     if (newItemIndex === null || newItemIndex > totalItems - 1) {
         return;
     }
@@ -89,6 +90,7 @@ function trackGalleryComplete(action) {
 function trackVerticalGalleryItemChanged(action) {
     const activeItem = action.activeItem;
     const totalGalleryItems = action.totalGalleryItems;
+
     // don't trigger galleryImageChange if the item index is 0
     if (activeItem === 0 || (!action.isAd && activeItem === null)) {
         return;

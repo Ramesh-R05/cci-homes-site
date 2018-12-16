@@ -10,6 +10,7 @@ export default {
             .get(`${host}/api/directories`)
             .query(params)
             .then(response => deferred.resolve(response), error => deferred.reject(error));
+
         return deferred.promise;
     }
 };

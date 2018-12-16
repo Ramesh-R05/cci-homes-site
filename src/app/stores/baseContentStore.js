@@ -10,18 +10,25 @@ export default class BaseContentStore extends BaseStore {
     };
 
     constructor(dispatcher, name) {
-        if (!name) throw new Error('CMS store name must be provided by the implementor store');
+        if (!name) {
+            throw new Error('CMS store name must be provided by the implementor store');
+        }
+
         super(dispatcher);
         this.name = name;
         this.items = [];
     }
 
     onLoadContent(payload) {
-        if (!has(payload.body.stores, this.name)) return;
+        if (!has(payload.body.stores, this.name)) {
+            return;
+        }
 
         const store = payload.body.stores[this.name];
 
-        if (!has(store, 'items')) return;
+        if (!has(store, 'items')) {
+            return;
+        }
 
         store.items.forEach(item => this.items.push(item));
         this.items = uniq(this.items, 'id');

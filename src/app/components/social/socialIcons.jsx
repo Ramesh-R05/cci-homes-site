@@ -18,12 +18,18 @@ export default class SocialIcons extends Component {
 
     fireEvent = () => {
         const { name } = this.props;
-        if (canUseDOM) window.dataLayer.push({ event: `click:social:${name}` });
+
+        if (canUseDOM) {
+            window.dataLayer.push({ event: `click:social:${name}` });
+        }
     };
 
     render() {
         const { name, url, gtmClass } = this.props;
-        if (!name || !url) return null;
+
+        if (!name || !url) {
+            return null;
+        }
 
         const src = `/assets/icons/social/${name}.svg`;
         const image = <img src={src} alt="" />;

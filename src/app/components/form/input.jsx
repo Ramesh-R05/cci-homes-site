@@ -31,7 +31,9 @@ export default class Input extends Component {
     render() {
         const { checked, id, name, value, type, children } = this.props;
 
-        if (!id || !name || !value) return null;
+        if (!id || !name || !value) {
+            return null;
+        }
 
         /* eslint-disable jsx-a11y/label-has-for */
         return (

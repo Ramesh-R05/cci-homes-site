@@ -33,18 +33,23 @@ export default function bff(server) {
     ) {
         server.use('/stub', servicesStubs);
     }
+
     server.use((req, res, next) => {
         switch (req.hostname) {
             case 'insideout.com.au':
             case 'www.insideout.com.au':
+
+            // eslint-disable-next-link no-fallthrough
             case 'www2.insideout.com.au': {
                 if (req.path === '' || req.path === '/') {
                     res.redirect(301, `https://www.homestolove.com.au/inside-out`);
                 } else {
                     res.redirect(301, `https://www.homestolove.com.au${req.originalUrl}`);
                 }
+
                 break;
             }
+
             default: {
                 next();
             }

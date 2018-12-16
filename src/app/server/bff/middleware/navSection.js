@@ -7,8 +7,10 @@ export default async function navSectionMiddleware(req, res, next) {
     try {
         const itemsCount = 6;
         const { navSection } = req.query;
+
         if (!navSection) {
             next();
+
             return;
         }
 
@@ -41,6 +43,7 @@ export default async function navSectionMiddleware(req, res, next) {
         const tagsToExclude = commercialTagSections.reduce((fullNameList, currentTag) => {
             const tagsDetails = Array.isArray(currentTag.tagsDetails) && currentTag.tagsDetails.length ? currentTag.tagsDetails : [];
             const newFullNames = tagsDetails.map(t => t.fullName);
+
             return [...fullNameList, ...newFullNames];
         }, []);
         const excludedTagQuery = tagsToQuery(tagsToExclude);
@@ -51,6 +54,7 @@ export default async function navSectionMiddleware(req, res, next) {
             if (isEmptyTagsDetails) {
                 res.body.items = [];
                 next();
+
                 return;
             }
 

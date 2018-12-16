@@ -18,7 +18,9 @@ export default class Tags extends Component {
         const primaryTag = tagsDetails.find(tag => tag.name.includes('Topic'));
         const secondaryTag = tagsDetails.find(tag => !tag.name.includes('Topic') && !tag.name.includes('Homes navigation'));
 
-        if (!primaryTag || !primaryTag.displayName) return null;
+        if (!primaryTag || !primaryTag.displayName) {
+            return null;
+        }
 
         const primaryTagHtml = (
             <span className="tag-primary">

@@ -139,14 +139,18 @@ class Teaser extends Component {
         if (Teaser.imageSizes[sizes]) {
             return Teaser.imageSizes[sizes];
         }
+
         if (Teaser.imageSizes[modifier]) {
             return Teaser.imageSizes[modifier];
         }
+
         return Teaser.imageSizes.base;
     }
 
     render() {
-        if (!this.props.id) return null;
+        if (!this.props.id) {
+            return null;
+        }
 
         const { url, modifier, sizes, className, lazyload, polar } = this.props;
         const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;

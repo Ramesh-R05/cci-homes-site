@@ -8,6 +8,7 @@ export default async function articleMiddleware(req, res, next) {
 
         if (!entity || entity.nodeType !== 'HomesArticle') {
             next();
+
             return;
         }
 
@@ -16,6 +17,7 @@ export default async function articleMiddleware(req, res, next) {
 
         if (entityTags && Array.isArray(entityTags) && entityTags.length) {
             const navTags = entityTags.find(tag => tag.includes('navigation'));
+
             if (navTags) {
                 teaserQuery = `tags eq '${navTags}'`;
             }

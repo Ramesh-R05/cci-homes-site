@@ -37,6 +37,7 @@ class Application extends Component {
 
     componentDidUpdate(prevProps) {
         const { pageTitle } = this.props;
+
         if (pageTitle !== prevProps.pageTitle) {
             document.title = pageTitle;
         }

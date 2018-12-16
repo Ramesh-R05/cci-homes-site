@@ -12,6 +12,7 @@ export default function featuredBrand(moduleData) {
         };
     } catch (error) {
         logger.error(error);
+
         return { items: [] };
     }
 }

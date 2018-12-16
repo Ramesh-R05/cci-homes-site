@@ -149,7 +149,9 @@ class GallerySection extends Component {
         const { config } = this.context;
         const { galleryHeight } = this.state;
 
-        if (!gallery) return null;
+        if (!gallery) {
+            return null;
+        }
 
         const shareDescription = gallery.summary || gallery.title || '';
         const keyword = getKeywordsFromTags(gallery.contentTags);

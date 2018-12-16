@@ -11,9 +11,13 @@ export default {
             .get(`${host}/api/list`)
             .query(params)
             .end((error, response) => {
-                if (error) deferred.reject(error);
-                else deferred.resolve(response);
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(response);
+                }
             });
+
         return deferred.promise;
     }
 };

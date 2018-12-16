@@ -14,12 +14,16 @@ export default class Newsletter extends Component {
         const { content } = this.props;
         const { config } = this.context;
 
-        if (!content) return null;
+        if (!content) {
+            return null;
+        }
 
         let newsletterUrl = 'https://www.homestolove.com.au/homes-newsletter/';
         let gtmClass = 'gtm-subs-homepage';
+
         if (content.nodeType !== 'Homepage') {
             const brand = getBrand(config, content.source);
+
             if (brand) {
                 newsletterUrl = brand.newsletterUrl;
                 gtmClass = 'gtm-subs-brand';

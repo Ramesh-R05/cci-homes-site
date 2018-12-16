@@ -44,6 +44,7 @@ const LOAD_DIRECTORIES_CONTENT = (state, payload) => {
 
     return {};
 };
+
 const LOAD_DIRECTORIES_CONTENT_FAILED = (state, payload) => ({
     error: payload.response.error,
     content: null,

@@ -23,10 +23,12 @@ logger.info(`${environment} config loaded`);
 
 let regionConfig = {};
 let regionEnvironmentConfig = {};
+
 if (region) {
     // eslint-disable-next-line import/no-dynamic-require, global-require
     regionConfig = require(`./config.${region}.js`);
     logger.info(`${region} config loaded`);
+
     try {
         // eslint-disable-next-line import/no-dynamic-require, global-require
         regionEnvironmentConfig = require(`./environments/${region}/${environment}`);
@@ -37,6 +39,7 @@ if (region) {
 }
 
 let stubbedConfig = {};
+
 if (process.env.APP_STUBBED === 'true') {
     try {
         // eslint-disable-next-line global-require

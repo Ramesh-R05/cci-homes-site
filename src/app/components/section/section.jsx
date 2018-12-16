@@ -38,8 +38,13 @@ export default class Section extends Component {
             sectionBottomFeed = [];
         }
 
-        if (!articles.length) return null;
-        if (!list && !list.items && !list.items.length) return null;
+        if (!articles.length) {
+            return null;
+        }
+
+        if (!list && !list.items && !list.items.length) {
+            return null;
+        }
 
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',

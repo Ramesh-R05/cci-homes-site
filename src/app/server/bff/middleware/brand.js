@@ -9,6 +9,7 @@ export default async function brandMiddleware(req, res, next) {
 
         if (!brand) {
             next();
+
             return;
         }
 

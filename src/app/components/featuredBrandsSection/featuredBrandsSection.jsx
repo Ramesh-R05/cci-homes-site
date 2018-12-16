@@ -26,6 +26,7 @@ export default class FeaturedBrandsSection extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         const { selectedBrand } = this.state;
+
         return selectedBrand !== nextState.selectedBrand;
     }
 
@@ -37,6 +38,7 @@ export default class FeaturedBrandsSection extends Component {
         const { featuredBrands, latestBrandItems } = this.props;
         const { selectedBrand } = this.state;
         let featuredBrandsSection = null;
+
         if (selectedBrand) {
             featuredBrandsSection = (
                 <div className="latest-content">

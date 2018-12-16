@@ -1,7 +1,9 @@
 import { parseEntities } from './parseEntity';
 
 export default function parseModules(moduleResp) {
-    if (!moduleResp || !moduleResp.data) return {};
+    if (!moduleResp || !moduleResp.data) {
+        return {};
+    }
 
     const modules = {};
     moduleResp.data.map(

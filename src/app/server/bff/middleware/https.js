@@ -6,6 +6,7 @@ const COUGAR = 'cdn.assets.cougar.bauer-media.net.au';
 
 export const httpsSet = (obj, path) => {
     let url = get(obj, path);
+
     if (typeof url === 'string' && !url.startsWith('https') && !url.startsWith('/api/asset?url=')) {
         url = url.replace(new RegExp(`http://(${CLOUDFRONT}|${COUGAR})`, 'ig'), `https://${CLOUDFRONT}`);
         set(obj, path, url.startsWith('https') ? url : `/api/asset?url=${encodeURIComponent(url)}`);
@@ -89,6 +90,7 @@ export default function https(req, res, next) {
         ['current', 'previous', 'next'].forEach(item => {
             const name = `body.list.${item}.url`;
             const value = get(res, name, '');
+
             if (value !== '') {
                 set(res, name, value.replace('http://', 'https://'));
             }

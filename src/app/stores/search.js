@@ -32,7 +32,9 @@ const LOAD_SEARCH = (state, payload) => {
     const { search, footer = {}, headerNavigation, hamburgerNavigation, comScoreSegmentIds = initialState.comScoreSegmentIds } = payload.body;
     const magCover = get(payload, 'body.magCover', {});
 
-    if (!search) return state;
+    if (!search) {
+        return state;
+    }
 
     return {
         error: null,
@@ -56,6 +58,7 @@ const LOAD_SEARCH = (state, payload) => {
         hamburgerNavigation
     };
 };
+
 const LOAD_SEARCH_FAILED = (state, payload) => {
     const { response = {} } = payload;
     const { body = {} } = response;
@@ -88,6 +91,7 @@ const LOAD_SEARCH_FAILED = (state, payload) => {
         hamburgerNavigation
     };
 };
+
 // This is mainly used for tests
 export const reducer = (state, payload, eventName) => {
     switch (eventName) {
@@ -139,12 +143,18 @@ const SearchStore = createReducerStore({
         },
 
         getHeaderItems(state) {
-            if (!state.headerNavigation) return [];
+            if (!state.headerNavigation) {
+                return [];
+            }
+
             return state.headerNavigation.items || [];
         },
 
         getHamburgerNavItems(state) {
-            if (!state.hamburgerNavigation) return [];
+            if (!state.hamburgerNavigation) {
+                return [];
+            }
+
             return state.hamburgerNavigation.items || [];
         },
 
@@ -153,7 +163,10 @@ const SearchStore = createReducerStore({
         },
 
         getModule: (state, module) => {
-            if (!module) return [];
+            if (!module) {
+                return [];
+            }
+
             return state[module] || [];
         }
     }

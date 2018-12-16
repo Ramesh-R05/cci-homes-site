@@ -18,7 +18,9 @@ export default class SectionHero extends Component {
     render() {
         const { firstHero, secondHero } = this.props;
 
-        if (size(firstHero) === 0) return null;
+        if (size(firstHero) === 0) {
+            return null;
+        }
 
         return (
             <section className="section--heroes">

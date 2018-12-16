@@ -27,7 +27,9 @@ export default class Repeatable extends Component {
     }
 
     onLoadMore = () => {
-        if (this.state.isLoading) return;
+        if (this.state.isLoading) {
+            return;
+        }
 
         this.context.executeAction(this.props.action, this.props.nextParams);
         this.setState({ isLoading: true });
@@ -42,7 +44,9 @@ export default class Repeatable extends Component {
 
         const items = dataSource.items;
 
-        if (!items || items.length === 0) return null;
+        if (!items || items.length === 0) {
+            return null;
+        }
 
         const repeatableComponents = items.map((item, i) => <ChildComponent key={item.id || i} index={i} items={item} {...otherProps} />);
 

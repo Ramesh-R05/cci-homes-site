@@ -77,11 +77,13 @@ class DefaultTemplate extends Component {
 
         if (!content || currentNavigateError || contentErrorStatus) {
             let errorStatus = ErrorHandlerBuilder.DEFAULT_CODE;
+
             if (currentNavigateError) {
                 errorStatus = currentNavigateError.statusCode;
             } else if (contentErrorStatus) {
                 errorStatus = contentErrorStatus.status;
             }
+
             return {
                 ContentHandler: ErrorHandlerBuilder(errorStatus)
             };
@@ -137,6 +139,7 @@ class DefaultTemplate extends Component {
                 };
             default:
                 executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
+
                 return {
                     ContentHandler: ErrorHandlerBuilder(500)
                 };

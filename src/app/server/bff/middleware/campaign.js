@@ -9,6 +9,7 @@ export default async function campaignMiddleware(req, res, next) {
 
         if (!campaign) {
             next();
+
             return;
         }
 

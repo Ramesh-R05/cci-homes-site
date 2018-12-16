@@ -27,7 +27,9 @@ export default class Featured extends Component {
     render() {
         const { hero, articles, content, polarTargets } = this.props;
 
-        if (articles.length === 0) return null;
+        if (articles.length === 0) {
+            return null;
+        }
 
         return (
             <section className="brand-section brand-section--top columns small-12">
@@ -51,6 +53,7 @@ export default class Featured extends Component {
 
                             {articles.slice(0, 6).map((item, i) => {
                                 const polarDetails = polarTargets.find(slot => slot.index === i) || false;
+
                                 return (
                                     <li>
                                         <Teaser

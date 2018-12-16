@@ -18,6 +18,7 @@ export default {
                 deferred.resolve(response);
             }
         });
+
         return deferred.promise;
     }
 

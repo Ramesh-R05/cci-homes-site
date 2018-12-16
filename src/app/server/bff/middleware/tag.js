@@ -9,6 +9,7 @@ export default async function tagMiddleware(req, res, next) {
 
         if (!tag) {
             next();
+
             return;
         }
 
@@ -26,8 +27,12 @@ export default async function tagMiddleware(req, res, next) {
 
         const tagData = await makeRequest(`${req.app.locals.config.services.remote.tag}/tags/?urlName=${tag}`)
             .then(({ data }) => {
-                if (!data.length) return {};
+                if (!data.length) {
+                    return {};
+                }
+
                 const { displayName: title, urlName, createdAt: dateCreated } = data[0];
+
                 return {
                     title,
                     urlName,

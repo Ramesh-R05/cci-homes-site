@@ -14,6 +14,7 @@ const HomeHeader = () => {
         },
         pageLocation
     };
+
     return (
         <div className="section__heading">
             <div className="section__heading__ad">

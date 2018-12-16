@@ -24,6 +24,7 @@ export default class SocialLinks extends Component {
                     )}
                     {links.map((link, i) => {
                         const key = `social-links-${i}`;
+
                         return <SocialIcons key={key} {...link} {...this.props} />;
                     })}
                 </div>

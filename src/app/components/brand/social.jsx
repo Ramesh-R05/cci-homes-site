@@ -16,6 +16,7 @@ export default class Social extends Component {
     static getSocialIcons(social) {
         return Object.keys(social).map((item, i) => {
             const key = `social-${i}-${social[item]}`;
+
             return <SocialIcon key={key} name={item} url={social[item]} />;
         });
     }
@@ -23,7 +24,9 @@ export default class Social extends Component {
     render() {
         const { brand, social } = this.props;
 
-        if (!brand) return null;
+        if (!brand) {
+            return null;
+        }
 
         return (
             <section className="brand-social">

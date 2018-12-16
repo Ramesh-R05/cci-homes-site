@@ -7,6 +7,7 @@ export default async function galleryMiddleware(req, res, next) {
 
         if (!entity || entity.nodeType !== 'Gallery') {
             next();
+
             return;
         }
 
@@ -15,6 +16,7 @@ export default async function galleryMiddleware(req, res, next) {
 
         if (entity.tags) {
             const navTags = entity.tags.find(tag => tag.includes('navigation'));
+
             if (navTags) {
                 const relatedArticles = await getLatestTeasers(20, 0, `tags eq '${navTags}'`);
                 res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };

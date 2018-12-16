@@ -58,7 +58,9 @@ export default class SocialIcon extends Component {
     render() {
         const { name, url } = this.props;
 
-        if (!name || !url || !SocialIcon.icons[name]) return null;
+        if (!name || !url || !SocialIcon.icons[name]) {
+            return null;
+        }
 
         const socialIcon = SocialIcon.icons[name];
 

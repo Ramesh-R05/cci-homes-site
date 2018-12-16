@@ -16,6 +16,7 @@ export default function headerMetaMiddleware(req, res, next) {
         }
 
         const entity = get(res, 'body.entity', {});
+
         // Alter meta title and description on entity object
         if (has(res, 'body.entity')) {
             const currentPageNo = get(res, 'body.list.params.pageNo');
@@ -43,6 +44,7 @@ export default function headerMetaMiddleware(req, res, next) {
         };
 
         const currentPageUrl = get(res.body, 'list.current.url');
+
         if (currentPageUrl) {
             headerMetaData.canonicalUrl = currentPageUrl;
         }

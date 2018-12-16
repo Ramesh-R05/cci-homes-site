@@ -9,6 +9,7 @@ const Magazine = props => {
         mode: imageResize.mode.CROP,
         anchor: imageResize.anchor.TC
     });
+
     return (
         <div className="magazine-subscribe">
             <div>

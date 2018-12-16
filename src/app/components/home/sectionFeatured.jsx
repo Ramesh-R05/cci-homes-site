@@ -46,7 +46,9 @@ export default class SectionFeatured extends Component {
         const { config } = this.context;
         const isLipstickEnabled = config.isFeatureEnabled('lipstick');
 
-        if (articles.length === 0) return null;
+        if (articles.length === 0) {
+            return null;
+        }
 
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -87,6 +89,7 @@ export default class SectionFeatured extends Component {
                                     imageUrl: item.imageUrl,
                                     imageAltText: item.imageAltText
                                 };
+
                                 return (
                                     <Teaser
                                         {...teaser}
@@ -154,6 +157,7 @@ export default class SectionFeatured extends Component {
 
                                     {articles.slice(0, 6).map((item, i) => {
                                         const polarDetails = polarTargets[0].find(slot => slot.index === i) || false;
+
                                         return (
                                             <Teaser
                                                 {...item}

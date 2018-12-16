@@ -11,6 +11,7 @@ export default {
             .get(`${host}/api/getPageContent`)
             .query(params)
             .then(response => deferred.resolve(response), error => deferred.reject(error));
+
         return deferred.promise;
     }
 };

@@ -19,14 +19,18 @@ export default code =>
         static DEFAULT_CODE = 500;
 
         render() {
-            if (!has(codeMessages, code)) return null;
+            if (!has(codeMessages, code)) {
+                return null;
+            }
 
             const { title, content } = codeMessages[code];
+
             return (
                 <section className="error-page container">
                     <h1 className="error-page__title">{title}</h1>
                     {content.map((item, i) => {
                         const key = `error-message-${i}`;
+
                         return (
                             <p key={key} className="error-page__body-item">
                                 {item}

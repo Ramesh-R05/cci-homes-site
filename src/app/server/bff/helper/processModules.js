@@ -12,6 +12,7 @@ export default function processModules(moduleResponse, themeModule = '') {
 
         return Object.keys(moduleResponse).reduce((allModules, moduleName) => {
             let accumulatedModules = { ...allModules };
+
             switch (moduleName) {
                 case 'headernavigation':
                     accumulatedModules = {
@@ -44,10 +45,12 @@ export default function processModules(moduleResponse, themeModule = '') {
                 default:
                     return accumulatedModules;
             }
+
             return accumulatedModules;
         }, {});
     } catch (error) {
         logger.error(error);
+
         return {};
     }
 }

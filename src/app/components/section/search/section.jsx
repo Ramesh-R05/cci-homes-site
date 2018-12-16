@@ -90,11 +90,13 @@ class Section extends Component {
 
         if (contentErrorStatus || currentNavigateError) {
             let errorStatus = ErrorHandlerBuilder.DEFAULT_CODE;
+
             if (currentNavigateError) {
                 errorStatus = currentNavigateError.statusCode;
             } else if (contentErrorStatus) {
                 errorStatus = contentErrorStatus.status;
             }
+
             ErrorElement = ErrorHandlerBuilder(errorStatus);
         }
 

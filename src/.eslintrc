@@ -39,6 +39,15 @@
         "jsx-a11y/click-events-have-key-events": 1,
         "jsx-a11y/no-noninteractive-element-interactions": 1,
         "react/destructuring-assignment": 1,
-        "react/no-deprecated": 1
+        "react/no-deprecated": 1,
+        "space-before-blocks": 2,
+        "curly": [1, "all"],
+        "padding-line-between-statements": [1,             
+            { "blankLine": "always", "prev": "block", "next": "*" },
+            { "blankLine": "always", "prev": "block-like", "next": "*" },
+            { "blankLine": "always", "prev": "*", "next": "block-like" },
+            { "blankLine": "always", "prev": "*", "next": "block" },
+            { "blankLine": "always", "prev": "*", "next": "return" }
+        ]
     }
 }

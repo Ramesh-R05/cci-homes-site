@@ -14,9 +14,11 @@ export default async function latestBrandItems(req, res, next) {
                 const newObj = { ...obj };
                 const [key, value] = Object.entries(item)[0];
                 newObj[key] = value;
+
                 return newObj;
             }, {});
         }
+
         next();
     } catch (e) {
         next(e);

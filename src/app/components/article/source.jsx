@@ -21,7 +21,9 @@ export default class ArticleSource extends Component {
         if (!source || !sourceLogo) {
             return null;
         }
+
         const imageUrl = `${LOGO_PATH}/${sourceLogo}`;
+
         return (
             <div className="article__source">
                 <span>Article By</span>

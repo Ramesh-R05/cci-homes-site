@@ -19,6 +19,7 @@ export default class Header extends Component {
 
     render() {
         const { title, splitTitle, sponsorName } = this.props;
+
         if (!title) {
             return null;
         }
@@ -37,9 +38,11 @@ export default class Header extends Component {
                 <h1>
                     {words.map((word, i) => {
                         const key = `heading-word-${i}`;
+
                         if (i % 2 === 0) {
                             return <span key={key}>{word}</span>;
                         }
+
                         return <b key={key}> {word} </b>;
                     })}
                 </h1>

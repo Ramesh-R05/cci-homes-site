@@ -21,7 +21,9 @@ export default class List extends Component {
     render() {
         const { items, content, polarTargets } = this.props;
 
-        if (items.length === 0) return null;
+        if (items.length === 0) {
+            return null;
+        }
 
         return (
             <div className="section__row">

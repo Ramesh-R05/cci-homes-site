@@ -10,6 +10,7 @@ export default async function pageMiddleware(req, res, next) {
 
         if (!page) {
             next();
+
             return;
         }
 
@@ -37,6 +38,7 @@ export default async function pageMiddleware(req, res, next) {
                 urlName: sectionEntityResponse.urlName
             };
         }
+
         next();
     } catch (error) {
         next(error);

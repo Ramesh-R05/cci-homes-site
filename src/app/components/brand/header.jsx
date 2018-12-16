@@ -28,7 +28,9 @@ export default class Header extends Component {
             pageLocation
         };
 
-        if (!logo) return null;
+        if (!logo) {
+            return null;
+        }
 
         return (
             <div className="section__heading">

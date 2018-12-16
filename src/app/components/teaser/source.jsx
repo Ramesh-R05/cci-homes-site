@@ -10,7 +10,10 @@ export default class Source extends Component {
 
     render() {
         const { source } = this.props;
-        if (!source) return null;
+
+        if (!source) {
+            return null;
+        }
 
         return (
             <div className="teaser__source">

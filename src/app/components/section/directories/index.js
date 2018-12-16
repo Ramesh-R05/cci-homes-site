@@ -81,9 +81,11 @@ export class Directories extends Component {
         Object.keys(activeFilters)
             .reduce((accum, key) => {
                 const newArr = [...accum];
+
                 if (activeFilters[key]) {
                     newArr.push(activeFilters[key]);
                 }
+
                 return newArr;
             }, [])
             .join(',');

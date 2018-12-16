@@ -30,6 +30,7 @@ export default class Featured extends Component {
                 </section>
             );
         }
+
         const item = articles[0];
         const teaserProps = {
             sizes: 'brand-list',
@@ -60,9 +61,11 @@ export default class Featured extends Component {
                     />
                     {articles.slice(1, 6).map((article, i) => {
                         const polarProps = {};
+
                         if (i === 4) {
                             polarProps.polar = polarTargets[1];
                         }
+
                         return <Teaser {...article} {...teaserProps} {...polarProps} key={article.id} />;
                     })}
                     <Ad

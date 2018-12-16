@@ -16,7 +16,9 @@ export default function comScore(req, res, next) {
         if (debug) {
             console.log(`comscore: using segments from cache for ${url} in ${Date.now() - start}ms`);
         }
+
         res.body.comScoreSegmentIds = segmentIds.join(',');
+
         return next();
     }
 
@@ -59,6 +61,7 @@ export default function comScore(req, res, next) {
                 }
             } else {
                 const match = body.match(/"(.*?)"/);
+
                 if (match) {
                     segmentIds = match[1].split(',');
                 }
@@ -68,18 +71,22 @@ export default function comScore(req, res, next) {
                 map.set(req.query.url, segmentIds);
                 res.body.comScoreSegmentIds = segmentIds.join(',');
             }
+
             if (debug) {
                 console.log(`comscore: received segments from remote for ${req.query.url} in ${Date.now() - start}ms`, res.body.comScoreSegmentIds);
             }
         } else if (debug) {
             let message = 'Unknown error';
+
             if (err) {
                 message = err.message;
             } else if (response && response.statusCode) {
                 message = `Response code: ${response.statusCode}`;
             }
+
             console.log(`comscore error: ${message}`);
         }
+
         next();
     });
 }

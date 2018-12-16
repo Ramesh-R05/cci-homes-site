@@ -18,12 +18,16 @@ export default class InFocus extends Component {
     render() {
         const { articles, modifier, children } = this.props;
 
-        if (!articles.length) return null;
+        if (!articles.length) {
+            return null;
+        }
 
         let classNameModifier;
         const className = 'section-in-focus';
 
-        if (modifier) classNameModifier = `${className}--${modifier}`;
+        if (modifier) {
+            classNameModifier = `${className}--${modifier}`;
+        }
 
         const classNames = classnames(className, classNameModifier);
 

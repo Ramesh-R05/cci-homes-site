@@ -7,6 +7,7 @@ export default async function listingMiddleware(req, res, next) {
 
         if (!list || !list.params) {
             next();
+
             return;
         }
 
@@ -17,6 +18,7 @@ export default async function listingMiddleware(req, res, next) {
 
         let skip = (pageNo - 1) * pageSize;
         let top = pageSize;
+
         if (offset && res.body.items) {
             if (res.body.items.length === 0) {
                 const err = new Error('No content!');
@@ -32,11 +34,14 @@ export default async function listingMiddleware(req, res, next) {
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
 
         let previousPage = null;
+
         if (pageNo > 1) {
             let path = `${basePath}?pageNo=${pageNo - 1}`;
+
             if (pageNo === 2) {
                 path = `${basePath}`;
             }
+
             previousPage = {
                 path,
                 url: `${req.app.locals.config.site.host}${path}`
@@ -44,6 +49,7 @@ export default async function listingMiddleware(req, res, next) {
         }
 
         let nextPage = null;
+
         if (skip + latestTeasers.length < latestTeasersResp.totalCount) {
             const path = `${basePath}?pageNo=${pageNo + 1}`;
             nextPage = {

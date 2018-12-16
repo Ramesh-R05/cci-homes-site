@@ -14,7 +14,10 @@ app.plug(fluxibleConfigPlugin());
 app.plug(batchedUpdatePlugin());
 
 app.rehydrate(window.App, (err, context) => {
-    if (err) throw err;
+    if (err) {
+        throw err;
+    }
+
     const mountNode = document.getElementById('app');
     const userAgent = window.navigator.userAgent;
     adConfig.init(context.getComponentContext().config.site.adTaggingId);

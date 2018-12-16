@@ -96,7 +96,10 @@ const PageStore = createReducerStore({
         }),
 
         getModuleItems: (state, module) => {
-            if (!module) return [];
+            if (!module) {
+                return [];
+            }
+
             return state[module] || [];
         },
 

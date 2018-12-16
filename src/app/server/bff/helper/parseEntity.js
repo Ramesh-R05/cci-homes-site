@@ -50,6 +50,7 @@ export function parseEntity(data, propertyMapOverride = {}) {
 
     propertyMapKeys.forEach(key => {
         const propertyName = propertyMap[key];
+
         if (propertyName && data[key]) {
             entity[propertyName] = data[key];
         }

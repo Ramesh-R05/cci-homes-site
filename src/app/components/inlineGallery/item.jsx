@@ -23,16 +23,20 @@ class Item extends Component {
     render() {
         const { tagsDetails, imageAltText, imageUrl, source, title, url } = this.props;
 
-        if (!imageUrl || !url) return null;
+        if (!imageUrl || !url) {
+            return null;
+        }
 
         let topic = '';
 
         tagsDetails.every(item => {
             let result = true;
+
             if (item.name.includes('Topic')) {
                 topic = item.displayName;
                 result = false;
             }
+
             return result;
         });
 

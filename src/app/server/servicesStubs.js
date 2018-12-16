@@ -9,6 +9,7 @@ const cwd = process.cwd();
 
 function requireWithNoCache(path) {
     delete require.cache[require.resolve(path)];
+
     return require(path);
 }
 
@@ -23,6 +24,7 @@ servicesStubs.get('/entity-service/', (req, res) => {
         .reduce((string, [key, value]) => {
             let newString = string;
             newString += `${key.toLowerCase()}-${value.toLowerCase()}-`;
+
             return newString;
         }, '')
         .replace(/-$/, '');
@@ -73,7 +75,11 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (latestVideos) {
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-latest-videos`);
-        if ($top) teaserData.data.splice($top);
+
+        if ($top) {
+            teaserData.data.splice($top);
+        }
+
         teaserResponse = teaserData;
     }
 
@@ -84,27 +90,40 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (homepageMatch) {
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-homepage`);
-        if ($top) teaserData.data.splice($top);
+
+        if ($top) {
+            teaserData.data.splice($top);
+        }
+
         teaserResponse = teaserData;
     }
 
     if (sourceMatch) {
         const source = sourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`);
-        if ($top) teaserData.data.splice($top);
+
+        if ($top) {
+            teaserData.data.splice($top);
+        }
+
         teaserResponse = teaserData;
     }
 
     if (tagMatch) {
         const tag = tagMatch[3].replace(/ |:|_/g, '-');
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${tag}`);
-        if ($top) teaserData.data.splice($top);
+
+        if ($top) {
+            teaserData.data.splice($top);
+        }
+
         teaserResponse = teaserData;
     }
 
     if (galleryMatch) {
         const galleryResponse = requireWithNoCache(`${cwd}/stubs/listings-gallery`);
         res.json(galleryResponse);
+
         return;
     }
 
@@ -112,6 +131,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
         const sponsor = campaignMatch[1].toLowerCase().replace(/\W/g, '-');
         const sponsorResponse = requireWithNoCache(`${cwd}/stubs/listings-campaign-${sponsor}`);
         res.json(sponsorResponse);
+
         return;
     }
 
@@ -119,6 +139,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
         const latestRealHomes = requireWithNoCache(`${cwd}/stubs/listings-food-Homes-navigation-Real-Homes`);
         latestRealHomes.data.splice($top);
         res.json(latestRealHomes);
+
         return;
     }
 
@@ -140,6 +161,7 @@ servicesStubs.get('/tag-service/tags', (req, res) => {
 servicesStubs.get('/module-service/:modules?', (req, res) => {
     const moduleParam = get(req, 'params.modules');
     let moduleNames = [];
+
     if (moduleParam) {
         moduleNames = moduleParam.split(',');
     }

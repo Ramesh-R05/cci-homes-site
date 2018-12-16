@@ -6,7 +6,9 @@ import logger from '../../../../logger';
 
 export default async function getModules(...args) {
     try {
-        if (!args.length) return {};
+        if (!args.length) {
+            return {};
+        }
 
         const moduleNames = args.join(',');
         const modules = await makeRequest(`${config.services.remote.module}/${moduleNames}`);
@@ -14,6 +16,7 @@ export default async function getModules(...args) {
 
         args.forEach(arg => {
             const moduleConfig = find(modules.data, { moduleName: arg });
+
             if (arg === 'footer') {
                 moduleList[arg] = moduleConfig || {};
             } else if (arg.endsWith('theme')) {
@@ -26,6 +29,7 @@ export default async function getModules(...args) {
         return moduleList;
     } catch (error) {
         logger.error(error);
+
         return {};
     }
 }

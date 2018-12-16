@@ -9,6 +9,7 @@ export default async function getLatestBrandVideos(req, res, next) {
 
         if (!brand) {
             next();
+
             return;
         }
 
@@ -16,6 +17,7 @@ export default async function getLatestBrandVideos(req, res, next) {
         const filter = `source eq '${entityResponse.articleSource}' and nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true'`;
         const latestBrandVideosResponse = await getLatestTeasers(itemsCount, 0, filter);
         let latestBrandVideos = [];
+
         if (Array.isArray(latestBrandVideosResponse.data) && latestBrandVideosResponse.data.length) {
             latestBrandVideos = parseEntities(latestBrandVideosResponse.data);
         }

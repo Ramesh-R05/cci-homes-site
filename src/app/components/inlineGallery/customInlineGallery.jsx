@@ -27,7 +27,9 @@ export default class CustomInlineGallery extends Component {
     };
 
     static renderSlide(item, i, image) {
-        if (!item || !image) return null;
+        if (!item || !image) {
+            return null;
+        }
 
         return <InlineGallerySlide key={i} {...item} imageUrl={image} />;
     }
@@ -35,8 +37,9 @@ export default class CustomInlineGallery extends Component {
     render() {
         const { galleries } = this.props;
 
-        if (!this.context.config.isFeatureEnabled('galleryOfGalleries') || isUndefined(galleries) || !Array.isArray(galleries) || !galleries.length)
+        if (!this.context.config.isFeatureEnabled('galleryOfGalleries') || isUndefined(galleries) || !Array.isArray(galleries) || !galleries.length) {
             return null;
+        }
 
         return (
             <InlineGallery

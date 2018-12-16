@@ -32,9 +32,11 @@ export default class ExternalLinks extends Component {
 
     getConnectLinks() {
         const { externalLinks } = this.props;
+
         if (!externalLinks) {
             return null;
         }
+
         const connectLinks = Object.keys(externalLinks)
             .filter(link => link !== 'website')
             .map(link => ({ name: link, url: externalLinks[link] }));
@@ -45,6 +47,7 @@ export default class ExternalLinks extends Component {
                     <div className="external-links__connect__inner">
                         {connectLinks.map((link, i) => {
                             const key = `social-links-${i}`;
+
                             return <SocialIcons key={key} {...link} {...this.props} />;
                         })}
                     </div>

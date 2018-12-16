@@ -15,6 +15,7 @@ export default function getLatestTeasers(top = 20, skip = 0, filter = '') {
         .then(res => res)
         .catch(err => {
             logger.error(err);
+
             return [];
         });
 }

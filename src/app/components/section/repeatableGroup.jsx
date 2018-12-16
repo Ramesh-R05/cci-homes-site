@@ -20,7 +20,10 @@ export default class RepeatableGroup extends Component {
 
     render() {
         const { items, adTargets } = this.props;
-        if (!items.length) return null;
+
+        if (!items.length) {
+            return null;
+        }
 
         const groups = chunk(items, 9);
 
@@ -49,6 +52,7 @@ export default class RepeatableGroup extends Component {
 
                     const key1 = `div-repeat-${index}`;
                     const key2 = `div-section-repeat-${index}`;
+
                     return (
                         <div key={key1}>
                             {topAd}

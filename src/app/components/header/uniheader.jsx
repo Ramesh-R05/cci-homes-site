@@ -18,6 +18,7 @@ export default class Uniheader extends Component {
         const uniheaderLogos = uniheaderBrands.slice(0, 6).map((item, i) => {
             const { id, title, url, imageUrl } = item;
             const key = `uniheader-item-${i}`;
+
             return (
                 <li key={key}>
                     <a href={url} title={title} className={`gtm-uniheader-${id}`}>

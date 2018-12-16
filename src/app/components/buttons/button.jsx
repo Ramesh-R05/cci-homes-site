@@ -49,7 +49,10 @@ export default class Button extends Component {
         const { active } = this.state;
         let classNameModifier;
 
-        if (modifier) classNameModifier = `button--${modifier}`;
+        if (modifier) {
+            classNameModifier = `button--${modifier}`;
+        }
+
         const classNames = classnames('button', classNameModifier, { active });
 
         return (
