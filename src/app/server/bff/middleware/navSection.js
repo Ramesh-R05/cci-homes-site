@@ -61,7 +61,7 @@ export default async function navSectionMiddleware(req, res, next) {
             const commercialTagFullNames = entityResponse.tagsDetails.map(tag => tag.fullName);
             teaserfilter = tagsToQuery(commercialTagFullNames, 'eq');
         } else {
-            teaserfilter = excludedTagQuery ? `${sectionTagQuery} and ${excludedTagQuery}` : tagsToQuery(sectionTag.fullName, 'eq');
+            teaserfilter = excludedTagQuery ? `${sectionTagQuery} and ${excludedTagQuery}` : sectionTagQuery;
         }
 
         const [latestTeasersResp, galleryListingResponse, heroResp] = await Promise.all([
