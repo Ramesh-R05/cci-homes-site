@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
@@ -29,6 +30,7 @@ class Section extends Component {
             statusCode: PropTypes.number.isRequired
         }),
         headerNavItems: PropTypes.array,
+        hamburgerNavItems: PropTypes.array,
         title: PropTypes.string.isRequired,
         searchTotal: PropTypes.number.isRequired,
         currentUrl: PropTypes.string.isRequired,
@@ -41,7 +43,8 @@ class Section extends Component {
         list: {},
         contentErrorStatus: null,
         currentNavigateError: null,
-        headerNavItems: []
+        headerNavItems: [],
+        hamburgerNavItems: []
     };
 
     static contextTypes = {

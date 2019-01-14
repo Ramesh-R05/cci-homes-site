@@ -1,4 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
+import { filterErrors, restoreErrors } from '../../utils/propTypeWarningFilter';
 import each from 'lodash/collection/each';
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -26,7 +27,7 @@ describe('BrandLink', () => {
         });
 
         it(`should pass the correct URL to the link'`, () => {
-            expect(link.props.href).to.eq(BrandLink.sources[source.toLocaleLowerCase()]);
+            expect(link.href).to.eq(BrandLink.sources[source.toLocaleLowerCase()]);
         });
 
         it(`should wrap the link around the children passed'`, () => {
@@ -70,7 +71,7 @@ describe('BrandLink', () => {
         });
 
         it(`should pass the correct URL to the link'`, () => {
-            expect(link.props.href).to.eq(BrandLink.sources[source.toLocaleLowerCase()]);
+            expect(link.href).to.eq(BrandLink.sources[source.toLocaleLowerCase()]);
         });
 
         it(`should wrap the link around the children passed'`, () => {
@@ -81,7 +82,12 @@ describe('BrandLink', () => {
 
     describe('with no Children', () => {
         before(() => {
+            filterErrors();
             reactModule = TestUtils.renderIntoDocument(<BrandLink linkSiteBrand={linkSiteBrand} source={source} />);
+        });
+
+        after(() => {
+            restoreErrors();
         });
 
         it('should not render the component', () => {
@@ -98,24 +104,29 @@ describe('BrandLink', () => {
                     </BrandLink>
                 );
                 const link = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'a');
-                expect(link.props.href).to.eq(BrandLink.sources[source.toLocaleLowerCase()]);
+                expect(link.href).to.eq(BrandLink.sources[source.toLocaleLowerCase()]);
             });
         });
+    });
 
-        it(`should only render the children with no link if a source does not exist`, () => {
+    describe('with no source', () => {
+        let link;
+
+        before(() => {
+            filterErrors();
             reactModule = TestUtils.renderIntoDocument(
                 <BrandLink linkSiteBrand={linkSiteBrand} source="Fake Source">
                     TEST
                 </BrandLink>
             );
-            const link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
-            expect(link.length).to.eq(0);
-            expect(ReactDOM.findDOMNode(reactModule).textContent).to.eq('TEST');
+            link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
         });
 
-        it(`should only render the children with no link if no source is passed through`, () => {
-            reactModule = TestUtils.renderIntoDocument(<BrandLink linkSiteBrand={linkSiteBrand}>TEST</BrandLink>);
-            const link = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
+        after(() => {
+            restoreErrors();
+        });
+
+        it(`should render the children with no link`, () => {
             expect(link.length).to.eq(0);
             expect(ReactDOM.findDOMNode(reactModule).textContent).to.eq('TEST');
         });

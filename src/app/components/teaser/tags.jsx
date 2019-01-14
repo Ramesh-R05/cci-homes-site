@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import TagLink from '@bxm/tags/lib/components/link';
 
 export default class Tags extends Component {

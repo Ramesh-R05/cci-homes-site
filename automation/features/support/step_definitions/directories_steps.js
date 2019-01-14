@@ -52,12 +52,16 @@ module.exports = function() {
 
 
 
-    this.When(/^I can see the directory "([^"]*)" feed$/, function (part) {
+    this.When(/^I can see the directory "([^"]*)" feed on "([^"]*)"$/, function (part, device) {
         var feedTeaserTitle_element;
 
         switch(part) {
             case 'top':
-                feedTeaserTitle_element = directories.topFeedTeaserTitle;
+                if (device === 'desktop' || device === 'tablet landscape' || device === 'tablet portrait') {
+                    feedTeaserTitle_element = directories.topFeedTeaserTitle_Desktop;
+                } else {
+                    feedTeaserTitle_element = directories.topFeedTeaserTitle_Mobile;
+                }
                 break;
             case 'bottom':
                 feedTeaserTitle_element = directories.bottomFeedTeaserTitle;

@@ -1,5 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import proxyquire, { noCallThru } from 'proxyquire';
 
 const Context = betterMockComponentContext();
@@ -35,7 +35,7 @@ describe('Home Header with Top banner/leaderboard/billboard ad', () => {
     let stickyAd;
 
     before(() => {
-        reactModule = mount(<Home />);
+        reactModule = shallow(<Home />);
         stickyAd = reactModule.find(StickyAdStub);
     });
 

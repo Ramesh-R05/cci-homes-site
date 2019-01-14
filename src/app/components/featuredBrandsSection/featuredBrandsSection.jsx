@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import BrandSwitcher from '@bxm/shared-ui/lib/brandSwitcher';
 import Teaser from '../teaser/teaser';
 

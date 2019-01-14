@@ -39,7 +39,7 @@ describe(`FooterBrandLinks`, () => {
     describe(`GTM Classnames correct`, () => {
         it('should have link set with common GTM className', () => {
             links.forEach(link => {
-                expect(link.props.className).to.contain('gtm-footer-brand');
+                expect(link.className).to.contain('gtm-footer-brand');
             });
         });
     });

@@ -44,7 +44,7 @@ describe('ErrorHandlerBuilder', () => {
         });
 
         it('links to the home page', () => {
-            expect(homepageLink.props.href).to.eq('/');
+            expect(homepageLink.href).to.eq('/');
         });
     });
 
@@ -65,7 +65,7 @@ describe('ErrorHandlerBuilder', () => {
         });
 
         it('links to the home page', () => {
-            expect(homepageLink.props.href).to.eq('/');
+            expect(homepageLink.href).to.eq('/');
         });
     });
 });

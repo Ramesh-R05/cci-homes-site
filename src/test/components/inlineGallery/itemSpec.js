@@ -50,11 +50,11 @@ describe('InlineGalleryItem', () => {
         });
 
         it(`should render a link with the correct href`, () => {
-            expect(link.props.href).to.eq(url);
+            expect(link.href).to.eq(url);
         });
 
         it(`should render the image with the correct image alt tag`, () => {
-            expect(image.props.alt).to.eq(imageAltText);
+            expect(image.alt).to.eq(imageAltText);
         });
 
         it(`should render the correct topic tag`, () => {

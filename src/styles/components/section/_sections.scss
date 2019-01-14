@@ -137,49 +137,14 @@
 
             @media #{$medium-up} {
                 @include grid-column(6);
-            }
 
-            @media #{$medium-only} {
-
-                &:nth-child(1):not(.teaser--hero) {
+                &:nth-child(odd) {
                     padding-left: 0;
                     clear: both;
                 }
-
-                &:nth-child(n+3):nth-child(even):nth-child(-n+9) {
-                    padding-left: 0;
-                    clear: both;
-                }
-
-                &:nth-child(2) {
+                &:nth-child(even) {
                     padding-right: 0;
                 }
-
-                &:nth-child(n+2):nth-child(odd):nth-child(-n+9) {
-                    padding-right: 0;
-                }
-            }
-
-            @media #{$large-up} {
-
-                &:nth-child(2) {
-                    padding-left: 0;
-                    clear: both;
-                }
-
-                &:nth-child(n+3):nth-child(odd):nth-child(-n+9) {
-                    padding-left: 0;
-                    clear: both;
-                }
-
-                &:nth-child(4) {
-                    padding-right: 0;
-                }
-
-                &:nth-child(n+5):nth-child(even):nth-child(-n+9) {
-                    padding-right: 0;
-                }
-
             }
 
             &__source {

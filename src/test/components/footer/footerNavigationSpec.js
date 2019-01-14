@@ -10,19 +10,19 @@ const FooterNavigation = proxyquire('../../../app/components/footer/footerNaviga
 
 describe(`FooterNavigation`, () => {
     const anchorClassNames = ['privacy', 'advertising', 'terms'];
-    let reactModule;
+    let wrapper;
 
     before(() => {
-        reactModule = mount(<FooterNavigation />);
+        wrapper = mount(<FooterNavigation />);
     });
 
     it(`should render the FooterNavigation Component`, () => {
-        expect(reactModule.hasClass('footer__navigation')).to.be.true;
+        expect(wrapper.find('.footer__navigation').exists()).to.be.true;
     });
 
     it(`should render the correct anchor attributes for ${anchorClassNames.join(',')}`, () => {
         anchorClassNames.forEach(item => {
-            const a = reactModule.find(`a.gtm-footer-${item}`);
+            const a = wrapper.find(`a.gtm-footer-${item}`);
             expect(a).to.have.length(1);
             const node = a.getDOMNode();
             expect(node.getAttribute('target')).to.eq('_blank');

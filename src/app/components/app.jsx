@@ -1,11 +1,25 @@
-import React, { Component, PropTypes } from 'react';
-import { canUseDOM } from 'exenv';
+/* eslint-disable */
+
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import canUseDOM from 'exenv';
 import { provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
 import AdManager from '@bxm/ad/lib/google/components/adManager';
 import GoogleFont from './html/googleFont';
 import DefaultTemplate from './templates/default';
 
+class ErrorBoundary extends Component {
+    componentDidCatch(error, errorInfo) {
+        // TODO - Do something useful with errors
+    }
+
+    render() {
+        const { children } = this.props;
+
+        return children;
+    }
+}
 class Application extends Component {
     static propTypes = {
         currentRoute: PropTypes.shape({
@@ -49,10 +63,12 @@ class Application extends Component {
         const className = canUseDOM ? '' : 'no-js';
 
         return (
-            <div className={className}>
-                <GoogleFont />
-                <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute.url} />
-            </div>
+            <ErrorBoundary>
+                <div className={className}>
+                    <GoogleFont />
+                    <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute.url} />
+                </div>
+            </ErrorBoundary>
         );
     }
 }

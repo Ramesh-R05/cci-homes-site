@@ -1,11 +1,12 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 export default class Repeatable extends Component {
     static displayName = 'Repeatable';
 
     static propTypes = {
-        component: PropTypes.instanceOf(Component).isRequired,
+        component: PropTypes.oneOfType([PropTypes.func, PropTypes.instanceOf(Component)]).isRequired,
         action: PropTypes.func.isRequired,
         dataSource: PropTypes.object.isRequired,
         nextParams: PropTypes.object.isRequired,

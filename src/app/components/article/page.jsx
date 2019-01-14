@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import VerticalGallery from '@bxm/article/lib/gallery';
 import Article from './section';
 import Source from './source';

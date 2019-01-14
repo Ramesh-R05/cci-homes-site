@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import 'picturefill';
+import 'raf/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createElementWithContext } from 'fluxible-addons-react';
@@ -21,5 +22,5 @@ app.rehydrate(window.App, (err, context) => {
     const mountNode = document.getElementById('app');
     const userAgent = window.navigator.userAgent;
     adConfig.init(context.getComponentContext().config.site.adTaggingId);
-    ReactDOM.render(createElementWithContext(context, { userAgent }), mountNode, () => {});
+    ReactDOM.hydrate(createElementWithContext(context, { userAgent }), mountNode, () => {});
 });

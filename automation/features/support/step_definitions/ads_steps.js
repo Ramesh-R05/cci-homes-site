@@ -332,35 +332,67 @@ module.exports = function() {
         }
     });
 
-    this.Then(/^I should see each polar ad slot element containing proper class name$/, function (dataTable) {
+    this.Then(/^I should see each polar ad slot element containing proper class name on "([^"]*)"$/, function (device, dataTable) {
         var rows = dataTable.hashes();
         var adElement;
         for (var i = 0; i < rows.length; i++) {
             var row = rows[i];
             switch(row['ad']) {
                 case 'Polar in Home Top Teaser 1':
-                    adElement = wn_ads.ad_PolarHomeTopTeaser1;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarHomeTopTeaser1_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarHomeTopTeaser1_Mobile;
+                    }
                     break;
                 case 'Polar in Home Top Teaser 6':
-                    adElement = wn_ads.ad_PolarHomeTopTeaser6;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarHomeTopTeaser6_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarHomeTopTeaser6_Mobile;
+                    }
                     break;
                 case 'Polar in Brand Top Teaser 1':
-                    adElement = wn_ads.ad_PolarBrandTopTeaser1;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarBrandTopTeaser1_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarBrandTopTeaser1_Mobile;
+                    }
                     break;
                 case 'Polar in Brand Top Teaser 6':
-                    adElement = wn_ads.ad_PolarBrandTopTeaser6;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarBrandTopTeaser6_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarBrandTopTeaser6_Mobile;
+                    }
                     break;
                 case 'Polar in Nav Top Teaser 1':
-                    adElement = wn_ads.ad_PolarNavTopTeaser1;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarNavTopTeaser1_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarNavTopTeaser1_Mobile;
+                    }
                     break;
                 case 'Polar in Nav Top Teaser 6':
-                    adElement = wn_ads.ad_PolarNavTopTeaser6;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarNavTopTeaser6_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarNavTopTeaser6_Mobile;
+                    }
                     break;
                 case 'Polar in Bottom Teaser 2':
-                    adElement = wn_ads.ad_PolarBottomTeaser2;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarBottomTeaser2_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarBottomTeaser2_Mobile;
+                    }
                     break;
                 case 'Polar in Bottom Teaser 6':
-                    adElement = wn_ads.ad_PolarBottomTeaser6;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarBottomTeaser6_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarBottomTeaser6_Mobile;
+                    }
                     break;
                 case 'Polar in RHS 2':
                     adElement = wn_ads.ad_PolarRHS2;
@@ -389,7 +421,7 @@ module.exports = function() {
         }
     });
 
-    this.Then(/^I should see each load more ad slot element containing proper class name$/, function (dataTable) {
+    this.Then(/^I should see each load more ad slot element containing proper class name on "([^"]*)"$/, function (device, dataTable) {
         var rows = dataTable.hashes();
         var adElement;
         for (var i = 0; i < rows.length; i++) {
@@ -402,10 +434,18 @@ module.exports = function() {
                     adElement = wn_ads.ad_LoadMoreMrecInBottomFeed;
                     break;
                 case 'Polar in Load More 2':
-                    adElement = wn_ads.ad_PolarLoadMore2;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarLoadMore2_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarLoadMore2_Mobile;
+                    }
                     break;
                 case 'Polar in Load More 6':
-                    adElement = wn_ads.ad_PolarLoadMore6;
+                    if (device === 'desktop') {
+                        adElement = wn_ads.ad_PolarLoadMore6_Desktop;
+                    } else {
+                        adElement = wn_ads.ad_PolarLoadMore6_Mobile;
+                    }
                     break;
             }
             var className = browser.getAttribute(adElement, 'class');

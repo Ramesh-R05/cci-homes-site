@@ -4,19 +4,18 @@
     z-index: $z-index--header-menu;
 
     &__button-menu {
-        @include flat-button;
-
-        svg {
-            fill: $color-white;
-        }
+        @include flat-button;        
 
         &:hover path,
         &:active path,
         &:focus path {
             fill: $color-grey-darker;
         }
+        
+    }
 
-        @media #{$medium-up} {
-        }
+    &__button-icon {
+        fill: $color-white;
+        width: 20px;
     }
 }

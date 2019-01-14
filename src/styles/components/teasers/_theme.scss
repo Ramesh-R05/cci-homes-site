@@ -17,9 +17,9 @@
             }
         }
 
-        .teaser__source span {
+        .teaser__source span, .teaser__source a {
             color: nth($color, 1);
-        }
+        }        
 
         &:hover {
             .teaser__icon {

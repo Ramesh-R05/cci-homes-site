@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Dropdown from 'react-dropdown';
 
 export default class DropdownSelect extends Component {

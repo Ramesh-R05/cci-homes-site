@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Magazine from './magazine';
 import Newsletter from './newsletter';
 import SocialContainer from './social/socialContainer';

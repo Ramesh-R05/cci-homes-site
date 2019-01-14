@@ -1,8 +1,9 @@
 import { betterMockComponentContext } from '@bxm/flux';
-const Context = betterMockComponentContext();
-const { React, ReactDOM, TestUtils } = Context;
 import Input from '../../../app/components/form/input';
 import { radio1 as inputRadioMock } from '../../mock/input';
+
+const Context = betterMockComponentContext();
+const { React, ReactDOM, TestUtils } = Context;
 
 describe('Input', () => {
     let reactModule;
@@ -24,7 +25,7 @@ describe('Input', () => {
         after(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
                 let domElement = ReactDOM.findDOMNode(reactModule);
-                if (domElement) React.unmountComponentAtNode(domElement.parentElement);
+                if (domElement) ReactDOM.unmountComponentAtNode(domElement.parentElement);
             }
         });
 
@@ -67,7 +68,7 @@ describe('Input', () => {
         afterEach(() => {
             if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
                 let domElement = ReactDOM.findDOMNode(reactModule);
-                if (domElement) React.unmountComponentAtNode(domElement.parentElement);
+                if (domElement) ReactDOM.unmountComponentAtNode(domElement.parentElement);
             }
         });
 

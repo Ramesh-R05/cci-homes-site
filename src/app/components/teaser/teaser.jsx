@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 // Components
@@ -18,14 +19,14 @@ class Teaser extends Component {
     static propTypes = {
         id: PropTypes.string,
         imageAltText: PropTypes.string,
-        imageUrl: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string,
+        url: PropTypes.string,
         modifier: PropTypes.string,
         sizes: PropTypes.string,
         source: PropTypes.string,
         summary: PropTypes.string,
         tagsDetails: PropTypes.array,
-        title: PropTypes.string.isRequired,
+        title: PropTypes.string,
         className: PropTypes.string,
         lazyload: PropTypes.bool,
         gtmClass: PropTypes.string,
@@ -46,6 +47,9 @@ class Teaser extends Component {
         summary: null,
         tagsDetails: [],
         className: '',
+        imageUrl: '',
+        url: '',
+        title: '',
         gtmClass: '',
         imageAltText: '',
         modifier: 'img-left',

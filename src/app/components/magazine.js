@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 
 const Magazine = props => {

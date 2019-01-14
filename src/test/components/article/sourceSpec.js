@@ -1,89 +1,116 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import each from 'lodash/collection/each';
-import { mount } from 'enzyme';
-import get from 'lodash.get';
+import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
+import { filterErrors, restoreErrors } from '../../utils/propTypeWarningFilter';
+import proxyquire, { noCallThru } from 'proxyquire';
+import { shallow } from 'enzyme';
+
+noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
-// const proxyquire = require('proxyquire').noCallThru();
-const LinkStub = Context.createStubComponentWithChildren();
-// const Source = proxyquire('../../../app/components/article/source', {
-//     'react': React,
-//     '../brand/link': LinkStub
-// });
-import Source from '../../../app/components/article/source';
+const { React } = Context;
+
+const BrandLinkStub = Context.createStubComponentWithChildren();
+
+const Source = proxyquire('../../../app/components/article/source', {
+    '../brand/link': BrandLinkStub
+});
+
+const config = {
+    get: sinon.stub(),
+    article: {
+        sources: {
+            belle: {
+                logo: 'belle.svg'
+            },
+            'real living': {
+                logo: 'real-living.svg'
+            },
+            'australian house and garden': {
+                logo: 'australian-house-and-garden.svg'
+            },
+            'homes+': {
+                logo: 'homes.svg'
+            },
+            'homes to love': {
+                logo: 'homes-to-love.svg'
+            }
+        }
+    }
+};
+
+const TestWrapper = new ShallowWrapperFactory(Source, {}, { config });
 
 describe(`Source Component`, () => {
-    const config = {
-        article: {
-            sources: {
-                belle: {
-                    logo: 'belle.svg'
-                },
-                'real living': {
-                    logo: 'real-living.svg'
-                },
-                'australian house and garden': {
-                    logo: 'australian-house-and-garden.svg'
-                },
-                'homes+': {
-                    logo: 'homes.svg'
-                },
-                'homes to love': {
-                    logo: 'homes-to-love.svg'
-                }
-            }
-        }
-    };
-
-    const contextConfigStub = {
-        key: 'config',
-        type: React.PropTypes.object,
-        value: {
-            get(path) {
-                return get(config, path, '');
-            }
-        }
-    };
-    let reactModule;
-    let link;
-
     describe(`when passing all props`, () => {
-        const source = 'Australian House and Garden';
-        const className = `article__source`;
-        const imgPath = `/assets/images/source`;
+        let wrapper;
+        let testProps;
+        const configReturnValue = config.article.sources['australian house and garden'].logo;
 
         before(`rendering component`, () => {
-            reactModule = mount(<Source source={source} />, { context: { config: contextConfigStub.value } });
+            config.get.returns(configReturnValue);
+
+            [wrapper, testProps] = TestWrapper({
+                source: 'Australian House and Garden'
+            });
         });
 
-        it(`should render the component with class "${className}"`, () => {
-            expect(reactModule.hasClass(className)).to.be.true;
+        after(() => {
+            config.get.reset();
         });
 
-        it(`should render text "Article By" followed by the brand logo`, () => {
-            expect(reactModule.text()).to.equal(`Article By`);
+        it(`should render the component`, () => {
+            expect(wrapper.find('.article__source').exists()).to.be.true;
         });
 
-        it(`should render the brand logo`, () => {
-            expect(reactModule.find('img').getDOMNode().src).to.eq(`${imgPath}/australian-house-and-garden.svg`);
-            expect(reactModule.find('img').getDOMNode().alt).to.eq(source);
+        it(`should render the <BrandLink>'`, () => {
+            expect(wrapper.find(BrandLinkStub).exists()).to.be.true;
         });
 
-        it(`should not render at all if the source is unknown`, () => {
-            reactModule = Context.mountComponent(Source, { source: 'doesnt exist' }, [contextConfigStub]);
-            expect(React.findDOMNode(reactModule)).not.to.exist;
+        it('should pass the correct props to the <BrandLink>', () => {
+            expect(wrapper.find(BrandLinkStub).props().source).to.eq(testProps.source);
+        });
+
+        it('should render the brand logo image as a child of <BrandLink> with correct props passed', () => {
+            const expectedProps = {
+                src: `/assets/images/source/${configReturnValue}`,
+                alt: testProps.source
+            };
+
+            const brandLink = wrapper.find(BrandLinkStub);
+            expect(brandLink.find('img').props()).to.deep.eq(expectedProps);
+        });
+    });
+
+    describe('when source is unknown', () => {
+        let wrapper;
+
+        before(() => {
+            config.get.returns(false);
+
+            [wrapper] = TestWrapper({
+                source: 'not a source'
+            });
+        });
+
+        it(`should not render`, () => {
+            expect(wrapper.find('.article__source').exists()).to.be.false;
         });
     });
 
     describe(`when passing no props`, () => {
-        before(`rendering component`, () => {
-            reactModule = Context.mountComponent(Source, {}, [contextConfigStub]);
+        let wrapper;
+
+        before(() => {
+            filterErrors();
+            [wrapper] = TestWrapper();
         });
 
-        it(`should not render the component`, () => {
-            expect(React.findDOMNode(reactModule)).to.not.exist;
+        after(() => {
+            restoreErrors();
+        });
+
+        it(`should not render`, () => {
+            expect(wrapper.find('.article__source').exists()).to.be.false;
         });
     });
 });

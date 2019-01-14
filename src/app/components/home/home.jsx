@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connectToStores } from '@bxm/flux';
 import SectionFeatured from './sectionFeatured';
 import FeaturedBrandsSection from '../featuredBrandsSection/featuredBrandsSection';
@@ -9,7 +10,9 @@ class Home extends Component {
     static propTypes = {
         content: PropTypes.object,
         hero: PropTypes.object,
-        articles: PropTypes.array
+        articles: PropTypes.array,
+        featuredBrands: PropTypes.object.isRequired,
+        latestBrandItems: PropTypes.object.isRequired
     };
 
     static defaultProps = {

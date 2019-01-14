@@ -1,11 +1,12 @@
+import directoriesService from '../services/directories';
+
 export default function loadDirectoriesContent(context, payload) {
     const params = {
         ...payload.query,
         navSection: 'directories'
     };
 
-    return context
-        .getService('directories')
+    return directoriesService
         .read(params)
         .then(
             content => context.dispatch('LOAD_DIRECTORIES_CONTENT', { ...content }),

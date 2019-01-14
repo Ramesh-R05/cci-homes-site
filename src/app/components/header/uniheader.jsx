@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import cx from 'classnames';
 
 export default class Uniheader extends Component {
@@ -9,13 +10,19 @@ export default class Uniheader extends Component {
     };
 
     render() {
-        const { config } = this.context;
-        const uniheaderBrands = config.brands.uniheader;
-        const uniheaderClassName = 'uniheader';
-        const uniheaderOuterClasses = cx(uniheaderClassName, 'show-for-medium-up');
-        const uniheaderContainerClasses = cx(`${uniheaderClassName}__nav`, 'container');
+        const {
+            config: {
+                brands: { uniheader }
+            }
+        } = this.context;
+
+        const classes = {
+            root: cx('uniheader', 'show-for-medium-up'),
+            nav: cx('uniheader__nav', 'container')
+        };
+
         // TODO - remove slice when new brands go live
-        const uniheaderLogos = uniheaderBrands.slice(0, 6).map((item, i) => {
+        const uniheaderLogos = uniheader.slice(0, 6).map((item, i) => {
             const { id, title, url, imageUrl } = item;
             const key = `uniheader-item-${i}`;
 
@@ -29,8 +36,8 @@ export default class Uniheader extends Component {
         });
 
         return (
-            <header className={uniheaderOuterClasses}>
-                <nav className={uniheaderContainerClasses}>{uniheaderLogos}</nav>
+            <header className={classes.root}>
+                <nav className={classes.nav}>{uniheaderLogos}</nav>
             </header>
         );
     }

@@ -1,11 +1,17 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import SocialIcons from './social/socialIcons';
 export default class ExternalLinks extends Component {
     static displayName = 'ExternalLinks';
 
     static propTypes = {
-        directoryLogoUrl: PropTypes.object.isRequired,
-        externalLinks: PropTypes.object.isRequired
+        directoryLogoUrl: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        externalLinks: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+    };
+
+    static defaultProps = {
+        directoryLogoUrl: [],
+        externalLinks: []
     };
 
     getSiteLogo() {

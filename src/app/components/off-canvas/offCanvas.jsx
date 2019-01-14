@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';
 import HamburgerNav from '@bxm/site-header/lib/components/hamburgerNav';
 import OffCanvasLogos from './offCanvasLogos';

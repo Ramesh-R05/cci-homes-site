@@ -28,7 +28,8 @@ const config = {
                 ensure there is only one instance of react when resolving modules 
                 this helps with symlinks
             */
-            react: path.join(__dirname, 'node_modules/react')
+            react: path.join(__dirname, 'node_modules/react'),
+            'react-dom': path.join(__dirname, 'node_modules/react-dom')
         }
     },
     module: {

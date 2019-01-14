@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import isUndefined from 'lodash/lang/isUndefined';
 import InlineGallery from '@bxm/gallery/lib/components/inlineGallery';
 import breakpoints from '../../breakpoints';

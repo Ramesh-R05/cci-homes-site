@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
@@ -46,7 +47,7 @@ export default class Header extends Component {
                 </div>
                 <div className="brand__wrapper">
                     <h1 className="brand__logo">
-                        <img src={logo} alt={title} />
+                        <img className="brand__logo-image" src={logo} alt={title} />
                     </h1>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import DropdownSelect from '../../form/dropdownSelect';
 
 export default class DirectoryFilters extends Component {

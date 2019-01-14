@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import BrandLink from '../brand/link';
 
 const LOGO_PATH = '/assets/images/source';
@@ -16,7 +17,9 @@ export default class ArticleSource extends Component {
 
     render() {
         const { source } = this.props;
-        const sourceLogo = source ? this.context.config.get(`article.sources.${source.toLowerCase()}.logo`) : '';
+        const { config } = this.context;
+
+        const sourceLogo = source ? config.get(`article.sources.${source.toLowerCase()}.logo`) : '';
 
         if (!source || !sourceLogo) {
             return null;

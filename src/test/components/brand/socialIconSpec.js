@@ -14,7 +14,7 @@ describe('Brand SocialIcon', () => {
     let link;
     let svg;
     let name = 'facebook';
-    const url = 'http://link.com';
+    const url = 'http://link.com/';
 
     describe('with name prop equal to facebook and a url prop', () => {
         before(() => {
@@ -28,7 +28,7 @@ describe('Brand SocialIcon', () => {
         });
 
         it(`should render the link with the correct url`, () => {
-            expect(link.props.href).to.equal(url);
+            expect(link.href).to.equal(url);
         });
 
         it(`should render the svg image with the correct HTML`, () => {

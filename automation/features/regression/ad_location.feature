@@ -23,14 +23,14 @@ Feature: Ads Location
             |Left Side Panel    |home_panel_1      |
             |Right Side Panel   |home_panel_2      |
             |Wallpaper          |home_wallpaper_1  |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "desktop"
             |ad                         |class-name  |
             |Polar in Home Top Teaser 1 |home_body_2 |
             |Polar in Home Top Teaser 6 |home_body_3 |
             |Polar in Bottom Teaser 2   |home_body_6 |
             |Polar in Bottom Teaser 6   |home_body_7 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "desktop"
             |ad                  |class-name    |
             |Load More MREC RHS  |home_rhs_3    |
             |Polar in Load More 2|home_body_10   |
@@ -55,14 +55,14 @@ Feature: Ads Location
             |Left Side Panel    |navigationsection_panel_1     |
             |Right Side Panel   |navigationsection_panel_2     |
             |Wallpaper          |navigationsection_wallpaper_1 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "desktop"
             |ad                         |class-name  |
             |Polar in Nav Top Teaser 1      |navigationsection_body_2 |
             |Polar in Nav Top Teaser 6      |navigationsection_body_4 |
             |Polar in Bottom Teaser 2   |navigationsection_body_7 |
             |Polar in Bottom Teaser 6   |navigationsection_body_8 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "desktop"
             |ad                 |class-name                   |
             |Load More MREC RHS |navigationsection_rhs_3      |
             |Polar in Load More 2|navigationsection_body_11   |
@@ -87,14 +87,14 @@ Feature: Ads Location
             |Left Side Panel    |index_panel_1     |
             |Right Side Panel   |index_panel_2     |
             |Wallpaper          |index_wallpaper_1 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "desktop"
             |ad                         |class-name  |
             |Polar in Nav Top Teaser 1  |index_body_2 |
             |Polar in Nav Top Teaser 6  |index_body_4 |
             |Polar in Bottom Teaser 2   |index_body_7 |
             |Polar in Bottom Teaser 6   |index_body_8 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "desktop"
             |ad                 |class-name  |
             |Load More MREC RHS |index_rhs_3 |
             |Polar in Load More 2|index_body_11   |
@@ -119,14 +119,14 @@ Feature: Ads Location
             |Left Side Panel    |brandsection_panel_1     |
             |Right Side Panel   |brandsection_panel_2     |
             |Wallpaper          |brandsection_wallpaper_1 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "desktop"
             |ad                         |class-name  |
             |Polar in Brand Top Teaser 1  |brandsection_body_2 |
             |Polar in Brand Top Teaser 6  |brandsection_body_3 |
             |Polar in Bottom Teaser 2   |brandsection_body_6 |
             |Polar in Bottom Teaser 6   |brandsection_body_7 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "desktop"
             |ad                  |class-name  |
             |Load More MREC RHS  |brandsection_rhs_3 |
             |Polar in Load More 2|brandsection_body_10   |
@@ -148,7 +148,7 @@ Feature: Ads Location
             |MREC RHS 3      |gallery_rhs_6 |
             |MREC RHS 4      |gallery_rhs_8 |
             |Sticky MREC RHS |gallery_rhs_9 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "desktop"
             |ad                                     |class-name    |
             |Polar in Related Content In Body       |gallery_body_2 |
             |Polar in Related Content After Slide 7 |gallery_body_5 |
@@ -185,7 +185,7 @@ Feature: Ads Location
             |Left Side Panel    |homesarticle_panel_1     |
             |Right Side Panel   |homesarticle_panel_2     |
             |Wallpaper          |homesarticle_wallpaper_1 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "desktop"
             |ad               |class-name    |
             |Polar in Related Content In Body   |homesarticle_body_2 |
             |Polar in RHS 2                     |homesarticle_rhs_1 |
@@ -211,14 +211,14 @@ Feature: Ads Location
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name        |
             |Out Of Page        |home_outofpage_1  |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "mobile"
             |ad                         |class-name  |
             |Polar in Home Top Teaser 1 |home_body_2 |
             |Polar in Home Top Teaser 6 |home_body_3 |
             |Polar in Bottom Teaser 2   |home_body_6 |
             |Polar in Bottom Teaser 6   |home_body_7 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "mobile"
             |ad                            |class-name    |
             |Load More MREC In Bottom Feed |home_body_9   |
             |Polar in Load More 2          |home_body_10   |
@@ -240,14 +240,14 @@ Feature: Ads Location
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name                     |
             |Out Of Page        |navigationsection_outofpage_1  |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "mobile"
             |ad                         |class-name  |
             |Polar in Nav Top Teaser 1  |navigationsection_body_2 |
             |Polar in Nav Top Teaser 6  |navigationsection_body_4 |
             |Polar in Bottom Teaser 2   |navigationsection_body_7 |
             |Polar in Bottom Teaser 6   |navigationsection_body_8 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "mobile"
             |ad                            |class-name                      |
             |Load More MREC In Bottom Feed |navigationsection_body_10   |
             |Polar in Load More 2          |navigationsection_body_11   |
@@ -269,14 +269,14 @@ Feature: Ads Location
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name         |
             |Out Of Page        |index_outofpage_1  |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "mobile"
             |ad                         |class-name  |
             |Polar in Nav Top Teaser 1  |index_body_2 |
             |Polar in Nav Top Teaser 6  |index_body_4 |
             |Polar in Bottom Teaser 2   |index_body_7 |
             |Polar in Bottom Teaser 6   |index_body_8 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "mobile"
             |ad                            |class-name     |
             |Load More MREC In Bottom Feed |index_body_10  |
             |Polar in Load More 2          |index_body_11  |
@@ -298,18 +298,18 @@ Feature: Ads Location
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name                |
             |Out Of Page        |brandsection_outofpage_1  |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "mobile"
             |ad                           |class-name  |
             |Polar in Brand Top Teaser 1  |brandsection_body_2 |
             |Polar in Brand Top Teaser 6  |brandsection_body_3 |
             |Polar in Bottom Teaser 2     |brandsection_body_6 |
             |Polar in Bottom Teaser 6     |brandsection_body_7 |
         When I click on the Load More button
-        Then I should see each load more ad slot element containing proper class name
+        Then I should see each load more ad slot element containing proper class name on "mobile"
             |ad                            |class-name            |
             |Load More MREC In Bottom Feed |brandsection_body_9   |
-            |Polar in Load More 2|brandsection_body_10   |
-            |Polar in Load More 6|brandsection_body_11   |
+            |Polar in Load More 2          |brandsection_body_10   |
+            |Polar in Load More 6          |brandsection_body_11   |
 
     @gallery
     Scenario: Ads slot elements should have proper class name on gallery page in mobile view
@@ -329,7 +329,7 @@ Feature: Ads Location
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name          |
             |Out Of Page        |gallery_outofpage_1 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "mobile"
             |ad                                     |class-name    |
             |Polar in Related Content In Body       |gallery_body_2 |
             |Polar in Related Content After Slide 7 |gallery_body_5 |
@@ -351,7 +351,7 @@ Feature: Ads Location
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name               |
             |Out Of Page        |homesarticle_outofpage_1 |
-        And I should see each polar ad slot element containing proper class name
+        And I should see each polar ad slot element containing proper class name on "mobile"
             |ad                                 |class-name          |
             |Polar in Related Content In Body   |homesarticle_body_2 |
             |Polar in Carousel Feed             |homesarticle_body_3 |

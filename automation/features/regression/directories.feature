@@ -26,8 +26,8 @@ Feature: Directories
         Given I switch to "<device>" view
         Then I am currently viewing "directories"
         * I can see the directory filters
-        * I can see the directory "top" feed
-        * I can see the directory "bottom" feed
+        * I can see the directory "top" feed on "<device>"
+        * I can see the directory "bottom" feed on "<device>"
 
     @high
         Examples:

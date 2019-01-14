@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import SocialLinks from './socialLinks';
 
 export default class SocialContainer extends Component {

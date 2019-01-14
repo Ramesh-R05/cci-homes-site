@@ -12,7 +12,7 @@ describe('Button', () => {
     after(() => {
         if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
             let domElement = ReactDOM.findDOMNode(reactModule);
-            if (domElement) React.unmountComponentAtNode(domElement.parentElement);
+            if (domElement) ReactDOM.unmountComponentAtNode(domElement.parentElement);
         }
     });
 

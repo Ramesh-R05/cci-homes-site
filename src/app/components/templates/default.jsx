@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connectToStores } from '@bxm/flux';
 import AdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
@@ -35,8 +36,8 @@ class DefaultTemplate extends Component {
             statusCode: PropTypes.number.isRequired
         }),
         currentUrl: PropTypes.string.isRequired,
-        headerNavItems: PropTypes.array,
-        hamburgerNavItems: PropTypes.array,
+        headerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        hamburgerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         toggleSideMenu: PropTypes.func.isRequired,
         menuClasses: PropTypes.string.isRequired,
         theme: PropTypes.shape({

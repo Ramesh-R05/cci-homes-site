@@ -2,7 +2,9 @@
  * Base input component used for checkbox and radio only.
  */
 
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import noop from 'lodash/utility/noop';
 
 export default class Input extends Component {

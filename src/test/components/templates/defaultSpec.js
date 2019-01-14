@@ -1,4 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { betterMockComponentContext } from '@bxm/flux';
+import PropTypes from 'prop-types';
 import forOwn from 'lodash/object/forOwn';
 import cloneDeep from 'lodash/lang/cloneDeep';
 import { localeData } from '../../mock/config';
@@ -9,7 +12,7 @@ import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const Context = betterMockComponentContext();
-const { React, ReactDOM, TestUtils } = Context;
+const { TestUtils } = Context;
 
 const UniHeaderStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
@@ -192,7 +195,7 @@ describe('Default Component template', () => {
 
     const contextConfigStub = {
         key: 'config',
-        type: '',
+        type: PropTypes.object,
         value: configToStub,
         executeAction: () => {}
     };
@@ -385,6 +388,7 @@ describe('Default Component template', () => {
                         config: { site: { name: 'homes' } },
                         getStore() {
                             return {
+                                on() {},
                                 getContent: () => {},
                                 getTheme: () => mockTheme,
                                 getHeaderItems: () => [],
@@ -424,6 +428,7 @@ describe('Default Component template', () => {
                         config: { site: { name: 'homes' } },
                         getStore() {
                             return {
+                                on() {},
                                 getContent: () => {},
                                 getTheme: () => {},
                                 getHeaderItems: () => [],

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import slice from 'lodash/array/slice';
 import classNames from 'classnames';
 import { connectToStores } from '@bxm/flux';
