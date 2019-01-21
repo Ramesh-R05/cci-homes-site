@@ -115,34 +115,36 @@ jobs:
     on_failure:
       - NOTIFY: homes-deployment-notifications
 
-  # 4b. Run compatibility regression test on TEST environment - Browser Stack
-  - name: homes-site-compatibility-automation-test
-    type: runSh
-    runtime:
-     nodePool: custom__x86_64__Ubuntu_16_04
-    always:
-      - NOTIFY: homes-slack-notifications
-      - NOTIFY: homes-qa-team-notifications
-    steps:
-     - IN: homes-site-test-deploy-master
-     - IN: homes-site-repo
-       switch: off
-     - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "8.9.1"
-        - script: nvm use "8.9.1"
-        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: cd ./IN/homes-site-repo/gitRepo/automation
-        - script: npm install
-        - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
-        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
-        - script: export URL=http://homes-site.test.bxm.net.au/
-        - script: npm run test:mobile || mobileResult=failed
-        - script: npm run test:desktop  || desktopResult=failed
-        - script: if [ -n "$mobileResult" ] || [ -n "$desktopResult" ]; then fail; fi
-#    on_failure:
-#      - NOTIFY: homes-deployment-notifications
+#This job is disabled because we have downgraded the BrowserStack account and it won't support automated testing.
+#We will enable once we decide to upgrade the account in the future.
+#  # 4b. Run compatibility regression test on TEST environment - Browser Stack
+#  - name: homes-site-compatibility-automation-test
+#    type: runSh
+#    runtime:
+#     nodePool: custom__x86_64__Ubuntu_16_04
+#    always:
+#      - NOTIFY: homes-slack-notifications
+#      - NOTIFY: homes-qa-team-notifications
+#    steps:
+#     - IN: homes-site-test-deploy-master
+#     - IN: homes-site-repo
+#       switch: off
+#     - TASK:
+#        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+#        - script: source ~/.nvm/nvm.sh
+#        - script: nvm install "8.9.1"
+#        - script: nvm use "8.9.1"
+#        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+#        - script: cd ./IN/homes-site-repo/gitRepo/automation
+#        - script: npm install
+#        - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
+#        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
+#        - script: export URL=http://homes-site.test.bxm.net.au/
+#        - script: npm run test:mobile || mobileResult=failed
+#        - script: npm run test:desktop  || desktopResult=failed
+#        - script: if [ -n "$mobileResult" ] || [ -n "$desktopResult" ]; then fail; fi
+##    on_failure:
+##      - NOTIFY: homes-deployment-notifications
 
   # 4c. Smoke test
   - name: homes-site-smoke-test
@@ -295,30 +297,6 @@ jobs:
         - script: APP_KEY=homes-site npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-
-  # iii. Run Performance Test on live environment for troubleshooting feature/add-lighthouse-test
-  - name: homes-site-performance-test-live-troubleshooting
-    type: runSh
-    always:
-      - NOTIFY: homes-qa-team-notifications
-    steps:
-     - IN: homes-site-repo-branch
-       switch: off
-     #- IN: homes-weekly-trigger
-     - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "8.9.1"
-        - script: nvm use "8.9.1"
-        - script: cd ./IN/homes-site-repo-branch/gitRepo/src
-        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install
-        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-        - script: sudo apt-get update
-        - script: sudo apt-get install google-chrome-stable
-        - script: google-chrome --product-version
-        - script: npm run test:perflive
 
   # iv. live testing
   - name: homes-site-live-test
