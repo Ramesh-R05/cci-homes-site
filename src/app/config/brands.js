@@ -97,25 +97,5 @@ export default [
             pinterest: 'https://www.pinterest.com.au/countrystylemag/'
         },
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vp/signup-countrystyle-article-iframe-bottom'
-    },
-    {
-        title: 'Homelife',
-        url: '/homelife/',
-        id: 'homelife',
-        urlName: 'homelife',
-        imageUrl: '/assets/images/brand-pages/headerlogos/homelife.svg',
-        logo: '/assets/images/brand-pages/headerlogos/homelife.svg',
-        newsletterUrl: 'https://www.homestolove.com.au/homelife-newsletter/',
-        subscribe: {
-            image: '',
-            link: 'https://www.magshop.com.au/store/homestolove'
-        },
-        social: {
-            facebook: 'https://www.facebook.com/homelife.com.au/',
-            twitter: 'https://www.pinterest.com.au/homelifecomau/',
-            instagram: 'https://www.instagram.com/homelife.com.au/',
-            pinterest: 'https://twitter.com/homelifecomau'
-        },
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vo/signup-homelife-article-iframe-bottom'
     }
 ];
