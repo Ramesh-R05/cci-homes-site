@@ -4,6 +4,7 @@ var article_widget = {
     longTitle: 'h1.article__title',
     shortTeaser: '.article__summary',
     bodyParagraph: '.content-body__paragraph',
+    bodyList: '.content-body__list',
     bodyHeading: '.content-body__heading',
     bodyImg: '.content-body__inline-image--landscape figure picture',
     relatedContentHeading: '.related-content .related-content__heading',

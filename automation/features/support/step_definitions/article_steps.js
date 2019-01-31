@@ -105,6 +105,10 @@ module.exports = function() {
         //Validate the body paragraph
     });
 
+    this.Given(/^I can see the body list "([^"]*)"$/, function (articleBodyList) {
+        expect(browser.element(wn_article.bodyList).getText()).toContain(articleBodyList);
+    });
+
     this.Given(/^I can see the body heading "([^"]*)"$/, function (articleBodyHeading) {
         var bodyHeading = browser.getText(wn_article.bodyHeading);
         expect(bodyHeading).toContain(articleBodyHeading);

@@ -25,7 +25,7 @@ export default {
             type: 'paragraph',
             label: 'Paragraph',
             content:
-                'Test body paragraph Technically black and white are not even colours, they are dynamic, balanced neutrals, which is why they always work. Decorating with mostly black, mostly white, or a combination of both gives you ultimate freedom. The look can be classic, eclectic, punk, country, beachy, and just about anything in between.\nHIGHLIGHT THE OTHER COLOURS BODY HEADING EOM\nBlack and white together are perfect for highlighting other colours. For example, black is considered to be the “absence of colour”, so it makes colours appear more vivid and luminous in comparison. Similarly, white makes colours feel saturated and “pop”.'
+                "Test body paragraph Technically black and white are not even colours, they are dynamic, balanced neutrals, which is why they always work. Decorating with mostly black, mostly white, or a combination of both gives you ultimate freedom. The look can be classic, eclectic, punk, country, beachy, and just about anything in between.\nHIGHLIGHT THE OTHER COLOURS BODY HEADING EOM\nBlack and white together are perfect for highlighting other colours. For example, black is considered to be the “absence of colour”, so it makes colours appear more vivid and luminous in comparison. Similarly, white makes colours feel saturated and “pop”. \n\n* a list item\n* another list item\n* here's another one"
         },
         {
             type: 'image',

@@ -12,6 +12,7 @@ Feature: Article
         * I can see the hero image
         * I should not see the hero image caption
         * I can see the body paragraph "Test body paragraph"
+        * I can see the body list "a list item"
         * I can see the body heading "BODY HEADING BODY HEADING"
         * I can see the body related content
         * I can see the body image caption "This is inline image caption"
