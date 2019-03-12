@@ -22,7 +22,7 @@ export default class Rail extends Component {
         return (
             <StickyBlock
                 breakpoints={['large', 'xlarge']}
-                containerClasses="section__rail"
+                containerClasses="columns large-4 show-for-large-up"
                 containerMarginBottom={marginBottom}
                 carriageYPosition={yPosition}
             >

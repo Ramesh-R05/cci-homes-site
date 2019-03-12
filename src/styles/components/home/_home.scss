@@ -1,9 +1,8 @@
-.homepage {
+.home-section {
     margin: 0 auto;
     max-width: 1024px;
 
-    .home__body {
-
+    &__featured {
         .ad {
             &--section-middle-leaderboard {
                 margin-top: $standard-spacer-height;
@@ -25,276 +24,68 @@
                 }
             }
         }
+    }
 
-        .home-section {
+    &__hero-teaser {
+        display: inline-block;
+        margin-bottom: 30px;
 
-            @include teaser-title-config;
-            @include teaser-show-secondary-tag;
-            @include teaser-hide-summary;
-            @include teaser-show-source;
+        @media #{$medium-up} {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-            .columns {
-                padding-left: $column-gutter / 4;
-                padding-right: $column-gutter / 4;
-            }
+        @media #{$large-up} {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+    
+    &__grid-teaser {
+        @include teaser-img-top;
+        @include teaser-hide-summary;
 
+        @media #{$medium-up} {                    
+            @include grid-column(6);
+            @include clear-left(odd);
+        }
+    }
+
+    &__polar-teaser {
+        @media #{$medium-up} {            
+            @include grid-column(6);
+        }            
+    }
+
+    .fixed-column--sticky {
+        @media #{$large-up} {
+            @include grid-column(4);
+        }
+    }
+
+    .bottom-teasers {
+
+        .ad--section-mrec {
             @media #{$medium-up} {
-                .columns {
-                    padding-left: $column-gutter / 2;
-                    padding-right: $column-gutter / 2;
-                }
-            }
-
-            .latest-real-homes {
-                @include grid-column($columns: 12, $collapse: false);
-
-                &__title-container {
-                    text-align: center;
-                    position: relative;
-                    margin-bottom: 10px;
-
-                    &:before {
-                        content: '';
-                        display: block;
-                        height: 1px;
-                        background: $color-grey-lighter-level-1;
-                        position: absolute;
-                        top: 50%;
-                        left: 15px;
-                        right: 15px;
-                    }
-                }
-
-                &__title {
-                    @include type-header;
-                    color: $color-grey-dark;
-                    font-size: 20px;
-                    line-height: 30px;
-                    position: relative;
-                    background: #fff;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                }
-
-                .teaser {
-                    @include grid-column($columns: 3);
-
-                    &__title {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 15px;
-                        right: 14px;
-                        width: initial;
-                        background: #fff;
-                        opacity: 0;
-                        margin-bottom: 0;
-                        padding: 0 6px;
-                        text-align: center;
-                        transition: opacity .3s;
-
-                        &:active,
-                        &:hover {
-                            opacity: .9;
-                        }
-
-                        a {
-                            display: table-cell;
-                            width: 219px;
-                            height: 182px;
-                            vertical-align: middle;
-                            font: 13px/17px $font-family-sans-serif-primary;
-                            text-transform: uppercase;
-                        }
-                    }
-                }
-            }
-
-            &--top {
-
-                @include adjust-side-margins;
-
-                .top-teasers {
-
-                    @include spacer-right-hand-rail;
-
-                    @include adjust-side-padding;
-
-                    .teaser {
-
-                        &--polar {
-
-                            img {
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                max-width: none;
-                            }
-
-                            a {
-                                height: 0;
-                                padding-bottom: 83%;
-                                overflow: hidden;
-                            }
-
-                            &.polar--horizontal {
-
-                                img {
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%);
-                                    height: 100%;
-                                    width: initial;
-                                    max-height: none;
-                                }
-                            }
-
-                        }
-
-                        &--hero {
-                            display: none;
-                        }
-
-                        &.home-section-top-polar,
-                        &--native,
-                        &--img-top {
-                            margin-bottom: $standard-spacer-height;
-                        }
-
-                        @media #{$medium-up} {
-
-                            &--hero-img-top {
-                                @include grid-column(12);
-                            }
-
-                            &.home-section-top-polar,
-                            &--native {
-                                @include grid-column(6);
-                            }
-
-                            &--img-top {
-                                @include grid-column(6);
-                                @include clear-left(even);
-                            }
-                        }
-
-                        @media #{$large-up} {
-
-                            &--hero-img-top {
-                                display: none;
-                            }
-
-                            &--hero {
-                                @include grid-column(12);
-                                @include teaser-hide-source;
-                                display: inline-block;
-                                margin-bottom: 30px;
-
-                                &__content {
-                                    margin-left: 40px;
-                                    margin-right: 55px;
-                                }
-                            }
-
-                            &--img-top {
-                                @include clear-left(odd);
-                            }
-                        }
-                    }
-
-                    .ad--section-mrec {
-
-                        &.home-section-top-mrec-1 {
-                            margin-bottom: $standard-spacer-height;
-                        }
-
-                        &.home-section-top-mrec-2 {
-                            margin-bottom: 0px;
-                        }
-
-                        @media #{$medium-up} {
-
-                            &.home-section-top-mrec-1 {
-                                @include grid-column(6);
-                            }
-
-                            &.home-section-top-mrec-2 {
-                                @include grid-column(6);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &--bottom {
-
-                @include adjust-side-margins;
-
-                &.columns {
-                    @media #{$small-only} {
-                        padding-left: 15px;
-                        padding-right: 15px;
-                    }
-                }
-
-                .bottom-teasers {
-
-                    @include spacer-right-hand-rail;
-
-                    @include adjust-side-padding;
-
-                    .teaser {
-
-                        &.home-section-bottom-polar,
-                        &--native,
-                        &--img-top {
-                            margin-bottom: $standard-spacer-height;
-                        }
-
-                        @media #{$medium-up} {
-
-                            &.home-section-bottom-polar,
-                            &--native {
-                                @include grid-column(6);
-                            }
-
-                            &--img-top {
-                                @include grid-column(6);
-                                @include clear-left(even);
-                            }
-
-                            &:last-of-type {
-                                margin-bottom: 0px;
-                            }
-                        }
-
-                        @media #{$large-up} {
-
-                            &--img-top {
-                                @include clear-left(odd);
-                            }
-                        }
-                    }
-
-                    .ad--section-mrec {
-
-                        @media #{$medium-up} {
-                            @include grid-column(6);
-                        }
-                    }
-                }
+                @include grid-column(6);
             }
         }
+    }
+}
 
-        .fixed-column {
+/* give me locally scoped classnames ie: home-section__top-mrec */
+.home-section-top-mrec-1 {    
+    margin-bottom: $standard-spacer-height;
 
-            &--sticky {
+    @media #{$medium-up} {
+        @include grid-column(6);
+    }    
+}
 
-                @media #{$large-up} {
-                    @include grid-column(4);
-                }
-            }
-        }
+.home-section-top-mrec-2 {
+    margin-bottom: 0;
+
+    @media #{$medium-up} {
+        @include grid-column(6);
     }
 }

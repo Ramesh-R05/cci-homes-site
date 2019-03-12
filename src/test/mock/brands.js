@@ -6,7 +6,7 @@ export default [
         id: 'belle'
     },
     {
-        imageUrl: '/assets/svgs/realliving_black.svg',
+        imageUrl: '/assets/svgs/real-living.svg',
         url: '/real-living/',
         title: 'Real Living',
         id: 'realliving'

@@ -13,7 +13,7 @@ module.exports = function() {
 
     this.Given(/^I am currently viewing the homepage$/, function () {
         var pageUrl = world.Urls.home_page;
-        console.log('    ' + pageUrl);
+
         browser.url(pageUrl);
         browser.waitUntil(function () {
             return browser.getUrl() === pageUrl;
@@ -22,7 +22,7 @@ module.exports = function() {
 
     this.Given(/^I am currently viewing "([^"]*)"$/, function (pagename) {
         var pageUrl = world.Urls.home_page + pagename;
-        console.log('    ' + pageUrl);
+
         browser.url(pageUrl);
         browser.waitUntil(function () {
             return browser.getUrl() === pageUrl;

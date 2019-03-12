@@ -49,17 +49,15 @@ class Section extends Component {
         };
 
         const { urlName } = content;
-        const brandSectionClassName = classNames({ brand: true, [`brand--${urlName}`]: true });
+        const brandSectionClassName = classNames('brand-section', 'container', { [`brand-section--${urlName}`]: true });
 
         return (
             <div className={brandSectionClassName}>
-                <div className="brand__body container">
-                    <div className="row">
-                        <Featured hero={hero} articles={slice(articles, 0, 6)} content={content} polarTargets={sectionTopFeed} />
-                    </div>
+                <div className="brand-section__top">
+                    <Featured hero={hero} articles={slice(articles, 0, 6)} content={content} polarTargets={sectionTopFeed} />
                 </div>
 
-                <div className="row-fullwidth brand__body--fullwidth-ad">
+                <div className="row-fullwidth brand-section__top-fullwidth-ad">
                     <Ad
                         className="ad--section-middle-leaderboard"
                         sizes={{
@@ -72,7 +70,7 @@ class Section extends Component {
                     />
                 </div>
 
-                <div className="brand__body brand__body--bottom">
+                <div className="brand-section__bottom">
                     <Repeatable
                         component={List}
                         action={loadList}

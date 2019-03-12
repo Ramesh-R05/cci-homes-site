@@ -11,11 +11,11 @@ Feature: Section Landing page (Navigation Section)
         And I should see 6 top teasers on the feed section page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "top" feed item containing its title and clickable to open its page
-        And I should see a "top" feed item containing its tag and clickable to open its page
+        # And I should see a "top" feed item containing its tag and clickable to open its page
         Then I should see 6 bottom teasers on the feed section page
         And I should see a "bottom" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its title and clickable to open its page
-        And I should see a "bottom" feed item containing its tag and clickable to open its page
+        # And I should see a "bottom" feed item containing its tag and clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
         @high
@@ -44,7 +44,7 @@ Feature: Section Landing page (Navigation Section)
             | tablet portrait  |
             | tablet landscape |
 
-    @custommasthead
+    @ignore @custommasthead
     Scenario Outline: Verfiy that that the custom masthead appear in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "real-homes"
@@ -59,7 +59,7 @@ Feature: Section Landing page (Navigation Section)
             |tablet landscape   |
             |tablet portrait    |
 
-    @custommastehead @high
+    @ignore @custommastehead @high
     Scenario: Verfiy that that the custom mastehead appear in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "real-homes"

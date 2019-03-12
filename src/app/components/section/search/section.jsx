@@ -11,7 +11,7 @@ import loadSearch from '../../../actions/loadSearch';
 import Featured from '../featured';
 import Rail from '../rail';
 import List from '../list';
-import SiteFooter from '../../footer/footer';
+import SiteFooter from '../../site-footer';
 import SectionHeader from '../header';
 import ErrorHandlerBuilder from '../../error/errorHandlerBuilder';
 import OffCanvas from '../../off-canvas/offCanvas';
@@ -112,6 +112,7 @@ class Section extends Component {
                         siteName={config.site.name}
                         toggleMenu={this.toggleMenu}
                         permanentlyFixedIfShorterThan={49}
+                        isExpanded
                         wrapperClassName="header"
                         headerClassName="header__inner"
                     />
@@ -125,7 +126,7 @@ class Section extends Component {
                         ) : (
                             <div className="section__landing">
                                 <div className="container">
-                                    <div className="section__row">
+                                    <div className="section__row row">
                                         <Featured articles={articles} polarTargets={sectionTopFeed} showSearchBar />
                                         <Rail adPosition={1} marginBottom={60} yPosition={95} />
                                     </div>

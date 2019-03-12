@@ -3,14 +3,14 @@
     margin: 0 auto;
     z-index: $z-index-0;
 
-    .homepage {
+    .home-section {
         @include homepage-gap-from-nav-to-top-mrec;
         @media #{$large-up} {
             margin-top: 0;
         }
     }
 
-    .brand {
+    .brand-section {
         @include brand-gap-from-nav-to-top-mrec;
     }
 

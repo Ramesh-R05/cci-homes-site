@@ -12,7 +12,6 @@ $color-brand-social-underline: #e5e5e5;
     }
 
     p {
-        @include type-composite($color-grey-dark, $color-black);
         @include type-underlined($color-brand-social-underline, 2px);
         font-size: 26px;
         line-height: 30px;

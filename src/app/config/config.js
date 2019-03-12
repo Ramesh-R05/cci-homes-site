@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 
 import breakpoints from '../breakpoints';
-import brands from './brands';
-import hamburgerBrands from './hamburgerBrands';
+import siteBrands from './siteBrands';
+import networkBrands from './networkBrands';
 
 const accountId = '761709621001';
 const playerId = 'VkuyApojl';
@@ -82,12 +82,9 @@ export default {
     },
 
     brands: {
-        uniheader: brands,
-        section: brands,
-        footer: brands
+        site: siteBrands,
+        network: networkBrands
     },
-
-    hamburgerBrands,
 
     features: {
         galleryOfGalleries: {
@@ -141,6 +138,15 @@ export default {
             id: 926929
         },
         lipstick: {
+            enabled: true
+        },
+        showHeaderSocialIcons: {
+            enabled: true
+        },
+        showBuyMagazinesButton: {
+            enabled: true
+        },
+        brandsModalInHeader: {
             enabled: true
         }
     },
@@ -286,7 +292,14 @@ export default {
         network: 'wn',
         prodDomain: 'www.homestolove.com.au',
         dateTimeFormat: 'MMM DD, YYYY h:mma',
-        adTaggingId: 'HomesToLove'
+        adTaggingId: 'HomesToLove',
+        buyMagazinesLink: 'https://www.magshop.com.au',
+        defaultSocialLinks: {
+            facebook: 'https://www.facebook.com/homestoloveau',
+            twitter: 'https://twitter.com/homestoloveau',
+            instagram: 'https://www.instagram.com/homestoloveau',
+            pinterest: 'https://www.pinterest.com/homestoloveau'
+        }
     },
 
     server: {
@@ -350,5 +363,31 @@ export default {
     useBrandTitleSuffix: true,
     homepageFilter: {
         excludedNodeIds: ['HOMES-10958'] // Home Directories (dev)
+    },
+    footer: {
+        links: {
+            corporate: [
+                {
+                    title: 'Privacy Policy',
+                    url: 'http://www.bauer-media.com.au/privacy',
+                    gtmClass: 'gtm-footer-privacy'
+                },
+                {
+                    title: 'Advertise',
+                    url: 'http://www.bauer-media.com.au/advertising/advertise-with-us',
+                    gtmClass: 'gtm-footer-advertising'
+                },
+                {
+                    title: 'Terms of Use',
+                    url: 'http://www.bauer-media.com.au/terms/website-terms',
+                    gtmClass: 'gtm-footer-terms'
+                },
+                {
+                    title: 'Magshop',
+                    url: 'https://www.magshop.com.au/',
+                    gtmClass: 'gtm-footer-magshop'
+                }
+            ]
+        }
     }
 };

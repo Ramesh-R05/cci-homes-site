@@ -1,0 +1,59 @@
+.newsletter-subscribe {
+  $root: &;  
+
+  .home-section & {
+      margin-top: 0;
+      padding-top: 30px;
+
+      @media #{$large-up} {
+        padding-top: 15px;
+      }
+  }
+
+  .brand-section & {
+      @media #{$medium-only} {
+          float: left;
+          width: 50%;
+          padding-top: 30px;
+      }
+
+      @media #{$large-up} {
+          border-top: 1px solid $color-section-separator;
+          margin-top: 30px;
+          padding-top: 30px;
+      }
+  }
+
+  &__title {
+      @include type-newsletter-and-social-headers;
+      margin-bottom: 20px;
+  }
+
+  &__text {
+      font-family: $font-family-sans-serif-primary;
+      color: $color-dark-green;
+      font-size: 15px;
+      margin-bottom: 15px;
+  }
+
+  &--in-footer {
+      border-top: 0;      
+      padding-top: 0;
+
+      @media #{$medium-up} {
+          padding-top: 30px;
+      }
+
+      @media #{$large-up} {
+          padding-top: 0;
+      }
+
+      #{$root}__title {
+        @include type-footer-column-heading;
+      }
+      
+      #{$root}__text {
+        @include type-footer-text;
+      }
+  }
+}

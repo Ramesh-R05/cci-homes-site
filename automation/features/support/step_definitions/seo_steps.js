@@ -7,7 +7,6 @@ module.exports = function() {
         for (var i = 0; i < rows.length; ++i) {
             var row = rows[i];
             //validates position of menu base on Index
-            console.log("testing URL : "+row['site']);
             browser.url(row['site']);
             expect(browser.getText('body')).toMatch(String(row['meta']));
         }
@@ -29,7 +28,6 @@ module.exports = function() {
             var row = rows[i];
             //validates the robots.txt content
             browser.url('http://'+row['site']);
-            console.log(browser.getText('body'));
             expect(browser.getText('body')).toEqual(string);
         }
     });

@@ -77,6 +77,8 @@ $native-hub-color: $color-grey-darker;
     }
 
     h1 {
+        @include type-section-heading;
+
         @media #{$medium-up} {
             padding: {
                 bottom: 1px;

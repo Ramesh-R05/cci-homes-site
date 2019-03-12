@@ -22,7 +22,7 @@ export default async function brandMiddleware(req, res, next) {
         const filter = `source eq '${entityResponse.articleSource}'`;
         const listingResponse = await getLatestTeasers(itemsCount, skip, filter);
 
-        const brandConfig = req.app.locals.config.brands.uniheader.find(b => b.title === entityResponse.articleSource);
+        const brandConfig = req.app.locals.config.brands.site.find(b => b.title === entityResponse.articleSource);
 
         entityResponse.brand = (brandConfig && brandConfig.id) || '';
 

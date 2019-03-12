@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import Teaser from '../teaser/teaser';
 import SearchBar from '../search/searchBar';
@@ -20,65 +21,101 @@ export default class Featured extends Component {
         showSearchBar: false
     };
 
-    render() {
-        const { articles, polarTargets, hero, showSearchBar } = this.props;
-        const className = 'section__featured gtm-topteaserlist-index';
+    renderSearchBar = () => {
+        const { articles, showSearchBar } = this.props;
 
         if (articles.length === 0 && showSearchBar) {
             return (
-                <section className={className}>
+                <section className="section__search">
                     <SearchBar />
                 </section>
             );
         }
 
-        const item = articles[0];
+        return null;
+    };
+
+    renderHeroTeaser = () => {
+        const { hero } = this.props;
+
+        if (!hero) {
+            return null;
+        }
+
+        return hero ? (
+            <Teaser {...hero} gtmClass="gtm-hero-section" key={`${hero.id}-xl`} modifier="hero" sizes="home-hero" className="columns small-12" />
+        ) : null;
+    };
+
+    renderTeaserGrid = () => {
+        const { articles, polarTargets } = this.props;
+
+        const baseGridItemClass = 'section__grid-item';
+        const baseTeaserClasses = classNames(baseGridItemClass, 'section__grid-teaser', 'columns', 'small-12', 'medium-6');
+        const baseAdClasses = classNames(
+            baseGridItemClass,
+            'section__grid-ad',
+            'ad--section-mrec',
+            'columns',
+            'small-12',
+            'medium-6',
+            'hide-for-large-up'
+        );
+
+        if (!Array.isArray(articles) || !articles.length) {
+            return null;
+        }
+
         const teaserProps = {
             sizes: 'brand-list',
             modifier: 'img-top',
             gtmClass: 'gtm-topteaserlist-index'
         };
 
+        return [
+            <Ad className={baseAdClasses} displayFor="medium" sizes={['double-mrec', 'mrec']} label={{ active: false }} pageLocation={Ad.pos.body} />,
+            <Teaser key={articles[0].id} {...articles[0]} {...teaserProps} polar={polarTargets[0]} className={baseTeaserClasses} />,
+            <Ad
+                className="ad--section-mrec"
+                displayFor="small"
+                sizes={['double-mrec', 'mrec']}
+                updatePageOffset
+                label={{ active: false }}
+                pageLocation={Ad.pos.body}
+            />,
+            articles.slice(1, 6).map((article, i) => {
+                const polarProps = {};
+
+                if (i === 4) {
+                    polarProps.polar = polarTargets[1];
+                }
+
+                const teaserClasses = classNames(baseTeaserClasses, {
+                    'section__polar-teaser': 1 === 4
+                });
+
+                return <Teaser {...article} {...teaserProps} {...polarProps} key={article.id} className={teaserClasses} />;
+            }),
+            <Ad
+                className={baseAdClasses}
+                displayFor="medium"
+                sizes={{
+                    medium: 'mrec'
+                }}
+                label={{ active: false }}
+                pageLocation={Ad.pos.body}
+            />
+        ];
+    };
+
+    render() {
+        const className = 'section__featured gtm-topteaserlist-index columns small-12 medium-12 large-8';
+
         return (
             <section className={className}>
-                {showSearchBar && <SearchBar />}
-                <div>{hero ? <Teaser {...hero} gtmClass="gtm-hero-section" key={`${hero.id}-xl`} modifier="hero" sizes="home-hero" /> : null}</div>
-                <div>
-                    <Ad
-                        className="ad--section-mrec teaser"
-                        displayFor="medium"
-                        sizes={['double-mrec', 'mrec']}
-                        label={{ active: false }}
-                        pageLocation={Ad.pos.body}
-                    />
-                    <Teaser key={item.id} {...item} {...teaserProps} polar={polarTargets[0]} />
-                    <Ad
-                        className="ad--section-mrec"
-                        displayFor="small"
-                        sizes={['double-mrec', 'mrec']}
-                        updatePageOffset
-                        label={{ active: false }}
-                        pageLocation={Ad.pos.body}
-                    />
-                    {articles.slice(1, 6).map((article, i) => {
-                        const polarProps = {};
-
-                        if (i === 4) {
-                            polarProps.polar = polarTargets[1];
-                        }
-
-                        return <Teaser {...article} {...teaserProps} {...polarProps} key={article.id} />;
-                    })}
-                    <Ad
-                        className="ad--section-mrec teaser"
-                        displayFor="medium"
-                        sizes={{
-                            medium: 'mrec'
-                        }}
-                        label={{ active: false }}
-                        pageLocation={Ad.pos.body}
-                    />
-                </div>
+                <div className="row">{this.renderSearchBar()} </div>
+                <div className="row">{this.renderHeroTeaser()}</div>
+                <div className="row">{this.renderTeaserGrid()}</div>
             </section>
         );
     }

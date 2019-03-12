@@ -65,7 +65,13 @@ describe('Brand Featured', () => {
         });
 
         it(`should render the hero as the 1st hero teaser`, () => {
-            const heroProps = { ...heroMock, modifier: 'hero', gtmClass: 'gtm-hero-brand', sizes: 'home-hero' };
+            const heroProps = {
+                ...heroMock,
+                modifier: 'hero',
+                gtmClass: 'gtm-hero-brand',
+                sizes: 'home-hero',
+                className: 'brand-section__hero-teaser columns small-12'
+            };
             expect(hero.props).to.deep.equal(heroProps);
         });
 
@@ -76,32 +82,65 @@ describe('Brand Featured', () => {
         };
 
         it(`should render the 1st article as the 1st teaser with polar index of 0`, () => {
-            const teaserProps = { ...articlesMock[0], ...componentData, polar: { index: 0 } };
+            const teaserProps = {
+                ...articlesMock[0],
+                ...componentData,
+                polar: { index: 0 },
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__polar-teaser'
+            };
+
             expect(teasers[0].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 2nd article as the 2nd teaser`, () => {
-            const teaserProps = { ...articlesMock[1], ...componentData, polar: false };
+            const teaserProps = {
+                ...articlesMock[1],
+                ...componentData,
+                polar: false,
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
+            };
             expect(teasers[1].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 3rd article as the 3rd teaser`, () => {
-            const teaserProps = { ...articlesMock[2], ...componentData, polar: false };
+            const teaserProps = {
+                ...articlesMock[2],
+                ...componentData,
+                polar: false,
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
+            };
+
             expect(teasers[2].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 4th article as the 4th teaser`, () => {
-            const teaserProps = { ...articlesMock[3], ...componentData, polar: false };
+            const teaserProps = {
+                ...articlesMock[3],
+                ...componentData,
+                polar: false,
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
+            };
             expect(teasers[3].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 5th article as the 5th teaser`, () => {
-            const teaserProps = { ...articlesMock[4], ...componentData, polar: false };
+            const teaserProps = {
+                ...articlesMock[4],
+                ...componentData,
+                polar: false,
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
+            };
+
             expect(teasers[4].props).to.deep.equal(teaserProps);
         });
 
         it(`should render the 6th article as the 6nd teaser with polar index 5`, () => {
-            const teaserProps = { ...articlesMock[5], ...componentData, polar: { index: 5 } };
+            const teaserProps = {
+                ...articlesMock[5],
+                ...componentData,
+                polar: { index: 5 },
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__polar-teaser'
+            };
             expect(teasers[5].props).to.deep.equal(teaserProps);
         });
 

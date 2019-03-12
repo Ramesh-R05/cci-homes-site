@@ -1,7 +1,3 @@
-$custom-medium-only: '#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width: 890px)' !default;
-$custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width: 1215px)' !default;
-
-
 .header-nav {
     display: none;
     transition: width $transition-duration;
@@ -11,7 +7,7 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
         display: flex;
     }
 
-    nav {
+    &__nav {
         display: inline-block;
         margin-left: 0;
         transform: translate(0, 0);
@@ -23,29 +19,30 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
 
     a, span {
         @include type-header;
-        color: $color-white;
+        font-weight: 600;
+        color: $color-dark-green;
         display: none;
         padding: 0 15px;
         position: relative;
-        line-height: 10px;
 
         @media #{$medium-only} {
-            @include type-header;
-            padding: 0 5px;
-            color: $color-white;
-            font-size: 80%;
+            &:nth-child(-n+5) {
+                display: inline-block;
+                font-size: 13px;
+                padding: 0 5px;
+            }
         }
 
         @media #{$large-up} {
-            display: inline-block;
+            display: inline;
         }
 
         &:active,
         &:focus,
         &:hover,
         &.nav-item--active {
-            color: $color-grey-darker;
-            text-decoration-color: $color-grey-darker;
+            color: $color-secondary-light;
+            text-decoration-color: $color-secondary-light;
         }
     }
 
@@ -61,32 +58,20 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
                 transition: visibility 0s linear 0s, opacity 0s linear;
             }
             .tl-icon-drop-menu:before {
-                border-top-color: $color-grey-darker;
+                border-top-color: $color-secondary-light;
             }
             span {
-                color: $color-grey-darker;
+                color: $color-secondary-light;
             }
         }
 
         a {
             .tl-icon-drop-menu {
-                color: $color-white;
-
-                &:before {
-                    // This creates a white triangle that points downwards
-                    border: 5px solid transparent;
-                    border-top: 8px;
-                    border-top-color: inherit;
-                    border-top-style: solid;
-                    content: '';
-                    display: inline-block;
-                    margin: 0 0 -4px 5px;
-                    width: 0;
-                }
+                color: $color-dark-green;
             }
 
             &:hover {
-                color: $color-grey-darker;
+                color: $color-secondary-light;
             }
 
             &:first-child:before {
@@ -101,11 +86,12 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
             transition: visibility 0s linear 0s, opacity 0s linear;
             position: absolute;
             z-index: 1500;
-            background-color: $color-primary;
+            background-color: $color-white;
+            border: 1px solid $color-light-grey;
             list-style-type: none;
             padding: 15px;
             left: 0;
-            top: 20px; // Distance from bottom of nav item to top of sub-nav drop-down
+            top: 16px; // Distance from bottom of nav item to top of sub-nav drop-down
             width: 130px;
             text-align: center;
             white-space: normal;
@@ -130,47 +116,16 @@ $custom-large-only: '#{$screen} and (min-width:#{lower-bound($large-range)}) and
                     float: none;
                     padding: 5px 0;
                     display: block;
-                    color: $color-grey-lighter;
+                    color: $color-dark-green;
                     line-height: 22px;
 
                     &:hover {
-                        color: $color-grey-darker;
+                        color: $color-secondary-light;
                     }
 
                     &:first-child:before {
                         opacity: 0 !important;
                     }
-                }
-            }
-        }
-    }
-}
-
-// Using custom breakpoints as design wants to adjust nav when it can no longer fit all nav items
-
-.header {
-
-    .header-menu {
-        @media #{$custom-medium-only} {
-            padding-right: 3px;
-        }
-    }
-
-    .header-nav {
-        @media #{$custom-medium-only} {
-            a {
-                font-size: 80%;
-            }
-        }
-
-        a:first-child:before {
-            opacity: 0;
-        }
-
-        .header-sub-nav {
-            a {
-                &:first-child:before {
-                    opacity: 1;
                 }
             }
         }

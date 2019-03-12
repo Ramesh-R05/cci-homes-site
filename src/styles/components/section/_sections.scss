@@ -1,8 +1,6 @@
 .section {
 
     &__landing {
-        @include teaser-hide-secondary-tag;
-
         background: $color-white;
         padding-top: 0;
         max-width: 1024px;
@@ -17,140 +15,91 @@
     &__heading {
         max-width: 1024px;        
         margin: 0 auto;
-        padding-top: ($header-height-small + 16px);
+        padding-top: $header-banner-height-mobile;
         
         @media #{$medium-up} {
-            padding-top: ($header-height-desktop + 16px);
+            padding-top: 230px;
         }        
+    }
 
-        &__title {
-            position: relative;
-            z-index: $z-index-1;
-            background: $color-white;
+    &__heading-title {
+        position: relative;
+        z-index: $z-index-1;
+        background: $color-white;
+
+        @media #{$large-up} {
+            
+            padding: {
+                top: 10px;
+                left: $column-gutter/2;
+                bottom: 55px;
+                right: $column-gutter/2;                    
+            };                
+        }
+
+        h1 {
+            @include type-section-heading;
+            margin-top: 20px;
+            margin-bottom: 22px;
+
+            @media #{$medium-only} {
+                max-width: 1024px;
+                margin: 0 auto 25px;
+            }
 
             @media #{$large-up} {
-                
-                padding: {
-                    top: 10px;
-                    left: $column-gutter/2;
-                    bottom: 55px;
-                    right: $column-gutter/2;                    
-                };                
-            }
-
-            h1 {
-                @include type-section-heading;
-                margin-bottom: 22px;
-
-                @media #{$medium-only} {
-                    max-width: 1024px;
-                    margin: 0 auto 25px;
-                }
+                margin: 0 auto;
             }
         }
     }
-
-    &__row {
-        @include grid-row();
-        background: $color-white;
-        position: relative;
-    }
-
+    
     &__featured {
         background: $color-white;
-        border-right: 1px solid $color-section-separator;
-
-        @media #{$medium} {
-            padding: 0 $column-gutter/2;
-        }
 
         @media #{$large-up} {
             @include grid-column(8);
         }
+    }
 
-        .teaser {
+    &__hero-teaser {
+        @include grid-column(12);
+        display: inline-block;
+        margin-bottom: 30px;
+    }
 
-            &.teaser--hero {
-                margin-bottom: 20px;
-                width: auto;
+    &__grid-item {
+        @media #{$medium-up} {
+            @include clear-left(even);
+        }
 
-                @media #{$medium-up} {
-                    margin-bottom: 30px;
-                    padding-left: 0;
-                    padding-right: 0;
+        @media #{$large-up} {
+            @include clear-left(odd);
+        }
 
-                    .teaser__content {
-                        bottom: 30px;
-                        padding-bottom: 10px;
-                    }
-                }
-
-                .teaser__summary {
-                    display: inline;
-                }
-
-                .teaser__source {
-                    display: none;
-                }
-
-                @media #{$large-up} {
-                    .teaser__title {
-                        font-size: 18px;
-                        letter-spacing: normal;
-                        margin-bottom: 20px;
-                    }
-                    .teaser__summary {
-                        display: none;
-                    }
-                }
-            }
-
-            &--polar {
-
-                img {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    max-width: none;
-                }
-
-                a {
-                    height: 0;
-                    padding-bottom: 83%;
-                    overflow: hidden;
-                }
-
-                &.polar--horizontal {
-
-                    img {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        height: 100%;
-                        width: initial;
-                        max-height: none;
-                    }
-                }
-
-            }
-
-            @media #{$medium-up} {
-                @include grid-column(6);
-
-                &:nth-child(odd) {
-                    padding-left: 0;
-                    clear: both;
-                }
-                &:nth-child(even) {
-                    padding-right: 0;
-                }
-            }
-
-            &__source {
-                display: block;
+        @media #{$medium-only} {
+            &:last-child {
+                clear: none;
             }
         }
+    }
+    
+    &__grid-teaser {
+        @include teaser-img-top;
+        @include teaser-hide-summary;
+    }
+
+    &__grid-ad {
+        @include grid-column(12);
+
+        @media #{$medium-up} {
+            @include grid-column(6);
+        }
+    }
+
+    &__polar-teaser {
+        @media #{$medium-up} {            
+            @include grid-column(6);
+        }            
     }
 
     &__middle {
@@ -159,102 +108,45 @@
         }
     }
 
-    &__list {
-        border-right: 1px solid $color-section-separator;
+    //&__list {
+    //
+    //    .columns {
+    //
+    //
+    //        @media #{$medium-up} {
+    //
+    //        }
+    //
+    //        @media #{$large-up} {
+    //            padding-left: 15px;
+    //            padding-right: 15px;
+    //        }
+    //    }
+    //}
 
-        @media #{$medium} {
-            padding: 0 $column-gutter/2;
+    &__list-teaser {
+        @include teaser-img-top;
+        @include teaser-hide-summary;
+        padding-left: 0;
+        padding-right: 0;
+        
+        @media #{$medium-up} {
+            @include teaser-show-source;
+            @include clear-left(odd);
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         @media #{$large-up} {
-            @include grid-column(8);
+            @include teaser-img-left;            
         }
 
-        .teaser {
-
-            &--polar {
-
-                img {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    max-width: none;
-                }
-
-                a {
-                    height: 0;
-                    padding-bottom: 41.7%;
-                    overflow: hidden;
-                }
-
-                &.polar--horizontal {
-
-                    img {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        height: 100%;
-                        width: initial;
-                        max-height: none;
-                    }
-                }
-            }
-
-            @include teaser-img-top;
-
-            .teaser {
-                &__source {
-                    display: block;
-                }
-            }
-
-            @media #{$medium-only} {
-                @include grid-column(6);
-            }
+        .teaser__content {
+            padding-top: 15px;
 
             @media #{$large-up} {
-                @include teaser-img-left;
-
-                .teaser {
-                    &__content {
-                        text-align: left;
-                        padding-top: 0;
-                        margin-top: -3px;
-                    }
-
-                    &__summary {
-                        display: block;
-                    }
-
-                    &__source {
-                        display: block;
-                    }
-                }
+                padding-top: 0;
             }
-
-            &:nth-child(odd) {
-                @media #{$medium-only} {
-                    clear: both;
-                }
-            }
-
-            &:nth-child(even) {
-                @media #{$large-up} {
-                    clear: both;
-                }
-            }
-
         }
-    }
-
-    &__rail {
-        background: $color-white;
-        display: none;
-
-        @media #{$large-up} {
-            display: block;
-            @include grid-column(4);
-        }
-    }
+    }    
 }

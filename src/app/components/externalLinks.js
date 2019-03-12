@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import SocialIcons from './social/socialIcons';
+import SocialIcon from '@bxm/social/lib/components/socialIcons/socialIcon';
 export default class ExternalLinks extends Component {
     static displayName = 'ExternalLinks';
 
@@ -54,7 +54,7 @@ export default class ExternalLinks extends Component {
                         {connectLinks.map((link, i) => {
                             const key = `social-links-${i}`;
 
-                            return <SocialIcons key={key} {...link} {...this.props} />;
+                            return <SocialIcon key={key} {...link} {...this.props} />;
                         })}
                     </div>
                 </div>

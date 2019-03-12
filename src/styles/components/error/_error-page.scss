@@ -2,14 +2,14 @@
     @include grid-row;
 
     padding: {
-        bottom: 90px;
-        top: 60px;
+        bottom: 120px;
+        top: 180px;
     }
 
     @media #{$medium-up} {
         padding: {
-            bottom: 60px;
-            top: 60px;
+            bottom: 200px;
+            top: 300px
         }
     }
 
@@ -27,9 +27,47 @@
 
     &__footer {
         margin-top: 30px;
+        font-family: $font-family-sans-serif-primary;
+        color: $color-primary;
 
         @media #{$small-only} {
             font-size: 14px;
         }
+    }
+}
+
+.default-template--unknown {
+    // TODO - Clean this up and add a proper error class to the page template
+
+    .header__sections {
+        display: none;
+    }
+
+    .buy-magazines {
+        display: none;
+    }
+
+    .social-links--in-header-banner {
+        display: none;
+    }
+
+    .header-banner {
+
+        &__inner {
+            text-align: center !important;
+            padding: 35px 85px;
+        }
+
+        .icon-logo {
+            font-size: 60px;
+
+            @media #{$medium-up} {
+                font-size: 105px;
+            }
+        }
+    }
+
+    .header--expanded.header--pinned:not(.header--hidden) .header-banner {
+        display: block;
     }
 }

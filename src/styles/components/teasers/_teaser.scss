@@ -1,30 +1,71 @@
+/* 
+========== How this file works ===========
+    due to the dynamic nature of our teasers, 
+    we need a solution that lets us adapt the ui to different breakpoints
+    extending classes isn't possible within media queries, 
+    so each modifier has a mixin atatched so it's possible 
+    to shift the style of the teaser based on where it's used.
+
+    any modifier applied to .teaser needs to have an associated mixin for this purpose.
+============================================
+
+    ie:
+    
+    .some-page {
+        .some-page__teaser {
+            @include teaser-img-left;
+            
+            @media #{$medium-up} {
+                @include teaser-img-top;
+                @include teaser-hide-details;
+            }
+        }
+    
+    }
+*/
+
+
+
+
 // ---------------------------------------------------- teaser mixins
 
-@mixin teaser-hide-details {
+@mixin teaser-hide-details($root: '.teaser') {
     .tag-separator,
     .tag-secondary,
-    .teaser__summary,
-    .teaser__source {
+    #{$root}__summary,
+    #{$root}__source {
         display: none;
     }
 }
 
-@mixin teaser-hide-secondary-tag {
+@mixin teaser-hide-secondary-tag($root: '.teaser') {
     .tag-separator,
     .tag-secondary {
         display: none;
     }
 }
 
-@mixin teaser-show-secondary-tag {
+@mixin teaser-hide-source($root: '.teaser') {
+    #{$root}__source {
+        display: none;
+    }
+}
+
+@mixin teaser-hide-summary($root: '.teaser') {
+    #{$root}__summary {
+        display: none;
+    }
+}
+
+@mixin teaser-show-secondary-tag($root: '.teaser') {
     .tag-separator,
     .tag-secondary {
         display: inline;
     }
 }
 
-@mixin teaser-title-config {
-    .teaser__title {
+@mixin teaser-title-config($root: '.teaser') {
+    #{$root}__title {
         @include type-hero-title;
 
         @media #{$medium-up} {
@@ -33,91 +74,106 @@
     }
 }
 
-@mixin teaser-show-summary-source {
-    .teaser__summary,
-    .teaser__source {
+@mixin teaser-brand-title-config($root: '.teaser') {
+    #{$root}__title {
+        @include type-hero-title;
+
+        @media #{$medium-up} {
+            @include type-brand-small-teaser-title;
+        }
+    }
+}
+
+@mixin teaser-show-summary-source($root: '.teaser') {
+    #{$root}__summary,
+    #{$root}__source {
         display: block;
     }
 }
 
-@mixin teaser-hide-summary-source {
-    .teaser__summary,
-    .teaser__source {
-        display: none;
-    }
-}
-
-@mixin teaser-show-source {
-    .teaser__source {
+@mixin teaser-show-source($root: '.teaser') {
+    #{$root}__source {
         display: inline;
     }
 }
 
-@mixin teaser-hide-source {
-    .teaser__source {
-        display: none;
-    }
-}
-
-@mixin teaser-show-summary {
-    .teaser__summary {
+@mixin teaser-show-summary($root: '.teaser') {
+    #{$root}__summary {
         display: inline;
     }
 }
 
-@mixin teaser-hide-summary {
-    .teaser__summary {
+@mixin teaser-img-left($root: '.teaser') {    
+    .tag-separator,
+    .tag-secondary {
         display: none;
     }
-}
 
-@mixin teaser-img-left {
-    @include teaser-hide-details;
-
-    .teaser__image,
-    .teaser__content {
+    #{$root}__image,
+    #{$root}__content {
         display: inline-block;
         vertical-align: top;
         width: 50%;
     }
 
-    .teaser__content {
+    #{$root}__content {
         padding-left: $column-gutter / 2;
     }
 
-    .teaser__tags {
+    #{$root}__tags {
         margin-bottom: 5px;
     }
 }
 
-@mixin teaser-img-top {
-    @include teaser-hide-details;
+@mixin teaser-img-top($root: '.teaser') {
+    padding-left: 0;
+    padding-right: 0;
 
-    .teaser__image,
-    .teaser__content {
+    @media #{$medium-up} {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    #{$root}__source {
+        margin-left: 0;
+    }
+
+    #{$root}__content {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 20px;
+
+        @media #{$medium-up} {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 15px;
+        }
+    }
+
+    .tag-separator,
+    .tag-secondary {
+        display: none;
+    }
+
+    #{$root}__image,
+    #{$root}__content {
         display: block;
         width: 100%;
         text-align: center;
-    }
+    }    
 
-    .teaser__content {
-        padding-left: 0;
-        padding-top: 10px;
-    }
-
-    .teaser__tags {
+    #{$root}__tags {
         margin-bottom: 5px;
     }
 }
 
-@mixin teaser-tag-over-img {
-
-    .teaser__image {
+@mixin teaser-tag-over-img($root: '.teaser') {
+    #{$root}__image {
         width: auto;
         z-index: $z-index--teaser-image;
     }
 
-    .teaser__content {
+    #{$root}__content {
         background: $color-white;
         padding: 0 20px 25px;
         text-align: center;
@@ -125,43 +181,72 @@
         z-index: $z-index--teaser-content;
     }
 
-    .teaser__tags {
+    #{$root}__tags {
         background: $color-white;
         display: inline-block;
         margin: 11px 0 10px;
     }
 }
 
-@mixin teaser-hero {
-    margin-bottom: 10px;
-    overflow: hidden;
+@mixin teaser-hero($root: '.teaser') {
+    margin-bottom: 30px;
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
 
-    .teaser__title {
+    @media #{$large-up} {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #{$root}__brand-image {
+        display: none;
+        
         @media #{$medium-up} {
-            margin-bottom: 20px;
+            display: block;
+            max-height: 25px;
+            max-width: 85px;
+            margin: 10px;
+            filter: brightness(0) invert(1);
+        }                    
+    }
+
+    #{$root}__title {
+        @include type-hero-title;
+        padding: 5px 10px;
+        font-weight: bold;
+        font-size: 18px;
+
+        @media #{$medium-up} {
+            @include type-small-teaser-title;
         }
     }
 
-    .teaser__content {
-        @media #{$medium-up} {
-            background: $color-white;
-            bottom: 40px;
-            margin: 0 $column-gutter * 4;
-            position: absolute;
-            padding: {
-                bottom: 0px;
-                top: 15px;
-            }
+    #{$root}__content {
+        background: $color-white;
+        position: absolute;
+        bottom: 6px;
+        width: 94%;
+        right: 3%;
+        min-height: 60px;
+        z-index: $z-index--teaser-content;
+
+        @media #{$medium-up} {                
+            width: 76%;
+            padding: 15px;
+            left: 8%;
+            bottom: 6px;
             text-align: center;
+        }
 
-            .teaser__source,
-            .teaser__summary {
-                display: none;
-            }
+        @media #{$large-up} {
+            width: 75%;
+            left: 4%;
+            bottom: 10px;
         }
     }
 
-    .teaser__tags {
+    #{$root}__tags {
         @media #{$medium-up} {
             margin-bottom: 6px;
             margin-top: 0;
@@ -169,14 +254,12 @@
         }
     }
 
-    .teaser__summary {
-        @include type-hero-summary;
+    #{$root}__summary {
+        display: none;
     }
 
-    .teaser__source {
-        @media #{$medium-up} {
-            display: none;
-        }
+    #{$root}__source {
+        display: none;
     }
 
     .tag-separator,
@@ -187,83 +270,89 @@
     @media #{$xlarge-up} {
         margin-bottom: $column-gutter * 2;
     }
+    
+    .hero__background {
+        background-color: $color-darker-green;
+        width: 90%;
+        position: absolute;        
+        right: 0;
+        bottom: -6px;
+        max-height: 66px;
+        height: 100%;
+        z-index: $z-index--hero-background;
+
+        @media #{$medium-up} {
+            height: 100%;
+            width: 86%;
+            max-height: 45px;
+            right: 0;
+            bottom: -6px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        @media #{$large-up} {
+            height: 100%;
+            max-height: 45px;
+            bottom: -10px;
+            right: 5px;
+        }            
+    }
 }
 
-// Hero content partially over the img
-@mixin teaser-half-hero {
-
-    .teaser__content {
-        margin-bottom: -80px;
-        padding-top: 0;
-        top: -65px;
+@mixin teaser-narrow($root: '.teaser') {
+    
+    #{$root}__image {
+        width: auto;
+        z-index: $z-index--teaser-image;
     }
 
-    .teaser__tags {
+    #{$root}__content {
+        background: $color-white;
+        padding: 0 20px 25px;
+        text-align: center;
+        width: auto;
+        z-index: $z-index--teaser-content;
+    }
+
+    #{$root}__tags {
         background: $color-white;
         display: inline-block;
-        margin: -50px 0 10px;
-        padding: 15px 25px 0;
+        margin: 11px 0 10px;
     }
-
-    .teaser__summary {
-        display: none;
-    }
-}
-
-@mixin teaser-small-hero {
-    @include teaser-hero;
-
-    .teaser__content {
-        bottom: $column-gutter;
-        margin: 0 $column-gutter * 3 0 $column-gutter * 2;
-        padding-bottom: 0;
-        padding-top: 0;
-        width: calc(100% - #{$column-gutter * 5});
-    }
-
-    .teaser__tags {
-        background: $color-white;
-        display: inline-block;
-        margin: -10px 0 13px;
-        padding: 15px 25px 0;
-    }
-}
-
-@mixin teaser-narrow {
-    @include teaser-tag-over-img;
 
     @media #{$medium-up} {
         margin-bottom: 40px;
     }
 
-    .teaser__image {
+    #{$root}__image {
         display: block;
         max-height: 160px;
         overflow: hidden;
     }
 
-    .teaser__title {
-        @include type-xsmall-teaser-title;
+    #{$root}__title {
+        @include type-stacked-small-teaser-title;
 
         @media #{$medium-up} {
-            @include type-small-teaser-title;
+            @include type-stacked-small-teaser-title;
         }
 
         @media #{$xlarge-up} {
-            @include type-teaser-title;
+            @include type-stacked-teaser-title;
         }
     }
 
-    .teaser__tags {
+    #{$root}__tags {
         margin-bottom: 8px;
     }
 
-    .teaser__content {
+    #{$root}__content {
         padding-bottom: 0;
     }
 
-    .teaser__summary,
-    .teaser__source {
+    #{$root}__summary,
+    #{$root}__source {
         display: none;
     }
 
@@ -277,11 +366,49 @@
     }
 }
 
-// ---------------------------------------------------- classes
+@mixin teaser-native($root: '.teaser') {
+    #{$root}__icon svg {
+        fill: $color-grey-dark;
+    }
+
+    #{$root}__tags {
+        color: $color-grey-dark;
+    }
+}
+
+@mixin teaser-polar($root: '.polar') {
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: none;
+    }
+
+    a {
+        height: 0;
+        padding-bottom: 83%;
+        overflow: hidden;
+    }
+
+    &.polar--horizontal {
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            width: initial;
+            max-height: none;
+        }
+    }
+}
+
+
+/* .teaser base class */
 
 .teaser {
-
-    // ---------------------------------------------------- defaults
+    $root: &;
     margin-bottom: 20px;
     position: relative;
 
@@ -315,12 +442,11 @@
     }
 
     &__title {
-
         @include type-xsmall-teaser-title;
-        margin-bottom: 7px;
+        margin-bottom: 10px;
 
         a { 
-            color: $color-black;
+            color: $color-black-origin;
             text-decoration: none;
             transition: color .1s ease-in;
 
@@ -331,7 +457,7 @@
         }
 
         @media #{$medium-up} {
-            margin-bottom: 5px;
+            margin-bottom: 12px;
         }
 
     }
@@ -350,44 +476,63 @@
         line-height: 2;
     }
 
-    // ---------------------------------------------------- img left
+    &__source-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__source-image {
+        max-height: 15px;
+        max-width: 85px;
+    }
+
+    &__source-timestamp {
+        font-size: 10px;
+        font-weight: 400;
+        font-family: $font-family-sans-serif-secondary;
+        color: $color-grey-light-level-1;
+        vertical-align: middle;
+        margin: 0 5px;
+    }
+
+    // modifiers
+
     &--img-left {
         @include teaser-img-left;
     }
 
-    // ---------------------------------------------------- img top
     &--img-top {
         @include teaser-img-top;
     }
 
-
-    // ---------------------------------------------------- hero
     &--hero {
-        @include teaser-tag-over-img;
         @include teaser-hero;
-
-        .teaser__title {
-            @include type-hero-title;
-        }
     }
 
     &--hero-img-top {
         @include teaser-img-top;
     }
 
-    // ---------------------------------------------------- narrow
     &--narrow {
         @include teaser-narrow;
     }
 
-    // ---------------------------------------------------- polar native
     &--native {
-        .teaser__icon svg {
-            fill: $color-grey-dark;
-        }
+        @include teaser-native;
+    }
 
-        .teaser__tags {
-            color: $color-grey-dark;
-        }
+    &--polar {
+        @include teaser-polar;
+    }
+
+    &--hide-source {        
+        @include teaser-hide-source;        
+    }
+
+    &--hide-summary {
+        @include teaser-hide-summary;       
     }
 }
+
+

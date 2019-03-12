@@ -7,7 +7,6 @@
 
     h2 {
         @include grid-column(12);
-        @include type-composite;
         @include type-underlined;
 
         @media #{$large-up} {

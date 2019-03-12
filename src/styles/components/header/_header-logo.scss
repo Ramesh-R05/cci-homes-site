@@ -1,6 +1,6 @@
 .header-logo {   
     text-align: center;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     display: flex;
 
     &__link-image {
@@ -17,19 +17,28 @@
     &:hover {
            opacity: 0.75;
         }
-
     }
 
     .icon-logo {
-        color: #fff !important;
-        font-size: 27px;
-        line-height: 32px;    
-        margin-left: 15px;
+        color: $color-primary;
+
+        &:before {
+            content: "\e900";
+        }
+
+        @media #{$small-only} {
+            font-size: 30px;
+            line-height: 32px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
             
         @media #{$medium-up} {
+            position: static;
             margin-left: 30px;
             font-size: 27px;
-            line-height: 25px;
+            line-height: 27px;
         }
     }
 }

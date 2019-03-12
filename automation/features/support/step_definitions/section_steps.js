@@ -18,7 +18,6 @@ module.exports = function(){
         for(var i=0; i<topTeaserTagsUrls.length; i++) {
             expect(topTeaserTagsUrls[i]).not.toBeUndefined();
             expect(topTeaserTagsUrls[i]).toContain(world.Urls.home_page);
-            console.log("top teaser Source URLs are: " + '\n' + topTeaserTagsUrls[i]);
         }
     });
 
@@ -31,8 +30,10 @@ module.exports = function(){
 
     //Load More content
     this.Then(/^I should see extra (\d+) teasers after loading more$/, function (teaserCount) {
-        var extraTeasers = browser.elements(sectionPage.sectionRepeatableSectionTeaserAfterLoadMore).value.length;
-        expect(extraTeasers).toEqual(parseInt(teaserCount),10);
+        const { sectionRepeatableSectionTeaserAfterLoadMore } = sectionPage;
+        
+        const extraTeasers = browser.$$(sectionRepeatableSectionTeaserAfterLoadMore);
+        expect(extraTeasers.length).toEqual(parseInt(teaserCount), 10);
     });
 
     this.Then(/^I should see the custom masthead appearing on top of the section page$/, function () {

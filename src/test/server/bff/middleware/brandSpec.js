@@ -3,7 +3,7 @@ noCallThru();
 import entityStubData from '../../../../stubs/entity-belle';
 import heroStubData from '../../../../stubs/module-bellehero';
 import itemsStubData from '../../../../stubs/listings-belle';
-import brands from '../../../../app/config/brands';
+import siteBrands from '../../../../app/config/siteBrands';
 
 const getLatestTeasersStub = sinon.stub();
 const parseEntityStub = sinon.stub();
@@ -69,7 +69,7 @@ describe('brand middleware', () => {
             locals: {
                 config: {
                     brands: {
-                        uniheader: brands
+                        site: siteBrands
                     },
                     services: {
                         remote: {
@@ -83,7 +83,7 @@ describe('brand middleware', () => {
     };
     const res = {};
     const next = () => {};
-    const expectedBrand = brands.find(item => item.title === entityStubData.articleSource);
+    const expectedBrand = siteBrands.find(item => item.title === entityStubData.articleSource);
     const expectedHeroModuleName = `${expectedBrand.id}hero`;
 
     describe(`when receiving data`, () => {

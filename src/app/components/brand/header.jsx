@@ -35,7 +35,7 @@ export default class Header extends Component {
 
         return (
             <div className="section__heading">
-                <div className="section__heading__ad">
+                <div className="section__heading-ad">
                     <StickyAd
                         adProps={stickyAdProps}
                         minHeight={450}
@@ -45,9 +45,9 @@ export default class Header extends Component {
                         stickyDuration={3500}
                     />
                 </div>
-                <div className="brand__wrapper">
-                    <h1 className="brand__logo">
-                        <img className="brand__logo-image" src={logo} alt={title} />
+                <div className="brand-section__header-logo">
+                    <h1 className="brand-section__logo-wrapper">
+                        <img className="brand-section__logo-image" src={logo} alt={title} />
                     </h1>
                 </div>
             </div>

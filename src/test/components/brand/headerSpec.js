@@ -46,18 +46,18 @@ describe('Brand Header', () => {
         });
 
         it(`should render 1 brand logo`, () => {
-            expect(wrapper.find('.brand__logo').exists()).to.be.true;
+            expect(wrapper.find('.brand-section__header-logo').exists()).to.be.true;
         });
 
         it(`should render the logo image`, () => {
-            expect(wrapper.find('.brand__logo-image').exists()).to.be.true;
+            expect(wrapper.find('.brand-section__logo-image').exists()).to.be.true;
         });
 
         it(`should pass the correct props to the logo image`, () => {
-            expect(wrapper.find('.brand__logo-image').props()).to.deep.eq({
+            expect(wrapper.find('.brand-section__logo-image').props()).to.deep.eq({
                 src: testProps.logo,
                 alt: testProps.title,
-                className: 'brand__logo-image'
+                className: 'brand-section__logo-image'
             });
         });
 

@@ -1,0 +1,5 @@
+.brand-logo {
+  &--button {
+    @include flat-button;
+  }
+}

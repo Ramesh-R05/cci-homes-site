@@ -1,35 +1,51 @@
 import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
+
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
 const LinkStub = Context.createStubComponentWithChildren();
-const proxyquire = require('proxyquire').noCallThru();
+const getStub = sinon.stub();
+noCallThru();
+
 const Source = proxyquire('../../../app/components/teaser/source', {
     react: React,
     '../brand/link': LinkStub
 });
 
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        get: getStub
+    }
+};
+
 describe('TeaserSource', () => {
     let reactModule;
 
     describe('with the source prop', () => {
-        const sourceValue = 'Homes+';
+        const sourceValue = 'Country Style';
+        const sourceLogoPath = 'countrystyle.svg';
+        getStub.withArgs(`article.sources.${sourceValue.toLowerCase()}.logo`).returns(sourceLogoPath);
         let link;
         let source;
         let svg;
+        let brandImage;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Source source={sourceValue} />);
+            reactModule = Context.mountComponent(Source, { source: sourceValue }, [contextConfigStub]);
             link = TestUtils.findRenderedComponentWithType(reactModule, LinkStub);
             svg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'icon-source');
             source = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'teaser__source');
+            brandImage = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'teaser__source-image');
         });
 
-        it(`should have the source text equal to '${sourceValue}'`, () => {
-            expect(ReactDOM.findDOMNode(source).textContent.replace(/(\n|\s)/g, '')).to.equal(sourceValue);
+        it(`should have the source image equal to the source prop'`, () => {
+            expect(ReactDOM.findDOMNode(brandImage).getAttribute('alt')).to.equal(sourceValue);
+            expect(ReactDOM.findDOMNode(brandImage).getAttribute('src')).to.equal('/assets/images/source/countrystyle.svg');
         });
 
         it('should render the icon', () => {
-            const icon = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'icon-source');
             expect(ReactDOM.findDOMNode(source)).to.exist;
         });
 
@@ -40,15 +56,13 @@ describe('TeaserSource', () => {
 
         it('should wrap the icon and source text inside the SourceLink component', () => {
             const linkSVG = TestUtils.findRenderedDOMComponentWithClass(link, 'icon-source');
-
             expect(linkSVG).to.deep.eq(svg);
-            expect(ReactDOM.findDOMNode(link).textContent.replace(/(\n|\s)/g, '')).to.equal(sourceValue);
         });
     });
 
     describe('without the source prop as an empty string', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Source source="" />);
+            reactModule = Context.mountComponent(Source, { source: '' }, [contextConfigStub]);
         });
 
         it('should not be rendered', () => {
@@ -58,7 +72,7 @@ describe('TeaserSource', () => {
 
     describe('without the source prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Source />);
+            reactModule = Context.mountComponent(Source, {}, [contextConfigStub]);
         });
 
         it('should not be rendered', () => {

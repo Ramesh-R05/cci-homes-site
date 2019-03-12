@@ -16,7 +16,7 @@ export default {
             image: '/assets/images/brand-pages/subscribe/real-living.jpg',
             link: 'https://www.magshop.com.au/store/homestolove'
         },
-        logo: '/assets/svgs/realliving_black.svg',
+        logo: '/assets/svgs/real-living.svg',
         social: {
             facebook: 'https://www.facebook.com/reallivingmagazine',
             twitter: 'https://twitter.com/reallivingmag',

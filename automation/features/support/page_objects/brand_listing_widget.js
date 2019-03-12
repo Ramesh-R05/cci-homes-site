@@ -1,5 +1,5 @@
 var brand_listing_widget = {
-    brandLogo: ".brand__logo img",
+    brandLogo: ".brand-section__logo-image",
     brandHeroTeaser: 'article.teaser--hero',
     brandArticle: "article.teaser:not(.teaser--hero)",
     brandArticleImg: ".brand-section li:nth-child(2) img",

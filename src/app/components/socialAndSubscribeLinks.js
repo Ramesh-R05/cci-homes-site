@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import SocialContainer from '@bxm/social/lib/components/socialIcons/socialContainer';
 import Magazine from './magazine';
 import Newsletter from './newsletter';
-import SocialContainer from './social/socialContainer';
 import getBrand from './brand/utilities/getBrand';
 
 export default class SocialAndSubscribeLinks extends Component {
@@ -30,9 +30,14 @@ export default class SocialAndSubscribeLinks extends Component {
                 <Newsletter content={content} />
 
                 {brand ? (
-                    <SocialContainer socialUrls={brand.social} title={brand.title} gtmClass={brand.gtmClass} nodeType={content.nodeType} />
+                    <SocialContainer socialUrls={brand.social} title="Follow us" classModifier="in-subscribe-sidebar" gtmClass={brand.gtmClass} />
                 ) : (
-                    <SocialContainer nodeType={content.nodeType} />
+                    <SocialContainer
+                        socialUrls={config.site.defaultSocialLinks}
+                        title="Follow us"
+                        classModifier="in-subscribe-sidebar"
+                        gtmClass="gtm-follow-social-in-subscribe-sidebar"
+                    />
                 )}
             </div>
         );

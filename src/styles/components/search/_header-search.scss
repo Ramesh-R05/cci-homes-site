@@ -1,14 +1,17 @@
 .header-search {
     $self: &;
     display: block;
-    padding: 12px 20px;
-    position: absolute;
-    right: 0;
+    padding: 5px 0;
+    position: relative;
+    margin: 0 18px 0 0;
 
     @media #{$medium-up} {
-        background-color: $color-primary;
-        margin: 0;
-        top: $header-height-desktop;
+        background-color: transparent;
+        top: 0;
+    }
+
+    @media #{$large-up} {
+        margin: 0 35px 0 0;
     }
 
     &__icon-container {
@@ -24,12 +27,12 @@
         margin-top: 10px;
 
         path {
-            fill: $color-white;
+            fill: $color-darker-blue;
         }
     }
 
     &__svg {
-        fill: $color-white;
+        fill: $color-darker-blue;
     }
 
     &__input {
@@ -82,20 +85,36 @@
         flex: 0 0 auto;
     }
 
-    &--is-open {
-        right: 314px;
-        background-color: $color-primary;
-        top: $header-height-small;
+    &::after {
+        content: '';
+        width: 1px;
+        height: 18px;
+        border-left: solid 1px #e5e5e5;
+        position: absolute;
+        left: 29px;
+        top: 15px;
 
-        @media #{$medium-up} {
-            right: 427px;
-            top: $header-height-desktop;
+        @media #{$large-up} {
+            left: 38px;
         }
+    }
+        
+    &--is-open {
+        right: 0;
+        background-color: transparent;
+        top: 0;
 
         #{$self}__input {
             display: block;
-            top: 0;
-            left: 57px;
+            // Workaround until the styling is refactored in future
+            top: $header-height-desktop - 1;
+        }
+
+        #{self}__icon {
+
+            path {
+                fill: $color-white;
+            }
         }
     }
 }

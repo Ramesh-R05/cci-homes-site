@@ -11,10 +11,8 @@ Feature: Brand Listing page
         * I should see the hero teaser
         * I should see a "top" feed item containing its image and clickable to open its page
         * I should see a "top" feed item containing its title and clickable to open its page
-        * I should see a "top" feed item containing its tag and clickable to open its page
         * I should see a "bottom" feed item containing its image and clickable to open its page
         * I should see a "bottom" feed item containing its title and clickable to open its page
-        * I should see a "bottom" feed item containing its tag and clickable to open its page
         When I click on the Load More button
         Then I should see extra 12 teasers after loading more
         @med

@@ -205,11 +205,11 @@ module.exports = function() {
     });
 
     this.Then(/^I should see each outside ad slot element containing proper class name$/, function (dataTable) {
-        var rows = dataTable.hashes();
-        var adElement;
-        for (var i = 0; i < rows.length; i++) {
-            var row = rows[i];
-            switch(row['ad']) {
+        const rows = dataTable.hashes();
+        let adElement;
+
+        rows.forEach(row => {            
+            switch(row.ad) {
                 case 'Top Leaderboard':
                     adElement = wn_ads.ad_TopLeaderboard;
                     break;
@@ -234,9 +234,10 @@ module.exports = function() {
                     adElement = wn_ads.ad_MrecUnderHeroTeaser_Brand;
                     break;
             }
-            var className = browser.getAttribute(adElement,'class');
+            
+            const className = browser.$(adElement).getAttribute('class');
             expect(className).toEqual(row['class-name']);
-        }
+        });
     });
 
     this.Then(/^I should see each body ad slot element containing proper class name$/, function (dataTable) {
@@ -267,11 +268,11 @@ module.exports = function() {
     });
 
     this.Then(/^I should see each RHS ad slot element containing proper class name$/, function (dataTable) {
-        var rows = dataTable.hashes();
-        var adElement;
-        for (var i = 0; i < rows.length; i++) {
-            var row = rows[i];
-            switch(row['ad']) {
+        const rows = dataTable.hashes();
+        let adElement;
+        
+        rows.forEach(row => {
+            switch(row.ad) {
                 case 'Top MREC RHS on Homepage':
                     adElement = wn_ads.ad_TopMrecRhs_Homepage;
                     break;
@@ -303,9 +304,11 @@ module.exports = function() {
                     adElement = wn_ads.ad_StickyMrecRhs;
                     break;
             }
-            var className = browser.getAttribute(adElement,'class');
+
+            const className = browser.$(adElement).getAttribute('class');
             expect(className).toEqual(row['class-name']);
-        }
+        })
+                
     });
 
     this.Then(/^I should see each additional ad slot element containing proper class name$/, function (dataTable) {
@@ -422,11 +425,11 @@ module.exports = function() {
     });
 
     this.Then(/^I should see each load more ad slot element containing proper class name on "([^"]*)"$/, function (device, dataTable) {
-        var rows = dataTable.hashes();
-        var adElement;
-        for (var i = 0; i < rows.length; i++) {
-            var row = rows[i];
-            switch (row['ad']) {
+        const rows = dataTable.hashes();
+        let adElement;
+        
+        rows.forEach(row => {
+            switch(row.ad) {
                 case 'Load More MREC RHS':
                     adElement = wn_ads.ad_LoadMoreMrecRhs;
                     break;
@@ -448,9 +451,11 @@ module.exports = function() {
                     }
                     break;
             }
-            var className = browser.getAttribute(adElement, 'class');
+           
+            const className = browser.$(adElement).getAttribute('className');
             expect(className).toEqual(row['class-name']);
-        }
+
+        });
     });
 
     this.Then(/^I can see last RHR ad is sticky$/, function () {
@@ -495,7 +500,6 @@ module.exports = function() {
             browser.scroll(adElement);
             browser.waitForVisible(adElement, 10000);
             first_googleId = browser.getAttribute(adElement, "data-google-query-id");
-            console.log(loopCount, first_googleId);
             loopCount++;
         }
         while (first_googleId === null && loopCount < 20); // to exist the loop if it does more than 20 times.
@@ -511,7 +515,6 @@ module.exports = function() {
             wait(1000);
             second_googleId = browser.getAttribute(adElement, "data-google-query-id");
         }
-        console.log('SecondID: ' + second_googleId);
 
         // verify if the ad is auto-refreshing
         switch(auto) {

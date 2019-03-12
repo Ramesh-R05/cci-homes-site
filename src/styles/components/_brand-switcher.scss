@@ -1,4 +1,6 @@
 .brand-switcher {
+    $root: &;
+
    &__list {
        display: flex;
        justify-content: space-between;
@@ -12,8 +14,44 @@
    &__img {
        height: 40px;
    }
-}
-.brand-logo--button {
-    border: none;
-    background: none;
+
+   &--inside-modal {
+       padding: 30px;
+
+        @media #{$medium-up} {
+            padding: 0;
+        }
+
+       #{$root}__list {
+            @include reset-list;
+            flex-wrap: no-wrap;
+            flex-direction: column;
+
+
+            @media #{$medium-up} {
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+       }
+
+       #{$root}__list-item {
+           display: flex;
+           justify-content: center;
+           margin: 15px;
+           
+           @media #{$medium-up} {
+             flex: 0 0 33.333333333333%;
+             margin: 60px 0;
+           }
+       }
+
+       #{$root}__img {
+        height: 30px;
+
+        @media #{$medium-up} {
+           height: 40px;
+          }
+       }
+   }
 }

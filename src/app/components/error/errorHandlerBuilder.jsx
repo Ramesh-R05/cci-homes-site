@@ -9,6 +9,10 @@ const codeMessages = {
     500: {
         title: 'Oh no! Something has gone wrong.',
         content: ['It seems the page you were trying to view is temporarily unavailable.', 'Please try again shortly.']
+    },
+    503: {
+        title: 'Oh no! Something has gone wrong.',
+        content: ['It seems the page you were trying to view is temporarily unavailable.', 'Please try again shortly.']
     }
 };
 
@@ -39,7 +43,7 @@ export default code =>
                     })}
                     <p className="error-page__footer">
                         <a href="/" className="error-page__homepage-link">
-                            Return to homepage
+                            Return to homepage.
                         </a>
                     </p>
                 </section>

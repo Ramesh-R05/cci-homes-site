@@ -7,25 +7,35 @@ Feature: Footer
     Scenario: Verify the footer elements on homepage
         Given I switch to "mobile portrait" view
         When I am currently viewing the homepage
-        * I can see the social logo in the footer
         * I can see the social icons clickable to open its page in the footer
             |social     |url                                        |
             |Facebook   |https://www.facebook.com/homestoloveau     |
             |Twitter    |https://twitter.com/homestoloveau          |
             |Instagram  |https://www.instagram.com/homestoloveau    |
             |Pinterest  |https://www.pinterest.com/homestoloveau    |
-        * I can see the brands title in the footer as "CONTENT SUPPORTED BY"
-        * I can navigate to all sites in the footer
+        * I can navigate to all brands in the footer
             |title                          |url                            |
             |Belle                          |/belle                         |
             |real living                    |/real-living                   |
             |Australian House and Garden    |/australian-house-and-garden   |
+            |Inside Out                     |/inside-out/                   |
+            |Country Style                  |/country-style/                |
+        * I can navigate to all network sites in the footer
+            |title                |url                                   |
+            |Now To Love          |https://www.nowtolove.com.au/         |
+            |Women's Weekly Food  |https://www.womensweeklyfood.com.au/  |
+            |Elle                 |https://www.elle.com.au/              |
+            |Harper's Bazaar      |https://www.harpersbazaar.com.au/     |
+            |Gourmet Traveller    |https://www.gourmettraveller.com.au/  |
+            |Dolly                |http://www.dolly.com.au/              |
+            |Beauty Heaven        |https://www.beautyheaven.com.au/      |
         * I can navigate to all standard pages in the footer
             |page           |url                                                            |
-            |PRIVACY POLICY |http://www.bauer-media.com.au/privacy                          |
-            |ADVERTISE      |http://www.bauer-media.com.au/advertising/advertise-with-us    |
-            |TERMS OF USE   |http://www.bauer-media.com.au/terms/website-terms              |
-        * I can see the standard copyright text in the footer as "COPYRIGHT BAUER MEDIA PTY LTD ALL RIGHTS RESERVED"
+            |Privacy Policy |http://www.bauer-media.com.au/privacy                          |
+            |Advertise      |http://www.bauer-media.com.au/advertising/advertise-with-us    |
+            |Terms of Use   |http://www.bauer-media.com.au/terms/website-terms              |
+            |Magshop        |https://www.magshop.com.au/                                    |
+        * I can see the standard copyright text in the footer as "© 2018 bauer media PTY LTD"
 
     @med
     Scenario Outline: Verify the footer appearing on the <page> page (Test on <device> view)

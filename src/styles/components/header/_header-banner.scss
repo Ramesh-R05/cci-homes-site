@@ -1,0 +1,33 @@
+.header-banner {
+  display: none;
+
+  @media #{$medium-up} {
+    position: relative;
+    display: block;
+    padding: 35px 0;
+    background: $color-white;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    padding: 0 68px;
+    text-align: center;
+
+    @media #{$medium-up} {
+        text-align: inherit;
+    }
+
+      @media #{$large-up} {
+          padding: 0 85px;
+      }
+  }
+
+    .icon-logo {
+        color: $color-primary;
+        font-size: 85px;
+
+        @media #{$medium-up} {
+          font-size: 105px;
+        }
+    }
+}

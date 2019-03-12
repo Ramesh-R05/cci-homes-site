@@ -1,0 +1,11 @@
+.buy-magazines {
+
+    &__link {
+        background: $color-secondary;
+
+        &:hover, &:focus {
+            background: $color-secondary-light;
+            color: $color-white;
+        }
+    }
+}

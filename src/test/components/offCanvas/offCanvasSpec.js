@@ -9,17 +9,15 @@ const { React } = Context;
 
 const MobileOffCanvasStub = Context.createStubComponent();
 const HamburgerNavStub = Context.createStubComponent();
-const OffCanvasLogosStub = Context.createStubComponent();
 
 const OffCanvas = proxyquire('../../../app/components/off-canvas/offCanvas', {
     react: React,
     '@bxm/nav/lib/components/offcanvas/content': MobileOffCanvasStub,
-    '@bxm/site-header/lib/components/hamburgerNav': HamburgerNavStub,
-    './offCanvasLogos': OffCanvasLogosStub
+    '@bxm/site-header/lib/components/hamburgerNav': HamburgerNavStub
 });
 
 const contextStub = {
-    config: { hamburgerBrands: Array.from(Array(3), (x, i) => `hamburger item ${i + 1}`) }
+    config: { brands: { network: Array.from(Array(3), (x, i) => `hamburger item ${i + 1}`) } }
 };
 
 const testWrapper = (testProps = {}) => shallow(<OffCanvas {...testProps} />, { context: contextStub });
@@ -81,17 +79,7 @@ describe('OffCanvas component', () => {
             });
         });
     });
-    describe('context', () => {
-        let wrapper;
 
-        before(() => {
-            wrapper = testWrapper();
-        });
-
-        it('passes hamburgerBrands from context as props to OffCanvasLogos', () => {
-            expect(wrapper.find(OffCanvasLogosStub).prop('logoList')).to.eq(contextStub.config.hamburgerBrands);
-        });
-    });
     describe('callBacks', () => {
         describe('toggleSideMenu', () => {
             let wrapper;

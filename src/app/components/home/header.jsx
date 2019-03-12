@@ -17,7 +17,7 @@ const HomeHeader = () => {
 
     return (
         <div className="section__heading">
-            <div className="section__heading__ad">
+            <div className="section__heading-ad">
                 <StickyAd
                     adProps={stickyAdProps}
                     minHeight={450}

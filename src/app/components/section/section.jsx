@@ -62,12 +62,12 @@ export default class Section extends Component {
         return (
             <div className="section__landing">
                 <div className="container">
-                    <div className="section__row">
+                    <div className="row">
                         <Featured articles={articles} polarTargets={sectionTopFeed} hero={hero} />
                         <Rail adPosition={1} marginBottom={60} yPosition={95} />
                     </div>
 
-                    <div className="section__row section__middle">
+                    <div className="row section__middle">
                         <Ad
                             className="ad--section-middle-leaderboard section__ad"
                             sizes={{
@@ -79,17 +79,15 @@ export default class Section extends Component {
                             pageLocation={Ad.pos.outside}
                         />
                     </div>
-                    <div className="section__row">
-                        <Repeatable
-                            component={List}
-                            action={loadList}
-                            dataSource={list}
-                            nextParams={listNextParams}
-                            className="news-feed bottom-news-feed"
-                            content={content}
-                            polarTargets={sectionBottomFeed}
-                        />
-                    </div>
+                    <Repeatable
+                        component={List}
+                        action={loadList}
+                        dataSource={list}
+                        nextParams={listNextParams}
+                        className="news-feed bottom-news-feed"
+                        content={content}
+                        polarTargets={sectionBottomFeed}
+                    />
 
                     <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
                 </div>

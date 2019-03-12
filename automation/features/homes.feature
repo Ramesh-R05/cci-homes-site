@@ -139,9 +139,9 @@ Feature: Smoke test for HOMES
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         Then I should see the latest video element
-        And I should see 3 video items
-        #And I should see the brand switcher element #will enable once BXMA-1663 is done
-        #And I should see 3 featured brand items #will enable once BXMA-1663 is done
+        # And I should see 3 video items
+        # And I should see the brand switcher element #will enable once BXMA-1663 is done
+        # And I should see 3 featured brand items #will enable once BXMA-1663 is done
         Examples:
         | device            |
         | mobile            |

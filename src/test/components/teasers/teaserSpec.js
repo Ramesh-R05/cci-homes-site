@@ -2,26 +2,33 @@ import { betterMockComponentContext } from '@bxm/flux';
 import articlesMock from '../../mock/teasers';
 import intersection from 'lodash/array/intersection';
 import extend from 'lodash/object/extend';
+import proxyquire, { noCallThru } from 'proxyquire';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-
-const proxyquire = require('proxyquire').noCallThru();
 const ImageStub = Context.createStubComponentWithChildren();
 const TitleStub = Context.createStubComponentWithChildren();
 const SummaryStub = Context.createStubComponentWithChildren();
 const SourceStub = Context.createStubComponentWithChildren();
-const TagsStub = Context.createStubComponentWithChildren();
+const getStub = sinon.stub();
+noCallThru();
 const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     react: React,
     '@bxm/article/lib/components/teaser/title': TitleStub,
     '@bxm/article/lib/components/teaser/image': ImageStub,
     '@bxm/article/lib/components/teaser/summary': SummaryStub,
-    './tags': TagsStub,
     './source': SourceStub,
     './icon': Context.createStubComponent()
 });
 const props = articlesMock.basic;
+
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        get: getStub
+    }
+};
 
 describe('Teaser', () => {
     const allowedThemeClasses = ['theme-australian_house_and_garden', 'theme-real_living', 'theme-homes_', 'theme-belle'];
@@ -31,16 +38,17 @@ describe('Teaser', () => {
         let Image;
         let Title;
         let Summary;
-        let Tags;
         let Source;
+        const sourceValue = 'Country Style';
+        const sourceLogoPath = 'countrystyle.svg';
+        getStub.withArgs(`article.sources.${sourceValue.toLowerCase()}.logo`).returns(sourceLogoPath);
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+            reactModule = Context.mountComponent(Teaser, { ...props }, [contextConfigStub]);
             Image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
             Title = TestUtils.findRenderedComponentWithType(reactModule, TitleStub);
             Summary = TestUtils.findRenderedComponentWithType(reactModule, SummaryStub);
             Source = TestUtils.findRenderedComponentWithType(reactModule, SourceStub);
-            Tags = TestUtils.findRenderedComponentWithType(reactModule, TagsStub);
         });
 
         after(() => {
@@ -118,11 +126,6 @@ describe('Teaser', () => {
         it(`should set the Source source prop to ${props.source}`, () => {
             expect(Source.props.source).to.equal(props.source);
         });
-
-        //TagsDetails
-        it(`should set the TagsDetails tags prop to ${props.tagsDetails}`, () => {
-            expect(Tags.props.TagsDetails).to.deep.equal(props.TagsDetails);
-        });
     });
 
     describe('with lazyload not set', () => {
@@ -134,7 +137,7 @@ describe('Teaser', () => {
         });
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Teaser {...propWithLazyload} />);
+            reactModule = Context.mountComponent(Teaser, { ...propWithLazyload }, [contextConfigStub]);
             Image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
         });
 
@@ -149,7 +152,7 @@ describe('Teaser', () => {
         const props = extend({}, articlesMock.basic, { modifier: 'hero' });
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+            reactModule = Context.mountComponent(Teaser, { ...props }, [contextConfigStub]);
             Image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
         });
 
@@ -182,7 +185,7 @@ describe('Teaser', () => {
         describe('of value narrow', () => {
             before(() => {
                 props = extend({}, articlesMock.basic, { sizes: 'narrow' });
-                reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+                reactModule = Context.mountComponent(Teaser, { ...props }, [contextConfigStub]);
                 image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
             });
 
@@ -199,7 +202,7 @@ describe('Teaser', () => {
         describe('of value home-hero (for Hero image with label ontop)', () => {
             before(() => {
                 props = extend({}, articlesMock.basic, { sizes: 'home-hero' });
-                reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+                reactModule = Context.mountComponent(Teaser, { ...props }, [contextConfigStub]);
                 image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
             });
 
@@ -216,7 +219,7 @@ describe('Teaser', () => {
         describe('of value img-top (for Teaser image with label below)', () => {
             before(() => {
                 props = extend({}, articlesMock.basic, { sizes: 'img-top' });
-                reactModule = TestUtils.renderIntoDocument(<Teaser {...props} />);
+                reactModule = Context.mountComponent(Teaser, { ...props }, [contextConfigStub]);
                 image = TestUtils.findRenderedComponentWithType(reactModule, ImageStub);
             });
 
@@ -235,7 +238,7 @@ describe('Teaser', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Teaser />);
+            reactModule = Context.mountComponent(Teaser, {}, [contextConfigStub]);
         });
 
         after(() => {

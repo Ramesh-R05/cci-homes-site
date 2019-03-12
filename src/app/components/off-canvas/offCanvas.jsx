@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';
 import HamburgerNav from '@bxm/site-header/lib/components/hamburgerNav';
-import OffCanvasLogos from './offCanvasLogos';
 
 export default class OffCanvas extends Component {
     static displayName = 'SideMenu';
@@ -21,14 +20,8 @@ export default class OffCanvas extends Component {
         navItems: []
     };
 
-    static contextTypes = {
-        config: PropTypes.object.isRequired
-    };
-
     render() {
         const { navItems, toggleSideMenu, currentUrl, className } = this.props;
-        const { config } = this.context;
-        const { hamburgerBrands } = config;
 
         return (
             <MobileOffCanvas side="left" toggleSideMenu={toggleSideMenu} className={className}>
@@ -43,7 +36,6 @@ export default class OffCanvas extends Component {
                         }}
                     />
                     <HamburgerNav items={navItems} currentUrl={currentUrl} />
-                    <OffCanvasLogos logoList={hamburgerBrands} />
                 </div>
             </MobileOffCanvas>
         );

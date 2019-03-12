@@ -1,0 +1,7 @@
+.footer-link {
+  margin-top: 15px;
+
+  &__anchor {
+    @include type-footer-link;
+  }
+}

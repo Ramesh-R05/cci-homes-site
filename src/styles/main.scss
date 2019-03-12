@@ -25,7 +25,6 @@
 // Helpers - Mixins
 @import '../node_modules/@bxm/article/styles/helpers/mixins/article';
 @import 'helpers/mixins/adswrapper';
-@import 'helpers/mixins/home';
 
 // Page
 @import 'page/page';
@@ -36,7 +35,7 @@
 // Components
 @import 'components/helpers/theme';
 @import 'components/bxm/recommendations';
-@import '../node_modules/@bxm/social/styles/socialicons';
+@import '../node_modules/@bxm/social/styles/social-icon';
 @import '../node_modules/@bxm/article/styles/components/content-body/content-body';
 @import 'components/repeatable';
 @import 'components/form/input';
@@ -48,12 +47,13 @@
 @import 'components/teasers/teaser';
 @import 'components/teasers/theme';
 @import 'components/recommendations/icon';
+@import 'components/header/buy-magazines';
 @import 'components/header/header';
 @import 'components/header/header-menu';
 @import 'components/header/header-logo';
 @import 'components/header/header-nav';
 @import 'components/header/header-banner';
-@import 'components/header/uniheader.scss';
+@import 'components/header/brands-modal-button';
 @import 'components/section/sections';
 @import 'components/section/directories';
 @import 'components/section/sponsor-header';
@@ -65,14 +65,13 @@
 @import 'components/brand/social';
 @import 'components/brand/social-icon';
 @import 'components/brand/social-subscribe-links';
+@import 'components/newsletter/newsletter-subscribe';
 @import 'components/in-focus/in-focus';
-@import 'components/footer/footer';
-@import 'components/footer/logos';
-@import 'components/footer/magshop';
-@import 'components/footer/navigation';
-@import 'components/footer/back-to-top';
-@import 'components/social/icon';
-@import 'components/newsletter/newsletter';
+@import 'components/site-footer/site-footer';
+@import 'components/site-footer/footer-column';
+@import 'components/site-footer/footer-link';
+@import 'components/site-footer/footer-social';
+@import 'components/social/social-links';
 @import 'components/error/error-page';
 @import 'components/adswrapper';
 @import 'components/vertical-gallery';
@@ -84,16 +83,18 @@
 @import 'components/latest-videos-section';
 @import 'components/latest-content-section';
 @import 'components/brand-switcher';
+@import 'components/brand-logo';
+@import 'components/modal/bxm-modal';
 
 // @bxm
 @import '../node_modules/@bxm/ui/lib/to-love/settings';
 @import '../node_modules/@bxm/ui/lib/to-love/z-index';
 @import '../node_modules/@bxm/article/styles/page';
+@import '../node_modules/@bxm/site-header/styles/buy-magazines';
 @import '../node_modules/@bxm/video/styles/main';
 @import '../node_modules/@bxm/gallery/styles/carousel/main';
 @import '../node_modules/@bxm/ad/styles/google/adverts';
 @import '../node_modules/@bxm/nav/scss/nav';
-@import '../node_modules/@bxm/ui/lib/back-to-top/styles';
 @import '../node_modules/@bxm/image-revealer/styles/main';
 @import 'components/inline-gallery/carousel';
 @import 'components/inline-gallery/item';

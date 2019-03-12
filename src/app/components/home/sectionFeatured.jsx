@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
@@ -8,7 +9,7 @@ import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
-import LatestVideos from './latestVideos';
+// import LatestVideos from './latestVideos';
 
 export default class SectionFeatured extends Component {
     static displayName = 'SectionFeatured';
@@ -20,7 +21,6 @@ export default class SectionFeatured extends Component {
         children: PropTypes.any,
         className: PropTypes.string,
         polarTargets: PropTypes.array,
-        latestRealHomes: PropTypes.array,
         latestVideos: PropTypes.array,
         list: PropTypes.object,
         listNextParams: PropTypes.object
@@ -32,7 +32,6 @@ export default class SectionFeatured extends Component {
         children: [],
         polarTargets: [[], []],
         hero: {},
-        latestRealHomes: [],
         latestVideos: [],
         list: {},
         listNextParams: {}
@@ -43,9 +42,9 @@ export default class SectionFeatured extends Component {
     };
 
     render() {
-        const { hero, articles, latestRealHomes, list, listNextParams, content, polarTargets, className, latestVideos } = this.props;
-        const { config } = this.context;
-        const isLipstickEnabled = config.isFeatureEnabled('lipstick');
+        const { hero, articles, list, listNextParams, content, polarTargets, className /* latestVideos */ } = this.props;
+        // const { config } = this.context;
+        // const isLipstickEnabled = config.isFeatureEnabled('lipstick');
 
         if (articles.length === 0) {
             return null;
@@ -63,87 +62,35 @@ export default class SectionFeatured extends Component {
             lazyLoad: true
         };
 
-        let latestRealHomesComponent = null;
-        let latestVideosComponent = null;
+        // let latestVideosComponent = null;
 
-        if (latestVideos && latestVideos.length && isLipstickEnabled) {
-            latestVideosComponent = (
-                <div className="row">
-                    <LatestVideos videoList={latestVideos} title="Latest Videos" />
-                </div>
-            );
-        }
-
-        if (latestRealHomes && latestRealHomes.length > 0) {
-            latestRealHomesComponent = (
-                <div className="row show-for-large-up">
-                    <div className="latest-real-homes">
-                        <div className="latest-real-homes__title-container">
-                            <span className="latest-real-homes__title">Latest Real Homes</span>
-                        </div>
-                        <div>
-                            {latestRealHomes.map((item, i) => {
-                                const teaser = {
-                                    id: item.id,
-                                    title: item.title,
-                                    url: item.url,
-                                    imageUrl: item.imageUrl,
-                                    imageAltText: item.imageAltText
-                                };
-
-                                return (
-                                    <Teaser
-                                        {...teaser}
-                                        key={item.id}
-                                        lazyload={false}
-                                        modifier="latest-real-homes"
-                                        gtmClass={`gtm-realhomes${i + 1}-homepage`}
-                                    />
-                                );
-                            })}
-                        </div>
-                    </div>
-                </div>
-            );
-        }
+        // if (latestVideos && latestVideos.length && isLipstickEnabled) {
+        //     latestVideosComponent = (
+        //         <div className="row">
+        //             <LatestVideos videoList={latestVideos} title="Latest Videos" />
+        //         </div>
+        //     );
+        // }
 
         return (
             <div className={className}>
-                <div className="home-section">
-                    {latestRealHomesComponent}
-
-                    <div className="row">
-                        <section className="home-section--top columns small-12">
+                <div className="row">
+                    <section className="home-section__top">
+                        <section className="top-teasers columns large-8">
                             <div className="row">
-                                <section className="top-teasers columns large-8">
-                                    <div className="row">
-                                        <div className="column small-12">
-                                            <Teaser
-                                                {...hero}
-                                                key={hero.id}
-                                                lazyload={false}
-                                                modifier="hero-img-top"
-                                                sizes="home-hero"
-                                                gtmClass="gtm-hero-homepage"
-                                            />
-                                        </div>
+                                <Teaser
+                                    {...hero}
+                                    key={hero.id}
+                                    lazyload={false}
+                                    modifier="hero"
+                                    sizes="home-hero"
+                                    gtmClass="gtm-hero-homepage"
+                                    className="home-section__hero-teaser columns small-12"
+                                />
+                            </div>
 
-                                        <div className="column large-12">
-                                            <Teaser
-                                                {...hero}
-                                                key={hero.id}
-                                                lazyload={false}
-                                                modifier="hero"
-                                                sizes="home-hero"
-                                                gtmClass="gtm-hero-homepage"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="hide-for-large-up">
-                                        <SocialAndSubscribeLinks content={content} />
-                                    </div>
-
+                            <div className="row hide-for-large-up">
+                                <div className="columns medium-6">
                                     <Ad
                                         className="ad--section-mrec home-section-top-mrec-1"
                                         displayFor={['small', 'medium']}
@@ -155,87 +102,96 @@ export default class SectionFeatured extends Component {
                                         label={{ active: false }}
                                         pageLocation={Ad.pos.body}
                                     />
-
-                                    {articles.slice(0, 6).map((item, i) => {
-                                        const polarDetails = polarTargets[0].find(slot => slot.index === i) || false;
-
-                                        return (
-                                            <Teaser
-                                                {...item}
-                                                key={item.id}
-                                                polar={polarDetails}
-                                                sizes="brand-list"
-                                                modifier="img-top"
-                                                gtmClass="gtm-topteaserlist-brand"
-                                            />
-                                        );
-                                    })}
-
-                                    <Ad
-                                        className="ad--section-mrec home-section-top-mrec-2"
-                                        displayFor={['medium']}
-                                        sizes={{
-                                            medium: 'mrec'
-                                        }}
-                                        label={{ active: false }}
-                                        pageLocation={Ad.pos.body}
-                                    />
-                                </section>
-
-                                <StickyBlock
-                                    breakpoints={['large', 'xlarge']}
-                                    containerMarginBottom={120}
-                                    containerClasses="show-for-large-up large-4 columns"
-                                >
-                                    <Ad
-                                        className="ad--section-mrec"
-                                        displayFor={['large', 'xlarge']}
-                                        sizes={['double-mrec', 'mrec']}
-                                        label={{ active: false }}
-                                        pageLocation={Ad.pos.aside}
-                                    />
+                                </div>
+                                <div className="columns medium-6">
                                     <SocialAndSubscribeLinks content={content} />
-                                </StickyBlock>
+                                </div>
                             </div>
-                        </section>
-                    </div>
 
-                    {latestVideosComponent}
+                            <div className="row">
+                                {articles.slice(0, 6).map((item, i) => {
+                                    const polarDetails = polarTargets[0].find(slot => slot.index === i) || false;
 
-                    <div className="row">
-                        <div className="columns small-12">
+                                    const teaserClassName = classNames('column small-12 medium-6 large-6 ', {
+                                        'home-section__polar-teaser': polarDetails,
+                                        'home-section__grid-teaser': true
+                                    });
+
+                                    return (
+                                        <Teaser
+                                            {...item}
+                                            key={item.id}
+                                            polar={polarDetails}
+                                            sizes="brand-list"
+                                            modifier="img-top"
+                                            gtmClass="gtm-topteaserlist-brand"
+                                            className={teaserClassName}
+                                        />
+                                    );
+                                })}
+                            </div>
+
                             <Ad
-                                className="ad--section-middle-leaderboard"
+                                className="ad--section-mrec home-section-top-mrec-2"
+                                displayFor={['medium']}
                                 sizes={{
-                                    small: 'banner',
-                                    leaderboard: 'leaderboard',
-                                    billboard: ['billboard', 'leaderboard']
+                                    medium: 'mrec'
                                 }}
                                 label={{ active: false }}
-                                pageLocation={Ad.pos.outside}
+                                pageLocation={Ad.pos.body}
                             />
-                        </div>
-                    </div>
+                        </section>
 
-                    <div className="row">
-                        <div className="home-section--bottom columns small-12">
-                            <div className="row">
-                                <Repeatable
-                                    component={List}
-                                    action={loadList}
-                                    dataSource={list}
-                                    nextParams={listNextParams}
-                                    className="news-feed bottom-news-feed"
-                                    adTargets={{ position: 2 }}
-                                    content={content}
-                                    polarTargets={polarTargets[1]}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
+                        <StickyBlock
+                            breakpoints={['large', 'xlarge']}
+                            containerMarginBottom={120}
+                            containerClasses="show-for-large-up large-4 columns"
+                        >
+                            <Ad
+                                className="ad--section-mrec"
+                                displayFor={['large', 'xlarge']}
+                                sizes={['double-mrec', 'mrec']}
+                                label={{ active: false }}
+                                pageLocation={Ad.pos.aside}
+                            />
+                            <SocialAndSubscribeLinks content={content} />
+                        </StickyBlock>
+                    </section>
                 </div>
+
+                {/* {latestVideosComponent} */}
+
+                <div className="row">
+                    <div className="columns small-12">
+                        <Ad
+                            className="ad--section-middle-leaderboard"
+                            sizes={{
+                                small: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            label={{ active: false }}
+                            pageLocation={Ad.pos.outside}
+                        />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="home-section__bottom columns small-12">
+                        <Repeatable
+                            component={List}
+                            action={loadList}
+                            dataSource={list}
+                            nextParams={listNextParams}
+                            className="news-feed bottom-news-feed"
+                            adTargets={{ position: 2 }}
+                            content={content}
+                            polarTargets={polarTargets[1]}
+                        />
+                    </div>
+                </div>
+
+                <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
             </div>
         );
     }

@@ -18,7 +18,7 @@
         color: $color-black-origin;
         font-size: 36px;
         font-weight: 800;
-        font-family: $font-family-muli;
+        font-family: $font-family-sans-serif-primary;
         line-height: 30px;
         padding-left: 0;
         text-align: center;
@@ -30,6 +30,13 @@
             padding-left: 15px;
         }
     }
+
+    .teaser__title-background {
+        @include type-stacked-teaser-title;
+        background-color: white;
+        height: 90px;
+        margin-right: 10px;
+      }
 
     &__title {
         display: inline-block;
@@ -55,6 +62,27 @@
 
     &__item {
         width: 100%;
+        &:nth-child(odd) {
+            background-color: $color-darker-green;
+        }
+        &:nth-child(even) {
+            background-color: $color-lighter-green;
+        }
+
+        .teaser__title {
+            color: $color-black-origin;
+            padding-top: 14px;
+            padding-left: 10px;
+            font: 700 18px/1.22 "Spectral", serif;
+        }
+        height: 360px;
+
+        .teaser__content {
+            margin-top: -20px;
+            position: relative;
+            padding-top:10px;
+            padding-left: 0;
+        }
 
         @media #{$medium-up} {
             width: 30%;
@@ -62,6 +90,7 @@
                 left: 15px;
                 right: 15px;
             }
+            height: 340px;
         }
 
         .teaser.teaser--has-video {

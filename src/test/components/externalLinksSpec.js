@@ -3,13 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import proxyquire, { noCallThru } from 'proxyquire';
 const Context = betterMockComponentContext();
-const SocialIconsStub = Context.createStubComponent();
+const SocialIconStub = Context.createStubComponent();
 
 noCallThru();
 
 const ExternalLinksStub = proxyquire('../../app/components/externalLinks', {
     React: React,
-    './social/socialIcons': SocialIconsStub
+    '@bxm/social/lib/components/socialIcons/socialIcon': SocialIconStub
 });
 
 describe('ExternalLinks', () => {
@@ -32,7 +32,7 @@ describe('ExternalLinks', () => {
         wrapper = shallow(<ExternalLinksStub {...props} />);
         siteLogoImg = wrapper.find('.external-links__site-logo__img');
         siteLogo = wrapper.find('.external-links__site-logo');
-        socialLinks = wrapper.find(SocialIconsStub);
+        socialLinks = wrapper.find(SocialIconStub);
     });
 
     it('should render site logo', () => {

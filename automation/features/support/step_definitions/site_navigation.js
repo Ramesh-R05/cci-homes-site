@@ -1,28 +1,11 @@
 var site_nav = require('../page_objects/site_navigation_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
-var uniheader = require('../page_objects/uniheader_widget');
 //compose URL base on ENV variables
 var nconf = require('nconf');
 nconf.argv().env();
 var site_domain = nconf.get('URL');
 
-module.exports = function() {
-
-    this.Then(/^I can navigate to all sites in the desktop list on the header$/, function (dataTable) {
-        var rows = dataTable.hashes();
-        //below captures the array of menu items to validate agains the table
-
-        var brandTitle = browser.getAttribute(uniheader.uniHeader, 'title');
-        var brandHref = browser.getAttribute(uniheader.uniHeader, 'href');
-        //end
-
-        for (var i = 0; i < rows.length; ++i) {
-            var row = rows[i];
-            //validates position of menu base on Index
-            expect(brandTitle[i]).toEqual(row['title']);
-            expect(brandHref[i]).toMatch(row['url']);
-        }
-    });
+module.exports = function() {    
 
     this.Then(/^I can always see the navigation at the top of the screen$/, function () {
         //validate header is at the top even after scrolling
@@ -58,4 +41,30 @@ module.exports = function() {
         }
         expect(site_domain).toContain(headerLogoLink);
     });
+
+    this.When(/^I click on the brands modal button$/, () => {
+        browser.waitForExist(site_nav.brandsModalButton, 3000);
+        expect(browser.isVisible(site_nav.brandsModalButton)).toBe(true);        
+        browser.click(site_nav.brandsModalButton);
+    });
+
+    this.Then(/^I can navigate to the brands in the modal$/, (dataTable) => {
+        const rows = dataTable.hashes();
+        expect(browser.isVisible(site_nav.brandsModal)).toBe(true);
+
+        browser.$$(site_nav.brandsModalLink).forEach((el, index) => {
+            const { title, url } = rows[index];
+            
+            expect(el.getAttribute('href')).toContain(url);
+            expect(el.$('img').getAttribute('alt')).toEqual(title);
+        });
+    });    
+
+    this.When(/^I close the brands modal$/, function () {
+        browser.$(site_nav.brandsModalCloseButton).click();
+      });
+
+    this.Then(/^I can no longer see the brands modal$/, () => {
+        expect(browser.isVisible(site_nav.brandsModal)).toBe(false);
+      })
 };

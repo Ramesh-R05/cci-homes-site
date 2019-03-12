@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';
@@ -8,11 +8,10 @@ import Image from '@bxm/article/lib/components/teaser/image';
 import Summary from '@bxm/article/lib/components/teaser/summary';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import breakpoints from '../../breakpoints';
-import Tags from './tags';
 import Source from './source';
-import Icon from './icon';
 import theme from '../helpers/theme';
 
+const LOGO_PATH = '/assets/images/source';
 class Teaser extends Component {
     static displayName = 'Teaser';
 
@@ -24,8 +23,8 @@ class Teaser extends Component {
         modifier: PropTypes.string,
         sizes: PropTypes.string,
         source: PropTypes.string,
+        dateCreated: PropTypes.string,
         summary: PropTypes.string,
-        tagsDetails: PropTypes.array,
         title: PropTypes.string,
         className: PropTypes.string,
         lazyload: PropTypes.bool,
@@ -45,7 +44,7 @@ class Teaser extends Component {
         id: null,
         source: null,
         summary: null,
-        tagsDetails: [],
+        dateCreated: null,
         className: '',
         imageUrl: '',
         url: '',
@@ -139,6 +138,10 @@ class Teaser extends Component {
         }
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     static getImgSizes(sizes, modifier) {
         if (Teaser.imageSizes[sizes]) {
             return Teaser.imageSizes[sizes];
@@ -152,36 +155,64 @@ class Teaser extends Component {
     }
 
     render() {
-        if (!this.props.id) {
+        const { config } = this.context;
+        const {
+            url,
+            modifier,
+            sizes,
+            lazyload,
+            polar,
+            dateCreated,
+            source,
+            className,
+            id,
+            gtmClass,
+            imageAltText,
+            imageUrl,
+            title,
+            summary
+        } = this.props;
+
+        if (!id) {
             return null;
         }
 
-        const { url, modifier, sizes, className, lazyload, polar } = this.props;
-        const gtmClass = this.props.gtmClass ? this.props.gtmClass : `gtm-${this.props.id}`;
-        const classNames = classnames('teaser', `teaser--${modifier}`, className);
+        const rootClass = classNames('teaser', {
+            [`teaser--${modifier}`]: !!modifier,
+            [`${className}`]: !!className
+        });
+
         const imgSizes = Teaser.getImgSizes(sizes, modifier);
 
+        const sourceLogo = source ? config.get(`article.sources.${source.toLowerCase()}.logo`) : '';
+        let sourceImgUrl = ``;
+
+        if (sourceLogo) {
+            sourceImgUrl = `${LOGO_PATH}/${sourceLogo}`;
+        }
+
+        const brandImage = sourceImgUrl ? <img className="teaser__brand-image" alt={source} src={sourceImgUrl} /> : null;
+
         return (
-            <article className={classNames}>
+            <article className={rootClass}>
                 <Image
-                    alt={this.props.imageAltText}
+                    alt={imageAltText}
                     breakpoints={breakpoints}
-                    gtmClass={gtmClass}
-                    imageUrl={this.props.imageUrl}
+                    gtmClass={gtmClass || `gtm-${id}`}
+                    imageUrl={imageUrl}
                     imageSizes={imgSizes}
                     link={url}
                     responsiveConfig={Teaser.imageConfig}
                     quality={Teaser.imageQuality}
                     lazyload={lazyload}
                     className={gtmClass}
-                >
-                    <Icon {...this.props} />
-                </Image>
+                />
+
+                {sizes === 'home-hero' ? <div className="hero__background"> {brandImage} </div> : null}
                 <div className="teaser__content">
-                    <Tags tagsDetails={this.props.tagsDetails} />
-                    <Title gtmClass={gtmClass} title={this.props.title} url={url} />
-                    <Summary summary={this.props.summary} />
-                    <Source source={this.props.source} />
+                    <Title gtmClass={gtmClass || `gtm-${id}`} title={title} url={url} />
+                    <Summary summary={summary} />
+                    <Source source={source} dateCreated={dateCreated} />
                 </div>
 
                 {polar && <Ad nativeAd label={polar.label} targets={polar.targets} sizes="nativeAdTeaser" pageLocation={Ad.pos.body} />}

@@ -1,0 +1,71 @@
+.social-links {
+
+    &--in-header-banner {
+        position: absolute;
+        right: 20px;
+        top: 0;
+
+        .social-icon {
+            width: 30px;
+
+            @media #{$medium-up} {
+                padding-top: 20px;
+            }
+
+            &__icon {
+                svg {
+                    height: 15px;
+                    width: 15px;
+                    margin: 0;
+
+                    path {
+                        fill: $color-dark-green;
+                    }
+                }
+
+                :hover svg path,
+                :hover &__icon svg path {
+                    fill: $color-secondary-light;
+                }
+            }
+        }
+    }
+
+    &--in-subscribe-sidebar {
+
+        .social-icon {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            width: 55px;
+            padding: 25px 0 0;
+
+            @media #{$medium-up} {
+                padding-top: 15px;
+            }
+
+            &__icon {
+                img, svg {
+                    height: 20px;
+                    width: 20px;
+                    margin-bottom: 3px;
+                    vertical-align: middle;
+                }
+
+                svg {
+                    vertical-align: baseline;
+                    margin-left: 4px;
+
+                    path {
+                        fill: $color-primary;
+                    }
+                }
+
+                :hover svg path,
+                :hover &__icon svg path {
+                    fill: $color-primary-light;
+                }
+            }
+        }
+    }
+}

@@ -5,10 +5,8 @@ module.exports = function() {
     this.When(/^I can see the collage of images on editorial collection$/, function () {
         //verify collage containing images
         var collageImages = browser.getAttribute(editorial_collection.collageImages, 'style');
-        console.log(collageImages.length);
         for (var i=0; i<collageImages.length; i++){
             expect(collageImages[i]).not.toBeUndefined();
-            console.log(collageImages[i]);
         }
     });
 

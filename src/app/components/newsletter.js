@@ -1,23 +1,33 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import getBrand from './brand/utilities/getBrand';
 
 export default class Newsletter extends Component {
     static propTypes = {
-        content: PropTypes.object.isRequired
+        content: PropTypes.object.isRequired,
+        classModifier: PropTypes.string
     };
 
     static contextTypes = {
         config: PropTypes.object.isRequired
     };
 
+    static defaultProps = {
+        classModifier: null
+    };
+
     render() {
-        const { content } = this.props;
+        const { content, classModifier } = this.props;
         const { config } = this.context;
 
         if (!content) {
             return null;
         }
+
+        const rootClass = classNames('newsletter-subscribe', {
+            [`newsletter-subscribe--${classModifier}`]: classModifier
+        });
 
         let newsletterUrl = 'https://www.homestolove.com.au/homes-newsletter/';
         let gtmClass = 'gtm-subs-homepage';
@@ -32,11 +42,11 @@ export default class Newsletter extends Component {
         }
 
         return (
-            <div className="newsletter-subscribe">
+            <div className={rootClass}>
                 <div className="newsletter-subscribe__title">Get the newsletter</div>
                 <p className="newsletter-subscribe__text">The latest news delivered to your inbox</p>
                 <div className="newsletter-subscribe__button">
-                    <a href={`${newsletterUrl}`} className={`button button--link ${gtmClass}`} target="_blank">
+                    <a href={`${newsletterUrl}`} className={`button button--link button--without-border-radius ${gtmClass}`} target="_blank">
                         Sign Up
                     </a>
                 </div>

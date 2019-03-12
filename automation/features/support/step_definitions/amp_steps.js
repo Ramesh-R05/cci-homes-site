@@ -51,16 +51,13 @@ module.exports = function() {
         var rcItemsTitle = browser.getText(amp.ampRelatedContentItemsTitle);
 
         //Validate the heading of Related
-        console.log(rcHeading);
         expect(rcHeading).not.toEqual('');
 
         //Loop through the related items, and Validate the body related items' image and title
         for(var i=0; i<rcItemsTitle.length; i++) {
             var image = rcItemsImage[i];
             var title = rcItemsTitle[i];
-            console.log( i + ':' + image);
             expect(image === '').toBe(false);
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
     });
@@ -69,14 +66,12 @@ module.exports = function() {
         loadAllElements('article', browser);
         browser.waitForVisible(amp.ampTwitterEmb, 10000);
         var twitEmbed = browser.getAttribute(amp.ampTwitterEmb, 'data-tweetid');
-        console.log(twitEmbed);
         expect(twitEmbed).toEqual(twitterId);
     });
 
     this.Given(/^I can see the amp body Facebook embed "([^"]*)"$/, function (facebookUrl) {
         browser.waitForVisible(amp.ampFacebookEmb, 3000);
         var facebookEmbed = browser.getAttribute(amp.ampFacebookEmb, 'data-href');
-        console.log(facebookEmbed);
         expect(facebookEmbed).toEqual(facebookUrl);
     });
 
@@ -86,14 +81,12 @@ module.exports = function() {
         browser.scroll(amp.ampYoutube);
         browser.waitForVisible(amp.ampYoutubeEmb,  3000);
         var ampYoutubeEmb = browser.getAttribute(amp.ampYoutubeEmb, 'src');
-        console.log(ampYoutubeEmb);
         expect(ampYoutubeEmb).toContain(youtubeUrl);
     });
 
     this.Given(/^I can see the amp body Vimeo embed "([^"]*)"$/, function (vimeoUrl) {
         browser.waitForVisible(amp.ampVimeoEmb, 3000);
         var ampVimeoEmb = browser.getAttribute(amp.ampVimeoEmb, 'src');
-        console.log(ampVimeoEmb);
         expect(ampVimeoEmb).toEqual(vimeoUrl);
     });
 

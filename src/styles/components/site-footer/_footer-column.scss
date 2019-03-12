@@ -1,0 +1,25 @@
+.footer-column {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  padding: 0 30px;
+
+  @media #{$medium-up} {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    @include type-footer-column-heading;
+    margin-bottom: 5px;
+  }
+
+    &__link-column {
+        text-align: left;
+    }
+
+    &__list {
+        @include reset-list;
+    }
+}

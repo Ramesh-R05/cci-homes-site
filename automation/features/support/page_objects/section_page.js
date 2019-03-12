@@ -1,7 +1,6 @@
 var section_page = {
-
     //Page Elements
-    sectionTitle: '.section__heading__title h1',
+    sectionTitle: '.section__heading-title h1',
     sectionTopFeed: '.section__featured',
     sectionTopFeedTeaser: '.section__featured article.teaser.teaser--img-top',
     sectionTopFeedTeaserImg: '.section__featured article.teaser.teaser--img-top a.teaser__image',
@@ -14,8 +13,8 @@ var section_page = {
     sectionRepeatableSectionTeaserImg: '.repeatable-component article.teaser a.teaser__image',
     sectionRepeatableSectionTeaserTitle: '.repeatable-component article.teaser .teaser__title',
     sectionRepeatableSectionTeaserSource: '.repeatable-component article.teaser .teaser__source',
-    sectionBottomTeasers: '.repeatable-component .section__row:nth-child(1) .teaser--img-left',
-    sectionRepeatableSectionTeaserAfterLoadMore: '.repeatable-component .section__row:nth-child(2) article.teaser',
+    sectionBottomTeasers: '.repeatable-component .row:nth-child(1) .teaser--img-left',
+    sectionRepeatableSectionTeaserAfterLoadMore: '.repeatable-component .row:nth-child(2) article.teaser',
 
     //LoadMore Feed
 

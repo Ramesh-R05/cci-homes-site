@@ -108,7 +108,7 @@
         .gallery {
             &__caption {
                 p {
-                    color: $color-black;
+                    color: $color-black-origin;
                 }
             }
         }
@@ -138,7 +138,7 @@
                 &__title {
                     padding: 0 15px;
                     margin: $standard-content-body-spacing auto;
-                    color: $color-grey-darker;
+                    color: $color-black-origin;
 
                     @media #{$medium-up} {
                         padding: 0;
@@ -151,6 +151,9 @@
                     visibility: hidden;
                 }
 
+                &__summary {
+                    @include type-article-header-summary;
+                }
             }
 
         }
@@ -194,6 +197,10 @@
                 }
             }
 
+            a {
+                color: $color-primary; // TODO clean up themes from server package
+            }
+
             &__embed {
 
                 &-video {
@@ -215,15 +222,16 @@
                     background: #222;
                     text-align: left;
                     padding: 15px 20px;
+                    font-weight: 400;
                     font-style: normal;
-                    font-family: $font-family-serif;
+                    font-family: $font-family-sans-serif-primary;
                 }
             }
 
             &__paragraph {
                 margin: $standard-content-body-spacing 0;
                 padding:0 15px;
-                color: $color-black;
+                color: $color-black-origin;
 
                 @media #{$large-up} {
                     padding: 0;
@@ -234,6 +242,7 @@
             &__tips {
                 width: 100%;
                 margin: $standard-content-body-spacing auto;
+                border-color: $color-primary;
 
                 .tips {
                     width: 100%;
@@ -488,6 +497,13 @@
 
         &__tags {
             margin-bottom: 5px;
+
+            .related-tags {
+
+                a {
+                    color: $color-primary;
+                }
+            }
         }
     }
 }
@@ -495,7 +511,7 @@
 .site-wrapper {
     .content-wrapper {
         background: $color-white;
-        box-shadow: 0px 1px 0px 0px #fff;
+        box-shadow: 0 1px 0 0 $color-white;
     }
 }
 

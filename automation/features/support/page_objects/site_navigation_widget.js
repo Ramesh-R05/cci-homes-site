@@ -13,6 +13,10 @@ var site_navigation_widget = {
     siteHamburgerClose: ".off-canvas .close-btn",
     siteHeaderBanner: ".header-banner a",
     smallIconlink: ".header__sections .header-logo a",
+    brandsModalButton: '.header .brands-modal-button',
+    brandsModal: '.bxm-modal.brands-modal-in-header .brand-switcher--inside-modal',
+    brandsModalLink: '.bxm-modal.brands-modal-in-header .brand-switcher--inside-modal .brand-logo',
+    brandsModalCloseButton: '.bxm-modal.brands-modal-in-header .bxm-modal__close-button'
 };
 
 module.exports = site_navigation_widget;

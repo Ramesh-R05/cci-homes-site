@@ -23,20 +23,16 @@ export default async function homeMiddleware(req, res, next) {
 
         /* eslint-disable prettier/prettier */
         const filter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery')${excludedNodeIds}`;
-        const realHomesFilter =
-            "(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes'";
         const latestVideoFilter = "(nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true')";
         /* eslint-enable max-len, prettier/prettier */
-        const [pageData, latestTeasersResp, latestRealHomesResp, heroModuleResp, latestVideosResp] = await Promise.all([
+        const [pageData, latestTeasersResp, heroModuleResp, latestVideosResp] = await Promise.all([
             makeRequest(`${req.app.locals.config.services.remote.entity}/homepage`),
             getLatestTeasers(itemsCount, skip, filter),
-            getLatestTeasers(4, 0, realHomesFilter),
             makeRequest(`${req.app.locals.config.services.remote.module}/homepagehero`),
             getLatestTeasers(3, 0, latestVideoFilter)
         ]);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
-        const latestRealHomes = (latestRealHomesResp && latestRealHomesResp.data) || [];
         const latestVideos = (latestVideosResp && latestVideosResp.data) || [];
 
         const heroModule = (heroModuleResp.data && heroModuleResp.data[0]) || {};
@@ -63,7 +59,6 @@ export default async function homeMiddleware(req, res, next) {
             entity: parseEntity(pageData),
             hero: parseEntity(hero),
             items: parseEntities(latestTeasers),
-            latestRealHomes: parseEntities(latestRealHomes),
             latestVideos: parseEntities(latestVideos),
             list,
             section

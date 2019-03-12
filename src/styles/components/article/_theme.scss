@@ -1,3 +1,4 @@
+
 @each $theme, $color in $theme-colors {
     &.theme-#{$theme} {
 
@@ -18,13 +19,16 @@
             }
         }
 
-
         .content-body__gallery-link-title {
             color: nth($color, 1);
         }
 
         .content-body__tips {
             border-color: nth($color, 1);
+        }
+
+        .brand-section & .hero__background {
+            background-color: nth($color, 1);
         }
     }
 }

@@ -1,11 +1,10 @@
 var directories_widget = {
-
     siteLogo: 'article .external-links__site-logo',
     siteButton: 'article .external-links__button',
-    externalLinksFacebook: 'article .external-links__connect .social-link--facebook a',
-    externalLinksInstagram: 'article .external-links__connect .social-link--instagram a',
-    externalLinksPinterest: 'article .external-links__connect .social-link--pinterest a',
-    sectionTitle: '.section__heading__title',
+    externalLinksFacebook: 'article .external-links__connect .social-icon--facebook a',
+    externalLinksInstagram: 'article .external-links__connect .social-icon--instagram a',
+    externalLinksPinterest: 'article .external-links__connect .social-icon--pinterest a',
+    sectionTitle: '.section__heading-title',
     nativeAd: '.native-hub__sponsor',
     filterTitle: '.directory-filters__title',
     filterSelectCategory: '.directory-filters__form .dropdown-select:nth-child(1) .dropdown-select__input-root',

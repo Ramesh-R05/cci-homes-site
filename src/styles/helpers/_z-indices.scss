@@ -17,15 +17,18 @@ $z-index-12: 1200;
 $z-index-13: 1300;
 $z-index-14: 1400;
 $z-index-15: 1500;
+$z-index-16: 1600;
 
 // Z-Index Applications
 // --------------------------------------------------
 $z-index--teaser-image: $z-index-1;
 $z-index--gallery-header: $z-index-1;
+$z-index--hero-background: $z-index-1;
 $z-index--gallery-next: $z-index-1;
 $z-index--gallery-nav-arrow: $z-index-1;
 $z-index--dropdown-arrow: $z-index-1;
 $z-index--dropdown-options: $z-index-2;
+$z-index--teaser-background: $z-index-2;
 $z-index--gallery-caption: $z-index-2;
 $z-index--gallery-bottom-ad: $z-index-3;
 $z-index--teaser-content: $z-index-2;
@@ -34,3 +37,6 @@ $z-index--header-menu: $z-index-13;
 $z-index--network-header: $z-index-13;
 $z-index-2--native-hub-heading: $z-index-2;
 $z-index-1--native-hub-img: $z-index-1;
+$z-index--modal: $z-index-16;
+$z-index--modal-container: $z-index-15;
+$z-index--modal-overlay: $z-index-15;

@@ -1,22 +1,3 @@
-
-%expanded-search-placement {
-    .header-search {
-        top: 22px;
-
-        @media #{$medium-up} {
-            top: $header-height-desktop;
-        }
-    }
-
-    .header-search--is-open {
-        top: $header-banner-height-mobile;
-
-        @media #{$medium-up} {
-            top: $header-height-desktop;
-        }
-    }
-}
-
 .header {
     $self: &;
     position: absolute;
@@ -24,7 +5,7 @@
     height: 0;
     width: 100%;
     margin-bottom: 0;
-    background: $color-primary;
+    background: $color-white;
 
     @media #{$medium-up} {
         height: auto;
@@ -32,7 +13,6 @@
 
     &__inner {
         width: 100%;
-        background-color: $color-primary;
         position: relative;
         height: $header-height-small;
 
@@ -47,13 +27,15 @@
         height: 100%;
         justify-content: space-between;
         margin: 0 auto;
-        max-width: 1024px;
         padding: 0 $column-gutter/2;
         white-space: nowrap;
+        background-color: $color-white;
 
         @media #{$medium-up} {
             height: $header-height-desktop;
             max-height: $header-height-desktop;
+            border-top: 1px solid $color-light-grey;
+            border-bottom: 1px solid $color-light-grey;
         }
     }
 
@@ -82,8 +64,8 @@
 
         .header-logo {
             @media #{$medium-up} {
-                overflow: hidden;
                 position: absolute;
+                overflow: hidden;
             }
         }
 
@@ -98,7 +80,8 @@
 
         .header-nav {
             flex: 1 0 auto;
-            margin-left: 30px;
+            margin-left: 25px;
+            padding-left: 8px;
         }
 
         #{$self}__inner {
@@ -109,14 +92,13 @@
             }
         }
 
-        .header-search {
-            top: 232px;
-        }
-
         //header expanded and pinned but not yet hidden
         &#{$self}--pinned:not(#{$self}--hidden) {
-            @extend %expanded-search-placement;
             position: fixed;
+
+            .header-search--is-open {
+                top: 0;
+            }
 
             #{$self}__container {
                 height: auto;
@@ -127,7 +109,11 @@
             }
 
             .header-logo {
-                position: static;
+                margin: 0 auto;
+
+                @media #{$medium-up} {
+                    position: relative;
+                }
             }
 
             .header-nav {
@@ -146,9 +132,12 @@
 
         //header expanded and pinned
         &#{$self}--hidden#{$self}--pinned {
-            @extend %expanded-search-placement;
             position: fixed;
             width: 100%;
+
+            .header-search--is-open {
+                top: 0;
+            }
 
             #{$self}__inner {
                 top: 0;
@@ -161,13 +150,17 @@
             }
 
             .header-logo {
+                margin: 0 auto;
+
                 @media #{$medium-up} {
-                    position: static;
+                    position: relative;
+                    margin: 0px auto;
                 }
             }
 
             .header-nav {
                 margin-left: 0;
+                border-left: none;
             }
 
             .header-logo__link-image {

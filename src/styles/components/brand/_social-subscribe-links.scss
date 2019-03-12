@@ -3,7 +3,7 @@
     margin: 30px 0;
     padding: 0 20px;
 
-    .homepage & {
+    .home-section & {
         @media #{$small-only} {
             margin-top: 0;
         }
@@ -15,27 +15,18 @@
         clear: both;
     }
 
-    .get-social__links {
-        height: 100px;
-
-        @media #{$large-up} {
-            border-bottom: 1px solid #e5e5e5;
-        }
+    .social-links__links {
+        height: 100px;        
 
         span {
             fill: #9b9b9b;
-        }
-
-        .social-links__text {
-            @include type-teaser-summary;
-            margin-top: 15px;
         }
 
         .social-link {
             padding-top: 15px;
         }
 
-        .brand & {
+        .brand-section & {
             @media #{$medium-only} {
                 float: left;
                 width: 50%;
@@ -43,66 +34,23 @@
         }
     }
 
+    .social-links__text {
+        @include type-newsletter-and-social-headers;
+        margin-top: 15px;
+    }
 }
 
 .magazine-subscribe {
     min-height: 275px;
+    margin-bottom: 20px;
 
     @media #{$medium-only} {
         float: left;
         width: 50%;
-        margin-bottom: 20px;
         border-right: 1px solid $color-section-separator;
     }
 
     &__button {
         margin-top: 20px;
-    }
-}
-
-.newsletter-subscribe {
-    @media #{$small-only} {
-        border-top: 1px solid $color-section-separator;
-        margin-top: 30px;
-        padding-top: 30px;
-    }
-
-    .homepage & {
-        @media #{$small-only} {
-            margin-top: 0;
-        }
-
-        @media #{$medium-only} {
-            float: left;
-            width: 50%;
-            border-right: 1px solid $color-section-separator;
-        }
-    }
-
-    .brand & {
-        @media #{$medium-only} {
-            float: left;
-            width: 50%;
-            padding-top: 30px;
-        }
-
-        @media #{$large-up} {
-            border-top: 1px solid $color-section-separator;
-            margin-top: 30px;
-            padding-top: 30px;
-        }
-    }
-
-    &__title {
-        @include type-header;
-        color: $color-grey-dark;
-        font-size: 20px;
-        line-height: 1.25;
-        margin-bottom: 10px;
-    }
-
-    &__text {
-        @include type-teaser-summary;
-        margin-bottom: 15px;
     }
 }

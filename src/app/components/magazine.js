@@ -17,7 +17,7 @@ const Magazine = props => {
                 <img className="magazine-subscribe__image" src={imageSrc} alt={`${content.title} magazine cover`} />
             </div>
             <div className="magazine-subscribe__button">
-                <a href={`${content.url}-subscribe`} className="button button--link gtm-mag-brand" target="_blank">
+                <a href={`${content.url}-subscribe`} className="button button--link button--without-border-radius gtm-mag-brand" target="_blank">
                     Subscribe Now
                 </a>
             </div>

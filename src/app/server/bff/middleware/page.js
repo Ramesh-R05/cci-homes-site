@@ -18,7 +18,7 @@ export default async function pageMiddleware(req, res, next) {
         const pageEntity = await makeRequest(`${req.app.locals.config.services.remote.entity}/HOMES-${id}${saved}`);
 
         const brandSource = pageEntity.articleSource || pageEntity.source;
-        const brandConfig = req.app.locals.config.brands.uniheader.find(brand => brand.title === brandSource);
+        const brandConfig = req.app.locals.config.brands.site.find(brand => brand.title === brandSource);
 
         const navigationTag = (pageEntity.tagsDetails || []).find(tag => tag.name.includes('Homes navigation'));
 

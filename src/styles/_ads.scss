@@ -43,17 +43,19 @@
         }
 
         > div {
-            display: table-footer-group;
+            display: inline-block;
+            margin: 0 auto;
         }
     }
 
     &--bottom-label {
         .ad__label {
-            display: table-footer-group;
+            display: table-header-group;
         }
 
         > div {
-            display: table-header-group;
+            display: inline-block;
+            margin: 0 auto;
         }
     }
     &--top-label,

@@ -1,13 +1,5 @@
 .mobile-menu {
 
-  &:after {
-    content: '';
-    display: block;
-    background-color: $color-primary;
-    height: 3px;
-    width: 60px;
-  }
-
   &__nav {
     display: flex;
     flex-direction: column;

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connectToStores } from '@bxm/flux';
 import SectionFeatured from './sectionFeatured';
-import FeaturedBrandsSection from '../featuredBrandsSection/featuredBrandsSection';
+// import FeaturedBrandsSection from '../featuredBrandsSection/featuredBrandsSection';
 
 class Home extends Component {
     static displayName = 'Home';
@@ -28,14 +28,14 @@ class Home extends Component {
     render() {
         const { config } = this.context;
         const { homeTopFeed, homeBottomFeed } = config.polar.details;
-        const { featuredBrands, latestBrandItems } = this.props;
+        // const { featuredBrands, latestBrandItems } = this.props;
 
         return (
-            <div className="homepage">
-                <SectionFeatured {...this.props} className="home__body" polarTargets={[homeTopFeed, homeBottomFeed]} />
-                {config.features.lipstick.enabled && (
+            <div className="home-section">
+                <SectionFeatured {...this.props} className="home-section__featured" polarTargets={[homeTopFeed, homeBottomFeed]} />
+                {/* {config.features.lipstick.enabled && (
                     <FeaturedBrandsSection featuredBrands={featuredBrands} latestBrandItems={latestBrandItems} className="home__body" />
-                )}
+                )} */}
             </div>
         );
     }
@@ -49,7 +49,6 @@ export default connectToStores(Home, ['PageStore'], context => {
         hero: pageStore.getHeroItem(),
         articles: pageStore.getItems(),
         content: pageStore.getContent(),
-        latestRealHomes: pageStore.getModuleItems('latestRealHomes'),
         list: pageStore.getList(),
         listNextParams: pageStore.getListNextParams(),
         latestVideos: pageStore.getLatestVideos(),

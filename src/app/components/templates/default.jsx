@@ -7,8 +7,7 @@ import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
 import Header from '@bxm/site-header';
 import get from 'lodash.get';
 import OffCanvas from '../off-canvas/offCanvas';
-import Uniheader from '../header/uniheader';
-import SiteFooter from '../footer/footer';
+import SiteFooter from '../site-footer';
 import HomeHeader from '../home/header';
 import BrandHeader from '../brand/header';
 import SectionHeader from '../section/header';
@@ -65,6 +64,32 @@ class DefaultTemplate extends Component {
         executeAction: PropTypes.func.isRequired,
         config: PropTypes.object.isRequired
     };
+
+    shouldComponentUpdate(nextProps) {
+        const {
+            content,
+            contentErrorStatus,
+            currentNavigateError,
+            currentUrl,
+            headerNavItems,
+            hamburgerNavItems,
+            toggleSideMenu,
+            menuClasses,
+            theme
+        } = this.props;
+
+        return (
+            nextProps.content !== content ||
+            nextProps.contentErrorStatus !== contentErrorStatus ||
+            nextProps.currentNavigateError !== currentNavigateError ||
+            nextProps.currentUrl !== currentUrl ||
+            nextProps.headerNavItems !== headerNavItems ||
+            nextProps.hamburgerNavItems !== hamburgerNavItems ||
+            nextProps.toggleSideMenu !== toggleSideMenu ||
+            nextProps.menuClasses !== menuClasses ||
+            nextProps.theme !== theme
+        );
+    }
 
     toggleMenu = () => {
         const { toggleSideMenu } = this.props;
@@ -166,15 +191,11 @@ class DefaultTemplate extends Component {
 
         const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
 
-        const defaultTemplateClassName = classNames('default-template', `default-template--${getClassModifierFromNodeType(content)}`, {
-            'default-template--theme-active': themeEnabled
-        });
+        const defaultTemplateClassName = classNames('default-template', `default-template--${getClassModifierFromNodeType(content)}`);
 
         return (
             <div className={defaultTemplateClassName}>
                 <div className={menuClasses}>
-                    {content && content.url === '/' && !themeEnabled ? <Uniheader /> : null}
-
                     <Header
                         currentUrl={currentUrl}
                         navItems={headerNavItems}
@@ -182,7 +203,7 @@ class DefaultTemplate extends Component {
                         toggleMenu={this.toggleMenu}
                         permanentlyFixedIfShorterThan={49}
                         theme={themeEnabled ? theme : {}}
-                        isExpanded={themeEnabled}
+                        isExpanded
                         wrapperClassName="header"
                         headerClassName="header__inner"
                     />

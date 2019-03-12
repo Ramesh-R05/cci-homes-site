@@ -22,7 +22,6 @@ const PageStore = createReducerStore({
                 items,
                 theme,
                 galleries,
-                latestRealHomes,
                 latestVideos,
                 latestBrandVideos,
                 featuredBrand,
@@ -41,7 +40,6 @@ const PageStore = createReducerStore({
                     theme,
                     navigationTags: entity.navigationTags,
                     galleries,
-                    latestRealHomes,
                     featuredBrand,
                     latestVideos,
                     latestBrandVideos,
@@ -59,7 +57,6 @@ const PageStore = createReducerStore({
             hero: {},
             items: [],
             galleries: [],
-            latestRealHomes: [],
             latestBrandVideos: [],
             latestBrandItems: [],
             list: [],
@@ -101,10 +98,6 @@ const PageStore = createReducerStore({
             }
 
             return state[module] || [];
-        },
-
-        getLatestRealHomes(state) {
-            return state.latestRealHomes || [];
         },
 
         getErrorStatus(state) {

@@ -44,11 +44,11 @@ $tl-header-heading-font-weight: 400;
 $global-header-height: 40px;
 $global-header-height-desktop: 51px;
 $header-height-small: 54px;
-$header-height-medium-up: 58px;
-$header-height-desktop: 58px;
+$header-height-medium-up: 46px;
+$header-height-desktop: 46px;
 $header-banner-logo-height: 190px;
 $header-logo-aspect-ratio: 12; // (width / height)
-$header-banner-height-mobile: 105px;
+$header-banner-height-mobile: 58px;
 $header-banner-height-medium-up: 175px;
 $header-banner-height-large-up: 185px;
 
@@ -83,7 +83,6 @@ $fade-duration: 750ms;
 $gallery-color-primary: $color-primary;
 
 // Footer
-$back-to-top-background-color: $color-primary;
 $footer-gap: 40px;
 
 // Social share button

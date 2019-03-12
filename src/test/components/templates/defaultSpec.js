@@ -14,7 +14,6 @@ noCallThru();
 const Context = betterMockComponentContext();
 const { TestUtils } = Context;
 
-const UniHeaderStub = Context.createStubComponent();
 const HeaderStub = Context.createStubComponent();
 const SiteFooterStub = Context.createStubComponentWithChildren();
 const offCanvasStub = Context.createStubComponent();
@@ -68,13 +67,12 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../home/home': HomePageStub,
     '../article/page': ArticleStub,
     '../section/tag/section': TagStub,
-    '../header/uniheader': UniHeaderStub,
     '../off-canvas/offCanvas': offCanvasStub,
     '../section/navigationTag/section': NavSectionStub,
     '../brand/section': BrandStub,
     '../section/sponsorTag/section': CampaignStub,
     '../gallery/gallery': GalleryStub,
-    '../footer/footer': SiteFooterStub,
+    '../site-footer': SiteFooterStub,
     '../brand/header': BrandHeader,
     '../home/header': HomeHeader,
     '../section/header': SectionHeader,
@@ -162,7 +160,6 @@ describe('Default Component template', () => {
     let renderedDOM;
     let wrapper;
     let template;
-    let uniheader;
     let header;
     let sectionHeader;
     let sideMenu;
@@ -249,7 +246,6 @@ describe('Default Component template', () => {
             sideMenu = TestUtils.findRenderedComponentWithType(reactModule, offCanvasStub);
             header = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
             footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
-            uniheader = TestUtils.findRenderedComponentWithType(reactModule, UniHeaderStub);
         });
 
         it(`sets Header 'navItems' prop correctly to array`, () => {
@@ -266,10 +262,6 @@ describe('Default Component template', () => {
 
         it('sets the toggleMenu prop on Header to be toggleMenu instance method', () => {
             expect(header.props.toggleMenu).to.eq(currentInstance.toggleMenu);
-        });
-
-        it('renders the UniHeader', () => {
-            expect(ReactDOM.findDOMNode(uniheader)).to.exist;
         });
     });
 

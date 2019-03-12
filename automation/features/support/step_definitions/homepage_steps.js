@@ -43,26 +43,26 @@ module.exports = function(){
     });
 
     this.When(/^I should see a "([^"]*)" feed item containing its image and clickable to open its page$/, function (part) {
-        var feedTeaserImg_element, feedTeaserImgLink_element, i;
+        const { topFeedTeaserImg, topFeedTeaserImgLink, bottomFeedTeaserImg, bottomFeedTeaserImgLink  } = home;
 
-        switch(part) {
-            case 'top':
-                feedTeaserImg_element = home.topFeedTeaserImg;
-                feedTeaserImgLink_element = home.topFeedTeaserImgLink;
-                i = 4; //Test the 5th item which is array no.4
-                break;
-            case 'bottom':
-                feedTeaserImg_element = home.bottomFeedTeaserImg;
-                feedTeaserImgLink_element = home.bottomFeedTeaserImgLink;
-                i = 5; //Test the 6th item which is array no.5
-                break;
-        }
+
+        const { feedTeaserImg_element, feedTeaserImgLink_element } = {
+            top: {
+                feedTeaserImg_element: browser.$$(topFeedTeaserImg)[4],
+                feedTeaserImgLink_element: browser.$$(topFeedTeaserImgLink)[4]
+            },
+            bottom: {
+                feedTeaserImg_element: browser.$$(bottomFeedTeaserImg)[5],
+                feedTeaserImgLink_element: browser.$$(bottomFeedTeaserImgLink)[5]
+            }
+        }[part]
 
         //verify images of all teasers
-        var feedTeaserImgUrl = browser.getAttribute(feedTeaserImg_element,'data-srcset');
-        var feedTeaserImgLink = browser.getAttribute(feedTeaserImgLink_element,'href');
-        validateImageURL(feedTeaserImgUrl[i]);
-        expect(feedTeaserImgLink[i]).not.toEqual('');
+        const feedTeaserImgUrl = feedTeaserImg_element.getAttribute('data-srcset');
+        const feedTeaserImgLink = feedTeaserImgLink_element.getAttribute('href');        
+        
+        validateImageURL(feedTeaserImgUrl);
+        expect(feedTeaserImgLink).not.toEqual('');
     });
 
     this.When(/^I should see a "([^"]*)" feed item containing its title and clickable to open its page$/, function (part) {
@@ -79,32 +79,30 @@ module.exports = function(){
                 break;
         }
 
-        //verify titles of all teasers
+        //verify titles of all teasers        
         var feedTeaserTitle = browser.getText(feedTeaserTitle_element);
         var feedTeaserTitleLink = browser.getAttribute(feedTeaserTitle_element,'href');
         expect(feedTeaserTitle[i]).not.toEqual('');
         expect(feedTeaserTitleLink[i]).not.toEqual('');
     });
 
-    this.When(/^I should see a "([^"]*)" feed item containing its tag and clickable to open its page$/, function (part) {
-        var feedTeaserTag_element, i;
+    this.When(/^I should see a "([^"]*)" feed item containing its tag and clickable to open its page$/, function (pageLocation) {
+        const { topFeedTeaserTag, bottomFeedTeaserTag } = home;
+        const topFeedItemIndex = 4;
+        const bottomFeedItemIndex = 5;
 
-        switch(part) {
-            case 'top':
-                feedTeaserTag_element = home.topFeedTeaserTag;
-                i = 4; //Test the 5th item which is array no.4
-                break;
-            case 'bottom':
-                feedTeaserTag_element = home.bottomFeedTeaserTag;
-                i = 5; //Test the 6th item which is array no.5
-                break;
-        }
+        const feedTeaserTagElement = {
+            top: browser.$$(topFeedTeaserTag)[topFeedItemIndex],
+            bottom: browser.$$(bottomFeedTeaserTag)[bottomFeedItemIndex]
+        }[pageLocation]
+        
 
         //verify tag of a teaser
-        var feedTeaserTag = browser.getText(feedTeaserTag_element);
-        var feedTeaserTagLink = browser.getAttribute(feedTeaserTag_element,'href');
-        expect(feedTeaserTag[i]).not.toEqual('');
-        expect(feedTeaserTagLink[i]).not.toEqual('');
+        const feedTeaserTagText = feedTeaserTagElement.getText();
+        const feedTeaserTagLink = feedTeaserTagElement.getAttribute('href');
+        
+        expect(feedTeaserTagText).not.toEqual('');
+        expect(feedTeaserTagLink).not.toEqual('');
     });
 
     this.Then(/^I should not see the homepage hero source$/, function () {
@@ -153,32 +151,6 @@ module.exports = function(){
     this.Then(/^I should see mobile hero content secondary tag "([^"]*)"$/, function (tagTxt) {
         var sTagText = browser.getText(home.mobSecondaryHeroTag);
         expect(sTagText).toEqual(tagTxt)
-    });
-
-    this.Then(/^User will be provided with (\d+) "([^"]*)"$/, function (imageCount, sectionTitle) {
-        //Validate the title is correct
-        expect(browser.getText(home.latestHomeTitle)).toEqual(sectionTitle);
-
-        //Validate that 4 latest real home teasers
-        var latestHomeTeasers = browser.getAttribute(home.latestHomeTeasers,'class');
-        expect(latestHomeTeasers.length).toEqual(parseInt(imageCount),10);
-    });
-
-    this.Then(/^each image will display text and be opaque when hover$/, function () {
-        var latestHomeTeasers = browser.elements(home.latestHomeTeasers).value;
-        for (var i = 0; i < latestHomeTeasers.length; ++i) {
-            // simulating hover on the latest home teaser
-            browser.moveToObject(home.latestHomeTeasers+':nth-child('+(i+1)+') img');
-            wait(1000);
-            // validating the opacity of the teaser
-            var opacityProperty = browser.getCssProperty(home.latestHomeTeasers+':nth-child('+(i+1)+') h2','opacity');
-            expect(opacityProperty.value).not.toEqual(0);
-            console.log("Opacity value is :"+opacityProperty.value);
-            // validating the text after the hover is correct and not empty
-            var elmTitle = browser.getText(home.latestHomeTeasers+':nth-child('+(i+1)+') h2');
-            console.log(elmTitle);
-            expect(elmTitle).not.toEqual('');
-        }
     });
 
     this.When(/^I should see a load more feed item containing its image and clickable to open its page$/, function () {

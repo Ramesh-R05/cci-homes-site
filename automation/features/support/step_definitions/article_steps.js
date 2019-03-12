@@ -141,9 +141,7 @@ module.exports = function() {
         for(var i=0; i<rcItemsTitle.length; i++) {
             var image = rcItemsImage[i];
             var title = rcItemsTitle[i];
-            console.log( i + ':' + image);
             expect(image === '').toBe(false);
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
     });
@@ -305,7 +303,6 @@ module.exports = function() {
         var heroVideoPlaylistThumbnail = browser.getAttribute(wn_article.heroVideoPlaylistThumbnail, 'src');
         for (var i = 0; i < heroVideoPlaylistThumbnail.length; ++i) {
             var thumbnail = heroVideoPlaylistThumbnail[i];
-            console.log( i + ':' + thumbnail);
             expect(thumbnail === '').toBe(false);
         }
         // Verify the thumbnail images in the playlist
@@ -315,7 +312,6 @@ module.exports = function() {
         var heroVideoPlaylistTitle = browser.getText(wn_article.heroVideoPlaylistTitle);
         for (var i = 0; i < heroVideoPlaylistTitle.length; ++i) {
             var title = heroVideoPlaylistTitle[i];
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
         // Verify the titles in the playlist
@@ -323,7 +319,6 @@ module.exports = function() {
 
     this.Given(/^I can click the play button of the main video$/, function () {
         var heroVideoProgress = browser.getAttribute(wn_article.heroVideoProgress,'aria-valuenow');
-        console.log('Before playing : ' + heroVideoProgress[0])
         expect(heroVideoProgress[0]).toEqual('NaN');
         // Verify the progress bar is not loaded before playing.
 

@@ -64,7 +64,7 @@ export default class Header extends Component {
 
         return (
             <div className="section__heading">
-                <div className="section__heading__ad">
+                <div className="section__heading-ad">
                     <StickyAd
                         adProps={stickyAdProps}
                         minHeight={450}
@@ -75,11 +75,11 @@ export default class Header extends Component {
                     />
                 </div>
 
-                <div className="section__heading__title">
+                <div className="section__heading-title">
                     {!sponsorName ? (
                         htmlHeading
                     ) : (
-                        <SponsorHeader id={this.props.sponsorName} title={<b>{title}</b>}>
+                        <SponsorHeader id={sponsorName} title={<b>{title}</b>}>
                             {htmlHeading}
                         </SponsorHeader>
                     )}

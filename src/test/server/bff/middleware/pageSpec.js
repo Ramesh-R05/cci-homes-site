@@ -1,7 +1,7 @@
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-3193';
-import brands from '../../../../app/config/brands';
+import siteBrands from '../../../../app/config/siteBrands';
 
 const makeRequestStub = () => ({ articleSource: entityStubData.articleSource });
 
@@ -13,7 +13,7 @@ const makeRequestSpy = sinon.spy(makeRequestStub);
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 
-const expectedBrand = brands.find(brand => {
+const expectedBrand = siteBrands.find(brand => {
     return brand.title === entityStubData.articleSource;
 });
 
@@ -39,7 +39,7 @@ describe('page middleware', () => {
             locals: {
                 config: {
                     brands: {
-                        uniheader: brands
+                        site: siteBrands
                     },
                     services: {
                         remote: {

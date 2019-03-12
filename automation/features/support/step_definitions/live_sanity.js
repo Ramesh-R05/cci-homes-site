@@ -26,8 +26,6 @@ module.exports = function(){
             browser.isVisible(wn_recipe.recipeImg);
             browser.isVisible(wn_recipe.recipeIngredients);
             browser.isVisible(wn_recipe.recipeSteps);
-            console.log(browser.getText(wn_recipe.recipeTitle));
-            console.log(browser.getText(wn_recipe.recipeMetatxt));
         });
 
         this.Then(/^share the recipe in facebook$/, function () {
@@ -41,7 +39,6 @@ module.exports = function(){
         this.Then(/^I can see the reactions to this article$/, function () {
             browser.scroll(wn_article.smileBtn);
             browser.click(wn_article.smileBtn);
-            console.log(browser.getText(wn_article.reactionText));
         });
 
         this.Given(/^the user lands on the "([^"]*)" tage page$/, function (tag) {
