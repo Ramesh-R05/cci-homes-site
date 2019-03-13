@@ -5,7 +5,9 @@ var loadMore = require('../page_objects/loadmore_widget');
 module.exports = function(){
 
     this.Then(/^I should see the section title "([^"]*)"$/, function (titleTxt) {
-        expect(browser.getText(sectionPage.sectionTitle)).toEqual(titleTxt);
+        const { sectionTitle } = sectionPage;
+        
+        expect(browser.$(sectionTitle).getText()).toEqual(titleTxt);
     });
 
     this.Then(/^I should see (\d+) top teasers on the feed section page$/, function (teaserCount) {

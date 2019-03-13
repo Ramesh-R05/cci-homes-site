@@ -86,8 +86,10 @@ Feature: Smoke test for HOMES
         Given I switch to "<device>" view
         When I am currently viewing "<pageUrl>"
         * I should see the search icon in the navigation bar
-        * I should see the search box after clicking the icon
-        * I should still see the search box after scrolling the page down
+        Given I click on the search icon in the navigation bar
+        Then I should see the search input
+        Given I scroll down the page
+        Then I should see the search input
         * I should be able to search a keyword "house" on "navigation bar" and see the result page
         * I should not see the search bar on the search result page in mobile version
         Examples:
@@ -98,8 +100,10 @@ Feature: Smoke test for HOMES
         Given I switch to "<device>" view
         When I am currently viewing "<pageUrl>"
         * I should see the search icon in the navigation bar
-        * I should see the search box after clicking the icon
-        * I should still see the search box after scrolling the page down
+        Given I click on the search icon in the navigation bar
+        Then I should see the search input
+        Given I scroll down the page
+        Then I should see the search input
         * I should be able to search a keyword "house" on "navigation bar" and see the result page
         * I should be able to search a keyword "home" on "search result page" and see the result page
         Examples:
@@ -122,7 +126,7 @@ Feature: Smoke test for HOMES
         |device             |page        |pageUrl                                                         |
         |tablet portrait    |article     |ikea-collaborates-with-louis-vuitton-designer-4197              |
 
-#----Below is the high scenario that we moved from the regression test because its result is unstable in the Test environment---=#
+#----Below is the high scenario that we moved from the regression test because its result is unstable in the Test environment---=#    
     Scenario: Verify the sticky MREC ad in the load more feed (Desktop)
         Given I switch to "desktop" view
         When I am currently viewing the homepage
@@ -135,16 +139,16 @@ Feature: Smoke test for HOMES
         Then I should see 4 MREC ads in the RHR feed
 
 #----Scenarios for the lipstick project----#
-    Scenario Outline: Verify the latest video element on homepage in "<device>"
-        Given I switch to "<device>" view
-        When I am currently viewing the homepage
-        Then I should see the latest video element
+#    Scenario Outline: Verify the latest video element on homepage in "<device>"
+#        Given I switch to "<device>" view
+#        When I am currently viewing the homepage
+#        # Then I should see the latest video element
         # And I should see 3 video items
         # And I should see the brand switcher element #will enable once BXMA-1663 is done
         # And I should see 3 featured brand items #will enable once BXMA-1663 is done
-        Examples:
-        | device            |
-        | mobile            |
-        | desktop           |
-        | tablet portrait   |
-        | tablet landscape  |
+#        Examples:
+#       | device            |
+#        | mobile            |
+#        | desktop           |
+#        | tablet portrait   |
+#        | tablet landscape  |

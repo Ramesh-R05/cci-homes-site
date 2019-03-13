@@ -1,4 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
+import PropTypes from 'prop-types';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -113,11 +114,8 @@ describe('GallerySection', () => {
 
     const contextConfigStub = {
         key: 'config',
-        type: '',
+        type: PropTypes.object,
         value: {
-            brands: {
-                hamburgers: []
-            },
             site: {
                 name: 'Dolly',
                 shortName: ''

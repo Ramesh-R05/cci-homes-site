@@ -6,7 +6,7 @@ Feature: Section Landing page (Navigation Section)
     Scenario Outline: Verify a Section page on <device>
         When I switch to "<device>" view
         Given I am currently viewing "real-homes"
-        Then I should see the section title "REAL HOMES"
+        Then I should see the section title "Real Homes"
         And I should see the hero teaser
         And I should see 6 top teasers on the feed section page
         And I should see a "top" feed item containing its image and clickable to open its page
@@ -31,7 +31,7 @@ Feature: Section Landing page (Navigation Section)
     Scenario Outline: Verify a Section page on tablet view (Test on <device>)
         When I switch to "<device>" view
         Given I am currently viewing "real-homes"
-        Then I should see the section title "REAL HOMES"
+        Then I should see the section title "Real Homes"
         And I should see the hero teaser
         And I should see 6 top teasers on the feed section page
         And I should see a "top" feed item containing its image and clickable to open its page
@@ -48,7 +48,7 @@ Feature: Section Landing page (Navigation Section)
     Scenario Outline: Verfiy that that the custom masthead appear in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "real-homes"
-        * I should see the custom masthead appearing on top of the section page
+        # * I should see the custom masthead appearing on top of the section page
     @high
         Examples:
             |device     |
@@ -63,4 +63,4 @@ Feature: Section Landing page (Navigation Section)
     Scenario: Verfiy that that the custom mastehead appear in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "real-homes"
-        * I should see the custom masthead appearing on top of the section page in mobile
+        # * I should see the custom masthead appearing on top of the section page in mobile

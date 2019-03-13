@@ -140,12 +140,12 @@ module.exports = function() {
 
         // Verify the mrec ad after slide no. 3
         browser.scroll(wn_ads.gallerySlide3); // Scroll to the slide no.3 to make sure the header will not overlap the MREC element. This has fixed the Browser Stack issue when running on iPhone 6 plus
-        expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true);
+        expect(browser.$(wn_ads.ad_MrecAfterSlide3).waitForExist(5000)).toBe(true);
         //expect(browser.waitForExist(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
 
         // Verify the mrec ad after slide no. 7
         browser.scroll(wn_ads.gallerySlide7);
-        expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
+        expect(browser.$(wn_ads.ad_MrecAfterSlide7).waitForExist(5000)).toBe(true);
         //expect(browser.waitForExist(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
 
@@ -200,8 +200,13 @@ module.exports = function() {
     });
 
     this.Then(/^I should see sticky MREC on the new feed$/, function () {
-        browser.scroll(loadMore.loadMoreButton);
-        expect(browser.waitForVisible(wn_ads.ad_LoadMoreMrecInBottomFeed,10000)).toBe(true);
+        const { loadMoreButton } = loadMore;
+        const { ad_LoadMoreMrecInBottomFeed } = wn_ads;
+
+        browser.scroll(loadMoreButton);
+        const loadMoreStickyAd = browser.$(ad_LoadMoreMrecInBottomFeed).isExisting()
+
+        expect(loadMoreStickyAd).toBe(true);
     });
 
     this.Then(/^I should see each outside ad slot element containing proper class name$/, function (dataTable) {

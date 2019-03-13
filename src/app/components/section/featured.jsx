@@ -22,9 +22,9 @@ export default class Featured extends Component {
     };
 
     renderSearchBar = () => {
-        const { articles, showSearchBar } = this.props;
+        const { showSearchBar } = this.props;
 
-        if (articles.length === 0 && showSearchBar) {
+        if (showSearchBar) {
             return (
                 <section className="section__search">
                     <SearchBar />

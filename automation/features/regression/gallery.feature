@@ -1,4 +1,4 @@
-@gallery @homes
+@gallery @homes 
 Feature: Gallery
     As a user
     I should be able to see the gallery page

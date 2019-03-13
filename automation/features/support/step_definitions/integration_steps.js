@@ -69,7 +69,7 @@ module.exports = function() {
     this.When(/^I navigate to the "([^"]*)" page$/, function (docType) {
         var elementOnPage;
         var pageURL;
-        var sitUrl = "http://homes-site-au.sit.bxm.net.au/";
+        var sitUrl = process.env.URL || "http://homes-site-au.sit.bxm.net.au/" ;
 
         switch(docType) {
             case 'article':

@@ -9,23 +9,22 @@ module.exports = function() {
             expect(searchIcon).toBe(true);
     });
 
-    this.Then(/^I should see the search box after clicking the icon$/, function () {
-            browser.click(search.searchNavIcon);
-            var searchBox = browser.waitForVisible(search.searchNavBox,5000);
-            expect(searchBox).toBe(true);
+    this.Given(/^I click on the search icon in the navigation bar*/, () => {
+        const { searchNavIcon } = search;
+        
+        browser.$(searchNavIcon).click();
     });
 
-    this.Then(/^I should still see the search box after scrolling the page down$/, function () {
-            browser.scroll(0,1500);
-            wait(5000); //To ensure the sticky top leaderboard is hidden before going to next step
-            var searchBox = browser.isVisible(search.searchNavBox);
-            expect(searchBox).toBe(true);
+    this.Given(/^I scroll down the page$/, () => {
+        browser.scroll(0,1500);
+        wait(5000);
+    });
+    
+    this.Then(/^I should see the search input$/, function () {
+        const { searchNavBox } = search;                
+        const searchBox = browser.$(searchNavBox).waitForVisible(5000);
 
-            //Check if the box is hidden after clicking the icon again
-            browser.click(search.searchNavIcon);
-            wait(1000);
-            var searchBox = browser.isVisible(search.searchNavBox);
-            expect(searchBox).toBe(false);
+        expect(searchBox).toBe(true);
     });
 
     this.Then(/^I should be able to search a keyword "([^"]*)" on "([^"]*)" and see the result page$/, function (keyword, position) {
@@ -53,7 +52,9 @@ module.exports = function() {
             //Check the search result title
             browser.waitForVisible(search.searchResultPageTitle, 5000);
             var searchTitle = browser.getText(search.searchResultPageTitle);
-            expect(searchTitle).toContain('RESULT');
+
+            const capitalisedKeyword = keyword[0].toUpperCase() + keyword.slice(1)
+            expect(searchTitle).toContain(`${capitalisedKeyword} results`);
 
             if (!searchTitle.includes('0 RESULTS')) {
                 //Check the first teaser containing the keyword in the teaser title
