@@ -3,11 +3,13 @@
     display: block;
     padding: 5px 0;
     position: relative;
-    margin: 0 18px 0 0;
+    margin-left: 15px;
 
     @media #{$medium-up} {
         background-color: transparent;
         top: 0;
+        margin-left: 0;
+        margin-right: 20px;
     }
 
     @media #{$large-up} {
@@ -86,13 +88,18 @@
     }
 
     &::after {
-        content: '';
-        width: 1px;
-        height: 18px;
-        border-left: solid 1px #e5e5e5;
-        position: absolute;
-        left: 29px;
-        top: 15px;
+        display: none;
+
+        @media #{$medium-up} {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 18px;
+            border-left: solid 1px $color-section-separator;
+            position: absolute;
+            left: 29px;
+            top: 15px;
+        }
 
         @media #{$large-up} {
             left: 38px;

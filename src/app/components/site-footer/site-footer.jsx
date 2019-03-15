@@ -35,13 +35,13 @@ export default class SiteFooter extends Component {
                         <FooterSocial socialUrls={socialUrls} />
                     </div>
                     <div className="site-footer__link-column columns small-12 medium-11 medium-offset-1 large-7 large-offset-1">
-                        <FooterColumn titleText="homes to love brands" spanSmall={12} spanMedium={4} spanLarge={4} renderChildrenInList>
+                        <FooterColumn titleText="homes to love" spanSmall={12} spanMedium={4} spanLarge={4} renderChildrenInList>
                             {config.brands.site &&
                                 config.brands.site.map(({ title, url, id }) => (
                                     <FooterLink key={id} title={title} url={url} gtmClass="gtm-footer-brand" />
                                 ))}
                         </FooterColumn>
-                        <FooterColumn titleText="more from the network" spanSmall={12} spanMedium={4} spanLarge={4} renderChildrenInList>
+                        <FooterColumn titleText="our network" spanSmall={12} spanMedium={4} spanLarge={4} renderChildrenInList>
                             {config.brands.network &&
                                 config.brands.network.map(({ title, url, id }) => (
                                     <FooterLink key={id} title={title} url={url} gtmClass="gtm-footer-network" target="_blank" />
