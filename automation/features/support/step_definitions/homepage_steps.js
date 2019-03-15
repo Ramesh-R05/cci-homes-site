@@ -44,7 +44,8 @@ module.exports = function(){
 
     this.When(/^I should see a "([^"]*)" feed item containing its image and clickable to open its page$/, function (part) {
         const { topFeedTeaserImg, topFeedTeaserImgLink, bottomFeedTeaserImg, bottomFeedTeaserImgLink  } = home;
-
+        /* wait for polar to replace teasers */
+        wait(6000);
 
         const { feedTeaserImg_element, feedTeaserImgLink_element } = {
             top: {
