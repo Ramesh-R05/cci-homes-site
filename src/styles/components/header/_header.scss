@@ -30,10 +30,12 @@
         padding: 0 $column-gutter/2;
         white-space: nowrap;
         background-color: $color-white;
+        position: initial;
+        z-index: $z-index-1;
 
         @media #{$medium-up} {
-            height: $header-height-desktop;
-            max-height: $header-height-desktop;
+            height: $header-menu-height-desktop;
+            max-height: $header-menu-height-desktop;
             border-top: 1px solid $color-light-grey;
             border-bottom: 1px solid $color-light-grey;
         }
@@ -41,7 +43,7 @@
 
     // expanded states
     &--expanded {
-        position: fixed;
+        position: absolute;
         height: 0;
         margin-top: 0;
 
@@ -51,7 +53,7 @@
         }
 
         @media #{$large-up} {
-            margin-bottom: $header-banner-height-large-up;
+            margin-bottom: $combined-header-height-desktop;
         }
 
         .header-menu {

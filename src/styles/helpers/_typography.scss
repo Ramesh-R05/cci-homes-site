@@ -13,7 +13,7 @@ $muli: unquote('Muli');
 $playfairDisplay: unquote('Playfair+Display');
 $spectral: unquote('Spectral');
 
-@import url('http://fonts.googleapis.com/css?family=#{$questrial}'); // sass-lint:disable-line no-url-protocols
+@import url('https://fonts.googleapis.com/css?family=#{$questrial}'); // sass-lint:disable-line no-url-protocols
 @import url('https://fonts.googleapis.com/css?family=#{$muli}:400,600,800'); // sass-lint:disable-line no-url-protocols
 @import url('https://fonts.googleapis.com/css?family=#{$playfairDisplay}:400,700'); // sass-lint:disable-line no-url-protocols
 @import url('https://fonts.googleapis.com/css?family=#{$spectral}:600'); // sass-lint:disable-line no-url-protocols

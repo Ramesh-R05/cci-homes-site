@@ -18,7 +18,7 @@
         padding-top: $header-banner-height-mobile;
         
         @media #{$medium-up} {
-            padding-top: 230px;
+            padding-top: $combined-header-height-desktop + 30px;
         }        
     }
 

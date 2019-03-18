@@ -47,7 +47,7 @@
         width: 317px;
 
         @media #{$medium-up} {
-            top: $header-height-desktop;
+            top: $header-menu-height-desktop;
             width: 430px;
         }
     }
@@ -114,7 +114,7 @@
         #{$self}__input {
             display: block;
             // Workaround until the styling is refactored in future
-            top: $header-height-desktop - 1;
+            top: $header-menu-height-desktop - 1;
         }
 
         #{self}__icon {

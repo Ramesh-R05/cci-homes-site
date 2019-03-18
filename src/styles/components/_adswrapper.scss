@@ -3,23 +3,11 @@
     margin: 0 auto;
     z-index: $z-index-0;
 
-    .home-section {
-        @include homepage-gap-from-nav-to-top-mrec;
-        @media #{$large-up} {
-            margin-top: 0;
-        }
-    }
-
-    .brand-section {
-        @include brand-gap-from-nav-to-top-mrec;
-    }
-
     .ad--wallpaper-wrapper {
         left: calc((100% - 1920px) / 2);
         width: 100%;
         z-index: $z-index-minus-1;
         position: fixed;
-        top: $ad-wallpaper-top-mobile;
     }
 
     @media #{$medium-up} {
@@ -44,20 +32,16 @@
 
         &-pinned .ad--wallpaper-wrapper {
             position: fixed;
-            top: $ad-wallpaper-top-pinned;
+            top: $header-menu-height-desktop;
         }
     }
 
     @media only screen and (min-width: 1940px) {
         &-pinned .ad--wallpaper-wrapper {
             left: 0;
+            top: 221px;
         }
     }
-}
-
-.header__sections {
-    position: initial;
-    z-index: $z-index-1;
 }
 
 .ad--section-top-leaderboard {
