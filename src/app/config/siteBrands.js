@@ -5,6 +5,7 @@ export default [
         id: 'belle',
         urlName: 'belle',
         imageUrl: '/assets/images/brand-pages/headerlogos/belle.svg',
+        heroImageUrl: '/assets/images/brand-pages/heroimages/belle.svg',
         logo: '/assets/images/brand-pages/headerlogos/belle.svg',
         newsletterUrl: 'https://www.homestolove.com.au/belle-newsletter/',
         subscribe: {
@@ -25,6 +26,7 @@ export default [
         id: 'realliving',
         urlName: 'real-living',
         imageUrl: '/assets/images/brand-pages/headerlogos/real-living.svg',
+        heroImageUrl: '/assets/images/brand-pages/herologos/real-living.svg',
         logo: '/assets/images/brand-pages/headerlogos/real-living.svg',
         newsletterUrl: 'https://www.homestolove.com.au/real-living-newsletter/',
         subscribe: {
@@ -44,6 +46,7 @@ export default [
         url: '/australian-house-and-garden/',
         id: 'houseandgarden',
         imageUrl: '/assets/images/brand-pages/headerlogos/housegarden.svg',
+        heroImageUrl: '/assets/images/brand-pages/herologos/australian-house-and-garden.svg',
         logo: '/assets/images/brand-pages/headerlogos/housegarden.svg',
         urlName: 'australian-house-and-garden',
         newsletterUrl: 'https://www.homestolove.com.au/australian-house-and-garden-newsletter/',
@@ -65,6 +68,7 @@ export default [
         id: 'insideout',
         urlName: 'inside-out',
         imageUrl: '/assets/images/brand-pages/headerlogos/insideout.svg',
+        heroImageUrl: '/assets/images/brand-pages/herologos/inside-out.svg',
         logo: '/assets/images/brand-pages/headerlogos/insideout.svg',
         newsletterUrl: 'https://www.homestolove.com.au/insideout-newsletter/',
         subscribe: {
@@ -85,6 +89,7 @@ export default [
         id: 'countrystyle',
         urlName: 'country-style',
         imageUrl: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
+        heroImageUrl: '/assets/images/brand-pages/herologos/country-style.svg',
         logo: '/assets/images/brand-pages/headerlogos/countrystyle.svg',
         newsletterUrl: 'https://www.homestolove.com.au/countrystyle-newsletter/',
         subscribe: {

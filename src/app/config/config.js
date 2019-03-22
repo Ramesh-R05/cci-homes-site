@@ -299,7 +299,12 @@ export default {
             twitter: 'https://twitter.com/homestoloveau',
             instagram: 'https://www.instagram.com/homestoloveau',
             pinterest: 'https://www.pinterest.com/homestoloveau'
-        }
+        },
+        customFonts: [
+            { url: 'https://fonts.googleapis.com/css?family=Questrial' },
+            { url: 'https://fonts.googleapis.com/css?family=Muli:400,600,800' },
+            { url: 'https://fonts.googleapis.com/css?family=Spectral:600' }
+        ]
     },
 
     server: {

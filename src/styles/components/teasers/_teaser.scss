@@ -204,11 +204,36 @@
         
         @media #{$medium-up} {
             display: block;
-            max-height: 25px;
+            height: 25px;
             max-width: 85px;
             margin: 10px;
-            filter: brightness(0) invert(1);
-        }                    
+        }
+
+        // Workaround so logos display correctly on IE 11
+        &--belle {
+            height: 22px;
+            margin: 11px;
+        }
+
+        &--realliving {
+            height: 20px;
+            margin: 12px;
+        }
+
+        &--houseandgarden {
+            height: 22px;
+            margin: 11px;
+        }
+
+        &--insideout {
+            height: 20px;
+            margin: 12px;
+        }
+
+        &--countrystyle {
+            height: 18px;
+            margin: 13px;
+        }
     }
 
     #{$root}__title {

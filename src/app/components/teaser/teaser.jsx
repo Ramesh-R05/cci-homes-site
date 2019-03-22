@@ -12,6 +12,7 @@ import Source from './source';
 import theme from '../helpers/theme';
 
 const LOGO_PATH = '/assets/images/source';
+const HERO_LOGO_PATH = '/assets/images/brand-pages/herologos';
 class Teaser extends Component {
     static displayName = 'Teaser';
 
@@ -185,13 +186,23 @@ class Teaser extends Component {
         const imgSizes = Teaser.getImgSizes(sizes, modifier);
 
         const sourceLogo = source ? config.get(`article.sources.${source.toLowerCase()}.logo`) : '';
-        let sourceImgUrl = ``;
+        let sourceId = '';
+        let sourceImgUrl = '';
 
         if (sourceLogo) {
             sourceImgUrl = `${LOGO_PATH}/${sourceLogo}`;
         }
 
-        const brandImage = sourceImgUrl ? <img className="teaser__brand-image" alt={source} src={sourceImgUrl} /> : null;
+        if (modifier === 'hero') {
+            const siteBrands = config.get('brands.site') || [];
+            const brandSource = siteBrands.filter(brand => brand.title === source);
+            sourceImgUrl = `${HERO_LOGO_PATH}/${sourceLogo}`;
+            sourceId = brandSource.length && brandSource[0].id;
+        }
+
+        const brandImage = sourceImgUrl ? (
+            <img className={`teaser__brand-image teaser__brand-image--${sourceId}`} alt={source} src={sourceImgUrl} />
+        ) : null;
 
         return (
             <article className={rootClass}>
