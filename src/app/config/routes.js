@@ -68,13 +68,13 @@ export default {
         action: loadDirectoriesContent
     },
     navSection: {
-        path: '/:navSection([/])?',
+        path: '/:navSection*',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
     },
     all: {
-        path: '/:all([/])?',
+        path: '/:all*',
         method: 'get',
         handler: defaultTemplate,
         action: pageNotFound
