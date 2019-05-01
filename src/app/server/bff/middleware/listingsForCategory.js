@@ -16,6 +16,7 @@ export const locationFilterTagNames = [
     'location:country:New Zealand',
     'location:online'
 ];
+// TODO - do we need to add Western Australia above?
 
 export const defaultSortByRules = [
     { urlName: 'A-Z', displayName: 'A-Z' },

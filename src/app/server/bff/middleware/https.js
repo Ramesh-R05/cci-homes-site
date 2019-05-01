@@ -115,6 +115,10 @@ export default function https(req, res, next) {
             });
         });
 
+        get(res, 'body.listingCategories.items', []).forEach(item => {
+            httpsSet(item, 'imageUrl');
+        });
+
         ['current', 'previous', 'next'].forEach(item => {
             const name = `body.list.${item}.url`;
             const value = get(res, name, '');
