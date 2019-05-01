@@ -58,6 +58,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     const { $filter, $top } = req.query;
 
     const homepageMatch = $filter === `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and path ne 'HOMES-10958'`;
+    const brandSourceMatch = $filter.match(/^source eq '([^']+)' and nodeTypeAlias ne 'ListingGallery'/i);
     const sourceMatch = $filter.match(/^source eq '([^']+)'$/i);
     const tagMatch = $filter.match(/^(tags|tagsDetails\/(urlName|fullName)) eq '([^']+)'$/i);
     const galleryMatch = $filter.match(/^nodeTypeAlias eq 'Gallery'/i);
@@ -103,6 +104,17 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (sourceMatch) {
         const source = sourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`);
+
+        if ($top) {
+            teaserData.data.splice($top);
+        }
+
+        teaserResponse = teaserData;
+    }
+
+    if (brandSourceMatch) {
+        const source = brandSourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
         const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`);
 
         if ($top) {

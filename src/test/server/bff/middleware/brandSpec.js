@@ -32,9 +32,10 @@ let makeRequestStub = requestUrl => {
         return heroStubDataWrapper;
     }
 };
+
 const makeRequestSpy = sinon.spy(makeRequestStub);
 const brand = 'belle';
-const brandFilter = `source eq '${entityStubData.articleSource}'`;
+const brandFilter = `source eq '${entityStubData.articleSource}' and nodeTypeAlias ne 'ListingGallery'`;
 const expectedBody = {
     entity: entityStubData,
     hero: heroStubData,

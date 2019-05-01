@@ -19,7 +19,7 @@ export default async function brandMiddleware(req, res, next) {
 
         const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${brand}`);
 
-        const filter = `source eq '${entityResponse.articleSource}'`;
+        const filter = `source eq '${entityResponse.articleSource}' and nodeTypeAlias ne 'ListingGallery'`;
         const listingResponse = await getLatestTeasers(itemsCount, skip, filter);
 
         const brandConfig = req.app.locals.config.brands.site.find(b => b.title === entityResponse.articleSource);
