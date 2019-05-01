@@ -14,7 +14,7 @@ export default {
         action: loadPageContent
     },
     tags: {
-        path: '/tags/:tag([/])?',
+        path: '/tags/:tag*',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent

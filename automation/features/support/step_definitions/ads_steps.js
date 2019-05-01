@@ -129,8 +129,8 @@ module.exports = function() {
         scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack);
         wait(1500);
         scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack); //move to the object again after the images on gallery are loaded from the first move.
-        expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard, 10000)).toBe(true);
-        //expect(browser.waitForExist(wn_ads.ad_BottomLeaderboard,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+        // expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard, 10000)).toBe(true);
+        expect(browser.waitForExist(wn_ads.ad_BottomLeaderboard,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
 
     //BELOW ARE STEPS FOR GALLERY
