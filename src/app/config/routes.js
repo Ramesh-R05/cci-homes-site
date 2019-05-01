@@ -2,7 +2,6 @@ import defaultTemplate from '../components/templates/default';
 import loadPageContent from '../actions/loadPageContent';
 import pageNotFound from '../actions/pageNotFound';
 import loadSearch from '../actions/loadSearch';
-import loadDirectoriesContent from '../actions/loadDirectoriesContent';
 import loadDirectoryContent from '../actions/loadDirectoryContent';
 import SearchPage from '../components/section/search/section';
 
@@ -60,12 +59,6 @@ export default {
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
-    },
-    directories: {
-        path: '/directories',
-        method: 'get',
-        handler: defaultTemplate,
-        action: loadDirectoriesContent
     },
     navSection: {
         path: '/:navSection*',

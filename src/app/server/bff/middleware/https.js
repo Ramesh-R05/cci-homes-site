@@ -87,14 +87,6 @@ export default function https(req, res, next) {
             httpsSet(item, 'imageUrl');
         });
 
-        get(res, 'body.topDirectories', []).forEach(item => {
-            httpsSet(item, 'imageUrl');
-        });
-
-        get(res, 'body.remainingDirectories', []).forEach(item => {
-            httpsSet(item, 'imageUrl');
-        });
-
         get(res, 'body.entity.profileGallery', []).forEach(item => {
             httpsSet(item, 'url');
         });

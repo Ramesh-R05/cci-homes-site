@@ -20,7 +20,6 @@ import https from './bff/middleware/https';
 import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
-import directories from './bff/middleware/directories';
 import listingSingle from './bff/middleware/listingSingle';
 import listingsForCategory from './bff/middleware/listingsForCategory';
 import directoryHome from './bff/middleware/directoryHome';
@@ -84,7 +83,6 @@ export default function bff(server) {
         error
     );
     server.get(server.locals.config.services.endpoints.search, pageModules, comScore, headerMeta, search, https, render, error);
-    server.get(server.locals.config.services.endpoints.directories, pageModules, comScore, directories, headerMeta, https, render, error);
     server.get(
         server.locals.config.services.endpoints.directory,
         pageModules,

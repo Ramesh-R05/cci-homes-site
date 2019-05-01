@@ -66,7 +66,6 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     const latestRealHomesMatch =
         $filter ===
         `tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes' and tagsDetails/fullName ne 'food_Homes_navigation_renovating,food_Building_Building_style_Cottage'`;
-    const baseDirectoriesMatch = $filter === `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
     const latestVideos = $filter === `(nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true')`;
     const directoryCategoryMatch =
         $filter ===
@@ -84,11 +83,6 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
             teaserData.data.splice($top);
         }
 
-        teaserResponse = teaserData;
-    }
-
-    if (baseDirectoriesMatch) {
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-directories`);
         teaserResponse = teaserData;
     }
 

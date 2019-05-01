@@ -333,7 +333,6 @@ export default {
             page: '/api/getPageContent',
             list: '/api/list',
             search: '/api/search',
-            directories: '/api/directories',
             directory: '/api/directory',
             identity: '/api/identity',
             email: '/api/sendEmail'

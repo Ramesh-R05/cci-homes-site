@@ -149,21 +149,6 @@ Context.addStore('NavigationStore', {
     }
 });
 
-Context.addStore('DirectoriesStore', {
-    getContent() {
-        return storeData.PageStore.content;
-    },
-    getHeaderItems() {
-        return headerNavItems;
-    },
-    getHamburgerItems() {
-        return hamburgerNavItems;
-    },
-    getErrorStatus() {
-        return storeData.PageStore.error;
-    }
-});
-
 Context.addStore('DirectoryStore', {
     getContent() {
         return storeData.PageStore.content;

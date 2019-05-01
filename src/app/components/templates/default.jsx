@@ -16,7 +16,6 @@ import Article from '../article/page';
 import Brand from '../brand/section';
 import NavSection from '../section/navigationTag/section';
 import Tag from '../section/tag/section';
-import ConnectedDirectories from '../section/directories';
 import Campaign from '../section/sponsorTag/section';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import getBrand from '../brand/utilities/getBrand';
@@ -119,13 +118,6 @@ class DefaultTemplate extends Component {
 
             return {
                 ContentHandler: ErrorHandlerBuilder(errorStatus)
-            };
-        }
-
-        if (content && content.title && content.title.toLowerCase() === 'directories') {
-            return {
-                ContentHeaderHandler: SectionHeader,
-                ContentHandler: ConnectedDirectories
             };
         }
 
@@ -272,9 +264,8 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoriesStore', 'DirectoryStore', 'EmailStore'], context => {
+export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoryStore', 'EmailStore'], context => {
     const PageStore = context.getStore('PageStore');
-    const DirectoriesStore = context.getStore('DirectoriesStore');
     const NavigationStore = context.getStore('NavigationStore');
     const DirectoryStore = context.getStore('DirectoryStore');
     const EmailStore = context.getStore('EmailStore');
@@ -287,32 +278,24 @@ export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore',
 
     if (PageStore.getContent()) {
         content = PageStore.getContent();
-    } else if (DirectoriesStore.getContent()) {
-        content = DirectoriesStore.getContent();
     } else if (DirectoryStore.getContent()) {
         content = DirectoryStore.getContent();
     }
 
     if (PageStore.getErrorStatus()) {
         contentErrorStatus = PageStore.getErrorStatus();
-    } else if (DirectoriesStore.getErrorStatus()) {
-        contentErrorStatus = DirectoriesStore.getErrorStatus();
     } else if (DirectoryStore.getErrorStatus()) {
         contentErrorStatus = DirectoryStore.getErrorStatus();
     }
 
     if (NavigationStore.getHeaderItems().length) {
         headerNavItems = NavigationStore.getHeaderItems();
-    } else if (DirectoriesStore.getHeaderItems().length) {
-        headerNavItems = DirectoriesStore.getHeaderItems();
     } else if (DirectoryStore.getHeaderItems().length) {
         headerNavItems = DirectoryStore.getHeaderItems();
     }
 
     if (NavigationStore.getHamburgerItems().length) {
         hamburgerNavItems = NavigationStore.getHamburgerItems();
-    } else if (DirectoriesStore.getHamburgerItems().length) {
-        hamburgerNavItems = DirectoriesStore.getHamburgerItems();
     } else if (DirectoryStore.getHamburgerItems().length) {
         hamburgerNavItems = DirectoryStore.getHamburgerItems();
     }
