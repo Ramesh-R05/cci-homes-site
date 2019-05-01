@@ -119,6 +119,10 @@ export default function https(req, res, next) {
             httpsSet(item, 'imageUrl');
         });
 
+        get(res, 'body.entity.listingItems', []).forEach(item => {
+            httpsSet(item.cardImage, 'url');
+        });
+
         ['current', 'previous', 'next'].forEach(item => {
             const name = `body.list.${item}.url`;
             const value = get(res, name, '');
