@@ -48,7 +48,6 @@ const selectors = {
     subtitle: '.listing-card__subtitle'
 };
 
-// TODO - Update this now we changed the required props
 describe('ListingCard component', () => {
     describe('rendering', () => {
         describe('with valid required props and listingType not PremiumListing', () => {
@@ -56,18 +55,21 @@ describe('ListingCard component', () => {
             let testProps;
 
             before(() => {
-                [wrapper, testProps] = TestWrapper({
-                    title: listingsMock[0].title,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: listingsMock[0].cardImage,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: 'furniture-and-interiors',
-                    listingType: 'StandardListing'
-                });
+                [wrapper, testProps] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        category: 'furniture-and-interiors',
+                        listingType: 'StandardListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
             });
 
             it('renders the component', () => {
@@ -157,14 +159,14 @@ describe('ListingCard component', () => {
                 });
             });
 
-            // it('renders the subtitle with the subtitle prop', () => {
-            //     const { subtitle } = selectors;
-            //
-            //     wrapper.find(subtitle).tap(subtitleWrapper => {
-            //         expect(subtitleWrapper.exists()).to.be.true;
-            //         expect(subtitleWrapper.text()).to.eq(testProps.subtitle);
-            //     });
-            // });
+            it('renders the subtitle with the subtitle prop', () => {
+                const { subtitle } = selectors;
+
+                wrapper.find(subtitle).tap(subtitleWrapper => {
+                    expect(subtitleWrapper.exists()).to.be.true;
+                    expect(subtitleWrapper.text()).to.eq(testProps.subtitle);
+                });
+            });
         });
 
         describe(`listingType prop set to 'PremiumListing'`, () => {
@@ -172,18 +174,21 @@ describe('ListingCard component', () => {
             let testProps;
 
             before(() => {
-                [wrapper, testProps] = TestWrapper({
-                    title: listingsMock[0].title,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: listingsMock[0].cardImage,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: 'furniture-and-interiors',
-                    listingType: 'PremiumListing'
-                });
+                [wrapper, testProps] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        category: 'furniture-and-interiors',
+                        listingType: 'PremiumListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
             });
 
             it('renders the component', () => {
@@ -252,6 +257,239 @@ describe('ListingCard component', () => {
             });
         });
 
+        describe(`listingType prop set to 'EnhancedListing'`, () => {
+            let wrapper;
+            let testProps;
+
+            before(() => {
+                [wrapper, testProps] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        category: 'furniture-and-interiors',
+                        listingType: 'EnhancedListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.isEmptyRender()).to.be.false;
+            });
+
+            it('does not render the featured tag', () => {
+                const { featuredTag } = selectors;
+
+                expect(wrapper.find(featuredTag).exists()).to.be.false;
+            });
+
+            it('renders 2 option buttons', () => {
+                const { button } = selectors;
+
+                expect(wrapper.find(button)).to.have.length(2);
+            });
+
+            it('renders the contact button as the first option button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(0)
+                        .text()
+                ).to.eq('contact');
+            });
+
+            it('sets the correct props on the contact button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(0)
+                        .props()
+                ).to.include({
+                    onClick: wrapper.instance().trackOpenAndToggleOverlay,
+                    type: 'button'
+                });
+            });
+
+            it('renders the more info button as the second option button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(1)
+                        .text()
+                ).to.eq('more info');
+            });
+
+            it('sets the correct props on the more info button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(1)
+                        .props()
+                ).to.include({
+                    href: `/directory/${testProps.category}${testProps.listingUrl}`
+                });
+            });
+        });
+
+        describe(`listingType prop set to 'StandardListing'`, () => {
+            let wrapper;
+            let testProps;
+
+            before(() => {
+                [wrapper, testProps] = TestWrapper({
+                    title: listingsMock[0].title,
+                    subtitle: listingsMock[0].subheading,
+                    listingUrl: listingsMock[0].url,
+                    previewImage: listingsMock[0].cardImage,
+                    websiteAddress: listingsMock[0].webAddress,
+                    emailAddress: listingsMock[0].emailAddress,
+                    streetAddress: listingsMock[0].streetAddress,
+                    phoneNumber: listingsMock[0].phoneNumber,
+                    category: 'furniture-and-interiors',
+                    listingType: 'StandardListing'
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.isEmptyRender()).to.be.false;
+            });
+
+            it('renders the featured tag', () => {
+                const { featuredTag } = selectors;
+
+                expect(wrapper.find(featuredTag).exists()).to.be.false;
+            });
+
+            it('renders 2 option buttons', () => {
+                const { button } = selectors;
+
+                expect(wrapper.find(button)).to.have.length(2);
+            });
+
+            it('renders the contact button as the first option button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(0)
+                        .text()
+                ).to.eq('contact');
+            });
+
+            it('sets the correct props on the contact button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(0)
+                        .props()
+                ).to.include({
+                    onClick: wrapper.instance().trackOpenAndToggleOverlay,
+                    type: 'button'
+                });
+            });
+
+            it('renders the more info button as the second option button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(1)
+                        .text()
+                ).to.eq('more info');
+            });
+
+            it('sets the correct props on the more info button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(1)
+                        .props()
+                ).to.include({
+                    href: `/directory/${testProps.category}${testProps.listingUrl}`
+                });
+            });
+        });
+
+        describe(`listingType prop set to 'CardListing'`, () => {
+            let wrapper;
+
+            before(() => {
+                [wrapper] = TestWrapper({
+                    title: listingsMock[0].title,
+                    subtitle: listingsMock[0].subheading,
+                    listingUrl: listingsMock[0].url,
+                    previewImage: listingsMock[0].cardImage,
+                    websiteAddress: listingsMock[0].webAddress,
+                    emailAddress: listingsMock[0].emailAddress,
+                    streetAddress: listingsMock[0].streetAddress,
+                    phoneNumber: listingsMock[0].phoneNumber,
+                    category: 'furniture-and-interiors',
+                    listingType: 'CardListing'
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.isEmptyRender()).to.be.false;
+            });
+
+            it('does not render the featured tag', () => {
+                const { featuredTag } = selectors;
+
+                expect(wrapper.find(featuredTag).exists()).to.be.false;
+            });
+
+            it('renders 1 option button', () => {
+                const { button } = selectors;
+
+                expect(wrapper.find(button)).to.have.length(1);
+            });
+
+            it('renders the contact button as the first option button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(0)
+                        .text()
+                ).to.eq('contact');
+            });
+
+            it('sets the correct props on the contact button', () => {
+                const { button } = selectors;
+
+                expect(
+                    wrapper
+                        .find(button)
+                        .at(0)
+                        .props()
+                ).to.include({
+                    onClick: wrapper.instance().trackOpenAndToggleOverlay,
+                    type: 'button'
+                });
+            });
+        });
+
         describe('previewImage prop not passed', () => {
             let wrapper;
 
@@ -309,34 +547,6 @@ describe('ListingCard component', () => {
                 expect(wrapper.isEmptyRender()).to.be.true;
             });
         });
-        // describe('subtitle prop passed', () => {
-        //     let wrapper;
-        //
-        //     before(() => {
-        //         filterErrors();
-        //
-        //         [wrapper] = TestWrapper({
-        //             title: listingsMock[0].title,
-        //             subtitle: null,
-        //             listingUrl: listingsMock[0].url,
-        //             previewImage: listingsMock[0].cardImage,
-        //             websiteAddress: listingsMock[0].webAddress,
-        //             emailAddress: listingsMock[0].emailAddress,
-        //             streetAddress: listingsMock[0].streetAddress,
-        //             phoneNumber: listingsMock[0].phoneNumber,
-        //             category: listingsMock[0].category,
-        //             listingType: 'StandardListing'
-        //         });
-        //     });
-        //
-        //     after(() => {
-        //         restoreErrors();
-        //     });
-        //
-        //     it('does not render', () => {
-        //         expect(wrapper.isEmptyRender()).to.be.true;
-        //     });
-        // });
     });
 
     describe('state', () => {

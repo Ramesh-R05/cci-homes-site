@@ -90,6 +90,7 @@ export default class ListingCard extends Component {
 
     renderOptions = () => {
         const { listingType, category, listingUrl } = this.props;
+        const ListingTypesToDisplayButtonFor = ['StandardListing', 'EnhancedListing', 'PremiumListing'];
         const moreInfoLinkClassNames = classNames('listing-card__button', 'listing-card__button--more-info', 'gtm-listing-card-more-info');
 
         return (
@@ -97,7 +98,7 @@ export default class ListingCard extends Component {
                 <button onClick={this.trackOpenAndToggleOverlay} className="listing-card__button" type="button">
                     contact
                 </button>
-                {listingType === 'PremiumListing' && (
+                {ListingTypesToDisplayButtonFor.includes(listingType) && (
                     <a className={moreInfoLinkClassNames} href={`/directory/${category}${listingUrl}`}>
                         more info
                     </a>
