@@ -2,6 +2,7 @@ import headerNavigation from '../moduleHandlers/headerNavigation';
 import hamburgerNavigation from '../moduleHandlers/hamburgerNavigation';
 import featuredBrand from '../moduleHandlers/featuredBrand';
 import theme from '../moduleHandlers/theme';
+import listingCategories from '../moduleHandlers/listingCategories';
 import logger from '../../../../logger';
 
 export default function processModules(moduleResponse, themeModule = '') {
@@ -32,6 +33,13 @@ export default function processModules(moduleResponse, themeModule = '') {
                     accumulatedModules = {
                         ...allModules,
                         featuredBrand: featuredBrand(moduleResponse[moduleName])
+                    };
+                    break;
+
+                case 'listingcategories':
+                    accumulatedModules = {
+                        ...allModules,
+                        listingCategories: listingCategories(moduleResponse[moduleName])
                     };
                     break;
 

@@ -1,0 +1,20 @@
+.social-icons {
+  display: flex;
+
+  .social-icon svg {
+    width: 13px;
+    height: 13px;
+
+    > path {
+      fill: $listings-social-icon-color;
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+    
+    .social-icon {
+      margin-bottom: 22px;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+.product-card {
+    text-align: center;
+
+    &__name {
+        @include type-listings-copy-medium;
+        margin: $spacing-4 0;
+    }
+
+    &__button {
+        @include type-listings-copy-medium;
+        @include letter-spacing-to-px(200, 16px);
+        color: $listings-button-text-color;
+        background: $listings-button-background-color;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: $spacing-1 + 2px $spacing-2 - 1px;
+        border: 1px solid transparent;
+        display: inline-block;
+        position: relative;
+        overflow-x: hidden;
+        transform: perspective(1px) translateZ(0);
+        transition: all .2s ease-out;
+        box-shadow: 0 0 1px transparent;
+
+        @media #{$medium-up} {
+            padding: $spacing-1 + 1px $spacing-3;
+            font-size: 16px;
+        }
+
+        @media #{$large-up} {
+            padding: $spacing-1 + 1px $spacing-4;
+        }
+
+        &:before {
+            background-color: $color-listings-grey-7;
+            border-radius: 0;
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            transition: transform .2s ease-out;
+            border: none;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $listings-button-text-color;
+        }
+
+        &:hover:before,
+        &:active:before,
+        &:focus:before {
+            background-color: $listings-button-background-hover-color;
+            transform: scaleX(1);
+        }
+    }
+
+}

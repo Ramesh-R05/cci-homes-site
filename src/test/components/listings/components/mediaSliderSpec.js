@@ -1,0 +1,1 @@
+describe('MediaSlider component', () => {});

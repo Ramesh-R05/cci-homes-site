@@ -1,0 +1,39 @@
+.gallery-link-section {
+  padding-top: $spacing-19;
+  padding-bottom: $spacing-20;
+
+  &__heading-row {
+    text-align: center;
+    margin-bottom: $spacing-9;
+  }
+
+  &__gallery-column {
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left;
+    }
+  }
+
+  &__gallery-button {
+    @include type-listings-button-link;
+    color: $listings-gallery-link-color;
+    border: none;
+    background: none;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: $spacing-2;
+    
+    @media #{$medium-up} {
+        margin-top: $spacing-3;
+        margin-left: $spacing-4;
+        padding: 0;
+    }
+  }  
+
+  &__link-arrow {
+    width: 25px;
+    margin-left: 20px;
+    display: inline-block;
+  }
+}

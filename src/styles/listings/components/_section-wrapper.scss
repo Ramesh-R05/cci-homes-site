@@ -1,0 +1,9 @@
+.section-wrapper {
+  width: 100%;
+  position: relative;
+  background-color: $listings-section-default-background-color;
+
+  &--grey {
+    background-color: $listings-section-grey-background-colour;
+  }
+}

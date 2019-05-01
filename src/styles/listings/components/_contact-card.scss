@@ -1,0 +1,142 @@
+.contact-card {
+    $root: &;
+
+    &__list {
+        padding-top: $spacing-5;
+        padding-left: 10%;
+        padding-right: 10%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        @media #{$large-up} {
+            padding-top: $spacing-36;
+            text-align: left;
+        }
+    }
+
+    &__list-item {
+        display: flex;
+
+        &--street-address {
+            order: 1;
+            margin-bottom: $spacing-8;
+
+            @media #{$large-up} {
+                order: 2;
+                margin-bottom: $spacing-11;
+            }
+        }
+
+        &--email {
+            margin-bottom: $spacing-8;
+
+            @media #{$large-up} {
+                margin-bottom: $spacing-11;
+            }
+        }
+
+        &--phone {
+            order: 2;
+            margin-bottom: $spacing-8;
+
+            @media #{$large-up} {
+                order: 3;
+                margin-bottom: $spacing-11;
+            }
+        }
+
+        &--web-address {
+            order: 3;
+            margin-bottom: $spacing-2;
+
+            @media #{$large-up} {
+                order: 1;
+                margin-bottom: $spacing-11;
+            }
+        }
+    }
+
+    &__list-item-link {
+        color: $listings-contact-link-color;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover, &:focus {
+            color: $listings-contact-link-hover-color;
+            text-decoration: none;
+        }
+    }
+
+    &__list-item-icon {
+        display: none;
+
+        @media #{$large-up} {
+            display: block;
+            margin-right: $spacing-6;
+        }
+    }
+
+    &__list-item-text {
+        @include type-listings-copy-small;
+        color: $color-listings-black-1;
+        margin-top: -3px;
+        width: 100%;
+    }
+
+    &--in-listing-card {
+
+        #{$root}__list {
+            padding: 0 5%;
+            text-align: left;
+
+            @media #{$large-up} {
+                padding: 60px 80px;
+            }
+        }
+
+        #{$root}__list-item {
+            margin-bottom: 15px;
+            margin-top: 0;
+
+            @media #{$large-up} {
+                margin-bottom: 35px;
+            }
+
+            &--email {
+
+                #{$root}__list-item-icon {
+                    margin-top: -3px;
+
+                    @media #{$large-up} {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+
+        #{$root}__list-item-icon {
+            display: block;
+            margin-right: $spacing-2;
+
+            @media #{$large-up} {
+                margin-right: $spacing-6;
+            }
+
+            svg {
+                width: 15px;
+            }
+        }
+
+        #{$root}__list-item-text {
+            font-size: 13px;
+            line-height: 20px;
+
+            @media #{$medium-up} {
+                font-size: 14px;
+                line-height: 25px;
+            }
+        }
+    }
+}

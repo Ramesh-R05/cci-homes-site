@@ -3,6 +3,7 @@ import loadPageContent from '../actions/loadPageContent';
 import pageNotFound from '../actions/pageNotFound';
 import loadSearch from '../actions/loadSearch';
 import loadDirectoriesContent from '../actions/loadDirectoriesContent';
+import loadDirectoryContent from '../actions/loadDirectoryContent';
 import SearchPage from '../components/section/search/section';
 
 export default {
@@ -13,7 +14,7 @@ export default {
         action: loadPageContent
     },
     tags: {
-        path: '/tags/:tag*',
+        path: '/tags/:tag([/])?',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
@@ -36,6 +37,18 @@ export default {
         handler: defaultTemplate,
         action: loadPageContent
     },
+    directoryListingSinglePreview: {
+        path: '/:preview(preview)/directory([/])?:category([^/]+)?([/])?:listing(.*-)?:id([0-9]+)?([/])?',
+        method: 'get',
+        handler: defaultTemplate,
+        action: loadDirectoryContent
+    },
+    directory: {
+        path: '/directory([/])?:category([^/]+)?([/])?:listing(.*-)?:id([0-9]+)?([/])?',
+        method: 'get',
+        handler: defaultTemplate,
+        action: loadDirectoryContent
+    },
     page: {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
@@ -55,13 +68,13 @@ export default {
         action: loadDirectoriesContent
     },
     navSection: {
-        path: '/:navSection*',
+        path: '/:navSection([/])?',
         method: 'get',
         handler: defaultTemplate,
         action: loadPageContent
     },
     all: {
-        path: '/:all*',
+        path: '/:all([/])?',
         method: 'get',
         handler: defaultTemplate,
         action: pageNotFound

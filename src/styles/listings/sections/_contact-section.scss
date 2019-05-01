@@ -1,0 +1,99 @@
+.contact-section {
+    padding-bottom: $spacing-4;
+
+    @media #{$medium-up} {
+        padding-bottom: $spacing-20;
+    }
+
+    @media #{$xlarge-up} {
+        padding-bottom: $spacing-27 + 2px;
+    }
+
+    &__heading {
+        @include type-listings-heading-medium;
+        font-weight: 500;
+        text-align: center;
+
+        @media #{$large-up} {
+            text-align: left;
+        }
+    }
+
+    &__sub-heading {
+        @include type-listings-heading-extra-small;
+        font-weight: 500;
+        color: $color-listings-grey-6;
+        display: block;
+        height: 65px;
+        text-align: center;
+
+        @media #{$medium-up} {
+            height: 42px;
+        }
+
+        @media #{$large-up} {
+            text-align: left;
+            height: 35px;
+        }
+
+        &:after {
+            content: '';
+            width: 104px;
+            height: 2px;
+            background-color: $color-listings-light-green;
+            position: absolute;
+            left: calc(50% - 52px);
+            bottom: 0;
+
+            @media #{$large-up} {
+                left: 15px;
+            }
+        }
+    }
+
+    &__contact-form-column {
+        padding: $spacing-10 $spacing-3 $spacing-11;
+
+        @media #{$large-up} {
+            padding: $spacing-10 0 $spacing-11;
+            border: 1px solid $listings-section-border-color;
+            border-right: 0;
+            height: $contact-card-height-desktop;
+        }
+    }
+
+    &__contact-card-column {
+
+        @media #{$large-up} {
+            background-color: $listings-section-grey-background-colour;
+            min-height: $contact-card-height-desktop;
+            border: 1px solid $listings-section-border-color;
+            border-left: 0;
+        }
+
+        .social-icons {
+            display: block;
+            text-align: center;
+
+            @media #{$large-up} {
+                display: none;
+            }
+        }
+    }
+
+    &__contact-form-social-links-column {
+        display: none;
+
+        @media #{$large-up} {
+            display: block;
+        }
+
+        .social-icons {
+            padding-top: $spacing-6 - 2px;
+        }
+    }
+
+    &__heading-row {
+        padding-bottom: $spacing-10;
+    }
+}

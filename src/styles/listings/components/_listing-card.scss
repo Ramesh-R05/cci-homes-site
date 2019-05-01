@@ -1,0 +1,148 @@
+.listing-card {
+  
+  &__contact-overlay {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-listings-white, .9);
+    border: 1px solid #9F9F9F;
+  }
+
+  &__overlay-close {
+    @include type-listings-copy-extra-small;
+    color: $color-listings-black-3;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 12px;
+    right: 4px;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+  }
+
+  &__close-icon {
+    margin-left: 5px;
+  }
+
+  &__close-icon svg {
+    height: 8px;
+  }
+
+  &__close-icon svg > path {
+    fill: $color-listings-black-3;
+  }
+
+  &__featured-tag {
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-listings-white;
+    @include letter-spacing-to-px(60, 14px);
+    position: absolute;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    width: 100px;
+    top: 30px;
+    background: $color-listings-light-green;
+
+    @media #{$medium-up} {
+        font-size: 11px;
+        line-height: 18px;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+  }
+
+  &__preview-image {
+    width: 100%;
+  }
+
+  &__options {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+  }
+
+  &__button {
+    @include type-listings-copy-extra-small;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include letter-spacing-to-px(100, 11px);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    width: 100px;
+    border-radius: 1px;
+    display: inline-block;
+    background-color: $listings-category-card-button-background-color;
+    color: $listings-category-card-button-text-color;
+    border: 1px solid transparent;
+    position: relative;
+    transform: perspective(1px) translateZ(0);
+    transition: all .2s ease-out;
+    box-shadow: 0 0 1px transparent;
+
+    &:before {
+      background-color: $listings-category-button-background-hover-color;
+      border-radius: 0;
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      transition: transform .2s ease-out;
+      border: none;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $listings-category-card-button-text-color;
+    }
+
+    &:hover:before,
+    &:active:before,
+    &:focus:before {
+      background-color: $listings-category-button-background-hover-color;
+      transform: scaleX(1);
+    }
+
+    &--more-info {
+      margin-left: 10px;
+    }
+  }
+
+  &__detail-wrapper {
+    padding-top: 26px;
+    text-align: left;
+  }
+
+  &__title {
+    color: $color-listings-black;
+    font-size: 19px;
+    padding-left: 3px;
+  }
+
+  &__subtitle {
+    @include type-listings-copy-extra-small;
+    color: $color-listings-black;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 6px;
+
+      @media #{$medium-up} {
+        font-size: 11px;
+        line-height: 14px;
+    }
+  }
+
+}

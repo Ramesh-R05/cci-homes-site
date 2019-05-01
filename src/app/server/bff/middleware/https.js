@@ -13,9 +13,17 @@ export const httpsSet = (obj, path) => {
     }
 };
 
-const itemLists = ['body.items', 'body.leftHandSide.items', 'body.latestVideos'];
+const itemLists = ['body.items', 'body.leftHandSide.items', 'body.latestVideos', 'body.entity.featuredIn'];
 
-const imageUrls = ['body.entity.imageUrl', 'body.entity.imageFacebookUrl.url', 'data.magcover.moduleImageUrl', 'body.hero.imageUrl'];
+const imageUrls = [
+    'body.entity.imageUrl',
+    'body.entity.imageFacebookUrl.url',
+    'data.magcover.moduleImageUrl',
+    'body.hero.imageUrl',
+    'body.entity.cardImage.url',
+    'body.entity.businessLogo.url',
+    'body.entity.contentFacebookImageUrl.source'
+];
 
 export default function https(req, res, next) {
     try {
@@ -85,6 +93,26 @@ export default function https(req, res, next) {
 
         get(res, 'body.remainingDirectories', []).forEach(item => {
             httpsSet(item, 'imageUrl');
+        });
+
+        get(res, 'body.entity.profileGallery', []).forEach(item => {
+            httpsSet(item, 'url');
+        });
+
+        get(res, 'body.entity.products', []).forEach(item => {
+            httpsSet(item.image, 'url');
+        });
+
+        get(res, 'body.entity.heroGallery', []).forEach(item => {
+            httpsSet(item, 'url');
+        });
+
+        get(res, 'body.entity.linkedGalleries', []).forEach(item => {
+            httpsSet(item, 'url');
+
+            item.galleryItems.forEach(galleryitem => {
+                httpsSet(galleryitem, 'url');
+            });
         });
 
         ['current', 'previous', 'next'].forEach(item => {

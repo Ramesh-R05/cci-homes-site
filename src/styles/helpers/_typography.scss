@@ -14,7 +14,7 @@ $spectral: unquote('Spectral');
 
 @import url('https://fonts.googleapis.com/css?family=#{$questrial}'); // sass-lint:disable-line no-url-protocols
 @import url('https://fonts.googleapis.com/css?family=#{$muli}:400,600,800'); // sass-lint:disable-line no-url-protocols
-@import url('https://fonts.googleapis.com/css?family=#{$spectral}:600'); // sass-lint:disable-line no-url-protocols
+@import url('https://fonts.googleapis.com/css?family=#{$spectral}:500,600'); // sass-lint:disable-line no-url-protocols
 
 @font-face {
     font-family: 'icomoon';

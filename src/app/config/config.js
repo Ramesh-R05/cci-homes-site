@@ -148,6 +148,9 @@ export default {
         },
         brandsModalInHeader: {
             enabled: true
+        },
+        listingsEmailTest: {
+            enabled: true
         }
     },
 
@@ -174,6 +177,10 @@ export default {
         templateId: 'Homestolove',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
+    },
+
+    grecaptcha: {
+        siteKey: '6LeMu6AUAAAAAB8Wnn18Y0tRmybaXCyXmCNbZgFC'
     },
 
     nielsen: 'D8F7E7CC-324B-4FEA-A412-097B3CC98D0A',
@@ -327,7 +334,9 @@ export default {
             list: '/api/list',
             search: '/api/search',
             directories: '/api/directories',
-            identity: '/api/identity'
+            directory: '/api/directory',
+            identity: '/api/identity',
+            email: '/api/sendEmail'
         },
 
         header: {
@@ -366,9 +375,11 @@ export default {
     },
 
     useBrandTitleSuffix: true,
+
     homepageFilter: {
         excludedNodeIds: ['HOMES-10958'] // Home Directories (dev)
     },
+
     footer: {
         links: {
             corporate: [
@@ -394,5 +405,11 @@ export default {
                 }
             ]
         }
+    },
+
+    listings: {
+        testToEmail: 'KiJones@bauerxcelmedia.com.au',
+        senderName: 'Homes To Love',
+        senderEmail: 'KiJones@bauerxcelmedia.com.au'
     }
 };

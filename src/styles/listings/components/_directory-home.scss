@@ -1,0 +1,23 @@
+.directory-home {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: {
+        top: $header-banner-height-mobile;
+        left: 0;
+        right: 0;
+    }
+
+    @media #{$medium-up} {
+        padding-top: $combined-header-height-desktop;
+    }
+
+    &__list {
+        padding-left: 0;
+        list-style-type: none;
+
+        @media #{$large-up} {
+            max-width: 1920px;
+        }
+    }
+
+}

@@ -21,8 +21,12 @@ import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 import directories from './bff/middleware/directories';
+import listingSingle from './bff/middleware/listingSingle';
+import listingsForCategory from './bff/middleware/listingsForCategory';
+import directoryHome from './bff/middleware/directoryHome';
 import latestBrandItems from './bff/middleware/latestBrandItems';
 import latestBrandVideos from './bff/middleware/getLatestBrandVideos';
+import sendEmail from './bff/middleware/sendEmail';
 
 export default function bff(server) {
     if (
@@ -81,5 +85,18 @@ export default function bff(server) {
     );
     server.get(server.locals.config.services.endpoints.search, pageModules, comScore, headerMeta, search, https, render, error);
     server.get(server.locals.config.services.endpoints.directories, pageModules, comScore, directories, headerMeta, https, render, error);
+    server.get(
+        server.locals.config.services.endpoints.directory,
+        pageModules,
+        comScore,
+        listingSingle,
+        listingsForCategory,
+        directoryHome,
+        headerMeta,
+        https,
+        render,
+        error
+    );
+    server.get(server.locals.config.services.endpoints.email, sendEmail);
     server.get('(/:preview(preview))?/amp/:page-:id(\\d+)', pageModules, comScore, page, article, gallery, campaign, headerMeta, https, amp, error);
 }

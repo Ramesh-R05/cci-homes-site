@@ -1,0 +1,85 @@
+.testimonial-card {
+    position: relative;
+
+    @media #{$large-up} {
+        height: 365px;
+        max-width: 345px;
+        border: 0.57px solid $color-listings-grey-2;
+        background-color: $color-listings-white;
+        margin: 0 auto;
+    }
+
+    @media #{$xlarge-up} {
+        height: 344px;
+    }
+
+    &:before {
+        background-image: url('/assets/icons/quotation-mark.svg');
+        background-size: 30px 31px;
+        display: inline-block;
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 31px;
+        bottom: 115%;
+        right: 45%;
+
+        @media #{$large-up} {
+            height: 40px;
+            width: 38px;
+            background-size: 38px 40px;
+            bottom: 92%;
+            left: 80%;
+        }
+    }
+
+    &__name {
+        @include type-listings-copy-small;
+        text-align: center;
+        margin-top: 0 auto;
+        font-style: italic;
+        font-weight: 800;
+
+        @media #{$large-up} {
+            margin-top: $spacing-3;
+        }
+    }
+
+    &__message {
+        @include type-listings-copy-large;
+        padding: 0 $spacing-4;
+        color: $color-listings-grey-3;
+        text-align: center;
+        margin-top: $spacing-30;
+        margin-bottom: $spacing-5;
+
+        @media #{$large-up} {
+            margin-top: $spacing-10;
+            font-size: 16px;
+        }
+
+        @media #{$xlarge-up} {
+            font-size: 17px;
+        }
+    }
+
+    &__company {
+        @include type-listings-copy-small;
+        text-align: center;
+        line-height: 20px;
+
+        &-title {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        &--role {
+            font-weight: 400;
+        }
+
+        &--name {
+            color: $color-primary;
+        }
+    }
+
+}

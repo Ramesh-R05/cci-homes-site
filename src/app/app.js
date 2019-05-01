@@ -13,6 +13,8 @@ import TrackingStore from './stores/tracking';
 import AppComponent from './components/app';
 import SearchStore from './stores/search';
 import DirectoriesStore from './stores/directories';
+import DirectoryStore from './stores/directory';
+import EmailStore from './stores/email';
 
 export const stores = [
     AdStore,
@@ -29,7 +31,9 @@ export const stores = [
     TrackingStore,
     NavigationStore,
     SearchStore,
-    DirectoriesStore
+    DirectoriesStore,
+    DirectoryStore,
+    EmailStore
 ];
 
 const app = new Flux({

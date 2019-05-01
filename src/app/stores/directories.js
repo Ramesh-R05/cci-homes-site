@@ -51,14 +51,14 @@ const LOAD_DIRECTORIES_CONTENT_FAILED = (state, payload) => ({
     comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
 });
 
-export const reducer = (state, payload, action) => {
+export const reducer = (state = initialState, payload, action) => {
     switch (action) {
         case 'LOAD_DIRECTORIES_CONTENT':
             return LOAD_DIRECTORIES_CONTENT(state, payload);
         case 'LOAD_DIRECTORIES_CONTENT_FAILED':
             return LOAD_DIRECTORIES_CONTENT_FAILED(state, payload);
         default:
-            return initialState;
+            return state;
     }
 };
 

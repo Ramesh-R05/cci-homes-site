@@ -1,0 +1,30 @@
+.listing-brand-logo {
+  display: flex;
+  flex: 1 0 auto;  
+  margin-bottom: $spacing-13 + 3px;
+
+  @media #{$medium-up} {
+    margin-bottom: $spacing-9;
+  }
+
+  @media #{$large-up} {
+    margin-bottom: $spacing-19 + 2px;
+  }
+
+  &__anchor {
+    display: block;
+    margin-left: auto;
+  }
+
+  &__image {    
+    height: 42px;
+    
+    @media #{$medium-up} {
+      height: 50px;
+    }
+
+    @media #{$large-up} {
+      height: 63px;
+    }
+  }
+};

@@ -67,6 +67,9 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
         `tagsDetails/fullName eq 'food_Homes_navigation_Real_Homes' and tagsDetails/fullName ne 'food_Homes_navigation_renovating,food_Building_Building_style_Cottage'`;
     const baseDirectoriesMatch = $filter === `tagsDetails/fullName eq 'food_Homes_navigation_directories'`;
     const latestVideos = $filter === `(nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true')`;
+    const directoryCategoryMatch =
+        $filter ===
+        `(nodeTypeAlias eq 'CardListing' or nodeTypeAlias eq 'StandardListing' or nodeTypeAlias eq 'EnhancedListing' or nodeTypeAlias eq 'PremiumListing') and tagsDetails/urlName eq 'furniture-and-interiors'`;
 
     let teaserResponse = {
         totalCount: 0,
@@ -143,6 +146,14 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
         return;
     }
 
+    if (directoryCategoryMatch) {
+        const listingsForFurnitureAndInteriors = requireWithNoCache(`${cwd}/stubs/listings-furniture-and-interiors`);
+
+        res.json(listingsForFurnitureAndInteriors);
+
+        return;
+    }
+
     res.json(teaserResponse);
 });
 
@@ -156,6 +167,22 @@ servicesStubs.get('/tag-service/tags', (req, res) => {
     }
 
     res.json(teaserResponse);
+});
+
+servicesStubs.post('/tag-service/tags/list', (req, res) => {
+    const { names } = req.body;
+
+    let tagResponse = [];
+
+    if (Array.isArray(names) && names.length) {
+        const [firstTag] = names;
+
+        const formattedTagName = firstTag.replace(/[^a-z0-9]/gim, '-').toLowerCase();
+
+        tagResponse = require(`${cwd}/stubs/tags-${formattedTagName}`);
+    }
+
+    res.json(tagResponse);
 });
 
 servicesStubs.get('/module-service/:modules?', (req, res) => {

@@ -1,0 +1,15 @@
+.full-width-gallery-section {
+
+    &__scroll-button-column {
+        display: none;
+
+        @media #{$xlarge-up} {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    &__scroll-button-row {
+        padding-top: $spacing-3;
+    }
+}

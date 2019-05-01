@@ -1,0 +1,9 @@
+.listing {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: $header-banner-height-mobile;
+
+    @media #{$medium-up} {
+        padding-top: $combined-header-height-desktop + $spacing-4 + 2;
+    }
+}

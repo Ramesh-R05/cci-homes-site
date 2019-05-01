@@ -156,6 +156,46 @@ function trackImageRevealerInteraction(payload) {
     dataLayer.push(data);
 }
 
+function trackListingGalleryModalOpened(payload) {
+    const { id, name } = payload;
+
+    const data = {
+        event: 'listingGalleryModalOpen',
+        eventInfo: {
+            id,
+            name
+        }
+    };
+
+    dataLayer.push(data);
+}
+
+function trackListingCardContactOpened(payload) {
+    const { title } = payload;
+
+    const data = {
+        event: 'listingCardContactOverlayOpen',
+        eventInfo: {
+            listingName: title
+        }
+    };
+
+    dataLayer.push(data);
+}
+
+function trackListingContactFormSubmit(payload) {
+    const { listingName } = payload;
+
+    const data = {
+        event: 'listingContactFormSubmit',
+        eventInfo: {
+            listingName
+        }
+    };
+
+    dataLayer.push(data);
+}
+
 // ---------------------------------------------------------------------------- store
 
 module.exports = createStore({
@@ -173,7 +213,10 @@ module.exports = createStore({
         VERTICAL_GALLERY_COMPLETED: 'onVerticalGalleryCompleted',
         GALLERY_NEXT_GALLERY: 'onNextGallery',
         LOAD_LIST: 'onLoadList',
-        IMAGE_REVEALER_INTERACTION: 'onImageRevealerInteraction'
+        IMAGE_REVEALER_INTERACTION: 'onImageRevealerInteraction',
+        LISTING_GALLERY_MODAL_OPENED: 'onListingGalleryModalOpened',
+        LISTING_CARD_CONTACT_OPENED: 'onListingCardContactOpened',
+        LISTING_CONTACT_FORM_SUBMIT: 'onListingContactFormSubmit'
     },
 
     onGalleryOpened: payload => {
@@ -214,5 +257,17 @@ module.exports = createStore({
 
     onImageRevealerInteraction: payload => {
         trackImageRevealerInteraction(payload);
+    },
+
+    onListingGalleryModalOpened: payload => {
+        trackListingGalleryModalOpened(payload);
+    },
+
+    onListingCardContactOpened: payload => {
+        trackListingCardContactOpened(payload);
+    },
+
+    onListingContactFormSubmit: payload => {
+        trackListingContactFormSubmit(payload);
     }
 });

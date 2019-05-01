@@ -1,0 +1,46 @@
+.company-profile-section {
+  padding-top: $spacing-13 + 2px;
+  padding-bottom: $spacing-10;
+
+  @media #{$medium-up} {
+    padding-top: $spacing-20 + 2px;
+    padding-bottom: $spacing-20 + 1px;
+  }
+
+  &__main-row {
+    display: flex;
+    flex-direction: column;
+
+    @media #{$medium-up} {
+      flex-direction: row;
+    }
+  }
+
+  &__gallery-column {
+    order: 2;
+
+    @media #{$medium-up} {
+      order: 1;
+    }
+  }
+
+  &__summary-column {
+    margin-bottom: $spacing-15 + 3px;
+    order: 1;
+
+    @media #{$medium-only} {
+      padding-left: $spacing-6;
+    }
+    
+    @media #{$medium-up} {
+      order: 2;
+      padding-top: $spacing-3 + 1px;
+      margin-bottom: 0;
+    }    
+  }
+
+  &__social-column {
+    order: 3;
+    align-items: center;
+  }
+}

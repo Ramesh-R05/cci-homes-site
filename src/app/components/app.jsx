@@ -66,7 +66,7 @@ class Application extends Component {
             <ErrorBoundary>
                 <div className={className}>
                     <GoogleFont />
-                    <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute.url} />
+                    <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute && currentRoute.url} />
                 </div>
             </ErrorBoundary>
         );

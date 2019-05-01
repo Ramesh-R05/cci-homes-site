@@ -8,7 +8,7 @@ export default async function pageModulesMiddleware(req, res, next) {
         const { query } = req;
         const themeModule = getThemeModuleForQuery(query);
         let moduleResponse = {};
-        moduleResponse = await getModules('hamburgernavigation', 'headernavigation', 'featuredbrand', themeModule);
+        moduleResponse = await getModules('hamburgernavigation', 'headernavigation', 'featuredbrand', 'listingcategories', themeModule);
         res.body = {
             ...res.body,
             ...processModules(moduleResponse, themeModule)

@@ -1,0 +1,7 @@
+.contact-form-wrapper {
+
+    &__success-msg {
+        @include type-listings-copy-small;
+        color: $color-listings-grey-4;
+    }
+}

@@ -1,0 +1,138 @@
+.contact-form {
+
+    &__input-group {
+        position: relative;
+    }
+
+    &__input-feedback {
+        @include type-listings-copy-extra-small;
+        color: $listings-validation-error-copy-color;
+        position: absolute;
+        top: -20px;
+
+        @media #{$medium-up} {
+            top: -18px;
+        }
+    }
+
+    &__text-input {
+        color: $color-listings-grey-3;
+        font-family:  $font-family-sans-serif-primary;
+        font-size: 16px;
+        line-height: 24px;
+        background: $listings-input-background-color;
+        border: 1px solid $listings-input-border-color;
+        height: 46px;
+        width: 100%;
+        padding: $spacing-4 - 2px;
+        margin-bottom: $spacing-5;
+
+        @media #{$large-up} {
+            margin-bottom: $spacing-6 + 2px;
+            padding: $spacing-4;
+        }
+
+        &--error {
+            border: 1px solid $listings-input-error-border-color;
+        }
+    }
+
+    &__textarea {
+        color: $color-listings-grey-3;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 16px;
+        line-height: 24px;
+        background: $listings-input-background-color;
+        border: 1px solid $listings-input-border-color;
+        min-height: 242px;
+        width: 100%;
+        padding: $spacing-3 $spacing-4 - 2px;
+
+        @media #{$large-up} {
+            padding: $spacing-4 - 2px;
+        }
+
+        &--error {
+            border: 1px solid $listings-input-error-border-color;
+        }
+    }
+
+    &__button {
+        @include type-listings-copy-medium;
+        @include letter-spacing-to-px(200, 16px);
+        color: $listings-button-text-color;
+        background: $listings-button-background-color;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: $spacing-1 + 2px $spacing-2 - 1px;
+        border: 1px solid transparent;
+        display: block;
+        position: relative;
+        float: right;
+        overflow-x: hidden;
+        transform: perspective(1px) translateZ(0);
+        transition: all .2s ease-out;
+        box-shadow: 0 0 1px transparent;
+        margin-top: $spacing-6;
+
+        @media #{$large-up} {
+            margin-top: $spacing-4 - 2px;
+        }
+
+        @media #{$large-up} {
+            margin-top: $spacing-5 + 2px;
+            padding: $spacing-2 - 1px $spacing-5 + 1px;
+            font-size: 16px;
+        }
+
+        &:before {
+            background-color: $color-listings-grey-7;
+            border-radius: 0;
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            transition: transform .2s ease-out;
+            border: none;
+        }
+
+        &:hover:before,
+        &:active:before,
+        &:focus:before {
+            background-color: $listings-button-background-hover-color;
+            transform: scaleX(1);
+        }
+    }
+
+    &__error-msg {
+        @include type-listings-copy-small;
+        color: $listings-validation-error-copy-color;
+    }
+
+     &__grecaptcha {
+         @include type-listings-copy-extra-small;
+         font-size: 10px;
+         line-height: 12px;
+         color: $listings-captcha-info-color;
+         position: absolute;
+         bottom: 50px;
+         right: 15px;
+         text-align: right;
+
+         @media #{$medium-up} {
+             font-size: 10px;
+             position: absolute;
+             bottom: 60px;
+             right: 15px;
+         }
+     }
+
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+}

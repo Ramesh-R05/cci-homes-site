@@ -1,0 +1,82 @@
+.listing-gallery-modal {
+
+  &__header {
+    height: 76px;
+    align-items: center;
+    padding: $spacing-3 $spacing-4;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__close-button {
+    border: none;
+    margin-right: $spacing-5;
+    width: 40px;
+    background-color: $color-listings-white;
+  }
+
+  &__logo-link {
+    display: block;    
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 25px;
+      margin: 0;
+      padding: 0;
+      width: 2px;
+      background-color: $listings-modal-header-divider-color;
+      bottom: 30px;
+    }
+  }
+
+  &__logo {
+    font-size: 36px;
+    margin-left: $spacing-6;
+  }
+
+  &__main-row {
+    margin-top: $spacing-6;
+
+    @media #{$medium-up} {
+      padding: 0 $spacing-9;
+      margin-top: $spacing-15;
+    }
+  }
+
+  &__title {
+    @include type-listings-copy-extra-large;
+    letter-spacing: 4px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: $spacing-6;
+    text-align: center;
+    
+    @media #{$medium-up} {
+      margin-bottom: $spacing-14;
+      text-align: left;
+    }
+  }  
+
+  &__image-wrapper {
+    margin: 0;
+    margin-bottom: $spacing-7;
+    
+    @media #{$medium-up} {
+      margin-bottom: $spacing-17;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  .bxm-modal__header {
+    top: 0;
+    padding: 0 $spacing-3;
+    position: sticky;
+    background-color: $listings-modal-header-background-color;
+    border-bottom: 1px solid $listings-modal-header-divider-color;
+    z-index: $z-index--modal-sticky-header;
+  }
+}

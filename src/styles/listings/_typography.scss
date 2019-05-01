@@ -1,0 +1,120 @@
+@mixin letter-spacing-to-px($value, $fontSize) {
+    letter-spacing: ($value * $fontSize / 1000);
+}
+
+@mixin type-listings-heading-large {
+    color: $listings-heading-color;
+    font-family: $font-family-serif-primary;
+    font-size: 30px;
+    line-height: 44px;
+
+    @media #{$medium-up} {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+@mixin type-listings-heading-medium {
+    color: $listings-heading-color;
+    font-family: $font-family-serif-primary;
+    font-size: 30px;
+    line-height: 104px; // TODO - correct this
+
+    @media #{$medium-up} {
+        line-height: 59px;
+    }
+}
+
+@mixin type-listings-heading-small {
+    color: $listings-heading-color;
+    font-family: $font-family-serif-primary;
+    font-size: 18px;
+    line-height: 24px;
+
+    @media #{$medium-up} {
+        font-size: 24px;
+        line-height: 22px;
+    }
+}
+
+@mixin type-listings-heading-extra-small {
+    color: $listings-heading-color;
+    font-family: $font-family-serif-primary;
+    font-size: 16px;
+    line-height: 25px;
+
+    @media #{$medium-up} {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+@mixin type-listings-copy-extra-large {
+    color: $listings-copy-color;
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 24px;
+    line-height: 36px;
+
+    @media #{$medium-up} {
+        font-size: 19px;
+        line-height: 27px;
+    }
+}
+
+@mixin type-listings-copy-large {
+    color: $listings-copy-color;
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 20px;
+    line-height: 20px;
+
+    @media #{$medium-up} {
+        font-size: 17px;
+        line-height: 23px;
+    }
+}
+
+@mixin type-listings-copy-medium {
+    color: $listings-copy-color;
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 15px;
+    line-height: 24px;
+
+    @media #{$medium-up} {
+        font-size: 16px;
+        line-height: 25px;
+    }
+}
+
+@mixin type-listings-copy-small {
+    color: $listings-copy-color;
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 18px;
+    line-height: 30px;
+
+    @media #{$medium-up} {
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+@mixin type-listings-copy-extra-small {
+    color: $listings-copy-extra-small-color;
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 12px;
+
+    @media #{$medium-up} {        
+        font-size: 11px;
+        line-height: 14px;
+    }
+}
+
+@mixin type-listings-button-link {
+    font-family:  $font-family-sans-serif-primary;
+    font-size: 18px;
+    line-height: 48px;
+
+    @media #{$medium-up} {
+        font-size: 19px;
+        line-height: 27px;
+    }
+}

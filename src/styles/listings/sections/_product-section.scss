@@ -1,0 +1,20 @@
+.product-section {
+
+    &__title-column {
+        text-align: center;
+        padding-top: $spacing-20;
+        padding-bottom: $spacing-9;
+    }
+
+    &__container {
+        padding-bottom: $spacing-27 + 2px;
+    }
+
+    &__product-column {
+        padding-bottom: $spacing-10;
+
+        @media #{$xlarge-up} {
+            padding-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.testimonial-section {
+
+    @media #{$large-up} {
+        background-color: $color-listings-grey-14;
+    }
+
+    &__title-column {
+        text-align: center;
+        padding-top: $spacing-20;
+        padding-bottom: $spacing-9;
+    }
+
+    &__container {
+        padding-bottom: $spacing-27 + 2px;
+    }
+}

@@ -21,6 +21,9 @@ import Campaign from '../section/sponsorTag/section';
 import ErrorHandlerBuilder from '../error/errorHandlerBuilder';
 import getBrand from '../brand/utilities/getBrand';
 import defaultRenderFailed from '../../actions/defaultRenderFailed';
+import ListingRenderer from '../listings/templates/listingRenderer';
+import DirectoryHome from '../listings/components/directoryHome';
+import ListingCategory from '../listings/templates/listingCategory';
 
 @hamburgerWrapper
 class DefaultTemplate extends Component {
@@ -48,7 +51,8 @@ class DefaultTemplate extends Component {
             themeAlignment: PropTypes.string,
             themeColour: PropTypes.string,
             themeImage: PropTypes.string
-        })
+        }),
+        contactForm: PropTypes.object
     };
 
     static defaultProps = {
@@ -57,7 +61,8 @@ class DefaultTemplate extends Component {
         currentNavigateError: null,
         headerNavItems: [],
         hamburgerNavItems: [],
-        theme: null
+        theme: null,
+        contactForm: null
     };
 
     static contextTypes = {
@@ -75,7 +80,8 @@ class DefaultTemplate extends Component {
             hamburgerNavItems,
             toggleSideMenu,
             menuClasses,
-            theme
+            theme,
+            contactForm
         } = this.props;
 
         return (
@@ -87,7 +93,8 @@ class DefaultTemplate extends Component {
             nextProps.hamburgerNavItems !== hamburgerNavItems ||
             nextProps.toggleSideMenu !== toggleSideMenu ||
             nextProps.menuClasses !== menuClasses ||
-            nextProps.theme !== theme
+            nextProps.theme !== theme ||
+            nextProps.contactForm !== contactForm
         );
     }
 
@@ -115,7 +122,7 @@ class DefaultTemplate extends Component {
             };
         }
 
-        if (content.title.toLowerCase() === 'directories') {
+        if (content && content.title && content.title.toLowerCase() === 'directories') {
             return {
                 ContentHeaderHandler: SectionHeader,
                 ContentHandler: ConnectedDirectories
@@ -163,6 +170,36 @@ class DefaultTemplate extends Component {
                     ContentHeaderHandler: HomeHeader,
                     ContentHandler: Article
                 };
+            case 'standardlisting':
+                return {
+                    ContentHeaderHandler: null,
+                    ContentHandler: ListingRenderer,
+                    excludeAdsWrapper: true
+                };
+            case 'enhancedlisting':
+                return {
+                    ContentHeaderHandler: null,
+                    ContentHandler: ListingRenderer,
+                    excludeAdsWrapper: true
+                };
+            case 'premiumlisting':
+                return {
+                    ContentHeaderHandler: null,
+                    ContentHandler: ListingRenderer,
+                    excludeAdsWrapper: true
+                };
+            case 'directoryhome':
+                return {
+                    ContentHeaderHandler: null,
+                    ContentHandler: DirectoryHome,
+                    excludeAdsWrapper: true
+                };
+            case 'listingsbycategory':
+                return {
+                    ContentHeaderHandler: null,
+                    ContentHandler: ListingCategory,
+                    excludeAdsWrapper: true
+                };
             default:
                 executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
 
@@ -173,9 +210,9 @@ class DefaultTemplate extends Component {
     }
 
     render() {
-        const { content, headerNavItems, hamburgerNavItems, currentUrl, menuClasses, theme } = this.props;
+        const { content, headerNavItems, hamburgerNavItems, currentUrl, menuClasses, theme, contactForm } = this.props;
         const { config } = this.context;
-        const { ContentHeaderHandler, ContentHandler } = this.getPageMetadata();
+        const { ContentHeaderHandler, ContentHandler, excludeAdsWrapper } = this.getPageMetadata();
 
         let brandConfig = {};
         let contentHeaderTitle = '';
@@ -210,18 +247,23 @@ class DefaultTemplate extends Component {
 
                     <OffCanvas navItems={hamburgerNavItems} currentUrl={currentUrl} toggleSideMenu={this.toggleMenu} />
 
-                    {ContentHeaderHandler ? (
+                    {ContentHeaderHandler && (
                         <ContentHeaderHandler
                             {...this.props}
                             title={contentHeaderTitle}
                             logo={brandConfig.logo}
                             sponsorName={content.sponsor || 'homes_sponsor'}
                         />
-                    ) : null}
+                    )}
 
-                    <AdsWrapper>
-                        <ContentHandler brandConfig={brandConfig} content={content} />
-                    </AdsWrapper>
+                    {ContentHandler &&
+                        (excludeAdsWrapper ? (
+                            <ContentHandler brandConfig={brandConfig} content={content} contactForm={contactForm} />
+                        ) : (
+                            <AdsWrapper>
+                                <ContentHandler brandConfig={brandConfig} content={content} />
+                            </AdsWrapper>
+                        ))}
 
                     <SiteFooter />
                 </div>
@@ -230,16 +272,61 @@ class DefaultTemplate extends Component {
     }
 }
 
-export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoriesStore'], context => {
+export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore', 'DirectoriesStore', 'DirectoryStore', 'EmailStore'], context => {
     const PageStore = context.getStore('PageStore');
     const DirectoriesStore = context.getStore('DirectoriesStore');
     const NavigationStore = context.getStore('NavigationStore');
+    const DirectoryStore = context.getStore('DirectoryStore');
+    const EmailStore = context.getStore('EmailStore');
+
+    let content;
+    let contentErrorStatus;
+    let headerNavItems;
+    let hamburgerNavItems;
+    let contactForm;
+
+    if (PageStore.getContent()) {
+        content = PageStore.getContent();
+    } else if (DirectoriesStore.getContent()) {
+        content = DirectoriesStore.getContent();
+    } else if (DirectoryStore.getContent()) {
+        content = DirectoryStore.getContent();
+    }
+
+    if (PageStore.getErrorStatus()) {
+        contentErrorStatus = PageStore.getErrorStatus();
+    } else if (DirectoriesStore.getErrorStatus()) {
+        contentErrorStatus = DirectoriesStore.getErrorStatus();
+    } else if (DirectoryStore.getErrorStatus()) {
+        contentErrorStatus = DirectoryStore.getErrorStatus();
+    }
+
+    if (NavigationStore.getHeaderItems().length) {
+        headerNavItems = NavigationStore.getHeaderItems();
+    } else if (DirectoriesStore.getHeaderItems().length) {
+        headerNavItems = DirectoriesStore.getHeaderItems();
+    } else if (DirectoryStore.getHeaderItems().length) {
+        headerNavItems = DirectoryStore.getHeaderItems();
+    }
+
+    if (NavigationStore.getHamburgerItems().length) {
+        hamburgerNavItems = NavigationStore.getHamburgerItems();
+    } else if (DirectoriesStore.getHamburgerItems().length) {
+        hamburgerNavItems = DirectoriesStore.getHamburgerItems();
+    } else if (DirectoryStore.getHamburgerItems().length) {
+        hamburgerNavItems = DirectoryStore.getHamburgerItems();
+    }
+
+    if (EmailStore.getContactForm()) {
+        contactForm = EmailStore.getContactForm();
+    }
 
     return {
-        content: PageStore.getContent() || DirectoriesStore.getContent(),
+        content,
         theme: PageStore.getTheme(),
-        contentErrorStatus: PageStore.getErrorStatus() || DirectoriesStore.getErrorStatus(),
-        headerNavItems: NavigationStore.getHeaderItems().length ? NavigationStore.getHeaderItems() : DirectoriesStore.getHeaderItems(),
-        hamburgerNavItems: NavigationStore.getHamburgerItems().length ? NavigationStore.getHamburgerItems() : DirectoriesStore.getHamburgerItems()
+        contentErrorStatus,
+        headerNavItems,
+        hamburgerNavItems,
+        contactForm
     };
 });

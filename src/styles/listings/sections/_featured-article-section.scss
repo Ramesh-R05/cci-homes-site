@@ -1,0 +1,42 @@
+.featured-article-section {
+  $mobile-section-divider-width: 80%;
+
+  padding: $spacing-19 $spacing-3 $spacing-19 + 1px $spacing-3;
+  position: relative;
+
+  @media #{$medium-up} {
+    padding-top: $spacing-35 - 1px;
+    padding-bottom: $spacing-34 + 2px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 1px;
+    width: $mobile-section-divider-width;
+    background-color: $listings-section-divider-colour;
+    left: 50%;
+    margin-left: calc(-$mobile-section-divider-width /2 );
+
+
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+
+  &:after {
+    content: '';
+    bottom: 0;
+    position: absolute;
+    height: 1px;
+    width: $mobile-section-divider-width;
+    background-color: $listings-section-divider-colour;
+    left: 50%;
+    margin-left: calc(-$mobile-section-divider-width /2 );
+
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+}

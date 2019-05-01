@@ -1,0 +1,20 @@
+export default {
+    bannerRangeMax: '727px',
+    bannerRangeMin: '320px',
+    billboardRangeMax: '9999999px',
+    billboardRangeMin: '1030px',
+    largeRangeMax: '1348px',
+    largeRangeMin: '1024px',
+    leaderboardRangeMax: '1023px',
+    leaderboardRangeMin: '728px',
+    mediumRangeMax: '1023px',
+    mediumRangeMin: '691px',
+    railBannerRangeMax: '1147px',
+    railBannerRangeMin: '1024px',
+    railLeaderboardRangeMax: '1413px',
+    railLeaderboardRangeMin: '1148px',
+    smallRangeMax: '690px',
+    smallRangeMin: '0',
+    xlargeRangeMax: '9999999px',
+    xlargeRangeMin: '1349px'
+};

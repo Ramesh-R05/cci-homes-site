@@ -1,0 +1,1 @@
+describe('ListingHeader component', () => {});

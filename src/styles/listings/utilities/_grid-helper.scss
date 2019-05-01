@@ -1,0 +1,9 @@
+.row {
+  &.medium-uncollapse {
+    > .columns {
+      @media #{$medium-up} {
+        padding: 0 $column-gutter / 2;
+      }
+    }
+  }
+}

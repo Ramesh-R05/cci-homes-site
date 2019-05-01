@@ -1,0 +1,86 @@
+/* 
+  Here is the colour variable setup for the listings
+  don't use these colours directly, instead create a new usage below
+*/
+
+// Blacks
+// TODO - only call #000000 black
+$color-listings-black: #000000;
+$color-listings-black-1: #1a1a1a;
+$color-listings-black-2: #333333;
+$color-listings-black-3: #404040;
+
+// greys
+$color-listings-grey: #e4e4e4;
+$color-listings-grey-1: #cdcdcd;
+$color-listings-grey-2: #7c7c7c;
+$color-listings-grey-3: #777777;
+$color-listings-grey-4: #767679;
+$color-listings-grey-5: #696970;
+$color-listings-grey-6: #404040;
+$color-listings-grey-7: #252525;
+$color-listings-grey-8: #3e3e3e;
+$color-listings-grey-9: #f2f2f2;
+$color-listings-grey-10: #a1a1a1;
+$color-listings-grey-11: #303030;
+$color-listings-grey-12: #f1f1f1;
+$color-listings-grey-13: #f7f7f7;
+$color-listings-grey-14: #efefef;
+
+// whites
+$color-listings-white: #ffffff;
+
+// Others
+$color-listings-light-green: #7cbfb1;
+$color-listings-red-1: #861316;
+
+/* 
+  Here are the usages
+  consider the bare colours to be private variables and only refer to the usages created below.
+*/
+
+// typography
+$listings-heading-color: $color-listings-black-1; 
+$listings-copy-color: $color-listings-black;
+$listings-copy-extra-small-color: $color-listings-black-2;
+$listings-button-text-color: $color-listings-white;
+$listings-contact-copy-color: $color-listings-black-1;
+$listings-contact-link-color: $color-listings-black-1;
+$listings-contact-link-hover-color: $color-listings-grey-5;
+$listings-validation-error-copy-color: $color-listings-red-1;
+$listings-filter-input-color: $color-listings-grey-8;
+$listings-category-card-button-text-color: $color-listings-grey-6;
+$listings-captcha-info-color: $color-listings-grey-10;
+
+// elements
+$listings-button-background-color: $color-listings-black-2;
+$listings-button-background-hover-color: $color-listings-black-1;
+$listings-category-button-background-hover-color: $color-listings-grey-12;
+$directory-home-button-background-color: $color-listings-white;
+$directory-home-button-background-hover-color: rgba($directory-home-button-background-color, 0.9);
+$listings-social-icon-color: $color-listings-black-1;
+$listings-gallery-bullet-color: $color-listings-grey-1;
+$listings-gallery-bullet-active-color: $color-listings-white;
+$listings-gallery-nav-color: $color-listings-white;
+$listings-gallery-nav-hover-color: rgba($listings-gallery-nav-color, 0.7);
+$listings-input-background-color: $color-listings-grey-13;
+$listings-input-border-color: $color-listings-grey-1;
+$listings-input-error-border-color: $color-listings-red-1;
+$listings-section-border-color: $color-listings-grey-1;
+$listings-gallery-link-color: $color-listings-black-3;
+$listings-modal-header-background-color: $color-listings-white;
+$listings-modal-header-divider-color: $color-listings-grey;
+$listings-featured-article-card-background-color: $color-listings-grey-14;
+$listings-featured-article-card-border-color: $color-listings-grey-1;
+$listings-featured-article-card-summary-color: $color-listings-grey-6;
+$listings-featured-article-card-article-meta-color: $color-listings-grey-2;
+$listings-filter-background-color: $color-listings-grey-9;
+$listings-filter-selected-background-color: $color-listings-white;
+$listings-filter-border-color: $color-listings-grey-10;
+$listings-filter-arrow-background-color: $color-listings-grey-11;
+$listings-category-card-button-background-color: $color-listings-white;
+
+// sections
+$listings-section-default-background-color: $color-listings-white;
+$listings-section-grey-background-colour: $color-listings-grey-14;
+$listings-section-divider-colour: $color-listings-grey-1;

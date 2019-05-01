@@ -16,6 +16,9 @@ export default {
         },
         lipstick: {
             enabled: false
+        },
+        listingsEmailTest: {
+            enabled: false
         }
     },
     gigya: {
