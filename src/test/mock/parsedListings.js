@@ -11,7 +11,27 @@ export default [
         id: 'HOMES-16256',
         nodeType: 'PremiumListing',
         dateCreated: '2019-03-22T06:20:29.00Z',
-        tagsDetails: [[Object], [Object], [Object], [Object]],
+        tagsDetails: [
+            {
+                name: 'listing:category:Furniture & Interiors',
+                urlName: 'furniture-and-interiors',
+                fullName: 'listing_category_furniture_and_interiors',
+                displayName: 'Furniture & Interiors'
+            },
+            { name: 'location:online', urlName: 'online', fullName: 'location_online', displayName: 'online' },
+            {
+                name: 'location:australian_state:New South Wales',
+                urlName: 'new-south-wales',
+                fullName: 'location_australian_state_New_South_Wales',
+                displayName: 'New South Wales'
+            },
+            {
+                name: 'location:australian_state:Queensland',
+                urlName: 'queensland',
+                fullName: 'location_australian_state_Queensland',
+                displayName: 'Queensland'
+            }
+        ],
         url: '/cotswold-inout-furniture-16256',
         cardImage: {
             url: 'http://d36kx15wbx6ooz.cloudfront.net/s3/digital-cougar-assets-dev/homes/2019/03/26/1553558371277_CardImage.jpg',

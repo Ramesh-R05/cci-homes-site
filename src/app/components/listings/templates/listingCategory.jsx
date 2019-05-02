@@ -134,6 +134,7 @@ export default class ListingCategory extends Component {
                                       phoneNumber={item.phoneNumber}
                                       category={activeFilters.category}
                                       listingType={item.nodeType}
+                                      tags={item.tagsDetails}
                                   />
                               </div>
                           ))

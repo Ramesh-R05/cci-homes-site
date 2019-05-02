@@ -17,11 +17,16 @@ export default class ListingCard extends Component {
             url: PropTypes.string,
             caption: PropTypes.string
         }).isRequired,
+        tags: PropTypes.arrayOf(
+            PropTypes.shape({
+                urlName: PropTypes.string,
+                name: PropTypes.string
+            })
+        ).isRequired,
         websiteAddress: PropTypes.string,
         emailAddress: PropTypes.string,
         streetAddress: PropTypes.string,
         phoneNumber: PropTypes.string,
-        category: PropTypes.string,
         listingType: PropTypes.oneOf(['CardListing', 'StandardListing', 'EnhancedListing', 'PremiumListing']).isRequired
     };
 
@@ -32,8 +37,7 @@ export default class ListingCard extends Component {
         websiteAddress: '',
         emailAddress: '',
         streetAddress: '',
-        phoneNumber: '',
-        category: ''
+        phoneNumber: ''
     };
 
     static contextTypes = {
@@ -66,6 +70,17 @@ export default class ListingCard extends Component {
         this.toggleOverlay(event);
     };
 
+    getCategoryFromTag() {
+        const { tags } = this.props;
+        let categoryTag;
+
+        if (Array.isArray(tags)) {
+            categoryTag = tags.find(tag => tag && tag.fullName && tag.name.includes('listing:category'));
+        }
+
+        return (categoryTag && categoryTag.urlName) || 'category';
+    }
+
     renderOverlay = () => {
         const { websiteAddress, emailAddress, streetAddress, phoneNumber } = this.props;
 
@@ -89,7 +104,7 @@ export default class ListingCard extends Component {
     };
 
     renderOptions = () => {
-        const { listingType, category, listingUrl } = this.props;
+        const { listingType, listingUrl } = this.props;
         const ListingTypesToDisplayButtonFor = ['StandardListing', 'EnhancedListing', 'PremiumListing'];
         const moreInfoLinkClassNames = classNames('listing-card__button', 'listing-card__button--more-info', 'gtm-listing-card-more-info');
 
@@ -99,7 +114,7 @@ export default class ListingCard extends Component {
                     contact
                 </button>
                 {ListingTypesToDisplayButtonFor.includes(listingType) && (
-                    <a className={moreInfoLinkClassNames} href={`/directory/${category}${listingUrl}`}>
+                    <a className={moreInfoLinkClassNames} href={`/directory/${this.getCategoryFromTag()}${listingUrl}`}>
                         more info
                     </a>
                 )}

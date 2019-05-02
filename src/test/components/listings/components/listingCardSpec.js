@@ -65,7 +65,7 @@ describe('ListingCard component', () => {
                         emailAddress: listingsMock[0].emailAddress,
                         streetAddress: listingsMock[0].streetAddress,
                         phoneNumber: listingsMock[0].phoneNumber,
-                        category: 'furniture-and-interiors',
+                        tags: listingsMock[0].tagsDetails,
                         listingType: 'StandardListing'
                     },
                     { executeAction: sinon.stub() }
@@ -172,6 +172,7 @@ describe('ListingCard component', () => {
         describe(`listingType prop set to 'PremiumListing'`, () => {
             let wrapper;
             let testProps;
+            let getCategoryFromTagStub;
 
             before(() => {
                 [wrapper, testProps] = TestWrapper(
@@ -184,6 +185,7 @@ describe('ListingCard component', () => {
                         emailAddress: listingsMock[0].emailAddress,
                         streetAddress: listingsMock[0].streetAddress,
                         phoneNumber: listingsMock[0].phoneNumber,
+                        tags: listingsMock[0].tagsDetails,
                         category: 'furniture-and-interiors',
                         listingType: 'PremiumListing'
                     },
@@ -243,17 +245,16 @@ describe('ListingCard component', () => {
                 ).to.eq('more info');
             });
 
-            it('sets the correct props on the more info button', () => {
+            it('sets the link on the more info button based on the url and the category tag', () => {
                 const { button } = selectors;
+                const expectedCategoryTag = testProps.tags[0].urlName;
 
                 expect(
                     wrapper
                         .find(button)
                         .at(1)
-                        .props()
-                ).to.include({
-                    href: `/directory/${testProps.category}${testProps.listingUrl}`
-                });
+                        .prop('href')
+                ).to.eq(`/directory/${expectedCategoryTag}${testProps.listingUrl}`);
             });
         });
 
@@ -272,6 +273,7 @@ describe('ListingCard component', () => {
                         emailAddress: listingsMock[0].emailAddress,
                         streetAddress: listingsMock[0].streetAddress,
                         phoneNumber: listingsMock[0].phoneNumber,
+                        tags: listingsMock[0].tagsDetails,
                         category: 'furniture-and-interiors',
                         listingType: 'EnhancedListing'
                     },
@@ -331,17 +333,16 @@ describe('ListingCard component', () => {
                 ).to.eq('more info');
             });
 
-            it('sets the correct props on the more info button', () => {
+            it('sets the link on the more info button based on the url and the category tag', () => {
                 const { button } = selectors;
+                const expectedCategoryTag = testProps.tags[0].urlName;
 
                 expect(
                     wrapper
                         .find(button)
                         .at(1)
-                        .props()
-                ).to.include({
-                    href: `/directory/${testProps.category}${testProps.listingUrl}`
-                });
+                        .prop('href')
+                ).to.eq(`/directory/${expectedCategoryTag}${testProps.listingUrl}`);
             });
         });
 
@@ -350,18 +351,22 @@ describe('ListingCard component', () => {
             let testProps;
 
             before(() => {
-                [wrapper, testProps] = TestWrapper({
-                    title: listingsMock[0].title,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: listingsMock[0].cardImage,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: 'furniture-and-interiors',
-                    listingType: 'StandardListing'
-                });
+                [wrapper, testProps] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        tags: listingsMock[0].tagsDetails,
+                        category: 'furniture-and-interiors',
+                        listingType: 'StandardListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
             });
 
             it('renders the component', () => {
@@ -416,17 +421,16 @@ describe('ListingCard component', () => {
                 ).to.eq('more info');
             });
 
-            it('sets the correct props on the more info button', () => {
+            it('sets the link on the more info button based on the url and the category tag', () => {
                 const { button } = selectors;
+                const expectedCategoryTag = testProps.tags[0].urlName;
 
                 expect(
                     wrapper
                         .find(button)
                         .at(1)
-                        .props()
-                ).to.include({
-                    href: `/directory/${testProps.category}${testProps.listingUrl}`
-                });
+                        .prop('href')
+                ).to.eq(`/directory/${expectedCategoryTag}${testProps.listingUrl}`);
             });
         });
 
@@ -434,18 +438,22 @@ describe('ListingCard component', () => {
             let wrapper;
 
             before(() => {
-                [wrapper] = TestWrapper({
-                    title: listingsMock[0].title,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: listingsMock[0].cardImage,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: 'furniture-and-interiors',
-                    listingType: 'CardListing'
-                });
+                [wrapper] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        tags: listingsMock[0].tagsDetails,
+                        category: 'furniture-and-interiors',
+                        listingType: 'CardListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
             });
 
             it('renders the component', () => {
@@ -490,24 +498,68 @@ describe('ListingCard component', () => {
             });
         });
 
+        describe("when listing type is any of 'StandardListing', 'EnhancedListing', 'PremiumListing'", () => {
+            describe('and there is no tags array passed', () => {
+                let wrapper;
+                let testProps;
+
+                before(() => {
+                    [wrapper, testProps] = TestWrapper(
+                        {
+                            title: listingsMock[0].title,
+                            subtitle: listingsMock[0].subheading,
+                            listingUrl: listingsMock[0].url,
+                            previewImage: listingsMock[0].cardImage,
+                            websiteAddress: listingsMock[0].webAddress,
+                            emailAddress: listingsMock[0].emailAddress,
+                            streetAddress: listingsMock[0].streetAddress,
+                            phoneNumber: listingsMock[0].phoneNumber,
+                            tags: [],
+                            listingType: 'EnhancedListing'
+                        },
+                        { executeAction: sinon.stub() }
+                    );
+                });
+
+                it('renders the component', () => {
+                    expect(wrapper.isEmptyRender()).to.be.false;
+                });
+
+                it('sets the link on the more info button based with the fallback string "category" and the url', () => {
+                    const { button } = selectors;
+                    const expectedCategoryTag = 'category';
+
+                    expect(
+                        wrapper
+                            .find(button)
+                            .at(1)
+                            .prop('href')
+                    ).to.eq(`/directory/${expectedCategoryTag}${testProps.listingUrl}`);
+                });
+            });
+        });
+
         describe('previewImage prop not passed', () => {
             let wrapper;
 
             before(() => {
                 filterErrors();
 
-                [wrapper] = TestWrapper({
-                    title: listingsMock[0].title,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: null,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: listingsMock[0].category,
-                    listingType: 'StandardListing'
-                });
+                [wrapper] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: null,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        category: listingsMock[0].category,
+                        listingType: 'StandardListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
             });
 
             after(() => {
@@ -525,18 +577,21 @@ describe('ListingCard component', () => {
             before(() => {
                 filterErrors();
 
-                [wrapper] = TestWrapper({
-                    title: null,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: listingsMock[0].cardImage,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: listingsMock[0].category,
-                    listingType: 'StandardListing'
-                });
+                [wrapper] = TestWrapper(
+                    {
+                        title: null,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        category: listingsMock[0].category,
+                        listingType: 'StandardListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
             });
 
             after(() => {
@@ -555,18 +610,21 @@ describe('ListingCard component', () => {
             let testProps;
 
             before(() => {
-                [wrapper, testProps] = TestWrapper({
-                    title: listingsMock[0].title,
-                    subtitle: listingsMock[0].subheading,
-                    listingUrl: listingsMock[0].url,
-                    previewImage: listingsMock[0].cardImage,
-                    websiteAddress: listingsMock[0].webAddress,
-                    emailAddress: listingsMock[0].emailAddress,
-                    streetAddress: listingsMock[0].streetAddress,
-                    phoneNumber: listingsMock[0].phoneNumber,
-                    category: listingsMock[0].category,
-                    listingType: 'StandardListing'
-                });
+                [wrapper, testProps] = TestWrapper(
+                    {
+                        title: listingsMock[0].title,
+                        subtitle: listingsMock[0].subheading,
+                        listingUrl: listingsMock[0].url,
+                        previewImage: listingsMock[0].cardImage,
+                        websiteAddress: listingsMock[0].webAddress,
+                        emailAddress: listingsMock[0].emailAddress,
+                        streetAddress: listingsMock[0].streetAddress,
+                        phoneNumber: listingsMock[0].phoneNumber,
+                        category: listingsMock[0].category,
+                        listingType: 'StandardListing'
+                    },
+                    { executeAction: sinon.stub() }
+                );
 
                 wrapper.instance().toggleOverlay({ preventDefault: sinon.stub() });
             });
