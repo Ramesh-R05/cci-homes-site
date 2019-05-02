@@ -125,7 +125,7 @@ export default class ListingCategory extends Component {
                               >
                                   <ListingCard
                                       title={item.title}
-                                      subtitle={item.subheading}
+                                      subtitle={item.shortSummary}
                                       listingUrl={item.url}
                                       previewImage={item.cardImage}
                                       websiteAddress={item.webAddress}
