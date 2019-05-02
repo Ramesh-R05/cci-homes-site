@@ -26,12 +26,9 @@ export default class ContactFormWrapper extends Component {
 
     componentDidUpdate() {
         const { executeAction } = this.context;
-        const {
-            listingName,
-            contactForm: { sendSuccessStatus }
-        } = this.props;
+        const { listingName, contactForm } = this.props;
 
-        if (sendSuccessStatus) {
+        if (contactForm && contactForm.sendSuccessStatus) {
             executeAction(trackListingContactFormSubmit, { listingName });
         }
     }
