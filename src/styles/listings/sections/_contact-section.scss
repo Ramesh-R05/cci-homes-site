@@ -1,7 +1,9 @@
 .contact-section {
+    padding-top: $spacing-10 - 2px;
     padding-bottom: $spacing-4;
 
     @media #{$medium-up} {
+        padding-top: $spacing-17 + 1px;
         padding-bottom: $spacing-20;
     }
 

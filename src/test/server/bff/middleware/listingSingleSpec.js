@@ -1,9 +1,11 @@
 import proxyquire, { noCallThru } from 'proxyquire';
+import filterEmptyItems from '../../../../app/server/bff/helper/filterEmptyItems';
 noCallThru();
 
 // stubs
 const makeRequestStub = sinon.stub();
 const transformListingGalleriesStub = sinon.stub();
+const filterEmptyItemsStub = sinon.stub();
 
 // spies
 const makeRequestSpy = sinon.spy(makeRequestStub);
@@ -31,7 +33,8 @@ const getBaseRequest = () => ({
 
 const getMockEntity = () => ({
     nodeTypeAlias: 'PremiumListing',
-    copy: 'Cool premium listing copy.'
+    copy: 'Cool premium listing copy.',
+    testimonials: [{ message: 'test' }, {}, {}]
 });
 
 function resetStubsAndSpies() {
@@ -40,7 +43,8 @@ function resetStubsAndSpies() {
 
 const listingSingleMiddleware = proxyquire('../../../../app/server/bff/middleware/listingSingle', {
     '../../makeRequest': makeRequestSpy,
-    '../helper/transformListingGalleries': transformListingGalleriesStub
+    '../helper/transformListingGalleries': transformListingGalleriesStub,
+    '../helper/filterEmptyItems': filterEmptyItemsStub
 });
 
 describe('single listing middleware', () => {
@@ -50,10 +54,12 @@ describe('single listing middleware', () => {
             let res;
             const next = sinon.spy();
             const linkedGalleries = [1, 2, 3];
+            const testimonials = [{ message: 'test' }];
 
             beforeEach(() => {
                 makeRequestStub.resolves({ ...getMockEntity() });
                 transformListingGalleriesStub.returns(linkedGalleries);
+                filterEmptyItemsStub.returns(testimonials);
 
                 req = { ...getBaseRequest() };
                 res = {};
@@ -77,7 +83,7 @@ describe('single listing middleware', () => {
             });
             it('should set the response body to the correct shape', done => {
                 const expectedBody = {
-                    entity: { nodeType: getMockEntity().nodeTypeAlias, copy: getMockEntity().copy, linkedGalleries }
+                    entity: { nodeType: getMockEntity().nodeTypeAlias, copy: getMockEntity().copy, linkedGalleries, testimonials }
                 };
 
                 listingSingleMiddleware(req, res, next)

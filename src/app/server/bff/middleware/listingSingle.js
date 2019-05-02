@@ -1,6 +1,7 @@
 import makeRequest from '../../makeRequest';
 import { parseEntity } from '../helper/parseEntity';
-import transformListingGaleries from '../helper/transformListingGalleries';
+import transformListingGalleries from '../helper/transformListingGalleries';
+import filterEmptyItems from '../helper/filterEmptyItems';
 
 export default async function listingSingle(req, res, next) {
     try {
@@ -32,11 +33,14 @@ export default async function listingSingle(req, res, next) {
             return;
         }
 
+        const parsedEntity = parseEntity(directoryListingEntity);
+
         res.body = {
             ...res.body,
             entity: {
-                ...parseEntity(directoryListingEntity),
-                linkedGalleries: transformListingGaleries(directoryListingEntity.galleries)
+                ...parsedEntity,
+                linkedGalleries: transformListingGalleries(directoryListingEntity.galleries),
+                testimonials: parsedEntity.testimonials && filterEmptyItems(parsedEntity.testimonials, 'message')
             }
         };
 

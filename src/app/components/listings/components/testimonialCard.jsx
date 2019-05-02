@@ -6,19 +6,21 @@ export default function TestimonialCard({ name, company, message }) {
 
     return (
         <article className="testimonial-card">
-            <div className="testimonial-card__message">{message}</div>
-            <div className="testimonial-card__name">{name}</div>
-            <div className="testimonial-card__company">
-                <h3 className="testimonial-card__company-title">
-                    {companyStr.length > 1 ? (
-                        <Fragment>
-                            <span className="testimonial-card__company--role"> {`${companyStr[0]},`}</span>
-                            <span className="testimonial-card__company--name">{`${companyStr[1]}`}</span>{' '}
-                        </Fragment>
-                    ) : (
-                        <span className="testimonial-card__company--role"> {`${companyStr[0]}`} </span>
-                    )}
-                </h3>
+            <div className="testimonial-card__content-container">
+                <div className="testimonial-card__message">{message}</div>
+                <div className="testimonial-card__name">{name}</div>
+                <div className="testimonial-card__company">
+                    <h3 className="testimonial-card__company-title">
+                        {companyStr.length > 1 ? (
+                            <Fragment>
+                                <span className="testimonial-card__company--role"> {`${companyStr[0]},`}</span>
+                                <span className="testimonial-card__company--name">{`${companyStr[1]}`}</span>{' '}
+                            </Fragment>
+                        ) : (
+                            <span className="testimonial-card__company--role"> {`${companyStr[0]}`} </span>
+                        )}
+                    </h3>
+                </div>
             </div>
         </article>
     );

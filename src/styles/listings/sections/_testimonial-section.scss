@@ -1,4 +1,5 @@
 .testimonial-section {
+    padding-bottom: $spacing-27 + 2px;
 
     @media #{$large-up} {
         background-color: $color-listings-grey-14;
@@ -8,9 +9,5 @@
         text-align: center;
         padding-top: $spacing-20;
         padding-bottom: $spacing-9;
-    }
-
-    &__container {
-        padding-bottom: $spacing-27 + 2px;
     }
 }

@@ -1,12 +1,12 @@
 .featured-article-section {
   $mobile-section-divider-width: 80%;
 
-  padding: $spacing-19 $spacing-3 $spacing-19 + 1px $spacing-3;
+  padding: $spacing-19 $spacing-3 $spacing-10 - 2px $spacing-3;
   position: relative;
 
   @media #{$medium-up} {
     padding-top: $spacing-35 - 1px;
-    padding-bottom: $spacing-34 + 2px;
+    padding-bottom: $spacing-17 + 1px;
   }
 
   &:before {
