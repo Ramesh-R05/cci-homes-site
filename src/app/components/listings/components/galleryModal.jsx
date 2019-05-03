@@ -19,10 +19,10 @@ export default function GalleryModal({ title, images }) {
                         <figure key={image.title} className="listing-gallery-modal__image-wrapper">
                             <ResponsiveImage
                                 sizes={{
-                                    xl: { w: 919, h: 1170 },
-                                    l: { w: 919, h: 1170 },
-                                    m: { w: 540, h: 805 },
-                                    s: { w: 535, h: 787 }
+                                    xl: { w: 919 },
+                                    l: { w: 919 },
+                                    m: { w: 540 },
+                                    s: { w: 535 }
                                 }}
                                 alt={image.caption}
                                 url={image.url}

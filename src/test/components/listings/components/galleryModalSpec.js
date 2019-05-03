@@ -78,10 +78,10 @@ describe('GalleryModalContent component', () => {
                 wrapper.find('.listing-gallery-modal__image-wrapper').forEach((figure, imageNo) => {
                     expect(figure.find(ResponsiveImageStub).props()).to.deep.eq({
                         sizes: {
-                            xl: { w: 919, h: 1170 },
-                            l: { w: 919, h: 1170 },
-                            m: { w: 540, h: 805 },
-                            s: { w: 535, h: 787 }
+                            xl: { w: 919 },
+                            l: { w: 919 },
+                            m: { w: 540 },
+                            s: { w: 535 }
                         },
                         alt: testProps.images[imageNo].caption,
                         url: testProps.images[imageNo].url,
