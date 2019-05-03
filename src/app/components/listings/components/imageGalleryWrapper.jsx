@@ -42,7 +42,7 @@ export class ImageGalleryWrapper extends Component {
                 showFullscreenButton={false}
                 showPlayButton={false}
                 renderItem={this.customRenderer}
-                showBullets
+                showNav={items.length > 1}
             />
         );
     }

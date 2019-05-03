@@ -18,7 +18,8 @@ const selectors = {
     root: 'listing-image-gallery',
     portrait: 'listing-image-gallery--portrait',
     landscape: 'listing-image-gallery--landscape',
-    compact: 'listing-image-gallery--compact'
+    compact: 'listing-image-gallery--compact',
+    singleItem: 'listing-image-gallery--single-item'
 };
 
 const TestWrapper = new ShallowWrapperFactory(ImageGalleryWrapper);
@@ -45,11 +46,10 @@ describe('ImageGalleryWrapper component', () => {
         describe('with valid required props', () => {
             let wrapper;
             let testProps;
-            let customRendererStub;
 
             before(() => {
                 [wrapper, testProps] = TestWrapper({
-                    items: [{ original: 'http://image.com' }]
+                    items: [{ original: 'http://image.com' }, { original: 'http://image2.com' }]
                 });
             });
 
@@ -66,7 +66,7 @@ describe('ImageGalleryWrapper component', () => {
                     showThumbnails: false,
                     showFullscreenButton: false,
                     showPlayButton: false,
-                    showBullets: true,
+                    showNav: true,
                     items: testProps.items,
                     renderItem: wrapper.instance().customRenderer
                 });
@@ -75,12 +75,12 @@ describe('ImageGalleryWrapper component', () => {
 
         [{ size: 'portrait', modifier: 'portrait' }, { size: 'landscape', modifier: 'landscape' }, { size: 'compact', modifier: 'compact' }].forEach(
             ({ size, modifier }) => {
-                describe(`with ${size} prop`, () => {
+                describe(`with ${size} prop and multiple items`, () => {
                     let wrapper;
 
                     before(() => {
                         [wrapper] = TestWrapper({
-                            items: [{ original: 'http://image.com' }],
+                            items: [{ original: 'http://image.com' }, { original: 'http://image2.com' }],
                             size
                         });
                     });
@@ -98,13 +98,43 @@ describe('ImageGalleryWrapper component', () => {
             }
         );
 
+        describe(`with with a single item`, () => {
+            let wrapper;
+            let testProps;
+
+            before(() => {
+                [wrapper, testProps] = TestWrapper({
+                    items: [{ original: 'http://image.com' }]
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.find(ImageGalleryStub).exists()).to.be.true;
+            });
+
+            it(`sets the showNav prop on the ImageGallery to false`, () => {
+                const { root } = selectors;
+
+                expect(wrapper.find(ImageGalleryStub).props()).to.deep.eq({
+                    additionalClass: root,
+                    onSlide: ImageGalleryWrapper.defaultProps.slideChangeCallback,
+                    showThumbnails: false,
+                    showFullscreenButton: false,
+                    showPlayButton: false,
+                    showNav: false,
+                    items: testProps.items,
+                    renderItem: wrapper.instance().customRenderer
+                });
+            });
+        });
+
         describe('with slideChangeCallback prop', () => {
             let wrapper;
             let testProps;
 
             before(() => {
                 [wrapper, testProps] = TestWrapper({
-                    items: [{ original: 'http://image.com' }],
+                    items: [{ original: 'http://image.com' }, { original: 'http://image2.com' }],
                     slideChangeCallback: sinon.stub()
                 });
             });

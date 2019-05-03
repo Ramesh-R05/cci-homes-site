@@ -3,6 +3,8 @@ import { parseEntity } from '../helper/parseEntity';
 import transformListingGalleries from '../helper/transformListingGalleries';
 import filterEmptyItems from '../helper/filterEmptyItems';
 
+export const listingNodeTypes = ['CardListing', 'StandardListing', 'EnhancedListing', 'PremiumListing'];
+
 export default async function listingSingle(req, res, next) {
     try {
         const { query } = req;
@@ -24,9 +26,6 @@ export default async function listingSingle(req, res, next) {
             return;
         }
 
-        // TODO - redirect when a CardListing tries to access a page it shouldn't be able to access
-        const listingNodeTypes = ['CardListing', 'StandardListing', 'EnhancedListing', 'PremiumListing'];
-
         if (!listingNodeTypes.includes(directoryListingEntity.nodeTypeAlias)) {
             next();
 
@@ -39,8 +38,10 @@ export default async function listingSingle(req, res, next) {
             ...res.body,
             entity: {
                 ...parsedEntity,
-                linkedGalleries: transformListingGalleries(directoryListingEntity.galleries),
-                testimonials: parsedEntity.testimonials && filterEmptyItems(parsedEntity.testimonials, 'message')
+                linkedGalleries: transformListingGalleries(parsedEntity.galleries),
+                testimonials: parsedEntity.testimonials && filterEmptyItems(parsedEntity.testimonials, 'message'),
+                profileGallery: parsedEntity.profileGallery && filterEmptyItems(parsedEntity.profileGallery, 'url'),
+                heroGallery: parsedEntity.heroGallery && filterEmptyItems(parsedEntity.heroGallery, 'url')
             }
         };
 
