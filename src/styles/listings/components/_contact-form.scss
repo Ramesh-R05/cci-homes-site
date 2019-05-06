@@ -8,10 +8,10 @@
         @include type-listings-copy-extra-small;
         color: $listings-validation-error-copy-color;
         position: absolute;
-        top: -20px;
+        top: -$spacing-4;
 
         @media #{$medium-up} {
-            top: -18px;
+            top: -$spacing-4 - 2px;
         }
     }
 
@@ -24,12 +24,12 @@
         border: 1px solid $listings-input-border-color;
         height: 46px;
         width: 100%;
-        padding: $spacing-4 - 2px;
+        padding-left: $spacing-4 - 2px;
         margin-bottom: $spacing-5;
 
         @media #{$large-up} {
             margin-bottom: $spacing-6 + 2px;
-            padding: $spacing-4;
+            padding-left: $spacing-4;
         }
 
         &--error {

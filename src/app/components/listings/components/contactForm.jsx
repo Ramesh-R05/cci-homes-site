@@ -38,8 +38,7 @@ export default function ContactForm({ formProps, contactForm, recaptcha }) {
                 {errors.message && touched.message && <div className="contact-form__input-feedback">{errors.message}</div>}
             </div>
             <p className="contact-form__grecaptcha">
-                This site is protected by reCAPTCHA and the Google
-                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and{' '}
                 <a href="https://policies.google.com/terms">Terms of Service</a> apply.
             </p>
             <ReCAPTCHA ref={recaptcha.recaptchaRef} size="invisible" sitekey={recaptcha.siteKey} />
