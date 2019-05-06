@@ -16,6 +16,7 @@ const { TestUtils } = Context;
 
 const HeaderStub = Context.createStubComponent();
 const SiteFooterStub = Context.createStubComponentWithChildren();
+const ListingFooterStub = Context.createStubComponent();
 const offCanvasStub = Context.createStubComponent();
 
 const HomeHeader = Context.createStubComponent();
@@ -74,6 +75,7 @@ const Default = proxyquire('../../../app/components/templates/default', {
     '../section/sponsorTag/section': CampaignStub,
     '../gallery/gallery': GalleryStub,
     '../site-footer': SiteFooterStub,
+    '../listings/components/listingFooter': ListingFooterStub,
     '../brand/header': BrandHeader,
     '../home/header': HomeHeader,
     '../section/header': SectionHeader,
@@ -96,6 +98,37 @@ const hamburgerNavItems = [
     { name: 'Beer', url: '/beer' },
     { name: 'Luxury Homes', url: '/luxury-homes' },
     { name: 'Win', url: '/win' }
+];
+
+const categoriesItems = [
+    {
+        title: 'Artists & Galleries',
+        displayName: 'Artists & Galleries',
+        url: '/directory/artists-and-galleries',
+        imageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2019/04/29/20015/Galleries.jpg',
+        urlName: 'artist-and-galleries'
+    },
+    {
+        title: 'Architects & Builders',
+        displayName: 'Architects & Builders',
+        url: '/directory/architects-and-builders',
+        imageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2019/04/29/20016/Builders.jpg',
+        urlName: 'architects-and-builders'
+    },
+    {
+        title: 'Interior Designers',
+        displayName: 'Interior Designers',
+        url: '/directory/interior-designers',
+        imageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2019/04/29/20017/Interior-Designers.jpg',
+        urlName: 'interior-designers'
+    },
+    {
+        title: 'Furniture & Interiors',
+        displayName: 'Furniture & Interiors',
+        url: '/directory/furniture-and-interiors',
+        imageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2019/04/29/20018/Furniture-and-Interiors.jpg',
+        urlName: 'furniture-and-interiors'
+    }
 ];
 
 const contactForm = {};
@@ -158,6 +191,9 @@ Context.addStore('DirectoryStore', {
     },
     getHamburgerItems() {
         return hamburgerNavItems;
+    },
+    getCategoriesItems() {
+        return categoriesItems;
     },
     getErrorStatus() {
         return storeData.PageStore.error;
@@ -292,7 +328,7 @@ describe('Default Component template', () => {
             // TODO = refactor these stores so that they don't rely on other store data in the setup
             storeData.PageStore.content = { nodeType: 'PremiumListing', title: 'premium listing test' };
             reactModule = Context.mountComponent(Default, {}, [contextConfigStub]);
-            footer = TestUtils.findRenderedComponentWithType(reactModule, SiteFooterStub);
+            footer = TestUtils.findRenderedComponentWithType(reactModule, ListingFooterStub);
             listingsWrapper = TestUtils.findRenderedComponentWithType(reactModule, ListingRendererStub);
         });
 
@@ -426,6 +462,7 @@ describe('Default Component template', () => {
                                 getTheme: () => mockTheme,
                                 getHeaderItems: () => [],
                                 getHamburgerItems: () => [],
+                                getCategoriesItems: () => [],
                                 getErrorStatus: () => {},
                                 getContactForm: () => {}
                             };
@@ -467,6 +504,7 @@ describe('Default Component template', () => {
                                 getTheme: () => {},
                                 getHeaderItems: () => [],
                                 getHamburgerItems: () => [],
+                                getCategoriesItems: () => [],
                                 getErrorStatus: () => {},
                                 getContactForm: () => {}
                             };

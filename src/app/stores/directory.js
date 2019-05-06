@@ -9,18 +9,22 @@ export const initialState = {
     },
     hamburgerNavigation: {
         items: []
+    },
+    listingCategories: {
+        items: []
     }
 };
 
 const LOAD_DIRECTORY_CONTENT = (state, payload) => {
-    const { entity, headerNavigation, hamburgerNavigation } = payload.body;
+    const { entity, headerNavigation, hamburgerNavigation, listingCategories } = payload.body;
 
     if (entity) {
         return {
             content: entity,
             navigationTags: entity.navigationTags,
             headerNavigation: headerNavigation.items,
-            hamburgerNavigation: hamburgerNavigation.items
+            hamburgerNavigation: hamburgerNavigation.items,
+            listingCategories: listingCategories.items
         };
     }
 
@@ -54,7 +58,8 @@ const DirectoryStore = createReducerStore({
         getContent: state => state.content,
         getErrorStatus: state => state.error,
         getHeaderItems: state => state.headerNavigation,
-        getHamburgerItems: state => state.hamburgerNavigation
+        getHamburgerItems: state => state.hamburgerNavigation,
+        getCategoriesItems: state => state.listingCategories
     }
 });
 

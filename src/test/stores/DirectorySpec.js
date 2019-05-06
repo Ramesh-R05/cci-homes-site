@@ -10,7 +10,8 @@ const createMockPayload = () => ({
             navigationTags: []
         },
         headerNavigation: { items: itemsMock(6) },
-        hamburgerNavigation: { items: itemsMock(12) }
+        hamburgerNavigation: { items: itemsMock(12) },
+        listingCategories: { items: itemsMock(18) }
     },
     response: { error: 'some error' }
 });
@@ -31,7 +32,8 @@ describe('Directory reducer', () => {
                     content: payload.body.entity,
                     navigationTags: payload.body.entity.navigationTags,
                     headerNavigation: payload.body.headerNavigation.items,
-                    hamburgerNavigation: payload.body.hamburgerNavigation.items
+                    hamburgerNavigation: payload.body.hamburgerNavigation.items,
+                    listingCategories: payload.body.listingCategories.items
                 };
 
                 expect(state).to.deep.eq(expectedState);

@@ -59,4 +59,44 @@
         color: $color-dark-green;
         font: 400 10px/1.5 $font-family-sans-serif-secondary;
     }
+
+    &__logo {
+        font-size: 36px;
+        margin-left: 30px;
+    }
+
+    &__logo-link {
+        display: block;
+
+        &::before {
+          position: absolute;
+          content: '';
+          height: 25px;
+          margin: 0;
+          padding: 0;
+          width: 2px;
+          bottom: 30px;
+        }
+    }
+
+    .icon-logo {
+        color: $color-dark-green;
+
+        &:before {
+            content: "\e900";
+        }
+
+        font-size: 30px;
+        line-height: 32px;
+        position: absolute;
+        left: 40%;
+        transform: translate(-50%, -50%);
+
+        @media #{$medium-up} {
+            position: static;
+            margin-left: 30px;
+            font-size: 105px;
+            line-height: 27px;
+        }
+    }
 }

@@ -22,6 +22,7 @@ import getBrand from '../brand/utilities/getBrand';
 import defaultRenderFailed from '../../actions/defaultRenderFailed';
 import ListingRenderer from '../listings/templates/listingRenderer';
 import DirectoryHome from '../listings/components/directoryHome';
+import ListingFooter from '../listings/components/listingFooter';
 import ListingCategory from '../listings/templates/listingCategory';
 
 @hamburgerWrapper
@@ -39,6 +40,7 @@ class DefaultTemplate extends Component {
         currentUrl: PropTypes.string.isRequired,
         headerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         hamburgerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        listingCategories: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         toggleSideMenu: PropTypes.func.isRequired,
         menuClasses: PropTypes.string.isRequired,
         theme: PropTypes.shape({
@@ -60,6 +62,7 @@ class DefaultTemplate extends Component {
         currentNavigateError: null,
         headerNavItems: [],
         hamburgerNavItems: [],
+        listingCategories: [],
         theme: null,
         contactForm: null
     };
@@ -125,72 +128,85 @@ class DefaultTemplate extends Component {
             case 'homepage':
                 return {
                     ContentHeaderHandler: HomeHeader,
-                    ContentHandler: HomePage
+                    ContentHandler: HomePage,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'homesarticle':
                 return {
                     ContentHeaderHandler: HomeHeader,
-                    ContentHandler: Article
+                    ContentHandler: Article,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'navigationsection':
                 return {
                     ContentHeaderHandler: SectionHeader,
-                    ContentHandler: NavSection
+                    ContentHandler: NavSection,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'commercialtagsection':
                 return {
                     ContentHeaderHandler: SectionHeader,
-                    ContentHandler: NavSection
+                    ContentHandler: NavSection,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'tagsection':
                 return {
                     ContentHeaderHandler: SectionHeader,
-                    ContentHandler: Tag
+                    ContentHandler: Tag,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'brandsection':
                 return {
                     ContentHeaderHandler: BrandHeader,
-                    ContentHandler: Brand
+                    ContentHandler: Brand,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'campaign':
                 return {
                     ContentHeaderHandler: SectionHeader,
-                    ContentHandler: Campaign
+                    ContentHandler: Campaign,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'gallery':
                 return {
                     ContentHeaderHandler: HomeHeader,
-                    ContentHandler: Article
+                    ContentHandler: Article,
+                    ContentFooterHandler: SiteFooter
                 };
             case 'standardlisting':
                 return {
                     ContentHeaderHandler: null,
                     ContentHandler: ListingRenderer,
-                    excludeAdsWrapper: true
+                    excludeAdsWrapper: true,
+                    ContentFooterHandler: ListingFooter
                 };
             case 'enhancedlisting':
                 return {
                     ContentHeaderHandler: null,
                     ContentHandler: ListingRenderer,
-                    excludeAdsWrapper: true
+                    excludeAdsWrapper: true,
+                    ContentFooterHandler: ListingFooter
                 };
             case 'premiumlisting':
                 return {
                     ContentHeaderHandler: null,
                     ContentHandler: ListingRenderer,
-                    excludeAdsWrapper: true
+                    excludeAdsWrapper: true,
+                    ContentFooterHandler: ListingFooter
                 };
             case 'directoryhome':
                 return {
                     ContentHeaderHandler: null,
                     ContentHandler: DirectoryHome,
-                    excludeAdsWrapper: true
+                    excludeAdsWrapper: true,
+                    ContentFooterHandler: ListingFooter
                 };
             case 'listingsbycategory':
                 return {
                     ContentHeaderHandler: null,
                     ContentHandler: ListingCategory,
-                    excludeAdsWrapper: true
+                    excludeAdsWrapper: true,
+                    ContentFooterHandler: ListingFooter
                 };
             default:
                 executeAction(defaultRenderFailed, `Unsupported nodeType ${content.nodeType}`);
@@ -202,9 +218,9 @@ class DefaultTemplate extends Component {
     }
 
     render() {
-        const { content, headerNavItems, hamburgerNavItems, currentUrl, menuClasses, theme, contactForm } = this.props;
+        const { content, headerNavItems, hamburgerNavItems, listingCategories, currentUrl, menuClasses, theme, contactForm } = this.props;
         const { config } = this.context;
-        const { ContentHeaderHandler, ContentHandler, excludeAdsWrapper } = this.getPageMetadata();
+        const { ContentHeaderHandler, ContentHandler, ContentFooterHandler, excludeAdsWrapper } = this.getPageMetadata();
 
         let brandConfig = {};
         let contentHeaderTitle = '';
@@ -256,9 +272,8 @@ class DefaultTemplate extends Component {
                                 <ContentHandler brandConfig={brandConfig} content={content} />
                             </AdsWrapper>
                         ))}
-
-                    <SiteFooter />
                 </div>
+                {ContentFooterHandler && (excludeAdsWrapper ? <ContentFooterHandler categories={listingCategories} /> : <ContentFooterHandler />)}
             </div>
         );
     }
@@ -275,6 +290,7 @@ export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore',
     let headerNavItems;
     let hamburgerNavItems;
     let contactForm;
+    let listingCategories;
 
     if (PageStore.getContent()) {
         content = PageStore.getContent();
@@ -304,12 +320,17 @@ export default connectToStores(DefaultTemplate, ['PageStore', 'NavigationStore',
         contactForm = EmailStore.getContactForm();
     }
 
+    if (DirectoryStore.getCategoriesItems().length) {
+        listingCategories = DirectoryStore.getCategoriesItems();
+    }
+
     return {
         content,
         theme: PageStore.getTheme(),
         contentErrorStatus,
         headerNavItems,
         hamburgerNavItems,
-        contactForm
+        contactForm,
+        listingCategories
     };
 });
