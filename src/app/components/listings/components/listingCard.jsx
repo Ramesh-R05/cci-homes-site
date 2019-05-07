@@ -135,22 +135,24 @@ export default class ListingCard extends Component {
                 <div className="listing-card__image-wrapper">
                     {showOverlay && this.renderOverlay()}
                     {listingType === 'PremiumListing' && <div className="listing-card__featured-tag">Featured</div>}
-                    <ResponsiveImage
-                        sizes={{
-                            s: { w: 690, h: 535 },
-                            m: { w: 768, h: 596 },
-                            l: { w: 490, h: 380 },
-                            xl: { w: 490, h: 380 }
-                        }}
-                        alt={previewImage.caption}
-                        url={previewImage.url}
-                        ClassName="listing-card__preview-image"
-                        scale={imageResize.scale.BOTH}
-                        anchor={imageResize.anchor.MC}
-                        mode={imageResize.mode.CROP}
-                        breakpoints={breakpoints}
-                        imageQuality={75}
-                    />
+                    <div className="listing-card__image-element-wrapper">
+                        <ResponsiveImage
+                            sizes={{
+                                s: { w: 690, h: 535 },
+                                m: { w: 708, h: 550 },
+                                l: { w: 622, h: 482 },
+                                xl: { w: 490, h: 380 }
+                            }}
+                            alt={previewImage.caption}
+                            url={previewImage.url}
+                            ClassName="listing-card__preview-image"
+                            scale={imageResize.scale.BOTH}
+                            anchor={imageResize.anchor.MC}
+                            mode={imageResize.mode.CROP}
+                            breakpoints={breakpoints}
+                            imageQuality={75}
+                        />
+                    </div>
                     {!showOverlay && this.renderOptions()}
                 </div>
                 <div className="listing-card__detail-wrapper">

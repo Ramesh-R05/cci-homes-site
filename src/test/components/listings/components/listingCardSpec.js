@@ -92,8 +92,8 @@ describe('ListingCard component', () => {
                 expect(wrapper.find(ResponsiveImageStub).props()).to.deep.eq({
                     sizes: {
                         s: { w: 690, h: 535 },
-                        m: { w: 768, h: 596 },
-                        l: { w: 490, h: 380 },
+                        m: { w: 708, h: 550 },
+                        l: { w: 622, h: 482 },
                         xl: { w: 490, h: 380 }
                     },
                     alt: testProps.previewImage.caption,

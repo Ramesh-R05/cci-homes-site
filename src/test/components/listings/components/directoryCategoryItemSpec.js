@@ -85,8 +85,8 @@ describe('DirectoryCategoryItem component', () => {
                 expect(wrapper.find(ResponsiveImageStub).props()).to.deep.eq({
                     sizes: {
                         s: { w: 690, h: 460 },
-                        m: { w: 768, h: 512 },
-                        l: { w: 768, h: 512 },
+                        m: { w: 510, h: 340 },
+                        l: { w: 682, h: 456 },
                         xl: { w: 632, h: 422 }
                     },
                     alt: testProps.category.title,

@@ -1,14 +1,16 @@
 .directory-home {
     max-width: 100%;
+    min-height: calc(100vh - $header-banner-height-mobile);
     margin: 0 auto;
     padding: {
         top: $header-banner-height-mobile;
         left: 0;
         right: 0;
-    }
+    }    
 
     @media #{$medium-up} {
         padding-top: $combined-header-height-desktop;
+        min-height: calc(100vh - $combined-header-height-desktop);
     }
 
     &__list {
@@ -19,5 +21,4 @@
             max-width: 1920px;
         }
     }
-
 }
