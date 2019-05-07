@@ -1,4 +1,4 @@
-.site-footer {
+.listing-footer {
   background-color: $color-lighter-grey2;
   margin-top: 35px;
   padding-top: 15px;
@@ -10,7 +10,7 @@
 
     &__social {
         text-align: center;
-        margin-bottom: 25px;
+        margin-bottom: 70px;
 
         @media #{$medium-only} {
             margin-bottom: 30px;
@@ -19,7 +19,7 @@
 
         @media #{$large-up} {
             margin-bottom: 30px;
-            padding-top: 45px;
+            padding-top: 117px;
         }
 
         &:before {
@@ -40,7 +40,15 @@
 
     &__link-row {
         max-width: 100%;
-        margin-top: 20px;
+        margin-top: 45px;
+
+        @media #{$medium-up} {
+            margin-top: 30px;
+        }
+
+        @media #{$large-up} {
+            margin-top: 20px;
+        }
     }
 
     &__copyright-row {
@@ -56,7 +64,48 @@
     }
 
     &__copyright-text {
-        color: $color-dark-green;
+        color: $color-grey-darker;
         font: 400 10px/1.5 $font-family-sans-serif-secondary;
     }
+
+    &__logo {
+        font-size: 36px;
+        margin-left: 30px;
+    }
+
+    &__logo-link {
+        display: block;
+
+        &::before {
+          position: absolute;
+          content: '';
+          height: 25px;
+          margin: 0;
+          padding: 0;
+          width: 2px;
+          bottom: 30px;
+        }
+    }
+
+    .icon-logo {
+        color: $color-grey-darker;
+
+        &:before {
+            content: "\e900";
+        }
+
+        font-size: 45px;
+        line-height: 32px;
+        position: absolute;
+        left: 40%;
+        transform: translate(-50%, -50%);
+
+        @media #{$medium-up} {
+            position: static;
+            margin-left: 30px;
+            font-size: 105px;
+            line-height: 27px;
+        }
+    }
+
 }

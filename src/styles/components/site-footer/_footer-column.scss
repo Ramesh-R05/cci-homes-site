@@ -22,4 +22,10 @@
     &__list {
         @include reset-list;
     }
+
+    &--in-listing-footer {
+      #{$root}__title {
+        @include type-listing-footer-column-heading;
+      }
+    }
 }

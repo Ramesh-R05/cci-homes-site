@@ -1,7 +1,14 @@
 .footer-link {
+  $root: &;
   margin-top: 15px;
 
   &__anchor {
     @include type-footer-link;
+  }
+
+  &--in-listing-footer {
+    #{$root}__anchor {
+      @include type-listing-footer-link;
+    }
   }
 }

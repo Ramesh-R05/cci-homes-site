@@ -33,7 +33,12 @@ describe('FooterLink', () => {
 
             before(() => {
                 filterErrors();
-                [wrapper, testProps] = TestWrapper({ ...getLink(), gtmClass: 'gtm-footer-link-test', target: '_blank' });
+                [wrapper, testProps] = TestWrapper({
+                    ...getLink(),
+                    gtmClass: 'gtm-footer-link-test',
+                    target: '_blank',
+                    classModifier: 'in-listing-footer'
+                });
             });
 
             after(restoreErrors);
@@ -44,6 +49,10 @@ describe('FooterLink', () => {
 
             it('has correct class for root', () => {
                 expect(wrapper.hasClass('footer-link')).to.be.true;
+            });
+
+            it('has correct class for classModifier', () => {
+                expect(wrapper.hasClass('footer-link--in-listing-footer')).to.be.true;
             });
 
             it('applies the gtm class to the anchor element', () => {
@@ -92,6 +101,22 @@ describe('FooterLink', () => {
                     expect(wrapper.find('.footer-link').exists()).to.be.false;
                 });
             });
+
+            describe('classModifier prop not passed', () => {
+                let wrapper;
+
+                before(() => {
+                    filterErrors();
+                    [wrapper] = TestWrapper({ ...getLink(), classModifier: '' });
+                });
+
+                after(restoreErrors);
+
+                it('does render', () => {
+                    expect(wrapper.find('.footer-link').exists()).to.be.true;
+                });
+            });
+
             describe('url prop not passed', () => {
                 let wrapper;
 
