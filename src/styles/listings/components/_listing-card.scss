@@ -86,10 +86,10 @@
     font-weight: 600;
     text-transform: uppercase;
     @include letter-spacing-to-px(100, 11px);
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: $spacing-1;
+    padding-bottom: $spacing-1;
     text-align: center;
-    width: 100px;
+    width: 120px;
     border-radius: 1px;
     display: inline-block;
     background-color: $listings-category-card-button-background-color;

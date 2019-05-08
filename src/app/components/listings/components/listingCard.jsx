@@ -96,7 +96,7 @@ export default class ListingCard extends Component {
                 <button className="listing-card__overlay-close" onClick={this.toggleOverlay} type="button">
                     close
                     <SVG src="/assets/svgs/x.svg" className="listing-card__close-icon">
-                        <img src="/assets/svgs/x.svg" alt="icon close cross" />
+                        <img src="/assets/svgs/x.svg" alt="Icon close cross" />
                     </SVG>
                 </button>
             </div>
@@ -111,11 +111,11 @@ export default class ListingCard extends Component {
         return (
             <div className="listing-card__options">
                 <button onClick={this.trackOpenAndToggleOverlay} className="listing-card__button" type="button">
-                    contact
+                    Contact Info
                 </button>
                 {ListingTypesToDisplayButtonFor.includes(listingType) && (
                     <a className={moreInfoLinkClassNames} href={`/directory/${this.getCategoryFromTag()}${listingUrl}`}>
-                        more info
+                        Explore More
                     </a>
                 )}
             </div>

@@ -27,7 +27,7 @@ export default function ContactCard({ streetAddress, webAddress, phoneNumber, em
                             <Icon name="globe-icon" />
                         </span>
                         <span className="contact-card__list-item-text">
-                            <a className="contact-card__list-item-link" href={webAddress} target="_blank" rel="nofollow">
+                            <a className="contact-card__list-item-link gtm-contact-card-web-address" href={webAddress} target="_blank" rel="nofollow">
                                 {formatWebAddress(webAddress)}
                             </a>
                         </span>
@@ -38,7 +38,16 @@ export default function ContactCard({ streetAddress, webAddress, phoneNumber, em
                         <span className="contact-card__list-item-icon">
                             <Icon name="email-icon" />
                         </span>
-                        <span className="contact-card__list-item-text">{emailAddress}</span>
+                        <span className="contact-card__list-item-text">
+                            <a
+                                className="contact-card__list-item-link gtm-contact-card-email-address"
+                                href={`mailto:${emailAddress}?subject=Enquiry from Homes To Love Directory Listing`}
+                                target="_blank"
+                                rel="noreferrer noreferrer"
+                            >
+                                {emailAddress}
+                            </a>
+                        </span>
                     </li>
                 )}
                 {streetAddress && (
@@ -54,7 +63,11 @@ export default function ContactCard({ streetAddress, webAddress, phoneNumber, em
                         <span className="contact-card__list-item-icon">
                             <Icon name="phone-icon" />
                         </span>
-                        <span className="contact-card__list-item-text">{phoneNumber}</span>
+                        <span className="contact-card__list-item-text">
+                            <a className="contact-card__list-item-link gtm-contact-card-phone-number" href={`tel:${phoneNumber}`}>
+                                {phoneNumber}
+                            </a>
+                        </span>
                     </li>
                 )}
             </ul>

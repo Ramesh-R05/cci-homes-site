@@ -121,7 +121,7 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(0)
                         .text()
-                ).to.eq('contact');
+                ).to.eq('Contact Info');
             });
 
             it('sets the correct props on the contact button', () => {
@@ -217,7 +217,7 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(0)
                         .text()
-                ).to.eq('contact');
+                ).to.eq('Contact Info');
             });
 
             it('sets the correct props on the contact button', () => {
@@ -234,7 +234,7 @@ describe('ListingCard component', () => {
                 });
             });
 
-            it('renders the more info button as the second option button', () => {
+            it('renders the explore more button as the second option button', () => {
                 const { button } = selectors;
 
                 expect(
@@ -242,10 +242,10 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(1)
                         .text()
-                ).to.eq('more info');
+                ).to.eq('Explore More');
             });
 
-            it('sets the link on the more info button based on the url and the category tag', () => {
+            it('sets the link on the explore more button based on the url and the category tag', () => {
                 const { button } = selectors;
                 const expectedCategoryTag = testProps.tags[0].urlName;
 
@@ -305,7 +305,7 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(0)
                         .text()
-                ).to.eq('contact');
+                ).to.eq('Contact Info');
             });
 
             it('sets the correct props on the contact button', () => {
@@ -322,7 +322,7 @@ describe('ListingCard component', () => {
                 });
             });
 
-            it('renders the more info button as the second option button', () => {
+            it('renders the explore more button as the second option button', () => {
                 const { button } = selectors;
 
                 expect(
@@ -330,10 +330,10 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(1)
                         .text()
-                ).to.eq('more info');
+                ).to.eq('Explore More');
             });
 
-            it('sets the link on the more info button based on the url and the category tag', () => {
+            it('sets the link on the explore more button based on the url and the category tag', () => {
                 const { button } = selectors;
                 const expectedCategoryTag = testProps.tags[0].urlName;
 
@@ -393,7 +393,7 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(0)
                         .text()
-                ).to.eq('contact');
+                ).to.eq('Contact Info');
             });
 
             it('sets the correct props on the contact button', () => {
@@ -410,7 +410,7 @@ describe('ListingCard component', () => {
                 });
             });
 
-            it('renders the more info button as the second option button', () => {
+            it('renders the explore more button as the second option button', () => {
                 const { button } = selectors;
 
                 expect(
@@ -418,10 +418,10 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(1)
                         .text()
-                ).to.eq('more info');
+                ).to.eq('Explore More');
             });
 
-            it('sets the link on the more info button based on the url and the category tag', () => {
+            it('sets the link on the explore more button based on the url and the category tag', () => {
                 const { button } = selectors;
                 const expectedCategoryTag = testProps.tags[0].urlName;
 
@@ -480,7 +480,7 @@ describe('ListingCard component', () => {
                         .find(button)
                         .at(0)
                         .text()
-                ).to.eq('contact');
+                ).to.eq('Contact Info');
             });
 
             it('sets the correct props on the contact button', () => {
@@ -525,7 +525,7 @@ describe('ListingCard component', () => {
                     expect(wrapper.isEmptyRender()).to.be.false;
                 });
 
-                it('sets the link on the more info button based with the fallback string "category" and the url', () => {
+                it('sets the link on the explore more button based with the fallback string "category" and the url', () => {
                     const { button } = selectors;
                     const expectedCategoryTag = 'category';
 
@@ -699,7 +699,7 @@ describe('ListingCard component', () => {
                         .props()
                 ).to.include({
                     src: '/assets/svgs/x.svg',
-                    alt: 'icon close cross'
+                    alt: 'Icon close cross'
                 });
             });
 
