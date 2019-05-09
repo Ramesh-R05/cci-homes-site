@@ -7,6 +7,12 @@
     "plugins": [
         "transform-decorators-legacy",
         "transform-class-properties",
-        "add-module-exports"
+        "add-module-exports",
+        ["css-modules-transform", {
+            "generateScopedName": "[name]__[local]___[hash:base64:5]",
+            "preprocessCss": "./sassToCss.js",
+            "extensions": [".css", ".scss", ".module.scss"],
+            "extractCss": "./dist/modules.css"
+        }]
     ]
 }

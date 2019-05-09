@@ -1,0 +1,14 @@
+$foo: #000;
+
+@mixin some-mixin { 
+  background: palegreen;
+}
+
+.Article2 {
+  border: 1px solid $foo;
+  @include some-mixin();
+}
+
+.Article3 {
+  @extend .Article2;
+}

@@ -22,7 +22,7 @@ const config = {
         filename: `[name]${production ? '-[chunkhash]' : ''}.js`
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', 'css'],
         alias: {
             /* 
                 ensure there is only one instance of react when resolving modules 
@@ -41,12 +41,47 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['es2015', 'react', 'stage-1'],
-                        plugins: ['transform-decorators-legacy']
+                        plugins: ['transform-decorators-legacy', ['css-modules-transform']]
                     }
                 }
             },
             {
+                test: /\.module.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            importLoaders: 1,
+                            localIdentName: '[name]__[local]___[hash:base64:5]',
+                            sourceMap: true, // Enabling this adds around 30 seconds to build time
+                            minimize: production
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: false,
+                            plugins: () => [
+                                autoprefixer({
+                                    browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
+                                })
+                            ]
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: false, // Enabling this adds around 40 seconds to build time
+                            outputStyle: 'compressed'
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.scss$/,
+                exclude: /\.module.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
@@ -93,7 +128,22 @@ const config = {
         new ManifestPlugin({
             publicPath: '' // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
         })
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                styles: {
+                    name: 'styles',
+                    test: /\.module.s?css$/,
+                    chunks: 'all',
+                    minChunks: 1,
+                    reuseExistingChunk: true,
+                    enforce: true
+                }
+            }
+        }
+    }
 };
 
 if (production) {

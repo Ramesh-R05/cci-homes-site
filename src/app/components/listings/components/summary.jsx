@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+// const styles = require('./summary.module.scss');
+import styles from './summary.module.scss';
+
+console.log(styles);
+
+console.log(styles.Article2);
 
 export default function Summary({ streetAddress, subheading, copy }) {
     return (
-        <div className="summary">
+        <div className={classNames('summary', styles.Article2)}>
             <p className="summary__address">{streetAddress}</p>
             <p className="summary__sub-heading">{subheading}</p>
             <p className="summary__copy">{copy}</p>
