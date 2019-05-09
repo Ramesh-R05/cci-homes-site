@@ -31,7 +31,12 @@
 
 	.gallery__caption p {
 		font-size: 14px;
-		color: #888;
+		color: $color-grey;
+	}
+
+	.gallery__photo-credit {
+		font-size: 14px;
+		font-style: italic;
 	}
 
 	.gallery__item-count {
