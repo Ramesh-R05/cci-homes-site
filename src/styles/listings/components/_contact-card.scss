@@ -88,28 +88,25 @@
     &--in-listing-card {
 
         #{$root}__list {
-            padding: 0 5%;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            transform: translate(-50%, -50%);
             text-align: left;
-
-            @media #{$large-up} {
-                padding: 60px 80px;
-            }
         }
 
         #{$root}__list-item {
-            margin-bottom: 15px;
+            margin-bottom: 11%;
             margin-top: 0;
-
-            @media #{$large-up} {
-                margin-bottom: 35px;
-            }
 
             &--email {
 
                 #{$root}__list-item-icon {
                     margin-top: -3px;
 
-                    @media #{$large-up} {
+                    @media #{$medium-up} {
                         margin-top: 0;
                     }
                 }

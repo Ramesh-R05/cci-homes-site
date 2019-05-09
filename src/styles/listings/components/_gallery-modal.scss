@@ -77,6 +77,6 @@
     position: sticky;
     background-color: $listings-modal-header-background-color;
     border-bottom: 1px solid $listings-modal-header-divider-color;
-    z-index: $z-index--modal-sticky-header;
+    z-index: $z-index-listing-modal-sticky-header;
   }
 }

@@ -90,7 +90,7 @@
             border-radius: 0;
             content: '';
             position: absolute;
-            z-index: -1;
+            z-index: $z-index-listing-button-transition;
             top: 0;
             left: 0;
             right: 0;
