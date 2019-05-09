@@ -131,10 +131,9 @@ const config = {
     ],
     optimization: {
         splitChunks: {
-            chunks: 'all',
             cacheGroups: {
                 styles: {
-                    name: 'styles',
+                    name: 'modules',
                     test: /\.module.s?css$/,
                     chunks: 'all',
                     minChunks: 1,
