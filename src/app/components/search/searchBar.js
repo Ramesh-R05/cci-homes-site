@@ -15,9 +15,9 @@ export default class SearchBar extends Component {
     }
 
     handleInputChange(event) {
-        const target = event.target;
+        const { target } = event;
         const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+        const { name } = target;
 
         this.setState({
             [name]: value
@@ -33,20 +33,20 @@ export default class SearchBar extends Component {
         }
     }
 
-    shouldComponentUpdate = (nextProps, nextState) => this.state.searchTerm !== nextState.searchTerm;
+    shouldComponentUpdate = (nextProps, nextState) => {
+        const { searchTerm } = this.state;
+
+        return searchTerm !== nextState.searchTerm;
+    };
 
     render() {
+        const { searchTerm } = this.state;
+
         return (
             <div className="search-bar">
                 <div className="search-bar--input">
                     <form onSubmit={this.handleSubmit}>
-                        <input
-                            type="text"
-                            name="searchTerm"
-                            placeholder="Search..."
-                            value={this.state.searchTerm}
-                            onChange={this.handleInputChange}
-                        />
+                        <input type="text" name="searchTerm" placeholder="Search..." value={searchTerm} onChange={this.handleInputChange} />
                         <input
                             type="image"
                             name="submit"

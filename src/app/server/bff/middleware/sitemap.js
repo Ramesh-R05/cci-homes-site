@@ -1,7 +1,7 @@
 import makeRequest from '../../makeRequest';
 
 export default async function sitemapMiddleware(req, res, next) {
-    const section = req.params.section;
+    const { section } = req.params;
     const serviceUrl = req.app.locals.config.services.remote.sitemap;
     const requestUrl = section ? `${serviceUrl}/${section}` : serviceUrl;
 

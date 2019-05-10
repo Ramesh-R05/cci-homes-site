@@ -56,10 +56,12 @@ export default class Button extends Component {
 
         const classNames = classnames('button', classNameModifier, { active });
 
+        /* eslint-disable react/button-has-type */
         return (
             <button className={classNames} disabled={disabled} onClick={this.onClick} type={type} value={value}>
                 {children}
             </button>
         );
+        /* eslint-enable react/button-has-type */
     }
 }

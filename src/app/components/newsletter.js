@@ -36,7 +36,9 @@ export default class Newsletter extends Component {
             const brand = getBrand(config, content.source);
 
             if (brand) {
-                newsletterUrl = brand.newsletterUrl;
+                const { newsletterUrl: brandNewsletterUrl } = brand;
+
+                newsletterUrl = brandNewsletterUrl;
                 gtmClass = 'gtm-subs-brand';
             }
         }

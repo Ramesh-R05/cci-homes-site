@@ -46,6 +46,8 @@ export default (Component, sourcePropName) =>
         }
 
         render() {
-            return <Component {...this.props} className={classnames(this.props.className, this.themeClass)} />;
+            const { className } = this.props;
+
+            return <Component {...this.props} className={classnames(className, this.themeClass)} />;
         }
     };

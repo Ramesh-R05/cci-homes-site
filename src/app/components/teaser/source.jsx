@@ -41,6 +41,7 @@ export default class Source extends Component {
 
         const brandImage = imageUrl ? <img className="teaser__source-image" alt={source} src={imageUrl} /> : null;
 
+        /* eslint-disable react/no-danger */
         return (
             <div className="teaser__source">
                 <BrandLink linkSiteBrand={false} source={source}>
@@ -52,5 +53,6 @@ export default class Source extends Component {
                 </BrandLink>
             </div>
         );
+        /* eslint-enable react/no-danger */
     }
 }

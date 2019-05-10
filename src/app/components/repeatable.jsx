@@ -28,11 +28,15 @@ export default class Repeatable extends Component {
     }
 
     onLoadMore = () => {
-        if (this.state.isLoading) {
+        const { executeAction } = this.context;
+        const { isLoading } = this.state;
+        const { action, nextParams } = this.props;
+
+        if (isLoading) {
             return;
         }
 
-        this.context.executeAction(this.props.action, this.props.nextParams);
+        executeAction(action, nextParams);
         this.setState({ isLoading: true });
     };
 
@@ -41,9 +45,9 @@ export default class Repeatable extends Component {
     }
 
     render() {
+        const { isLoading } = this.state;
         const { action, component: ChildComponent, dataSource, nextParams, ...otherProps } = this.props;
-
-        const items = dataSource.items;
+        const { items } = dataSource;
 
         if (!items || items.length === 0) {
             return null;
@@ -71,8 +75,8 @@ export default class Repeatable extends Component {
             });
             loadMore = (
                 <div className="load-more">
-                    <button className="button gtm-loadmore-button" onClick={this.onLoadMore}>
-                        {this.state.isLoading ? 'Loading...' : 'Load More'}
+                    <button type="button" className="button gtm-loadmore-button" onClick={this.onLoadMore}>
+                        {isLoading ? 'Loading...' : 'Load More'}
                     </button>
                 </div>
             );

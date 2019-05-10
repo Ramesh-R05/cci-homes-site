@@ -8,10 +8,11 @@ export default class FeaturedBrandsSection extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             selectedBrand:
                 props.featuredBrands && Array.isArray(props.featuredBrands.items) && props.featuredBrands.items.length
-                    ? this.props.featuredBrands.items[0].id
+                    ? props.featuredBrands.items[0].id
                     : null
         };
 

@@ -30,7 +30,9 @@ export default class ExternalLinks extends Component {
             siteUrl && (
                 <a className="external-links__site-logo" href={siteUrl} target="_blank">
                     <img src={logoUrl} alt={logoTitle} className="external-links__site-logo__img" />
-                    <button className="button button--link external-links__button">VISIT WEBSITE</button>
+                    <button type="button" className="button button--link external-links__button">
+                        VISIT WEBSITE
+                    </button>
                 </a>
             )
         );

@@ -3,7 +3,7 @@ import get from 'lodash/object/get';
 
 export default function headerMetaMiddleware(req, res, next) {
     try {
-        const config = req.app.locals.config;
+        const { config } = req.app.locals;
         const { hostname } = req.query || {};
         const env = process.env.APP_ENV || process.env.NODE_ENV || 'development'; // If not defaulting to dev, then local will be using live
         const isProdDomain = hostname === config.site.prodDomain;

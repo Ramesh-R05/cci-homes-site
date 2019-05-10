@@ -19,17 +19,17 @@ function getNumAds(items) {
 // ---------------------------------------------------------------------------- action tracking
 
 function trackGalleryOpen(action) {
-    const activeItem = action.activeItem;
-    const numAds = getNumAds(action.items);
+    const { activeItem, items, galleryTitle, totalItems } = action;
+    const numAds = getNumAds(items);
 
     const data = {
         event: 'galleryOpen',
         eventInfo: {
-            galleryName: action.galleryTitle,
+            galleryName: galleryTitle,
             prevImage: '',
             currImage: activeItem.url,
             currImageNo: activeItem.index,
-            totalImages: action.totalItems - numAds,
+            totalImages: totalItems - numAds,
             numAds,
             isAd: !!activeItem.ad
         }
@@ -39,17 +39,15 @@ function trackGalleryOpen(action) {
 
 // https://jira.bauermedia.net.au/confluence/display/DACRM/Galleries
 function trackGalleryItemChanged(action) {
-    // dont trigger galleryImageChange if we
+    // don't trigger galleryImageChange if we
     // are on the link to the next gallery or
     // next item index is null
-    const newItemIndex = action.newItemIndex;
-    const totalItems = action.totalItems;
+    const { newItemIndex, totalItems, items, galleryTitle, activeItem } = action;
 
     if (newItemIndex === null || newItemIndex > totalItems - 1) {
         return;
     }
 
-    const items = action.items;
     const numAds = getNumAds(items);
     const newItem = newItemIndex !== null ? items[newItemIndex] : '';
     const isAd = !!newItem.ad;
@@ -58,8 +56,8 @@ function trackGalleryItemChanged(action) {
     const data = {
         event: 'galleryImageChange',
         eventInfo: {
-            galleryName: action.galleryTitle,
-            prevImage: action.activeItem.url,
+            galleryName: galleryTitle,
+            prevImage: activeItem && activeItem.url ? activeItem.url : '',
             currImage: newItem.url,
             currImageNo: slideNumber,
             totalImages: totalItems - numAds,
@@ -71,15 +69,15 @@ function trackGalleryItemChanged(action) {
 }
 
 function trackGalleryComplete(action) {
-    const items = action.items;
+    const { totalItems, items, galleryTitle, activeItem } = action;
     const numAds = getNumAds(items);
 
     const data = {
         event: 'galleryComplete',
         eventInfo: {
-            galleryName: action.galleryTitle,
-            prevImage: action.activeItem.url,
-            totalImages: action.totalItems - numAds,
+            galleryName: galleryTitle,
+            prevImage: activeItem && activeItem.url ? activeItem.url : '',
+            totalImages: totalItems - numAds,
             numAds,
             isAd: false
         }
@@ -88,22 +86,21 @@ function trackGalleryComplete(action) {
 }
 
 function trackVerticalGalleryItemChanged(action) {
-    const activeItem = action.activeItem;
-    const totalGalleryItems = action.totalGalleryItems;
+    const { activeItem, totalGalleryItems, galleryTitle, isAd, numAds } = action;
 
     // don't trigger galleryImageChange if the item index is 0
-    if (activeItem === 0 || (!action.isAd && activeItem === null)) {
+    if (activeItem === 0 || (!isAd && activeItem === null)) {
         return;
     }
 
     const data = {
         event: 'galleryImageChange',
         eventInfo: {
-            galleryName: action.galleryTitle,
+            galleryName: galleryTitle,
             currImageNo: activeItem,
             totalImages: totalGalleryItems,
-            numAds: action.numAds,
-            isAd: action.isAd
+            numAds,
+            isAd
         }
     };
     dataLayerPush(data);

@@ -84,10 +84,13 @@ export default class Featured extends Component {
                 pageLocation={Ad.pos.body}
             />,
             articles.slice(1, 6).map((article, i) => {
-                const polarProps = {};
+                let polarProps = {};
 
                 if (i === 4) {
-                    polarProps.polar = polarTargets[1];
+                    polarProps = {
+                        ...polarProps,
+                        polar: polarTargets[1]
+                    };
                 }
 
                 const teaserClasses = classNames(baseTeaserClasses, {

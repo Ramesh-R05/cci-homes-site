@@ -36,9 +36,10 @@ export default class CustomInlineGallery extends Component {
     }
 
     render() {
+        const { config } = this.context;
         const { galleries } = this.props;
 
-        if (!this.context.config.isFeatureEnabled('galleryOfGalleries') || isUndefined(galleries) || !Array.isArray(galleries) || !galleries.length) {
+        if (!config.isFeatureEnabled('galleryOfGalleries') || isUndefined(galleries) || !Array.isArray(galleries) || !galleries.length) {
             return null;
         }
 

@@ -50,8 +50,7 @@ export default class Page extends Component {
         const targets = { brand: content.source };
         const kingtag = Page.getKingTag(content.tagsDetails || []);
         const kingtagDisplayName = kingtag && kingtag.displayName;
-        const directoryLogoUrl = content.directoryLogoUrl;
-        const externalLinks = content.externalLinks;
+        const { directoryLogoUrl, externalLinks } = content;
 
         if (kingtagDisplayName) {
             targets.kingtag = kingtag;

@@ -19,11 +19,7 @@ export default class MagShop extends Component {
 
     render() {
         const { inSideNav, content } = this.props;
-        const magshopHeading = content.magshopHeading;
-        const magshopText = content.magshopText;
-        const magshopUrl = content.magshopUrl;
-        const magshopCoverImage = content.magshopCoverImage;
-        const magshopCoverAltText = content.magshopCoverAltText;
+        const { magshopHeading, magshopText, magshopUrl, magshopCoverImage, magshopCoverAltText } = content;
 
         /* eslint-disable quotes */
         const magshop = !inSideNav ? (

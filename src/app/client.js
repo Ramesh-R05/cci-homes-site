@@ -20,7 +20,7 @@ app.rehydrate(window.App, (err, context) => {
     }
 
     const mountNode = document.getElementById('app');
-    const userAgent = window.navigator.userAgent;
+    const { userAgent } = window.navigator;
     adConfig.init(context.getComponentContext().config.site.adTaggingId);
     ReactDOM.hydrate(createElementWithContext(context, { userAgent }), mountNode, () => {});
 });
