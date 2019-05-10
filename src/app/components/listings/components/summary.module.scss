@@ -5,10 +5,7 @@ $foo: #000;
 }
 
 .Article2 {
+  // composes: anotherUnusedClass__workaround__item--isDisabled from '@bxm/article/styles/components/article/_credits.module.scss';
   border: 1px solid $foo;
   @include some-mixin();
-}
-
-.Article3 {
-  @extend .Article2;
 }

@@ -1,6 +1,6 @@
 import Summary from '../../../../app/components/listings/components/summary';
-import ShallowWrapperFactory from '../../../utils/ShallowWrapperFactory';
 import listingMock from '../../../mock/listing';
+import ShallowWrapperFactory from '../../../utils/ShallowWrapperFactory';
 
 const selectors = {
     root: '.summary',
@@ -11,7 +11,7 @@ const selectors = {
 
 const TestWrapper = new ShallowWrapperFactory(Summary);
 
-describe('Summary component', () => {
+describe.only('Summary component', () => {
     describe('rendering', () => {
         describe('with valid required props', () => {
             let wrapper;
@@ -27,6 +27,8 @@ describe('Summary component', () => {
 
             it('renders the component', () => {
                 const { root } = selectors;
+
+                console.log(wrapper.debug());
 
                 expect(wrapper.find(root).exists()).to.be.true;
             });

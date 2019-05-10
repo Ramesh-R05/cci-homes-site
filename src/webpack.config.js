@@ -52,11 +52,11 @@ const config = {
                     {
                         loader: 'css-loader',
                         options: {
+                            importLoaders: 2,
+                            local: true,
                             modules: true,
-                            importLoaders: 1,
                             localIdentName: '[name]__[local]___[hash:base64:5]',
-                            sourceMap: true, // Enabling this adds around 30 seconds to build time
-                            minimize: production
+                            sourceMap: true // Enabling this adds around 30 seconds to build time
                         }
                     },
                     {
@@ -73,7 +73,7 @@ const config = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: false, // Enabling this adds around 40 seconds to build time
+                            sourceMap: true, // Enabling this adds around 40 seconds to build time
                             outputStyle: 'compressed'
                         }
                     }
