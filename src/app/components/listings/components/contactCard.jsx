@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { parse } from '@bxm/markdown';
 import Icon from './icon';
 
 export default function ContactCard({ streetAddress, webAddress, phoneNumber, emailAddress, classModifier }) {
@@ -55,7 +56,7 @@ export default function ContactCard({ streetAddress, webAddress, phoneNumber, em
                         <span className="contact-card__list-item-icon">
                             <Icon name="home-icon" />
                         </span>
-                        <span className="contact-card__list-item-text">{streetAddress}</span>
+                        <span className="contact-card__list-item-text" dangerouslySetInnerHTML={{ __html: parse(streetAddress) }} />
                     </li>
                 )}
                 {phoneNumber && (

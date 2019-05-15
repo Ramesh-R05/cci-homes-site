@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { splitParagraphs } from '@bxm/markdown';
+import splitParagraphsHTML from '../utilities/splitParagraphsHTML';
 
 export default function Summary({ streetAddress, subheading, copy }) {
     return (
         <div className="summary">
             <p className="summary__address">{streetAddress}</p>
             <p className="summary__sub-heading">{subheading}</p>
-            <p className="summary__copy">{copy}</p>
+            <p className="summary__copy" dangerouslySetInnerHTML={{ __html: splitParagraphsHTML(splitParagraphs(copy)) }} />
         </div>
     );
 }

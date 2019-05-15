@@ -1,6 +1,8 @@
-import Summary from '../../../../app/components/listings/components/summary';
 import ShallowWrapperFactory from '../../../utils/ShallowWrapperFactory';
 import listingMock from '../../../mock/listing';
+import proxyquire, { noCallThru } from 'proxyquire';
+
+noCallThru();
 
 const selectors = {
     root: '.summary',
@@ -8,6 +10,16 @@ const selectors = {
     subheading: '.summary__sub-heading',
     copy: '.summary__copy'
 };
+
+const splitParagraphsStub = sinon.stub();
+const splitParagraphsHTML = sinon.stub();
+
+const Summary = proxyquire('../../../../app/components/listings/components/summary', {
+    '@bxm/markdown': {
+        splitParagraphs: splitParagraphsStub
+    },
+    '../utilities/splitParagraphsHTML': splitParagraphsHTML
+});
 
 const TestWrapper = new ShallowWrapperFactory(Summary);
 
@@ -18,11 +30,19 @@ describe('Summary component', () => {
             let testProps;
 
             before(() => {
+                const copyMock = listingMock.copy;
+                splitParagraphsHTML.returns(copyMock);
+
                 [wrapper, testProps] = TestWrapper({
                     streetAddress: listingMock.streetAddress,
                     subheading: listingMock.subheading,
-                    copy: listingMock.copy
+                    copy: copyMock
                 });
+            });
+
+            after(() => {
+                splitParagraphsHTML.resetHistory();
+                splitParagraphsStub.resetHistory();
             });
 
             it('renders the component', () => {
@@ -64,7 +84,7 @@ describe('Summary component', () => {
             it('renders the value of the copy prop to the correct location', () => {
                 const { copy } = selectors;
 
-                expect(wrapper.find(copy).text()).to.eq(testProps.copy);
+                expect(wrapper.find(copy).prop('dangerouslySetInnerHTML').__html).to.eq(testProps.copy);
             });
         });
     });

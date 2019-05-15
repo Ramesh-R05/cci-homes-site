@@ -52,7 +52,7 @@ describe('ContactCard component', () => {
             it('renders the value of the streetAddress prop to the correct location', () => {
                 const { streetAddress } = selectors;
 
-                expect(wrapper.find(streetAddress).text()).to.contain(testProps.streetAddress);
+                expect(wrapper.find(streetAddress).text()).to.contain(`<Icon />`);
             });
 
             it('renders the phone number', () => {
