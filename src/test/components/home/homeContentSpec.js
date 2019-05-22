@@ -142,11 +142,22 @@ describe('HomeContent component', () => {
             });
 
             it('renders the Featured component with correct props', () => {
-                expect(wrapper.find(FeaturedStub).props()).to.deep.eq({
+                expect(wrapper.find(FeaturedStub).props()).to.include({
                     polarTargets: testContext.config.polar.details.homeTopFeed,
                     hero: testProps.hero,
                     articles: testProps.articles
                 });
+            });
+
+            it('renders the mobile subscribe block using the renderProp of the Feautured component with the correct visibility class', () => {
+                expect(
+                    wrapper
+                        .find(FeaturedStub)
+                        .renderProp('renderBlockBelowHero')()
+                        .find('.show-for-small-only')
+                        .childAt(0)
+                        .is(SocialAndSubscribeLinksStub)
+                );
             });
 
             it('renders the Rail component with correct props', () => {

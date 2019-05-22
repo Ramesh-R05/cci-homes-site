@@ -12,13 +12,15 @@ export default class Featured extends Component {
         articles: PropTypes.array.isRequired,
         polarTargets: PropTypes.array,
         hero: PropTypes.object,
-        showSearchBar: PropTypes.bool
+        showSearchBar: PropTypes.bool,
+        renderBlockBelowHero: PropTypes.func
     };
 
     static defaultProps = {
         polarTargets: [],
         hero: null,
-        showSearchBar: false
+        showSearchBar: false,
+        renderBlockBelowHero: () => {}
     };
 
     renderSearchBar = () => {
@@ -112,12 +114,14 @@ export default class Featured extends Component {
     };
 
     render() {
+        const { renderBlockBelowHero } = this.props;
         const className = 'section__featured gtm-topteaserlist-index columns small-12 medium-12 large-8';
 
         return (
             <section className={className}>
                 <div className="row">{this.renderSearchBar()} </div>
                 <div className="row">{this.renderHeroTeaser()}</div>
+                {renderBlockBelowHero()}
                 <div className="row">{this.renderTeaserGrid()}</div>
             </section>
         );

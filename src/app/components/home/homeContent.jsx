@@ -55,7 +55,16 @@ export class HomeContent extends Component {
             <div className="home-section">
                 <div className="home-section__featured">
                     <div className="home-section__top row">
-                        <Featured polarTargets={homeTopFeed} hero={hero} articles={articles} />
+                        <Featured
+                            polarTargets={homeTopFeed}
+                            hero={hero}
+                            articles={articles}
+                            renderBlockBelowHero={() => (
+                                <div className="show-for-small-only">
+                                    <SocialAndSubscribeLinks content={content} />
+                                </div>
+                            )}
+                        />
                         <Rail marginBottom={120} yPosition={95}>
                             <SocialAndSubscribeLinks content={content} />
                         </Rail>
