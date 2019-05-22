@@ -2,15 +2,15 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import slice from 'lodash/array/slice';
 import classNames from 'classnames';
-import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import Featured from './featured';
 import loadList from '../../actions/loadList';
 import Repeatable from '../repeatable';
 import List from '../section/list';
+import WithLoadMore from '../helpers/withLoadMore';
 
-class Section extends Component {
+export class BrandSection extends Component {
     static displayName = 'BrandSection';
 
     static propTypes = {
@@ -89,15 +89,4 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, ['PageStore'], context => {
-    const { getStore } = context;
-    const pageStore = getStore('PageStore');
-
-    return {
-        hero: pageStore.getHeroItem(),
-        articles: pageStore.getItems(),
-        content: pageStore.getContent(),
-        list: pageStore.getList(),
-        listNextParams: pageStore.getListNextParams()
-    };
-});
+export default WithLoadMore(BrandSection);

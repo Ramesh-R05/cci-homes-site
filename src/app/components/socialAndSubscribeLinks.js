@@ -17,6 +17,7 @@ export default class SocialAndSubscribeLinks extends Component {
     render() {
         const { content } = this.props;
         const { config } = this.context;
+
         let brand = false;
 
         if (content.nodeType === 'BrandSection') {

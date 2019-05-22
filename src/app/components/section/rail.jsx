@@ -7,17 +7,19 @@ export default class Rail extends Component {
     static displayName = 'Rail';
 
     static propTypes = {
+        children: PropTypes.node,
         marginBottom: PropTypes.number,
         yPosition: PropTypes.number
     };
 
     static defaultProps = {
         marginBottom: 0,
-        yPosition: 0
+        yPosition: 0,
+        children: null
     };
 
     render() {
-        const { marginBottom, yPosition } = this.props;
+        const { marginBottom, yPosition, children } = this.props;
 
         return (
             <StickyBlock
@@ -26,13 +28,16 @@ export default class Rail extends Component {
                 containerMarginBottom={marginBottom}
                 carriageYPosition={yPosition}
             >
-                <Ad
-                    className="ad--section-mrec"
-                    displayFor={['large', 'xlarge']}
-                    sizes={['double-mrec', 'mrec']}
-                    label={{ active: false }}
-                    pageLocation={Ad.pos.aside}
-                />
+                <React.Fragment>
+                    <Ad
+                        className="ad--section-mrec"
+                        displayFor={['large', 'xlarge']}
+                        sizes={['double-mrec', 'mrec']}
+                        label={{ active: false }}
+                        pageLocation={Ad.pos.aside}
+                    />
+                    {children}
+                </React.Fragment>
             </StickyBlock>
         );
     }

@@ -35,39 +35,3 @@
         }
     }
 }
-
-.default-template--unknown {
-    // TODO - Clean this up and add a proper error class to the page template
-
-    .header__sections {
-        display: none;
-    }
-
-    .buy-magazines {
-        display: none;
-    }
-
-    .social-links--in-header-banner {
-        display: none;
-    }
-
-    .header-banner {
-
-        &__inner {
-            text-align: center !important;
-            padding: 35px 85px;
-        }
-
-        .icon-logo {
-            font-size: 60px;
-
-            @media #{$medium-up} {
-                font-size: 105px;
-            }
-        }
-    }
-
-    .header--expanded.header--pinned:not(.header--hidden) .header-banner {
-        display: block;
-    }
-}

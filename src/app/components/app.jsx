@@ -7,7 +7,7 @@ import { provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
 import AdManager from '@bxm/ad/lib/google/components/adManager';
 import GoogleFont from './html/googleFont';
-import DefaultTemplate from './templates/default';
+import Error from './pages/error';
 
 class ErrorBoundary extends Component {
     componentDidCatch(error, errorInfo) {
@@ -59,7 +59,7 @@ class Application extends Component {
 
     render() {
         const { currentRoute, currentNavigateError } = this.props;
-        const Handler = currentRoute ? currentRoute.handler : DefaultTemplate;
+        const Handler = currentRoute ? currentRoute.handler : Error;
         const className = canUseDOM ? '' : 'no-js';
 
         return (

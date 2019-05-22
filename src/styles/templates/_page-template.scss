@@ -1,0 +1,66 @@
+.page-template {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;    
+
+    &--home-page {
+        .header:not(.header--expanded) {
+            @media #{$medium-up} {
+                margin-top: 48px;
+            }            
+        }    
+        
+        .header--pinned:not(.header--expanded) {
+            margin-top: 0;
+        }
+            
+        .section__heading {
+            padding-top: $header-banner-height-mobile;
+
+            @media #{$medium-up} {
+                padding-top: 250px
+            }
+        }
+    }
+
+    &--directory-home {
+        .site-footer {
+            margin-top: 0;
+        }
+    }
+
+    &--error-page {
+    
+        .header__sections {
+            display: none;
+        }
+    
+        .buy-magazines {
+            display: none;
+        }
+    
+        .social-links--in-header-banner {
+            display: none;
+        }
+    
+        .header-banner {
+    
+            &__inner {
+                text-align: center !important;
+                padding: 35px 85px;
+            }
+    
+            .icon-logo {
+                font-size: 60px;
+    
+                @media #{$medium-up} {
+                    font-size: 105px;
+                }
+            }
+        }
+    
+        .header--expanded.header--pinned:not(.header--hidden) .header-banner {
+            display: block;
+        }
+    }
+}

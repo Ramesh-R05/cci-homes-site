@@ -1,6 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
 import { entity, articles as articlesMock } from '../../mock/articles';
-import cloneDeep from 'lodash/lang/cloneDeep';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -33,35 +32,6 @@ AdStub.pos = {
     panel: 'panel'
 };
 
-const featuredArticles = articlesMock.slice(1, 4);
-const navigationTags = ['Test'];
-
-const contextConfigStub = {
-    key: 'config',
-    type: '',
-    value: {
-        isFeatureEnabled: () => false,
-        polar: {
-            details: {
-                sectionTopFeed: [
-                    {
-                        index: 0,
-                        label: 'section_top_feed_1',
-                        targets: { kw: 'section_top_feed_1' }
-                    }
-                ],
-                sectionBottomFeed: [
-                    {
-                        index: 1,
-                        label: 'section_bottom_feed_1',
-                        targets: { kw: 'section_bottom_feed_1' }
-                    }
-                ]
-            }
-        }
-    }
-};
-
 const defaultProps = {
     articles: articlesMock,
     content: {
@@ -72,22 +42,6 @@ const defaultProps = {
     },
     isSideMenuOpen: false
 };
-
-const directoriesProps = {
-    articles: articlesMock,
-    content: {
-        nodeType: 'NavigationSection',
-        id: 'HOMES-1160',
-        tagsDetails: [{ displayName: 'Section Heading with Tags Details' }],
-        title: 'Directories'
-    },
-    isSideMenuOpen: false
-};
-
-let customProps;
-function resetProps() {
-    customProps = cloneDeep(defaultProps);
-}
 
 describe(`Section`, () => {
     let reactModule;
@@ -167,51 +121,6 @@ describe(`Section`, () => {
 
         it('should render a repeatable component with the correct nativeAdConfig prop', () => {
             expect(repeatableComponent.props.polarTargets[0].label).to.eq('section_bottom_feed_1');
-        });
-    });
-
-    describe(`SectionNavigation nodeType with Directories title`, () => {
-        const sectionClassName = 'section__landing';
-        const contextConfigStubEnabled = {
-            key: 'config',
-            type: '',
-            value: {
-                isFeatureEnabled: () => true,
-                polar: {
-                    details: {
-                        sectionTopFeed: [
-                            {
-                                index: 0,
-                                label: 'section_top_feed_1',
-                                targets: { kw: 'section_top_feed_1' }
-                            }
-                        ],
-                        sectionBottomFeed: [
-                            {
-                                index: 1,
-                                label: 'section_bottom_feed_1',
-                                targets: { kw: 'section_bottom_feed_1' }
-                            }
-                        ]
-                    }
-                }
-            }
-        };
-        let navigationTagFeaturedComponent;
-        let repeatableComponent;
-
-        before(() => {
-            reactModule = Context.mountComponent(Section, directoriesProps, [contextConfigStubEnabled]);
-            navigationTagFeaturedComponent = TestUtils.findRenderedComponentWithType(reactModule, NavigationTagFeaturedStub);
-            repeatableComponent = TestUtils.findRenderedComponentWithType(reactModule, RepeatableStub);
-        });
-
-        it('should render a featured component with the correct nativeAdConfig prop', () => {
-            expect(navigationTagFeaturedComponent.props.polarTargets.length).to.eq(0);
-        });
-
-        it('should render a repeatable component with the correct nativeAdConfig prop', () => {
-            expect(repeatableComponent.props.polarTargets.length).to.eq(0);
         });
     });
 });

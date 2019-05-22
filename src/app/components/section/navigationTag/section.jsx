@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { connectToStores } from '@bxm/flux';
 import GenericSection from '../section';
+import WithLoadMore from '../../helpers/withLoadMore';
 
-class Section extends Component {
+export class NavigationTagSection extends Component {
     static displayName = 'NavigationTagSection';
 
     static propTypes = {
@@ -24,15 +24,4 @@ class Section extends Component {
     }
 }
 
-export default connectToStores(Section, ['PageStore'], context => {
-    const pageStore = context.getStore('PageStore');
-
-    return {
-        content: pageStore.getContent(),
-        articles: pageStore.getItems(),
-        galleries: pageStore.getModuleItems('galleries'),
-        list: pageStore.getList(),
-        listNextParams: pageStore.getListNextParams(),
-        hero: pageStore.getHeroItem()
-    };
-});
+export default WithLoadMore(NavigationTagSection);

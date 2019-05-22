@@ -37,7 +37,8 @@ export default {
                 valid: true,
                 caption:
                     'This is inline image caption Pops of neon pink encourage the eye to dart around the black and white living room of this Sydney cottage.',
-                credits: ['HOMES-1398']
+                credits: ['HOMES-1398'],
+                creditText: 'Photographer name'
             }
         },
         {

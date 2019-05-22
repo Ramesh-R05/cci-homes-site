@@ -1,51 +1,33 @@
-import { Component, PropTypes } from 'react';
 import { betterMockComponentContext } from '@bxm/flux';
-import { entity, articles as articlesMock } from '../../../mock/articles';
-import { items as gogMock } from '../../../mock/galleryOfGalleries';
+import proxyquire, { noCallThru } from 'proxyquire';
+import ShallowWrapperFactory from '../../../utils/ShallowWrapperFactory';
 
-const ComponentContext = betterMockComponentContext();
-const React = ComponentContext.React;
-const TestUtils = ComponentContext.TestUtils;
+noCallThru();
 
-const proxyquire = require('proxyquire').noCallThru();
-const GenericSectionStub = ComponentContext.createStubComponentWithChildren();
-const InlineGalleryStub = ComponentContext.createStubComponent();
+const Context = betterMockComponentContext();
 
-const Section = proxyquire('../../../../app/components/section/navigationTag/section', {
-    react: React,
-    '../section': GenericSectionStub,
-    '../../inlineGallery/customInlineGallery': InlineGalleryStub
+const GenericSectionStub = Context.createStubComponentWithChildren();
+
+const { NavigationTagSection } = proxyquire('../../../../app/components/section/navigationTag/section', {
+    '../section': GenericSectionStub
 });
 
-ComponentContext.addStore('PageStore', {
-    getContent: () => entity,
-    getModuleItems: () => gogMock,
-    getItems: () => articlesMock,
-    getNavigationTags: () => [],
-    getList: () => articlesMock,
-    getListNextParams: () => articlesMock,
-    getHeroItem: () => {}
-});
+const TestWrapper = new ShallowWrapperFactory(NavigationTagSection);
 
-describe(`NavigationTagSection`, () => {
-    let reactModule;
-
-    afterEach(() => {
-        ComponentContext.cleanup();
-    });
-
-    let genericSection;
+describe('NavigationTagSection', () => {
+    let wrapper;
+    let testProps;
 
     before(() => {
-        reactModule = ComponentContext.mountComponent(Section, {});
-        genericSection = TestUtils.findRenderedComponentWithType(reactModule, GenericSectionStub);
+        [wrapper, testProps] = TestWrapper({
+            articles: [{ article: '1' }, { article: '2' }],
+            content: { valiue: 'something' },
+            hero: { item: 'something' },
+            galleries: ['gallery 1', 'gallery 2', 'gallery 3']
+        });
     });
 
-    it(`should pass down the articles prop to the GenericSection component`, () => {
-        expect(genericSection.props.articles).to.deep.equal(articlesMock);
-    });
-
-    it(`should pass down the content prop to the GenericSection component`, () => {
-        expect(genericSection.props.content).to.deep.equal(entity);
+    it('should pass all props through to the GenericSection component', () => {
+        expect(wrapper.find(GenericSectionStub).props()).to.deep.eq({ ...testProps });
     });
 });

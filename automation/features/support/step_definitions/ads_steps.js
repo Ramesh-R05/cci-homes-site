@@ -18,12 +18,15 @@ module.exports = function() {
     });
 
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
-        var topAdSlot = browser.elements(wn_ads.ad_TopLeaderboard, 5000);
-        expect((topAdSlot.value.length)).toEqual(1);
-        var midAdSlot = browser.elements(wn_ads.ad_MiddleLeaderboard, 5000);
-        expect((midAdSlot.value.length)).toEqual(1);
-        var bottomAdSlot = browser.elements(wn_ads.ad_BottomLeaderboard, 5000);
-        expect((bottomAdSlot.value.length)).toEqual(1);
+        const { ad_TopLeaderboard, ad_MiddleLeaderboard, ad_BottomLeaderboard } = wn_ads;
+        
+        const topAdSlot = browser.$(ad_TopLeaderboard);        
+        const midAdSlot = browser.$(ad_MiddleLeaderboard);
+        const bottomAdSlot = browser.$(ad_BottomLeaderboard);
+        
+        expect(topAdSlot.isExisting()).toBe(true);
+        expect(midAdSlot.isExisting()).toBe(true);
+        expect(bottomAdSlot.isExisting()).toBe(true);
 
     });
 

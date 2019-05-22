@@ -1,53 +1,31 @@
-import { Component, PropTypes } from 'react';
 import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
+import ShallowWrapperFactory from '../../../utils/ShallowWrapperFactory';
+
+noCallThru();
 
 const Context = betterMockComponentContext();
-const React = Context.React;
-const TestUtils = Context.TestUtils;
-const proxyquire = require('proxyquire').noCallThru();
+
 const GenericSectionStub = Context.createStubComponentWithChildren();
 
-const Section = proxyquire('../../../../app/components/section/sponsorTag/section', {
-    react: React,
+const { SponsorTagSection } = proxyquire('../../../../app/components/section/sponsorTag/section', {
     '../section': GenericSectionStub
 });
 
-const tags = 'title';
-const sponsorsMock = [
-    {
-        Campain: 'test'
-    },
-    {
-        Campain: 'test2'
-    }
-];
-
-Context.addStore('PageStore', {
-    getContent: () => {
-        return {
-            title: tags
-        };
-    },
-
-    getItems: () => sponsorsMock,
-    getList: () => sponsorsMock,
-    getListNextParams: () => sponsorsMock
-});
+const TestWrapper = new ShallowWrapperFactory(SponsorTagSection);
 
 describe('SponsorTagSection', () => {
-    let reactModule;
-    let genericSection;
+    let wrapper;
+    let testProps;
 
-    afterEach(() => {
-        Context.cleanup();
+    before(() => {
+        [wrapper, testProps] = TestWrapper({
+            articles: [{ article: '1' }, { article: '2' }],
+            content: { value: 'sponsor' }
+        });
     });
 
-    beforeEach(() => {
-        reactModule = Context.mountComponent(Section);
-        genericSection = TestUtils.findRenderedComponentWithType(reactModule, GenericSectionStub);
-    });
-
-    it('should have pass down the sponsors', () => {
-        expect(genericSection.props.articles).to.deep.equal(sponsorsMock);
+    it('should pass all props through to the GenericSection component', () => {
+        expect(wrapper.find(GenericSectionStub).props()).to.deep.eq({ ...testProps });
     });
 });

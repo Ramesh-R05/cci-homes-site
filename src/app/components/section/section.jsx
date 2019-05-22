@@ -32,13 +32,7 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const { articles, list, content, listNextParams, hero } = this.props;
-        let { sectionTopFeed, sectionBottomFeed } = config.polar.details;
-
-        // There is paid content in this section so we don't want to override it with Polar Ads
-        if (content.title === 'Directories') {
-            sectionTopFeed = [];
-            sectionBottomFeed = [];
-        }
+        const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
 
         if (!articles.length) {
             return null;

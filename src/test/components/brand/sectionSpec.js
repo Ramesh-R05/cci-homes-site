@@ -1,17 +1,26 @@
+import { filterErrors, restoreErrors } from '../../utils/propTypeWarningFilter';
 import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
-import { entity, articles as articlesMock } from '../../mock/articles';
-import clone from 'lodash/lang/clone';
+import { home as articlesMock } from '../../mock/articles';
 import proxyquire, { noCallThru } from 'proxyquire';
+import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
+import latestVideoStubData from '../../../stubs/bff-latest-videos';
+
 noCallThru();
+
 const Context = betterMockComponentContext();
-const { React, ReactDOM, TestUtils } = Context;
-const FeaturedStub = Context.createStubComponent();
-const repeatableStub = Context.createStubComponent();
-const listStub = Context.createStubComponent();
+
 const AdStub = Context.createStubComponent();
-const StickyStub = Context.createStubComponentWithChildren();
-const StickyMobileAdStub = Context.createStubComponent();
+const StickyAdStub = Context.createStubComponent();
+const RepeatableStub = Context.createStubComponent();
+const listStub = Context.createStubComponent();
+const SocialAndSubscribeLinksStub = Context.createStubComponent();
+const RailStub = Context.createStubComponentWithChildren();
+const FeaturedStub = Context.createStubComponent();
+const LatestVideosStub = Context.createStubComponent();
+const FeaturedBrandStub = Context.createStubComponent();
+const LoadListStub = sinon.stub();
+const lodashSliceStub = sinon.stub();
 
 AdStub.pos = {
     aside: 'rhs',
@@ -22,127 +31,154 @@ AdStub.pos = {
     panel: 'panel'
 };
 
-const contextConfigStub = {
-    key: 'config',
-    type: '',
-    value: {
-        polar: {
-            details: {
-                sectionTopFeed: [
-                    {
-                        index: 0,
-                        label: 'section_top_feed_1',
-                        targets: { kw: 'section_top_feed_1' }
-                    }
-                ],
-                sectionBottomFeed: [
-                    {
-                        index: 1,
-                        label: 'section_bottom_feed_1',
-                        targets: { kw: 'section_bottom_feed_1' }
-                    }
-                ]
-            }
-        }
-    }
-};
-
-const Section = proxyquire('../../../app/components/brand/section', {
-    react: React,
-    './featured': FeaturedStub,
-    '../repeatable': repeatableStub,
-    '../section/list': listStub,
+const { BrandSection } = proxyquire('../../../app/components/brand/section', {
     '@bxm/ad/lib/google/components/ad': AdStub,
-    '@bxm/behaviour/lib/components/sticky': StickyStub,
-    '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub
+    '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
+    '../repeatable': RepeatableStub,
+    '../section/list': listStub,
+    '../../actions/loadList': LoadListStub,
+    '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
+    '../section/rail': RailStub,
+    './featured': FeaturedStub,
+    './latestVideos': LatestVideosStub,
+    '../featuredBrandsSection/featuredBrandsSection': FeaturedBrandStub,
+    'lodash/array/slice': lodashSliceStub
 });
 
-let brandHeroStore = heroMock;
-let brandArticlesStore = articlesMock;
+const TestWrapper = new ShallowWrapperFactory(BrandSection);
 
-Context.addStore('PageStore', {
-    getContent() {
-        let content = clone(entity);
-        content.urlName = 'belle';
-        content.title = 'Belle';
-        return content;
-    },
-    getHeroItem() {
-        return brandHeroStore;
-    },
-    getItems() {
-        return brandArticlesStore;
-    },
-    getList: () => articlesMock,
-    getListNextParams: () => {}
-});
+describe('BrandSection component', () => {
+    describe('rendering', () => {
+        describe('with valid required props', () => {
+            let wrapper;
+            let testProps;
+            let testContext;
+            let articles;
 
-describe(`Brand Section`, () => {
-    let reactModule;
+            before(() => {
+                articles = articlesMock.slice(0, 6);
+                lodashSliceStub.returns(articles);
 
-    const sectionBrandsConfigStub = {
-        belle: {
-            subscribe: {
-                image: '/assets/images/brand-pages/subscribe/belle.jpg',
-                link: 'https://www.magshop.com.au/store/homestolove'
-            },
-            logo: '/assets/svgs/belle.svg',
-            social: {
-                facebook: 'https://www.facebook.com/BelleMagazineAu',
-                twitter: 'https://twitter.com/BelleMagazineAu',
-                instagram: 'https://instagram.com/bellemagazineau/?hl=en'
-            }
-        }
-    };
-
-    const defaultPropsStub = {
-        brandConfig: sectionBrandsConfigStub
-    };
-
-    afterEach(Context.cleanup);
-
-    describe(`and 12 articles`, () => {
-        const sectionClassName = 'container';
-        let section;
-        let featured;
-        let ads;
-
-        before(() => {
-            brandArticlesStore = articlesMock.slice(0, 12);
-            reactModule = Context.mountComponent(Section, defaultPropsStub, [contextConfigStub]);
-            section = TestUtils.findRenderedDOMComponentWithClass(reactModule, sectionClassName);
-            featured = TestUtils.findRenderedComponentWithType(reactModule, FeaturedStub);
-            ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
-        });
-
-        it(`should render the Section component on the page`, () => {
-            expect(ReactDOM.findDOMNode(section)).to.exist;
-        });
-
-        // Featured articles
-        it(`should pass down the hero article to the featured component`, () => {
-            expect(featured.props.hero).to.deep.equal(heroMock);
-        });
-
-        // Featured articles
-        it(`should pass down the featured articles to the featured component`, () => {
-            expect(featured.props.articles).to.deep.equal(articlesMock.slice(0, 6));
-        });
-
-        // Ads
-        describe(`Ads`, () => {
-            const numberOfAds = 1;
-            it(`should have ${numberOfAds} AdStubs`, () => {
-                expect(ads.length).to.eq(numberOfAds);
+                [wrapper, testProps, testContext] = TestWrapper(
+                    {
+                        content: {
+                            value: 2,
+                            urlName: 'belle'
+                        },
+                        hero: heroMock,
+                        articles: articlesMock,
+                        list: {
+                            items: [1, 2, 3]
+                        },
+                        listNextParams: {
+                            page: 2,
+                            prevPage: 1
+                        }
+                    },
+                    {
+                        config: {
+                            isFeatureEnabled: sinon.stub().returns(false),
+                            polar: {
+                                details: {
+                                    sectionTopFeed: [
+                                        {
+                                            index: 0,
+                                            label: 'section_top_feed_1',
+                                            targets: { kw: 'section_top_feed_1' }
+                                        },
+                                        {
+                                            index: 5,
+                                            label: 'section_top_feed_2',
+                                            targets: { kw: 'section_top_feed_2' }
+                                        }
+                                    ],
+                                    sectionBottomFeed: [
+                                        {
+                                            index: 1,
+                                            label: 'section_bottom_feed_1',
+                                            targets: { kw: 'section_bottom_feed_1' }
+                                        },
+                                        {
+                                            index: 5,
+                                            label: 'section_bottom_feed_2',
+                                            targets: { kw: 'section_bottom_feed_2' }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                );
             });
 
-            it(`should have the relevant props for the 1st ad`, () => {
-                const size = {
-                    small: 'banner',
-                    leaderboard: 'leaderboard',
-                    billboard: ['billboard', 'leaderboard']
-                };
-                expect(ads[0].props.sizes).to.deep.equal(size);
+            it('renders the component', () => {
+                expect(wrapper.isEmptyRender()).to.be.false;
+            });
+
+            it('sets the correct class name on the root based on the content urlName prop', () => {
+                expect(wrapper.at(0).prop('className')).to.eq(`brand-section container brand-section--${testProps.content.urlName}`);
+            });
+
+            it('renders the Featured component with correct props', () => {
+                expect(wrapper.find(FeaturedStub).props()).to.deep.eq({
+                    content: testProps.content,
+                    polarTargets: testContext.config.polar.details.sectionTopFeed,
+                    hero: testProps.hero,
+                    articles
+                });
+            });
+
+            it('renders a single Ad component ', () => {
+                expect(wrapper.find(AdStub)).to.have.length(1);
+            });
+
+            it('renders the single Ad component Ad component with correct props', () => {
+                expect(wrapper.find(AdStub).props()).to.deep.eq({
+                    className: 'ad--section-middle-leaderboard',
+                    sizes: {
+                        small: 'banner',
+                        leaderboard: 'leaderboard',
+                        billboard: ['billboard', 'leaderboard']
+                    },
+                    label: { active: false },
+                    pageLocation: AdStub.pos.outside
+                });
+            });
+
+            it('renders the Repeateable component with correct props', () => {
+                expect(wrapper.find(RepeatableStub).props()).to.deep.eq({
+                    component: listStub,
+                    action: LoadListStub,
+                    dataSource: testProps.list,
+                    nextParams: testProps.listNextParams,
+                    className: 'news-feed bottom-news-feed',
+                    adTargets: { position: 2 },
+                    content: testProps.content,
+                    polarTargets: testContext.config.polar.details.sectionBottomFeed
+                });
+            });
+
+            it('renders 1 StickyAd component', () => {
+                expect(wrapper.find(StickyAdStub)).to.have.length(1);
+            });
+
+            it('renders the StickyAd component with correct props', () => {
+                expect(wrapper.find(StickyAdStub).props()).to.deep.eq({
+                    adProps: {
+                        className: 'ad--section-bottom-leaderboard',
+                        displayFor: ['small', 'medium', 'large', 'xlarge'],
+                        sizes: {
+                            banner: 'banner',
+                            leaderboard: 'leaderboard',
+                            billboard: ['billboard', 'leaderboard']
+                        },
+                        pageLocation: AdStub.pos.outside,
+                        lazyLoad: true
+                    },
+                    minHeight: 450,
+                    stickyAtViewPort: 'mediumRangeMax',
+                    stickyDelay: 5500
+                });
             });
         });
     });
