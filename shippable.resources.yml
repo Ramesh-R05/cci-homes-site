@@ -54,18 +54,6 @@ resources:
     pointer:
       sourceName: bauerxcelmedia/homes-site
       branch: master
-  
-  # Homes Github repo
-  - name: homes-site-repo-pr-branch
-    type: gitRepo
-    integration: production-github
-    pointer:
-      sourceName: bauerxcelmedia/homes-site
-      branches:
-        except: 
-          - shippable-pipeline
-          - pipeline/*
-          - master
 
   # Homes Github repo branch for lighthouse test only
   - name: homes-site-repo-branch

@@ -52,7 +52,8 @@ jobs:
       - NOTIFY: homes-qa-team-notifications
     steps:
      - IN: homes-site-sit-deploy-branch
-     - IN: homes-site-repo-pr-branch
+     - IN: homes-site-img-branch
+     - IN: homes-site-repo
        switch: off
      - TASK:
         - script: curl services.sit.bxm.internal/publishing-broker/
@@ -61,8 +62,8 @@ jobs:
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: cd ./IN/homes-site-repo-pr-branch/gitRepo/automation
-        - script: git checkout $HOMES_SITE_REPO_PR_BRANCH_HEAD_BRANCH
+        - script: cd ./IN/homes-site-repo/gitRepo/automation
+        - script: git checkout $HOMES_SITE_REPO_HEAD_BRANCH
         - script: npm install
         - script: export URL=http://homes-site-au.branch.sit.bxm.net.au/
         - script: APP_KEY=homes-site npm run sit:au || true
