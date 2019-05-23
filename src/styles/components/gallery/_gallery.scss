@@ -526,15 +526,6 @@
     }
 }
 
-.gallery__image-details {
-    margin-left: 8px;
-
-    @media only screen and (min-width: $gallery-footer-minor-bp-2) {
-        width: calc(100% - 50px);
-        margin-left: 0;
-    }
-}
-
 .teaser__list-item:nth-of-type(odd) {
     padding-left: 10px;
 }

@@ -43,7 +43,6 @@
     "@bxm/behaviour": "^2.0.0",
     "@bxm/datetime": "^4.0.1",
     "@bxm/flux": "^6.0.0",
-    "@bxm/gallery": "^16.0.0",
     "@bxm/markdown": "^1.4.1",
     "@bxm/nav": "^4.0.0",
     "@bxm/react-script-loader": "^3.0.0",
