@@ -154,7 +154,7 @@ describe('HomeContent component', () => {
                     wrapper
                         .find(FeaturedStub)
                         .renderProp('renderBlockBelowHero')()
-                        .find('.show-for-small-only')
+                        .find('.hide-for-large-up')
                         .childAt(0)
                         .is(SocialAndSubscribeLinksStub)
                 );

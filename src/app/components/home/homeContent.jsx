@@ -60,7 +60,7 @@ export class HomeContent extends Component {
                             hero={hero}
                             articles={articles}
                             renderBlockBelowHero={() => (
-                                <div className="show-for-small-only">
+                                <div className="hide-for-large-up">
                                     <SocialAndSubscribeLinks content={content} />
                                 </div>
                             )}
