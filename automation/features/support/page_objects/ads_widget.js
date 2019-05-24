@@ -83,7 +83,7 @@ var ads_widget = {
 
     //Body
     ad_MrecAfterSlide3: '.gallery__feed-item--ad:nth-child(4) .gallery__ad [id^=ad-gpt-slot-]', //gallery
-    ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .gallery__ad [id^=ad-gpt-slot-]', //gallery
+    ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(8) .gallery__ad [id^=ad-gpt-slot-]', //gallery
 
     //For Mobile
     ad_MrecUnderHeroTeaser: '.top-teasers .ad--section-mrec [id^=ad-gpt-slot-]', //mobile homepage
@@ -96,7 +96,7 @@ var ads_widget = {
 
     //--Non-ad element
     gallerySlide3: '.gallery__feed-item:nth-child(3)', //for 'I should see MREC ad between images'
-    gallerySlide7: '.gallery__feed-item:nth-child(8)', //for 'I should see MREC ad between images'
+    gallerySlide6: '.gallery__feed-item:nth-child(6)', //for 'I should see MREC ad between images'
 
     // Vertical Gallery
     galleryNativeAd: '.ad--article-native',

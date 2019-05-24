@@ -147,7 +147,7 @@ module.exports = function() {
         //expect(browser.waitForExist(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
 
         // Verify the mrec ad after slide no. 7
-        browser.scroll(wn_ads.gallerySlide7);
+        browser.scroll(wn_ads.gallerySlide6);
         expect(browser.$(wn_ads.ad_MrecAfterSlide7).waitForExist(5000)).toBe(true);
         //expect(browser.waitForExist(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
