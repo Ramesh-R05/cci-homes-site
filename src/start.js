@@ -11,7 +11,7 @@ var fs = require('fs');
 var requiredFile = './dist/manifest.json';
 var retryDelay = 5000;
 var attemptCount = 0;
-var maxAttempts = 12;
+var maxAttempts = 24;
 var timerId = null;
 
 function startWhenReady() {

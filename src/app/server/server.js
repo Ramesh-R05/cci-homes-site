@@ -8,8 +8,9 @@ import app, { stores } from '../app';
 import bff from './bff';
 import fluxibleLoggerPlugin from '../../fluxibleLoggerPlugin';
 import logger from '../../logger';
+import webpackConfig from '../../webpack.config';
 
 app.plug(fluxibleConfigPlugin(config));
 app.plug(fluxibleLoggerPlugin());
 
-server(bff, config, app, React, navigateAction, logger, stores);
+server(bff, config, app, React, navigateAction, logger, stores, webpackConfig);

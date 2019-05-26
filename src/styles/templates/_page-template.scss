@@ -1,7 +1,14 @@
 .page-template {
   overflow-x: hidden;
   position: relative;
-  width: 100%;    
+  width: 100%;
+
+  &__thing {
+      border: 1px solid blue;
+      display: block;
+      font-weight: bold;
+      padding: 22px 0;
+  }
 
     &--home-page {
         .header:not(.header--expanded) {

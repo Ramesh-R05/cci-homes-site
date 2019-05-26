@@ -1,11 +1,11 @@
 /* eslint-disable */
-
+import { hot } from 'react-hot-loader/root';
+import AdManager from '@bxm/ad/lib/google/components/adManager';
+import { provideContext } from '@bxm/flux';
+import canUseDOM from 'exenv';
+import { handleHistory } from 'fluxible-router';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import canUseDOM from 'exenv';
-import { provideContext } from '@bxm/flux';
-import { handleHistory } from 'fluxible-router';
-import AdManager from '@bxm/ad/lib/google/components/adManager';
 import GoogleFont from './html/googleFont';
 import Error from './pages/error';
 
@@ -73,6 +73,8 @@ class Application extends Component {
     }
 }
 
-export default provideContext(handleHistory(AdManager(Application)), {
-    config: PropTypes.object
-});
+export default hot(
+    provideContext(handleHistory(AdManager(Application)), {
+        config: PropTypes.object
+    })
+);

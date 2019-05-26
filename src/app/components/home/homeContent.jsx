@@ -55,6 +55,10 @@ export class HomeContent extends Component {
             <div className="home-section">
                 <div className="home-section__featured">
                     <div className="home-section__top row">
+                        <h1 className="page-template__thing">Hot reload test</h1>
+                        <h1 className="page-template__thing">Hot reload test</h1>
+                        <h1 className="page-template__thing">Hot reload test</h1>
+                        <h1 className="page-template__thing">Hot reload test</h1>
                         <Featured
                             polarTargets={homeTopFeed}
                             hero={hero}

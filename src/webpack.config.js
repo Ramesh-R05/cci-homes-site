@@ -15,11 +15,19 @@ const config = {
     bail: true,
     cache: false,
     devtool: 'source-map',
-    entry: ['./app/client.js', './styles/main.scss'],
+    mode: 'development',
+    entry: [
+        'webpack-hot-middleware/client?path=http://localhost:3001/__webpack_hmr&timeout=20000&name=bundlejs',
+        'react-hot-loader/patch',
+        './app/client.js'
+        // './styles/main.scss'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'dist/',
-        filename: `[name]${production ? '-[chunkhash]' : ''}.js`
+        publicPath: '/dist/',
+        filename: `[name]${production ? '-[chunkhash]' : ''}.js`,
+        hotUpdateChunkFilename: '[id].[hash].hot-update.js',
+        hotUpdateMainFilename: '[hash].hot-update.json'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -41,7 +49,7 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['es2015', 'react', 'stage-1'],
-                        plugins: ['transform-decorators-legacy']
+                        plugins: ['transform-decorators-legacy', 'react-hot-loader/babel']
                     }
                 }
             },
@@ -92,7 +100,9 @@ const config = {
         }),
         new ManifestPlugin({
             publicPath: '' // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin()
     ]
 };
 
