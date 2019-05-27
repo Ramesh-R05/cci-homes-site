@@ -53,6 +53,7 @@ jobs:
     steps:
      - IN: homes-site-sit-deploy-branch
      - IN: homes-site-repo
+     - IN: homes-site_runCI
        switch: off
      - TASK:
         - script: curl services.sit.bxm.internal/publishing-broker/
@@ -62,7 +63,10 @@ jobs:
         - script: nvm use "8.9.1"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
-        - script: echo shipctl get_resource_env homes-site_runCI branch
+        - script: git status
+        - script: git branch
+        - script: shipctl
+        - script: shipctl get_resource_env homes-site_runCI branch
         - script: PR_BRANCH_NAME=shipctl get_resource_env homes-site_runCI branch
         - script: git checkout $PR_BRANCH_NAME
         - script: git status
