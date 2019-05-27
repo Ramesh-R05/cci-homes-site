@@ -5,7 +5,6 @@
 ####################################################################
 
 resources:
-
   # Docker Image Options to run the container
   - name: homes-site-opts-sit
     type: dockerOptions
@@ -15,27 +14,27 @@ resources:
       cpuShares: 192
       portMappings:
         - 0:3001
-      publishAllPorts : true
+      publishAllPorts: true
       logConfig:
         type: awslogs
         options:
-          awslogs-group: "app_ecs"
-          awslogs-region: "ap-southeast-2"
-          awslogs-stream-prefix: "app-homes-site"
+          awslogs-group: 'app_ecs'
+          awslogs-region: 'ap-southeast-2'
+          awslogs-stream-prefix: 'app-homes-site'
 
   # AWS S3 bucket for storing test result files
   - name: test-result-s3-param-homes
     type: params
     versionTemplate:
       params:
-        AWS_S3_BUCKET: "s3://test-result-s3/"
+        AWS_S3_BUCKET: 's3://test-result-s3/'
         secure: eLFlf9nWSWJbMdNziICYW5J6aHjIKLsuK5qU/IXyCLXlWyMuaw3HZrPqoL5nqyJYudHYI1se56UVw2AFytKPI11kloH4J7vx/CHz3Lp2AcdBAq/w4ZTWiWVKmq15MUjlUAegOwX2TEBgD4IDnIbdeDgC15kPavRTqtqKEYAi9DgPTgqW02tvsu2Q+xiJFtihqSOD126M2xz1JGEM2dMwZYJSZiMA2CHSSlXhVNZBtonC3PTYwfwKt1o26IrIcVXfy17J/5/6Dme9l8fJLP4bxxCUa8PEpNUqeAt5mDpMPged6sFz+g6mX4kWMLjM6wimpy+tLdHXM+4OhzKfcbT5UA==
 
   # MASTER Docker Image for the homes-site
   - name: homes-site-img-master
     type: image
     pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+      sourceName: '317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site'
     seed:
       versionName: latest
 
@@ -43,7 +42,7 @@ resources:
   - name: homes-site-img-branch
     type: image
     pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site"
+      sourceName: '317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site'
     seed:
       versionName: latest
 
@@ -55,6 +54,18 @@ resources:
       sourceName: bauerxcelmedia/homes-site
       branch: master
 
+  # Homes Github repo
+  - name: homes-site-repo-pr-branch
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/homes-site
+      branches: 
+        only:
+          - master
+          - feature/*
+          - fix/*
+
   # Homes Github repo branch for lighthouse test only
   - name: homes-site-repo-branch
     type: gitRepo
@@ -65,36 +76,36 @@ resources:
 
   # Slack connection
   - name: homes-slack-notifications
-    type: notification                          #required
+    type: notification #required
     integration: slack-bauerxcelmedia
     pointer:
       recipients:
-        - "#au-shippable"
-        
+        - '#au-shippable'
+
   # Slack connection
   - name: homes-qa-team-notifications
-    type: notification                          #required
+    type: notification #required
     integration: slack-bauerxcelmedia
     pointer:
       recipients:
-        - "#bxm_qa_notifications"
-  
+        - '#bxm_qa_notifications'
+
     # Slack connection
   - name: homes-deployment-notifications
-    type: notification                          #required
+    type: notification #required
     integration: slack-bauerxcelmedia
     pointer:
       recipients:
-        - "#survivors_outlast_au"
+        - '#survivors_outlast_au'
 
   # Seed Release version
-    # for Rollback refer to below URL
-    # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  # for Rollback refer to below URL
+  # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
   - name: homes-site-version
     type: version
     seed:
-      versionName: "1.0.0" # This can be changed for Roll back
-      
+      versionName: '1.0.0' # This can be changed for Roll back
+
   #Schedule Run of automation
   # This is using Shippable timezone
   # CRON is (15 22 * * *") this is 10:15pm every day refer to https://en.wikipedia.org/wiki/Cron
@@ -102,13 +113,13 @@ resources:
   - name: homes-morning-trigger
     type: time
     seed:
-      interval: "15 22 * * *"
+      interval: '15 22 * * *'
 
   #"0 22 * * 2" is 10:00pm Tuesday which is Wednesday morning 9:00am daylight saving or 8:00am standard time in Sydney
   - name: homes-weekly-trigger
     type: time
     seed:
-      interval: "0 22 * * 2"
+      interval: '0 22 * * 2'
 
   ####################################
   # NON PROD environment configuration
@@ -119,28 +130,28 @@ resources:
     type: cluster
     integration: digital-nonprod-AWS
     pointer:
-      sourceName : "app_ecs"
-      region: "ap-southeast-2"
+      sourceName: 'app_ecs'
+      region: 'ap-southeast-2'
 
   # AWS SIT load Balancer - Homes AU - MASTER branch
   - name: homes-site-alb-sit
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-au-sit/5f74d13d06b36b76"
+      sourceName: 'arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-au-sit/5f74d13d06b36b76'
       method: application
 
   # AWS SIT:8080 load Balancer - Homes AU - feature BRANCH
   - name: homes-site-alb-sit-branch
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-au-branch-sit/3bb9306c82d75ab5"
+      sourceName: 'arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-au-branch-sit/3bb9306c82d75ab5'
       method: application
 
   # AWS TEST load Balancer - Homes STUBBED - MASTER branch
   - name: homes-site-alb-test
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-test/24afa8bb9878bdb9"
+      sourceName: 'arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/homes-site-test/24afa8bb9878bdb9'
       method: application
 
   # SIT Parameter
@@ -148,21 +159,22 @@ resources:
     type: params
     version:
       params:
-        NODE_ENV: "production"  # this is to start APP with production version of react
-        APP_ENV: "sit"          # this is to start APP using sit config
-        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
-        APP_DEBUG: true
-         # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+        NODE_ENV: 'production' # this is to start APP with production version of react
+        APP_ENV: 'sit' # this is to start APP using sit config
+        APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb'
+        APP_DEBUG:
+          true
+          # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
         secure: bMeTTd/P3nxspMt5Lt/6yDLmqCp5g0ldRwZOHjpk3padav1gFEwx+OaZcSXMFNtTp6pjgrs05PXFccNBmDrrw4jvV4cTFT4o/WZPmYJlrzRjqzyk4ww5oNtTkzfCWWRLZQT2YR2p0q399I4k3ixlblbg6GcSkqeEfv/+Tm5CnSQPuEALKuaaHB1CmL0GJ8hveStsaAlBsG/0ivQK7Nh3oFmzPrtxZBN50HrM16tv3K4umifewDnZIi2PWwtRVEao4qOupiF22uuebJ8BXld5rJYNb5twlBbqc+IiAtUpe63RCcvpJB8SUp6jWiYeyF9xW4pZvJCg09LZ52FOa+rPlw==
 
-# TEST Parameter
+  # TEST Parameter
   - name: homes-site-params-test
     type: params
     version:
       params:
-        NODE_ENV: "production"  # this is to start APP with development version of react
-        APP_ENV: "test"   # this is to start APP using automation config
-        APP_STUBBED: true       # this is to start APP stubbed
+        NODE_ENV: 'production' # this is to start APP with development version of react
+        APP_ENV: 'test' # this is to start APP using automation config
+        APP_STUBBED: true # this is to start APP stubbed
         APP_DEBUG: true
 
   # SIT/TEST - Number of task to run in AWS cluster
@@ -183,14 +195,14 @@ resources:
     type: cluster
     integration: digital-prod-AWS
     pointer:
-      sourceName : "app_ecs"
-      region: "ap-southeast-2"
+      sourceName: 'app_ecs'
+      region: 'ap-southeast-2'
 
   # AWS PROD load Balancer - Homes PROD - MASTER branch
   - name: homes-site-alb-prod
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/homes-site-au-prod/1f2d108e074bc534"
+      sourceName: 'arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/homes-site-au-prod/1f2d108e074bc534'
       method: application
 
   # PROD parameters
@@ -198,9 +210,9 @@ resources:
     type: params
     version:
       params:
-        NODE_ENV: "production"                                # this is to start APP with development version of react
-        APP_ENV: "prod"                                 # this is to start APP using production config
-        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"   # New relic key
+        NODE_ENV: 'production' # this is to start APP with development version of react
+        APP_ENV: 'prod' # this is to start APP using production config
+        APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb' # New relic key
         # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
         secure: Ngs9GTGdqtUMtNUCpDMc689SCaxaT1RRPmhtrAMFscN/tpwKAcmYIklF+IjHtFrr6e+FrthxMtU3vBCwouUCrqrT4G3ZsuZQERKhSKOI9fSN4Xkp71jT+B48Leojtu6T4QQ1YRtHP4hNxa0YOtn02+7ZWgfQtAQi/1HKgfzWjCnOTFDlYCnORDFP7G/rVVDSlmPOi8N3AFpTvHN7LoUBI0hU+yKiEkaLJ25nsk/C+3n7q6Fh6943O0SPjVnRBci7rl25Z+RkFO2MP1StsDNpmmaGSUAaPj4jAVbH/11suhe5bvzYuZYv/plo267hy+n7LeEabDE5ZePpqrj0TPLvKg==
 
