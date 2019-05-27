@@ -63,6 +63,7 @@ jobs:
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: git checkout $BRANCH
+        - script: env
         - script: npm install
         - script: export URL=http://homes-site-au.branch.sit.bxm.net.au/
         - script: APP_KEY=homes-site npm run sit:au || true
