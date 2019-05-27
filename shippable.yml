@@ -12,6 +12,7 @@ env:
     - APP_STUBBED=true
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/homes-site
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'
+    - BRANCH="$(echo $BRANCH)" # expose branch name globaly
 
 build:
   cache: true
