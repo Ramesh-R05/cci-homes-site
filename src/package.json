@@ -23,7 +23,7 @@
     "dev": "npm run clean && webpack --bail --debug --display-error-details --hide-modules --progress --watch --mode development & npm run serve",
     "dev:debug": "npm run clean && webpack --bail --debug --display-error-details --hide-modules --progress --watch --mode development & npm run serve:debug",
     "dev:prod": "run-p build start:debug",
-    "serve": "nodemon --watch app --ext js ./start.js",
+    "serve": "nodemon --watch app/server --watch dist --ext js,css ./start.js",
     "serve:debug": "nodemon $NODE_DEBUG_OPTION --watch app --ext js ./start.js",
     "lint:scss": "sass-lint --config .sass-lint.yml --ignore './**/vendor/**' --no-exit --verbose './app*/styles/**/*.scss'",
     "fmt:js": "prettier --write './*.js' 'app/**/*.js' 'test/**/*.js' 'automation/**/*.js' 'stubs/**/*.js'",

@@ -14,7 +14,7 @@ if (isDebug) {
 const config = {
     bail: true,
     cache: false,
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     entry: ['./app/client.js', './styles/main.scss'],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -31,6 +31,10 @@ const config = {
             react: path.join(__dirname, 'node_modules/react'),
             'react-dom': path.join(__dirname, 'node_modules/react-dom')
         }
+    },
+    watchOptions: {
+        aggregateTimeout: 600,
+        poll: 1000
     },
     module: {
         rules: [
