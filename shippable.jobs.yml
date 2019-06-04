@@ -40,37 +40,7 @@ jobs:
             image: homes-site-img-branch
             port: 3001
       - TASK: managed
-        deployMethod: replace
-
-  # 4Branch. Smoke test
-  - name: homes-site-sit-branch-smoke-test
-    type: runSh
-    runtime:
-     nodePool: custom__x86_64__Ubuntu_16_04
-    always:
-      - NOTIFY: homes-slack-notifications
-      - NOTIFY: homes-qa-team-notifications
-    steps:
-     - IN: homes-site-sit-deploy-branch
-     - IN: homes-site-repo-pr-branch
-       switch: off
-     - TASK:
-        - script: curl services.sit.bxm.internal/publishing-broker/
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "8.9.1"
-        - script: nvm use "8.9.1"
-        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: cd ./IN/homes-site-repo/gitRepo/automation
-        - script: git status
-        - script: git branch
-        - script: npm install
-        - script: export URL=http://homes-site-au.branch.sit.bxm.net.au/
-        - script: APP_KEY=homes-site npm run sit:au || true
-        - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    on_failure:
-      - NOTIFY: homes-deployment-notifications
+        deployMethod: replace  
 
   # 2. Manifest for MASTER image
   - name: homes-site-man-master
@@ -138,6 +108,11 @@ jobs:
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
+        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        - script: sudo apt-get update
+        - script: sudo apt-get install google-chrome-stable
+        - script: google-chrome --product-version
         - script: export URL=http://homes-site.test.bxm.net.au/
         - script: npm run test:high || true
         - script: actualsize=$(wc -c <"@rerun.txt")
@@ -197,6 +172,11 @@ jobs:
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
+        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        - script: sudo apt-get update
+        - script: sudo apt-get install google-chrome-stable
+        - script: google-chrome --product-version
         - script: export URL=https://www.sit.homestolove.com.au/
         - script: APP_KEY=homes-site npm run sit:au || true
         - script: actualsize=$(wc -c <"@rerun.txt")
