@@ -19,7 +19,8 @@ module.exports = {
                     '--disable-gpu',
                     '--enable-logging',
                     '--no-sandbox',
-                    '--enable-features=NetworkService,NetworkServiceInProcess'
+                    '--enable-features=NetworkService,NetworkServiceInProcess',
+                    '--disable-setuid-sandbox'
                 ]
             }
         }
