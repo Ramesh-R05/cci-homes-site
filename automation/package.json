@@ -4,30 +4,27 @@
   "private": true,
   "scripts": {
     "ping": "bash -c \"./features/support/files/ping.sh\"",
-    "ping:homes": "bash -c \"URL=homes-site.test.bxm.net.au npm run ping\"",
-    "once": "bash -c \"./node_modules/.bin/chimp chimp.js --tags=@homes --tags=~@manual --browser=phantomjs --format=rerun:@rerun.txt\"",
-    "test:mobile": "bash -c \"APP_KEY=homes-mobile node runner.js --tags=@mobile --pMode=mobile\"",
-    "test:desktop": "bash -c \"APP_KEY=homes-desktop node runner.js --tags=@desktop\"",
-    "test:tags": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=$0 --tags=~@live\"",
-    "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@high --tags=~@live\"",
-    "test:rerun": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs @rerun.txt \"",
+    "ping:homes": "URL=homes-site.test.bxm.net.au npm run ping",
+    "once": "bxm-automation ./config/chimpy.js --tags=@homes --tags=~@manual --browser=chrome --format=rerun:@rerun.txt",
+    "test:mobile": "APP_KEY=homes-mobile node runner.js --tags=@mobile --pMode=mobile",
+    "test:desktop": "APP_KEY=homes-desktop node runner.js --tags=@desktop",
+    "test:tags": "bxm-automation ./config/chimpy.js --browser=phantomjs --format=rerun:@rerun.txt --tags=$0 --tags=~@live",
+    "test:high": "bxm-automation ./config/chimpy.js --browser=chrome --format=rerun:@rerun.text --tags=@high --tags=~@live",
+    "test:rerun": "bxm-automation ./node_modules/.bin/chimp ./config/chimpy.js --browser=phantomjs @rerun.txt",
     "test:perf": "mocha --require babel-polyfill --require babel-register --reporter spec --recursive perf/lighthouse-tests.js ",
-    "debug": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --debug\"",
-    "watch": "bash -c \"./node_modules/.bin/chimp chimp.js --watch\"",
-    "watch:phantom": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --watch\"",
-    "test:phantom": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run features\"",
-    "features": "bash -c \"node runner.js --pMode=features\"",
-    "homes:automation": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run test:high\"",
-    "homes:watch": "bash -c \"URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run ghost:watch\"",
-    "homes:stubbed": "bash -c \"export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=test && npm run once\"",
-    "all:test": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@homes --tags=~@cms --tags=~@manual --tags=~@live\"",
-    "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms --tags=~@manual --tags=~@live\"",
-    "test:cmsprelive": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cmsprelive --tags=~@manual --tags=~@live\"",
-    "sit:au": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@sitAU --tags=~@live\"",
-    "test:live": "bash -c \"./node_modules/.bin/chimp chimp.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@live\""
+    "debug": "test-runner ./config/chimpy.js --browser=phantomjs --debug --seleniumDebug",
+    "watch": "bxm-automation ./config/chimpy.js --watch --browser=chrome",
+    "features": "node runner.js --pMode=features",
+    "homes:automation": "URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run test:high",
+    "homes:stubbed": "export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=test && npm run once",
+    "all:test": "bxm-automation ./config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@homes --tags=~@cms --tags=~@manual --tags=~@live",
+    "test:cms": "bxm-automation .config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@cms --tags=~@manual --tags=~@live",
+    "test:cmsprelive": "bxm-automation .config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@cmsprelive --tags=~@manual --tags=~@live",
+    "sit:au": "bxm-automation chimp.shippable.js --browser=chrome --format=rerun:@rerun.txt --tags=@sitAU --tags=~@live",
+    "test:live": "bxm-automation .config/chimpy.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@live"
   },
   "dependencies": {
-    "@bxm/automation": "^7.0.0"
+    "@bxm/automation": "^8.0.0"
   },
   "devDependencies": {
     "he": "^1.1.1"

@@ -10,7 +10,17 @@ module.exports = {
         desiredCapabilities: {
             // go to https://peter.sh/experiments/chromium-command-line-switches/
             chromeOptions: {
-                args: ["--enable-automation", "--allow-insecure-localhost"]
+                args: [
+                    '--enable-automation',
+                    '--allow-insecure-localhost',
+                    '--headless',
+                    `--proxy-server='direct://'`,
+                    '--proxy-bypass-list=*',
+                    '--disable-gpu',
+                    '--enable-logging',
+                    '--no-sandbox',
+                    '--enable-features=NetworkService,NetworkServiceInProcess'
+                ]
             }
         }
     },
@@ -21,17 +31,16 @@ module.exports = {
     seleniumStandaloneOptions: {
         // check for more recent versions of selenium here:
         // http://selenium-release.storage.googleapis.com/index.html
-        version: '3.0.1',
+        version: '3.9.0',
         baseURL: 'https://selenium-release.storage.googleapis.com',
         drivers: {
             chrome: {
                 // check for more recent versions of chrome driver here:
                 // http://chromedriver.storage.googleapis.com/index.html
-                version: '2.29',
+                version: '74.0.3729.6',
                 arch: process.arch,
                 baseURL: 'https://chromedriver.storage.googleapis.com'
             }
         }
     }
-
 };
