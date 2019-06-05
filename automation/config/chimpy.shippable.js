@@ -6,6 +6,22 @@ module.exports = {
     captureAllStepScreenshots: false,
     saveScreenshotsToReport: false,
     webdriverio: {
-        desiredCapabilities: {}
-    }
+        desiredCapabilities: {
+            // go to https://peter.sh/experiments/chromium-command-line-switches/
+            chromeOptions: {
+                args: [
+                    '--enable-automation',
+                    '--allow-insecure-localhost',
+                    '--headless',
+                    `--proxy-server='direct://'`,
+                    '--proxy-bypass-list=*',
+                    '--disable-gpu',
+                    '--enable-logging',
+                    '--no-sandbox',
+                    '--enable-features=NetworkService,NetworkServiceInProcess',
+                    '--disable-setuid-sandbox'
+                ]
+            }
+        }
+    },
 };

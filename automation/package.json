@@ -18,9 +18,9 @@
     "homes:automation": "URL=http://homes-site.test.bxm.net.au/ APP_KEY=homes-site npm run test:high",
     "homes:stubbed": "export URL=http://localhost:3001 && export APP_KEY=homes-site && export APP_ENV=test && npm run once",
     "all:test": "bxm-automation ./config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@homes --tags=~@cms --tags=~@manual --tags=~@live",
-    "test:cms": "bxm-automation .config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@cms --tags=~@manual --tags=~@live",
+    "test:cms": "bxm-automation ./config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@cms --tags=~@manual --tags=~@live",
     "test:cmsprelive": "bxm-automation .config/chimpy.js --browser=chrome --format=rerun:@rerun.txt --tags=@cmsprelive --tags=~@manual --tags=~@live",
-    "sit:au": "bxm-automation chimp.shippable.js --browser=chrome --format=rerun:@rerun.txt --tags=@sitAU --tags=~@live",
+    "sit:au": "bxm-automation ./config/chimpy.shippable.js --browser=chrome --format=rerun:@rerun.txt --tags=@sitAU --tags=~@live",
     "test:live": "bxm-automation .config/chimpy.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@live"
   },
   "dependencies": {
