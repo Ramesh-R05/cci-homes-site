@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:3001/",
+  "projectId": "4r1sn6",
+  "ignoreTestFiles": "*.js",
+  "supportFile": false
+}
