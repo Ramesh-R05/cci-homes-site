@@ -76,7 +76,10 @@ export default {
         playlistId: '5086182656001',
         script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
     },
-
+    jwPlayer: {
+        scriptKey: 'VUPBzd8P',
+        baseUrl: 'https://cdn.jwplayer.com'
+    },
     gigya: {
         apiKey: '3_ghsdy4V7gVQHU_8eFfPgTAKIw-3ct5dXWtLoc86lIcHaPQOswMYyMkMKCe377vah'
     },
@@ -87,6 +90,9 @@ export default {
     },
 
     features: {
+        jwPlayer: {
+            enabled: false
+        },
         galleryOfGalleries: {
             enabled: true
         },
