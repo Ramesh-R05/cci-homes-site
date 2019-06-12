@@ -25,9 +25,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@bxm/automation": "^8.0.0-beta-cypress.1",
+    "@babel/core": "^7.4.5",
     "cypress-cucumber-preprocessor": "^1.11.2",
+    "gherkin": "^5.1.0",
     "he": "^1.1.1",
+    "nconf": "^0.10.0",
     "npm-run-all": "^4.1.5"
   },
   "cypress-cucumber-preprocessor": {

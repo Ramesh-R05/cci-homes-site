@@ -31,12 +31,7 @@ module.exports = function(){
     });
 
     //Load More content
-    this.Then(/^I should see extra (\d+) teasers after loading more$/, function (teaserCount) {
-        const { sectionRepeatableSectionTeaserAfterLoadMore } = sectionPage;
-        
-        const extraTeasers = browser.$$(sectionRepeatableSectionTeaserAfterLoadMore);
-        expect(extraTeasers.length).toEqual(parseInt(teaserCount), 10);
-    });
+    
 
     this.Then(/^I should see the custom masthead appearing on top of the section page$/, function () {
         browser.waitForVisible(sectionPage.customMastHead,5000);

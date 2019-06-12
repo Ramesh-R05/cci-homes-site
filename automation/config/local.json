@@ -2,5 +2,10 @@
   "baseUrl": "http://localhost:3001/",
   "projectId": "4r1sn6",
   "ignoreTestFiles": "*.js",
-  "supportFile": false
+  "integrationFolder": "./features",
+  "pageLoadTimeout": 80000,
+  "defaultCommandTimeout": 5000,
+  "execTimeout": 60000,
+  "requestTimeout": 6000,
+  "responseTimeout": 40000
 }

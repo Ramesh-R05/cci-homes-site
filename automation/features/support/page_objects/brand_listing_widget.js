@@ -19,8 +19,8 @@ var brand_listing_widget = {
     brandSocial: ".brand-social",
     recommendationsHeading: ".dacrm-recommendations__heading",
     brandStickyMobileBanner: '.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
-    newsletterSignUpBtnDesktop: 'section > div > div > .carriage .newsletter-subscribe__button a',
-    newsletterSignUpBtnMobile: '.hide-for-large-up .newsletter-subscribe__button a',
+    newsletterSignUpBtnDesktop: '.carriage > .social-subscribe-links',
+    newsletterSignUpBtnMobile: '.hide-for-large-up .social-subscribe-links',
 };
 
 module.exports = brand_listing_widget;

@@ -1,3 +1,3 @@
-// import { createResizeWindowCommand } from '@bxm/automation';
+import { createResizeWindowCommand } from '@bxm/automation';
 
-// createResizeWindowCommand();
+createResizeWindowCommand();

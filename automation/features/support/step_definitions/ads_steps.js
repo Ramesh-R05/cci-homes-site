@@ -3,19 +3,19 @@ var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var visibilityFunctions = require('../../../node_modules/@bxm/automation/lib/utils/visibilityFunctions');
 var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
 var world = require('../world');
-var isBrowserStack = world.Urls.isBrowserStack;
+// var isBrowserStack = world.Urls.isBrowserStack;
 var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 var loadMore = require('../page_objects/loadmore_widget');
 
 module.exports = function() {
 
-    this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
-        if (!isBrowserStack) {
-            browser.scroll(0,0);
-        }
-        //expect(browser.isVisible(wn_ads.ad_TopLeaderboard)).toBe(true);
-        expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
-    });
+    // this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
+    //     if (!isBrowserStack) {
+    //         browser.scroll(0,0);
+    //     }
+    //     //expect(browser.isVisible(wn_ads.ad_TopLeaderboard)).toBe(true);
+    //     expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+    // });
 
     this.Then(/^I should see leaderboard ad slots at top middle and bottom$/, function () {
         const { ad_TopLeaderboard, ad_MiddleLeaderboard, ad_BottomLeaderboard } = wn_ads;

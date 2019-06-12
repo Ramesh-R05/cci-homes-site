@@ -1,9 +1,9 @@
 var site_nav = require('../page_objects/site_navigation_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 //compose URL base on ENV variables
-var nconf = require('nconf');
-nconf.argv().env();
-var site_domain = nconf.get('URL');
+// var nconf = require('nconf');
+// nconf.argv().env();
+// var site_domain = nconf.get('URL');
 
 module.exports = function() {    
 
