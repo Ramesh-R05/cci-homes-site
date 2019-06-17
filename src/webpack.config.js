@@ -14,7 +14,7 @@ if (isDebug) {
 const config = {
     bail: true,
     cache: false,
-    devtool: 'eval-source-map',
+    devtool: production ? false : 'eval-source-map',
     entry: ['./app/client.js', './styles/main.scss'],
     output: {
         path: path.resolve(__dirname, 'dist'),
