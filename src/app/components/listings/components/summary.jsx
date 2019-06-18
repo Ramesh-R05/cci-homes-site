@@ -8,6 +8,7 @@ export default function Summary({ streetAddress, subheading, copy }) {
         <div className="summary">
             <p className="summary__address">{streetAddress}</p>
             <p className="summary__sub-heading">{subheading}</p>
+            {/* eslint-disable-next-line react/no-danger */}
             <p className="summary__copy" dangerouslySetInnerHTML={{ __html: splitParagraphsHTML(splitParagraphs(copy)) }} />
         </div>
     );

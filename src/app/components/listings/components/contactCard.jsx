@@ -56,6 +56,7 @@ export default function ContactCard({ streetAddress, webAddress, phoneNumber, em
                         <span className="contact-card__list-item-icon">
                             <Icon name="home-icon" />
                         </span>
+                        {/* eslint-disable-next-line react/no-danger */}
                         <span className="contact-card__list-item-text" dangerouslySetInnerHTML={{ __html: parse(streetAddress) }} />
                     </li>
                 )}
