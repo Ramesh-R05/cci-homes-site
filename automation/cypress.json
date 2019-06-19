@@ -9,7 +9,7 @@
     "fileServerFolder": "",
     "fixturesFolder": "fixtures",
     "hosts": null,
-    "integrationFolder": "./features",
+    "integrationFolder": "./integration",
     "modifyObstructiveCode": true,
     "numTestsKeptInMemory": 50,
     "pageLoadTimeout": 80000,
@@ -19,13 +19,13 @@
     "reporterOptions": null,
     "requestTimeout": 6000,
     "responseTimeout": 40000,
-    "screenshotsFolder": "/screenshots",
+    "screenshotsFolder": "./screenshots",
     "supportFile": "./support",
     "taskTimeout": 60000,
     "testFiles": "**/*.*",
     "trashAssetsBeforeRuns": true,
     "userAgent": null,
-    "video": true,
+    "video": false,
     "videoCompression": 32,
     "videoUploadOnPasses": true,
     "videosFolder": "./videos",
@@ -33,6 +33,5 @@
     "viewportWidth": 1000,
     "waitForAnimations": true,
     "watchForFileChanges": true,
-    "projectId": "4r1sn6",
-    "ignoreTestFiles": "*.js"
+    "projectId": "4r1sn6"
 }

@@ -3,8 +3,8 @@ var wn_article = require('../page_objects/article_widget');
 var wn_recipe = require('../page_objects/recipe_widget');
 var wn_social = require('../page_objects/social_widget');
 var food_search = require('../page_objects/search_widget');
-// var nconf = require('nconf');
-// var site_domain = nconf.get('APP_KEY');
+var nconf = require('nconf');
+var site_domain = nconf.get('APP_KEY');
 
 module.exports = function(){
 

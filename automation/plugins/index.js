@@ -1,5 +1,6 @@
-const cucumber = require('cypress-cucumber-preprocessor').default;
+const selectTests = require('cypress-select-tests');
+const { taggedSpecPreprocessor } = require('@bxm/automation');
 
-module.exports = on => {
-    on('file:preprocessor', cucumber());
+module.exports = (on, config) => {
+    on('file:preprocessor', selectTests(config, taggedSpecPreprocessor));
 };

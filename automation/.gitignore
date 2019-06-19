@@ -5,6 +5,7 @@ reports/*.html
 rerun/*.*
 screenshots/*.jpg
 screenshots/*.png
+videos
 cucumber.json
 @rerun.txt
 
