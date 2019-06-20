@@ -33,6 +33,7 @@ const PageStore = createReducerStore({
 
             if (entity) {
                 return {
+                    ...state,
                     title: entity.title,
                     content: entity,
                     hero,
@@ -50,19 +51,22 @@ const PageStore = createReducerStore({
                 };
             }
 
-            return {};
+            return state;
         },
-        LOAD_CONTENT_FAILED: (state, payload) => ({
-            error: payload.response.error,
-            hero: {},
-            items: [],
-            galleries: [],
-            latestBrandVideos: [],
-            latestBrandItems: [],
-            list: [],
-            content: null,
-            comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
-        }),
+        LOAD_CONTENT_FAILED: (state, payload) => {
+            return {
+                ...state,
+                error: payload.response.error,
+                hero: {},
+                items: [],
+                galleries: [],
+                latestBrandVideos: [],
+                latestBrandItems: [],
+                list: [],
+                content: null,
+                comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
+            };
+        },
 
         LOAD_LIST: (state, payload) => ({
             ...state,
