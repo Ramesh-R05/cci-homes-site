@@ -8,7 +8,7 @@
     "setup:regression-test": "bxm-automation-setup ./config/regression-test.json",
     "setup:cms": "bxm-automation-setup ./config/cms.json",
     "test:ui": "bxm-automation open",
-    "test:headless": "bxm-automation run -e includedTags='@med'",
+    "test:headless": "bxm-automation run -e includedTags='@ad'",
     "test:runner:watch": "bxm-automation run -e TAGS='@watch' --headed --no-exit",
     "run:record:smoke-test": "bxm-automation run --record --key 5cc28f44-202c-4eaa-9daa-e522a4fbd8bf --group smoke-test --spec './integration/smoke-test/*.spec.js' ",
     "run:record:regression-test": "bxm-automation run --record --key 5cc28f44-202c-4eaa-9daa-e522a4fbd8bf --group regression-test --spec './integration/regression-test/*.spec.js' ",

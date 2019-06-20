@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3001/",
+  "port": 8000,
   "projectId": "4r1sn6",
   "integrationFolder": "./integration",
   "pageLoadTimeout": 80000,
@@ -7,6 +8,6 @@
   "execTimeout": 60000,
   "requestTimeout": 6000,
   "responseTimeout": 40000,
-  "video": false,
+  "video": true,
   "screenshotsFolder": "./screenshots"
 }
