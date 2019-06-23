@@ -165,19 +165,78 @@ describe('[@ad] [@homes] ads on index pages', () => {
                         .and('be.inViewport');
                 });
 
-                it('has the correct number of mrecs after clicking load more');
+                it('has the correct number of mrecs after clicking load more', () => {
+                    const { mrec } = selectors;
+                    const expectedMrecs = 3;
+
+                    cy.get('.load-more > .button')
+                        .scrollIntoView()
+                        .click()
+                        .get(':nth-child(2) > .section__list > .row .teaser')
+                        .each(teaser => {
+                            cy.wrap(teaser).scrollIntoView();
+                        })
+                        .get(mrec)
+                        .its('length')
+                        .should('eq', expectedMrecs);
+                });
             });
         });
 
-        describe('on tablet portrait', () => {
+        describe.only('on tablet portrait', () => {
             describe('[@section] [@med] viewing navigation tag section page', () => {
-                before(() => {
-                    cy.visit('/real-homes').resizeWindow('tablet portrait');
+                beforeEach(() => {
+                    cy.resizeWindow('tablet portrait').visit('/real-homes');
                 });
 
-                it('has leaderboard slots at the top middle and bottom', () => {});
-                it('has the correct number of mrecs ad slots before clicking load more');
-                it('has the correct number of mrecs after clicking load more');
+                it('has leaderboard slots at the top middle and bottom', () => {
+                    const { topLeaderboard, middleLeaderboard, bottomLeaderboard } = selectors;
+
+                    cy.get(topLeaderboard)
+                        .scrollIntoView()
+                        .should('be.visible')
+                        .and('be.inViewport')
+                        .get(middleLeaderboard)
+                        .scrollIntoView()
+                        .should('be.visible')
+                        .and('be.inViewport')
+                        .get(bottomLeaderboard)
+                        .scrollIntoView()
+                        .should('be.visible')
+                        .and('be.inViewport');
+                });
+
+                it('has the correct number of mrecs ad slots before clicking load more', () => {
+                    const { mrec } = selectors;
+                    const expectedMrecs = 4;
+
+                    cy.get(mrec)
+                        .as('mrecAdList')
+                        .its('length')
+                        .should('eq', expectedMrecs)
+                        .get('@mrecAdList')
+                        .each(singleMrecAd => {
+                            cy.wrap(singleMrecAd)
+                                .scrollIntoView()
+                                .should('be.visible');
+                        });
+                });
+
+                it('has the correct number of mrecs after clicking load more', () => {
+                    const { mrec } = selectors;
+                    const expectedMrecs = 6;
+
+                    cy.get('.load-more > .button')
+                        .scrollIntoView()
+                        .click()
+                        .get(':nth-child(2) > .section__list > .row .teaser')
+                        .each(teaser => {
+                            cy.wrap(teaser).scrollIntoView();
+                        })
+                        .get(mrec)
+                        .its('length')
+                        .should('eq', expectedMrecs);
+                });
             });
         });
 
