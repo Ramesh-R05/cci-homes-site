@@ -40,7 +40,9 @@ export default class PageTemplate extends Component {
         hamburgerNavItems: [],
         headerNavItems: [],
         withAdsWrapper: false,
-        contentProps: null,
+        contentProps: {
+            content: {}
+        },
         useContentTitle: false,
         headerProps: {},
         contentHeaderProps: {},

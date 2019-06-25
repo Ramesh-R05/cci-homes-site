@@ -14,12 +14,18 @@ export default async function getModules(...args) {
         const modules = await makeRequest(`${config.services.remote.module}/${moduleNames}`);
         const moduleList = {};
 
+        if (!modules) {
+            return moduleList;
+        }
+
         args.forEach(arg => {
             const moduleConfig = find(modules.data, { moduleName: arg });
 
             if (arg === 'footer') {
                 moduleList[arg] = moduleConfig || {};
             } else if (arg.endsWith('theme')) {
+                moduleList[arg] = moduleConfig || {};
+            } else if (arg.endsWith('hero')) {
                 moduleList[arg] = moduleConfig || {};
             } else {
                 moduleList[arg] = get(moduleConfig, 'moduleManualContent.data', []);

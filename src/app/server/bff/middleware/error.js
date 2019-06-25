@@ -9,7 +9,7 @@ export default function errorMiddleware(err, req, res, next) {
     }
 
     if (err.status !== 404) {
-        logger.error(err);
+        logger.error({ msg: 'errorMiddleware', err });
     }
 
     const errorResponse = {

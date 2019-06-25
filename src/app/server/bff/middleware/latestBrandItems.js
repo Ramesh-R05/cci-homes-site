@@ -5,7 +5,9 @@ export default async function latestBrandItems(req, res, next) {
     try {
         const brandConfig = req.app.locals.config.brands.site;
         const brandContentPromises = brandConfig.map(brand =>
-            getLatestTeasers(3, 0, `source eq '${brand.title}'`).then(itemRes => ({ [brand.id]: parseEntities(itemRes.data) }))
+            getLatestTeasers(3, 0, `source eq '${brand.title}'`).then(itemRes => ({
+                [brand.id]: parseEntities(itemRes && itemRes.data ? itemRes.data : [])
+            }))
         );
         const brandContentRes = await Promise.all(brandContentPromises);
 

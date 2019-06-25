@@ -116,10 +116,10 @@ describe('pageModulesMiddleware', () => {
                 resetStubsAndSpies();
             });
 
-            it('should pass the error to the logger', done => {
+            it('calls next with the error', done => {
                 pageModulesMiddleware(req, res, nextSpy)
                     .then(() => {
-                        expect(loggerStub.error.calledWith(exception)).to.be.true;
+                        expect(nextSpy.calledWith(exception)).to.be.true;
                         done();
                     })
                     .catch(done);
@@ -130,15 +130,6 @@ describe('pageModulesMiddleware', () => {
                     .then(() => {
                         expect(getModulesStub).to.not.be.called;
                         expect(processModulesStub).to.not.be.called;
-                        done();
-                    })
-                    .catch(done);
-            });
-
-            it('should call the next middleware in the chain', done => {
-                pageModulesMiddleware(req, res, nextSpy)
-                    .then(() => {
-                        expect(nextSpy.called).to.be.true;
                         done();
                     })
                     .catch(done);
@@ -168,16 +159,8 @@ describe('pageModulesMiddleware', () => {
                     })
                     .catch(done);
             });
-
-            it('should call the next middleware in the chain', done => {
-                pageModulesMiddleware(req, res, nextSpy)
-                    .then(() => {
-                        expect(nextSpy.called).to.be.true;
-                        done();
-                    })
-                    .catch(done);
-            });
         });
+
         describe('when processModules throws an error', () => {
             let req;
             const res = {};
@@ -192,19 +175,10 @@ describe('pageModulesMiddleware', () => {
                 resetStubsAndSpies();
             });
 
-            it('should pass the error to the logger', done => {
+            it('calls next with the error', done => {
                 pageModulesMiddleware(req, res, nextSpy)
                     .then(() => {
-                        expect(loggerStub.error.calledWith(exception)).to.be.true;
-                        done();
-                    })
-                    .catch(done);
-            });
-
-            it('should call the next middleware in the chain', done => {
-                pageModulesMiddleware(req, res, nextSpy)
-                    .then(() => {
-                        expect(nextSpy.called).to.be.true;
+                        expect(nextSpy.calledWith(exception)).to.be.true;
                         done();
                     })
                     .catch(done);

@@ -61,8 +61,9 @@ export default function bff(server) {
     server.get('/api/asset', assetProxy);
     server.get('/sitemap/:section?', sitemap, error);
     server.get(server.locals.config.services.endpoints.list, list, listing, https, render, error);
+
     server.get(
-        server.locals.config.services.endpoints.page, // Config set inside @bxm/server
+        server.locals.config.services.endpoints.page,
         emailLinkTracking,
         pageModules,
         comScore,

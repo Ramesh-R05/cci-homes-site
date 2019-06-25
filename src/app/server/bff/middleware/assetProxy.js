@@ -35,8 +35,7 @@ export default function assetProxy({ originalUrl }, res) {
             }
 
             req.end((e, r) => {
-                // TODO - fix this so header is undefined error doesn't happen
-                const { header, status, text, body } = e ? e.response : r;
+                const { header, status, text, body } = e && e.response ? e.response : r;
                 const maxAge = header['cache-control'] && header['cache-control'].match(/max-age=(\d+)/i);
 
                 if (maxAge && !!maxAge.length) {

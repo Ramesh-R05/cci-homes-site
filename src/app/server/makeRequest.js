@@ -25,7 +25,7 @@ export default function makeRequest(url, isJsonRequest = true) {
                 const status = parseInt(res ? res.statusCode || 404 : 503, 10);
 
                 if (err || status < 200 || status > 300) {
-                    logger.error(`makeRequest error requesting ${url}`);
+                    logger.error({ msg: `makeRequest error requesting ${url}`, err, body });
                     // eslint-disable-next-line prefer-promise-reject-errors
                     reject({ message: body, err, status });
                 } else {

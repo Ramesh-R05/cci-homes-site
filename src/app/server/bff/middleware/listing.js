@@ -32,6 +32,7 @@ export default async function listingMiddleware(req, res, next) {
 
         const latestTeasersResp = await getLatestTeasers(top, skip, filter);
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
+        const latestTeasersCount = (latestTeasersResp && latestTeasersResp.totalCount) || 0;
 
         let previousPage = null;
 
@@ -50,7 +51,7 @@ export default async function listingMiddleware(req, res, next) {
 
         let nextPage = null;
 
-        if (skip + latestTeasers.length < latestTeasersResp.totalCount) {
+        if (skip + latestTeasers.length < latestTeasersCount) {
             const path = `${basePath}?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,

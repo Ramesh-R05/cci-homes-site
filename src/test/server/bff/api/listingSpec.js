@@ -68,7 +68,7 @@ describe('ListingAPI', () => {
                     getLatestTeasers(top, undefined, null)
                         .then(value => {
                             expect(makeRequestStub).to.not.be.called;
-                            expect(value).to.deep.eq([]);
+                            expect(value).to.deep.eq({ data: [], totalCount: 0 });
                             done();
                         })
                         .catch(done);
@@ -89,7 +89,7 @@ describe('ListingAPI', () => {
                     getLatestTeasers()
                         .then(value => {
                             expect(makeRequestStub).to.not.be.called;
-                            expect(value).to.deep.eq([]);
+                            expect(value).to.deep.eq({ data: [], totalCount: 0 });
                             done();
                         })
                         .catch(done);
@@ -101,7 +101,7 @@ describe('ListingAPI', () => {
                     getLatestTeasers(top, undefined)
                         .then(value => {
                             expect(makeRequestStub.called).to.be.false;
-                            expect(value).to.deep.eq([]);
+                            expect(value).to.deep.eq({ data: [], totalCount: 0 });
                             done();
                         })
                         .catch(done);
@@ -128,7 +128,7 @@ describe('ListingAPI', () => {
 
                 it(`should call makeRequest with ${remoteListingUrl}/teasers/${query}`, done => {
                     getLatestTeasers(top, undefined, filter)
-                        .then(value => {
+                        .then(() => {
                             expect(makeRequestStub).to.be.calledWith(`${remoteListingUrl}/teasers/${query}`);
                             done();
                         })
@@ -146,10 +146,13 @@ describe('ListingAPI', () => {
                     makeRequestStub = sinon.stub().rejects(rejectedResponse);
                 });
 
-                it('should return an empty array object', done => {
+                it('should return a valid default with data and totalCount properties as initial values', done => {
                     getLatestTeasers(top, undefined, sectionId)
                         .then(value => {
-                            expect(value).to.deep.eq([]);
+                            expect(value).to.deep.eq({
+                                totalCount: 0,
+                                data: []
+                            });
                             done();
                         })
                         .catch(done);

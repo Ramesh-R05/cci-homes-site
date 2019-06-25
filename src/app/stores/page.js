@@ -2,7 +2,7 @@ import { createReducerStore } from 'fluxible-reducer-store';
 
 const initialState = {
     error: null,
-    content: null,
+    content: {},
     comScoreSegmentIds: '',
     list: {
         params: {
@@ -53,20 +53,18 @@ const PageStore = createReducerStore({
 
             return state;
         },
-        LOAD_CONTENT_FAILED: (state, payload) => {
-            return {
-                ...state,
-                error: payload.response.error,
-                hero: {},
-                items: [],
-                galleries: [],
-                latestBrandVideos: [],
-                latestBrandItems: [],
-                list: [],
-                content: null,
-                comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
-            };
-        },
+        LOAD_CONTENT_FAILED: (state, payload) => ({
+            ...state,
+            error: payload.response.error,
+            hero: {},
+            items: [],
+            galleries: [],
+            latestBrandVideos: [],
+            latestBrandItems: [],
+            list: [],
+            content: {},
+            comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
+        }),
 
         LOAD_LIST: (state, payload) => ({
             ...state,

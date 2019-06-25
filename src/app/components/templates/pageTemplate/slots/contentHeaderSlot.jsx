@@ -7,12 +7,18 @@ export default function ContentHeaderSlot({ Component, contentProps, useContentT
         return null;
     }
 
-    const headerTitleProperty = useContentTitle ? 'contentTitle' : 'tagsDetails[0].displayName';
-    const contentHeaderTitle = get(contentProps.content, headerTitleProperty, contentProps.content.title) || '';
+    const { content } = contentProps || { content: {} };
+    let contentHeaderTitle;
+
+    if (useContentTitle) {
+        contentHeaderTitle = get(content, 'contentTitle', content.title);
+    } else {
+        contentHeaderTitle = get(content, 'tagsDetails[0].displayName', content.title);
+    }
 
     return (
         <Component
-            title={contentHeaderTitle}
+            title={(contentHeaderTitle && contentHeaderTitle) || ''}
             sponsorName={(contentProps && contentProps.content && contentProps.content.sponsor) || 'homes_sponsor'}
             {...contentHeaderProps}
         />

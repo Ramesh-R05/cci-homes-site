@@ -7,6 +7,7 @@ noCallThru();
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 const getLatestTeasersStub = sinon.stub();
+const getModulesStub = sinon.stub();
 
 const entityStubData = {
     id: 'HOMES-123',
@@ -73,7 +74,8 @@ const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', 
         parseEntity: () => parseEntityStub(),
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersStub
+    '../api/listing': getLatestTeasersStub,
+    '../api/module': getModulesStub
 });
 
 describe('home middleware', () => {
@@ -119,6 +121,10 @@ describe('home middleware', () => {
         describe(`and brand query is not defined`, () => {
             const nextSpy = sinon.spy();
 
+            before(() => {
+                getModulesStub.resolves(heroStubData.data);
+            });
+
             it('should return all modules in the desired structure', done => {
                 homeMiddleware(req, res, next)
                     .then(() => {
@@ -129,33 +135,20 @@ describe('home middleware', () => {
             });
 
             it('should use the required config values for content service urls for the request', done => {
-                before(() => {
-                    heroStubDataWrapper = {
-                        totalCount: 1,
-                        data: [heroStubData]
-                    };
-                });
-
                 homeMiddleware(req, res, next)
                     .then(() => {
                         const entityServiceUrl = `${entityServiceMockUrl}/homepage`;
-                        const heroModuleServiceUrl = `${moduleServiceMockUrl}/homepagehero`;
 
-                        const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
-                        const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
+                        const makeRequestSpyCall = makeRequestSpy.getCall(0);
+                        const getModulesStubCall = getModulesStub.getCall(0);
                         const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
                         const getLatestTeasersStubSecondCall = getLatestTeasersStub.getCall(1);
 
-                        expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
-                        expect(makeRequestSpySecondCall.args[0]).to.equal(heroModuleServiceUrl);
+                        expect(makeRequestSpyCall.args[0]).to.equal(entityServiceUrl);
+                        expect(getModulesStubCall.args[0]).to.equal('homepagehero');
 
-                        expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
-                        expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
-                        expect(getLatestTeasersStubFirstCall.args[2]).to.equal(homeFilter);
-
-                        expect(getLatestTeasersStubSecondCall.args[0]).to.equal(3);
-                        expect(getLatestTeasersStubSecondCall.args[1]).to.equal(0);
-                        expect(getLatestTeasersStubSecondCall.args[2]).to.equal(latestVideoFilter);
+                        expect(getLatestTeasersStubFirstCall.args).to.deep.equal([6, 0, homeFilter]);
+                        expect(getLatestTeasersStubSecondCall.args).to.deep.equal([3, 0, latestVideoFilter]);
 
                         done();
                     })
