@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Featured from '../section/featured';
 import List from '../section/list';
 import Rail from '../section/rail';
-import Repeatable from '../section/repeatableGroup';
+import Repeatable from '../repeatable';
 import loadSearch from '../../actions/loadSearch';
 
 export default class SearchContent extends Component {
@@ -74,7 +74,6 @@ export default class SearchContent extends Component {
                             polarTargets={sectionBottomFeed}
                         />
                     </div>
-
                     <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
                 </div>
             </div>

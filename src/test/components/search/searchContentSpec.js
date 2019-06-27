@@ -10,7 +10,7 @@ const Context = betterMockComponentContext();
 const FeaturedStub = Context.createStubComponent();
 const ListStub = Context.createStubComponent();
 const RailStub = Context.createStubComponent();
-const RepeatableGroupStub = Context.createStubComponent();
+const RepeatableStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponent();
 const loadSearchStub = sinon.stub();
@@ -28,7 +28,7 @@ const SearchContent = proxyquire('../../../app/components/search/searchContent',
     '../section/featured': FeaturedStub,
     '../section/list': ListStub,
     '../section/rail': RailStub,
-    '../section/repeatableGroup': RepeatableGroupStub,
+    '../repeatable': RepeatableStub,
     '../../actions/loadSearch': loadSearchStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
@@ -117,7 +117,7 @@ describe('SearchContent component', () => {
         });
 
         it('renders the Repeatable component with the corect props', () => {
-            expect(wrapper.find(RepeatableGroupStub).props()).to.deep.eq({
+            expect(wrapper.find(RepeatableStub).props()).to.deep.eq({
                 component: ListStub,
                 action: loadSearchStub,
                 dataSource: testProps.list,
@@ -130,7 +130,6 @@ describe('SearchContent component', () => {
 
         it('renders the StickyAd component as the last child in the container div', () => {
             const { root } = selectors;
-
             const containerDivChildrenLength = wrapper
                 .find(root)
                 .childAt(0)

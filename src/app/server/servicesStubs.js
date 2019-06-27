@@ -33,6 +33,11 @@ servicesStubs.get('/entity-service/', (req, res) => {
     res.json(entityPath);
 });
 
+servicesStubs.get('/search-service/', (req, res) => {
+    const module = require(`${cwd}/stubs/search-service.js`);
+    res.json(module);
+});
+
 servicesStubs.get('/entity-service/homepage', (req, res) => {
     const home = require(`${cwd}/stubs/entity-homepage`);
     res.json(home);
