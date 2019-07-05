@@ -1,5 +1,6 @@
 import amp from '@bxm/server/lib/middleware/amp';
 import emailLinkTracking from '@bxm/server/lib/middleware/emailLinkTracking';
+import assetProxy from '@bxm/server/lib/middleware/assetProxy';
 import pageModules from './bff/middleware/pageModules';
 import home from './bff/middleware/home';
 import brand from './bff/middleware/brand';
@@ -17,7 +18,6 @@ import sitemap from './bff/middleware/sitemap';
 import listing from './bff/middleware/listing';
 import servicesStubs from './servicesStubs';
 import https from './bff/middleware/https';
-import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 import listingSingle from './bff/middleware/listingSingle';
