@@ -3,12 +3,13 @@ import set from 'lodash.set';
 
 const CLOUDFRONT = 'd3lp4xedbqa8a5.cloudfront.net';
 const COUGAR = 'cdn.assets.cougar.bauer-media.net.au';
+const NINEENTERTAINMENT = 'assets.cougar.nineentertainment.com.au';
 
 export const httpsSet = (obj, path) => {
     let url = get(obj, path);
 
     if (typeof url === 'string' && !url.startsWith('https') && !url.startsWith('/api/asset?url=')) {
-        url = url.replace(new RegExp(`http://(${CLOUDFRONT}|${COUGAR})`, 'ig'), `https://${CLOUDFRONT}`);
+        url = url.replace(new RegExp(`http://(${CLOUDFRONT}|${COUGAR}|${NINEENTERTAINMENT})`, 'ig'), `https://${CLOUDFRONT}`);
         set(obj, path, url.startsWith('https') ? url : `/api/asset?url=${encodeURIComponent(url)}`);
     }
 };

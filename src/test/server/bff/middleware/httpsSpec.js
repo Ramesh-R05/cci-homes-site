@@ -55,6 +55,12 @@ const body = [
         content: {
             url: 'http://d3lp4xedbqa8a5.cloudfront.net/image.jpg'
         }
+    },
+    {
+        type: 'image',
+        content: {
+            url: 'http://assets.cougar.nineentertainment.com.au/image.jpg'
+        }
     }
 ];
 
@@ -115,6 +121,7 @@ describe('https middleware', () => {
         expect(res.body.entity.body[5].content[0].imageUrl).to.equal(expectedURL);
         expect(res.body.entity.body[6].content.url).to.equal('https://d3lp4xedbqa8a5.cloudfront.net/image.jpg');
         expect(res.body.entity.body[7].content.url).to.equal('https://d3lp4xedbqa8a5.cloudfront.net/image.jpg');
+        expect(res.body.entity.body[8].content.url).to.equal('https://d3lp4xedbqa8a5.cloudfront.net/image.jpg');
         expect(next).to.be.called;
     });
 
