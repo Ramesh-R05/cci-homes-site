@@ -143,6 +143,12 @@ export default {
             enabled: true,
             id: 926929
         },
+        loggly: {
+            enabled: true,
+            token: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
+            subDomain: 'bauerdigital',
+            tag: 'htl-fe-logs'
+        },
         lipstick: {
             enabled: true
         },

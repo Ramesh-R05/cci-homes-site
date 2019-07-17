@@ -10,12 +10,58 @@ import GoogleFont from './html/googleFont';
 import Error from './pages/error';
 
 class ErrorBoundary extends Component {
-    componentDidCatch(error, errorInfo) {
-        // TODO - Do something useful with errors
+
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+        const _LTracker = [];
     }
+
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
+    componentDidMount () {
+
+        const { config } = this.context;
+        const isLogglyEnabled = config.isFeatureEnabled('loggly');
+
+        if (isLogglyEnabled) {
+            this._LTracker = window._LTracker || [];
+            this._LTracker.push({
+                'logglyKey': config.features.loggly.token,
+                'subDomain': config.features.loggly.subDomain,
+                'sendConsoleErrors' : true,
+                'tag' : config.features.loggly.tag,
+                'useUtfEncoding': true
+            });
+        }
+    }
+
+
+    static getDerivedStateFromError(error) {
+        this._LTracker.push({ 'text': 'app.js/HTL - an error has been thrown by derivedStateFromError and the fallback UI is getting rendered',
+                              'error': error});
+
+        return { hasError: true };
+    }
+
+    componentDidCatch(error, errorInfo) {
+        this._LTracker.push({ 'text': 'app.js/HTL - an error has been thrown by componentDidCatch and the fallback UI is getting rendered',
+                              'error': error,
+                              'errorInfo': errorInfo});
+
+        this.setState({ hasError: true });
+    }
+
 
     render() {
         const { children } = this.props;
+
+        if (this.state.hasError) {
+            // Render fallback UI
+            return <h1>Something went wrong.</h1>;
+        }
 
         return children;
     }
