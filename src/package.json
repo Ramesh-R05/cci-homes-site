@@ -78,6 +78,7 @@
     "lodash.get": "^4.4.2",
     "lodash.mergewith": "^4.6.0",
     "lodash.set": "^4.3.2",
+    "loggly-jslogger": "^2.2.2",
     "lru-cache": "^4.0.1",
     "matchmedia": "^0.1.2",
     "moment": "^2.10.3",
