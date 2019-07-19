@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import canUseDOM from 'exenv';
@@ -14,7 +13,7 @@ class ErrorBoundary extends Component {
     constructor(props) {
         super(props);
         this.state = { hasError: false };
-        const _LTracker = [];
+        this._LTracker = [];
     }
 
     static contextTypes = {
@@ -28,13 +27,7 @@ class ErrorBoundary extends Component {
 
         if (isLogglyEnabled) {
             this._LTracker = window._LTracker || [];
-            this._LTracker.push({
-                'logglyKey': config.features.loggly.token,
-                'subDomain': config.features.loggly.subDomain,
-                'sendConsoleErrors' : true,
-                'tag' : config.features.loggly.tag,
-                'useUtfEncoding': true
-            });
+            this._LTracker.push(config.loggly);
         }
     }
 
@@ -59,8 +52,7 @@ class ErrorBoundary extends Component {
         const { children } = this.props;
 
         if (this.state.hasError) {
-            // Render fallback UI
-            return <h1>Something went wrong.</h1>;
+            return <Error />;
         }
 
         return children;

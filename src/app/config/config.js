@@ -144,10 +144,7 @@ export default {
             id: 926929
         },
         loggly: {
-            enabled: true,
-            token: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
-            subDomain: 'bauerdigital',
-            tag: 'htl-fe-logs'
+            enabled: true
         },
         lipstick: {
             enabled: true
@@ -190,7 +187,13 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-
+    loggly: {
+        logglyKey: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
+        subDomain: 'bauerdigital',
+        tag: 'htl-fe-logs',
+        sendConsoleErrors: true,
+        useUtfEncoding: true
+    },
     grecaptcha: {
         siteKey: '6LeMu6AUAAAAAB8Wnn18Y0tRmybaXCyXmCNbZgFC'
     },
