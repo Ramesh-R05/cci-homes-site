@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InlineSVG from 'react-inlinesvg';
 import Date from '@bxm/datetime/lib/components/Date';
 import ImageGallery from './imageGalleryWrapper';
+import classNames from 'classnames';
 
 export default class FeaturedArticleCard extends PureComponent {
     static propTypes = {
@@ -53,6 +54,8 @@ export default class FeaturedArticleCard extends PureComponent {
             return null;
         }
 
+        const featuredArticleLinkClassNames = classNames('featured-article-card__article-details', 'gtm-featured-article-card-link');
+
         return (
             <article className="featured-article-card">
                 <div className="featured-article-card__image-preview">
@@ -61,7 +64,7 @@ export default class FeaturedArticleCard extends PureComponent {
                     </a>
                     <ImageGallery size="compact" slideChangeCallback={this.onArticleChange} items={this.galleryItems} />
                 </div>
-                <a className="featured-article-card__article-details" href={selectedArticle.url} title={selectedArticle.urlName} target="_blank">
+                <a className={featuredArticleLinkClassNames} href={selectedArticle.url} title={selectedArticle.urlName} target="_blank">
                     <h1 className="featured-article-card__heading heading heading--small">Featured In</h1>
                     <h2 className="featured-article-card__article-title">{selectedArticle.title}</h2>
                     <p className="featured-article-card__article-summary">{selectedArticle.summary}</p>
