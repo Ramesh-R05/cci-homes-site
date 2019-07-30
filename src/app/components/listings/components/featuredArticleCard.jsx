@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import InlineSVG from 'react-inlinesvg';
 import Date from '@bxm/datetime/lib/components/Date';
-import ImageGallery from './imageGalleryWrapper';
 import classNames from 'classnames';
+import ImageGallery from './imageGalleryWrapper';
 
 export default class FeaturedArticleCard extends PureComponent {
     static propTypes = {
