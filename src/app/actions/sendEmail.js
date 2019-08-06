@@ -1,6 +1,7 @@
+import { validateRouteParams } from '@bxm/flux';
 import emailService from '../services/email';
 
-export default function sendEmail(context, payload) {
+function sendEmail(context, payload) {
     return emailService
         .read(payload)
         .then(
@@ -15,3 +16,5 @@ export default function sendEmail(context, payload) {
         )
         .catch(error => context.dispatch('SEND_EMAIL_FAILED', error));
 }
+
+export default validateRouteParams(sendEmail);

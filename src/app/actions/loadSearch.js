@@ -1,6 +1,7 @@
+import { validateRouteParams } from '@bxm/flux';
 import searchService from '../services/search';
 
-export default function searchList(context, payload) {
+function searchList(context, payload) {
     return searchService.read(payload).then(
         content => {
             if (content instanceof Error) {
@@ -12,3 +13,5 @@ export default function searchList(context, payload) {
         error => context.dispatch('LOAD_SEARCH_FAILED', error)
     );
 }
+
+export default validateRouteParams(searchList);

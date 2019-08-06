@@ -23,13 +23,19 @@ export default {
         path: '/tags/:tag*',
         method: 'get',
         handler: Tag,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            tag: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     campaigns: {
         path: '/campaigns/:campaign',
         method: 'get',
         handler: Campaign,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            campaign: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     search: {
         path: '/search/:query',
@@ -41,13 +47,19 @@ export default {
         path: '/:preview(preview)/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: Article,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            page: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     directoryListingSinglePreview: {
         path: '/:preview(preview)/directory([/])?:category([^/]+)?([/])?:listing(.*-)?:id([0-9]+)?([/])?',
         method: 'get',
         handler: directoryPage,
-        action: loadDirectoryContent
+        action: loadDirectoryContent,
+        validators: {
+            category: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     directory: {
         path: '/directory([/])?:category([^/]+)?([/])?:listing(.*-)?:id([0-9]+)?([/])?',
@@ -71,7 +83,10 @@ export default {
         path: '/:navSection*',
         method: 'get',
         handler: NavigationTag,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            navSection: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     all: {
         path: '/:all*',

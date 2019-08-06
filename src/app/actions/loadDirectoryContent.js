@@ -1,6 +1,7 @@
+import { validateRouteParams } from '@bxm/flux';
 import directoryService from '../services/directory';
 
-export default function loadDirectoryContent(context, payload) {
+function loadDirectoryContent(context, payload) {
     const routeStore = context.getStore('RouteStore');
     const navigate = routeStore.getCurrentNavigate();
 
@@ -22,3 +23,5 @@ export default function loadDirectoryContent(context, payload) {
         error => context.dispatch('LOAD_DIRECTORY_CONTENT_FAILED', error)
     );
 }
+
+export default validateRouteParams(loadDirectoryContent);
