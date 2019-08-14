@@ -40,7 +40,7 @@ jobs:
             image: homes-site-img-branch
             port: 3001
       - TASK: managed
-        deployMethod: replace  
+        deployMethod: replace
 
   # 2. Manifest for MASTER image
   - name: homes-site-man-master
@@ -161,6 +161,7 @@ jobs:
       - NOTIFY: homes-qa-team-notifications
     steps:
      - IN: homes-site-sit-deploy-master
+     - IN: homes-site-test-env
      - IN: homes-site-repo
        switch: off
      - TASK:

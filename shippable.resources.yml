@@ -52,7 +52,7 @@ resources:
     integration: production-github
     pointer:
       sourceName: bauerxcelmedia/homes-site
-      branch: master  
+      branch: master
 
   # Homes Github repo branch for lighthouse test only
   - name: homes-site-repo-branch
@@ -152,8 +152,8 @@ resources:
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb'
         APP_DEBUG:
           true
-          # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
-        secure: bMeTTd/P3nxspMt5Lt/6yDLmqCp5g0ldRwZOHjpk3padav1gFEwx+OaZcSXMFNtTp6pjgrs05PXFccNBmDrrw4jvV4cTFT4o/WZPmYJlrzRjqzyk4ww5oNtTkzfCWWRLZQT2YR2p0q399I4k3ixlblbg6GcSkqeEfv/+Tm5CnSQPuEALKuaaHB1CmL0GJ8hveStsaAlBsG/0ivQK7Nh3oFmzPrtxZBN50HrM16tv3K4umifewDnZIi2PWwtRVEao4qOupiF22uuebJ8BXld5rJYNb5twlBbqc+IiAtUpe63RCcvpJB8SUp6jWiYeyF9xW4pZvJCg09LZ52FOa+rPlw==
+          # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY APP_SERVICES_ACCESS_KEY
+        secure: fDacU9ZNJj0YHEhcHPfit3AK8NvIneSRDpw4DBvgb/1hkaj/4mCI1BGBv1RjdRxcxVqZ6k7kf7krhUCJzd+bhIaOn3A0QzKzCxNqQRtU/UAgLvjc6R7RoCXOXesmM5KVxRbghW73oVlTSQ0IUyKQ8NMxK32NeY2n0C/gCC2KHlJta9DYcP3Vjtee5lwSCy6EpbY/jlZ97mqPw0jY3LlW6LEwfzC5Ac39MOHBCJxKag2xi1zW3gUDHwZQDpI3ap6LNoaiUx0j5lmkPxmuUx4GWPHRi2zKWh9Lco/jBpQkybYE41g3stwQFmHukB6PxLFbXzR24JohatVWeG2EV1+kpU809Jrd6j+Pna6oZFJc+1qVSFtKCIoCY8uVS0EHm3m5ECcY54Oq+3P2Ts8Yh98Y/Qc7VfvtokzWxeiIylxkEIwFtyxcNANvUNIDAQCChGA3FfDogKwgirYFs8HhaJIaex/k2YoNmlN1HfW9MEjWgqQebomVqNEH9yo9DWIoDSOspPkZ/vFA2X86NewE1zCXF5aDs5d8UtF1zYtyuXc+34SCmJdAMj/fxsJQYY7ctqsS0zODuuOmvtf0B+e/E0uXARsB/GC305pWBkYDBGT2JbGdTJCgDbld6sVF/j/0Qyr3yAVRjujIuVnl3QjYlxR0CQYl/INlwgMAEOP8AcULBos=
 
   # TEST Parameter
   - name: homes-site-params-test
@@ -164,6 +164,14 @@ resources:
         APP_ENV: 'test' # this is to start APP using automation config
         APP_STUBBED: true # this is to start APP stubbed
         APP_DEBUG: true
+
+  # TEST secure env
+  - name: homes-site-test-env
+    type: params
+    versionTemplate:
+      params:
+        # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY APP_SERVICES_ACCESS_KEY
+        secure: fDacU9ZNJj0YHEhcHPfit3AK8NvIneSRDpw4DBvgb/1hkaj/4mCI1BGBv1RjdRxcxVqZ6k7kf7krhUCJzd+bhIaOn3A0QzKzCxNqQRtU/UAgLvjc6R7RoCXOXesmM5KVxRbghW73oVlTSQ0IUyKQ8NMxK32NeY2n0C/gCC2KHlJta9DYcP3Vjtee5lwSCy6EpbY/jlZ97mqPw0jY3LlW6LEwfzC5Ac39MOHBCJxKag2xi1zW3gUDHwZQDpI3ap6LNoaiUx0j5lmkPxmuUx4GWPHRi2zKWh9Lco/jBpQkybYE41g3stwQFmHukB6PxLFbXzR24JohatVWeG2EV1+kpU809Jrd6j+Pna6oZFJc+1qVSFtKCIoCY8uVS0EHm3m5ECcY54Oq+3P2Ts8Yh98Y/Qc7VfvtokzWxeiIylxkEIwFtyxcNANvUNIDAQCChGA3FfDogKwgirYFs8HhaJIaex/k2YoNmlN1HfW9MEjWgqQebomVqNEH9yo9DWIoDSOspPkZ/vFA2X86NewE1zCXF5aDs5d8UtF1zYtyuXc+34SCmJdAMj/fxsJQYY7ctqsS0zODuuOmvtf0B+e/E0uXARsB/GC305pWBkYDBGT2JbGdTJCgDbld6sVF/j/0Qyr3yAVRjujIuVnl3QjYlxR0CQYl/INlwgMAEOP8AcULBos=
 
   # SIT/TEST - Number of task to run in AWS cluster
   - name: homes-site-replicas-non-prod
@@ -201,8 +209,8 @@ resources:
         NODE_ENV: 'production' # this is to start APP with development version of react
         APP_ENV: 'prod' # this is to start APP using production config
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb' # New relic key
-        # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
-        secure: Ngs9GTGdqtUMtNUCpDMc689SCaxaT1RRPmhtrAMFscN/tpwKAcmYIklF+IjHtFrr6e+FrthxMtU3vBCwouUCrqrT4G3ZsuZQERKhSKOI9fSN4Xkp71jT+B48Leojtu6T4QQ1YRtHP4hNxa0YOtn02+7ZWgfQtAQi/1HKgfzWjCnOTFDlYCnORDFP7G/rVVDSlmPOi8N3AFpTvHN7LoUBI0hU+yKiEkaLJ25nsk/C+3n7q6Fh6943O0SPjVnRBci7rl25Z+RkFO2MP1StsDNpmmaGSUAaPj4jAVbH/11suhe5bvzYuZYv/plo267hy+n7LeEabDE5ZePpqrj0TPLvKg==
+        # EMAIL_HASH_SERVICE_SECRET_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY APP_SERVICES_ACCESS_KEY
+        secure: lBMK3NzsjTeLoEFL+P/XbsZMvz71xl9TZrKTNhGp4LRzmfPmg239d3kVyO+Un8e9sQD2sRirIMfbN71X/XND5NFJrU+RcLvNtYyGur5k5gmdl8gJPzCDy3xKUADr6RmwdxPd7Q9jMFI4noIXOfA3kx6RWK6X7lxSPZGyTGBkPi6QQ8XwYMt7Bhdx0ZVM6q9UyqBqJnMhMs4biPitz8ZgmNzE+BFccnmXDjJDuTK+JzAnD3MGWZygV3c08Zl75Wi+BTUBsFddyyoKoAN85sEfnfZjUDXgWFJS5jORecZasTudZdw/6mq6G1/uXheQ5tOWN42lwZ9GxbwEjAZLHjyET6gyxS73XeZ/0pssq/l+cUM5dLQ7CGvDH+pJgSN2bv8OZKJ1KkUrJk0TWyCZxC5jSNXA6MEBiLCJzU5K85bnApfZ9rT5F2wocN/zGgmywMgNl5xFoNouJwTTMJka2ZOVqvXSmlW8+3PH6B21eVPVO154tQ7JW/EzfiGnsudFYCXW3UQVCP2/twVAYZOqlNf/a95HPGNKHy+DTUhr5nQdXVaD9+kxTVolby1B8HHdHOpQyEf/6DGGWlW3R4vE0hxo+ohyqP4VJiXZKKPWjft7gdb7hytIwKI28YFvhhZYizbg0kHWW2s6taeiLDc1MFJQBJ8/7TxfkpVsfrwWA3OQKr0=
 
   # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
