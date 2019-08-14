@@ -16,7 +16,7 @@ const FeaturedArticleSection = proxyquire('../../../../app/components/listings/s
     react: React,
     '../components/sectionWrapper': SectionWrapperStub,
     '../components/featuredArticleCard': FeaturedArticleCardStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(FeaturedArticleSection);
 

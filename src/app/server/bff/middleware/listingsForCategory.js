@@ -1,5 +1,4 @@
-import getTagListFromNames from '../api/tag';
-import getLatestTeasers from '../api/listing';
+import API from '../api';
 import sortListingsByRule from '../helper/sortListingsByRule';
 import getFilterData from '../helper/getFilterData';
 import constructListingFilterString from '../helper/constructListingFilterString';
@@ -37,8 +36,8 @@ export default async function listingsForCategoryMiddleware(req, res, next) {
         }
 
         const filterString = constructListingFilterString(baseQuery, category, location, includeOnlineResults);
-        const listingResponse = await getLatestTeasers(100, 0, filterString);
-        const locationTagResponse = await getTagListFromNames(locationFilterTagNames);
+        const listingResponse = await API.getLatestTeasers(100, 0, filterString);
+        const locationTagResponse = await API.getTagListFromNames(locationFilterTagNames);
 
         const sortedListings = (listingResponse && listingResponse.data && sortListingsByRule(sortBy, listingResponse.data)) || [];
 

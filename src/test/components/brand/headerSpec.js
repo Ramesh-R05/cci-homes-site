@@ -16,7 +16,7 @@ const Header = proxyquire('../../../app/components/brand/header', {
     react: React,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
-});
+}).default;
 
 AdStub.pos = {
     aside: 'rhs',

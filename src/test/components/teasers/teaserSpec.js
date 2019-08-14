@@ -19,7 +19,7 @@ const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     '@bxm/article/lib/components/teaser/summary': SummaryStub,
     './source': SourceStub,
     './icon': Context.createStubComponent()
-});
+}).default;
 const props = articlesMock.basic;
 
 const contextConfigStub = {

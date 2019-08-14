@@ -11,7 +11,7 @@ const AdsWrapperStub = Context.createStubComponentWithChildren();
 
 const ContentSlot = proxyquire('../../../../../app/components/templates/pageTemplate/slots/contentSlot', {
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': AdsWrapperStub
-});
+}).default;
 
 const TestWrapper = new ShallowTestWrapperFactory(ContentSlot);
 

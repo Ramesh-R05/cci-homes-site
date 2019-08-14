@@ -195,7 +195,7 @@ function trackListingContactFormSubmit(payload) {
 
 // ---------------------------------------------------------------------------- store
 
-module.exports = createStore({
+export default createStore({
     storeName: 'TrackingStore',
 
     // ------------------------------------------------------------------------ handlers

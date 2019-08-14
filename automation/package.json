@@ -24,7 +24,8 @@
     "test:live": "bxm-automation .config/chimpy.shippable.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@live"
   },
   "dependencies": {
-    "@bxm/automation": "^8.0.0"
+    "@bxm/automation": "^8.0.0",
+    "dotenv": "^8.0.0"
   },
   "devDependencies": {
     "he": "^1.1.1"

@@ -6,7 +6,7 @@ const momentStub = sinon.stub().returns({ isAfter: isAfterStub });
 
 const recentDateCompare = proxyquire('../../../../app/server/bff/helper/recentDateCompare', {
     moment: momentStub
-});
+}).default;
 
 describe('recent date compare function', () => {
     describe('when a key is not passed', () => {

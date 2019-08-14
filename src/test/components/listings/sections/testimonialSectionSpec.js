@@ -31,7 +31,7 @@ const testimonialsMock = [
 const TestimonialSection = proxyquire('../../../../app/components/listings/sections/testimonialSection', {
     '../components/testimonialCard': TestimonialCardStub,
     '../components/sectionWrapper': SectionWrapperStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(TestimonialSection);
 

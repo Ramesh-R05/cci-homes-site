@@ -10,7 +10,7 @@ const InputStub = Context.createStubComponent();
 
 const RadioButton = proxyquire('../../../app/components/form/radioButton', {
     './input': InputStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(RadioButton);
 

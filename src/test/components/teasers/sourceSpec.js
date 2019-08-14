@@ -10,7 +10,7 @@ noCallThru();
 const Source = proxyquire('../../../app/components/teaser/source', {
     react: React,
     '../brand/link': LinkStub
-});
+}).default;
 
 const contextConfigStub = {
     key: 'config',

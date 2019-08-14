@@ -23,7 +23,7 @@ const ListingRenderer = proxyquire('../../../../app/components/listings/template
     '../sections/testimonialSection': TestimonialSectionStub,
     '../sections/featuredArticleSection': FeaturedArticleSectionStub,
     '../sections/contactSection': ContactSectionStub
-});
+}).default;
 
 const selectors = {
     root: '.listing',

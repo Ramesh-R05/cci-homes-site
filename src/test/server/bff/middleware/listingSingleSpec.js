@@ -4,7 +4,7 @@ import MiddlewareTestFactory from '../../../utils/middlewareTestFactory';
 noCallThru();
 
 // stubs
-const makeRequestStub = sinon.stub();
+const getEntityStub = sinon.stub();
 const transformListingGalleriesStub = sinon.stub();
 const parseEntityStub = sinon.stub();
 const filterEmptyItemsStub = sinon.stub();
@@ -16,17 +16,19 @@ const getMockEntity = () => ({
 });
 
 function resetStubsAndSpies() {
-    makeRequestStub.reset();
+    getEntityStub.reset();
     transformListingGalleriesStub.reset();
     parseEntityStub.reset();
     filterEmptyItemsStub.reset();
 }
 
 const listingSingleMiddleware = proxyquire('../../../../app/server/bff/middleware/listingSingle', {
-    '../../makeRequest': makeRequestStub,
     '../helper/transformListingGalleries': transformListingGalleriesStub,
     '../helper/filterEmptyItems': filterEmptyItemsStub,
-    '../helper/parseEntity': { parseEntity: parseEntityStub }
+    '../helper/parseEntity': { parseEntity: parseEntityStub },
+    '../api': {
+        getEntity: getEntityStub
+    }
 });
 
 const { listingNodeTypes } = listingSingleMiddleware;
@@ -66,9 +68,7 @@ describe('single listing middleware', () => {
 
                 entityResponse = { ...getMockEntity() };
 
-                makeRequestStub
-                    .withArgs(`${testArgs.req.app.locals.config.services.remote.entity}/HOMES-${testArgs.req.query.id}?saved=true`)
-                    .resolves(entityResponse);
+                getEntityStub.withArgs(`HOMES-${testArgs.req.query.id}?saved=true`).resolves(entityResponse);
                 parseEntityStub.withArgs(entityResponse).returnsArg(0);
                 transformListingGalleriesStub.withArgs(entityResponse.galleries).returnsArg(0);
                 filterEmptyItemsStub.withArgs(entityResponse.testimonials, 'message').returnsArg(0);
@@ -109,13 +109,7 @@ describe('single listing middleware', () => {
                         req: { query: { id: 1234, preview: true } }
                     });
 
-                    makeRequestStub
-                        .withArgs(
-                            `${testArgs.req.app.locals.config.services.remote.entity}/HOMES-${testArgs.req.query.id}?saved=${
-                                testArgs.req.query.preview
-                            }`
-                        )
-                        .resolves(null);
+                    getEntityStub.withArgs(`HOMES-${testArgs.req.query.id}?saved=${testArgs.req.query.preview}`).resolves(null);
 
                     result = await callMiddleware();
                 });
@@ -148,12 +142,7 @@ describe('single listing middleware', () => {
 
                             entityResponse = { ...getMockEntity(), nodeTypeAlias: nodeType };
 
-                            makeRequestStub
-                                .withArgs(
-                                    `${testArgs.req.app.locals.config.services.remote.entity}/HOMES-${testArgs.req.query.id}?saved=${!!testArgs.req
-                                        .query.preview}`
-                                )
-                                .resolves(entityResponse);
+                            getEntityStub.withArgs(`HOMES-${testArgs.req.query.id}?saved=${!!testArgs.req.query.preview}`).resolves(entityResponse);
 
                             parseEntityStub.withArgs(entityResponse).returnsArg(0);
                             transformListingGalleriesStub.withArgs(entityResponse.galleries).returnsArg(0);
@@ -199,9 +188,7 @@ describe('single listing middleware', () => {
 
                     entityResponse = { ...getMockEntity(), nodeTypeAlias: 'HomesArticle' };
 
-                    makeRequestStub
-                        .withArgs(`${testArgs.req.app.locals.config.services.remote.entity}/HOMES-${testArgs.req.query.id}?saved=false`)
-                        .resolves(entityResponse);
+                    getEntityStub.withArgs(`HOMES-${testArgs.req.query.id}?saved=false`).resolves(entityResponse);
 
                     result = await callMiddleware();
                 });
@@ -235,9 +222,7 @@ describe('single listing middleware', () => {
 
             mockError = new Error('makeRequest errored with some status');
 
-            makeRequestStub
-                .withArgs(`${testArgs.req.app.locals.config.services.remote.entity}/HOMES-${testArgs.req.query.id}?saved=false`)
-                .throws(mockError);
+            getEntityStub.withArgs(`HOMES-${testArgs.req.query.id}?saved=false`).throws(mockError);
 
             result = await callMiddleware();
         });

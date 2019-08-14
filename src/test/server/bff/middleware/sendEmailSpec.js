@@ -41,7 +41,7 @@ function resetStubsAndSpies() {
 const sendEmailMiddleware = proxyquire('../../../../app/server/bff/middleware/sendEmail', {
     'aws-sdk/clients/ses': () => ({ sendEmail: AmazonSESStub }),
     '../../../../logger': loggerStub
-});
+}).default;
 
 describe('sendEmail middleware', () => {
     describe(`when receiving data`, () => {

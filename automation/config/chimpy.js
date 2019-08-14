@@ -1,3 +1,14 @@
+/*
+    these are the arguments passed to the chimpy cli when the bxm-automation command is run
+    for a full list of possible arguments, follow this link
+    https://github.com/TheBrainFamily/chimpy/blob/master/src/bin/default.js
+*/
+
+const path = require('path');
+require('dotenv').config({
+    path: path.resolve(process.cwd(), '../src/.sit.env')
+});
+
 module.exports = {
     //Generic config
     screenshotsOnError: false,
@@ -38,7 +49,7 @@ module.exports = {
             chrome: {
                 // check for more recent versions of chrome driver here:
                 // http://chromedriver.storage.googleapis.com/index.html
-                version: '74.0.3729.6',
+                version: '75.0.3770.140',
                 arch: process.arch,
                 baseURL: 'https://chromedriver.storage.googleapis.com'
             }

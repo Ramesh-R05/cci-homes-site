@@ -1,8 +1,6 @@
 import get from 'lodash.get';
-import makeRequest from '../../makeRequest';
+import API from '../api';
 import { parseEntity, parseEntities } from '../helper/parseEntity';
-import getModules from '../api/module';
-import getLatestTeasers from '../api/listing';
 
 export default async function homeMiddleware(req, res, next) {
     try {
@@ -27,17 +25,17 @@ export default async function homeMiddleware(req, res, next) {
         const latestVideoFilter = "(nodeTypeAlias eq 'HomesArticle' and contentHasVideo eq 'true')";
         /* eslint-enable max-len, prettier/prettier */
         const [pageDataResp, latestTeasersResp, heroModuleResp, latestVideosResp] = await Promise.all([
-            makeRequest(`${req.app.locals.config.services.remote.entity}/homepage`),
-            getLatestTeasers(itemsCount, skip, filter),
-            getModules('homepagehero'),
-            getLatestTeasers(3, 0, latestVideoFilter)
+            API.getEntity('homepage'),
+            API.getLatestTeasers(itemsCount, skip, filter),
+            API.getModules(['homepagehero']),
+            API.getLatestTeasers(3, 0, latestVideoFilter)
         ]);
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
         const latestVideos = (latestVideosResp && latestVideosResp.data) || [];
 
         const pageData = pageDataResp || {};
-        const heroModule = (heroModuleResp && heroModuleResp.homepagehero) || {};
-        const hero = (heroModule.moduleManualContent && heroModule.moduleManualContent.data[0]) || {};
+        const heroModule = (heroModuleResp && heroModuleResp.data && heroModuleResp.data[0]) || {};
+        const hero = (heroModule.moduleManualContent && heroModule.moduleManualContent.data && heroModule.moduleManualContent.data[0]) || {};
 
         const section = {
             name: pageData.nodeName,

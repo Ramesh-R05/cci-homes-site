@@ -1,4 +1,4 @@
-import makeRequest from '../../makeRequest';
+import API from '../api';
 import { parseEntity } from '../helper/parseEntity';
 import transformListingGalleries from '../helper/transformListingGalleries';
 import filterEmptyItems from '../helper/filterEmptyItems';
@@ -18,7 +18,7 @@ export default async function listingSingle(req, res, next) {
             return;
         }
 
-        const directoryListingEntity = await makeRequest(`${req.app.locals.config.services.remote.entity}/HOMES-${id}${saved}`);
+        const directoryListingEntity = await API.getEntity(`HOMES-${id}${saved}`);
 
         if (!directoryListingEntity) {
             next();

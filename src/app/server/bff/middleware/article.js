@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import getLatestTeasers from '../api/listing';
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
 
 export default async function articleMiddleware(req, res, next) {
@@ -13,17 +13,18 @@ export default async function articleMiddleware(req, res, next) {
         }
 
         const entityTags = entity.tags;
-        let teaserQuery = `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`;
+        let teaserQuery = `nodeTypeAlias eq %27HomesArticle%27 or nodeTypeAlias eq %27Gallery%27`;
 
         if (entityTags && Array.isArray(entityTags) && entityTags.length) {
             const navTags = entityTags.find(tag => tag.includes('navigation'));
 
+            // TODO - fix situation where tags with & in the name break the query
             if (navTags) {
-                teaserQuery = `tags eq '${navTags}'`;
+                teaserQuery = `tags eq %27${navTags}%27`;
             }
         }
 
-        const relatedArticles = await getLatestTeasers(20, 0, teaserQuery);
+        const relatedArticles = await API.getLatestTeasers(20, 0, teaserQuery);
         res.body.leftHandSide = { items: parseEntities(relatedArticles.data) };
 
         /**

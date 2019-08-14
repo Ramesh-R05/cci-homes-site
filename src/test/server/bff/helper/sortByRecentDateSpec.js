@@ -6,7 +6,7 @@ const recentDateCompareStub = sinon.stub();
 
 const sortByRecentDate = proxyquire('../../../../app/server/bff/helper/sortByRecentDate', {
     './recentDateCompare': recentDateCompareStub
-});
+}).default;
 
 describe('sortByRecentDate function', () => {
     describe('when passed an array', () => {

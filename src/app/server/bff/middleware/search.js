@@ -1,7 +1,7 @@
 import get from 'lodash/object/get';
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
 import parseHeaderMetaData from '../helper/parseHeaderMetaData';
-import getSearchResults from '../api/search';
 
 const searchResultTeaserCount = 6;
 const searchCount = 14;
@@ -15,7 +15,7 @@ export default async function searchMiddleware(req, res, next) {
         const pageNo = parseInt(get(req, 'query.pageNo', 1), 10);
         const query = get(req, 'query.q', null);
         const from = (pageNo - 1) * searchCount;
-        const searchDataResp = await getSearchResults(searchCount, from, query);
+        const searchDataResp = await API.getSearchResults({ size: searchCount, from, query });
         const basePath = `/search/${query}`;
 
         let previousPage = null;

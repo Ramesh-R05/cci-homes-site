@@ -16,12 +16,14 @@ const parseEntitesStub = sinon.stub();
 const constructListingFilterStringStub = sinon.stub();
 
 const listingsForCategory = proxyquire('../../../../app/server/bff/middleware/listingsForCategory', {
-    '../api/listing': getLatestTeasersStub,
-    '../api/tag': getTagListFromNamesStub,
     '../helper/sortListingsByRule': sortListingsByRuleStub,
     '../helper/getFilterData': getFilterDataStub,
     '../helper/constructListingFilterString': constructListingFilterStringStub,
-    '../helper/parseEntity': { parseEntities: parseEntitesStub }
+    '../helper/parseEntity': { parseEntities: parseEntitesStub },
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub,
+        getTagListFromNames: getTagListFromNamesStub
+    }
 }).default;
 
 const MiddlewareTestWrapper = new MiddlewareTestFactory(listingsForCategory);

@@ -14,7 +14,7 @@ const FullWidthGallerySection = proxyquire('../../../../app/components/listings/
     '../components/imageGalleryWrapper': ImageGalleryStub,
     '../components/scrollDownButton': ScrollDownButtonStub,
     '../components/sectionWrapper': SectionWrapperStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(FullWidthGallerySection);
 

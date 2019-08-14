@@ -3,8 +3,8 @@ noCallThru();
 const brandVideoResStub = {
     data: ['videoItem1', 'videoItem2', 'videoItem3']
 };
-const makeRequestStub = sinon.stub().resolves({ articleSource: 'bell' });
-const parseEntitiesStub = arg => arg;
+const getEntityStub = sinon.stub().resolves({ articleSource: 'bell' });
+const parseEntitiesStub = sinon.stub().returns(brandVideoResStub.data);
 const getLatestTeasersStub = sinon.stub().resolves(brandVideoResStub);
 const getLatestTeasersRejectStub = sinon.stub().rejects({ msg: 'fail' });
 const reqStub = {
@@ -27,9 +27,11 @@ const reqStub = {
 const getLatestBrandVideos = isError =>
     proxyquire('../../../../app/server/bff/middleware/getLatestBrandVideos', {
         '../helper/parseEntity': { parseEntities: parseEntitiesStub },
-        '../api/listing': isError ? getLatestTeasersRejectStub : getLatestTeasersStub,
-        '../../makeRequest': makeRequestStub
-    });
+        '../api': {
+            getEntity: getEntityStub,
+            getLatestTeasers: isError ? getLatestTeasersRejectStub : getLatestTeasersStub
+        }
+    }).default;
 
 const expectLatestBrandItems = ['videoItem1', 'videoItem2', 'videoItem3'];
 
@@ -45,17 +47,17 @@ describe('getLatestBrandVideosMiddleware', () => {
             getLatestBrandVideosMiddleware = getLatestBrandVideos(false)(reqStub, resStub, nextStub);
         });
 
-        it('should call makeRequest function with expect argument', done => {
+        it('should call getEntity function with expect argument', done => {
             getLatestBrandVideosMiddleware
                 .then(() => {
-                    expect(makeRequestStub.callCount).to.equal(1);
-                    expect(makeRequestStub.args[0][0]).to.equal('/service-for-entity/section/bell');
+                    expect(getEntityStub.callCount).to.equal(1);
+                    expect(getEntityStub.args[0][0]).to.equal('section/bell');
                     done();
                 })
                 .catch(done);
         });
 
-        it('should get expect latestBrandVideos', done => {
+        it('should get expected latestBrandVideos', done => {
             getLatestBrandVideosMiddleware
                 .then(() => {
                     expect(resStub.body.latestBrandVideos).to.deep.equal(expectLatestBrandItems);

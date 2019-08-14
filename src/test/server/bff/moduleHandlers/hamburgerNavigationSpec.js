@@ -7,7 +7,7 @@ const addSubsectionsToNavItemStub = sinon.stub();
 const hamburgerNavigation = proxyquire('../../../../app/server/bff/moduleHandlers/hamburgerNavigation', {
     '../helper/parseEntity': { parseEntities: parseEntitiesStub },
     '../helper/addSubsectionsToNavItem': addSubsectionsToNavItemStub
-});
+}).default;
 
 const mockModuleData = () => [
     {

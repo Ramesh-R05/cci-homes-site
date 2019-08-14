@@ -15,7 +15,7 @@ describe('FeedItem', () => {
             '@bxm/tags/lib/components/link': FeedItemStub,
             '@bxm/article/lib/components/feed/feedItem': FeedItemStub,
             '../helpers/theme': themeSpy
-        });
+        }).default;
     });
 
     it(`should call the theme higher order component with the FeedItem component and ${dataPath}`, () => {

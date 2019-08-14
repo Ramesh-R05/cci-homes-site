@@ -13,7 +13,7 @@ const DirectoryCategoryItemStub = Context.createStubComponent();
 
 const DirectoryHome = proxyquire('../../../../app/components/listings/components/directoryHome', {
     './directoryCategoryItem': DirectoryCategoryItemStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(DirectoryHome);
 

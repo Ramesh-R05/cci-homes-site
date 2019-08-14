@@ -12,7 +12,7 @@ const ListingFiltersStub = Context.createStubComponent();
 const ListingCategory = proxyquire('../../../../app/components/listings/templates/listingCategory', {
     '../components/listingCard': ListingCardStub,
     '../components/ListingFilters': ListingFiltersStub
-});
+}).default;
 
 const selectors = {
     root: '.listing-category',

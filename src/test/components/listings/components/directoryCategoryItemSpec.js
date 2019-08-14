@@ -30,7 +30,7 @@ const DirectoryCategoryItem = proxyquire('../../../../app/components/listings/co
     '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub,
     '@bxm/ui/lib/common/ImageResize': imageResizeMock,
     '../../../breakpoints': breakpointsMock
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(DirectoryCategoryItem);
 

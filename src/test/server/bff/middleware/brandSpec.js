@@ -5,6 +5,8 @@ import heroStubData from '../../../../stubs/module-bellehero';
 import itemsStubData from '../../../../stubs/listings-belle';
 import siteBrands from '../../../../app/config/siteBrands';
 
+const getEntityStub = sinon.stub();
+const getModulesStub = sinon.stub();
 const getLatestTeasersStub = sinon.stub();
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
@@ -16,8 +18,6 @@ let heroStubDataWrapper = {
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 const moduleServiceMockUrl = 'http://moduleUrl.com';
-const entityServiceMockUrlForBelle = `${entityServiceMockUrl}/section/belle`;
-const moduleServiceMockUrlForBelle = `${moduleServiceMockUrl}/bellehero`;
 
 getLatestTeasersStub.returns({ data: {} });
 
@@ -25,17 +25,11 @@ parseEntityStub.onFirstCall().returns(entityStubData);
 parseEntityStub.onSecondCall().returns(heroStubData);
 parseEntitiesStub.returns(itemsStubData);
 
-let makeRequestStub = requestUrl => {
-    if (requestUrl.includes(entityServiceMockUrlForBelle)) {
-        return entityStubData;
-    } else if (requestUrl.includes(moduleServiceMockUrlForBelle)) {
-        return heroStubDataWrapper;
-    }
-};
+getEntityStub.returns(entityStubData);
+getModulesStub.returns(heroStubDataWrapper);
 
-const makeRequestSpy = sinon.spy(makeRequestStub);
 const brand = 'belle';
-const brandFilter = `source eq '${entityStubData.articleSource}' and nodeTypeAlias ne 'ListingGallery'`;
+const brandFilter = `source eq %27${entityStubData.articleSource}%27 and nodeTypeAlias ne %27ListingGallery%27`;
 const expectedBody = {
     entity: entityStubData,
     hero: heroStubData,
@@ -53,13 +47,16 @@ const expectedBody = {
 };
 
 const brandMiddleware = proxyquire('../../../../app/server/bff/middleware/brand', {
-    '../../makeRequest': makeRequestSpy,
     '../helper/parseEntity': {
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersStub
-});
+    '../api': {
+        getEntity: getEntityStub,
+        getLatestTeasers: getLatestTeasersStub,
+        getModules: getModulesStub
+    }
+}).default;
 
 describe('brand middleware', () => {
     const req = {
@@ -87,8 +84,8 @@ describe('brand middleware', () => {
     const expectedBrand = siteBrands.find(item => item.title === entityStubData.articleSource);
     const expectedHeroModuleName = `${expectedBrand.id}hero`;
 
-    describe(`when receiving data`, () => {
-        describe(`and brand query is not defined`, () => {
+    describe('when receiving data', () => {
+        describe('and brand query is not defined', () => {
             let brand = req.query;
 
             before(() => {
@@ -102,7 +99,8 @@ describe('brand middleware', () => {
             it('should not call service urls', done => {
                 brandMiddleware(req, res, next)
                     .then(() => {
-                        sinon.assert.notCalled(makeRequestSpy);
+                        sinon.assert.notCalled(getEntityStub);
+                        sinon.assert.notCalled(getModulesStub);
                         sinon.assert.notCalled(getLatestTeasersStub);
 
                         done();
@@ -111,7 +109,7 @@ describe('brand middleware', () => {
             });
         });
 
-        describe(`and brand query is defined`, () => {
+        describe('and brand query is defined', () => {
             it('should return all modules in the desired structure', done => {
                 brandMiddleware(req, res, next)
                     .then(() => {
@@ -131,15 +129,12 @@ describe('brand middleware', () => {
 
                 brandMiddleware(req, res, next)
                     .then(() => {
-                        const expectedEntityServiceUrl = `${entityServiceMockUrl}/section/${req.query.brand}`;
-                        const expectedModuleServiceUrl = `${moduleServiceMockUrl}/${expectedHeroModuleName}`;
-
-                        const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
-                        const makeRequestSpySecondCall = makeRequestSpy.getCall(1);
+                        const getEntityFirstCall = getEntityStub.getCall(0);
+                        const getModulesFirstCall = getModulesStub.getCall(1);
                         const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
 
-                        expect(makeRequestSpyFirstCall.args[0]).to.equal(expectedEntityServiceUrl);
-                        expect(makeRequestSpySecondCall.args[0]).to.equal(expectedModuleServiceUrl);
+                        expect(getEntityFirstCall.args[0]).to.equal(`section/${req.query.brand}`);
+                        expect(getModulesFirstCall.args[0]).to.deep.equal([`${expectedHeroModuleName}`]);
                         expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
                         expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
                         expect(getLatestTeasersStubFirstCall.args[2]).to.equal(brandFilter);
@@ -151,7 +146,7 @@ describe('brand middleware', () => {
                     .catch(done);
             });
 
-            describe(`when module response is empty`, () => {
+            describe('when module response is empty', () => {
                 const nextSpy = sinon.spy();
 
                 before(() => {
@@ -168,7 +163,7 @@ describe('brand middleware', () => {
                 });
             });
 
-            describe(`when there is no hero module`, () => {
+            describe('when there is no hero module', () => {
                 const nextSpy = sinon.spy();
 
                 before(() => {

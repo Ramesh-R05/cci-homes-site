@@ -14,7 +14,7 @@ const WithLoadMore = proxyquire('../../../app/components/helpers/withLoadMore', 
     '../listings/components/directoryHome': DirectoryHomeStub,
     '../listings/templates/listingCategory': ListingCategoryStub,
     '../listings/templates/listingRenderer': ListingRendererStub
-});
+}).default;
 
 describe('WithLoadMore higher order component', () => {
     describe('when passed a valid component', () => {

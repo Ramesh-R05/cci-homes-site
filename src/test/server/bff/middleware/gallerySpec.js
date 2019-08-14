@@ -1,13 +1,13 @@
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import galleryStubData from '../../../../stubs/listings-gallery';
+import listingsStubData from '../../../../stubs/listings-campaign-myer-eat-live';
 
-const getLatestTeasersStub = () => ({ data: {} });
+const getLatestTeasersStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
+getLatestTeasersStub.onFirstCall().returns(listingsStubData);
 parseEntitiesStub.returns(galleryStubData);
-
-const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
 
 const expectedBody = {
     entity: {
@@ -16,12 +16,14 @@ const expectedBody = {
     moreGalleries: galleryStubData
 };
 
-const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/gallery', {
+const galleryMiddleware = proxyquire('../../../../app/server/bff/middleware/gallery', {
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersSpy
-});
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub
+    }
+}).default;
 
 describe('gallery middleware', () => {
     let res = {
@@ -45,9 +47,9 @@ describe('gallery middleware', () => {
             });
 
             it('should not call service urls', done => {
-                articleMiddleware(req, res, next)
+                galleryMiddleware(req, res, next)
                     .then(() => {
-                        expect(getLatestTeasersSpy.called).to.be.false;
+                        expect(getLatestTeasersStub.called).to.be.false;
 
                         done();
                     })
@@ -57,9 +59,9 @@ describe('gallery middleware', () => {
 
         describe(`and nodeType is Gallery`, () => {
             it('should call getLatestTeasers', done => {
-                articleMiddleware(req, res, next)
+                galleryMiddleware(req, res, next)
                     .then(() => {
-                        expect(getLatestTeasersSpy.firstCall.calledWith(10, 0, `nodeTypeAlias eq 'Gallery'`)).to.be.true;
+                        expect(getLatestTeasersStub.firstCall.calledWith(10, 0, `nodeTypeAlias eq %27Gallery%27`)).to.be.true;
 
                         done();
                     })
@@ -67,9 +69,9 @@ describe('gallery middleware', () => {
             });
 
             it('should return all modules in the desired structure', done => {
-                articleMiddleware(req, res, next)
+                galleryMiddleware(req, res, next)
                     .then(() => {
-                        expect(getLatestTeasersSpy.firstCall.calledWith(10, 0, `nodeTypeAlias eq 'Gallery'`)).to.be.true;
+                        expect(getLatestTeasersStub.firstCall.calledWith(10, 0, `nodeTypeAlias eq %27Gallery%27`)).to.be.true;
                         expect(res.body).to.deep.equal(expectedBody);
                         done();
                     })

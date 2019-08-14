@@ -1,5 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import { articles as articlesMock } from '../../mock/articles';
+import articlesMock from '../../mock/articles';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -9,7 +9,7 @@ const TeaserStub = Context.createStubComponentWithChildren();
 const InFocus = proxyquire('../../../app/components/inFocus/inFocus', {
     react: React,
     '../teaser/teaser': TeaserStub
-});
+}).default;
 
 describe('InFocus', () => {
     describe('with 3 articles', () => {
@@ -18,7 +18,7 @@ describe('InFocus', () => {
         let teasers;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<InFocus articles={articlesMock.slice(1, 4)} />);
+            reactModule = TestUtils.renderIntoDocument(<InFocus articles={articlesMock.articles.slice(1, 4)} />);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'section-in-focus');
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
         });
@@ -46,7 +46,7 @@ describe('InFocus', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <InFocus articles={articlesMock.slice(1, 4)}>
+                <InFocus articles={articlesMock.articles.slice(1, 4)}>
                     <ChildrenComponentStub />
                 </InFocus>
             );
@@ -65,7 +65,7 @@ describe('InFocus', () => {
         const expectedClassname = `section-in-focus--${modifier}`;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<InFocus articles={articlesMock} modifier={modifier} />);
+            reactModule = TestUtils.renderIntoDocument(<InFocus articles={articlesMock.articles} modifier={modifier} />);
             section = TestUtils.findRenderedDOMComponentWithClass(reactModule, expectedClassname);
         });
 

@@ -7,7 +7,7 @@ export default function transformListingGalleries(galleries = []) {
         const accumulatedGalleryData = [...accum];
         const { galleryItems } = gallery;
 
-        if (!galleryItems.length) {
+        if (!galleryItems || !galleryItems.length) {
             return accumulatedGalleryData;
         }
 

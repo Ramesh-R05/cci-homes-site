@@ -13,7 +13,7 @@ const FeaturedBrandsSection = proxyquire('../../../app/components/featuredBrands
     react: React,
     '../teaser/teaser': TeaserStub,
     '@bxm/shared-ui/lib/brandSwitcher': BrandSwitcherStub
-});
+}).default;
 
 const contextConfigStub = {
     key: 'config',

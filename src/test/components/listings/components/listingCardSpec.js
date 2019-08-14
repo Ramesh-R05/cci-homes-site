@@ -30,7 +30,7 @@ const ListingCard = proxyquire('../../../../app/components/listings/components/l
     '@bxm/ui/lib/common/ImageResize': imageResizeMock,
     '../../../breakpoints': breakpointsMock,
     './contactCard': ContactCardStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(ListingCard);
 

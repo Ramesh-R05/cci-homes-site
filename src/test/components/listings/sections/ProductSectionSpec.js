@@ -13,7 +13,7 @@ const SectionWrapperStub = Context.createStubComponentWithChildren();
 const ProductSection = proxyquire('../../../../app/components/listings/sections/productSection', {
     '../components/productCard': ProductCardStub,
     '../components/sectionWrapper': SectionWrapperStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(ProductSection);
 

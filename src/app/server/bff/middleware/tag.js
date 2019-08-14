@@ -1,6 +1,5 @@
-import makeRequest from '../../makeRequest';
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
-import getLatestTeasers from '../api/listing';
 
 export default async function tagMiddleware(req, res, next) {
     try {
@@ -25,7 +24,7 @@ export default async function tagMiddleware(req, res, next) {
             .replace(/\s*&\s*/g, '-and-')
             .replace(/\s+/g, '-');
 
-        const tagData = await makeRequest(`${req.app.locals.config.services.remote.tag}/tags/?urlName=${tag}`)
+        const tagData = await API.getTags(`${tag}`)
             .then(({ data }) => {
                 if (!data.length) {
                     return {};
@@ -47,7 +46,7 @@ export default async function tagMiddleware(req, res, next) {
         const skip = (pageNo - 1) * pageSize;
 
         const filter = `tagsDetails/urlName eq '${tag}'`;
-        const latestTeasersResp = await getLatestTeasers(itemsCount, skip, filter);
+        const latestTeasersResp = await API.getLatestTeasers(itemsCount, skip, filter);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
 

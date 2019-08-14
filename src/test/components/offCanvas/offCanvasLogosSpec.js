@@ -10,7 +10,7 @@ const { React } = Context;
 const OffCanvasLogos = proxyquire('../../../app/components/off-canvas/offCanvasLogos', {
     react: React,
     classNames
-});
+}).default;
 
 const testWrapper = (testProps = {}) => shallow(<OffCanvasLogos {...testProps} />);
 

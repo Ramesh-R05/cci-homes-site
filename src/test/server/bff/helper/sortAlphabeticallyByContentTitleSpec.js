@@ -6,7 +6,7 @@ const alphabeticalCompareStub = sinon.stub();
 
 const sortAlphabeticallyByContentTitle = proxyquire('../../../../app/server/bff/helper/sortAlphabeticallyByContentTitle', {
     './alphabeticalCompare': alphabeticalCompareStub
-});
+}).default;
 
 describe('sortAlphabeticallyByContentTitle function', () => {
     describe('when passed an array', () => {

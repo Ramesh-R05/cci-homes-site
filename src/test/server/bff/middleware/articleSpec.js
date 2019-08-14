@@ -2,7 +2,7 @@ import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import itemsStubData from '../../../../stubs/listings-food-Homes-navigation-DIY';
 
-const getLatestTeasersStub = sinon.stub().resolves({ data: {} });
+const getLatestTeasersStub = sinon.stub();
 const parseEntitiesStub = sinon.stub().returns(itemsStubData);
 
 const expectedBody = {
@@ -22,8 +22,10 @@ const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/arti
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersStub
-});
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub
+    }
+}).default;
 
 function resetStubsAndSpies() {
     getLatestTeasersStub.reset();
@@ -68,7 +70,7 @@ describe('article middleware', () => {
                     it('should get the 20 latest homes articles matching the navigation tag', done => {
                         articleMiddleware(req, res, next)
                             .then(() => {
-                                expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `tags eq '${navQueryTag}'`)).to.be.true;
+                                expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `tags eq %27${navQueryTag}%27`)).to.be.true;
                                 done();
                             })
                             .catch(done);
@@ -104,7 +106,11 @@ describe('article middleware', () => {
                         articleMiddleware(req, res, next)
                             .then(() => {
                                 expect(
-                                    getLatestTeasersStub.firstCall.calledWith(20, 0, `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`)
+                                    getLatestTeasersStub.firstCall.calledWith(
+                                        20,
+                                        0,
+                                        `nodeTypeAlias eq %27HomesArticle%27 or nodeTypeAlias eq %27Gallery%27`
+                                    )
                                 ).to.be.true;
                                 done();
                             })
@@ -133,8 +139,13 @@ describe('article middleware', () => {
                 it('should get the 20 latest homes articles or galleries', done => {
                     articleMiddleware(req, res, next)
                         .then(() => {
-                            expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery'`))
-                                .to.be.true;
+                            expect(
+                                getLatestTeasersStub.firstCall.calledWith(
+                                    20,
+                                    0,
+                                    `nodeTypeAlias eq %27HomesArticle%27 or nodeTypeAlias eq %27Gallery%27`
+                                )
+                            ).to.be.true;
                             done();
                         })
                         .catch(done);

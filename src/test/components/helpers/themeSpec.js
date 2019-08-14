@@ -21,7 +21,7 @@ const ComponentStubWithNoThemeProperty = stubComponent();
 const ComponentStubWithThemeProperty = stubComponent(themeData);
 const theme = proxyquire('../../../app/components/helpers/theme', {
     react: React
-});
+}).default;
 
 describe(`Theme Helper`, () => {
     let noThemeComponent;

@@ -10,7 +10,7 @@ const InputStub = Context.createStubComponent();
 
 const Checkbox = proxyquire('../../../app/components/form/checkbox', {
     './input': InputStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(Checkbox);
 

@@ -14,7 +14,7 @@ const ContactFormWrapper = proxyquire('../../../../app/components/listings/compo
     react: React,
     formik: { Formik: FormikStub },
     '../../../actions/sendEmail': sendEmailStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(ContactFormWrapper);
 

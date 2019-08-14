@@ -3,14 +3,14 @@ noCallThru();
 import listingsStubData from '../../../../stubs/listings-luxury-home';
 import tagStubData from '../../../../stubs/tag-luxury-home';
 
-const makeRequestStub = sinon.stub();
-makeRequestStub.resolves(tagStubData);
+const getTagsStub = sinon.stub();
+getTagsStub.resolves(tagStubData);
 const getLatestTeasersStub = () => listingsStubData;
 const parseEntitiesStub = sinon.stub();
 
 parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(0, 11));
 
-const makeRequestSpy = sinon.spy(makeRequestStub);
+const getTagsSpy = sinon.spy(getTagsStub);
 const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
 
 const listingsServiceMockUrl = 'http://listingsUrl.com';
@@ -44,12 +44,14 @@ const expectedBody = {
 };
 
 const tagSectionMiddleware = proxyquire('../../../../app/server/bff/middleware/tag', {
-    '../../makeRequest': makeRequestSpy,
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersSpy
-});
+    '../api': {
+        getLatestTeasers: getLatestTeasersSpy,
+        getTags: getTagsSpy
+    }
+}).default;
 
 describe('tag section middleware', () => {
     const req = {
@@ -88,7 +90,7 @@ describe('tag section middleware', () => {
             it('should not call service urls', done => {
                 tagSectionMiddleware(req, res, next)
                     .then(() => {
-                        expect(makeRequestSpy.called).to.be.false;
+                        expect(getTagsSpy.called).to.be.false;
                         expect(getLatestTeasersSpy.called).to.be.false;
 
                         done();
@@ -110,11 +112,11 @@ describe('tag section middleware', () => {
             it('should use the required config values for content service urls for the request', done => {
                 tagSectionMiddleware(req, res, next)
                     .then(() => {
-                        const tagServiceUrl = `${tagServiceMockUrl}/tags/?urlName=${tagSection}`;
-                        const makeRequestSpyFirstCall = makeRequestSpy.getCall(0);
+                        const tagName = `${tagSection}`;
+                        const getTagSpyFirstCall = getTagsSpy.getCall(0);
                         const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
 
-                        expect(makeRequestSpyFirstCall.args[0]).to.equal(tagServiceUrl);
+                        expect(getTagSpyFirstCall.args[0]).to.equal(tagName);
 
                         expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
                         expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);

@@ -1,5 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import { entity, articles as articlesMock } from '../../mock/articles';
+import articlesMock from '../../mock/articles';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -21,7 +21,7 @@ const Section = proxyquire('../../../app/components/section/section', {
     './list': NavigationTagListStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyMobileAdStub
-});
+}).default;
 
 AdStub.pos = {
     aside: 'rhs',
@@ -33,7 +33,7 @@ AdStub.pos = {
 };
 
 const defaultProps = {
-    articles: articlesMock,
+    articles: articlesMock.articles,
     content: {
         nodeType: 'NavigationSection',
         id: 'HOMES-1158',

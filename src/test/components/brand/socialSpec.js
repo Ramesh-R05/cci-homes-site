@@ -9,7 +9,7 @@ const SocialIconStub = Context.createStubComponent();
 const Social = proxyquire('../../../app/components/brand/social', {
     react: React,
     './socialIcon': SocialIconStub
-});
+}).default;
 
 describe('Brand Social', () => {
     let reactModule;

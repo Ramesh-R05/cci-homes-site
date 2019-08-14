@@ -1,5 +1,5 @@
 import BaseContentStore from '../../app/stores/baseContentStore';
-import { articles as articlesMock, articlesPage2 as articlesMock2 } from '../mock/articles';
+import articlesMock from '../mock/articles';
 
 describe('BaseContentStore', () => {
     let store;
@@ -9,7 +9,7 @@ describe('BaseContentStore', () => {
         body: {
             stores: {
                 test: {
-                    items: articlesMock
+                    items: articlesMock.articles
                 }
             }
         }
@@ -18,7 +18,7 @@ describe('BaseContentStore', () => {
         body: {
             stores: {
                 test: {
-                    items: articlesMock2
+                    items: articlesMock.articlesPage2
                 }
             }
         }

@@ -6,8 +6,9 @@ import listingsStubData from '../../../../stubs/listings-food-Homes-navigation-I
 import galleryStubData from '../../../../stubs/listings-gallery';
 import heroStubData from '../../../../stubs/module-interiorshero';
 
-const makeRequestStub = sinon.stub();
-const getLatestTeasersStub = () => listingsStubData;
+const getEntityStub = sinon.stub();
+const getModulesStub = sinon.stub();
+const getLatestTeasersStub = sinon.stub();
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 const tagToQueryStub = sinon.stub();
@@ -17,11 +18,10 @@ const navigationTag = (entityStubData.tagsDetails || []).find(tag => {
 });
 entityStubData.kingtag = (navigationTag && navigationTag.urlName) || '';
 
+getLatestTeasersStub.returns(listingsStubData);
 parseEntityStub.returns(entityStubData);
 parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(0, 11));
 parseEntitiesStub.onSecondCall().returns(galleryStubData.data);
-
-const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 const listingsServiceMockUrl = 'http://listingsUrl.com';
@@ -53,18 +53,23 @@ const expectedBody = {
 };
 
 function resetStubsAndSpies() {
-    makeRequestStub.reset();
+    getEntityStub.reset();
+    getModulesStub.reset();
+    getLatestTeasersStub.reset();
 }
 
 const navSectionMiddleware = proxyquire('../../../../app/server/bff/middleware/navSection', {
-    '../../makeRequest': makeRequestStub,
     '../helper/parseEntity': {
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
     },
     '../helper/tagToQuery': tagToQueryStub,
-    '../api/listing': getLatestTeasersSpy
-});
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub,
+        getEntity: getEntityStub,
+        getModules: getModulesStub
+    }
+}).default;
 
 describe('navigation section middleware', () => {
     const req = {
@@ -94,12 +99,10 @@ describe('navigation section middleware', () => {
         describe(`and navSection query is not defined`, () => {
             before(() => {
                 req.query = {};
-                makeRequestStub.withArgs(`${entityServiceMockUrl}/section/${navSection}`).returns(entityStubData);
-                makeRequestStub.withArgs(`${entityServiceMockUrl}/alltagsections`).returns(alltagsectionsData);
-                makeRequestStub
-                    .withArgs(
-                        `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${tag}&$orderby=pageDateCreated desc&$top=5`
-                    )
+                getEntityStub.withArgs(`section/${navSection}`).returns(entityStubData);
+                getEntityStub.withArgs('alltagsections').returns(alltagsectionsData);
+                getLatestTeasersStub
+                    .withArgs(`teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${tag}&$orderby=pageDateCreated desc&$top=5`)
                     .returns(listingsStubData);
                 tagToQueryStub.returns(tag);
             });
@@ -111,8 +114,9 @@ describe('navigation section middleware', () => {
             it('should not call service urls', done => {
                 navSectionMiddleware(req, res, next)
                     .then(() => {
-                        expect(makeRequestStub.called).to.be.false;
-                        expect(getLatestTeasersSpy.called).to.be.false;
+                        expect(getEntityStub.called).to.be.false;
+                        expect(getLatestTeasersStub.called).to.be.false;
+                        expect(getModulesStub.called).to.be.false;
 
                         done();
                     })
@@ -123,13 +127,9 @@ describe('navigation section middleware', () => {
         describe(`and navigation section query is defined`, () => {
             before(() => {
                 req.query = { navSection };
-                makeRequestStub.withArgs(`${entityServiceMockUrl}/section/${navSection}`).returns(entityStubData);
-                makeRequestStub.withArgs(`${entityServiceMockUrl}/alltagsections`).returns(alltagsectionsData);
-                makeRequestStub
-                    .withArgs(
-                        `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${tag}&$orderby=pageDateCreated desc&$top=5`
-                    )
-                    .returns(listingsStubData);
+                getEntityStub.withArgs(`section/${navSection}`).returns(entityStubData);
+                getEntityStub.withArgs('alltagsections').returns(alltagsectionsData);
+                getLatestTeasersStub.withArgs(5, 0, `nodeTypeAlias eq 'Gallery' and ${tag}`).returns(listingsStubData);
                 tagToQueryStub.returns(tag);
             });
 
@@ -148,22 +148,24 @@ describe('navigation section middleware', () => {
             it('should use the required config values for content service urls for the request', done => {
                 navSectionMiddleware(req, res, next)
                     .then(() => {
-                        const entityServiceUrl = `${entityServiceMockUrl}/section/${req.query.navSection}`;
-                        const alltagsectionsServiceUrl = `${entityServiceMockUrl}/alltagsections`;
-                        const galleryServiceUrl = `${listingsServiceMockUrl}/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${navSectionFilter}&$orderby=pageDateCreated desc&$top=5`;
+                        const entityServiceUrl = `section/${req.query.navSection}`;
+                        const alltagsectionsServiceUrl = 'alltagsections';
+                        const galleryServiceUrl = `nodeTypeAlias eq 'Gallery' and ${navSectionFilter}`;
 
-                        const makeRequestSpyFirstCall = makeRequestStub.getCall(0);
-                        const makeRequestSpySecondCall = makeRequestStub.getCall(1);
-                        const makeRequestSpyThirdCall = makeRequestStub.getCall(2);
-                        const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
+                        const getEntityStubFirstCall = getEntityStub.getCall(0);
+                        const getEntityStubSecondCall = getEntityStub.getCall(1);
+                        const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
+                        const getLatestTeasersStubSecondCall = getLatestTeasersStub.getCall(1);
 
-                        expect(makeRequestSpyFirstCall.args[0]).to.equal(entityServiceUrl);
-                        expect(makeRequestSpySecondCall.args[0]).to.equal(alltagsectionsServiceUrl);
-                        expect(makeRequestSpyThirdCall.args[0]).to.equal(galleryServiceUrl);
+                        expect(getEntityStubFirstCall.args[0]).to.equal(entityServiceUrl);
+                        expect(getEntityStubSecondCall.args[0]).to.equal(alltagsectionsServiceUrl);
 
-                        expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
-                        expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                        expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(navSectionFilter);
+                        expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
+                        expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersStubFirstCall.args[2]).to.equal(navSectionFilter);
+                        expect(getLatestTeasersStubSecondCall.args[0]).to.equal(5);
+                        expect(getLatestTeasersStubSecondCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersStubSecondCall.args[2]).to.equal(galleryServiceUrl);
 
                         done();
                     })

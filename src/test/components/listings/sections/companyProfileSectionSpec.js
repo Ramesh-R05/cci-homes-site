@@ -18,7 +18,7 @@ const CompanyProfileSection = proxyquire('../../../../app/components/listings/se
     '../components/socialIcons': SocialIconStub,
     '../components/BrandLogo': BrandLogoStub,
     '../components/sectionWrapper': SectionWrapperStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(CompanyProfileSection);
 

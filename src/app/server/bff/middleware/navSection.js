@@ -1,6 +1,5 @@
-import makeRequest from '../../makeRequest';
+import API from '../api';
 import { parseEntity, parseEntities } from '../helper/parseEntity';
-import getLatestTeasers from '../api/listing';
 import tagsToQuery from '../helper/tagsToQuery';
 
 export default async function navSectionMiddleware(req, res, next) {
@@ -14,11 +13,17 @@ export default async function navSectionMiddleware(req, res, next) {
             return;
         }
 
-        const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${navSection}`);
+        const entityResponse = await API.getEntity(`section/${navSection}`);
+
+        if (!entityResponse) {
+            const err = new Error('No section found!');
+            err.status = 404;
+            throw err;
+        }
 
         const nodeTypeAlias = entityResponse.nodeTypeAlias || '';
 
-        const sectionTag = entityResponse.tagsDetails[0];
+        const sectionTag = (entityResponse.tagsDetails && Array.isArray(entityResponse.tagsDetails) && entityResponse.tagsDetails[0]) || {};
         entityResponse.kingtag = (sectionTag && sectionTag.urlName) || '';
 
         const pageSize = 12;
@@ -29,8 +34,10 @@ export default async function navSectionMiddleware(req, res, next) {
         const heroModuleName = `${navSection.replace(/-/g, '')}hero`;
 
         let teaserfilter;
-        const allTagSectionsPath = `${req.app.locals.config.services.remote.entity}/alltagsections`;
-        const allTagSections = await makeRequest(allTagSectionsPath);
+        const allTagSectionsPath = 'alltagsections';
+        const allTagSectionsResponse = await API.getEntity(allTagSectionsPath);
+
+        const allTagSections = allTagSectionsResponse || [];
 
         if (!allTagSections || !Array.isArray(allTagSections) || !allTagSections.length) {
             const err = new Error(`Path ${allTagSectionsPath} does not match page`);
@@ -65,18 +72,14 @@ export default async function navSectionMiddleware(req, res, next) {
         }
 
         const [latestTeasersResp, galleryListingResponse, heroResp] = await Promise.all([
-            getLatestTeasers(itemsCount, skip, teaserfilter),
-            // eslint-disable-next-line max-len
-            makeRequest(
-                `${
-                    req.app.locals.config.services.remote.listings
-                }/teasers?$select=*&$filter=nodeTypeAlias eq 'Gallery' and ${teaserfilter}&$orderby=pageDateCreated desc&$top=5`
-            ),
-            makeRequest(`${req.app.locals.config.services.remote.module}/${heroModuleName}`)
+            API.getLatestTeasers(itemsCount, skip, teaserfilter),
+            API.getLatestTeasers(5, 0, `nodeTypeAlias eq 'Gallery' and ${teaserfilter}`),
+            API.getModules([`${heroModuleName}`])
         ]);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
         const heroModule = (heroResp && heroResp.data && heroResp.data[0]) || {};
+
         const section = {
             name: entityResponse.nodeName,
             id: entityResponse.id,

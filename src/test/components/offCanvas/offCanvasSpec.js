@@ -14,7 +14,7 @@ const OffCanvas = proxyquire('../../../app/components/off-canvas/offCanvas', {
     react: React,
     '@bxm/nav/lib/components/offcanvas/content': MobileOffCanvasStub,
     '@bxm/site-header/lib/components/hamburgerNav': HamburgerNavStub
-});
+}).default;
 
 const contextStub = {
     config: { brands: { network: Array.from(Array(3), (x, i) => `hamburger item ${i + 1}`) } }

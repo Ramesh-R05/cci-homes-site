@@ -7,7 +7,7 @@ const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const SocialIcon = proxyquire('../../../app/components/brand/socialIcon', {
     react: React
-});
+}).default;
 
 describe('Brand SocialIcon', () => {
     let reactModule;

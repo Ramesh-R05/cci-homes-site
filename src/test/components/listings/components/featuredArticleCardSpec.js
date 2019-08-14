@@ -15,7 +15,7 @@ const FeaturedArticleCard = proxyquire('../../../../app/components/listings/comp
     'react-inlinesvg': InlineSVGStub,
     '@bxm/datetime/lib/components/Date': DateStub,
     './imageGalleryWrapper': ImageGalleryStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(FeaturedArticleCard);
 

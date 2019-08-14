@@ -16,7 +16,7 @@ const ContactSection = proxyquire('../../../../app/components/listings/sections/
     '../components/contactCard': ContactCardStub,
     '../components/socialIcons': SocialIconsStub,
     '../components/sectionWrapper': SectionWrapperStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(ContactSection);
 

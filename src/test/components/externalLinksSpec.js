@@ -10,7 +10,7 @@ noCallThru();
 const ExternalLinksStub = proxyquire('../../app/components/externalLinks', {
     React: React,
     '@bxm/social/lib/components/socialIcons/socialIcon': SocialIconStub
-});
+}).default;
 
 describe('ExternalLinks', () => {
     let wrapper;

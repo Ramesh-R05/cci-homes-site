@@ -8,7 +8,7 @@ noCallThru();
 
 const Icon = proxyquire('../../../app/components/teaser/icon', {
     react: React
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(Icon);
 

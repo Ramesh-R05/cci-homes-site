@@ -1,6 +1,6 @@
 import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
-import { articles as articlesMock } from '../../mock/articles';
+import articlesMock from '../../mock/articles';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -16,7 +16,7 @@ const Featured = proxyquire('../../../app/components/brand/featured', {
     '@bxm/behaviour/lib/components/sticky': StickyStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub
-});
+}).default;
 
 AdStub.pos = {
     aside: 'rhs',
@@ -47,7 +47,7 @@ describe('Brand Featured', () => {
     describe('with all props', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={heroMock} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             hero = teasers.shift();
@@ -83,7 +83,7 @@ describe('Brand Featured', () => {
 
         it(`should render the 1st article as the 1st teaser with polar index of 0`, () => {
             const teaserProps = {
-                ...articlesMock[0],
+                ...articlesMock.articles[0],
                 ...componentData,
                 polar: { index: 0 },
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__polar-teaser'
@@ -94,7 +94,7 @@ describe('Brand Featured', () => {
 
         it(`should render the 2nd article as the 2nd teaser`, () => {
             const teaserProps = {
-                ...articlesMock[1],
+                ...articlesMock.articles[1],
                 ...componentData,
                 polar: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -104,7 +104,7 @@ describe('Brand Featured', () => {
 
         it(`should render the 3rd article as the 3rd teaser`, () => {
             const teaserProps = {
-                ...articlesMock[2],
+                ...articlesMock.articles[2],
                 ...componentData,
                 polar: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -115,7 +115,7 @@ describe('Brand Featured', () => {
 
         it(`should render the 4th article as the 4th teaser`, () => {
             const teaserProps = {
-                ...articlesMock[3],
+                ...articlesMock.articles[3],
                 ...componentData,
                 polar: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -125,7 +125,7 @@ describe('Brand Featured', () => {
 
         it(`should render the 5th article as the 5th teaser`, () => {
             const teaserProps = {
-                ...articlesMock[4],
+                ...articlesMock.articles[4],
                 ...componentData,
                 polar: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -136,7 +136,7 @@ describe('Brand Featured', () => {
 
         it(`should render the 6th article as the 6nd teaser with polar index 5`, () => {
             const teaserProps = {
-                ...articlesMock[5],
+                ...articlesMock.articles[5],
                 ...componentData,
                 polar: { index: 5 },
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__polar-teaser'
@@ -153,7 +153,7 @@ describe('Brand Featured', () => {
     describe('without the hero prop as an undefined', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={undefined} articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={undefined} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
         });
 
@@ -165,7 +165,7 @@ describe('Brand Featured', () => {
     describe('without the hero prop as an empty object', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={{}} articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={{}} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
         });
 
@@ -177,7 +177,7 @@ describe('Brand Featured', () => {
     describe('without the hero prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured articles={articlesMock} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
         });
 
@@ -211,7 +211,7 @@ describe('Brand Featured', () => {
     describe('without brand prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={heroMock} articles={articlesMock.articles} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
             );
         });
 
@@ -223,7 +223,7 @@ describe('Brand Featured', () => {
     describe('without brandConfig prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock} brand={brand} polarTargets={polarTargetsStub} />
+                <Featured hero={heroMock} articles={articlesMock.articles} brand={brand} polarTargets={polarTargetsStub} />
             );
         });
 
@@ -234,7 +234,7 @@ describe('Brand Featured', () => {
 
     describe('without polarTargets prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock} brand={brand} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock.articles} brand={brand} />);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
         });
 

@@ -1,10 +1,8 @@
-import { filterErrors, restoreErrors } from '../../utils/propTypeWarningFilter';
 import { betterMockComponentContext } from '@bxm/flux';
 import heroMock from '../../mock/article';
-import { home as articlesMock } from '../../mock/articles';
+import articlesMock from '../../mock/articles';
 import proxyquire, { noCallThru } from 'proxyquire';
 import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
-import latestVideoStubData from '../../../stubs/bff-latest-videos';
 
 noCallThru();
 
@@ -56,7 +54,7 @@ describe('BrandSection component', () => {
             let articles;
 
             before(() => {
-                articles = articlesMock.slice(0, 6);
+                articles = articlesMock.home.slice(0, 6);
                 lodashSliceStub.returns(articles);
 
                 [wrapper, testProps, testContext] = TestWrapper(
@@ -66,7 +64,7 @@ describe('BrandSection component', () => {
                             urlName: 'belle'
                         },
                         hero: heroMock,
-                        articles: articlesMock,
+                        articles: articlesMock.home,
                         list: {
                             items: [1, 2, 3]
                         },

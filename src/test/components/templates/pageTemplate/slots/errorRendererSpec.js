@@ -5,7 +5,7 @@ const ErrorHandlerBuilderStub = sinon.stub();
 
 const errorRenderer = proxyquire('../../../../../app/components/templates/pageTemplate/slots/errorRenderer', {
     '../../../error/errorHandlerBuilder': ErrorHandlerBuilderStub
-});
+}).default;
 
 describe('errorRenderer function', () => {
     describe('with contentProps param passed', () => {

@@ -4,7 +4,7 @@ noCallThru();
 
 const errorMiddleware = proxyquire('../../../../app/server/bff/middleware/error', {
     '../../../../logger': { error() {} }
-});
+}).default;
 
 describe('Error middleware', () => {
     let next;

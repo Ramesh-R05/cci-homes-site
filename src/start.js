@@ -1,18 +1,27 @@
 process.env.APP_KEY = 'homes-site';
 process.title = process.env.APP_KEY;
+
 process.on('uncaughtException', function(e) {
     throw e;
 });
-require('babel-polyfill');
-require('babel-register');
-var logger = require('./logger');
+
+require('@babel/polyfill');
+require('@babel/register');
+
+const path = require('path');
+
+require('dotenv').config({
+    path: process.env.APP_ENV === 'prod' ? path.resolve(process.cwd(), '.prod.env') : path.resolve(process.cwd(), '.sit.env')
+});
+
+const logger = require('./logger').default;
 require('./apm');
-var fs = require('fs');
-var requiredFile = './dist/manifest.json';
-var retryDelay = 5000;
-var attemptCount = 0;
-var maxAttempts = 12;
-var timerId = null;
+const fs = require('fs');
+const requiredFile = './dist/manifest.json';
+const retryDelay = 5000;
+let attemptCount = 0;
+const maxAttempts = 12;
+let timerId = null;
 
 function startWhenReady() {
     attemptCount++;

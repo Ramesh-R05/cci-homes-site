@@ -13,7 +13,7 @@ const Home = proxyquire('../../../app/components/home/header', {
     react: React,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
-});
+}).default;
 
 AdStub.pos = {
     aside: 'rhs',

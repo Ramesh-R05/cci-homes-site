@@ -13,7 +13,7 @@ const BrandLinkStub = Context.createStubComponentWithChildren();
 
 const Source = proxyquire('../../../app/components/article/source', {
     '../brand/link': BrandLinkStub
-});
+}).default;
 
 const config = {
     get: sinon.stub(),

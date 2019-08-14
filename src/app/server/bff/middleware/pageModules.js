@@ -1,6 +1,32 @@
-import getModules from '../api/module';
+import find from 'lodash/collection/find';
+import get from 'lodash/object/get';
+import API from '../api';
 import getThemeModuleForQuery from '../helper/getThemeModuleForQuery';
 import processModules from '../helper/processModules';
+
+function moduleDataCallback(moduleArgs, modules) {
+    const moduleList = {};
+
+    if (!modules) {
+        return moduleList;
+    }
+
+    moduleArgs.forEach(arg => {
+        const moduleConfig = find(modules.data, { moduleName: arg });
+
+        if (arg === 'footer') {
+            moduleList[arg] = moduleConfig || {};
+        } else if (arg.endsWith('theme')) {
+            moduleList[arg] = moduleConfig || {};
+        } else if (arg.endsWith('hero')) {
+            moduleList[arg] = moduleConfig || {};
+        } else {
+            moduleList[arg] = get(moduleConfig, 'moduleManualContent.data', []);
+        }
+    });
+
+    return moduleList;
+}
 
 export default async function pageModulesMiddleware(req, res, next) {
     try {
@@ -8,7 +34,10 @@ export default async function pageModulesMiddleware(req, res, next) {
 
         const themeModule = getThemeModuleForQuery(query);
 
-        const moduleResponse = await getModules('hamburgernavigation', 'headernavigation', 'featuredbrand', 'listingcategories', themeModule);
+        const moduleResponse = await API.getModules(
+            ['hamburgernavigation', 'headernavigation', 'featuredbrand', 'listingcategories', themeModule],
+            moduleDataCallback
+        );
 
         res.body = {
             ...res.body,

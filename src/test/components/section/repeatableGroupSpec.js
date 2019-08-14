@@ -1,5 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import { articles as articlesMock } from '../../mock/articles';
+import articlesMock from '../../mock/articles';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -11,7 +11,7 @@ const RepeatableGroup = proxyquire('../../../app/components/section/repeatableGr
     react: React,
     '../teaser/teaser': TeaserStub,
     '@bxm/ad/lib/google/components/ad': AdStub
-});
+}).default;
 
 AdStub.pos = {
     aside: 'rhs',
@@ -30,7 +30,7 @@ describe('RepeatableGroup', () => {
         let ads;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={articlesMock.slice(1, 10)} adTargets={{ position: 2 }} />);
+            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={articlesMock.articles.slice(1, 10)} adTargets={{ position: 2 }} />);
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
@@ -114,7 +114,7 @@ describe('RepeatableGroup', () => {
         let ads;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={articlesMock.slice(0, 10)} adTargets={{ position: 2 }} />);
+            reactModule = TestUtils.renderIntoDocument(<RepeatableGroup items={articlesMock.articles.slice(0, 10)} adTargets={{ position: 2 }} />);
             section = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `section--9-items`);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             ads = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);

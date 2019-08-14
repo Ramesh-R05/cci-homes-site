@@ -1,5 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import { localeData } from '../../mock/config';
+import mockConfig from '../../mock/config';
 
 const proxyquire = require('proxyquire').noCallThru();
 
@@ -8,13 +8,13 @@ const { React, ReactDOM, TestUtils } = Context;
 
 const MagShop = proxyquire('../../../app/components/magshop/magshop', {
     react: React
-});
+}).default;
 
 const dataLayerStub = {
     push: sinon.spy()
 };
 
-const magShopData = localeData.magShop;
+const magShopData = mockConfig.localeData.magShop;
 
 describe(`MagShop`, () => {
     let previousDataLayer;

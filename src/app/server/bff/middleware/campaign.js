@@ -1,6 +1,5 @@
-import makeRequest from '../../makeRequest';
 import { parseEntity, parseEntities } from '../helper/parseEntity';
-import getLatestTeasers from '../api/listing';
+import API from '../api';
 
 export default async function campaignMiddleware(req, res, next) {
     try {
@@ -13,7 +12,7 @@ export default async function campaignMiddleware(req, res, next) {
             return;
         }
 
-        const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/?nodeTypeAlias=Campaign&urlName=${campaign}`);
+        const entityResponse = await API.getEntity(`?nodeTypeAlias=Campaign&urlName=${campaign}`);
 
         entityResponse.kingtag = entityResponse.urlName;
 
@@ -22,7 +21,7 @@ export default async function campaignMiddleware(req, res, next) {
         const skip = (pageNo - 1) * pageSize;
 
         const filter = `(nodeTypeAlias eq 'HomesArticle' or nodeTypeAlias eq 'Gallery') and sponsorName eq '${entityResponse.sponsorName}'`;
-        const latestTeasersResp = await getLatestTeasers(itemsCount, skip, filter);
+        const latestTeasersResp = await API.getLatestTeasers(itemsCount, skip, filter);
 
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
 

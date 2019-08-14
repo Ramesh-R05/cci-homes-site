@@ -1,5 +1,5 @@
 import { betterMockComponentContext } from '@bxm/flux';
-import { articles as articlesMock } from '../../mock/articles';
+import articlesMock from '../../mock/articles';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -9,7 +9,7 @@ const TeaserStub = Context.createStubComponentWithChildren();
 const SectionHero = proxyquire('../../../app/components/section/hero', {
     react: React,
     '../teaser/teaser': TeaserStub
-});
+}).default;
 
 describe('GroupHero', () => {
     describe('with firstHero and secondHero defined', () => {
@@ -19,7 +19,7 @@ describe('GroupHero', () => {
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <SectionHero firstHero={articlesMock.slice(0, 1)[0]} secondHero={articlesMock.slice(4, 5)[0]} />
+                <SectionHero firstHero={articlesMock.articles.slice(0, 1)[0]} secondHero={articlesMock.articles.slice(4, 5)[0]} />
             );
             sectionHero = TestUtils.findRenderedComponentWithType(reactModule, SectionHero);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
@@ -39,7 +39,7 @@ describe('GroupHero', () => {
         let reactModule;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<SectionHero firstHero={articlesMock.slice(0, 1)[0]} />);
+            reactModule = TestUtils.renderIntoDocument(<SectionHero firstHero={articlesMock.articles.slice(0, 1)[0]} />);
         });
 
         it(`should render`, () => {

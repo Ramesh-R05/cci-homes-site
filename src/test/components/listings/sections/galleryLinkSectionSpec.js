@@ -23,7 +23,7 @@ const GalleryLinkSection = proxyquire('../../../../app/components/listings/secti
     '../components/galleryModal': GalleryModalStub,
     '../components/galleryModalHeader': GalleryModalHeaderStub,
     '../components/galleryModalTrigger': GalleryModalTriggerStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(GalleryLinkSection);
 

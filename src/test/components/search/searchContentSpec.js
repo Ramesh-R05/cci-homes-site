@@ -32,7 +32,7 @@ const SearchContent = proxyquire('../../../app/components/search/searchContent',
     '../../actions/loadSearch': loadSearchStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(SearchContent);
 

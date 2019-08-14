@@ -19,7 +19,7 @@ const Summary = proxyquire('../../../../app/components/listings/components/summa
         splitParagraphs: splitParagraphsStub
     },
     '../utilities/splitParagraphsHTML': splitParagraphsHTML
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(Summary);
 

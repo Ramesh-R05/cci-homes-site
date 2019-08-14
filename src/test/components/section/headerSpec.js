@@ -14,7 +14,7 @@ const Header = proxyquire('../../../app/components/section/header', {
     '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
-});
+}).default;
 
 AdStub.pos = {
     aside: 'rhs',

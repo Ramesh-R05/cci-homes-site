@@ -16,7 +16,7 @@ const ArticlePage = proxyquire('../../../app/components/article/page', {
     './source': SourceStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/article/lib/gallery': GalleryStub
-});
+}).default;
 
 describe('ArticlePage', () => {
     describe('with all props', () => {

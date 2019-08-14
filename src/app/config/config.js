@@ -3,6 +3,7 @@
 import breakpoints from '../breakpoints';
 import siteBrands from './siteBrands';
 import networkBrands from './networkBrands';
+import services from './services';
 
 const accountId = '761709621001';
 const playerId = 'VkuyApojl';
@@ -324,35 +325,7 @@ export default {
         port: 3001
     },
 
-    services: {
-        local: 'http://127.0.0.1',
-        remote: {
-            entity: 'http://services.sit.bxm.internal/entity/v1/homes',
-            listings: 'http://services.sit.bxm.internal/listing/v1/homes',
-            module: 'http://services.sit.bxm.internal/module/v1/homes',
-            sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/homes',
-            tag: 'http://services.sit.bxm.internal/tag/v1',
-            search: 'http://services.sit.bxm.internal/es-search/v1/homes',
-            identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
-        },
-        endpoints: {
-            page: '/api/getPageContent',
-            list: '/api/list',
-            search: '/api/search',
-            directory: '/api/directory',
-            identity: '/api/identity',
-            email: '/api/sendEmail'
-        },
-
-        header: {
-            url: 'https://s3-ap-southeast-2.amazonaws.com/digital-services/header/prod/globalheader.json'
-        },
-        redirect: {
-            url: 'http://services.sit.bxm.internal/redirect/v1/homes/301'
-        },
-        googlePlusUrl: 'https://plus.google.com/+HomesToLoveAu/',
-        faceBookAppID: '852557544824192'
-    },
+    services,
 
     localeData: {
         magShop: {

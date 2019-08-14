@@ -6,7 +6,7 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const ErrorHandlerBuilder = proxyquire('../../../app/components/error/errorHandlerBuilder', {
     react: React
-});
+}).default;
 
 describe('ErrorHandlerBuilder', () => {
     let reactModule;

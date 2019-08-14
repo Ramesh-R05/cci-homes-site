@@ -14,7 +14,7 @@ const DirectoryNodeTypeCheck = proxyquire('../../../app/components/helpers/direc
     '../listings/components/directoryHome': DirectoryHomeStub,
     '../listings/templates/listingCategory': ListingCategoryStub,
     '../listings/templates/listingRenderer': ListingRendererStub
-});
+}).default;
 
 describe('DirectoryNodeTypeCheck higher order component', () => {
     describe('when passed a valid component', () => {

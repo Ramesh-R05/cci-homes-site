@@ -11,7 +11,7 @@ const DropDownStub = Context.createStubComponent();
 const DropdownSelect = proxyquire('../../../app/components/form/dropdownSelect', {
     react: React,
     'react-dropdown': DropDownStub
-});
+}).default;
 
 const testWrapper = props => shallow(<DropdownSelect {...props} />);
 

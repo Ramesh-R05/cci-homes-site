@@ -10,20 +10,37 @@ const nextSpy = sinon.spy();
 const pageModulesMiddleware = proxyquire('../../../../app/server/bff/middleware/pageModules', {
     '../helper/processModules': processModulesStub,
     '../helper/getThemeModuleForQuery': getThemeModuleForQueryStub,
-    '../api/module': getModulesStub,
-    '../../../../logger': loggerStub
-});
+    '../../../../logger': loggerStub,
+    '../api': {
+        getModules: getModulesStub
+    }
+}).default;
 
 const requestMock = () => ({
     query: {}
 });
 
+const processModulesResponse = {
+    hamburgerNavigation: { items: [] },
+    headerNavigation: { items: [] }
+};
+
 const getModulesResponseMock = () => ({
-    headerNavigation: {
-        name: 'headernavigation'
-    },
-    hamburgerNavigation: {
-        name: 'headernavigation'
+    headernavigation: [],
+    hamburgernavigation: [],
+    footer: {},
+    mustread: [],
+    promoted: { items: [], title: 'KICKSTART 2017' },
+    hero: null,
+    homehero: [],
+    theme: {
+        id: 'NOW-32655',
+        url: '/modules/hometheme',
+        themeName: 'Royal wedding',
+        moduleName: 'hometheme',
+        themeAlignment: 'center',
+        pageDateCreated: '2017-02-07T01:27:43.00Z',
+        moduleManualContent: { data: [], totalCount: 0 }
     }
 });
 
@@ -43,11 +60,12 @@ describe('pageModulesMiddleware', () => {
         const res = {};
         const themeModuleNameMock = 'theme';
         const moduleResposeMock = getModulesResponseMock();
+        const modulesMock = [...getModulesDefaultArgs, themeModuleNameMock];
 
         beforeEach(() => {
             getThemeModuleForQueryStub.withArgs(req.query).returns(themeModuleNameMock);
-            getModulesStub.withArgs(...getModulesDefaultArgs, themeModuleNameMock).returns(moduleResposeMock);
-            processModulesStub.withArgs(moduleResposeMock, themeModuleNameMock).returns(moduleResposeMock);
+            getModulesStub.withArgs(modulesMock, sinon.match.func).returns(moduleResposeMock);
+            processModulesStub.withArgs(moduleResposeMock).returns(processModulesResponse);
         });
 
         afterEach(() => {
@@ -63,10 +81,10 @@ describe('pageModulesMiddleware', () => {
                 .catch(done);
         });
 
-        it('should call getModules with the hard-coded argumnents and the value returned from getThemeModuleForQuery', done => {
+        it('should call getModules with the hard-coded arguments and the value returned from getThemeModuleForQuery', done => {
             pageModulesMiddleware(req, res, nextSpy)
                 .then(() => {
-                    expect(getModulesStub).to.be.calledWith(...getModulesDefaultArgs, themeModuleNameMock);
+                    expect(getModulesStub).to.be.calledWith(modulesMock);
                     done();
                 })
                 .catch(done);
@@ -81,11 +99,11 @@ describe('pageModulesMiddleware', () => {
                 .catch(done);
         });
 
-        it('adds the modules to the repsonse body', done => {
+        it('adds the modules to the response body', done => {
             pageModulesMiddleware(req, res, nextSpy)
                 .then(() => {
                     expect(res.body).to.deep.equal({
-                        ...moduleResposeMock
+                        ...processModulesResponse
                     });
                     done();
                 })

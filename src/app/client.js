@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import 'picturefill';
 import 'raf/polyfill';
 import React from 'react';

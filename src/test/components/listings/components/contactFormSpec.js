@@ -19,7 +19,7 @@ const ReCAPTCHAStub = Context.createStubComponent();
 
 const ContactForm = proxyquire('../../../../app/components/listings/components/contactForm', {
     'react-google-recaptcha': ReCAPTCHAStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(ContactForm);
 

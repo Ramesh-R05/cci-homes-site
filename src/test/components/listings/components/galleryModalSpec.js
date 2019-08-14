@@ -25,7 +25,7 @@ const GalleryModal = proxyquire('../../../../app/components/listings/components/
     '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub,
     '@bxm/ui/lib/common/ImageResize': imageResizeMock,
     '../../../breakpoints': breakpointsMock
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(GalleryModal);
 

@@ -6,7 +6,7 @@ const { React, ReactDOM, TestUtils } = Context;
 const proxyquire = require('proxyquire').noCallThru();
 const BrandLink = proxyquire('../../../app/components/brand/link', {
     react: React
-});
+}).default;
 
 describe('BrandLink', () => {
     let reactModule;

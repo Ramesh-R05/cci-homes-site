@@ -9,7 +9,7 @@ const TeaserStub = Context.createStubComponent();
 const Subscribe = proxyquire('../../../app/components/brand/subscribe', {
     react: React,
     '../teaser/teaser': TeaserStub
-});
+}).default;
 
 describe('Brand Subscribe', () => {
     let reactModule;

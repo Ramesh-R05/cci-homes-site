@@ -1,6 +1,5 @@
-import makeRequest from '../../makeRequest';
+import API from '../api';
 import { parseEntity, parseEntities } from '../helper/parseEntity';
-import getLatestTeasers from '../api/listing';
 
 export default async function brandMiddleware(req, res, next) {
     try {
@@ -17,17 +16,17 @@ export default async function brandMiddleware(req, res, next) {
         const pageNo = parseInt(req.query.pageNo || 1, 10);
         const skip = (pageNo - 1) * pageSize;
 
-        const entityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${brand}`);
+        const entityResponse = await API.getEntity(`section/${brand}`);
 
-        const filter = `source eq '${entityResponse.articleSource}' and nodeTypeAlias ne 'ListingGallery'`;
-        const listingResponse = await getLatestTeasers(itemsCount, skip, filter);
+        const filter = `source eq %27${entityResponse.articleSource}%27 and nodeTypeAlias ne %27ListingGallery%27`;
+        const listingResponse = await API.getLatestTeasers(itemsCount, skip, filter);
 
         const brandConfig = req.app.locals.config.brands.site.find(b => b.title === entityResponse.articleSource);
 
         entityResponse.brand = (brandConfig && brandConfig.id) || '';
 
         const heroModuleName = `${entityResponse.brand}hero`;
-        const heroResp = await makeRequest(`${req.app.locals.config.services.remote.module}/${heroModuleName}`);
+        const heroResp = await API.getModules([`${heroModuleName}`]);
         const heroModule = (heroResp && heroResp.data && heroResp.data[0]) || {};
 
         const list = {

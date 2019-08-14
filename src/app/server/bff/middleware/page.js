@@ -1,4 +1,4 @@
-import makeRequest from '../../makeRequest';
+import API from '../api';
 import { parseEntity } from '../helper/parseEntity';
 
 export default async function pageMiddleware(req, res, next) {
@@ -15,7 +15,7 @@ export default async function pageMiddleware(req, res, next) {
         }
 
         const saved = `?saved=${!!preview}`;
-        const pageEntity = await makeRequest(`${req.app.locals.config.services.remote.entity}/HOMES-${id}${saved}`);
+        const pageEntity = await API.getEntity(`HOMES-${id}${saved}`);
 
         const brandSource = pageEntity.articleSource || pageEntity.source;
         const brandConfig = req.app.locals.config.brands.site.find(brand => brand.title === brandSource);
@@ -31,7 +31,7 @@ export default async function pageMiddleware(req, res, next) {
         const tagEntityName = (navigationTag && navigationTag.urlName) || '';
 
         if (tagEntityName) {
-            const sectionEntityResponse = await makeRequest(`${req.app.locals.config.services.remote.entity}/section/${tagEntityName}`);
+            const sectionEntityResponse = await API.getEntity(`section/${tagEntityName}`);
             res.body.section = {
                 name: sectionEntityResponse.nodeName,
                 id: sectionEntityResponse.id,

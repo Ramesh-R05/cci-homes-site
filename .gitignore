@@ -129,3 +129,10 @@ screenshots/*.jpg
 package-lock.json
 
 shippable/
+
+# nyc test coverage
+.nyc_output
+
+# dotenv files
+*.env
+!*sample.*.env

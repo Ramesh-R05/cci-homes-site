@@ -7,7 +7,7 @@ const loggerStub = sinon.stub();
 const featuredBrand = proxyquire('../../../../app/server/bff/moduleHandlers/featuredBrand', {
     '../helper/transformFeaturedBrand': transformFeaturedBrandStub,
     '../../../../logger': loggerStub
-});
+}).default;
 
 describe('featuredBrand', () => {
     describe('when pass in correct moduleData', () => {

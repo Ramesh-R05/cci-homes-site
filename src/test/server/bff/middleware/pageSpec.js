@@ -3,13 +3,13 @@ noCallThru();
 import entityStubData from '../../../../stubs/entity-3193';
 import siteBrands from '../../../../app/config/siteBrands';
 
-const makeRequestStub = () => ({ articleSource: entityStubData.articleSource });
+const getEntityStub = sinon.stub();
+
+getEntityStub.returns({ articleSource: entityStubData.articleSource });
 
 const parseEntityStub = sinon.stub();
 
 parseEntityStub.returns(entityStubData);
-
-const makeRequestSpy = sinon.spy(makeRequestStub);
 
 const entityServiceMockUrl = 'http://entitiesUrl.com';
 
@@ -22,11 +22,13 @@ const expectedBody = {
 };
 
 const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/page', {
-    '../../makeRequest': makeRequestSpy,
     '../helper/parseEntity': {
         parseEntity: parseEntityStub
+    },
+    '../api': {
+        getEntity: getEntityStub
     }
-});
+}).default;
 
 describe('page middleware', () => {
     const req = {
@@ -68,7 +70,7 @@ describe('page middleware', () => {
             it('should not call service urls', done => {
                 articleMiddleware(req, res, next)
                     .then(() => {
-                        expect(makeRequestSpy.called).to.be.false;
+                        expect(getEntityStub.called).to.be.false;
 
                         done();
                     })
@@ -82,8 +84,8 @@ describe('page middleware', () => {
                     .then(() => {
                         const { preview } = req.query;
                         const saved = `?saved=${!!preview}`;
-                        const entityServiceUrl = `${entityServiceMockUrl}/HOMES-${req.query.id}${saved}`;
-                        expect(makeRequestSpy.firstCall.calledWith(entityServiceUrl)).to.be.true;
+                        const entityServiceUrl = `HOMES-${req.query.id}${saved}`;
+                        expect(getEntityStub.firstCall.calledWith(entityServiceUrl)).to.be.true;
 
                         expect(parseEntityStub.calledWith(sinon.match.has('brand', expectedBrand.id))).to.be.true;
 

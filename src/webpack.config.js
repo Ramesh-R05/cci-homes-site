@@ -24,8 +24,8 @@ const config = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            /* 
-                ensure there is only one instance of react when resolving modules 
+            /*
+                ensure there is only one instance of react when resolving modules
                 this helps with symlinks
             */
             react: path.join(__dirname, 'node_modules/react'),
@@ -44,8 +44,8 @@ const config = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015', 'react', 'stage-1'],
-                        plugins: ['transform-decorators-legacy']
+                        presets: ['@babel/preset-env', '@babel/react'],
+                        plugins: [['@babel/plugin-proposal-decorators', { legacy: true }], '@babel/plugin-proposal-class-properties']
                     }
                 }
             },

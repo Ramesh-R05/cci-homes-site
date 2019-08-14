@@ -9,7 +9,7 @@ const SVGSTub = Context.createStubComponentWithChildren();
 
 const GalleryModalHeader = proxyquire('../../../../app/components/listings/components/galleryModalHeader', {
     'react-inlinesvg': SVGSTub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(GalleryModalHeader);
 

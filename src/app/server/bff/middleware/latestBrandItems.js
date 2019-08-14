@@ -1,11 +1,11 @@
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
-import getLatestTeasers from '../api/listing';
 
 export default async function latestBrandItems(req, res, next) {
     try {
         const brandConfig = req.app.locals.config.brands.site;
         const brandContentPromises = brandConfig.map(brand =>
-            getLatestTeasers(3, 0, `source eq '${brand.title}'`).then(itemRes => ({
+            API.getLatestTeasers(3, 0, `source eq %27${brand.title}%27`).then(itemRes => ({
                 [brand.id]: parseEntities(itemRes && itemRes.data ? itemRes.data : [])
             }))
         );

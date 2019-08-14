@@ -3,15 +3,14 @@ noCallThru();
 import entityStubData from '../../../../stubs/entity-nodetypealias-campaign-urlname-myer-eat-live';
 import listingsStubData from '../../../../stubs/listings-campaign-myer-eat-live';
 
-const makeRequestStub = sinon.stub();
-const getLatestTeasersStub = () => listingsStubData;
+const getEntityStub = sinon.stub();
+const getLatestTeasersStub = sinon.stub();
 const parseEntityStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
-makeRequestStub.onFirstCall().returns({ sponsorName: entityStubData.sponsorName });
-makeRequestStub.onSecondCall().returns(listingsStubData);
-
-const getLatestTeasersSpy = sinon.spy(getLatestTeasersStub);
+getEntityStub.onFirstCall().returns({ sponsorName: entityStubData.sponsorName });
+getEntityStub.onSecondCall().returns(listingsStubData);
+getLatestTeasersStub.onFirstCall().returns(listingsStubData);
 
 parseEntityStub.returns(entityStubData);
 parseEntitiesStub.onFirstCall().returns(listingsStubData.data.slice(0, 11));
@@ -39,13 +38,15 @@ const expectedBody = {
 };
 
 const campaignMiddleware = proxyquire('../../../../app/server/bff/middleware/campaign', {
-    '../../makeRequest': makeRequestStub,
     '../helper/parseEntity': {
         parseEntity: parseEntityStub,
         parseEntities: parseEntitiesStub
     },
-    '../api/listing': getLatestTeasersSpy
-});
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub,
+        getEntity: getEntityStub
+    }
+}).default;
 
 describe('campaign middleware', () => {
     const req = {
@@ -84,7 +85,8 @@ describe('campaign middleware', () => {
             it('should not call service urls', done => {
                 campaignMiddleware(req, res, next)
                     .then(() => {
-                        expect(makeRequestStub.called).to.be.false;
+                        expect(getEntityStub.called).to.be.false;
+                        expect(getLatestTeasersStub.called).to.be.false;
 
                         done();
                     })
@@ -105,16 +107,16 @@ describe('campaign middleware', () => {
             it('should use the required config values for content service urls for the request', done => {
                 campaignMiddleware(req, res, next)
                     .then(() => {
-                        const entityServiceUrl = `${entityServiceMockUrl}/?nodeTypeAlias=Campaign&urlName=${req.query.campaign}`;
+                        const entityServiceUrl = `?nodeTypeAlias=Campaign&urlName=${req.query.campaign}`;
 
-                        const makeRequestStubFirstCall = makeRequestStub.getCall(0);
-                        const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
+                        const getEntityStubFirstCall = getEntityStub.getCall(0);
+                        const getLatestTeasersStubFirstCall = getLatestTeasersStub.getCall(0);
 
-                        expect(makeRequestStubFirstCall.args[0]).to.equal(entityServiceUrl);
+                        expect(getEntityStubFirstCall.args[0]).to.equal(entityServiceUrl);
 
-                        expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
-                        expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);
-                        expect(getLatestTeasersSpyFirstCall.args[2]).to.equal(campaignFilter);
+                        expect(getLatestTeasersStubFirstCall.args[0]).to.equal(6);
+                        expect(getLatestTeasersStubFirstCall.args[1]).to.equal(0);
+                        expect(getLatestTeasersStubFirstCall.args[2]).to.equal(campaignFilter);
 
                         done();
                     })

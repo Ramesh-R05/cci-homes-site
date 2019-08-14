@@ -1,6 +1,6 @@
 import { betterMockComponentContext } from '@bxm/flux';
 import Input from '../../../app/components/form/input';
-import { radio1 as inputRadioMock } from '../../mock/input';
+import inputRadioMock from '../../mock/input';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -13,8 +13,7 @@ describe('Input', () => {
         let input;
         let label;
         const onChangeSpy = sinon.spy();
-        let props = inputRadioMock;
-        props.onChange = onChangeSpy;
+        let props = { ...inputRadioMock.radio1, onChange: onChangeSpy };
 
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Input {...props}>{labelText}</Input>);

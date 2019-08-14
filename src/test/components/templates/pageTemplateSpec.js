@@ -22,7 +22,7 @@ const PageTemplate = proxyquire('../../../app/components/templates/pageTemplate/
     './slots/headerSlot': HeaderSlotStub,
     './slots/footerSlot': FooterSlotStub,
     './slots/errorRenderer': errorRendererStub
-});
+}).default;
 
 const TestWrapper = new ShallowWrapperFactory(PageTemplate);
 

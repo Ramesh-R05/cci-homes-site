@@ -11,7 +11,7 @@ const SocialIconStub = createStubComponent();
 const FooterSocial = proxyquire('../../../app/components/site-footer/footerSocial', {
     react: React,
     '@bxm/social/lib/components/socialIcons/socialIcon': SocialIconStub
-});
+}).default;
 
 const TestWrapper = TestWrapperFactory(FooterSocial);
 

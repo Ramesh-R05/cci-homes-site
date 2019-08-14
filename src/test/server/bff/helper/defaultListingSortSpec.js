@@ -9,7 +9,7 @@ const sortByRecentDateStub = sinon.stub();
 const defaultListingSort = proxyquire('../../../../app/server/bff/helper/defaultListingSort', {
     './sortAlphabeticallyByContentTitle': sortAlphabeticallyByContentTitleStub,
     './sortByRecentDate': sortByRecentDateStub
-});
+}).default;
 
 describe('defaultListingSort function', () => {
     describe('when passed an array', () => {

@@ -9,7 +9,7 @@ const processModules = proxyquire('../../../../app/server/bff/helper/processModu
     '../moduleHandlers/headerNavigation': headerNavigationStub,
     '../moduleHandlers/hamburgerNavigation': hamburgerNavigationStub,
     '../moduleHandlers/theme': themeStub
-});
+}).default;
 
 const createMockModuleResponse = () => ({
     headernavigation: {

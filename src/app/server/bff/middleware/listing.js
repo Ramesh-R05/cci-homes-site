@@ -1,5 +1,5 @@
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
-import getLatestTeasers from '../api/listing';
 
 export default async function listingMiddleware(req, res, next) {
     try {
@@ -30,7 +30,7 @@ export default async function listingMiddleware(req, res, next) {
             top = pageSize - offset;
         }
 
-        const latestTeasersResp = await getLatestTeasers(top, skip, filter);
+        const latestTeasersResp = await API.getLatestTeasers(top, skip, filter);
         const latestTeasers = (latestTeasersResp && latestTeasersResp.data) || [];
         const latestTeasersCount = (latestTeasersResp && latestTeasersResp.totalCount) || 0;
 

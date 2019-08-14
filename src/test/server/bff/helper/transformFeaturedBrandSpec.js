@@ -9,7 +9,7 @@ const configStub = {
 
 const transformFeaturedBrand = proxyquire('../../../../app/server/bff/helper/transformFeaturedBrand', {
     '../../../config': configStub
-});
+}).default;
 
 describe('TransformFeaturedBrand middleware', () => {
     it('should find given brand from config', () => {

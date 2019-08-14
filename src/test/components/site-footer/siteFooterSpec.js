@@ -18,7 +18,7 @@ const SiteFooter = proxyquire('../../../app/components/site-footer/site-footer',
     './footerLink': FooterLinkStub,
     './footerSocial': FooterSocialStub,
     '../newsletter': NewsletterStub
-});
+}).default;
 
 const TestWrapper = TestWrapperFactory(SiteFooter);
 

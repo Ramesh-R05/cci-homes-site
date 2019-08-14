@@ -23,8 +23,10 @@ const reqStub = {
 const latestBrandItemsMiddlewareFunc = isError =>
     proxyquire('../../../../app/server/bff/middleware/latestBrandItems', {
         '../helper/parseEntity': { parseEntities: parseEntitiesStub },
-        '../api/listing': isError ? getLatestTeasersRejectStub : getLatestTeasersStub
-    });
+        '../api': {
+            getLatestTeasers: isError ? getLatestTeasersRejectStub : getLatestTeasersStub
+        }
+    }).default;
 
 const expectLatestBrandItems = {
     brand1: ['brandItem1', 'brandItem2', 'brandItem3'],

@@ -11,7 +11,7 @@ const SocialIconStub = Context.createStubComponent();
 
 const SocialIcons = proxyquire('../../../../app/components/listings/components/socialIcons', {
     '@bxm/social/lib/components/socialIcons/socialIcon': SocialIconStub
-});
+}).default;
 
 const selectors = {
     root: '.social-icons',
