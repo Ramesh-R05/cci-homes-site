@@ -29,33 +29,33 @@ servicesStubs.get('/entity-service/', (req, res) => {
         }, '')
         .replace(/-$/, '');
 
-    const entityPath = require(`${cwd}/stubs/entity-${queryPath}`);
+    const entityPath = require(`${cwd}/stubs/entity-${queryPath}`).default;
     res.json(entityPath);
 });
 
 servicesStubs.get('/search-service/', (req, res) => {
-    const module = require(`${cwd}/stubs/search-service.js`);
+    const module = require(`${cwd}/stubs/search-service.js`).default;
     res.json(module);
 });
 
 servicesStubs.get('/entity-service/homepage', (req, res) => {
-    const home = require(`${cwd}/stubs/entity-homepage`);
+    const home = require(`${cwd}/stubs/entity-homepage`).default;
     res.json(home);
 });
 
 servicesStubs.get('/entity-service/alltagsections', (req, res) => {
-    const alltagsections = require(`${cwd}/stubs/entity-alltagsections`);
+    const alltagsections = require(`${cwd}/stubs/entity-alltagsections`).default;
     res.json(alltagsections);
 });
 
 servicesStubs.get('/entity-service/section/:section', (req, res) => {
-    const section = require(`${cwd}/stubs/entity-${req.params.section.toLowerCase()}`);
+    const section = require(`${cwd}/stubs/entity-${req.params.section.toLowerCase()}`).default;
     res.json(section);
 });
 
 servicesStubs.get('/entity-service/:page', (req, res) => {
     const pageId = req.url.match(/\d{3,}/)[0];
-    const pageResponse = require(`${cwd}/stubs/entity-${pageId}`);
+    const pageResponse = require(`${cwd}/stubs/entity-${pageId}`).default;
     res.json(pageResponse);
 });
 
@@ -83,7 +83,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     };
 
     if (latestVideos) {
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-latest-videos`);
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-latest-videos`).default;
 
         if ($top) {
             teaserData.data.splice($top);
@@ -93,7 +93,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     }
 
     if (rssListingMatch) {
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listing-rss-index`);
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listing-rss-index`).default;
 
         if ($top) {
             teaserData.data.splice($top);
@@ -103,7 +103,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     }
 
     if (homepageMatch) {
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-homepage`);
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-homepage`).default;
 
         if ($top) {
             teaserData.data.splice($top);
@@ -114,7 +114,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (sourceMatch) {
         const source = sourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`);
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`).default;
 
         if ($top) {
             teaserData.data.splice($top);
@@ -125,7 +125,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (brandSourceMatch) {
         const source = brandSourceMatch[1].replace(/ /g, '-').replace(/\W$/, '-plus');
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`);
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${source.toLowerCase()}`).default;
 
         if ($top) {
             teaserData.data.splice($top);
@@ -136,7 +136,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (tagMatch) {
         const tag = tagMatch[3].replace(/ |:|_/g, '-');
-        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${tag}`);
+        const teaserData = requireWithNoCache(`${cwd}/stubs/listings-${tag}`).default;
 
         if ($top) {
             teaserData.data.splice($top);
@@ -146,7 +146,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     }
 
     if (galleryMatch) {
-        const galleryResponse = requireWithNoCache(`${cwd}/stubs/listings-gallery`);
+        const galleryResponse = requireWithNoCache(`${cwd}/stubs/listings-gallery`).default;
         res.json(galleryResponse);
 
         return;
@@ -154,14 +154,14 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
 
     if (campaignMatch) {
         const sponsor = campaignMatch[1].toLowerCase().replace(/\W/g, '-');
-        const sponsorResponse = requireWithNoCache(`${cwd}/stubs/listings-campaign-${sponsor}`);
+        const sponsorResponse = requireWithNoCache(`${cwd}/stubs/listings-campaign-${sponsor}`).default;
         res.json(sponsorResponse);
 
         return;
     }
 
     if (latestRealHomesMatch) {
-        const latestRealHomes = requireWithNoCache(`${cwd}/stubs/listings-food-Homes-navigation-Real-Homes`);
+        const latestRealHomes = requireWithNoCache(`${cwd}/stubs/listings-real-homes`).default;
         latestRealHomes.data.splice($top);
         res.json(latestRealHomes);
 
@@ -169,7 +169,7 @@ servicesStubs.get('/listings-service/teasers', (req, res) => {
     }
 
     if (directoryCategoryMatch) {
-        const listingsForFurnitureAndInteriors = requireWithNoCache(`${cwd}/stubs/listings-furniture-and-interiors`);
+        const listingsForFurnitureAndInteriors = requireWithNoCache(`${cwd}/stubs/listings-furniture-and-interiors`).default;
 
         res.json(listingsForFurnitureAndInteriors);
 
@@ -185,7 +185,7 @@ servicesStubs.get('/tag-service/tags', (req, res) => {
     let teaserResponse = {};
 
     if (urlName) {
-        teaserResponse = require(`${cwd}/stubs/tag-${urlName}`);
+        teaserResponse = require(`${cwd}/stubs/tag-${urlName}`).default;
     }
 
     res.json(teaserResponse);
@@ -201,7 +201,7 @@ servicesStubs.post('/tag-service/tags/list', (req, res) => {
 
         const formattedTagName = firstTag.replace(/[^a-z0-9]/gim, '-').toLowerCase();
 
-        tagResponse = require(`${cwd}/stubs/tags-${formattedTagName}`);
+        tagResponse = require(`${cwd}/stubs/tags-${formattedTagName}`).default;
     }
 
     res.json(tagResponse);
@@ -209,6 +209,7 @@ servicesStubs.post('/tag-service/tags/list', (req, res) => {
 
 servicesStubs.get('/module-service/:modules?', (req, res) => {
     const moduleParam = get(req, 'params.modules');
+
     let moduleNames = [];
 
     if (moduleParam) {
@@ -216,7 +217,7 @@ servicesStubs.get('/module-service/:modules?', (req, res) => {
     }
 
     const moduleData = moduleNames.reduce((prev, curr) => {
-        const module = require(`${cwd}/stubs/module-${curr.toLowerCase()}`);
+        const module = require(`${cwd}/stubs/module-${curr.toLowerCase()}`).default;
         prev.push(module);
 
         return prev;

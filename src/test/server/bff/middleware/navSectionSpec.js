@@ -2,7 +2,7 @@ import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 import entityStubData from '../../../../stubs/entity-interiors';
 import alltagsectionsData from '../../../../stubs/entity-alltagsections';
-import listingsStubData from '../../../../stubs/listings-food-Homes-navigation-Interiors';
+import listingsStubData from '../../../../stubs/listings-interiors';
 import galleryStubData from '../../../../stubs/listings-gallery';
 import heroStubData from '../../../../stubs/module-interiorshero';
 

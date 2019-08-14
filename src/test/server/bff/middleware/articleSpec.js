@@ -1,6 +1,6 @@
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
-import itemsStubData from '../../../../stubs/listings-food-Homes-navigation-DIY';
+import itemsStubData from '../../../../stubs/listings-diy';
 
 const getLatestTeasersStub = sinon.stub();
 const parseEntitiesStub = sinon.stub().returns(itemsStubData);
