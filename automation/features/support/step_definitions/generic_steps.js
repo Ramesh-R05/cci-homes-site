@@ -47,18 +47,24 @@ module.exports = function() {
     });
 
     this.When(/^I click on the Load More button$/, function() {
-        browser.scroll(loadMore.loadMoreButton);
-        //static wait due to elements loading move the lood more button and creates error in the script
-        wait(12000);
-        browser.scroll(loadMore.loadMoreButton);
-        //scroll to element and a few pixels up to center the button on the screen
-        var x = browser.getLocation(loadMore.loadMoreButton, 'x');
-        var y = browser.getLocation(loadMore.loadMoreButton, 'y');
-        browser.scroll(0, y - 50);
-        browser.waitForVisible(loadMore.loadMoreButton, 5000);
-        browser.click(loadMore.loadMoreButton);
+        const { loadMoreButton } = loadMore;
 
-        //static wait due to elements loading move the load more button and creates error in the script
-        wait(5000);
+        function scrollAndCentreLoadMore() {
+            const x = browser.getLocation(loadMoreButton, 'x');
+            const y = browser.getLocation(loadMoreButton, 'y');
+
+            browser.scroll(x, y - 150);
+        }
+
+        function forceClick(el) {
+            browser.selectorExecute([el], selector => {
+                selector[0].click();
+            });
+        }
+
+        scrollAndCentreLoadMore();
+        forceClick(loadMoreButton);
+
+        wait(4000);
     });
 };
