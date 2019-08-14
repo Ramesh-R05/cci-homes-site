@@ -24,7 +24,7 @@ export default async function tagMiddleware(req, res, next) {
             .replace(/\s*&\s*/g, '-and-')
             .replace(/\s+/g, '-');
 
-        const tagData = await API.getTags(`${tag}`)
+        const tagData = await API.getTags(`?urlName=${tag}`)
             .then(({ data }) => {
                 if (!data.length) {
                     return {};

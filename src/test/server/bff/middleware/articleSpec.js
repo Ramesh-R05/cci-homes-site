@@ -36,7 +36,7 @@ const getMockEntity = () => ({
     tags: [
         'food:Garden/Outdoor:Garden style:Tropical garden',
         'food:Garden/Outdoor:Garden style:Coastal garden',
-        'food:Homes navigation:DIY',
+        'food:Homes navigation:DIY & Craft',
         'food:Topic:In focus'
     ]
 });
@@ -44,7 +44,7 @@ const getMockEntity = () => ({
 describe('article middleware', () => {
     const req = {};
     const next = () => {};
-    const navQueryTag = 'food:Homes navigation:DIY';
+    const navQueryTag = 'diy-and-craft';
 
     describe('when there is an entity', () => {
         describe('and entity is of nodetype homes article', () => {
@@ -70,7 +70,7 @@ describe('article middleware', () => {
                     it('should get the 20 latest homes articles matching the navigation tag', done => {
                         articleMiddleware(req, res, next)
                             .then(() => {
-                                expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `tags eq %27${navQueryTag}%27`)).to.be.true;
+                                expect(getLatestTeasersStub.firstCall.calledWith(20, 0, `tagsDetails/urlName eq %27${navQueryTag}%27`)).to.be.true;
                                 done();
                             })
                             .catch(done);

@@ -116,7 +116,7 @@ describe('tag section middleware', () => {
                         const getTagSpyFirstCall = getTagsSpy.getCall(0);
                         const getLatestTeasersSpyFirstCall = getLatestTeasersSpy.getCall(0);
 
-                        expect(getTagSpyFirstCall.args[0]).to.equal(tagName);
+                        expect(getTagSpyFirstCall.args[0]).to.equal(`?urlName=${tagName}`);
 
                         expect(getLatestTeasersSpyFirstCall.args[0]).to.equal(6);
                         expect(getLatestTeasersSpyFirstCall.args[1]).to.equal(0);

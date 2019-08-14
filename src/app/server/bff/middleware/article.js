@@ -13,14 +13,31 @@ export default async function articleMiddleware(req, res, next) {
         }
 
         const entityTags = entity.tags;
+
         let teaserQuery = `nodeTypeAlias eq %27HomesArticle%27 or nodeTypeAlias eq %27Gallery%27`;
 
         if (entityTags && Array.isArray(entityTags) && entityTags.length) {
-            const navTags = entityTags.find(tag => tag.includes('navigation'));
+            const navTag = entityTags.find(tag => tag.includes('navigation'));
 
-            // TODO - fix situation where tags with & in the name break the query
-            if (navTags) {
-                teaserQuery = `tags eq %27${navTags}%27`;
+            if (navTag) {
+                // TODO: temporary solution to fix the issue with tags coming through as full tag name
+                // this will be fixed when the site uses tagsDetails.urlName for tag urls
+                const splitTag = navTag.split(':');
+                const tagName = Array.isArray(splitTag) && splitTag.length === 3 && splitTag[2];
+
+                if (tagName) {
+                    let formattedTag = decodeURIComponent(tagName.toLowerCase());
+                    formattedTag = formattedTag
+                        .replace(/\s*-\s*/g, '-')
+                        .replace(/\s*\/\s*/g, '-')
+                        .replace(/"|'|,|\$/g, '')
+                        .replace(/(\d+)\s*\+.*/g, 'more-than-$1')
+                        .replace(/<\s*\$?/g, 'less-than-')
+                        .replace(/\s*&\s*/g, '-and-')
+                        .replace(/\s+/g, '-');
+
+                    teaserQuery = `tagsDetails/urlName eq %27${formattedTag}%27`;
+                }
             }
         }
 
