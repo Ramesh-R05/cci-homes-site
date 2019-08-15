@@ -49,7 +49,8 @@ export default {
         handler: Article,
         action: loadPageContent,
         validators: {
-            page: /^[^\W_]+(-[^\W_]+)*$/g
+            page: /^[^\W_]+(-[^\W_]+)*-$/g,
+            id: /^[0-9]*$/g
         }
     },
     directoryListingSinglePreview: {
@@ -71,7 +72,11 @@ export default {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: Article,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            page: /^[^\W_]+(-[^\W_]+)*-$/g,
+            id: /^[0-9]*$/g
+        }
     },
     brand: {
         path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden|inside-out|country-style|homelife)',

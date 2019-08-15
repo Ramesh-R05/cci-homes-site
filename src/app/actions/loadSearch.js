@@ -1,4 +1,3 @@
-import { validateRouteParams } from '@bxm/flux';
 import searchService from '../services/search';
 
 function searchList(context, payload) {
@@ -14,4 +13,4 @@ function searchList(context, payload) {
     );
 }
 
-export default validateRouteParams(searchList);
+export default searchList;

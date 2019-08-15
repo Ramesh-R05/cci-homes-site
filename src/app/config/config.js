@@ -78,7 +78,7 @@ export default {
         script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
     },
     jwPlayer: {
-        scriptKey: 'VUPBzd8P',
+        scriptKey: 'hsF3ib28',
         baseUrl: 'https://cdn.jwplayer.com'
     },
     gigya: {
