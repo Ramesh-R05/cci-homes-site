@@ -223,8 +223,8 @@ jobs:
     always:
       - NOTIFY: homes-slack-notifications
     steps:
-      - IN: homes-site-smoke-test
-      - IN: homes-site-automation-test
+      # - IN: homes-site-smoke-test
+      # - IN: homes-site-automation-test
       #- IN: homes-site-compatibility-automation-test
       - IN: homes-site-man-master
         switch: off
