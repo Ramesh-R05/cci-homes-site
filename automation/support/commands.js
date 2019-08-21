@@ -1,5 +1,5 @@
-import { createResizeWindowCommand } from '@bxm/automation';
+import { createResizeWindowCommand, createValidateImageUrlCommand } from '@bxm/automation';
+import './getTeaserElements';
 
 createResizeWindowCommand();
-
-console.log('chai', chai);
+createValidateImageUrlCommand();
