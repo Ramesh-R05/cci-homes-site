@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ImageGallery from 'react-image-gallery';
 import ResponsiveImage from '@bxm/ui/lib/common/ResponsiveImage';
-import GalleryImageMapper from '../utilities/galleryImageMapper';
+import { JwVideoPlayer } from '@bxm/video';
+import GalleryMapper from '../utilities/galleryMapper';
 
 export class ImageGalleryWrapper extends Component {
     static propTypes = {
@@ -17,7 +18,16 @@ export class ImageGalleryWrapper extends Component {
         slideChangeCallback: () => {}
     };
 
-    customRenderer = item => <ResponsiveImage {...item} />;
+    customRenderer = item => {
+        if (item.type === 'VideoItem') {
+            const { name, properties = {} } = item;
+            const videoID = properties.videoConfiguration.videoId;
+
+            return <JwVideoPlayer videoID={videoID} title={name} />;
+        }
+
+        return <ResponsiveImage {...item} />;
+    };
 
     render() {
         const { size, slideChangeCallback, items } = this.props;
@@ -48,4 +58,4 @@ export class ImageGalleryWrapper extends Component {
     }
 }
 
-export default GalleryImageMapper(ImageGalleryWrapper);
+export default GalleryMapper(ImageGalleryWrapper);

@@ -34,6 +34,13 @@ export default async function listingSingle(req, res, next) {
 
         const parsedEntity = parseEntity(directoryListingEntity);
 
+        const heroGallery = parsedEntity.heroGallery && filterEmptyItems(parsedEntity.heroGallery, 'url');
+
+        if (parsedEntity.video) {
+            const video = JSON.parse(JSON.stringify(parsedEntity.video));
+            heroGallery.unshift(video);
+        }
+
         res.body = {
             ...res.body,
             entity: {
@@ -41,7 +48,7 @@ export default async function listingSingle(req, res, next) {
                 linkedGalleries: transformListingGalleries(parsedEntity.galleries),
                 testimonials: parsedEntity.testimonials && filterEmptyItems(parsedEntity.testimonials, 'message'),
                 profileGallery: parsedEntity.profileGallery && filterEmptyItems(parsedEntity.profileGallery, 'url'),
-                heroGallery: parsedEntity.heroGallery && filterEmptyItems(parsedEntity.heroGallery, 'url')
+                heroGallery
             }
         };
 

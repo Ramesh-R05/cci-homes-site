@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import breakpoints from '../../../breakpoints';
 
-export default function GalleryImageMapper(WrappedComponent) {
+export default function GalleryMapper(WrappedComponent) {
     return class WrappedGallery extends Component {
         static propTypes = {
             size: PropTypes.oneOf(['portrait', 'landscape', 'compact', 'fullWidth']),
@@ -89,17 +89,23 @@ export default function GalleryImageMapper(WrappedComponent) {
             const imageSizes = WrappedGallery.imageSizes[size];
             const { scale, anchor, mode } = WrappedGallery.imageConfig[size];
 
-            const mappedItems = items.map(image => ({
-                alt: image.caption || '',
-                url: image.url,
-                ClassName: 'listing-image-gallery__image',
-                sizes: imageSizes,
-                scale,
-                anchor,
-                mode,
-                breakpoints,
-                quality: WrappedGallery.imageQuality
-            }));
+            const mappedItems = items.map(item => {
+                if (item.type === 'VideoItem') {
+                    return item;
+                }
+
+                return {
+                    alt: item.caption || '',
+                    url: item.url,
+                    ClassName: 'listing-image-gallery__image',
+                    sizes: imageSizes,
+                    scale,
+                    anchor,
+                    mode,
+                    breakpoints,
+                    quality: WrappedGallery.imageQuality
+                };
+            });
 
             return <WrappedComponent {...this.props} items={mappedItems} />;
         }

@@ -1,4 +1,4 @@
-import GalleryImageMapper from '../../../../app/components/listings/utilities/galleryImageMapper';
+import GalleryMapper from '../../../../app/components/listings/utilities/galleryMapper';
 import { betterMockComponentContext } from '@bxm/flux';
 import ShallowWrapperFactory from '../../../utils/ShallowWrapperFactory';
 import { filterErrors, restoreErrors } from '../../../utils/propTypeWarningFilter';
@@ -10,7 +10,7 @@ const Context = betterMockComponentContext();
 
 const MockedChild = Context.createStubComponent();
 
-const TestWrapper = new ShallowWrapperFactory(GalleryImageMapper(MockedChild));
+const TestWrapper = new ShallowWrapperFactory(GalleryMapper(MockedChild));
 
 describe('GalleryImageMapper utility', () => {
     describe('when passed a component', () => {
@@ -24,7 +24,7 @@ describe('GalleryImageMapper utility', () => {
                 });
 
                 it('should apply the modified items prop to the returned component', () => {
-                    const { imageSizes, imageQuality, imageConfig } = GalleryImageMapper();
+                    const { imageSizes, imageQuality, imageConfig } = GalleryMapper();
 
                     wrapper
                         .find(MockedChild)
@@ -57,7 +57,7 @@ describe('GalleryImageMapper utility', () => {
                 });
 
                 it('should apply the modified items prop to the returned component', () => {
-                    const { imageSizes, imageQuality, imageConfig } = GalleryImageMapper();
+                    const { imageSizes, imageQuality, imageConfig } = GalleryMapper();
 
                     wrapper
                         .find(MockedChild)
@@ -90,7 +90,7 @@ describe('GalleryImageMapper utility', () => {
                 });
 
                 it('should apply the modified items prop to the returned component', () => {
-                    const { imageSizes, imageQuality, imageConfig } = GalleryImageMapper();
+                    const { imageSizes, imageQuality, imageConfig } = GalleryMapper();
 
                     wrapper
                         .find(MockedChild)
@@ -123,7 +123,7 @@ describe('GalleryImageMapper utility', () => {
                 });
 
                 it('should apply the modified items prop to the returned component', () => {
-                    const { imageSizes, imageQuality, imageConfig } = GalleryImageMapper();
+                    const { imageSizes, imageQuality, imageConfig } = GalleryMapper();
 
                     wrapper
                         .find(MockedChild)
@@ -188,7 +188,7 @@ describe('GalleryImageMapper utility', () => {
 
         before(() => {
             filterErrors();
-            const WrapperWithoutPassedComponent = new ShallowWrapperFactory(GalleryImageMapper());
+            const WrapperWithoutPassedComponent = new ShallowWrapperFactory(GalleryMapper());
             [wrapper] = WrapperWithoutPassedComponent();
         });
 
