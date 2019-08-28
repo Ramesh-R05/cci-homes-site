@@ -84,7 +84,7 @@ resources:
     integration: slack-bauerxcelmedia
     pointer:
       recipients:
-        - '#survivors_outlast_au'
+        - '#au-shippable'
 
   # Seed Release version
   # for Rollback refer to below URL
