@@ -23,7 +23,7 @@ export class ImageGalleryWrapper extends Component {
             const { name, properties = {} } = item;
             const videoID = properties.videoConfiguration.videoId;
 
-            return <JwVideoPlayer videoID={videoID} title={name} />;
+            return <JwVideoPlayer videoID={videoID} title={name} floating={false} />;
         }
 
         return <ResponsiveImage {...item} />;
