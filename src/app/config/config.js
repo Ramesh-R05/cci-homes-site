@@ -386,8 +386,8 @@ export default {
     },
 
     listings: {
-        testToEmail: 'KiJones@bauerxcelmedia.com.au',
+        testToEmail: 'bxmdeveloper@gmail.com',
         senderName: 'Homes To Love',
-        senderEmail: 'KiJones@bauerxcelmedia.com.au'
+        senderEmail: 'bxmdeveloper@gmail.com'
     }
 };
