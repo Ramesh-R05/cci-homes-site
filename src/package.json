@@ -56,7 +56,7 @@
     "@bxm/react-script-loader": "^3.0.0",
     "@bxm/server": "^29.5.0",
     "@bxm/shared-ui": "^2.2.0",
-    "@bxm/site-header": "^9.4.2",
+    "@bxm/site-header": "^9.7.0",
     "@bxm/social": "^3.1.0",
     "@bxm/tags": "^4.0.0",
     "@bxm/teaser": "^8.2.0",

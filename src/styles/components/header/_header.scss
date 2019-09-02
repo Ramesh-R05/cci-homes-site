@@ -29,7 +29,6 @@
         margin: 0 auto;
         padding: 0 $column-gutter/2;
         white-space: nowrap;
-        background-color: $color-white;
         position: initial;
         z-index: $z-index-1;
 
@@ -87,6 +86,7 @@
         }
 
         #{$self}__inner {
+            background-color: $color-white;
             height: $header-banner-height-mobile;
 
             @media #{$medium-up} {
