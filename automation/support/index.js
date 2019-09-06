@@ -1,2 +1,2 @@
 import './commands';
-import '@bxm/automation/lib/config/extendChai';
+import '@bxm/integration/lib/extensions/chai';

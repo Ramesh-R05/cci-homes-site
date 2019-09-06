@@ -1,6 +1,5 @@
-const selectTests = require('cypress-select-tests');
-const { taggedSpecPreprocessor } = require('@bxm/automation');
+const { taggedSpecPreprocessor } = require('@bxm/integration');
 
 module.exports = (on, config) => {
-    on('file:preprocessor', selectTests(config, taggedSpecPreprocessor));
+    on('file:preprocessor', taggedSpecPreprocessor(config));
 };
