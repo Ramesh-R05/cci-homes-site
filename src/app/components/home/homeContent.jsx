@@ -70,6 +70,10 @@ export class HomeContent extends Component {
                         </Rail>
                     </div>
 
+                    {isLipstickEnabled && (
+                        <FeaturedBrandsSection featuredBrands={featuredBrands} latestBrandItems={latestBrandItems} className="home__body" />
+                    )}
+
                     {latestVideos && latestVideos.length && isLipstickEnabled && (
                         <div className="row">
                             <LatestVideos videoList={latestVideos} title="Latest Videos" />
@@ -90,7 +94,6 @@ export class HomeContent extends Component {
                             />
                         </div>
                     </div>
-
                     <div className="row">
                         <div className="home-section__bottom columns small-12">
                             <Repeatable
@@ -123,9 +126,6 @@ export class HomeContent extends Component {
                         stickyDelay={5500}
                     />
                 </div>
-                {isLipstickEnabled && (
-                    <FeaturedBrandsSection featuredBrands={featuredBrands} latestBrandItems={latestBrandItems} className="home__body" />
-                )}
             </div>
         );
     }

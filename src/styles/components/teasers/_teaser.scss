@@ -1,26 +1,26 @@
-/* 
+/*
 ========== How this file works ===========
-    due to the dynamic nature of our teasers, 
+    due to the dynamic nature of our teasers,
     we need a solution that lets us adapt the ui to different breakpoints
-    extending classes isn't possible within media queries, 
-    so each modifier has a mixin atatched so it's possible 
+    extending classes isn't possible within media queries,
+    so each modifier has a mixin atatched so it's possible
     to shift the style of the teaser based on where it's used.
 
     any modifier applied to .teaser needs to have an associated mixin for this purpose.
 ============================================
 
     ie:
-    
+
     .some-page {
         .some-page__teaser {
             @include teaser-img-left;
-            
+
             @media #{$medium-up} {
                 @include teaser-img-top;
                 @include teaser-hide-details;
             }
         }
-    
+
     }
 */
 
@@ -103,7 +103,7 @@
     }
 }
 
-@mixin teaser-img-left($root: '.teaser') {    
+@mixin teaser-img-left($root: '.teaser') {
     .tag-separator,
     .tag-secondary {
         display: none;
@@ -133,7 +133,7 @@
         padding-left: 15px;
         padding-right: 15px;
     }
-    
+
     #{$root}__source {
         margin-left: 0;
     }
@@ -160,7 +160,7 @@
         display: block;
         width: 100%;
         text-align: center;
-    }    
+    }
 
     #{$root}__tags {
         margin-bottom: 5px;
@@ -201,7 +201,7 @@
 
     #{$root}__brand-image {
         display: none;
-        
+
         @media #{$medium-up} {
             display: block;
             height: 25px;
@@ -256,7 +256,7 @@
         min-height: 60px;
         z-index: $z-index--teaser-content;
 
-        @media #{$medium-up} {                
+        @media #{$medium-up} {
             width: 76%;
             padding: 15px;
             left: 8%;
@@ -295,11 +295,11 @@
     @media #{$xlarge-up} {
         margin-bottom: $column-gutter * 2;
     }
-    
+
     .hero__background {
         background-color: $color-darker-green;
         width: 90%;
-        position: absolute;        
+        position: absolute;
         right: 0;
         bottom: -6px;
         max-height: 66px;
@@ -321,12 +321,12 @@
             max-height: 45px;
             bottom: -10px;
             right: 5px;
-        }            
+        }
     }
 }
 
 @mixin teaser-narrow($root: '.teaser') {
-    
+
     #{$root}__image {
         width: auto;
         z-index: $z-index--teaser-image;
@@ -430,7 +430,39 @@
 }
 
 
-/* .teaser base class */
+@mixin teaser-featured-brands($root: '.teaser') {
+    @include teaser-hide-source;
+    @include teaser-hide-summary;
+    #{$root} {
+        padding: 0;
+        margin: 0;
+    }
+
+    #{$root}__title-background {
+        @include type-stacked-teaser-title;
+        background-color: white;
+        height: 90px;
+    }
+
+    #{$root}__title {
+        color: $color-black-origin;
+        padding: 14px 10px 0 10px;
+        font: 700 18px/1.22 $font-family-serif-primary;
+    }
+
+    #{$root}__image {
+        min-height: 79vw;
+        @media #{$medium-up} {
+            min-height: 251px;
+        }
+    }
+
+    #{$root}__content {
+        margin-top: -12px;
+        position: relative;
+        padding: 0 12px 12px 0;
+    }
+}
 
 .teaser {
     $root: &;
@@ -470,7 +502,7 @@
         @include type-xsmall-teaser-title;
         margin-bottom: 10px;
 
-        a { 
+        a {
             color: $color-black-origin;
             text-decoration: none;
             transition: color .1s ease-in;
@@ -551,13 +583,14 @@
         @include teaser-polar;
     }
 
-    &--hide-source {        
-        @include teaser-hide-source;        
+    &--hide-source {
+        @include teaser-hide-source;
     }
 
     &--hide-summary {
-        @include teaser-hide-summary;       
+        @include teaser-hide-summary;
     }
 }
+
 
 

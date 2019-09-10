@@ -14,9 +14,6 @@ export default {
         socialShareBlock: {
             enabled: true
         },
-        lipstick: {
-            enabled: false
-        },
         listingsEmailTest: {
             enabled: false
         }

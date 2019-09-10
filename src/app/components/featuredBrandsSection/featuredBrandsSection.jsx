@@ -12,7 +12,7 @@ export default class FeaturedBrandsSection extends Component {
         this.state = {
             selectedBrand:
                 props.featuredBrands && Array.isArray(props.featuredBrands.items) && props.featuredBrands.items.length
-                    ? props.featuredBrands.items[0].id
+                    ? props.featuredBrands.items[0]
                     : null
         };
 
@@ -33,7 +33,7 @@ export default class FeaturedBrandsSection extends Component {
     }
 
     displayLatestItems(e, brand) {
-        this.setState({ selectedBrand: brand.id });
+        this.setState({ selectedBrand: brand });
     }
 
     render() {
@@ -41,20 +41,34 @@ export default class FeaturedBrandsSection extends Component {
         const { selectedBrand } = this.state;
         let featuredBrandsSection = null;
 
+        const selectedBrandTitle = selectedBrand.title === 'Australian House and Garden' ? 'house and garden' : selectedBrand.title;
+
         if (selectedBrand) {
             featuredBrandsSection = (
                 <div className="latest-content">
                     <section>
                         <h1 className="latest-content__title-container">THE LATEST FROM YOUR FAVOURITE BRANDS</h1>
                         <ul className="latest-content__list">
-                            {latestBrandItems[selectedBrand].map(item => (
+                            {latestBrandItems[selectedBrand.id].map(item => (
                                 <li className="latest-content__item">
                                     <Teaser {...item} key={item.id} sizes="brand-list" modifier="img-top" />
                                 </li>
                             ))}
                         </ul>
                     </section>
-                    <BrandSwitcher brands={featuredBrands.items} linkType="button" onClickHandler={(e, brand) => this.displayLatestItems(e, brand)} />{' '}
+                    <BrandSwitcher
+                        classModifier="in-latest-content-section"
+                        brands={featuredBrands.items}
+                        linkType="button"
+                        onClickHandler={(e, brand) => this.displayLatestItems(e, brand)}
+                        activeBrand={selectedBrand}
+                    />{' '}
+                    <div className="latest-content__selected-brand-footer">
+                        MORE FROM{' '}
+                        <a href={selectedBrand.url} className="latest-content__selected-brand-footer-link">
+                            {selectedBrandTitle} &nbsp; &rarr;
+                        </a>
+                    </div>
                 </div>
             );
         }

@@ -1,22 +1,17 @@
 .latest-content {
     margin-top: 50px;
-    padding: $column-gutter / 2;
-    background: $color-grey-lighter-level-3;
-    border-top: 1px solid $color-grey-lighter-level-2;
-    border-bottom: 1px solid $color-grey-lighter-level-2;
+    border-top: 1px solid $color-grey-darker;
+    border-bottom: 1px solid $color-grey-darker;
+    position: relative;
 
-    @media #{$medium-only} {
-        display: none;
-    }
-
-    @media #{$small-only} {
-        display: none;
+    @media #{$medium-up} {
+        padding: $column-gutter / 2;
     }
 
     &__title-container {
         @include type-header;
         color: $color-black-origin;
-        font-size: 36px;
+        font-size: 24px;
         font-weight: 800;
         font-family: $font-family-sans-serif-primary;
         line-height: 30px;
@@ -24,19 +19,12 @@
         text-align: center;
         position: relative;
         margin-bottom: 40px;
-        margin-top: 40px;
+        margin-top: 20px;
 
         @media #{$medium-up} {
             padding-left: 15px;
         }
     }
-
-    .teaser__title-background {
-        @include type-stacked-teaser-title;
-        background-color: white;
-        height: 90px;
-        margin-right: 10px;
-      }
 
     &__title {
         display: inline-block;
@@ -61,104 +49,57 @@
     }
 
     &__item {
+        @include teaser-featured-brands;
         width: 100%;
+
+        @media #{$medium-up} {
+            margin: 0 15px;
+        }
+
         &:nth-child(odd) {
             background-color: $color-darker-green;
         }
+
         &:nth-child(even) {
             background-color: $color-lighter-green;
         }
 
-        .teaser__title {
-            color: $color-black-origin;
-            padding-top: 14px;
-            padding-left: 10px;
-            font: 700 18px/1.22 "Spectral", serif;
-        }
-        height: 360px;
-
-        .teaser__content {
-            margin-top: -20px;
-            position: relative;
-            padding-top:10px;
-            padding-left: 0;
+        &:nth-child(n+2) {
+            display: none;
         }
 
-        @media #{$medium-up} {
-            width: 30%;
-            margin: {
-                left: 15px;
-                right: 15px;
+        &:nth-child(2) {
+            @media #{$medium-up} {
+                display: list-item;
             }
-            height: 340px;
         }
 
-        .teaser.teaser--has-video {
-
+        &:nth-child(3) {
             @media #{$large-up} {
-                margin-bottom: 0;
-            }
-
-            @media #{$xlarge-up} {
-                margin-bottom: 0;
-            }
-
-            .teaser__image {
-                display: inline-block;
-                vertical-align: top;
-                width: calc(50% - #{$column-gutter / 2});
-
-                @media #{$medium-up} {
-                    width: 100%;
-                    display: block;
-                }
-            }
-
-            .teaser__body {
-                width: calc(50% + #{$column-gutter / 2});
-                padding-left: $column-gutter / 2;
-                display: inline-block;
-                vertical-align: top;
-
-                @media #{$medium-up} {
-                    width: 100%;
-                    display: block;
-                    padding-left: 0;
-                }
-            }
-
-            .teaser__title {
-                @include type-teaser-summary;
-                font-style: normal;
-                margin: {
-                    top: 0px;
-                    bottom: 10px;
-                }
-
-                @media #{$medium-up} {
-                    @include type-teaser-summary;
-                    font-style: normal;
-                    margin-top: 10px;
-                }
-            }
-
-            .teaser__brandlogo {
-
-                height: 15px;
-                width: auto;
-                display: inline-block;
-
-                &__logo-img,
-                &__link {
-                    display: inherit;
-                    height: 100%;
-                }
-
-                &__link {
-                    position: relative;
-                    z-index: 10;
-                }
+                display: list-item;
             }
         }
     }
+
+    &__selected-brand-footer {
+        font-family: $font-family-sans-serif-primary;
+        position: absolute;
+        color: $color-black-origin;
+        font-size: 10px;
+        line-height: 10px;
+        background-color: white;
+        padding: 0 20px 0 10px;
+        right: 0px;
+        bottom: -5px;
+        letter-spacing: 0.15em;
+    }
+
+    &__selected-brand-footer-link {
+        color: $color-darker-green;
+        text-transform: uppercase;
+        font-weight: 900;
+        padding-left: 4px;
+    }
 }
+
+

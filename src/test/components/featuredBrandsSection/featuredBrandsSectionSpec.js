@@ -103,7 +103,7 @@ describe('Latest Brand Content', () => {
                             brand3: ['latest7', 'latest8', 'latest9']
                         }
                     };
-                    expect(wrapper.state('selectedBrand')).to.eql(expectedProps.featuredBrands.items[0].id);
+                    expect(wrapper.state('selectedBrand').id).to.eql(expectedProps.featuredBrands.items[0].id);
                 });
             });
 
@@ -130,7 +130,7 @@ describe('Latest Brand Content', () => {
                     };
 
                     wrapper.instance().displayLatestItems({}, featuredBrandsProp.items[1]);
-                    expect(wrapper.instance().props.latestBrandItems[wrapper.state('selectedBrand')]).to.eql(
+                    expect(wrapper.instance().props.latestBrandItems[wrapper.state('selectedBrand').id]).to.eql(
                         expectedProps.latestBrandItems[featuredBrandsProp.items[1].id]
                     );
                 });
