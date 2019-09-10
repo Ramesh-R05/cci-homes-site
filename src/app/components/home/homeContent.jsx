@@ -11,7 +11,6 @@ import Featured from '../section/featured';
 import List from '../section/list';
 import Rail from '../section/rail';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
-import LatestVideos from './latestVideos';
 
 export class HomeContent extends Component {
     static displayName = 'HomeContent';
@@ -20,7 +19,6 @@ export class HomeContent extends Component {
         hero: PropTypes.object,
         articles: PropTypes.array,
         content: PropTypes.object.isRequired,
-        latestVideos: PropTypes.array,
         list: PropTypes.object,
         listNextParams: PropTypes.object,
         featuredBrands: PropTypes.object,
@@ -30,7 +28,6 @@ export class HomeContent extends Component {
     static defaultProps = {
         articles: [],
         hero: {},
-        latestVideos: [],
         list: {},
         listNextParams: {},
         featuredBrands: {},
@@ -42,7 +39,7 @@ export class HomeContent extends Component {
     };
 
     render() {
-        const { hero, articles, list, listNextParams, content, latestVideos, latestBrandItems, featuredBrands } = this.props;
+        const { hero, articles, list, listNextParams, content, latestBrandItems, featuredBrands } = this.props;
         const { config } = this.context;
         const isLipstickEnabled = config.isFeatureEnabled('lipstick');
         const { homeTopFeed, homeBottomFeed } = config.polar.details;
@@ -72,12 +69,6 @@ export class HomeContent extends Component {
 
                     {isLipstickEnabled && (
                         <FeaturedBrandsSection featuredBrands={featuredBrands} latestBrandItems={latestBrandItems} className="home__body" />
-                    )}
-
-                    {latestVideos && latestVideos.length && isLipstickEnabled && (
-                        <div className="row">
-                            <LatestVideos videoList={latestVideos} title="Latest Videos" />
-                        </div>
                     )}
 
                     <div className="row">

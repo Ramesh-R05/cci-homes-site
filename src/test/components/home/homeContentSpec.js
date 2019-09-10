@@ -3,7 +3,6 @@ import { betterMockComponentContext } from '@bxm/flux';
 import articlesMock from '../../mock/articles';
 import proxyquire, { noCallThru } from 'proxyquire';
 import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
-import latestVideoStubData from '../../../stubs/bff-latest-videos';
 
 noCallThru();
 
@@ -16,7 +15,6 @@ const listStub = Context.createStubComponent();
 const SocialAndSubscribeLinksStub = Context.createStubComponent();
 const RailStub = Context.createStubComponentWithChildren();
 const FeaturedStub = Context.createStubComponent();
-const LatestVideosStub = Context.createStubComponent();
 const FeaturedBrandStub = Context.createStubComponent();
 const LoadListStub = sinon.stub();
 
@@ -38,7 +36,6 @@ const { HomeContent } = proxyquire('../../../app/components/home/homeContent', {
     '../socialAndSubscribeLinks': SocialAndSubscribeLinksStub,
     '../section/rail': RailStub,
     '../section/featured': FeaturedStub,
-    './latestVideos': LatestVideosStub,
     '../featuredBrandsSection/featuredBrandsSection': FeaturedBrandStub
 });
 
@@ -277,170 +274,75 @@ describe('HomeContent component', () => {
     });
     describe('context', () => {
         describe('with lipstick feature toggle enabled ', () => {
-            describe('and latestVideos prop passed', () => {
-                let wrapper;
-                let testProps;
+            let wrapper;
+            let testProps;
 
-                before(() => {
-                    [wrapper, testProps] = TestWrapper(
-                        {
-                            content: {
-                                value: 2
-                            },
-                            hero: {
-                                article: 1
-                            },
-                            articles: articlesMock.home,
-                            list: {
-                                items: [1, 2, 3]
-                            },
-                            listNextParams: {
-                                page: 2,
-                                prevPage: 1
-                            },
-                            latestVideos: latestVideoStubData,
-                            featuredBrands: { brand: 'name' },
-                            latestBrandItems: [{ article: '1' }, { article: '2' }]
+            before(() => {
+                [wrapper, testProps] = TestWrapper(
+                    {
+                        content: {
+                            value: 2
                         },
-                        {
-                            config: {
-                                isFeatureEnabled: sinon
-                                    .stub()
-                                    .withArgs('lipstick')
-                                    .returns(true),
-                                polar: {
-                                    details: {
-                                        homeTopFeed: [
-                                            {
-                                                index: 0,
-                                                label: 'home_top_feed_1',
-                                                targets: { kw: 'home_top_feed_1' }
-                                            },
-                                            {
-                                                index: 5,
-                                                label: 'home_top_feed_2',
-                                                targets: { kw: 'home_top_feed_2' }
-                                            }
-                                        ],
-                                        homeBottomFeed: [
-                                            {
-                                                index: 1,
-                                                label: 'home_bottom_feed_1',
-                                                targets: { kw: 'home_bottom_feed_1' }
-                                            },
-                                            {
-                                                index: 5,
-                                                label: 'home_bottom_feed_2',
-                                                targets: { kw: 'home_bottom_feed_2' }
-                                            }
-                                        ]
-                                    }
+                        hero: {
+                            article: 1
+                        },
+                        articles: articlesMock.home,
+                        list: {
+                            items: [1, 2, 3]
+                        },
+                        listNextParams: {
+                            page: 2,
+                            prevPage: 1
+                        },
+                        featuredBrands: { brand: 'name' },
+                        latestBrandItems: [{ article: '1' }, { article: '2' }]
+                    },
+                    {
+                        config: {
+                            isFeatureEnabled: sinon
+                                .stub()
+                                .withArgs('lipstick')
+                                .returns(true),
+                            polar: {
+                                details: {
+                                    homeTopFeed: [
+                                        {
+                                            index: 0,
+                                            label: 'home_top_feed_1',
+                                            targets: { kw: 'home_top_feed_1' }
+                                        },
+                                        {
+                                            index: 5,
+                                            label: 'home_top_feed_2',
+                                            targets: { kw: 'home_top_feed_2' }
+                                        }
+                                    ],
+                                    homeBottomFeed: [
+                                        {
+                                            index: 1,
+                                            label: 'home_bottom_feed_1',
+                                            targets: { kw: 'home_bottom_feed_1' }
+                                        },
+                                        {
+                                            index: 5,
+                                            label: 'home_bottom_feed_2',
+                                            targets: { kw: 'home_bottom_feed_2' }
+                                        }
+                                    ]
                                 }
                             }
                         }
-                    );
-                });
-
-                it('renders the component', () => {
-                    expect(wrapper.isEmptyRender()).to.be.false;
-                });
-
-                it('renders the LatestVideos component with correct props', () => {
-                    expect(wrapper.find(LatestVideosStub).props()).to.deep.eq({
-                        title: 'Latest Videos',
-                        videoList: testProps.latestVideos
-                    });
-                });
-
-                it('renders the FeaturedBrandsSection component with correct props', () => {
-                    expect(
-                        wrapper.find(FeaturedBrandStub).props({
-                            featuredBrands: testProps.featuredBrands,
-                            latestBrandItems: testProps.latestBrandItems
-                        })
-                    );
-                });
+                    }
+                );
             });
-            describe('and latestVideos prop not passed', () => {
-                let wrapper;
-                let testProps;
 
-                before(() => {
-                    [wrapper, testProps] = TestWrapper(
-                        {
-                            content: {
-                                value: 2
-                            },
-                            hero: {
-                                article: 1
-                            },
-                            articles: articlesMock.home,
-                            list: {
-                                items: [1, 2, 3]
-                            },
-                            listNextParams: {
-                                page: 2,
-                                prevPage: 1
-                            },
-                            latestVideos: [],
-                            featuredBrands: { brand: 'name' },
-                            latestBrandItems: [{ article: '1' }, { article: '2' }]
-                        },
-                        {
-                            config: {
-                                isFeatureEnabled: sinon
-                                    .stub()
-                                    .withArgs('lipstick')
-                                    .returns(true),
-                                polar: {
-                                    details: {
-                                        homeTopFeed: [
-                                            {
-                                                index: 0,
-                                                label: 'home_top_feed_1',
-                                                targets: { kw: 'home_top_feed_1' }
-                                            },
-                                            {
-                                                index: 5,
-                                                label: 'home_top_feed_2',
-                                                targets: { kw: 'home_top_feed_2' }
-                                            }
-                                        ],
-                                        homeBottomFeed: [
-                                            {
-                                                index: 1,
-                                                label: 'home_bottom_feed_1',
-                                                targets: { kw: 'home_bottom_feed_1' }
-                                            },
-                                            {
-                                                index: 5,
-                                                label: 'home_bottom_feed_2',
-                                                targets: { kw: 'home_bottom_feed_2' }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        }
-                    );
-                });
-
-                it('renders the component', () => {
-                    expect(wrapper.isEmptyRender()).to.be.false;
-                });
-
-                it('renders the FeaturedBrands component with correct props', () => {
-                    expect(
-                        wrapper.find(FeaturedBrandStub).props({
-                            featuredBrands: testProps.featuredBrands,
-                            latestBrandItems: testProps.latestBrandItems
-                        })
-                    );
-                });
-
-                it('does not render the LatestVideos component', () => {
-                    expect(wrapper.find(LatestVideosStub)).to.have.length(0);
-                });
+            it('renders the FeaturedBrands component with correct props', () => {
+                expect(
+                    wrapper.find(FeaturedBrandStub).props({
+                        featuredBrands: testProps.featuredBrands,
+                        latestBrandItems: testProps.latestBrandItems
+                    })
+                );
             });
         });
     });
