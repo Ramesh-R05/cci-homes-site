@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://homes-site.test.bxm.net.au",
+    "env": {
+        "includedTags": "@high @stub"
+    }
+}

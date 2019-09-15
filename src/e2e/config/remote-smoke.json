@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://homes-site-au.sit.bxm.net.au",
+    "env": {
+        "includedTags": "@sitAU"
+    }
+    
+}

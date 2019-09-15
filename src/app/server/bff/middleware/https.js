@@ -111,7 +111,7 @@ export default function https(req, res, next) {
             httpsSet(item, 'imageUrl');
         });
 
-        Object.values(get(res, 'body.latestBrandItems', {}) ).forEach(brand => {
+        Object.values(get(res, 'body.latestBrandItems', {})).forEach(brand => {
             brand.forEach(item => {
                 httpsSet(item, 'imageUrl');
             });

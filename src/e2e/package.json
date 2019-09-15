@@ -1,0 +1,28 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "Integration test using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "setup:local": "configure ./config/local.json",
+    "setup:remote-smoke": "configure ./config/remote-smoke.json",
+    "setup:remote-stub": "configure ./config/remote-stubbed.json",
+    "setup:remote-stub-high": "configure ./config/remote-stubbed-high.json",
+    "test:ui": "integration open",
+    "test:headless": "integration run",
+    "run:local:ui": "run-s setup:local test:ui",
+    "run:remote-smoke:headless": "run-s setup:remote-smoke test:headless",
+    "run:remote-smoke:local": "run-s setup:remote-smoke test:ui",
+    "run:remote-stub:headless": "run-s setup:remote-stub test:headless",
+    "run:remote-stub-high:headless": "run-s setup:remote-stub-high test:headless"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bxm/integration": "^1.1.0"
+  },
+  "devDependencies": {
+    "@bxm/code-quality": "^1.0.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
