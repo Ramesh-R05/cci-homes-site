@@ -1,10 +1,15 @@
-[link to Jira Ticket](paste here)
-
+[link to Jira Ticket](paste here) or [NO JIRA]
 ### Description
 
 Please include a summary of the change and which issue is fixed. Please also include relevant implementation details and context. List any dependencies that are required for this change.
 
 ### Related PRs 
+
+### Product Owner approval (required)
+
+- [ ] Product Owner has approved
+- [ ] Product Owner is yet to approve
+- [ ] Product Owner approval is not required
 
 ### Type of change
 
