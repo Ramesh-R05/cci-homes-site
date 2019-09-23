@@ -59,7 +59,7 @@ export default class ContactSection extends Component {
         ].filter(link => link.url);
 
         return (
-            <SectionWrapper sectionClass="contact-section">
+            <SectionWrapper sectionClass="contact-section" sectionId="contact-section">
                 <div className="row contact-section__main-row">
                     <div className="columns small-12 large-8 xlarge-7 xlarge-offset-1 contact-section__contact-form-column">
                         <div className="row contact-section__heading-row">

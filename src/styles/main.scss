@@ -35,6 +35,7 @@
 @import 'ads';
 
 // Components
+@import 'components/search/header-search';
 @import 'components/helpers/theme';
 @import 'components/bxm/recommendations';
 @import '../node_modules/@bxm/social/styles/social-icon';
@@ -50,12 +51,12 @@
 @import 'components/teasers/theme';
 @import 'components/recommendations/icon';
 @import 'components/header/buy-magazines';
-@import 'components/header/header';
+@import 'components/header/brands-modal-button';
 @import 'components/header/header-menu';
 @import 'components/header/header-logo';
 @import 'components/header/header-nav';
 @import 'components/header/header-banner';
-@import 'components/header/brands-modal-button';
+@import 'components/header/header';
 @import 'components/section/sections';
 @import 'components/section/sponsor-header';
 @import 'components/gallery/gallery';
@@ -76,7 +77,6 @@
 @import 'components/adswrapper';
 @import 'components/vertical-gallery';
 @import 'components/search/search-bar';
-@import 'components/search/header-search';
 @import 'components/external-links';
 @import 'components/form/dropdown-select';
 @import 'components/latest-videos-section';

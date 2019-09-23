@@ -1,0 +1,7 @@
+.directory-sub-header {
+    display: flex;
+    background-color: $listings-sub-header-background-color;
+    height: $directory-sub-header-height;
+    padding: 0 $spacing-3;
+    box-shadow: 0 1px $white-smoke;
+}

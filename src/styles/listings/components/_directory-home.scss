@@ -1,16 +1,16 @@
 .directory-home {
     max-width: 100%;
-    min-height: calc(100vh - $header-banner-height-mobile);
+    min-height: calc(100vh - $directory-combined-header-height-mobile);
     margin: 0 auto;
     padding: {
-        top: $header-banner-height-mobile;
+        top: $directory-combined-header-height-mobile;
         left: 0;
         right: 0;
     }    
 
     @media #{$medium-up} {
-        padding-top: $combined-header-height-desktop;
-        min-height: calc(100vh - $combined-header-height-desktop);
+        padding-top: $directory-combined-header-height-desktop;
+        min-height: calc(100vh - $directory-combined-header-height-desktop);
     }
 
     &__list {

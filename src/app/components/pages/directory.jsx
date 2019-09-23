@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from '@bxm/site-header';
 import { connectToStores } from '@bxm/flux';
 import PageTemplate from '../templates/pageTemplate/PageTemplate';
 import Renderer from '../templates/templateRenderer';
+import DirectoryHeader from '../listings/components/DirectoryHeader';
 import DirectoryFooter from '../listings/components/listingFooter';
 import DirectoryNodeTypeCheck from '../helpers/directoryNodeTypeCheck';
 
@@ -61,7 +61,7 @@ export class DirectoryPage extends Component {
             contentErrorStatus,
             currentNavigateError,
             withAdsWrapper: false,
-            HeaderComponent: Header,
+            HeaderComponent: DirectoryHeader,
             FooterComponent: DirectoryFooter,
             footerProps: {
                 categories: listingCategories
@@ -69,9 +69,10 @@ export class DirectoryPage extends Component {
             headerProps: {
                 permanentlyFixedIfShorterThan: 49,
                 theme: {},
-                isExpanded: true,
+                isExpanded: false,
                 wrapperClassName: 'header',
-                headerClassName: 'header__inner'
+                headerClassName: 'header__inner',
+                content
             }
         };
 

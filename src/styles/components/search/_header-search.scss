@@ -1,3 +1,11 @@
+@mixin header-search-hide-after($root: '.header-search') {
+    #{$root}::after {
+        @media #{$medium-up} {
+            display: none;
+        }
+    }
+}
+
 .header-search {
     $self: &;
     display: block;
@@ -105,7 +113,7 @@
             left: 38px;
         }
     }
-        
+
     &--is-open {
         right: 0;
         background-color: transparent;
@@ -123,5 +131,9 @@
                 fill: $color-white;
             }
         }
+    }
+
+    &--push-right {
+        margin-left: auto;
     }
 }

@@ -63,7 +63,7 @@ export default class GalleryLinkSection extends Component {
         }
 
         return (
-            <SectionWrapper sectionClass="gallery-link-section">
+            <SectionWrapper sectionClass="gallery-link-section" sectionId="galleries-section">
                 <div className="gallery-link-section__heading-row row">
                     <div className="columns small-12">
                         <h1 className="heading heading--large">Explore More</h1>

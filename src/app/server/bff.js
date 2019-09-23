@@ -26,6 +26,7 @@ import directoryHome from './bff/middleware/directoryHome';
 import latestBrandItems from './bff/middleware/latestBrandItems';
 import latestBrandVideos from './bff/middleware/getLatestBrandVideos';
 import sendEmail from './bff/middleware/sendEmail';
+import directoryBreadcrumbs from './bff/directoryBreadcrumbs';
 
 export default function bff(server) {
     if (
@@ -41,7 +42,6 @@ export default function bff(server) {
         switch (req.hostname) {
             case 'insideout.com.au':
             case 'www.insideout.com.au':
-
             // eslint-disable-next-link no-fallthrough
             case 'www2.insideout.com.au': {
                 if (req.path === '' || req.path === '/') {
@@ -52,7 +52,6 @@ export default function bff(server) {
 
                 break;
             }
-
             default: {
                 next();
             }
@@ -91,6 +90,7 @@ export default function bff(server) {
         listingSingle,
         listingsForCategory,
         directoryHome,
+        directoryBreadcrumbs,
         headerMeta,
         https,
         render,

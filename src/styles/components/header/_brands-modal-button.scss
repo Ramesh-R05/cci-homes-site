@@ -1,3 +1,9 @@
+@mixin brands-modal-button-hide($root: '.brands-modal-button') {
+    #{$root} {
+        display: none;
+    }
+}
+
 .brands-modal-button {
   @include flat-button;
   display: flex;
@@ -10,7 +16,7 @@
     margin-top: 0;
   }
 
-  &__text {    
+  &__text {
     display: none;
 
     @media #{$medium-up} {
@@ -33,4 +39,7 @@
     fill: $color-dark-green;
     width: 28px;
   }
+
 }
+
+

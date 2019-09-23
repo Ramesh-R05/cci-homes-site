@@ -47,7 +47,8 @@
             { "blankLine": "always", "prev": "block-like", "next": "*" },
             { "blankLine": "always", "prev": "*", "next": "block-like" },
             { "blankLine": "always", "prev": "*", "next": "block" },
-            { "blankLine": "always", "prev": "*", "next": "return" }
+            { "blankLine": "always", "prev": "*", "next": "return" },
+            { "blankLine": "never", "prev": "case", "next": ["block", "block-like"] }
         ]
     }
 }

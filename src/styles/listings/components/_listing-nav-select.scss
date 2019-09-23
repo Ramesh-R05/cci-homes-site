@@ -1,0 +1,54 @@
+/*
+  this styles the <Select/> component from react-select
+  unfortunately the `!important` declarations are required,
+  this is because the pre-packaged default css-in-js styles for the component are higher in specificity
+*/
+
+.listing-nav-select {
+    flex: 1 0 auto;
+    padding-right: 0;
+    font-family:  $font-family-sans-serif-primary;
+
+    &__control {
+        flex: 0 0 250px;
+        margin-left: auto;
+        min-height: $directory-sub-header-height !important;
+
+        border: 0 !important;
+        background: none !important;
+    }
+
+    &__control--is-focused {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+    }
+
+    &__value-container {
+        @include type-listings-copy-medium;
+        font-weight: 600;
+        line-height: 15px;
+        text-transform: uppercase;
+        justify-content: flex-end;
+    }
+
+    &__indicator {
+        color: $color-listings-black !important;
+        min-height: $directory-sub-header-height !important;
+        height: $directory-sub-header-height;
+        padding: 5px 0 11px 0;
+    }
+
+    &__indicator-separator {
+        display: none;
+    }
+
+    &__single-value {
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    &__dropdown-indicator {
+        padding: 5px 0 5px 8px !important;
+    }
+}

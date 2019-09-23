@@ -27,6 +27,10 @@ $spacing-36: 180px;
 
 // Heights
 $contact-card-height-desktop: 650px;
+$directory-sub-header-height: 30px;
+$directory-combined-header-height-mobile: $directory-sub-header-height + $header-height-small;
+$directory-combined-header-height-desktop: $directory-sub-header-height + $header-menu-height-desktop;
+
 
 // Z-index scale
 $z-index-negative-1: -100;

@@ -1,1 +1,46 @@
-.breadcrumbs {}
+.directory-breadcrumbs {
+    $root: &;
+    display: flex;
+    align-items: center;
+
+    &__icon > svg {
+        height: 14px;
+        width: 14px;
+        fill: $color-listings-grey-16;
+    }
+
+    &__carrot-icon > svg {
+        margin: 0 $spacing-2;
+        height: 7px;
+        fill: $color-listings-grey-16;
+    }
+
+    &__link {
+        font-family:  $font-family-sans-serif-primary;
+        color: $color-listings-grey-16;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    &__link:hover {
+        color: $color-listings-black-1;
+
+        #{$root}__icon > svg {
+            fill: $color-listings-black-1;
+        }
+    }
+
+    &__index-link {
+        display: block;
+    }
+
+    &__home_text {
+        display: inline-block;
+    }
+
+    &__icon-box {
+        border-right: 1px solid $color-listings-grey-17;
+        padding: 0 15px;
+        display: inline-block;
+    }
+}

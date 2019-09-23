@@ -184,8 +184,35 @@
             }
         }
 
+        &:not(#{$self}--expanded) {
+            .header-banner {
+                display: block;
+            }
+
+            #{$self}__sections {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .header-search {
+                @extend .header-search--push-right;
+            }
+        }
+
         &#{$self}--hidden {
             margin: 0;
         }
     }
+
+    &__inner--directory-header {
+        @include brands-modal-button-hide;
+        @include header-search-hide-after;
+        background-color: $color-white;
+
+        #{$self}-search {
+            margin-right: 0;
+        }
+    }
 }
+
+

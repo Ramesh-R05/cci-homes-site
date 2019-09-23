@@ -7,14 +7,14 @@ noCallThru();
 
 const Context = betterMockComponentContext();
 
-const SiteHeaderStub = Context.createStubComponent();
+const DirectoryHeaderStub = Context.createStubComponent();
 
 const ListingFooterStub = Context.createStubComponent();
 const PageTemplateStub = Context.createStubComponent();
 const TemplateRendererStub = Context.createStubComponent();
 
 const { DirectoryPage } = proxyquire('../../../app/components/pages/directory', {
-    '@bxm/site-header': SiteHeaderStub,
+    '../listings/components/DirectoryHeader': DirectoryHeaderStub,
     '../listings/components/listingFooter': ListingFooterStub,
     '../templates/pageTemplate/PageTemplate': PageTemplateStub,
     '../templates/templateRenderer': TemplateRendererStub
@@ -63,14 +63,15 @@ describe('DirectoryPage component', () => {
                 contentErrorStatus: testProps.contentErrorStatus,
                 currentNavigateError: testProps.currentNavigateError,
                 withAdsWrapper: false,
-                HeaderComponent: SiteHeaderStub,
+                HeaderComponent: DirectoryHeaderStub,
                 FooterComponent: ListingFooterStub,
                 headerProps: {
                     permanentlyFixedIfShorterThan: 49,
                     theme: testProps.theme,
-                    isExpanded: true,
+                    isExpanded: false,
                     wrapperClassName: 'header',
-                    headerClassName: 'header__inner'
+                    headerClassName: 'header__inner',
+                    content: testProps.content
                 },
                 footerProps: {
                     categories: testProps.listingCategories

@@ -1,4 +1,4 @@
-/* 
+/*
   Here is the colour variable setup for the listings
   don't use these colours directly, instead create a new usage below
 */
@@ -26,6 +26,9 @@ $color-listings-grey-11: #303030;
 $color-listings-grey-12: #f1f1f1;
 $color-listings-grey-13: #f7f7f7;
 $color-listings-grey-14: #efefef;
+$color-listings-grey-15: #f9f9f9;
+$color-listings-grey-16: #707070;
+$color-listings-grey-17: #c9c9c9;
 
 // whites
 $color-listings-white: #ffffff;
@@ -34,13 +37,13 @@ $color-listings-white: #ffffff;
 $color-listings-light-green: #7cbfb1;
 $color-listings-red-1: #861316;
 
-/* 
+/*
   Here are the usages
   consider the bare colours to be private variables and only refer to the usages created below.
 */
 
 // typography
-$listings-heading-color: $color-listings-black-1; 
+$listings-heading-color: $color-listings-black-1;
 $listings-copy-color: $color-listings-black;
 $listings-copy-extra-small-color: $color-listings-black-2;
 $listings-button-text-color: $color-listings-white;
@@ -80,6 +83,7 @@ $listings-filter-border-color: $color-listings-grey-10;
 $listings-filter-arrow-background-color: $color-listings-grey-11;
 $listings-category-card-button-background-color: $color-listings-white;
 $listings-image-placeholder-color: $color-listings-grey;
+$listings-sub-header-background-color: $color-listings-grey-15;
 
 // sections
 $listings-section-default-background-color: $color-listings-white;

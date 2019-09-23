@@ -9,8 +9,7 @@
   }
 
   @media #{$medium-up} {
-      min-height: calc(100vh - $combined-header-height-desktop);
-      padding-top: $combined-header-height-desktop;
+      padding-top: $directory-combined-header-height-desktop;
   }
 
   &__filter-row {

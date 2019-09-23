@@ -1,0 +1,38 @@
+.listing-nav-menu {
+    margin-left: auto;
+
+    &__button {
+        @include type-listings-copy-small;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $color-listings-black-2;
+        border: 0;
+        background: none;
+
+        @media #{$large-up} {
+            font-size: 14px;
+            margin-right: $spacing-5;
+        }
+    }
+
+    &__button:last-child {
+        margin-right: 0;
+    }
+
+    &__button:focus {
+        outline: none;
+    }
+
+    &__button:hover {
+        cursor: pointer;
+        color: $color-listings-black-1;
+    }
+
+    &__button:disabled {
+        cursor: default;
+    }
+
+    &__button--is-selected {
+        font-weight: 600;
+    }
+}

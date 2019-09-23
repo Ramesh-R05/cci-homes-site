@@ -38,7 +38,7 @@ export default function CompanyProfileSection({
     ].filter(link => link.url);
 
     return (
-        <SectionWrapper sectionClass="company-profile-section">
+        <SectionWrapper sectionClass="company-profile-section" sectionId="company-profile-section">
             <div className="row company-profile-section__main-row">
                 <div className="columns small-12 medium-6 large-5 large-offset-1 company-profile-section__gallery-column">
                     <ImageGallery size="portrait" items={profileGallery} />

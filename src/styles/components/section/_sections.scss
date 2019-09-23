@@ -13,13 +13,13 @@
     }
 
     &__heading {
-        max-width: 1024px;        
+        max-width: 1024px;
         margin: 0 auto;
         padding-top: $header-banner-height-mobile;
-        
+
         @media #{$medium-up} {
             padding-top: $combined-header-height-desktop + 30px;
-        }        
+        }
     }
 
     &__heading-title {
@@ -28,13 +28,13 @@
         background: $color-white;
 
         @media #{$large-up} {
-            
+
             padding: {
                 top: 10px;
                 left: $column-gutter/2;
                 bottom: 55px;
-                right: $column-gutter/2;                    
-            };                
+                right: $column-gutter/2;
+            };
         }
 
         h1 {
@@ -52,7 +52,7 @@
             }
         }
     }
-    
+
     &__featured {
         background: $color-white;
 
@@ -82,7 +82,7 @@
             }
         }
     }
-    
+
     &__grid-teaser {
         @include teaser-img-top;
         @include teaser-hide-summary;
@@ -97,9 +97,9 @@
     }
 
     &__polar-teaser {
-        @media #{$medium-up} {            
+        @media #{$medium-up} {
             @include grid-column(6);
-        }            
+        }
     }
 
     &__middle {
@@ -108,28 +108,13 @@
         }
     }
 
-    //&__list {
-    //
-    //    .columns {
-    //
-    //
-    //        @media #{$medium-up} {
-    //
-    //        }
-    //
-    //        @media #{$large-up} {
-    //            padding-left: 15px;
-    //            padding-right: 15px;
-    //        }
-    //    }
-    //}
 
     &__list-teaser {
         @include teaser-img-top;
         @include teaser-hide-summary;
         padding-left: 0;
         padding-right: 0;
-        
+
         @media #{$medium-up} {
             @include teaser-show-source;
             @include clear-left(odd);
@@ -138,7 +123,7 @@
         }
 
         @media #{$large-up} {
-            @include teaser-img-left;            
+            @include teaser-img-left;
         }
 
         .teaser__content {
@@ -148,5 +133,5 @@
                 padding-top: 0;
             }
         }
-    }    
+    }
 }

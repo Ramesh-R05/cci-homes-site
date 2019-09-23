@@ -17,7 +17,6 @@ export default function sortListingsByRule(sortByRule, listings) {
 
         case 'recently-updated':
             return sortByRecentDate(listings, 'updated_at');
-
         default: {
             return defaultListingSort(listings);
         }

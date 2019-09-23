@@ -10,7 +10,7 @@ export default function TestimonialSection({ testimonials }) {
     }
 
     return (
-        <SectionWrapper sectionClass="testimonial-section">
+        <SectionWrapper sectionClass="testimonial-section" sectionId="testimonial-section">
             <div className="row testimonial-section__title-row">
                 <div className="columns small-12 testimonial-section__title-column">
                     <h1 className="heading heading--large"> What People Say </h1>

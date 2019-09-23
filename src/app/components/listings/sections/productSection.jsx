@@ -9,7 +9,7 @@ export default function ProductSection({ businessName, products }) {
     }
 
     return (
-        <SectionWrapper sectionClass="product-section">
+        <SectionWrapper sectionClass="product-section" sectionId="product-section">
             <div className="row product-section__title-row">
                 <div className="columns small-12 product-section__title-column">
                     <h1 className="heading heading--large">{`Shop At ${businessName}`}</h1>
