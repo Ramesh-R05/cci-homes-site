@@ -21,9 +21,10 @@ export class ImageGalleryWrapper extends Component {
     customRenderer = item => {
         if (item.type === 'VideoItem') {
             const { name, properties = {} } = item;
-            const videoID = properties.videoConfiguration.videoId;
+            const { videoConfiguration = {} } = properties;
+            const { videoId, ads = true } = videoConfiguration;
 
-            return <JwVideoPlayer videoID={videoID} title={name} floating={false} />;
+            return <JwVideoPlayer videoID={videoId} title={name} floating={false} hasAds={ads} />;
         }
 
         return <ResponsiveImage {...item} />;
