@@ -6,11 +6,13 @@ const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
+const SVGSTub = Context.createStubComponentWithChildren();
 const TeaserStub = Context.createStubComponent();
 const BrandSwitcherStub = Context.createStubComponent();
 
 const FeaturedBrandsSection = proxyquire('../../../app/components/featuredBrandsSection/featuredBrandsSection', {
     react: React,
+    'react-inlinesvg': SVGSTub,
     '../teaser/teaser': TeaserStub,
     '@bxm/shared-ui/lib/brandSwitcher': BrandSwitcherStub
 }).default;

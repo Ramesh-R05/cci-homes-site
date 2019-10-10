@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import SVG from 'react-inlinesvg';
 import BrandSwitcher from '@bxm/shared-ui/lib/brandSwitcher';
 import Teaser from '../teaser/teaser';
 
@@ -66,7 +67,13 @@ export default class FeaturedBrandsSection extends Component {
                     <div className="latest-content__selected-brand-footer">
                         MORE FROM{' '}
                         <a href={selectedBrand.url} className="latest-content__selected-brand-footer-link">
-                            {selectedBrandTitle} &nbsp; &rarr;
+                            {selectedBrandTitle}
+                            &nbsp;
+                            <span className="latest-content__link-arrow">
+                                <SVG src="/assets/icons/arrow-right.svg">
+                                    <img src="/assets/icons/arrow-right.svg" alt="icon arrow right" />
+                                </SVG>
+                            </span>
                         </a>
                     </div>
                 </div>

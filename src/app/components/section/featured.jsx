@@ -85,7 +85,7 @@ export default class Featured extends Component {
                 label={{ active: false }}
                 pageLocation={Ad.pos.body}
             />,
-            articles.slice(1, 6).map((article, i) => {
+            articles.slice(1, 4).map((article, i) => {
                 let polarProps = {};
 
                 if (i === 4) {
