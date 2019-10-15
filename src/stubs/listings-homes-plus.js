@@ -242,19 +242,17 @@ export default {
             contentMonth: 2,
             contentTitle: 'Weekend project: DIY Timber plant holder',
             contentVideo: {
-                id: '4774850618001',
-                name: 'SCOTT CAM DIY Potted plant stand - homes',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4774850618001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4774850618001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4774868801001_4774850618001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4774868800001_4774850618001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },

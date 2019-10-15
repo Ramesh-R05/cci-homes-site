@@ -435,20 +435,17 @@ export default {
     contentMonth: 3,
     contentTitle: 'Premium company, seller of products',
     contentVideo: {
-        id: '3976599606001',
-        name: 'Just For Funsies: If it fits, I sits',
+        id: 'Wdojqhyf',
+        name: "Everything you need to know about Sarah Jessica Parker's new wine",
         type: 'VideoItem',
         properties: {
             videoConfiguration: {
                 status: '',
-                videoId: '3976599606001',
-                videoUrl: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=3976599606001&pubId=761709621001',
+                videoId: 'Wdojqhyf',
+                videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                 statusCode: 200,
-                brightcoveId: '3976599606001',
-                thumbnailUrl:
-                    'http://brightcove04.o.brightcove.com/761709621001/761709621001_3976610485001_th-54add705e4b05c36018e0bbc-672293877001.jpg?pubId=761709621001&videoId=3976599606001',
-                videoStillUrl:
-                    'http://brightcove04.o.brightcove.com/761709621001/761709621001_3976609773001_vs-54add705e4b05c36018e0bbc-672293877001.jpg?pubId=761709621001&videoId=3976599606001'
+                thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
             }
         }
     },

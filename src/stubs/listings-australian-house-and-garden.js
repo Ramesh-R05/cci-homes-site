@@ -222,19 +222,17 @@ export default {
             contentMonth: 11,
             contentTitle: 'TEST ME Article Long Title - How to get black and white decorating right Long Title Long Title EOM',
             contentVideo: {
-                id: '4925012401001',
-                name: 'Chrissy Teigan Snapchat',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4925012401001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4925012401001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4925012168001_4925012401001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4925010520001_4925012401001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -468,19 +466,17 @@ export default {
             contentMonth: 3,
             contentTitle: 'The NSW government supports My Ideal House',
             contentVideo: {
-                id: '4783637875001',
-                name: 'My Ideal House has the support of the NSW government',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4783637875001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4783637875001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4783691183001_4783637875001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4783691179001_4783637875001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -1002,19 +998,17 @@ export default {
             contentMonth: 2,
             contentTitle: 'Expert tips: how to grow and care for succulents',
             contentVideo: {
-                id: '4751190664001',
-                name: 'House and Garden, Cactus',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4751190664001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4751190664001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4751221500001_4751190664001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4751221504001_4751190664001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },

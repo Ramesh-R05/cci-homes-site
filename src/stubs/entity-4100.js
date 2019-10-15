@@ -236,8 +236,21 @@ export default {
                     ],
                     level: 5,
                     title: 'Alex and Patrick’s retro-inspired Bondi beach house',
-                    video:
-                        '{"id":"4401983546001","name":"Alex and Patrick’s retro-inspired Bondi beach house","type":"VideoItem","properties":{"videoConfiguration":{"videoId":"4401983546001","status":"","brightcoveId":"4401983546001","statusCode":200,"thumbnailUrl":"http://brightcove04.o.brightcove.com/761709621001/761709621001_4402002786001_4401983546001-th.jpg?pubId=761709621001","videoStillUrl":"http://brightcove04.o.brightcove.com/761709621001/761709621001_4402004993001_4401983546001-vs.jpg?pubId=761709621001"}}}',
+                    video: `{
+                        id: 'Wdojqhyf',
+                        name: "Everything you need to know about Sarah Jessica Parker's new wine",
+                        type: 'VideoItem',
+                        properties: {
+                            videoConfiguration: {
+                                status: '',
+                                videoId: 'Wdojqhyf',
+                                videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                                statusCode: 200,
+                                thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                                videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
+                            }
+                        }
+                    }`,
                     source: 'Australian House and Garden',
                     pathIds: ['HOMES--1', 'HOMES-1158', 'HOMES-1237', 'HOMES-1393', 'HOMES-1394', 'HOMES-1637'],
                     siteUrl: 'http://dev.homes-site.wn.bauer-media.net.au',
@@ -265,19 +278,17 @@ export default {
             type: 'video',
             label: 'Video',
             content: {
-                id: '3976804555001',
-                name: 'Dream team: Man Repeller and Jenna Lyons for NARS',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '3976804555001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '3976804555001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_3976826431001_th-54ae0a45e4b098a2c7bad309-782203298001.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_3976826430001_vs-54ae0a45e4b098a2c7bad309-782203298001.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }

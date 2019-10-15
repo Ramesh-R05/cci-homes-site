@@ -1,7 +1,1 @@
-export default {
-    features: {
-        jwPlayer: {
-            enabled: true
-        }
-    }
-};
+export default {};

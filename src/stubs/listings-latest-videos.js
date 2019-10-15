@@ -20,20 +20,17 @@ export default {
             contentMonth: 6,
             contentTitle: 'How to grow salad greens',
             contentVideo: {
-                id: '5828097608001',
-                name: '10 easy to grow vegetables',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '5828097608001',
-                        videoUrl: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5828097608001&pubId=761709621001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '5828097608001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_5828100405001_5828097608001-th.jpg?pubId=761709621001&videoId=5828097608001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_5828096623001_5828097608001-vs.jpg?pubId=761709621001&videoId=5828097608001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -67,20 +64,17 @@ export default {
             contentMonth: 6,
             contentTitle: 'Yabby salad with a herb dressing',
             contentVideo: {
-                id: '5848816955001',
-                name: "The beginner's guide to growing herbs",
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '5848816955001',
-                        videoUrl: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5848816955001&pubId=761709621001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '5848816955001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_5848819175001_5848816955001-th.jpg?pubId=761709621001&videoId=5848816955001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_5848819351001_5848816955001-vs.jpg?pubId=761709621001&videoId=5848816955001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -114,20 +108,17 @@ export default {
             contentMonth: 2,
             contentTitle: 'Plant guide: Basil',
             contentVideo: {
-                id: '5848816955001',
-                name: "The beginner's guide to growing herbs",
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '5848816955001',
-                        videoUrl: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=5848816955001&pubId=761709621001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '5848816955001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_5848819175001_5848816955001-th.jpg?pubId=761709621001&videoId=5848816955001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_5848819351001_5848816955001-vs.jpg?pubId=761709621001&videoId=5848816955001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },

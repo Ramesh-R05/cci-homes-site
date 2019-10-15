@@ -671,20 +671,17 @@ export default {
     contentMonth: 3,
     contentTitle: 'Cotswold InOut Furniture',
     contentVideo: {
-        id: '6015891522001',
-        name: 'MAFS 2019: Dan tells Jessika he wants to re-couple with her',
+        id: 'Wdojqhyf',
+        name: "Everything you need to know about Sarah Jessica Parker's new wine",
         type: 'VideoItem',
         properties: {
             videoConfiguration: {
                 status: '',
-                videoId: '6015891522001',
-                videoUrl: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=6015891522001&pubId=761709621001',
+                videoId: 'Wdojqhyf',
+                videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                 statusCode: 200,
-                brightcoveId: '6015891522001',
-                thumbnailUrl:
-                    'http://brightcove01.brightcove.com/5/761709621001/201903/313/761709621001_6015901653001_6015891522001-th.jpg?pubId=761709621001&videoId=6015891522001',
-                videoStillUrl:
-                    'http://brightcove01.brightcove.com/5/761709621001/201903/313/761709621001_6015901801001_6015891522001-vs.jpg?pubId=761709621001&videoId=6015891522001'
+                thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
             }
         }
     },

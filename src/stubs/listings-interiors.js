@@ -11,21 +11,19 @@ export default {
                 'Article Short Teaser - Find out how to use a combination of black and white to striking effect in your home. Short Teaser EOM',
             contentTitle: 'TEST ME Article Long Title - How to get black and white decorating right Long Title Long Title EOM',
             contentVideo: {
-                id: '4925012401001',
-                name: 'Chrissy Teigan Snapchat',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
+                type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        brightcoveId: '4925012401001',
                         status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4925012168001_4925012401001-th.jpg?pubId=761709621001',
-                        videoId: '4925012401001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4925010520001_4925012401001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
-                },
-                type: 'VideoItem'
+                }
             },
             contentYear: 2016,
             id: 'HOMES-3194',

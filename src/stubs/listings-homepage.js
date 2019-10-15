@@ -61,19 +61,17 @@ export default {
             contentMonth: 2,
             contentTitle: 'Excellent outdoor furniture',
             contentVideo: {
-                id: '4064490184001',
-                name: 'DIY PROJECT: Rope rug - homes+',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4064490184001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4064490184001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4067379056001_RopeMatt-WITHOVERLAY.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4067358475001_RopeMatt-WITHOUT.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -161,19 +159,17 @@ export default {
             contentMonth: 12,
             contentTitle: 'Testing to check the editor',
             contentVideo: {
-                id: '4067173319001',
-                name: 'Cut a mango',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4067173319001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4067173319001',
-                        thumbnailUrl:
-                            'http://brightcove.vo.llnwd.net/e1/pd/3639471509001/3639471509001_3895932979001_th-546a7fa5e4b02e255f415f20-1592194027001.jpg?pubId=3639471509001',
-                        videoStillUrl:
-                            'http://brightcove.vo.llnwd.net/e1/pd/3639471509001/3639471509001_3898256555001_vlcsnap-00016.jpg?pubId=3639471509001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -695,19 +691,17 @@ export default {
             contentMonth: 11,
             contentTitle: 'TEST ME Article Long Title - How to get black and white decorating right Long Title Long Title EOM',
             contentVideo: {
-                id: '4925012401001',
-                name: 'Chrissy Teigan Snapchat',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4925012401001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4925012401001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4925012168001_4925012401001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4925010520001_4925012401001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },

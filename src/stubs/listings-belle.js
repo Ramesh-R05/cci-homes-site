@@ -56,19 +56,17 @@ export default {
             contentMonth: 12,
             contentTitle: 'Testing to check the editor',
             contentVideo: {
-                id: '4067173319001',
-                name: 'Cut a mango',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4067173319001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4067173319001',
-                        thumbnailUrl:
-                            'http://brightcove.vo.llnwd.net/e1/pd/3639471509001/3639471509001_3895932979001_th-546a7fa5e4b02e255f415f20-1592194027001.jpg?pubId=3639471509001',
-                        videoStillUrl:
-                            'http://brightcove.vo.llnwd.net/e1/pd/3639471509001/3639471509001_3898256555001_vlcsnap-00016.jpg?pubId=3639471509001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -642,19 +640,17 @@ export default {
             contentMonth: 2,
             contentTitle: "Jonathan Adler's Greenwich Village apartment",
             contentVideo: {
-                id: '4763633999001',
-                name: 'At Home With Jonathon Adler',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4763633999001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4763633999001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4763643515001_4763633999001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4763644497001_4763633999001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },

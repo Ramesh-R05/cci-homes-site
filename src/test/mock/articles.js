@@ -34,15 +34,17 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.',
             tags: ["homes:Topic:Designer's Home", 'homes:Topic:Eclectic'],
             video: {
-                id: 'VIDEO-2211',
-                name: '4128484287001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        videoId: 'VIDEO-2211',
-                        status: 'Video upload is complete',
-                        brightcoveId: '4128484287001',
-                        statusCode: 200
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                        statusCode: 200,
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }
@@ -79,15 +81,17 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.',
             tags: ['homes:Topic:Gardening', 'homes:Renovating:Materials:Bamboo'],
             video: {
-                id: 'VIDEO-2211',
-                name: '4128484287001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        videoId: 'VIDEO-2211',
-                        status: 'Video upload is complete',
-                        brightcoveId: '4128484287001',
-                        statusCode: 200
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                        statusCode: 200,
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }
@@ -125,15 +129,17 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.',
             tags: ['homes:Topic:Gardening', 'homes:Renovating:Materials:Bamboo'],
             video: {
-                id: 'VIDEO-2211',
-                name: '4128484287001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        videoId: 'VIDEO-2211',
-                        status: 'Video upload is complete',
-                        brightcoveId: '4128484287001',
-                        statusCode: 200
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                        statusCode: 200,
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }
@@ -407,15 +413,17 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.',
             tags: ["homes:Topic:Designer's Home", 'homes:Topic:Eclectic'],
             video: {
-                id: 'VIDEO-2211',
-                name: '4128484287001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        videoId: 'VIDEO-2211',
-                        status: 'Video upload is complete',
-                        brightcoveId: '4128484287001',
-                        statusCode: 200
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                        statusCode: 200,
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }
@@ -452,15 +460,17 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.',
             tags: ['homes:Topic:Gardening', 'homes:Renovating:Materials:Bamboo'],
             video: {
-                id: 'VIDEO-2211',
-                name: '4128484287001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        videoId: 'VIDEO-2211',
-                        status: 'Video upload is complete',
-                        brightcoveId: '4128484287001',
-                        statusCode: 200
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                        statusCode: 200,
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }
@@ -498,15 +508,17 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consequuntur distinctio error excepturi, impedit magnam obcaecati.',
             tags: ['homes:Topic:Gardening', 'homes:Renovating:Materials:Bamboo'],
             video: {
-                id: 'VIDEO-2211',
-                name: '4128484287001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        videoId: 'VIDEO-2211',
-                        status: 'Video upload is complete',
-                        brightcoveId: '4128484287001',
-                        statusCode: 200
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                        statusCode: 200,
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }

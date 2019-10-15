@@ -130,27 +130,23 @@ export default {
             valid: true,
             isopen: false,
             content: {
-                id: '6034980215001',
-                name: 'How an influencer keeps her tan fresh',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '6034980215001',
-                        videoUrl: 'http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=6034980215001&pubId=761709621001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '6034980215001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_6034983154001_6034980215001-th.jpg?pubId=761709621001&videoId=6034980215001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_6034985955001_6034980215001-vs.jpg?pubId=761709621001&videoId=6034980215001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
-            videoId: '6034980215001',
+            videoId: 'Wdojqhyf',
             mediaType: 'video',
-            videoTitle: '',
-            brightcoveId: 6034980215001
+            videoTitle: ''
         },
         {
             url: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/04/51358/blake-lively.jpg',

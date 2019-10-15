@@ -87,10 +87,9 @@ export default {
             open: false,
             valid: true,
             ispoen: false,
-            videoId: '4127515677001',
+            videoId: 'Wdojqhyf',
             mediaType: 'video',
-            videoTitle: '',
-            brightcoveId: '4127515677001'
+            videoTitle: ''
         },
         {
             url: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/04/51358/blake-lively.jpg',

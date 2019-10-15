@@ -5,9 +5,6 @@ import siteBrands from './siteBrands';
 import networkBrands from './networkBrands';
 import services from './services';
 
-const accountId = '761709621001';
-const playerId = 'VkuyApojl';
-
 export default {
     ga: { id: 'UA-57795117-2' },
 
@@ -70,13 +67,6 @@ export default {
         masthead: 'HOMES',
         id: 'GTM-KG7F8H'
     },
-
-    brightcove: {
-        accountId,
-        playerId,
-        playlistId: '5086182656001',
-        script: `//players.brightcove.net/${accountId}/${playerId}_default/index.min.js`
-    },
     jwPlayer: {
         scriptKey: 'hsF3ib28',
         baseUrl: 'https://cdn.jwplayer.com'
@@ -91,9 +81,6 @@ export default {
     },
 
     features: {
-        jwPlayer: {
-            enabled: true
-        },
         galleryOfGalleries: {
             enabled: true
         },

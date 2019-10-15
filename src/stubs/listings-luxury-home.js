@@ -234,21 +234,19 @@ export default {
             contentSummary: 'Dazzling colours and eccentric panache reign in the home of design’s king of pop.',
             contentTitle: "Jonathan Adler's Greenwich Village apartment",
             contentVideo: {
-                id: '4763633999001',
-                name: 'At Home With Jonathon Adler',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
+                type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        brightcoveId: '4763633999001',
                         status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4763643515001_4763633999001-th.jpg?pubId=761709621001',
-                        videoId: '4763633999001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4763644497001_4763633999001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
-                },
-                type: 'VideoItem'
+                }
             },
             contentYear: 2016,
             id: 'HOMES-3009',
