@@ -24,7 +24,7 @@ export class ImageGalleryWrapper extends Component {
             const { videoConfiguration = {} } = properties;
             const { videoId, ads = true } = videoConfiguration;
 
-            return <JwVideoPlayer videoID={videoId} title={name} floating={false} hasAds={ads} />;
+            return <JwVideoPlayer videoID={videoId} title={name} floating={false} hasAds={ads} usedIn="carouselGallery" />;
         }
 
         return <ResponsiveImage {...item} />;
