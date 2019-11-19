@@ -54,7 +54,7 @@
     "@bxm/markdown": "^1.4.1",
     "@bxm/nav": "^4.0.0",
     "@bxm/react-script-loader": "^3.0.0",
-    "@bxm/server": "^30.2.0",
+    "@bxm/server": "^30.3.0",
     "@bxm/shared-ui": "^2.6.0",
     "@bxm/site-header": "^9.7.0",
     "@bxm/social": "^3.1.0",

@@ -145,6 +145,10 @@ export default {
         },
         listingsEmailTest: {
             enabled: true
+        },
+        skimLinks: {
+            enabled: true,
+            publisherCode: '105419X1562407'
         }
     },
 
