@@ -46,6 +46,7 @@
 
         &__input-option {
             color: $listings-filter-input-color;
+            text-transform: capitalize;
 
             &.is-selected {
                 background-color: $listings-filter-selected-background-color;

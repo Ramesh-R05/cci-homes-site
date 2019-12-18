@@ -22,7 +22,7 @@ export default class ListingCard extends Component {
                 urlName: PropTypes.string,
                 name: PropTypes.string
             })
-        ).isRequired,
+        ),
         websiteAddress: PropTypes.string,
         emailAddress: PropTypes.string,
         streetAddress: PropTypes.string,
@@ -32,6 +32,7 @@ export default class ListingCard extends Component {
 
     static defaultProps = {
         title: '',
+        tags: [{ urlName: '', name: '' }],
         subtitle: '',
         listingUrl: '',
         websiteAddress: '',

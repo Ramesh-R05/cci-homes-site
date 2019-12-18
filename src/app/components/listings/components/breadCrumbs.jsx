@@ -24,11 +24,11 @@ export default function BreadCrumbs({ links }) {
                         ...link,
                         title:
                             items.length > 1 ? (
-                                <a className="directory-breadcrumbs__link" href={link.url}>
+                                <a className="directory-breadcrumbs__link" href={link.url} key={link.url}>
                                     <HomeIcon />
                                 </a>
                             ) : (
-                                <a className="directory-breadcrumbs__link" href={link.url}>
+                                <a className="directory-breadcrumbs__link" href={link.url} key={link.url}>
                                     <HomeIcon />
                                     <div className="directory-breadcrumbs__icon-box">
                                         <span className="directory-breadcrumbs__home_text">DIRECTORY</span>
