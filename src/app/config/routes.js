@@ -72,11 +72,7 @@ export default {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: Article,
-        action: loadPageContent,
-        validators: {
-            page: /^[^\W_]+(-[^\W_]+)*-$/g,
-            id: /^[0-9]*$/g
-        }
+        action: loadPageContent
     },
     brand: {
         path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden|inside-out|country-style|homelife)',
