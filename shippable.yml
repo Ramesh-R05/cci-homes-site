@@ -1,7 +1,7 @@
 # language setting
 build_environment: Ubuntu 16.04
 language: node_js
-node_js: "8.9.1"
+node_js: "10.18.1"
 
 runtime:
   nodePool: custom__x86_64__Ubuntu_16_04
@@ -26,6 +26,7 @@ build:
     - rm -rf node_modules
     - rm package-lock.json
     - npm install
+    - npm rebuild node-sass --force
     - echo "module.exports={buildNumber:'$BRANCH_NAME'};" > version.js
     - cat version.js
     - npm run test:ci
