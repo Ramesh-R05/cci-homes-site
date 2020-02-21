@@ -45,7 +45,7 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
-    "@bxm/ad": "^16.4.0",
+    "@bxm/ad": "^16.4.1",
     "@bxm/api-utils": "^1.0.5",
     "@bxm/article": "^33.3.0",
     "@bxm/behaviour": "^2.1.1",
