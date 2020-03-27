@@ -101,10 +101,10 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
@@ -135,10 +135,10 @@ jobs:
        switch: off
      - TASK:
         - script: curl services.sit.bxm.internal/publishing-broker/
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/src/e2e
         - script: npm install
@@ -165,10 +165,10 @@ jobs:
      - IN: homes-site-repo
        switch: off
      - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/src/e2e
         - script: npm install
@@ -197,10 +197,10 @@ jobs:
 #     - IN: homes-site-repo
 #       switch: off
 #     - TASK:
-#        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+#        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
 #        - script: source ~/.nvm/nvm.sh
-#        - script: nvm install "10.18.1"
-#        - script: nvm use "10.18.1"
+#        - script: nvm install "10.19.0"
+#        - script: nvm use "10.19.0"
 #        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
 #        - script: cd ./IN/homes-site-repo/gitRepo/automation
 #        - script: npm install
@@ -228,10 +228,10 @@ jobs:
        switch: off
      - TASK:
         - script: curl services.sit.bxm.internal/publishing-broker/
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
@@ -256,10 +256,10 @@ jobs:
       - IN: homes-site-repo
         switch: off
       - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -333,10 +333,10 @@ jobs:
        switch: off
      - IN: homes-morning-trigger
      - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
@@ -359,10 +359,10 @@ jobs:
        switch: off
      - IN: homes-weekly-trigger
      - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
@@ -381,10 +381,10 @@ jobs:
        switch: off
      - IN: homes-morning-trigger
      - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "10.18.1"
-        - script: nvm use "10.18.1"
+        - script: nvm install "10.19.0"
+        - script: nvm use "10.19.0"
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: cd ./IN/homes-site-repo/gitRepo/automation
         - script: npm install
