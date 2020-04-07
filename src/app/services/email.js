@@ -8,6 +8,9 @@ export default {
         return superagent
             .get(`${host}/api/sendEmail`)
             .query(params)
-            .then(response => response, error => error);
+            .then(
+                response => response,
+                error => error
+            );
     }
 };

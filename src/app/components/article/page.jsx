@@ -12,7 +12,9 @@ export default class Page extends Component {
         content: PropTypes.shape({
             source: PropTypes.string.isRequired,
             tagsDetails: PropTypes.array.isRequired,
-            nodeType: PropTypes.string.isRequired
+            nodeType: PropTypes.string.isRequired,
+            directoryLogoUrl: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+            externalLinks: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
         }).isRequired
     };
 

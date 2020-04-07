@@ -24,7 +24,7 @@ export default class ListingRenderer extends PureComponent {
             pinterestUrl: PropTypes.string,
             twitterUrl: PropTypes.string,
             facebookUrl: PropTypes.string,
-            subHeading: PropTypes.string,
+            subheading: PropTypes.string,
             copy: PropTypes.string,
             products: PropTypes.arrayOf(PropTypes.object),
             linkedGalleries: PropTypes.arrayOf(PropTypes.object),

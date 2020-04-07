@@ -183,6 +183,12 @@ export default {
 
     nielsen: 'D8F7E7CC-324B-4FEA-A412-097B3CC98D0A',
 
+    meta: {
+        commissionFactoryVerification: {
+            content: 'fc1aba559513404b870123d48c96fe06'
+        }
+    },
+
     rssListingQuery: 'nodeTypeAlias eq %27Article%27 or nodeTypeAlias eq %27HomesArticle%27 or nodeTypeAlias eq %27Gallery%27',
 
     polar: {

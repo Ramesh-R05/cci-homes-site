@@ -44,7 +44,11 @@ const testWrapper = (props = {}, context = {}) => {
 };
 
 const featuredBrandsProp = {
-    items: [{ id: 'brand1', url: '/brand1' }, { id: 'brand2', url: '/brand2' }, { id: 'brand3', url: '/brand3' }]
+    items: [
+        { id: 'brand1', url: '/brand1' },
+        { id: 'brand2', url: '/brand2' },
+        { id: 'brand3', url: '/brand3' }
+    ]
 };
 
 const latestBrandItemsProp = {
@@ -97,7 +101,11 @@ describe('Latest Brand Content', () => {
                 it('sets the state to the first featuredBrand item passed id', () => {
                     const expectedProps = {
                         featuredBrands: {
-                            items: [{ id: 'brand1', url: '/brand1' }, { id: 'brand2', url: '/brand2' }, { id: 'brand3', url: '/brand3' }]
+                            items: [
+                                { id: 'brand1', url: '/brand1' },
+                                { id: 'brand2', url: '/brand2' },
+                                { id: 'brand3', url: '/brand3' }
+                            ]
                         },
                         latestBrandItems: {
                             brand1: ['latest1', 'latest2', 'latest3'],
@@ -122,7 +130,11 @@ describe('Latest Brand Content', () => {
                 it('changes the shown content to the items from the selected brand', () => {
                     const expectedProps = {
                         featuredBrands: {
-                            items: [{ id: 'brand1', url: '/brand1' }, { id: 'brand2', url: '/brand2' }, { id: 'brand3', url: '/brand3' }]
+                            items: [
+                                { id: 'brand1', url: '/brand1' },
+                                { id: 'brand2', url: '/brand2' },
+                                { id: 'brand3', url: '/brand3' }
+                            ]
                         },
                         latestBrandItems: {
                             brand1: ['latest1', 'latest2', 'latest3'],

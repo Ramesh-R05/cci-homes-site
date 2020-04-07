@@ -13,6 +13,9 @@ export default {
         // Trips up on some stringify recursion.
         // Solution is to create a new params object with only properties that we need.
         // There's a difference between client side and server side query property name.
-        return superagent.get(`${host}/api/search?q=${keyword}&pageNo=${pageNo}`).then(response => response, error => error);
+        return superagent.get(`${host}/api/search?q=${keyword}&pageNo=${pageNo}`).then(
+            response => response,
+            error => error
+        );
     }
 };

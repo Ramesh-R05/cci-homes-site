@@ -45,9 +45,7 @@ describe('listingsForCategory middleware', () => {
                             res: { body: { listingCategories: listingCategoriesMock } }
                         });
 
-                        const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${
-                            testArgs.req.query.location
-                        }'`;
+                        const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${testArgs.req.query.location}'`;
 
                         constructListingFilterStringStub
                             .withArgs(baseQuery, testArgs.req.query.category, testArgs.req.query.location, testArgs.req.query.includeOnlineResults)
@@ -127,9 +125,7 @@ describe('listingsForCategory middleware', () => {
                             res: { body: { listingCategories: listingCategoriesMock } }
                         });
 
-                        const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${
-                            testArgs.req.query.location
-                        }'`;
+                        const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${testArgs.req.query.location}'`;
 
                         constructListingFilterStringStub
                             .withArgs(baseQuery, testArgs.req.query.category, testArgs.req.query.location, testArgs.req.query.includeOnlineResults)
@@ -210,9 +206,7 @@ describe('listingsForCategory middleware', () => {
                             res: { body: { listingCategories: listingCategoriesMock } }
                         });
 
-                        const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${
-                            testArgs.req.query.location
-                        }'`;
+                        const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${testArgs.req.query.location}'`;
 
                         constructListingFilterStringStub
                             .withArgs(baseQuery, testArgs.req.query.category, testArgs.req.query.location, testArgs.req.query.includeOnlineResults)
@@ -289,9 +283,7 @@ describe('listingsForCategory middleware', () => {
                         res: { body: { listingCategories: listingCategoriesMock } }
                     });
 
-                    const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${
-                        testArgs.req.query.location
-                    }'`;
+                    const filterString = `${baseQuery} and tagsDetails/urlName eq '${testArgs.req.query.category}' and tagsDetails/urlName eq '${testArgs.req.query.location}'`;
 
                     constructListingFilterStringStub
                         .withArgs(baseQuery, testArgs.req.query.category, testArgs.req.query.location, testArgs.req.query.includeOnlineResults)

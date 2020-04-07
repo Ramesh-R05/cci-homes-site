@@ -73,30 +73,32 @@ describe('ImageGalleryWrapper component', () => {
             });
         });
 
-        [{ size: 'portrait', modifier: 'portrait' }, { size: 'landscape', modifier: 'landscape' }, { size: 'compact', modifier: 'compact' }].forEach(
-            ({ size, modifier }) => {
-                describe(`with ${size} prop and multiple items`, () => {
-                    let wrapper;
+        [
+            { size: 'portrait', modifier: 'portrait' },
+            { size: 'landscape', modifier: 'landscape' },
+            { size: 'compact', modifier: 'compact' }
+        ].forEach(({ size, modifier }) => {
+            describe(`with ${size} prop and multiple items`, () => {
+                let wrapper;
 
-                    before(() => {
-                        [wrapper] = TestWrapper({
-                            items: [{ original: 'http://image.com' }, { original: 'http://image2.com' }],
-                            size
-                        });
-                    });
-
-                    it('renders the component', () => {
-                        expect(wrapper.find(ImageGalleryStub).exists()).to.be.true;
-                    });
-
-                    it(`adds the ${modifier} class modifier to the additonalClass prop on the ImageGallery component`, () => {
-                        const { root } = selectors;
-
-                        expect(wrapper.find(ImageGalleryStub).prop('additionalClass')).to.eq(`${root} ${selectors[modifier]}`);
+                before(() => {
+                    [wrapper] = TestWrapper({
+                        items: [{ original: 'http://image.com' }, { original: 'http://image2.com' }],
+                        size
                     });
                 });
-            }
-        );
+
+                it('renders the component', () => {
+                    expect(wrapper.find(ImageGalleryStub).exists()).to.be.true;
+                });
+
+                it(`adds the ${modifier} class modifier to the additonalClass prop on the ImageGallery component`, () => {
+                    const { root } = selectors;
+
+                    expect(wrapper.find(ImageGalleryStub).prop('additionalClass')).to.eq(`${root} ${selectors[modifier]}`);
+                });
+            });
+        });
 
         describe(`with with a single item`, () => {
             let wrapper;

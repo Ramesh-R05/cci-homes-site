@@ -10,7 +10,9 @@ export default class DirectorySubHeader extends Component {
 
     static propTypes = {
         content: PropTypes.shape({
-            nodeType: PropTypes.string
+            nodeType: PropTypes.string,
+            businessName: PropTypes.string.isRequired,
+            breadcrumbs: PropTypes.array.isRequired
         }).isRequired
     };
 

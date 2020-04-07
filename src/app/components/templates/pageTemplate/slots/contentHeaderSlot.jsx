@@ -30,7 +30,8 @@ ContentHeaderSlot.displayName = 'ContentHeaderSlot';
 ContentHeaderSlot.propTypes = {
     Component: PropTypes.func,
     contentProps: PropTypes.shape({
-        tagsDetails: PropTypes.arrayOf(PropTypes.shape({ displayName: PropTypes.string }))
+        tagsDetails: PropTypes.arrayOf(PropTypes.shape({ displayName: PropTypes.string })),
+        content: PropTypes.object
     }).isRequired,
     useContentTitle: PropTypes.bool,
     contentHeaderProps: PropTypes.object

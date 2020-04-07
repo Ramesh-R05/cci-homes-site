@@ -3,7 +3,10 @@ noCallThru();
 
 const configStub = {
     brands: {
-        site: [{ title: 'brand1', otherProp: 'otherProp1' }, { title: 'brand2', otherProp: 'otherProp2' }]
+        site: [
+            { title: 'brand1', otherProp: 'otherProp1' },
+            { title: 'brand2', otherProp: 'otherProp2' }
+        ]
     }
 };
 

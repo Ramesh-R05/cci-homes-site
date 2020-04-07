@@ -3,7 +3,11 @@ noCallThru();
 const singleBrandResStub = {
     data: ['brandItem1', 'brandItem2', 'brandItem3']
 };
-const siteBrands = [{ id: 'brand1', title: 'brand1' }, { id: 'brand2', title: 'brand2' }, { id: 'brand3', title: 'brand3' }];
+const siteBrands = [
+    { id: 'brand1', title: 'brand1' },
+    { id: 'brand2', title: 'brand2' },
+    { id: 'brand3', title: 'brand3' }
+];
 
 const parseEntitiesStub = arg => arg;
 const getLatestTeasersStub = sinon.stub().resolves(singleBrandResStub);
