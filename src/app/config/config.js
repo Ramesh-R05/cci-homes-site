@@ -184,6 +184,10 @@ export default {
     nielsen: 'D8F7E7CC-324B-4FEA-A412-097B3CC98D0A',
 
     meta: {
+        awinDomainVerification: {
+            content: '898f2cd5b8c0bfcc2d35621f11dc3e24',
+            scriptUrl: 'https://www.dwin2.com/pub.687331.min.js'
+        },
         commissionFactoryVerification: {
             content: 'fc1aba559513404b870123d48c96fe06'
         }
