@@ -1,12 +1,13 @@
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import OffCanvas from '../../off-canvas/offCanvas';
+
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ContentHeaderSlot from './slots/contentHeaderSlot';
 import ContentSlot from './slots/contentSlot';
-import errorRenderer from './slots/errorRenderer';
-import HeaderSlot from './slots/headerSlot';
 import FooterSlot from './slots/footerSlot';
+import HeaderSlot from './slots/headerSlot';
+import OffCanvas from '../../off-canvas/offCanvas';
+import errorRenderer from './slots/errorRenderer';
 
 export default class PageTemplate extends Component {
     static propTypes = {

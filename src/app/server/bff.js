@@ -1,32 +1,33 @@
 import amp from '@bxm/server/lib/middleware/amp';
-import emailLinkTracking from '@bxm/server/lib/middleware/emailLinkTracking';
 import assetProxy from '@bxm/server/lib/middleware/assetProxy';
-import pageModules from './bff/middleware/pageModules';
-import home from './bff/middleware/home';
-import brand from './bff/middleware/brand';
-import render from './bff/middleware/render';
-import error from './bff/middleware/error';
-import headerMeta from './bff/middleware/headerMeta';
-import page from './bff/middleware/page';
+import emailLinkTracking from '@bxm/server/lib/middleware/emailLinkTracking';
 import article from './bff/middleware/article';
-import gallery from './bff/middleware/gallery';
-import navSection from './bff/middleware/navSection';
-import tag from './bff/middleware/tag';
+import brand from './bff/middleware/brand';
 import campaign from './bff/middleware/campaign';
-import list from './bff/middleware/list';
-import sitemap from './bff/middleware/sitemap';
-import listing from './bff/middleware/listing';
-import servicesStubs from './servicesStubs';
-import https from './bff/middleware/https';
 import comScore from './bff/middleware/comScore';
-import search from './bff/middleware/search';
-import listingSingle from './bff/middleware/listingSingle';
-import listingsForCategory from './bff/middleware/listingsForCategory';
+import directoryBreadcrumbs from './bff/directoryBreadcrumbs';
 import directoryHome from './bff/middleware/directoryHome';
+import error from './bff/middleware/error';
+import gallery from './bff/middleware/gallery';
+import headerMeta from './bff/middleware/headerMeta';
+import home from './bff/middleware/home';
+import https from './bff/middleware/https';
 import latestBrandItems from './bff/middleware/latestBrandItems';
 import latestBrandVideos from './bff/middleware/getLatestBrandVideos';
+import list from './bff/middleware/list';
+import listing from './bff/middleware/listing';
+import listingSingle from './bff/middleware/listingSingle';
+import listingsForCategory from './bff/middleware/listingsForCategory';
+import navSection from './bff/middleware/navSection';
+import page from './bff/middleware/page';
+import pageModules from './bff/middleware/pageModules';
+import render from './bff/middleware/render';
+import search from './bff/middleware/search';
 import sendEmail from './bff/middleware/sendEmail';
-import directoryBreadcrumbs from './bff/directoryBreadcrumbs';
+import servicesStubs from './servicesStubs';
+import siteAlert from './bff/middleware/siteAlert';
+import sitemap from './bff/middleware/sitemap';
+import tag from './bff/middleware/tag';
 
 export default function bff(server) {
     if (
@@ -66,6 +67,7 @@ export default function bff(server) {
         emailLinkTracking,
         pageModules,
         comScore,
+        siteAlert,
         home,
         latestBrandItems,
         brand,

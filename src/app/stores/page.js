@@ -21,6 +21,7 @@ const PageStore = createReducerStore({
                 hero,
                 items,
                 theme,
+                siteAlertData,
                 galleries,
                 latestVideos,
                 latestBrandVideos,
@@ -39,6 +40,7 @@ const PageStore = createReducerStore({
                     hero,
                     items,
                     theme,
+                    siteAlertData,
                     navigationTags: entity.navigationTags,
                     galleries,
                     featuredBrand,
@@ -62,6 +64,7 @@ const PageStore = createReducerStore({
             latestBrandVideos: [],
             latestBrandItems: [],
             list: [],
+            siteAlertData: {},
             content: {},
             comScoreSegmentIds: payload && payload.body ? payload.body.comScoreSegmentIds : initialState.comScoreSegmentIds
         }),
@@ -112,6 +115,9 @@ const PageStore = createReducerStore({
 
         getTheme(state) {
             return state.theme || null;
+        },
+        getSiteAlert(state) {
+            return state.siteAlertData || {};
         },
 
         getLatestVideos(state) {

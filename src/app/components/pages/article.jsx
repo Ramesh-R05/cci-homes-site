@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
 import Header from '@bxm/site-header';
+import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
-import getBrand from '../brand/utilities/getBrand';
-import Renderer from '../templates/templateRenderer';
-import PageTemplate from '../templates/pageTemplate/PageTemplate';
-import HeaderAd from '../home/header';
 import ArticleContent from '../article/page';
-import SiteFooter from '../site-footer';
+import HeaderAd from '../home/header';
 import HeaderThemeCheck from '../helpers/checkHeaderTheme';
+import PageTemplate from '../templates/pageTemplate/PageTemplate';
+import Renderer from '../templates/templateRenderer';
+import SiteAlert from '../siteAlert';
+import SiteFooter from '../site-footer';
+import getBrand from '../brand/utilities/getBrand';
 
 export class ArticlePage extends Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
         theme: PropTypes.object,
+        siteAlert: PropTypes.object,
         contentErrorStatus: PropTypes.object,
         currentNavigateError: PropTypes.object,
         headerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -26,7 +29,8 @@ export class ArticlePage extends Component {
         hamburgerNavItems: [],
         contentErrorStatus: null,
         currentNavigateError: null,
-        theme: {}
+        theme: {},
+        siteAlert: {}
     };
 
     static contextTypes = {
@@ -34,7 +38,7 @@ export class ArticlePage extends Component {
     };
 
     render() {
-        const { headerNavItems, hamburgerNavItems, currentUrl, theme, content, contentErrorStatus, currentNavigateError } = this.props;
+        const { headerNavItems, hamburgerNavItems, currentUrl, theme, siteAlert, content, contentErrorStatus, currentNavigateError } = this.props;
         const { config } = this.context;
 
         const brandConfig = getBrand(config, content && content.source);
@@ -57,7 +61,9 @@ export class ArticlePage extends Component {
                 theme,
                 isExpanded: true,
                 wrapperClassName: 'header',
-                headerClassName: 'header__inner'
+                headerClassName: 'header__inner',
+                SubHeaderComponent: siteAlert && siteAlert.isEnabled ? SiteAlert : null,
+                subHeaderComponentProps: siteAlert && siteAlert.isEnabled ? siteAlert : {}
             }
         };
 
@@ -72,6 +78,7 @@ export default connectToStores(HeaderThemeCheck(ArticlePage), ['PageStore', 'Nav
     return {
         content: PageStore.getContent(),
         theme: PageStore.getTheme(),
+        siteAlert: PageStore.getSiteAlert(),
         contentErrorStatus: PageStore.getErrorStatus(),
         headerNavItems: NavigationStore.getHeaderItems(),
         hamburgerNavItems: NavigationStore.getHamburgerItems()

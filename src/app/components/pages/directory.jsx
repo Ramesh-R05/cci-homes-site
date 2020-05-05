@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
+import DirectoryFooter from '../listings/components/listingFooter';
+import DirectoryHeader from '../listings/components/DirectoryHeader';
+import DirectoryNodeTypeCheck from '../helpers/directoryNodeTypeCheck';
 import PageTemplate from '../templates/pageTemplate/PageTemplate';
 import Renderer from '../templates/templateRenderer';
-import DirectoryHeader from '../listings/components/DirectoryHeader';
-import DirectoryFooter from '../listings/components/listingFooter';
-import DirectoryNodeTypeCheck from '../helpers/directoryNodeTypeCheck';
 
 export class DirectoryPage extends Component {
     static propTypes = {

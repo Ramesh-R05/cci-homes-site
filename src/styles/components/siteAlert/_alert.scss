@@ -1,0 +1,45 @@
+.alert {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: $alert-background-color;
+
+    &__link {
+        display: block;
+        text-align: center;
+        padding: 3px 0;
+    }
+
+    &__primary-text {
+        display: inline-block;
+        color: $color-white;
+        font: 600 14px/24px $font-family-serif-primary;
+    }
+
+    &__secondary-text {
+        display: none;
+
+        @media #{$medium-up} {
+            display: inline-block;
+            font: 400 14px/24px $font-family-serif-primary;
+            color: $color-white;
+            padding-left: 12px;
+        }
+    }
+
+    &__close-button {
+        position: absolute;
+        right: 10px;
+        padding: 0;
+        line-height: 0;
+        top: 0;
+        z-index: $z-index-10;
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+        color: $color-white;
+        background: $alert-background-color;
+        outline: 0;
+        border: 0;
+    }
+}

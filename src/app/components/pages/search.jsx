@@ -1,19 +1,22 @@
-import { connectToStores } from '@bxm/flux';
+import React, { Component } from 'react';
+
 import Header from '@bxm/site-header';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { connectToStores } from '@bxm/flux';
 import CheckHeaderTheme from '../helpers/checkHeaderTheme';
 import ContentComponent from '../search/searchContent';
-import SearchContentHeader from '../section/header';
-import SiteFooter from '../site-footer';
 import PageTemplate from '../templates/pageTemplate/PageTemplate';
 import Renderer from '../templates/templateRenderer';
+import SearchContentHeader from '../section/header';
+import SiteAlert from '../siteAlert';
+import SiteFooter from '../site-footer';
 
 export class SearchResultsPage extends Component {
     static propTypes = {
         articles: PropTypes.array,
         content: PropTypes.object.isRequired,
         theme: PropTypes.object.isRequired,
+        siteAlert: PropTypes.object,
         list: PropTypes.object,
         listNextParams: PropTypes.object.isRequired,
         contentErrorStatus: PropTypes.object,
@@ -30,6 +33,7 @@ export class SearchResultsPage extends Component {
     static defaultProps = {
         articles: [],
         list: {},
+        siteAlert: {},
         contentErrorStatus: null,
         currentNavigateError: null,
         headerNavItems: [],
@@ -42,6 +46,7 @@ export class SearchResultsPage extends Component {
             hamburgerNavItems,
             currentUrl,
             content,
+            siteAlert,
             searchTotal,
             title,
             contentErrorStatus,
@@ -70,7 +75,9 @@ export class SearchResultsPage extends Component {
                 theme,
                 isExpanded: true,
                 wrapperClassName: 'header',
-                headerClassName: 'header__inner'
+                headerClassName: 'header__inner',
+                SubHeaderComponent: siteAlert && siteAlert.isEnabled ? SiteAlert : null,
+                subHeaderComponentProps: siteAlert && siteAlert.isEnabled ? siteAlert : {}
             },
             contentHeaderProps: {
                 title: `${searchTotal} ${title} results`,
@@ -82,12 +89,14 @@ export class SearchResultsPage extends Component {
     }
 }
 
-export default connectToStores(CheckHeaderTheme(SearchResultsPage), ['SearchStore', 'NavigationStore'], context => {
+export default connectToStores(CheckHeaderTheme(SearchResultsPage), ['SearchStore', 'NavigationStore', 'PageStore'], context => {
     const searchStore = context.getStore('SearchStore');
     const navigationStore = context.getStore('NavigationStore');
+    const PageStore = context.getStore('PageStore');
 
     return {
         title: searchStore.getTitle(),
+        siteAlert: PageStore.getSiteAlert(),
         listNextParams: searchStore.getSearchListNextParams(),
         searchTotal: searchStore.getSearchTotal(),
         articles: searchStore.getInitialSearchResults(),

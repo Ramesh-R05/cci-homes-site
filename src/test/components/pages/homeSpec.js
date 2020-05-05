@@ -1,4 +1,5 @@
 import proxyquire, { noCallThru } from 'proxyquire';
+
 import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
 import { betterMockComponentContext } from '@bxm/flux';
 
@@ -69,6 +70,8 @@ describe('HomePage component', () => {
                     permanentlyFixedIfShorterThan: 49,
                     theme: testProps.theme,
                     isExpanded: true,
+                    SubHeaderComponent: null,
+                    subHeaderComponentProps: {},
                     wrapperClassName: 'header',
                     headerClassName: 'header__inner'
                 }

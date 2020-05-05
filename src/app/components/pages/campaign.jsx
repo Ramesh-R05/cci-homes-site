@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
 import HeaderComponent from '@bxm/site-header';
+import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
+import CheckHeaderTheme from '../helpers/checkHeaderTheme';
+import ContentComponent from '../section/sponsorTag/section';
+import ContentHeaderComponent from '../section/header';
+import FooterComponent from '../site-footer';
 import PageTemplate from '../templates/pageTemplate/PageTemplate';
 import Renderer from '../templates/templateRenderer';
-import ContentHeaderComponent from '../section/header';
-import ContentComponent from '../section/sponsorTag/section';
-import FooterComponent from '../site-footer';
-import CheckHeaderTheme from '../helpers/checkHeaderTheme';
+import SiteAlert from '../siteAlert';
 
 export class CampaignPage extends Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
         theme: PropTypes.object.isRequired,
+        siteAlert: PropTypes.object,
         contentErrorStatus: PropTypes.object,
         currentNavigateError: PropTypes.object,
         headerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -27,7 +30,8 @@ export class CampaignPage extends Component {
         headerNavItems: [],
         hamburgerNavItems: [],
         contentErrorStatus: null,
-        currentNavigateError: null
+        currentNavigateError: null,
+        siteAlert: {}
     };
 
     render() {
@@ -36,6 +40,7 @@ export class CampaignPage extends Component {
             hamburgerNavItems,
             currentUrl,
             theme,
+            siteAlert,
             content,
             contentErrorStatus,
             currentNavigateError,
@@ -62,7 +67,9 @@ export class CampaignPage extends Component {
                 theme,
                 isExpanded: true,
                 wrapperClassName: 'header',
-                headerClassName: 'header__inner'
+                headerClassName: 'header__inner',
+                SubHeaderComponent: siteAlert && siteAlert.isEnabled ? SiteAlert : null,
+                subHeaderComponentProps: siteAlert && siteAlert.isEnabled ? siteAlert : {}
             }
         };
 
@@ -77,6 +84,7 @@ export default connectToStores(CheckHeaderTheme(CampaignPage), ['PageStore', 'Na
     return {
         content: PageStore.getContent(),
         theme: PageStore.getTheme(),
+        siteAlert: PageStore.getSiteAlert(),
         contentErrorStatus: PageStore.getErrorStatus(),
         headerNavItems: NavigationStore.getHeaderItems(),
         hamburgerNavItems: NavigationStore.getHamburgerItems(),

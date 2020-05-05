@@ -1,10 +1,11 @@
-import { connectToStores } from '@bxm/flux';
-import SiteHeader from '@bxm/site-header';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import SiteFooter from '../site-footer';
+
+import PropTypes from 'prop-types';
+import SiteHeader from '@bxm/site-header';
+import { connectToStores } from '@bxm/flux';
 import PageTemplate from '../templates/pageTemplate/PageTemplate';
 import Renderer from '../templates/templateRenderer';
+import SiteFooter from '../site-footer';
 
 export class Error extends Component {
     static propTypes = {

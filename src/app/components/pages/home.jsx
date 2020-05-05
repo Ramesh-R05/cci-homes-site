@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
 import Header from '@bxm/site-header';
+import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
+import CheckHeaderTheme from '../helpers/checkHeaderTheme';
+import ContentComponent from '../home/homeContent';
+import HomeContentHeader from '../home/header';
 import PageTemplate from '../templates/pageTemplate/PageTemplate';
 import Renderer from '../templates/templateRenderer';
-import HomeContentHeader from '../home/header';
-import ContentComponent from '../home/homeContent';
+import SiteAlert from '../siteAlert';
 import SiteFooter from '../site-footer';
-import CheckHeaderTheme from '../helpers/checkHeaderTheme';
 
 export class HomePage extends Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
         theme: PropTypes.object.isRequired,
+        siteAlert: PropTypes.object,
         contentErrorStatus: PropTypes.object,
         currentNavigateError: PropTypes.object,
         headerNavItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -24,11 +27,12 @@ export class HomePage extends Component {
         headerNavItems: [],
         hamburgerNavItems: [],
         contentErrorStatus: null,
-        currentNavigateError: null
+        currentNavigateError: null,
+        siteAlert: {}
     };
 
     render() {
-        const { headerNavItems, hamburgerNavItems, currentUrl, theme, content, contentErrorStatus, currentNavigateError } = this.props;
+        const { headerNavItems, hamburgerNavItems, currentUrl, theme, siteAlert, content, contentErrorStatus, currentNavigateError } = this.props;
 
         const templateProps = {
             classModifier: 'home-page',
@@ -48,7 +52,9 @@ export class HomePage extends Component {
                 theme,
                 isExpanded: true,
                 wrapperClassName: 'header',
-                headerClassName: 'header__inner'
+                headerClassName: 'header__inner',
+                SubHeaderComponent: siteAlert && siteAlert.isEnabled ? SiteAlert : null,
+                subHeaderComponentProps: siteAlert && siteAlert.isEnabled ? siteAlert : {}
             }
         };
 
@@ -63,6 +69,7 @@ export default connectToStores(CheckHeaderTheme(HomePage), ['PageStore', 'Naviga
     return {
         content: PageStore.getContent(),
         theme: PageStore.getTheme(),
+        siteAlert: PageStore.getSiteAlert(),
         contentErrorStatus: PageStore.getErrorStatus(),
         headerNavItems: NavigationStore.getHeaderItems(),
         hamburgerNavItems: NavigationStore.getHamburgerItems()

@@ -1,6 +1,7 @@
 import get from 'lodash.get';
+import { parseEntities, parseEntity } from '../helper/parseEntity';
+
 import API from '../api';
-import { parseEntity, parseEntities } from '../helper/parseEntity';
 
 export default async function homeMiddleware(req, res, next) {
     try {
