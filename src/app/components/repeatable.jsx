@@ -69,7 +69,7 @@ export default class Repeatable extends Component {
         }
 
         if (nextUrl) {
-            nextProps.href = prevUrl;
+            nextProps.href = nextUrl;
             nextProps.className = classNames('button button--link', {
                 disabled: nextUrl === null
             });

@@ -2,7 +2,6 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import canUseDOM from 'exenv';
 import { provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
 import AdManager from '@bxm/ad/lib/google/components/adManager';
@@ -60,14 +59,34 @@ class Application extends Component {
     render() {
         const { currentRoute, currentNavigateError } = this.props;
         const Handler = currentRoute ? currentRoute.handler : Error;
-        const className = canUseDOM ? '' : 'no-js';
 
         return (
             <ErrorBoundary>
-                <div className={className}>
-                    <GoogleFont />
-                    <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute && currentRoute.url} />
-                </div>
+                <noscript
+                    dangerouslySetInnerHTML={{
+                        __html: `<style type="text/css">
+                            .load-more {
+                                display: none !important;
+                            }
+                            .pagination {
+                                padding-left: 15px;
+                                padding-right: 15px;
+                                width: 100%;
+                                float: left;
+                                display: block !important;
+                                text-align: center;
+                            }
+                            .pagination .button {
+                                margin-left: 10px;
+                            }
+                            .lazyload {
+                                display: none !important;
+                            }
+                        </style>`
+                    }}
+                />
+                <GoogleFont />
+                <Handler currentNavigateError={currentNavigateError} currentUrl={currentRoute && currentRoute.url} />
             </ErrorBoundary>
         );
     }
