@@ -108,6 +108,9 @@ export default {
         viPlayer: {
             enabled: true
         },
+        jwPlayer: {
+            enabled: true
+        },
         headerExpanded: {
             enabled: true
         },
