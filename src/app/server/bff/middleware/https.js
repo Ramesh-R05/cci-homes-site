@@ -73,10 +73,6 @@ export default function https(req, res, next) {
             httpsSet(item, 'url');
         });
 
-        get(res, 'body.moreGalleries', []).forEach(item => {
-            httpsSet(item, 'imageUrl');
-        });
-
         get(res, 'body.list.items', []).forEach(item => {
             item.forEach(listItem => {
                 httpsSet(listItem, 'imageUrl');

@@ -12,8 +12,7 @@ parseEntitiesStub.returns(galleryStubData);
 const expectedBody = {
     entity: {
         nodeType: 'Gallery'
-    },
-    moreGalleries: galleryStubData
+    }
 };
 
 const galleryMiddleware = proxyquire('../../../../app/server/bff/middleware/gallery', {
@@ -51,28 +50,6 @@ describe('gallery middleware', () => {
                     .then(() => {
                         expect(getLatestTeasersStub.called).to.be.false;
 
-                        done();
-                    })
-                    .catch(done);
-            });
-        });
-
-        describe(`and nodeType is Gallery`, () => {
-            it('should call getLatestTeasers', done => {
-                galleryMiddleware(req, res, next)
-                    .then(() => {
-                        expect(getLatestTeasersStub.firstCall.calledWith(10, 0, `nodeTypeAlias eq %27Gallery%27`)).to.be.true;
-
-                        done();
-                    })
-                    .catch(done);
-            });
-
-            it('should return all modules in the desired structure', done => {
-                galleryMiddleware(req, res, next)
-                    .then(() => {
-                        expect(getLatestTeasersStub.firstCall.calledWith(10, 0, `nodeTypeAlias eq %27Gallery%27`)).to.be.true;
-                        expect(res.body).to.deep.equal(expectedBody);
                         done();
                     })
                     .catch(done);

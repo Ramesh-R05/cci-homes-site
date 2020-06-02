@@ -11,9 +11,6 @@ export default async function galleryMiddleware(req, res, next) {
             return;
         }
 
-        const galleryItems = await API.getLatestTeasers(10, 0, 'nodeTypeAlias eq %27Gallery%27');
-        res.body.moreGalleries = parseEntities(galleryItems.data);
-
         if (entity.tags) {
             const navTag = entity.tags.find(tag => tag.includes('navigation'));
 
