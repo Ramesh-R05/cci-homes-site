@@ -29,7 +29,7 @@ resources:
       params:
         AWS_S3_BUCKET: 's3://test-result-s3/'
         # AWS_SECRET_ACCESS_KEY AWS_ACCESS_KEY_ID
-        secure: Ce78K8v4T24YVrj/ZzZfBIheIkeckvVfRseoI38W863Cs+9616vvL4q9zZBl3ev7Bh8Uwjyf1rhLxfl++sxA9pvX5aAu8sHGag2SfVntjyFTMdvFzyky9KwkPLszqzFr3fm0WryvyMxE80gNppKZCgX8UPj3gMdzIr/AJluwW35JSWsvcu5W/BHqG0wAyWrgx9QR+ir5DZJAeV6ZeghgalKSx1BkxFbWoNIozLFCIWw487+xJZdI3qJnwKhqPiqLb77zTuoawC1+aUVUJgYgCtzNKg66RcCi6IUilfdFaH12b5h+IQiZF5S36/pFKQ22JvTVZ+RyuKE7qmVuq8orvw==
+        secure: jzZFBI6IT/xnpnjEAjG5G+IUVmv+vzSmB5L8VPBgXDfDaG+Y6sDSBWRLbSl4OdNEP92mVmLxzzDOBmUBs8Uvl4UMtqbZCYVi4uWElEqeGtsYzqy+mc9L9w5ZhHV5YLYNpu0IE7soe7CIx0SbNsTInhXXGE1R/ML+Lmqx/l2ONirGZLJaCevJyFAFicsCWZprRv1E1lxGBSG5wWqczF7FDCv6WwS3NIpkQfwWbnr6f7O8RmkJM8xIKr3l7mmk9NyYFrDRp9GeBjKuDDP1nuRkI9nH0QzI7McOPoNkvHjZuruHVgK4Z9K/KA886qjwSi6EMAuby2uFZm16bQnAGHFShg==
 
   # MASTER Docker Image for the homes-site
   - name: homes-site-img-master
@@ -153,7 +153,7 @@ resources:
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb'
         APP_DEBUG: true
           # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-          secure: RHt1OV+rl5uLwJsxp0De5p0eY/X1Llr9lmR/CJ+WuFc8wHPxTmGcwIPnhoAg8fBhVBOcmkd5VKxwiEeqiF717MtjDDiWVJgazsz+ZfvzCwB7qHp3Cpl42sPkTLllsHGLhBgPWLAVz97WlmbgIJFOOtmWUZb1CPdikTF2f3MyJXEcSoZqjbF3GTyhx/IWs8ugN9Z3crKumOnmlKwIxHCIPwRvvTyZ5r2NrI4bVR/LIFxzFuwvfjqmYrnII3MY12hpaVnw9YIN/7u2MLVlHKmAhbTmXAjAyvVV5481tOhTYETcjB2L4euJkGs4bYbXDOCU1i9oyp3I1TVmyw7DdD9iSw==
+          secure: dT1YkyduIjVZILyXxdQ9xtc6RPlOJUtE2//OcgAqQlMoPnS0Kipv/e5zIVESv/+bhfIGK3JguKrpEMJvBqikn3iVWCeD0oQm3JP7lZPOUg/dUrk2h8uuAcGWmHfQXnLwoDx1VvWLklbiJ89u9az/2NjX/CVdThLy3Eamm09wK8yzlGSa2rCd0im/Zpgz+TYxcVT7kIIHywhoMT1bzJzCjdY0qHV0GNDXRKV6hhWy0ekp+GHDjGM8xMhYcFgon97g0idwS4rPqU24Yl9jbeGoTWwR1OyluPoiUqcioU7JqssLTBaTMTHqlDQn9GfzzaxnopXgHFHYmhomHtB9eYu9lg==
 
   # TEST Parameter
   - name: homes-site-params-test
@@ -171,7 +171,7 @@ resources:
     versionTemplate:
       params:
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: RHt1OV+rl5uLwJsxp0De5p0eY/X1Llr9lmR/CJ+WuFc8wHPxTmGcwIPnhoAg8fBhVBOcmkd5VKxwiEeqiF717MtjDDiWVJgazsz+ZfvzCwB7qHp3Cpl42sPkTLllsHGLhBgPWLAVz97WlmbgIJFOOtmWUZb1CPdikTF2f3MyJXEcSoZqjbF3GTyhx/IWs8ugN9Z3crKumOnmlKwIxHCIPwRvvTyZ5r2NrI4bVR/LIFxzFuwvfjqmYrnII3MY12hpaVnw9YIN/7u2MLVlHKmAhbTmXAjAyvVV5481tOhTYETcjB2L4euJkGs4bYbXDOCU1i9oyp3I1TVmyw7DdD9iSw==
+        secure: dT1YkyduIjVZILyXxdQ9xtc6RPlOJUtE2//OcgAqQlMoPnS0Kipv/e5zIVESv/+bhfIGK3JguKrpEMJvBqikn3iVWCeD0oQm3JP7lZPOUg/dUrk2h8uuAcGWmHfQXnLwoDx1VvWLklbiJ89u9az/2NjX/CVdThLy3Eamm09wK8yzlGSa2rCd0im/Zpgz+TYxcVT7kIIHywhoMT1bzJzCjdY0qHV0GNDXRKV6hhWy0ekp+GHDjGM8xMhYcFgon97g0idwS4rPqU24Yl9jbeGoTWwR1OyluPoiUqcioU7JqssLTBaTMTHqlDQn9GfzzaxnopXgHFHYmhomHtB9eYu9lg==
 
   # SIT/TEST - Number of task to run in AWS cluster
   - name: homes-site-replicas-non-prod
@@ -210,7 +210,7 @@ resources:
         APP_ENV: 'prod' # this is to start APP using production config
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb' # New relic key
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: CBczeGARroWDL6VEA5FKtF5pYYTGAh8acVO0X2+wgYxSkaD303oOrZisGM6Nl0HDCIHAQeYq07Hz8iIVpaoIOlNW+eITX79LTCQ+aMLqasapjz32UMFDkHStigRHSnirOpWpFPOSDdv2drI3ZS4awsiB1dG9sEcvBUtKvGiSwfr5Px43BhN5pRy+yYJD57//Ga85AytvtqtSJ2Ed742dFtRCglQHCQpwjiaMJgT3/0NZy4+HN+a9gVB7E5wV59eJVyXIf5rlWD35vOwcCKzIuI4d9I2w9N85a1lTe509erUZ7WfFNeZv7vJwrbMt5GHk/0yNp6UwCzAfDxV39rbQJA==
+        secure: WCuoV7pdWvhDt6mFtHYqFs88GVWCoQFvXY1iABjyVjxi9ilC6mvr5wLNzgEBIbPjhM+Om1kbNvCuP/IUOIieCdiqJ/E0PjMW0wICF3VjseXfZTSSsEsRk8SUKPu00gNzy1zppg/aOo7eyJalWF/NGnZH8PppoVpZGI4vkv0plcSA9IiBPpo3NNigAySD05Vgnb5u8Sj+uIZm1nC+QNXSN60VAo6PqExsye5Y6OMkTCDW28nPrKv5eE2Yew56uF87zHFuWit8d0AwJcbjdo1oFFwDW5lA1h2HeZEjordsYw49j0Mwc/twEZOGZMfWWcbmEwrW7xDnbuYmljhx/4D8MQ==
 
   # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
