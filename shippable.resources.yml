@@ -153,7 +153,7 @@ resources:
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb'
         APP_DEBUG: true
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: dT1YkyduIjVZILyXxdQ9xtc6RPlOJUtE2//OcgAqQlMoPnS0Kipv/e5zIVESv/+bhfIGK3JguKrpEMJvBqikn3iVWCeD0oQm3JP7lZPOUg/dUrk2h8uuAcGWmHfQXnLwoDx1VvWLklbiJ89u9az/2NjX/CVdThLy3Eamm09wK8yzlGSa2rCd0im/Zpgz+TYxcVT7kIIHywhoMT1bzJzCjdY0qHV0GNDXRKV6hhWy0ekp+GHDjGM8xMhYcFgon97g0idwS4rPqU24Yl9jbeGoTWwR1OyluPoiUqcioU7JqssLTBaTMTHqlDQn9GfzzaxnopXgHFHYmhomHtB9eYu9lg==
+        secure: eh6PqdI2ZjHPAjQWsK9JAlKHiCB8ZkbXLTWp0w8/zz/f+/mDwKNwNwA2oKLmPMYCA5f5uqtd/aEBTmuLYKxdh60libCImi+bkmcwxD6A4SlDrB/KybrMfjMyKH0mBnLhc1vSWzJOYz1+GaCLBo4xrDJTxosd2JORXF74ueqO4XtryDxV11FrMHjgAlHk09eFPZX8Ugwt2OGIy5DDk9+B4jAj1YtdVw/6WXExEeiX6yOF1IDdxsfmCD0a87CgEvm0LtPYLi/cHazc4E89hlVFPjT7D+FUA0LSbVKfYFWUt2dHAZbDI8GAvtmKlniHQGWoVD74Qh4jpIWDvDV+dtg9Wg==
 
   # TEST Parameter
   - name: homes-site-params-test
@@ -171,7 +171,7 @@ resources:
     versionTemplate:
       params:
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: dT1YkyduIjVZILyXxdQ9xtc6RPlOJUtE2//OcgAqQlMoPnS0Kipv/e5zIVESv/+bhfIGK3JguKrpEMJvBqikn3iVWCeD0oQm3JP7lZPOUg/dUrk2h8uuAcGWmHfQXnLwoDx1VvWLklbiJ89u9az/2NjX/CVdThLy3Eamm09wK8yzlGSa2rCd0im/Zpgz+TYxcVT7kIIHywhoMT1bzJzCjdY0qHV0GNDXRKV6hhWy0ekp+GHDjGM8xMhYcFgon97g0idwS4rPqU24Yl9jbeGoTWwR1OyluPoiUqcioU7JqssLTBaTMTHqlDQn9GfzzaxnopXgHFHYmhomHtB9eYu9lg==
+        secure: eh6PqdI2ZjHPAjQWsK9JAlKHiCB8ZkbXLTWp0w8/zz/f+/mDwKNwNwA2oKLmPMYCA5f5uqtd/aEBTmuLYKxdh60libCImi+bkmcwxD6A4SlDrB/KybrMfjMyKH0mBnLhc1vSWzJOYz1+GaCLBo4xrDJTxosd2JORXF74ueqO4XtryDxV11FrMHjgAlHk09eFPZX8Ugwt2OGIy5DDk9+B4jAj1YtdVw/6WXExEeiX6yOF1IDdxsfmCD0a87CgEvm0LtPYLi/cHazc4E89hlVFPjT7D+FUA0LSbVKfYFWUt2dHAZbDI8GAvtmKlniHQGWoVD74Qh4jpIWDvDV+dtg9Wg==
 
   # SIT/TEST - Number of task to run in AWS cluster
   - name: homes-site-replicas-non-prod
@@ -210,7 +210,7 @@ resources:
         APP_ENV: 'prod' # this is to start APP using production config
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb' # New relic key
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: WCuoV7pdWvhDt6mFtHYqFs88GVWCoQFvXY1iABjyVjxi9ilC6mvr5wLNzgEBIbPjhM+Om1kbNvCuP/IUOIieCdiqJ/E0PjMW0wICF3VjseXfZTSSsEsRk8SUKPu00gNzy1zppg/aOo7eyJalWF/NGnZH8PppoVpZGI4vkv0plcSA9IiBPpo3NNigAySD05Vgnb5u8Sj+uIZm1nC+QNXSN60VAo6PqExsye5Y6OMkTCDW28nPrKv5eE2Yew56uF87zHFuWit8d0AwJcbjdo1oFFwDW5lA1h2HeZEjordsYw49j0Mwc/twEZOGZMfWWcbmEwrW7xDnbuYmljhx/4D8MQ==
+        secure: HqGem3E3hfEJTF8y/1g0UFBi/fTCZ6fOZKZTt68hc71LbznI7eVN3yECl6oc3F4ZnW6QG2tBvMww/0dva3cxFhG10dzfBukr2OB59xR+KyHF3S7WjWkyWnCwYiuzJctkoYmfqkBI/0nb6j62oqbf8RmosCpTGS4LbP5tvfXxRGSaLJtTx6nxwFl9Pq/MtxQCCmYYYjVXDNAmqXNiej7ShwqBt8Zb8nF9ncbcUpj/b2HD9S7VE8A5km/LESxBVoirzhnPFTO8WyJqj5HzJAWHtVq0pKfs5/Z8nO9U+DfK7SBunDLaQ2YSAG4zkYmzmgoZTDEMDHsPGDkg0qGijoCA5Q==
 
   # PROD - Number of task to run in AWS cluster
   - name: homes-site-replicas-production
