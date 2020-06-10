@@ -152,8 +152,8 @@ resources:
         APP_ENV: 'sit' # this is to start APP using sit config
         APM_KEY: 'c777240932e6282ffacc6a42ae6a0709426522bb'
         APP_DEBUG: true
-          # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-          secure: dT1YkyduIjVZILyXxdQ9xtc6RPlOJUtE2//OcgAqQlMoPnS0Kipv/e5zIVESv/+bhfIGK3JguKrpEMJvBqikn3iVWCeD0oQm3JP7lZPOUg/dUrk2h8uuAcGWmHfQXnLwoDx1VvWLklbiJ89u9az/2NjX/CVdThLy3Eamm09wK8yzlGSa2rCd0im/Zpgz+TYxcVT7kIIHywhoMT1bzJzCjdY0qHV0GNDXRKV6hhWy0ekp+GHDjGM8xMhYcFgon97g0idwS4rPqU24Yl9jbeGoTWwR1OyluPoiUqcioU7JqssLTBaTMTHqlDQn9GfzzaxnopXgHFHYmhomHtB9eYu9lg==
+        # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
+        secure: dT1YkyduIjVZILyXxdQ9xtc6RPlOJUtE2//OcgAqQlMoPnS0Kipv/e5zIVESv/+bhfIGK3JguKrpEMJvBqikn3iVWCeD0oQm3JP7lZPOUg/dUrk2h8uuAcGWmHfQXnLwoDx1VvWLklbiJ89u9az/2NjX/CVdThLy3Eamm09wK8yzlGSa2rCd0im/Zpgz+TYxcVT7kIIHywhoMT1bzJzCjdY0qHV0GNDXRKV6hhWy0ekp+GHDjGM8xMhYcFgon97g0idwS4rPqU24Yl9jbeGoTWwR1OyluPoiUqcioU7JqssLTBaTMTHqlDQn9GfzzaxnopXgHFHYmhomHtB9eYu9lg==
 
   # TEST Parameter
   - name: homes-site-params-test
