@@ -1,16 +1,17 @@
+import React, { Component } from 'react';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
+import PropTypes from 'prop-types';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import { connectToStores } from '@bxm/flux';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import loadList from '../../actions/loadList';
-import FeaturedBrandsSection from '../featuredBrandsSection/featuredBrandsSection';
-import WithLoadMore from '../helpers/withLoadMore';
-import Repeatable from '../repeatable';
 import Featured from '../section/featured';
+import FeaturedBrandsSection from '../featuredBrandsSection/featuredBrandsSection';
 import List from '../section/list';
 import Rail from '../section/rail';
+import Repeatable from '../repeatable';
 import SocialAndSubscribeLinks from '../socialAndSubscribeLinks';
+import WithLoadMore from '../helpers/withLoadMore';
+import loadList from '../../actions/loadList';
 
 export class HomeContent extends Component {
     static displayName = 'HomeContent';
@@ -46,6 +47,10 @@ export class HomeContent extends Component {
 
         if (articles.length === 0) {
             return null;
+        }
+
+        if (list.params.pageNo < 2) {
+            list.items[0] = [...articles.slice(4), ...list.items[0]];
         }
 
         return (

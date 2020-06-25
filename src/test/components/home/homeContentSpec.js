@@ -1,8 +1,9 @@
 import { filterErrors, restoreErrors } from '../../utils/propTypeWarningFilter';
-import { betterMockComponentContext } from '@bxm/flux';
-import articlesMock from '../../mock/articles';
 import proxyquire, { noCallThru } from 'proxyquire';
+
 import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
+import articlesMock from '../../mock/articles';
+import { betterMockComponentContext } from '@bxm/flux';
 
 noCallThru();
 
@@ -90,7 +91,8 @@ describe('HomeContent component', () => {
                         },
                         articles: articlesMock.home,
                         list: {
-                            items: [1, 2, 3]
+                            items: [1, 2, 3],
+                            params: { pageNo: 2 }
                         },
                         listNextParams: {
                             page: 2,
@@ -288,7 +290,8 @@ describe('HomeContent component', () => {
                         },
                         articles: articlesMock.home,
                         list: {
-                            items: [1, 2, 3]
+                            items: [1, 2, 3],
+                            params: { pageNo: 2 }
                         },
                         listNextParams: {
                             page: 2,
