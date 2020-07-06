@@ -152,6 +152,10 @@ export default {
         skimLinks: {
             enabled: true,
             publisherCode: '105419X1562407'
+        },
+        ix: {
+            enabled: true,
+            scriptUrl: '//js-sec.indexww.com/ht/p/187830-32379471272294.js'
         }
     },
 
