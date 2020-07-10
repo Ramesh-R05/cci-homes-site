@@ -102,5 +102,24 @@ export default [
             pinterest: 'https://www.pinterest.com.au/countrystylemag/'
         },
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5vp/signup-countrystyle-article-iframe-bottom'
+    },
+    {
+        title: 'Home Beautiful',
+        url: '/home-beautiful/',
+        id: 'homebeautiful',
+        urlName: 'home-beautiful',
+        imageUrl: '/assets/images/brand-pages/headerlogos/homebeautiful.svg',
+        heroImageUrl: '/assets/images/brand-pages/herologos/homebeautiful.svg',
+        logo: '/assets/images/brand-pages/headerlogos/homebeautiful.svg',
+        newsletterUrl: 'https://www.homestolove.com.au/homes-newsletter',
+        subscribe: {
+            image: '',
+            link: 'https://www.magshop.com.au/store/homestolove'
+        },
+        social: {
+            facebook: 'https://www.facebook.com/homebeautifulmag/',
+            instagram: 'https://www.instagram.com/homebeautiful/',
+            pinterest: 'https://www.pinterest.com.au/homebeautiful/'
+        }
     }
 ];

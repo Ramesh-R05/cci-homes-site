@@ -75,7 +75,7 @@ export default {
         action: loadPageContent
     },
     brand: {
-        path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden|inside-out|country-style|homelife)',
+        path: '/:brand(belle|real-living|homes-plus|australian-house-and-garden|inside-out|country-style|homelife|home-beautiful)',
         method: 'get',
         handler: Brand,
         action: loadPageContent

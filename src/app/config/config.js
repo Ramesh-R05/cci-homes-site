@@ -38,6 +38,10 @@ export default {
                 path: '/country-style',
                 logo: 'country-style.svg'
             },
+            'home beautiful': {
+                path: '/home-beautiful',
+                logo: 'homebeautiful.svg'
+            },
             homelife: {
                 path: '/homelife',
                 logo: 'homelife.svg'
