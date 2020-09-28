@@ -375,17 +375,17 @@ export default {
             corporate: [
                 {
                     title: 'Privacy Policy',
-                    url: 'http://www.bauer-media.com.au/privacy',
+                    url: 'https://www.aremedia.com.au/privacy/',
                     gtmClass: 'gtm-footer-privacy'
                 },
                 {
                     title: 'Advertise',
-                    url: 'http://www.bauer-media.com.au/advertising/advertise-with-us',
+                    url: 'https://www.aremedia.com.au/brands/homes-to-love/',
                     gtmClass: 'gtm-footer-advertising'
                 },
                 {
                     title: 'Terms of Use',
-                    url: 'http://www.bauer-media.com.au/terms/website-terms',
+                    url: 'https://www.aremedia.com.au/terms/',
                     gtmClass: 'gtm-footer-terms'
                 },
                 {

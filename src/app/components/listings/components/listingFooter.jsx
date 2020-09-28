@@ -69,7 +69,7 @@ export default class ListingFooter extends PureComponent {
                                 ))}
                         </FooterColumn>
                         <FooterColumn
-                            titleText="bauer media"
+                            titleText="are media"
                             spanSmall={12}
                             spanMedium={4}
                             spanLarge={4}
@@ -91,7 +91,7 @@ export default class ListingFooter extends PureComponent {
                     </div>
                 </div>
                 <div className="listing-footer__copyright-row row">
-                    <span className="listing-footer__copyright-text">&copy; 2019 Bauer Media PTY LTD</span>
+                    <span className="listing-footer__copyright-text">&copy; Copyright {new Date().getFullYear()} Are Media Pty Limited</span>
                 </div>
             </footer>
         );

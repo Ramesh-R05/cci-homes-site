@@ -47,7 +47,7 @@ export default class SiteFooter extends Component {
                                     <FooterLink key={id} title={title} url={url} gtmClass="gtm-footer-network" target="_blank" />
                                 ))}
                         </FooterColumn>
-                        <FooterColumn titleText="bauer media" spanSmall={12} spanMedium={4} spanLarge={4} renderChildrenInList>
+                        <FooterColumn titleText="are media" spanSmall={12} spanMedium={4} spanLarge={4} renderChildrenInList>
                             {config.footer.links.corporate &&
                                 config.footer.links.corporate.map(({ title, url, gtmClass }) => (
                                     <FooterLink key={title} title={title} url={url} gtmClass={gtmClass} target="_blank" />
@@ -56,7 +56,7 @@ export default class SiteFooter extends Component {
                     </div>
                 </div>
                 <div className="site-footer__copyright-row row">
-                    <span className="site-footer__copyright-text">&copy; 2019 Bauer Media PTY LTD</span>
+                    <span className="site-footer__copyright-text">&copy; Copyright {new Date().getFullYear()} Are Media Pty Limited</span>
                 </div>
             </footer>
         );
