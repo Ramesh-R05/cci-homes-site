@@ -115,7 +115,9 @@ describe('SiteFooter component', () => {
             });
 
             it('renders the copyright section with the correct text', () => {
-                expect(wrapper.find('.site-footer__copyright-text').text()).to.include(`© Copyright ${new Date().getFullYear()} Are Media Pty Limited`);
+                expect(wrapper.find('.site-footer__copyright-text').text()).to.include(
+                    `© Copyright ${new Date().getFullYear()} Are Media Pty Limited`
+                );
             });
         });
 

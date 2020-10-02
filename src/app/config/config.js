@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 
 import breakpoints from '../breakpoints';
-import siteBrands from './siteBrands';
 import networkBrands from './networkBrands';
 import services from './services';
+import siteBrands from './siteBrands';
 
 export default {
     ga: { id: 'UA-57795117-2' },
@@ -361,7 +361,13 @@ export default {
     },
 
     urls: {
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ky/signup-homestolove-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ky/signup-homestolove-article-iframe-bottom',
+        footerUrls: {
+            privacy: 'https://www.aremedia.com.au/privacy',
+            advertise: 'https://www.aremedia.com.au/brands/homes-to-love/',
+            terms: 'https://www.aremedia.com.au/terms/',
+            contactUs: 'https://www.aremedia.com.au/about-us/contact-us/'
+        }
     },
 
     useBrandTitleSuffix: true,
