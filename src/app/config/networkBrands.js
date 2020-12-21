@@ -18,12 +18,6 @@ export default [
         id: 'elle'
     },
     {
-        imageUrl: '/assets/images/menulogos/HB-logo.svg',
-        url: 'https://www.harpersbazaar.com.au/',
-        title: "Harper's Bazaar",
-        id: 'hb'
-    },
-    {
         imageUrl: '/assets/images/menulogos/GT-logo.svg',
         url: 'https://www.gourmettraveller.com.au/',
         title: 'Gourmet Traveller',
