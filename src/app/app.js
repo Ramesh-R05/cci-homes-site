@@ -2,7 +2,6 @@ import { Flux } from '@bxm/flux';
 import AdStore from '@bxm/ad/lib/google/stores/ad';
 import ArticleStore from '@bxm/article/lib/stores/articleStore';
 import HtmlStore from '@bxm/server/lib/stores/html';
-import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
 import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
 import NavigationStore from '@bxm/site-header/lib/stores/navigation';
 import PageStore from './stores/page';
@@ -18,10 +17,8 @@ export const stores = [
     ArticleStore,
     HtmlStore,
     VerticalGalleryStore,
-    PolarAdStore,
     RouteStore,
     PageStore,
-    PolarAdStore,
     RouteStore,
     TrackingStore,
     NavigationStore,

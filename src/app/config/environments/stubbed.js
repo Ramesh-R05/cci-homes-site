@@ -1,6 +1,5 @@
 export default {
-    polar: {
-        propertyId: 'NA-HOMETOLOVEDEVSTAG-11237319',
+    googleNativeAds: {
         targets: { env: 'test3' }
     },
     server: {

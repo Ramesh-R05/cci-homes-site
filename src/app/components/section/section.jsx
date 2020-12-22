@@ -32,7 +32,7 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const { articles, list, content, listNextParams, hero } = this.props;
-        const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
+        const { sectionTopFeed, sectionBottomFeed } = config.googleNativeAds.details;
 
         if (!articles.length) {
             return null;
@@ -58,7 +58,7 @@ export default class Section extends Component {
             <div className="section__landing">
                 <div className="container">
                     <div className="row">
-                        <Featured articles={articles} polarTargets={sectionTopFeed} hero={hero} />
+                        <Featured articles={articles} nativeAdTargets={sectionTopFeed} hero={hero} />
                         <Rail adPosition={1} marginBottom={60} yPosition={95} />
                     </div>
 
@@ -81,7 +81,7 @@ export default class Section extends Component {
                         nextParams={listNextParams}
                         className="news-feed bottom-news-feed"
                         content={content}
-                        polarTargets={sectionBottomFeed}
+                        nativeAdTargets={sectionBottomFeed}
                     />
 
                     <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />

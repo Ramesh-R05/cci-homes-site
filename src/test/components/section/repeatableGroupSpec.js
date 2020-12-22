@@ -51,9 +51,9 @@ describe('RepeatableGroup', () => {
             expect(ads.length).to.equal(expectedNumAds);
         });
 
-        describe(`native polar teasers`, () => {
+        describe(`native ad teasers`, () => {
             it(`should pass down the ad prop`, () => {
-                expect(teasers[1].props.polar).to.deep.equal({
+                expect(teasers[1].props.googleNativeAds).to.deep.equal({
                     label: 'section_teaser_2',
                     targets: {
                         kw: 'section_teaser_2'

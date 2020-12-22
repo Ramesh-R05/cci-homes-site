@@ -13,12 +13,12 @@ export default class Featured extends Component {
         hero: PropTypes.object,
         articles: PropTypes.array,
         content: PropTypes.object.isRequired,
-        polarTargets: PropTypes.array
+        nativeAdTargets: PropTypes.array
     };
 
     static defaultProps = {
         articles: [],
-        polarTargets: [],
+        nativeAdTargets: [],
         hero: null
     };
 
@@ -42,7 +42,7 @@ export default class Featured extends Component {
     };
 
     renderTeaserGridWithAds = () => {
-        const { articles, polarTargets } = this.props;
+        const { articles, nativeAdTargets } = this.props;
 
         const baseGridItemClass = 'brand-section__grid-item';
         const baseTeaserClasses = classNames(baseGridItemClass, 'brand-section__grid-teaser', 'columns', 'small-12', 'medium-6');
@@ -66,17 +66,17 @@ export default class Featured extends Component {
                 label={{ active: false }}
             />,
             ...articles.slice(0, 6).map((item, i) => {
-                const polarDetails = polarTargets.find(slot => slot.index === i) || false;
+                const nativeAdDetails = nativeAdTargets.find(slot => slot.index === i) || false;
 
                 const teaserClassName = classNames(baseTeaserClasses, {
-                    'brand-section__polar-teaser': polarDetails
+                    'brand-section__native-ad-teaser': nativeAdDetails
                 });
 
                 return (
                     <Teaser
                         key={item.id}
                         {...item}
-                        polar={polarDetails}
+                        googleNativeAds={nativeAdDetails}
                         sizes="brand-list"
                         modifier="img-top"
                         gtmClass="gtm-topteaserlist-brand"

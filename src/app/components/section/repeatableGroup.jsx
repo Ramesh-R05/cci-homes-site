@@ -31,7 +31,7 @@ export default class RepeatableGroup extends Component {
         return (
             <div>
                 {groups.map((groupArticles, index) => {
-                    const polarAdLabel = `section_teaser_${index + 2}`;
+                    const nativeAdLabel = `section_teaser_${index + 2}`;
                     let topAd = null;
 
                     if (index) {
@@ -63,10 +63,10 @@ export default class RepeatableGroup extends Component {
 
                                 <Teaser
                                     {...groupArticles[1]}
-                                    polar={{
-                                        label: polarAdLabel,
+                                    googleNativeAds={{
+                                        label: nativeAdLabel,
                                         targets: {
-                                            kw: polarAdLabel
+                                            kw: nativeAdLabel
                                         }
                                     }}
                                 />

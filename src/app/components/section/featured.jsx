@@ -10,14 +10,14 @@ export default class Featured extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
-        polarTargets: PropTypes.array,
+        nativeAdTargets: PropTypes.array,
         hero: PropTypes.object,
         showSearchBar: PropTypes.bool,
         renderBlockBelowHero: PropTypes.func
     };
 
     static defaultProps = {
-        polarTargets: [],
+        nativeAdTargets: [],
         hero: null,
         showSearchBar: false,
         renderBlockBelowHero: () => {}
@@ -50,7 +50,7 @@ export default class Featured extends Component {
     };
 
     renderTeaserGrid = () => {
-        const { articles, polarTargets } = this.props;
+        const { articles, nativeAdTargets } = this.props;
 
         const baseGridItemClass = 'section__grid-item';
         const baseTeaserClasses = classNames(baseGridItemClass, 'section__grid-teaser', 'columns', 'small-12', 'medium-6');
@@ -76,7 +76,7 @@ export default class Featured extends Component {
 
         return [
             <Ad className={baseAdClasses} displayFor="medium" sizes={['double-mrec', 'mrec']} label={{ active: false }} pageLocation={Ad.pos.body} />,
-            <Teaser key={articles[0].id} {...articles[0]} {...teaserProps} polar={polarTargets[0]} className={baseTeaserClasses} />,
+            <Teaser key={articles[0].id} {...articles[0]} {...teaserProps} googleNativeAds={nativeAdTargets[0]} className={baseTeaserClasses} />,
             <Ad
                 className="ad--section-mrec"
                 displayFor="small"
@@ -86,20 +86,20 @@ export default class Featured extends Component {
                 pageLocation={Ad.pos.body}
             />,
             articles.slice(1, 4).map((article, i) => {
-                let polarProps = {};
+                let nativeAdProps = {};
 
                 if (i === 4) {
-                    polarProps = {
-                        ...polarProps,
-                        polar: polarTargets[1]
+                    nativeAdProps = {
+                        ...nativeAdProps,
+                        googleNativeAd: nativeAdTargets[1]
                     };
                 }
 
                 const teaserClasses = classNames(baseTeaserClasses, {
-                    'section__polar-teaser': 1 === 4
+                    'section__native-ad-teaser': 1 === 4
                 });
 
-                return <Teaser {...article} {...teaserProps} {...polarProps} key={article.id} className={teaserClasses} />;
+                return <Teaser {...article} {...teaserProps} {...nativeAdProps} key={article.id} className={teaserClasses} />;
             }),
             <Ad
                 className={baseAdClasses}

@@ -73,7 +73,7 @@ class Section extends Component {
             menuClasses
         } = this.props;
         const { config } = this.context;
-        const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
+        const { sectionTopFeed, sectionBottomFeed } = config.googleNativeAds.details;
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',
             displayFor: ['small', 'medium', 'large', 'xlarge'],
@@ -127,7 +127,7 @@ class Section extends Component {
                             <div className="section__landing">
                                 <div className="container">
                                     <div className="section__row row">
-                                        <Featured articles={articles} polarTargets={sectionTopFeed} showSearchBar />
+                                        <Featured articles={articles} nativeAdTargets={sectionTopFeed} showSearchBar />
                                         <Rail adPosition={1} marginBottom={60} yPosition={95} />
                                     </div>
 
@@ -151,7 +151,7 @@ class Section extends Component {
                                             nextParams={listNextParams}
                                             className="news-feed bottom-news-feed"
                                             content={content}
-                                            polarTargets={sectionBottomFeed}
+                                            nativeAdTargets={sectionBottomFeed}
                                         />
                                     </div>
 

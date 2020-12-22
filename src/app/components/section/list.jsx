@@ -12,16 +12,16 @@ export default class List extends Component {
     static propTypes = {
         items: PropTypes.array,
         content: PropTypes.object.isRequired,
-        polarTargets: PropTypes.array
+        nativeAdTargets: PropTypes.array
     };
 
     static defaultProps = {
         items: [],
-        polarTargets: []
+        nativeAdTargets: []
     };
 
     render() {
-        const { items, content, polarTargets } = this.props;
+        const { items, content, nativeAdTargets } = this.props;
 
         if (items.length === 0) {
             return null;
@@ -42,13 +42,13 @@ export default class List extends Component {
                             pageLocation={Ad.pos.body}
                         />
                         {items.map((item, i) => {
-                            const polarDetails = polarTargets.find(slot => slot.index === i);
+                            const nativeAdDetails = nativeAdTargets.find(slot => slot.index === i);
                             const sections = ['navigationsection', 'campaign', 'tagsection'];
                             const lc = get(content, 'nodeType', '').toLowerCase();
                             let section = null;
 
                             const teaserClass = classNames('section__list-teaser', 'columns', 'small-12', 'medium-6', 'large-12', {
-                                'section__list-polar-teaser': polarDetails
+                                'section__list-native-ad-teaser': nativeAdDetails
                             });
 
                             switch (lc) {
@@ -66,7 +66,7 @@ export default class List extends Component {
                             return (
                                 <Teaser
                                     {...item}
-                                    polar={polarDetails}
+                                    googleNativeAds={nativeAdDetails}
                                     key={item.id}
                                     sizes="brand-list"
                                     modifier="img-left"

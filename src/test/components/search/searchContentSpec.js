@@ -57,7 +57,7 @@ describe('SearchContent component', () => {
                 },
                 {
                     config: {
-                        polar: {
+                        googleNativeAds: {
                             details: {
                                 sectionTopFeed: 'sectionTopFeed',
                                 sectionBottomFeed: 'sectionBottomFeed'
@@ -77,7 +77,7 @@ describe('SearchContent component', () => {
         it('renders the Featured component with correct props', () => {
             expect(wrapper.find(FeaturedStub).props()).to.deep.eq({
                 articles: testProps.articles,
-                polarTargets: testContext.config.polar.details.sectionTopFeed,
+                nativeAdTargets: testContext.config.googleNativeAds.details.sectionTopFeed,
                 showSearchBar: true
             });
         });
@@ -124,7 +124,7 @@ describe('SearchContent component', () => {
                 nextParams: testProps.listNextParams,
                 className: 'news-feed bottom-news-feed',
                 content: testProps.content,
-                polarTargets: testContext.config.polar.details.sectionBottomFeed
+                nativeAdTargets: testContext.config.googleNativeAds.details.sectionBottomFeed
             });
         });
 

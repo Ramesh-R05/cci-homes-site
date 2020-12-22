@@ -34,7 +34,7 @@ export class BrandSection extends Component {
     render() {
         const { hero, articles, content, list, listNextParams } = this.props;
         const { config } = this.context;
-        const { sectionTopFeed, sectionBottomFeed } = config.polar.details;
+        const { sectionTopFeed, sectionBottomFeed } = config.googleNativeAds.details;
 
         const stickyAdProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -54,7 +54,7 @@ export class BrandSection extends Component {
         return (
             <div className={brandSectionClassName}>
                 <div className="brand-section__top">
-                    <Featured hero={hero} articles={slice(articles, 0, 6)} content={content} polarTargets={sectionTopFeed} />
+                    <Featured hero={hero} articles={slice(articles, 0, 6)} content={content} nativeAdTargets={sectionTopFeed} />
                 </div>
 
                 <div className="row-fullwidth brand-section__top-fullwidth-ad">
@@ -79,7 +79,7 @@ export class BrandSection extends Component {
                         className="news-feed bottom-news-feed"
                         adTargets={{ position: 2 }}
                         content={content}
-                        polarTargets={sectionBottomFeed}
+                        nativeAdTargets={sectionBottomFeed}
                     />
                 </div>
 

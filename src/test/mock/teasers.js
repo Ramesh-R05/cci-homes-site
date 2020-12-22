@@ -17,6 +17,7 @@ export default {
             'food:Decorating:Colour:White',
             'food:Decorating:Colour:Yellow',
             'food:Topic:Feature room'
-        ]
+        ],
+        className: 'test-teaser'
     }
 };

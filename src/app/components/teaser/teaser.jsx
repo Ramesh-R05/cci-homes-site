@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { canUseDOM } from 'exenv';
 import classNames from 'classnames';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
+import get from 'lodash/object/get';
 // Components
 import Title from '@bxm/article/lib/components/teaser/title';
 import Image from '@bxm/article/lib/components/teaser/image';
 import Summary from '@bxm/article/lib/components/teaser/summary';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import GoogleNativeAdTeaserHomes from '@bxm/teaser/lib/components/native/googleNativeAdTeaserHomes';
 import breakpoints from '../../breakpoints';
 import Source from './source';
 import theme from '../helpers/theme';
@@ -15,6 +18,36 @@ const LOGO_PATH = '/assets/images/source';
 const HERO_LOGO_PATH = '/assets/images/brand-pages/herologos';
 class Teaser extends Component {
     static displayName = 'Teaser';
+
+    constructor(props, context) {
+        super(props, context);
+
+        this.adSlotName = `/${get(context, 'config.ads.networkId', '')}/${get(context, 'config.site.adTaggingId', '')}/${get(
+            props,
+            'googleNativeAds.adUnitPath',
+            ''
+        )}`;
+        this.googleNativeAdUnitPath = get(props, 'googleNativeAds.adUnitPath', null);
+
+        this.state = {
+            nativeAdHasContentReady: false,
+            nativeAdContent: false
+        };
+    }
+
+    componentDidMount() {
+        if (canUseDOM) {
+            this.addEvents();
+        }
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('message', this.onMessage);
+    }
+
+    static contextTypes = {
+        config: PropTypes.object
+    };
 
     static propTypes = {
         id: PropTypes.string,
@@ -29,13 +62,16 @@ class Teaser extends Component {
         title: PropTypes.string,
         className: PropTypes.string,
         lazyload: PropTypes.bool,
+        onClick: PropTypes.func,
         gtmClass: PropTypes.string,
-        polar: PropTypes.oneOfType([
+        googleNativeAds: PropTypes.oneOfType([
             PropTypes.shape({
                 targets: PropTypes.shape({
                     kw: PropTypes.string
                 }),
-                label: PropTypes.string
+                label: PropTypes.string,
+                adUnitPath: PropTypes.string,
+                adPositionClassName: PropTypes.string
             }),
             PropTypes.bool
         ])
@@ -55,7 +91,8 @@ class Teaser extends Component {
         modifier: 'img-left',
         sizes: '',
         lazyload: true,
-        polar: false
+        onClick: function onClick() {},
+        googleNativeAds: false
     };
 
     static imageConfig = {
@@ -139,8 +176,26 @@ class Teaser extends Component {
         }
     };
 
-    static contextTypes = {
-        config: PropTypes.object
+    addEvents() {
+        window.addEventListener('message', this.onMessage);
+    }
+
+    onMessage = e => {
+        const { data } = e;
+
+        if (data && data.message === 'adContentAvailable' && data.adID === this.adSlotName) {
+            this.setState({
+                nativeAdHasContentReady: true,
+                nativeAdContent: data.content
+            });
+            window.removeEventListener('message', this.onMessage);
+        }
+    };
+
+    getGTMClass = () => {
+        const { id } = this.props;
+
+        return id ? `gtm-${id}` : '';
     };
 
     static getImgSizes(sizes, modifier) {
@@ -162,7 +217,6 @@ class Teaser extends Component {
             modifier,
             sizes,
             lazyload,
-            polar,
             dateCreated,
             source,
             className,
@@ -171,8 +225,11 @@ class Teaser extends Component {
             imageAltText,
             imageUrl,
             title,
-            summary
+            summary,
+            googleNativeAds,
+            onClick
         } = this.props;
+        const { nativeAdHasContentReady, nativeAdContent } = this.state;
 
         if (!id) {
             return null;
@@ -204,29 +261,56 @@ class Teaser extends Component {
             <img className={`teaser__brand-image teaser__brand-image--${sourceId}`} alt={source} src={sourceImgUrl} />
         ) : null;
 
+        const showGoogleNativeAds = config.isFeatureEnabled('googleNativeAds');
+
         return (
             <article className={rootClass}>
-                <Image
-                    alt={imageAltText}
-                    breakpoints={breakpoints}
-                    gtmClass={gtmClass || `gtm-${id}`}
-                    imageUrl={imageUrl}
-                    imageSizes={imgSizes}
-                    link={url}
-                    responsiveConfig={Teaser.imageConfig}
-                    quality={Teaser.imageQuality}
-                    lazyload={lazyload}
-                    className={gtmClass}
-                />
+                {!googleNativeAds && !nativeAdHasContentReady && !nativeAdContent && (
+                    <div>
+                        <Image
+                            alt={imageAltText}
+                            breakpoints={breakpoints}
+                            gtmClass={gtmClass || `gtm-${id}`}
+                            imageUrl={imageUrl}
+                            imageSizes={imgSizes}
+                            link={url}
+                            responsiveConfig={Teaser.imageConfig}
+                            quality={Teaser.imageQuality}
+                            lazyload={lazyload}
+                            className={gtmClass}
+                        />
 
-                {sizes === 'home-hero' ? <div className="hero__background"> {brandImage} </div> : null}
-                <div className="teaser__content">
-                    <Title gtmClass={gtmClass || `gtm-${id}`} title={title} url={url} />
-                    <Summary summary={summary} />
-                    <Source source={source} dateCreated={dateCreated} />
-                </div>
+                        {sizes === 'home-hero' ? <div className="hero__background"> {brandImage} </div> : null}
+                        <div className="teaser__content">
+                            <Title gtmClass={gtmClass || `gtm-${id}`} title={title} url={url} />
+                            <Summary summary={summary} />
+                            <Source source={source} dateCreated={dateCreated} />
+                        </div>
+                    </div>
+                )}
 
-                {polar && <Ad nativeAd label={polar.label} targets={polar.targets} sizes="nativeAdTeaser" pageLocation={Ad.pos.body} />}
+                {showGoogleNativeAds && googleNativeAds && (
+                    <Ad
+                        className="ad--slot-google-native"
+                        sizes="googleNativeAd"
+                        isGoogleNativeAd
+                        nativeAdPath={this.googleNativeAdUnitPath}
+                        label={googleNativeAds.label}
+                        targets={googleNativeAds.targets}
+                        pageLocation={Ad.pos.body}
+                    />
+                )}
+
+                {showGoogleNativeAds && googleNativeAds && nativeAdHasContentReady && nativeAdContent && (
+                    <div id={`GoogleNativeAd-${googleNativeAds.label}`} className="google-native-ad-teaser-container">
+                        <GoogleNativeAdTeaserHomes
+                            nativeAdContent={nativeAdContent}
+                            gtmClassName={this.getGTMClass()}
+                            googleNativeAds={googleNativeAds}
+                            onClick={onClick}
+                        />
+                    </div>
+                )}
             </article>
         );
     }

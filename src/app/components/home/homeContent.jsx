@@ -43,7 +43,7 @@ export class HomeContent extends Component {
         const { hero, articles, list, listNextParams, content, latestBrandItems, featuredBrands } = this.props;
         const { config } = this.context;
         const isLipstickEnabled = config.isFeatureEnabled('lipstick');
-        const { homeTopFeed, homeBottomFeed } = config.polar.details;
+        const { homeTopFeed, homeBottomFeed } = config.googleNativeAds.details;
 
         if (articles.length === 0) {
             return null;
@@ -58,7 +58,7 @@ export class HomeContent extends Component {
                 <div className="home-section__featured">
                     <div className="home-section__top row">
                         <Featured
-                            polarTargets={homeTopFeed}
+                            nativeAdTargets={homeTopFeed}
                             hero={hero}
                             articles={articles}
                             renderBlockBelowHero={() => (
@@ -100,7 +100,7 @@ export class HomeContent extends Component {
                                 className="news-feed bottom-news-feed"
                                 adTargets={{ position: 2 }}
                                 content={content}
-                                polarTargets={homeBottomFeed}
+                                nativeAdTargets={homeBottomFeed}
                             />
                         </div>
                     </div>

@@ -11,12 +11,26 @@ const TitleStub = Context.createStubComponentWithChildren();
 const SummaryStub = Context.createStubComponentWithChildren();
 const SourceStub = Context.createStubComponentWithChildren();
 const getStub = sinon.stub();
+const AdStub = Context.createStubComponent();
+const GoogleNativeAdTeaserHomesStub = Context.createStubComponent();
+
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 noCallThru();
 const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     react: React,
     '@bxm/article/lib/components/teaser/title': TitleStub,
     '@bxm/article/lib/components/teaser/image': ImageStub,
     '@bxm/article/lib/components/teaser/summary': SummaryStub,
+    '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/teaser/lib/components/native/googleNativeAdTeaserHomes': GoogleNativeAdTeaserHomesStub,
     './source': SourceStub,
     './icon': Context.createStubComponent()
 }).default;
@@ -26,7 +40,18 @@ const contextConfigStub = {
     key: 'config',
     type: '',
     value: {
-        get: getStub
+        get: getStub,
+        isFeatureEnabled: () => true
+    }
+};
+
+const googleNativeAdsMock = {
+    index: 0,
+    label: 'home_top_feed_1',
+    targets: {
+        kw: 'home_top_feed_1',
+        adUnitPath: 'sponsored/HomeTopNewsFeed1',
+        adPositionClassName: 'google-native-ad-home-top-news-feed-1'
     }
 };
 
@@ -126,6 +151,42 @@ describe('Teaser', () => {
         it(`should set the Source source prop to ${props.source}`, () => {
             expect(Source.props.source).to.equal(props.source);
         });
+
+        describe('when not googleNativeAds and not nativeAdHasContentReady and not nativeAdContent', () => {
+            it('it should render regular teaser', () => {
+                const component = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'teaser__content');
+                expect(component.length).to.equal(1);
+            });
+        });
+    });
+
+    describe('when showGoogleNativeAds and googleNativeAds', () => {
+        let reactModule;
+        let Ad;
+        const propsWithNativeAdData = {
+            ...props,
+            googleNativeAds: googleNativeAdsMock
+        };
+
+        before(() => {
+            reactModule = Context.mountComponent(Teaser, { ...propsWithNativeAdData }, [contextConfigStub]);
+            Ad = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
+        });
+
+        after(() => {
+            if (reactModule && TestUtils.isCompositeComponent(reactModule)) {
+                let domElement = ReactDOM.findDOMNode(reactModule);
+                if (domElement) ReactDOM.unmountComponentAtNode(domElement.parentElement);
+            }
+        });
+
+        it('should render ad slot', () => {
+            expect(ReactDOM.findDOMNode(Ad)).to.exist;
+        });
+    });
+
+    describe('when showGoogleNativeAds and googleNativeAds and nativeAdHasContentReady and nativeAdContent', () => {
+        // TODO - Add unit test for this functionality. Consider using the testWrapper to test this whole component.
     });
 
     describe('with lazyload not set', () => {

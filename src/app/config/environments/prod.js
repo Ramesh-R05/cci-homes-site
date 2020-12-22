@@ -18,8 +18,7 @@ export default {
         targets: ''
     },
 
-    polar: {
-        propertyId: 'NA-HOMETOLOVE-11237320',
+    googleNativeAds: {
         targets: {
             env: ''
         }

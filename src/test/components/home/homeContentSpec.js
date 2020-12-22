@@ -55,7 +55,7 @@ describe('HomeContent component', () => {
                     {
                         config: {
                             isFeatureEnabled: sinon.stub().returns(false),
-                            polar: {
+                            googleNativeAds: {
                                 details: {
                                     homeTopFeed: [],
                                     homeBottomFeed: []
@@ -102,7 +102,7 @@ describe('HomeContent component', () => {
                     {
                         config: {
                             isFeatureEnabled: sinon.stub().returns(false),
-                            polar: {
+                            googleNativeAds: {
                                 details: {
                                     homeTopFeed: [
                                         {
@@ -141,13 +141,13 @@ describe('HomeContent component', () => {
 
             it('renders the Featured component with correct props', () => {
                 expect(wrapper.find(FeaturedStub).props()).to.include({
-                    polarTargets: testContext.config.polar.details.homeTopFeed,
+                    nativeAdTargets: testContext.config.googleNativeAds.details.homeTopFeed,
                     hero: testProps.hero,
                     articles: testProps.articles
                 });
             });
 
-            it('renders the mobile subscribe block using the renderProp of the Feautured component with the correct visibility class', () => {
+            it('renders the mobile subscribe block using the renderProp of the Featured component with the correct visibility class', () => {
                 expect(
                     wrapper
                         .find(FeaturedStub)
@@ -211,7 +211,7 @@ describe('HomeContent component', () => {
                     className: 'news-feed bottom-news-feed',
                     adTargets: { position: 2 },
                     content: testProps.content,
-                    polarTargets: testContext.config.polar.details.homeBottomFeed
+                    nativeAdTargets: testContext.config.googleNativeAds.details.homeBottomFeed
                 });
             });
 
@@ -253,7 +253,7 @@ describe('HomeContent component', () => {
                         {
                             config: {
                                 isFeatureEnabled: sinon.stub().returns(false),
-                                polar: {
+                                googleNativeAds: {
                                     details: {
                                         homeTopFeed: [],
                                         homeBottomFeed: []
@@ -306,7 +306,7 @@ describe('HomeContent component', () => {
                                 .stub()
                                 .withArgs('lipstick')
                                 .returns(true),
-                            polar: {
+                            googleNativeAds: {
                                 details: {
                                     homeTopFeed: [
                                         {

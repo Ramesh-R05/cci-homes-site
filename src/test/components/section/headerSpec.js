@@ -5,13 +5,11 @@ const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
-const SponsorHeaderStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponent();
 
 const Header = proxyquire('../../../app/components/section/header', {
     react: React,
-    '@bxm/ad/lib/polar/components/sponsor/header': SponsorHeaderStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub
 }).default;
@@ -57,28 +55,16 @@ describe('SectionHeader', () => {
 
     describe(`with the heading prop equal to ${singleWordHeading}`, () => {
         let reactModule;
-        let sponsorHeader;
         let heading;
 
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} sponsorName="ExampleSponsor" />);
-            sponsorHeader = TestUtils.findRenderedComponentWithType(reactModule, SponsorHeaderStub);
+            reactModule = TestUtils.renderIntoDocument(<Header title={singleWordHeading} />);
             heading = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'b');
         });
 
         const expectedHeading = 'Section';
         it(`should have the heading equal to ${expectedHeading}`, () => {
             expect(ReactDOM.findDOMNode(heading).textContent).to.equal(expectedHeading);
-        });
-
-        it(`should pass a title prop to SponsorHeader equal to ${expectedHeading}`, () => {
-            const titleProp = sponsorHeader.props.title;
-            expect(titleProp.type).to.eq('b');
-            expect(titleProp.props.children).to.eq(expectedHeading);
-        });
-
-        it(`should pass a children prop to SponsorHeader equal to '${expectedHeading}`, () => {
-            expect(ReactDOM.findDOMNode(heading).textContent).to.eq(expectedHeading);
         });
     });
 

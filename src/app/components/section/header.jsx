@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import SponsorHeader from '@bxm/ad/lib/polar/components/sponsor/header';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
@@ -9,17 +8,15 @@ export default class Header extends Component {
 
     static propTypes = {
         title: PropTypes.string.isRequired,
-        splitTitle: PropTypes.bool,
-        sponsorName: PropTypes.string
+        splitTitle: PropTypes.bool
     };
 
     static defaultProps = {
-        splitTitle: true,
-        sponsorName: null
+        splitTitle: true
     };
 
     render() {
-        const { title, splitTitle, sponsorName } = this.props;
+        const { title, splitTitle } = this.props;
 
         if (!title) {
             return null;
@@ -75,15 +72,7 @@ export default class Header extends Component {
                     />
                 </div>
 
-                <div className="section__heading-title">
-                    {!sponsorName ? (
-                        htmlHeading
-                    ) : (
-                        <SponsorHeader id={sponsorName} title={<b>{title}</b>}>
-                            {htmlHeading}
-                        </SponsorHeader>
-                    )}
-                </div>
+                <div className="section__heading-title">{htmlHeading}</div>
             </div>
         );
     }

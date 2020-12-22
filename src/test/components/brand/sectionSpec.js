@@ -76,7 +76,7 @@ describe('BrandSection component', () => {
                     {
                         config: {
                             isFeatureEnabled: sinon.stub().returns(false),
-                            polar: {
+                            googleNativeAds: {
                                 details: {
                                     sectionTopFeed: [
                                         {
@@ -120,7 +120,7 @@ describe('BrandSection component', () => {
             it('renders the Featured component with correct props', () => {
                 expect(wrapper.find(FeaturedStub).props()).to.deep.eq({
                     content: testProps.content,
-                    polarTargets: testContext.config.polar.details.sectionTopFeed,
+                    nativeAdTargets: testContext.config.googleNativeAds.details.sectionTopFeed,
                     hero: testProps.hero,
                     articles
                 });
@@ -152,7 +152,7 @@ describe('BrandSection component', () => {
                     className: 'news-feed bottom-news-feed',
                     adTargets: { position: 2 },
                     content: testProps.content,
-                    polarTargets: testContext.config.polar.details.sectionBottomFeed
+                    nativeAdTargets: testContext.config.googleNativeAds.details.sectionBottomFeed
                 });
             });
 

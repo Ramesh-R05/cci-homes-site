@@ -27,27 +27,23 @@ AdStub.pos = {
     panel: 'panel'
 };
 
-const contextConfigStub = {
-    key: 'config',
-    type: '',
-    value: {
-        get() {
-            return localData;
-        }
-    }
-};
-
 describe('Brand Featured', () => {
-    let reactModule, hero, teasers, polarTeasers, ads;
+    let reactModule, hero, teasers, ads;
     const sectionClass = `brand-section`;
     const brand = 'Real Living';
     const brandConfig = { social: {} };
-    const polarTargetsStub = [{ index: 0 }, { index: 5 }];
+    const nativeAdTargetsStub = [{ index: 0 }, { index: 5 }];
 
     describe('with all props', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured
+                    hero={heroMock}
+                    articles={articlesMock.articles}
+                    brand={brand}
+                    brandConfig={brandConfig}
+                    nativeAdTargets={nativeAdTargetsStub}
+                />
             );
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);
             hero = teasers.shift();
@@ -81,12 +77,12 @@ describe('Brand Featured', () => {
             gtmClass: 'gtm-topteaserlist-brand'
         };
 
-        it(`should render the 1st article as the 1st teaser with polar index of 0`, () => {
+        it(`should render the 1st article as the 1st teaser with native ad index of 0`, () => {
             const teaserProps = {
                 ...articlesMock.articles[0],
                 ...componentData,
-                polar: { index: 0 },
-                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__polar-teaser'
+                googleNativeAds: { index: 0 },
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__native-ad-teaser'
             };
 
             expect(teasers[0].props).to.deep.equal(teaserProps);
@@ -96,7 +92,7 @@ describe('Brand Featured', () => {
             const teaserProps = {
                 ...articlesMock.articles[1],
                 ...componentData,
-                polar: false,
+                googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
             };
             expect(teasers[1].props).to.deep.equal(teaserProps);
@@ -106,7 +102,7 @@ describe('Brand Featured', () => {
             const teaserProps = {
                 ...articlesMock.articles[2],
                 ...componentData,
-                polar: false,
+                googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
             };
 
@@ -117,7 +113,7 @@ describe('Brand Featured', () => {
             const teaserProps = {
                 ...articlesMock.articles[3],
                 ...componentData,
-                polar: false,
+                googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
             };
             expect(teasers[3].props).to.deep.equal(teaserProps);
@@ -127,19 +123,19 @@ describe('Brand Featured', () => {
             const teaserProps = {
                 ...articlesMock.articles[4],
                 ...componentData,
-                polar: false,
+                googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
             };
 
             expect(teasers[4].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 6th article as the 6nd teaser with polar index 5`, () => {
+        it(`should render the 6th article as the 6nd teaser with native ad index 5`, () => {
             const teaserProps = {
                 ...articlesMock.articles[5],
                 ...componentData,
-                polar: { index: 5 },
-                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__polar-teaser'
+                googleNativeAds: { index: 5 },
+                className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6 brand-section__native-ad-teaser'
             };
             expect(teasers[5].props).to.deep.equal(teaserProps);
         });
@@ -153,7 +149,13 @@ describe('Brand Featured', () => {
     describe('without the hero prop as an undefined', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={undefined} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured
+                    hero={undefined}
+                    articles={articlesMock.articles}
+                    brand={brand}
+                    brandConfig={brandConfig}
+                    nativeAdTargets={nativeAdTargetsStub}
+                />
             );
         });
 
@@ -165,7 +167,7 @@ describe('Brand Featured', () => {
     describe('without the hero prop as an empty object', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={{}} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={{}} articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} nativeAdTargets={nativeAdTargetsStub} />
             );
         });
 
@@ -177,7 +179,7 @@ describe('Brand Featured', () => {
     describe('without the hero prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured articles={articlesMock.articles} brand={brand} brandConfig={brandConfig} nativeAdTargets={nativeAdTargetsStub} />
             );
         });
 
@@ -189,7 +191,7 @@ describe('Brand Featured', () => {
     describe('without the articles prop as an empty array', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={[]} brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={heroMock} articles={[]} brand={brand} brandConfig={brandConfig} nativeAdTargets={nativeAdTargetsStub} />
             );
         });
 
@@ -200,7 +202,7 @@ describe('Brand Featured', () => {
 
     describe('without the articles prop', () => {
         before(() => {
-            reactModule = TestUtils.renderIntoDocument(<Featured brand={brand} brandConfig={brandConfig} polarTargets={polarTargetsStub} />);
+            reactModule = TestUtils.renderIntoDocument(<Featured brand={brand} brandConfig={brandConfig} nativeAdTargets={nativeAdTargetsStub} />);
         });
 
         it('should not be rendered', () => {
@@ -211,7 +213,7 @@ describe('Brand Featured', () => {
     describe('without brand prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock.articles} brandConfig={brandConfig} polarTargets={polarTargetsStub} />
+                <Featured hero={heroMock} articles={articlesMock.articles} brandConfig={brandConfig} nativeAdTargets={nativeAdTargetsStub} />
             );
         });
 
@@ -223,7 +225,7 @@ describe('Brand Featured', () => {
     describe('without brandConfig prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(
-                <Featured hero={heroMock} articles={articlesMock.articles} brand={brand} polarTargets={polarTargetsStub} />
+                <Featured hero={heroMock} articles={articlesMock.articles} brand={brand} nativeAdTargets={nativeAdTargetsStub} />
             );
         });
 
@@ -232,7 +234,7 @@ describe('Brand Featured', () => {
         });
     });
 
-    describe('without polarTargets prop', () => {
+    describe('without nativeAdTargets prop', () => {
         before(() => {
             reactModule = TestUtils.renderIntoDocument(<Featured hero={heroMock} articles={articlesMock.articles} brand={brand} />);
             teasers = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserStub);

@@ -55,7 +55,7 @@ describe(`Section`, () => {
             type: '',
             value: {
                 isFeatureEnabled: () => true,
-                polar: {
+                googleNativeAds: {
                     details: {
                         sectionTopFeed: [
                             {
@@ -116,11 +116,11 @@ describe(`Section`, () => {
         });
 
         it('should render a featured component with the correct nativeAdConfig prop', () => {
-            expect(navigationTagFeaturedComponent.props.polarTargets[0].label).to.eq('section_top_feed_1');
+            expect(navigationTagFeaturedComponent.props.nativeAdTargets[0].label).to.eq('section_top_feed_1');
         });
 
         it('should render a repeatable component with the correct nativeAdConfig prop', () => {
-            expect(repeatableComponent.props.polarTargets[0].label).to.eq('section_bottom_feed_1');
+            expect(repeatableComponent.props.nativeAdTargets[0].label).to.eq('section_bottom_feed_1');
         });
     });
 });
