@@ -85,22 +85,7 @@ export default class Featured extends Component {
                 label={{ active: false }}
                 pageLocation={Ad.pos.body}
             />,
-            articles.slice(1, 4).map((article, i) => {
-                let nativeAdProps = {};
-
-                if (i === 4) {
-                    nativeAdProps = {
-                        ...nativeAdProps,
-                        googleNativeAd: nativeAdTargets[1]
-                    };
-                }
-
-                const teaserClasses = classNames(baseTeaserClasses, {
-                    'section__native-ad-teaser': 1 === 4
-                });
-
-                return <Teaser {...article} {...teaserProps} {...nativeAdProps} key={article.id} className={teaserClasses} />;
-            }),
+            articles.slice(0, 3).map(article => <Teaser {...article} {...teaserProps} key={article.id} className={baseTeaserClasses} />),
             <Ad
                 className={baseAdClasses}
                 displayFor="medium"
