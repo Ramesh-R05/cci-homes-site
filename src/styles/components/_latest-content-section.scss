@@ -58,6 +58,8 @@
     &__item {
         @include teaser-featured-brands;
         width: 100%;
+        border-radius: 3px;
+        overflow: hidden;
 
         @media #{$medium-up} {
             margin: 0 15px;
@@ -96,6 +98,19 @@
         &:last-child {
             @media #{$large-up} {
                 margin-right: 0;
+            }
+        }
+
+        .teaser {
+
+            &__image {
+
+                @media #{$medium-up} {
+
+                    img {
+                        border-radius: 0;
+                    }
+                }
             }
         }
     }

@@ -252,10 +252,10 @@ describe('Teaser', () => {
 
             it(`should set the Image sizes prop to`, () => {
                 expect(image.props.imageSizes).to.deep.eq({
-                    s: { w: 640, h: 341 },
-                    m: { w: 640, h: 341 },
-                    l: { w: 400, h: 213 },
-                    xl: { w: 300, h: 160 }
+                    s: { w: 640, h: 396 },
+                    m: { w: 640, h: 396 },
+                    l: { w: 400, h: 247 },
+                    xl: { w: 300, h: 185 }
                 });
             });
         });
@@ -269,10 +269,10 @@ describe('Teaser', () => {
 
             it(`should set the Image sizes prop to`, () => {
                 expect(image.props.imageSizes).to.deep.eq({
-                    s: { w: 690, h: 575 },
-                    m: { w: 963, h: 809 },
-                    l: { w: 633, h: 527 },
-                    xl: { w: 633, h: 527 }
+                    s: { w: 690, h: 426 },
+                    m: { w: 963, h: 595 },
+                    l: { w: 633, h: 391 },
+                    xl: { w: 633, h: 391 }
                 });
             });
         });
@@ -286,10 +286,10 @@ describe('Teaser', () => {
 
             it(`should set the Image sizes prop to`, () => {
                 expect(image.props.imageSizes).to.deep.eq({
-                    s: { w: 690, h: 569 },
-                    m: { w: 467, h: 385 },
-                    l: { w: 301, h: 250 },
-                    xl: { w: 301, h: 250 }
+                    s: { w: 690, h: 426 },
+                    m: { w: 467, h: 288 },
+                    l: { w: 301, h: 186 },
+                    xl: { w: 301, h: 186 }
                 });
             });
         });

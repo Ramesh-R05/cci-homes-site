@@ -16,6 +16,16 @@
         .feed-item {
             max-width: 300px;
 
+            .teaser__image {
+
+                @media #{$medium-up} {
+
+                    img {
+                        border-radius: $teaser-image-border-radius;
+                    }
+                }
+            }
+
             &__body-source {
                 margin-top: -5px;
             }
