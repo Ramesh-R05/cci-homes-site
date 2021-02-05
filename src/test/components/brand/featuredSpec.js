@@ -77,7 +77,7 @@ describe('Brand Featured', () => {
             gtmClass: 'gtm-topteaserlist-brand'
         };
 
-        it(`should render the 1st article as the 1st teaser with native ad index of 0`, () => {
+        it(`should render a native ad with native ad index of 0 as the 1st teaser`, () => {
             const teaserProps = {
                 ...articlesMock.articles[0],
                 ...componentData,
@@ -88,9 +88,9 @@ describe('Brand Featured', () => {
             expect(teasers[0].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 2nd article as the 2nd teaser`, () => {
+        it(`should render the 1st article as the 2nd teaser`, () => {
             const teaserProps = {
-                ...articlesMock.articles[1],
+                ...articlesMock.articles[0],
                 ...componentData,
                 googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -98,9 +98,9 @@ describe('Brand Featured', () => {
             expect(teasers[1].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 3rd article as the 3rd teaser`, () => {
+        it(`should render the 2nd article as the 3rd teaser`, () => {
             const teaserProps = {
-                ...articlesMock.articles[2],
+                ...articlesMock.articles[1],
                 ...componentData,
                 googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -109,9 +109,9 @@ describe('Brand Featured', () => {
             expect(teasers[2].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 4th article as the 4th teaser`, () => {
+        it(`should render the 3rd article as the 4th teaser`, () => {
             const teaserProps = {
-                ...articlesMock.articles[3],
+                ...articlesMock.articles[2],
                 ...componentData,
                 googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -119,9 +119,9 @@ describe('Brand Featured', () => {
             expect(teasers[3].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 5th article as the 5th teaser`, () => {
+        it(`should render the 4th article as the 5th teaser`, () => {
             const teaserProps = {
-                ...articlesMock.articles[4],
+                ...articlesMock.articles[3],
                 ...componentData,
                 googleNativeAds: false,
                 className: 'brand-section__grid-item brand-section__grid-teaser columns small-12 medium-6'
@@ -130,7 +130,7 @@ describe('Brand Featured', () => {
             expect(teasers[4].props).to.deep.equal(teaserProps);
         });
 
-        it(`should render the 6th article as the 6nd teaser with native ad index 5`, () => {
+        it(`should render a native ad with native ad index of 5 as the 6th teaser`, () => {
             const teaserProps = {
                 ...articlesMock.articles[5],
                 ...componentData,

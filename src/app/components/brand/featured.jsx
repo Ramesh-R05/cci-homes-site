@@ -55,7 +55,14 @@ export default class Featured extends Component {
             'medium-6',
             'hide-for-large-up'
         );
+        const nativeAdTeaserClassName = classNames(baseTeaserClasses, 'brand-section__native-ad-teaser');
+        const teaserProps = {
+            sizes: 'brand-list',
+            modifier: 'img-top',
+            gtmClass: 'gtm-topteaserlist-brand'
+        };
 
+        // The first item needs to be repeated because the Google Native Ad uses the first item slot to display.
         return [
             <Ad
                 className={classNames('ad--section-mrec-top-1', baseAdClasses)}
@@ -65,25 +72,25 @@ export default class Featured extends Component {
                 pageLocation={Ad.pos.body}
                 label={{ active: false }}
             />,
-            ...articles.slice(0, 6).map((item, i) => {
-                const nativeAdDetails = nativeAdTargets.find(slot => slot.index === i) || false;
-
-                const teaserClassName = classNames(baseTeaserClasses, {
-                    'brand-section__native-ad-teaser': nativeAdDetails
-                });
-
-                return (
-                    <Teaser
-                        key={item.id}
-                        {...item}
-                        googleNativeAds={nativeAdDetails}
-                        sizes="brand-list"
-                        modifier="img-top"
-                        gtmClass="gtm-topteaserlist-brand"
-                        className={teaserClassName}
-                    />
-                );
-            }),
+            <Teaser
+                key={articles[0].id}
+                {...articles[0]}
+                {...teaserProps}
+                googleNativeAds={nativeAdTargets[0]}
+                className={nativeAdTeaserClassName}
+            />,
+            articles
+                .slice(0, 4)
+                .map(item => <Teaser key={item.id} {...item} {...teaserProps} googleNativeAds={false} className={baseTeaserClasses} />),
+            articles.length >= 6 && (
+                <Teaser
+                    key={articles[5].id}
+                    {...articles[5]}
+                    {...teaserProps}
+                    googleNativeAds={nativeAdTargets[1]}
+                    className={nativeAdTeaserClassName}
+                />
+            ),
             <Ad
                 className={classNames('ad--section-mrec-top-2', baseAdClasses)}
                 displayFor="medium"

@@ -85,7 +85,9 @@ export default class Featured extends Component {
                 label={{ active: false }}
                 pageLocation={Ad.pos.body}
             />,
-            articles.slice(0, 3).map(article => <Teaser {...article} {...teaserProps} key={article.id} className={baseTeaserClasses} />),
+            articles
+                .slice(0, 3)
+                .map(article => <Teaser {...article} {...teaserProps} key={article.id} className={baseTeaserClasses} googleNativeAds={false} />),
             <Ad
                 className={baseAdClasses}
                 displayFor="medium"
