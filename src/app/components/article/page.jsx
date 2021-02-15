@@ -39,10 +39,10 @@ export default class Page extends Component {
         },
         relatedContent: {
             imageSizes: {
-                s: { w: 384, h: 216 },
-                m: { w: 375, h: 211 },
-                l: { w: 329, h: 185 },
-                xl: { w: 296, h: 166 }
+                s: { w: 384, h: 237 },
+                m: { w: 375, h: 232 },
+                l: { w: 329, h: 203 },
+                xl: { w: 296, h: 183 }
             }
         }
     };
