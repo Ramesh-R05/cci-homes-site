@@ -50,12 +50,31 @@
             text-align: right;
             position: absolute;
             right: 15px;
-            bottom: 2px;
+            bottom: 17px;
             margin-top: 40px;
         }
     }
 
+    &__affiliate-row {
+        text-align: center;
+        padding: 0 15px;
+
+        @media #{$medium-up} {
+            text-align: right;
+            position: absolute;
+            right: 15px;
+            bottom: 2px;
+            margin-top: 40px;
+            padding: 0;
+        }
+    }
+
     &__copyright-text {
+        color: $color-dark-green;
+        font: 400 10px/1.5 $font-family-sans-serif-secondary;
+    }
+
+    &__affiliate-text {
         color: $color-dark-green;
         font: 400 10px/1.5 $font-family-sans-serif-secondary;
     }
