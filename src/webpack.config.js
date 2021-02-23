@@ -92,7 +92,7 @@ const config = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            fileName: `[name]${production ? '-[contenthash]' : ''}.css`
+            filename: `[name]${production ? '-[contenthash]' : ''}.css`
         }),
         new ManifestPlugin({
             publicPath: '' // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
