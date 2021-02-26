@@ -95,7 +95,7 @@
     "react-inlinesvg": "^0.8.3",
     "react-select": "^2.4.3",
     "request": "^2.55.0",
-    "serialize-javascript": "^1.0.0",
+    "serialize-javascript": "^3.1.0",
     "superagent": "^3.6.3",
     "superagent-proxy": "^1.0.2",
     "yup": "^0.27.0"
