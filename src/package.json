@@ -75,7 +75,7 @@
     "fluxible-router": "^1.5.1",
     "formik": "^1.5.1",
     "keymirror": "^0.1.1",
-    "lazysizes": "^3.0.0",
+    "lazysizes": "^5.2.1",
     "lodash": "^3.9.1",
     "lodash.get": "^4.4.2",
     "lodash.mergewith": "^4.6.0",
