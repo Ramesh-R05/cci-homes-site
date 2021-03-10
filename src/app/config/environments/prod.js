@@ -31,7 +31,7 @@ export default {
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/homes',
             tag: 'https://services.prod.bxm.net.au/tag/v1',
             search: 'https://services.prod.bxm.net.au/es-search/v1/homes',
-            identity: 'https://live.dmp.bauer-media.net.au/api/identity'
+            identity: 'https://live.dmp.aremedia.net.au/federation/api/identity'
         },
         redirect: {
             url: 'http://services.prod.bxm.internal/redirect/v1/homes/301'
