@@ -285,6 +285,9 @@ $global-rounded: 1000px !default;
 
 // We use these to control inset shadow shiny edges and depressions.
 $shiny-edge-size: 0 1px 0 !default;
+$box-shadow-header-1: 3px 2px 0 #{"rgb(0 0 0 / 3%)"};
+$box-shadow-header-2: 0 1px 0 0 #{"rgb(0 0 0 / 4%)"};
+$box-shadow-header-3: 0 -1px 0 0 #{"rgb(0 0 0 / 4%)"};
 $shiny-edge-color: rgba(#fff, .5) !default;
 $shiny-edge-active-color: rgba(#000, .2) !default;
 

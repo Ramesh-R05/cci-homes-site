@@ -21,7 +21,6 @@
 
     @media #{$medium-up} {
         @include type-header;
-        display: block;
         color: $color-dark-green;
         flex: 0 0 auto;
         text-transform: capitalize;
@@ -36,7 +35,7 @@
   }
 
   &__icon {
-    fill: $color-dark-green;
+    fill: $color-grey-lighter-level-3;
     width: 28px;
   }
 

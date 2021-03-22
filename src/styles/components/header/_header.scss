@@ -27,14 +27,16 @@
         height: 100%;
         justify-content: space-between;
         margin: 0 auto;
+        // box-shadow: $box-shadow-header-1 $box-shadow-header-2 $box-shadow-header-3;
         padding: 0 $column-gutter/2;
+        background-image: linear-gradient(90deg, #4e9c8c, #7cbfb1);
         white-space: nowrap;
         position: initial;
         z-index: $z-index-1;
 
         @media #{$medium-up} {
-            height: $header-menu-height-desktop;
-            max-height: $header-menu-height-desktop;
+            height: $header-menu-height-desktop-lipgloss;
+            max-height: $header-menu-height-desktop-lipgloss;
             border-top: 1px solid $color-light-grey;
             border-bottom: 1px solid $color-light-grey;
         }

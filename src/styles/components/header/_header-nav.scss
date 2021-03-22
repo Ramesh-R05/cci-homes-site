@@ -1,7 +1,7 @@
 .header-nav {
     display: none;
     transition: width $transition-duration;
-    margin-left: 0;
+    margin: 0 auto;
 
     @media #{$medium-up} {
         display: flex;
@@ -9,7 +9,7 @@
 
     &__nav {
         display: inline-block;
-        margin-left: 0;
+        margin: 0 auto;
         transform: translate(0, 0);
 
         @media #{$xlarge-up} {
@@ -20,7 +20,7 @@
     a, span {
         @include type-header;
         font-weight: 600;
-        color: $color-dark-green;
+        color: $color-white;
         display: none;
         padding: 0 15px;
         position: relative;
@@ -35,6 +35,8 @@
 
         @media #{$large-up} {
             display: inline;
+            font: 600 13px/1.4 $font-family-sans-serif-primary;
+            letter-spacing: .01em;
         }
 
         &:active,

@@ -11,10 +11,14 @@
         &:focus path {
             fill: $color-light-blue;
         }
+
+        @media #{$large-up} {
+            display: none;
+        }
     }
 
     &__button-icon {
-        fill: $color-dark-blue;
+        fill: $color-grey-lighter-level-3;
         width: 20px;
     }
 }
