@@ -26,7 +26,7 @@ $spectral: unquote('Spectral');
     font-weight: normal;
     font-style: normal;
   }
-  
+
   [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
@@ -95,8 +95,8 @@ a {
 
 @mixin type-header {
     color: $color-grey-darker;
-    font: 500 14px/1.4 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 14px/1.4 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 }
 
@@ -106,8 +106,8 @@ a {
 
 @mixin type-side-menu-link {
     color: $color-white;
-    font: 500 20px/1.5 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 20px/1.5 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 }
 
@@ -152,8 +152,8 @@ a {
 }
 
 @mixin type-article-body {
-    color: $color-black-origin;
-    font: 400 16px/1.875 $font-family-sans-serif-primary;
+    color: $color-dark-green;
+    font: 600 16px/1.875 $font-family-sans-serif-primary;
     letter-spacing: .01em;
 }
 
@@ -163,8 +163,8 @@ a {
 
 @mixin type-article-heading {
     color: $color-black-origin;
-    font: 500 20px/1.5 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 20px/1.5 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 }
 
@@ -189,8 +189,8 @@ a {
 
 @mixin type-renovation-status {
     color: $color-primary;
-    font: 500 15px/1.467 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 15px/1.467 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 }
 
@@ -201,8 +201,8 @@ a {
 // Inline gallery
 @mixin type-inline-gallery-header {
     color: $color-white;
-    font: 500 15px/1.467 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 15px/1.467 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 
     @media #{$medium-only} {
@@ -256,8 +256,8 @@ a {
 // Tags
 @mixin type-tags($color: $color-grey-dark) {
     color: $color;
-    font: 500 11px/1.5 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 11px/1.5 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 }
 
@@ -267,15 +267,15 @@ a {
 
 // Default teaser (e.g homepage teasers below hero)
 @mixin type-teaser-title {
-    color: $color-black-origin;
-    font: 700 18px/1.700 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 18px/1.700 $font-family-serif-primary;
     text-align: left;
 }
 
 // Used where 2 colums of teasers
 @mixin type-stacked-teaser-title {
-    color: $color-black-origin;
-    font: 700 18px/1.39 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 18px/1.39 $font-family-serif-primary;
     text-align: left;
 }
 
@@ -290,21 +290,21 @@ a {
 
 // Used where 2 colums of teasers
 @mixin type-stacked-small-teaser-title {
-    color: $color-black-origin;
+    color: $color-dark-green;
     font: 700 18px/1.39 $font-family-serif-primary;
     text-align: left;
 }
 
 // Small teaser (e.g. homepage next to hero)
 @mixin type-small-teaser-title {
-    color: $color-black-origin;
-    font: 700 25px/1.2 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 25px/1.2 $font-family-serif-primary;
     text-align: left;
 }
 
 @mixin type-brand-small-teaser-title {
-    color: $color-black-origin;
-    font: 700 20px/1.2 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 20px/1.2 $font-family-serif-primary;
     text-align: left;
 }
 
@@ -329,7 +329,7 @@ a {
 
 // lipstick teaser list item with with background
 @mixin type-xsmall-white-teaser-title {
-    color: $color-black-origin;
+    color: $color-dark-green;
     font: 700 18px/1.39 $font-family-serif-primary;
     max-width: 298px;
     text-align: left;
@@ -349,7 +349,7 @@ a {
 }
 
 @mixin type-hero-img-top-teaser-title {
-    color: $color-black-origin;
+    color: $color-dark-green;
     font: 400 18px/1.571 $font-family-serif-primary;
 }
 
@@ -358,7 +358,7 @@ a {
 }
 
 @mixin type-hero-img-top-medium-teaser-title {
-    color: $color-black-origin;
+    color: $color-dark-green;
     font: 400 20px/1.571 $font-family-serif-primary;
 }
 
@@ -367,8 +367,8 @@ a {
 }
 
 @mixin type-teaser-img-top-medium-teaser-title {
-    color: $color-black-origin;
-    font: 700 20px/1.47 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 20px/1.47 $font-family-serif-primary;
     margin-bottom: 20px;
 }
 
@@ -378,8 +378,8 @@ a {
 
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
-    color: $color-black-origin;
-    font: 400 22px/1.545 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 22px/1.545 $font-family-serif-primary;
 
     @media #{$medium-up} {
         font-size: 24px;
@@ -414,8 +414,8 @@ a {
 // Navigation
 @mixin type-navigation {
     color: $color-grey-darker;
-    font: 500 15px/1.467 $font-family-sans-serif-primary;
-    letter-spacing: .04em;
+    font: 600 15px/1.467 $font-family-sans-serif-primary;
+    letter-spacing: .01em;
     text-transform: uppercase;
 }
 
@@ -424,8 +424,8 @@ a {
 }
 
 @mixin type-section-heading {
-    font: 600 36px/.889 $font-family-serif-primary;
-    color: $color-black-origin;
+    font: 500 36px/.889 $font-family-serif-primary;
+    color: $color-dark-green;
     letter-spacing: -0.8px;
     text-align: center;
 
@@ -473,8 +473,8 @@ a {
     color: $color-grey-light;
     font-family: $font-family-sans-serif-primary;
     font-size: 20px;
-    font-weight: 400;
-    letter-spacing: .06em;
+    font-weight: 600;
+    letter-spacing: .01em;
     text-transform: uppercase;
 
     @media #{$medium-up} {
@@ -491,8 +491,8 @@ a {
     color: $color-white;
     font-family: $font-family-sans-serif-primary;
     font-size: 20px;
-    font-weight: 500;
-    letter-spacing: .05em;
+    font-weight: 600;
+    letter-spacing: .01em;
     text-transform: uppercase;
 
     @media #{$medium-up} {
@@ -523,8 +523,8 @@ a {
 
 // Error page
 @mixin type-error-page {
-    color: $color-black-origin;
-    font: 600 14px/2 $font-family-serif-primary;
+    color: $color-dark-green;
+    font: 500 14px/2 $font-family-serif-primary;
 
     @media #{$medium-up} {
         font-size: 18px;
@@ -541,8 +541,8 @@ a {
 
 @mixin type-article-header-summary {
     font-family: $font-family-sans-serif-primary;
-    font-weight: 400;
-    color: $color-black-origin;
+    font-weight: 600;
+    color: $color-dark-green
 }
 
 @mixin type-footer-column-heading {
