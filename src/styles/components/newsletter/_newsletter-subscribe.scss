@@ -1,5 +1,5 @@
 .newsletter-subscribe {
-  $root: &;  
+  $root: &;
 
   .home-section & {
       margin-top: 0;
@@ -25,7 +25,7 @@
   }
 
   &__title {
-      @include type-newsletter-and-social-headers;
+      @include type-newsletter-and-social-headers-lipgloss;
       margin-bottom: 20px;
   }
 
@@ -37,7 +37,7 @@
   }
 
   &--in-footer {
-      border-top: 0;      
+      border-top: 0;
       padding-top: 0;
 
       @media #{$medium-up} {
@@ -51,7 +51,7 @@
       #{$root}__title {
         @include type-footer-column-heading;
       }
-      
+
       #{$root}__text {
         @include type-footer-text;
       }

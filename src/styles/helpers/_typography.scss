@@ -603,6 +603,13 @@ a {
     text-transform: uppercase;
 }
 
+@mixin type-newsletter-and-social-headers-lipgloss {
+    color: $color-dark-green;
+    font: 600 18px/1.545 $font-family-sans-serif-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 // ---------------------------------------------------- reset mixins
 
 @mixin reset-list {

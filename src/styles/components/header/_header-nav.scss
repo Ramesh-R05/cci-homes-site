@@ -16,6 +16,16 @@
             transition: margin-left $transition-duration, transform $transition-duration;
         }
     }
+    // div { //TODO: add div in the header package
+    //     &:active,
+    //     &:focus,
+    //     &:hover,
+    //     &.nav-item--active {
+    //         //color: $color-grey-lighter-level-3;
+    //         background-color:$color-header-effect;
+    //         //text-decoration-color: $color-grey-lighter-level-3;
+    //     }
+    // }
 
     a, span {
         @include type-header;
@@ -36,15 +46,16 @@
         @media #{$large-up} {
             display: inline;
             font: 600 13px/1.4 $font-family-sans-serif-primary;
-            letter-spacing: .01em;
+            letter-spacing: .1em;
         }
 
         &:active,
         &:focus,
         &:hover,
         &.nav-item--active {
-            color: $color-secondary-light;
-            text-decoration-color: $color-secondary-light;
+            color: $color-grey-lighter-level-3;
+            background-color:$color-header-effect; //TODO: add div in the header package
+            text-decoration-color: $color-grey-lighter-level-3;
         }
     }
 
@@ -60,10 +71,10 @@
                 transition: visibility 0s linear 0s, opacity 0s linear;
             }
             .tl-icon-drop-menu:before {
-                border-top-color: $color-secondary-light;
+                border-top-color: $color-grey-lighter-level-3;
             }
             span {
-                color: $color-secondary-light;
+                color: $color-grey-lighter-level-3;
             }
         }
 
@@ -73,7 +84,7 @@
             }
 
             &:hover {
-                color: $color-secondary-light;
+                color: $color-grey-lighter-level-3;
             }
 
             &:first-child:before {

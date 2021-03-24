@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import getBrand from './brand/utilities/getBrand';
 
@@ -48,7 +49,7 @@ export default class Newsletter extends Component {
                 <div className="newsletter-subscribe__title">Get the newsletter</div>
                 <p className="newsletter-subscribe__text">The latest news delivered to your inbox</p>
                 <div className="newsletter-subscribe__button">
-                    <a href={`${newsletterUrl}`} className={`button button--link button--without-border-radius ${gtmClass}`} target="_blank">
+                    <a href={`${newsletterUrl}`} className={`button button--link button--newletter ${gtmClass}`} target="_blank">
                         Sign Up
                     </a>
                 </div>
