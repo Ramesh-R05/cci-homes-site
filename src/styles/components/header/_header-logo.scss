@@ -40,5 +40,12 @@
             font-size: 27px;
             line-height: 27px;
         }
+
+        @media #{$large-up} {
+            position: static;
+            margin-left: 10px;
+            font-size: 27px;
+            line-height: 27px;
+        }
     }
 }

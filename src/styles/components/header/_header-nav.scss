@@ -16,16 +16,6 @@
             transition: margin-left $transition-duration, transform $transition-duration;
         }
     }
-    // div { //TODO: add div in the header package
-    //     &:active,
-    //     &:focus,
-    //     &:hover,
-    //     &.nav-item--active {
-    //         //color: $color-grey-lighter-level-3;
-    //         background-color:$color-header-effect;
-    //         //text-decoration-color: $color-grey-lighter-level-3;
-    //     }
-    // }
 
     a, span {
         @include type-header;
@@ -47,6 +37,7 @@
             display: inline;
             font: 600 13px/1.4 $font-family-sans-serif-primary;
             letter-spacing: .1em;
+            padding: 23px 15px;
         }
 
         &:active,
@@ -54,7 +45,7 @@
         &:hover,
         &.nav-item--active {
             color: $color-grey-lighter-level-3;
-            background-color:$color-header-effect; //TODO: add div in the header package
+            background-color:$color-header-effect;
             text-decoration-color: $color-grey-lighter-level-3;
         }
     }
