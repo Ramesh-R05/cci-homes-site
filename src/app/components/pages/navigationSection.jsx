@@ -74,7 +74,7 @@ export class NavigationSection extends Component {
             headerProps: {
                 permanentlyFixedIfShorterThan: 49,
                 theme,
-                isExpanded: true,
+                isExpanded: false,
                 wrapperClassName: 'header',
                 headerClassName: 'header__inner',
                 SubHeaderComponent: siteAlert && siteAlert.isEnabled ? SiteAlert : null,

@@ -75,7 +75,7 @@ describe('TagPage component', () => {
                 headerProps: {
                     permanentlyFixedIfShorterThan: 49,
                     theme: testProps.theme,
-                    isExpanded: true,
+                    isExpanded: false,
                     SubHeaderComponent: null,
                     subHeaderComponentProps: {},
                     wrapperClassName: 'header',
