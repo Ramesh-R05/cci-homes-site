@@ -13,6 +13,7 @@
   &__title {
     @include type-footer-column-heading;
     margin-bottom: 5px;
+    letter-spacing: 0.1em;
   }
 
     &__link-column {

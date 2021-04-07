@@ -20,7 +20,7 @@
     a, span {
         @include type-header;
         font-weight: 600;
-        color: $color-white;
+        color: $color-grey-lighter-level-3;
         display: none;
         padding: 0 15px;
         position: relative;
@@ -90,12 +90,12 @@
             transition: visibility 0s linear 0s, opacity 0s linear;
             position: absolute;
             z-index: 1500;
-            background-color: $color-white;
+            background-color: $color-grey-lighter-level-3;
             border: 1px solid $color-light-grey;
             list-style-type: none;
             padding: 15px;
-            left: 0;
-            top: 16px; // Distance from bottom of nav item to top of sub-nav drop-down
+            left: -37px;
+            top: 25px; // Distance from bottom of nav item to top of sub-nav drop-down
             width: 130px;
             text-align: center;
             white-space: normal;

@@ -12,7 +12,7 @@ $theme-colors-dashed: (
 
 .brand-section {
     background: $color-white;
-    
+
     &__header-logo {
         max-width: 1024px;
         margin: 0 auto;
@@ -22,13 +22,13 @@ $theme-colors-dashed: (
         position: relative;
         z-index: $z-index-1;
         margin-bottom: 20px;
-        text-align: center;        
-    
+        text-align: center;
+
         @media #{$medium-up} {
             margin: 0 0 40px;
             background-color: $color-white;
         }
-    
+
         @media #{$large-up} {
             padding-top: 15px;
             margin: 0;
@@ -44,7 +44,7 @@ $theme-colors-dashed: (
 
     &__top {
         margin: 0 auto;
-        max-width: 1024px;        
+        max-width: 1024px;
     }
 
     &__hero-teaser {
@@ -89,23 +89,25 @@ $theme-colors-dashed: (
 
     &__bottom {
         padding-top: 0;
-        margin-top: 10px;        
+        margin-top: 10px;
     }
 
     @each $brand, $color in $theme-colors-dashed {
         $brand-primary: nth($color, 1);
         $brand-hover: nth($color, 2);
-        
-        
+
+
         &--#{$brand} {
             .button {
                 background: $brand-primary;
+                border-radius: 22px;
+                height: 35px;
 
                 &:hover {
                     background: $brand-hover;
                 }
             }
-    
+
             .social-links .social-icon svg path {
                 fill: $brand-primary;
 
