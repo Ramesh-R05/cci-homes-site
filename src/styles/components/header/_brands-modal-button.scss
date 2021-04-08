@@ -8,8 +8,31 @@
   @include flat-button;
   display: flex;
   align-items: center;
+  // padding: 0 250px; // iphone 5
   padding: 0 300px;
   margin-top: 10px;
+
+//   @media #{$upper-small-medium-only} {
+//     padding: 0 345px; // iphone 6/7/8/plus/pixel 2
+//   }
+
+//   @media #{$middle-small-medium-only} {
+//     padding: 0 300px; // iphone 6/7/8 / iphone x
+//   }
+
+//   @media #{$lower-small-medium-only} {
+//     padding: 0 290px; // iphone galax5
+//   }
+
+//   @media #{$small-medium-only} {
+//     padding: 0 345px; // iphone 6/7/8 plus 414 x 736 /pixel 2 411 x 731/ pixel xl 411 x 823
+//     padding: 0 300px; // iphone 6/7/8 375 x 667 / iphone x 375 x 812
+//     padding: 0 290px; // iphone galaxy5 369 x 540
+//     padding: 0 250px; // iphone iphone5/se 320 x 568
+//     padding: 0 470px; // surface duo 540 x 720
+//     padding: 0 210px; // surface duo 280 x 653
+//   }
+
 
   @media #{$medium-up} {
     height: 100%;

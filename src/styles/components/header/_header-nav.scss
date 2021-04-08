@@ -3,7 +3,7 @@
     transition: width $transition-duration;
     margin: 0 auto;
 
-    @media #{$medium-up} {
+    @media #{$large-up} { // need to fix ipad pro 1024 x 1366
         display: flex;
     }
 
