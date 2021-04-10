@@ -79,11 +79,12 @@ jobs:
           command: |
                 echo -e "\n\n\n ### UBUNTU_16.04 | NVM | NPM | NODE_JS "
                 cd src; pwd;
-                echo -e "\n ### Install NVM (Node Version Manager) - Installer for NodeJS + NPM "
+                echo -e "\n ### Install NVM (Node Version Manager) # Installer for NodeJS + NPM "
                 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
                 source ~/.profile
+                echo -e "\n ### Install NVM v10.19.0 "
                 nvm install v10.19.0
-                echo -e "\n ### Setting Default NVM "
+                echo -e "\n ### Setting Default NVM v10.19.0 "
                 nvm use v10.19.0;
                 echo -e "\n ### Setting NPM Registry as BXM "
                 npm set @bxm:registry http://npm.digital.bauer-media.net.au
@@ -95,6 +96,7 @@ jobs:
                 echo -e "\n ### NVM Version  : $(nvm --version)"
                 echo -e "\n ### NPM Version  : $(npm --version)"
                 echo -e "\n ### Node Version : $(node --version)"
+
 
 # AWS ECR Integration: Build and Push Docker Image to ECR
       - aws-ecr/build-and-push-image:
