@@ -19,11 +19,11 @@ jobs:
       APP_KEY: homes-site
       APP_STUBBED: true
       # Settings for master
-      SIT_MASTER_SERVICE_NAME: sit-master-homes-site-service
+      SIT_MASTER_SERVICE_NAME: sit-master-homes-site-service-v1
       SIT_MASTER_TASK_NAME: sit-master-homes-site-task
       SIT_MASTER_TASKDEF_JSON_FILENAME: sit-master-homes-site-task-def.json
       # Settings for branch
-      SIT_BRANCH_SERVICE_NAME: sit-branch-homes-site-service
+      SIT_BRANCH_SERVICE_NAME: sit-branch-homes-site-service-v1
       SIT_BRANCH_TASK_NAME: sit-branch-homes-site-task
       SIT_BRANCH_TASKDEF_JSON_FILENAME: sit-branch-homes-site-task-def.json
       # Settings for commons
